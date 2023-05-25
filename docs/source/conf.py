@@ -5,10 +5,10 @@ project = u'RCIC'
 copyright = u'2019-2023, The Regents of the University of California'
 author = u'RCIC'
 
-version = '1.0.0'
+version = 'latest'
+release = '1.0.0'
 # use same |release| as |version|
-release = version
-#version = '1.0.0'
+#release = version
 
 # add path to python code snippets
 import sys
