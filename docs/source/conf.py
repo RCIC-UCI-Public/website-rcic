@@ -61,19 +61,18 @@ html_static_path = [ '_static', 'pdfs']
 html_css_files = [ 'css/rcic.css',]
 
 # top sidebar image image (relative to this dir) 
-#html_logo = 'images/banner.png'
+html_logo = 'images/rcic-logo.png'
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
 html_last_updated_fmt = '%Y-%m-%d'
 
 #keep for reference
-#html_theme_options = {
-    # use this to show only logo on top of the side bar. no additional home
-	# button link as it is on every page at the top already
-    #'logo_only': True,
+html_theme_options = {
+    # use this to show only logo on top of the side bar without
+	# home button link as it is on every page at the top already
+    'logo_only': True,
 	# top portion of sidebar background
-    #'style_nav_header_background': '#fff',
     #'style_nav_header_background': '#353130',
     #'display_version': True,
     #'prev_next_buttons_location': 'both',
@@ -84,4 +83,4 @@ html_last_updated_fmt = '%Y-%m-%d'
     #'navigation_depth': 4,
     #'includehidden': True,
     #'titles_only': False
-#}
+}
