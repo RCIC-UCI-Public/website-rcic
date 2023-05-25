@@ -1,0 +1,46 @@
+/* add colors */
+
+:root{
+--highlightcolor:#e57728; /* Features Orange */
+--sidebarbackground:#EBEBEF; /* toc background */
+--red:#FF0000;  /* for debugging */
+--paleorange:#ffeecc; /* pale orange */
+--rcicorange:#e56306;
+--bluelight: #0092e0;
+--paleblue:#e1effa;
+}
+
+.rcicorange {color: #e56306;}
+.rcicblue {color: #00579e;}
+.proposed {color: #00afaf; font-weight: bold;}
+.bluelight {color: #0092e0;}
+
+/* for recharge able */
+/* table header */
+.recharge table table {
+    width: 100% !important;
+}
+.recharge-table th {
+	background-color:var(--paleorange);
+}
+
+.recharge-table td {
+    white-space: normal !important;
+}
+.recharge-table td:first-child {
+    width: 15% !important;
+}
+.recharge-table td:nth-child(2) {
+    width: 27% !important;
+}
+.recharge-table td:last-child {
+    width: 40% !important;
+}
+
+/* for no scroll tables  able */
+.noscroll-table td {
+    white-space: normal !important;
+}
+.noscroll-table th {
+	background-color:var(--paleblue);
+}

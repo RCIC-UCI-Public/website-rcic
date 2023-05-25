@@ -1,0 +1,57 @@
+.. _rcic:
+
+Introduction
+============
+
+The Research Cyberinfrastructure Center :term:`RCIC` at the University of California, Irvine 
+deploys and supports resources for the UCI research community.  These include:
+
+**Computing Cluster**
+  :ref:`hpc3` is a scalable cluster-based computing infrastructure, UCI's next generation of 
+  shared computing supporting both a condo and pay-per-cycle model.
+  It includes a rich collection of domain-specific :ref:`modules` software packages.
+
+**Storage systems**
+  These storage systems  are used for storing and analyzing research data:
+
+  - :ref:`crsp` Campus Research Storage Pool. Highly-reliable, encrypted-at-rest, scalable data 
+    storage system available across the UCI campus network.
+  - :ref:`dfs` Cluster Parallel File Storage System  is high-quality/high-performance data storage directly attached to HPC3
+
+**On-boarding to specialized compliant resources**
+  Specialized resources are used for data that can not be appropriately stored/analyzed on RCIC resources:
+
+  - SDSC's `Sherlock <https://sherlock.sdsc.edu/>`_  - **DOD-compliant**, **HIPAA-Compliant** secure computing and storage enclave 
+  - OIT's `Secure Research Environment <https://www.oit.uci.edu/services/security/sre/>`_
+
+:ref:`dedicated staff` provides hardware and software support to the campus research community.
+
+The :ref:`allocations` explains the access to the computing and storage resources. 
+
+Acceptable Use 
+--------------
+
+- Access to all RCIC resources requires a `UCINetID <https://www.oit.uci.edu/services/accounts-passwords/ucinetids/>`_.
+- Faculty can `sponsor external collaborators <https://uci.service-now.com/sp?id=kb_article_view&sysparm_article=KB0012503>`_
+  to provide and share access.
+- Access to RCIC resources are subject to our `Acceptable Use Policy </_static/RCIC-Acceptable-Use-Policy.pdf>`_.
+
+Grant Support
+-------------
+
+Please see the `HPC3 Description </_static//RCIC-description.pdf>`_  that can be used in grant applications.
+
+How to Acknowledge RCIC
+-----------------------
+
+Papers, presentations, and other publications featuring work that relied on RCIC
+resources, services or expertise should include the following acknowledgement text:
+
+.. admonition:: Acknowledgement
+
+   *This work utilized the infrastructure for high-performance and high-throughput computing,
+   research data storage and analysis, and scientific software tool integration built, operated,
+   and updated by the Research Cyberinfrastructure Center (RCIC) at the University of California,
+   Irvine (UCI). The RCIC provides cluster-based systems, application software, and scalable
+   storage to directly support the UCI research community.
+   https://rcic.uci.edu*
