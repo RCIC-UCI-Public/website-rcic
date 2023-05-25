@@ -1,2 +1,0 @@
-# website-rcic
-RCIC website
