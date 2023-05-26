@@ -48,6 +48,13 @@ master_doc = 'index'
 # directories to ignore when looking for source files.
 exclude_patterns = []
 
+# for roles creation
+rst_prolog = """
+.. include:: /roles.txt
+.. default-role::
+
+"""
+
 # ---------------------------------------------
 #      Options for HTML output 
 # ---------------------------------------------

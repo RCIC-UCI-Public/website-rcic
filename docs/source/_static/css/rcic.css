@@ -6,27 +6,34 @@
 --red:#FF0000;  /* for debugging */
 --paleorange:#ffeecc; /* pale orange */
 --rcicorange:#e56306;
---bluelight: #0092e0;
 --paleblue:#e1effa;
+--bluelight: #0092e0;
 }
 
+/* these colors can be used in roles */
+.cyan { color: cyan; }
+.aqua { color: aqua; }
+.blue { color: blue; }
+.navy { color: navy; }
+.red {color: #f00;}
 .rcicorange {color: #e56306;}
 .rcicblue {color: #00579e;}
 .proposed {color: #00afaf; font-weight: bold;}
 .bluelight {color: #0092e0;}
+.bluegray {color: #88bfd1};
 
-/* for recharge able */
-/* table header */
+/* ==== for recharge able ==== */
 .recharge table table {
     width: 100% !important;
 }
+/* table header */
 .recharge-table th {
 	background-color:var(--paleorange);
 }
-
 .recharge-table td {
     white-space: normal !important;
 }
+/* set columns width */
 .recharge-table td:first-child {
     width: 15% !important;
 }
@@ -37,10 +44,25 @@
     width: 40% !important;
 }
 
-/* for no scroll tables  able */
+/* === for no scroll tables ==== */
 .noscroll-table td {
     white-space: normal !important;
 }
 .noscroll-table th {
 	background-color:var(--paleblue);
 }
+
+/* ==== for news ====  */
+.blogauthor {
+    color: #7b97a8;
+    font-style: italic;
+	font-weight: bold;
+    font-size: 15px;
+	text-decoration: underline;
+}
+.blogtitle {
+    color: var(--rcicorange);
+    font-size: 18px;
+	font-weight: bold;
+}
+
