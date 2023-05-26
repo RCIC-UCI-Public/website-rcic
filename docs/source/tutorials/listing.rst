@@ -6,37 +6,46 @@ Tutorials
 All users need to have a basic knowledge of UNIX and a basic but sufficient proficiency 
 with simple commands. Here we provide links to RCIC-authored presentations and links to online tutorials.
 
+.. _rcic presentations: 
 
 RCIC presentations
 ------------------
 
-- tutorials/2021-symposium-RCIC-overview.pdf[RCIC overview] -
+- `RCIC Overview </_static/2021-symposium-RCIC-overview.pdf>`_ 
   presentation given during the June 4th, 2021 virtual symposium of UCI’s Research Cyberinfrastructure Center (RCIC).
-  Symposium agenda can be found <<symposium/symposium-2021.txt#,here>>
 
-- tutorials/2020-tutorial-intro-hpc3.pdf[December 2020 tutorial]
-  This tutorial covers the following topics to help users move from HPC to HPC3 cluster:
+  TODO line Symposium agenda can be found <<symposium/symposium-2021.txt#,here>>
 
-  - What are the differences between HPC3 and HPC
-  - Basics of Linux and Shell necessary for running jobs on HPC
+- `Introduction to HPC3 </_static/2020-tutorial-intro-hpc3.pdf>`_
+  December 2020 tutorial covers topics to help users move to HPC3 cluster:
+
+  - What is HPC3?
+  - Basics of Linux and Shell necessary for running jobs
   - How to search for modules/programs? What are the differences between modules
     and programs? How to download modules/programs? How to set environment?
   - How to run jobs? What queues are available? What are the common problems?
 
+.. _online tutorials:
+
 Online tutorials
 ----------------
 
--  https://missing.csail.mit.edu [The Missing Semester of Your CS Education]
-   Many topics as separate lectures, including Shell Tools and Scripting, Editors (Vim), Command-line Environment,
-   Data Wrangling, Git, security  and more.
+Basic skills 
+^^^^^^^^^^^^
 
--  https://software-carpentry.org/lessons/index.html [The Software
-   Carpentry] teaches basic skills  via workshops and lessons, here are direct links:
+- `The Missing Semester of Your CS Education <https://missing.csail.mit.edu>`_
+  has many topics as separate lectures, including Shell Tools and Scripting, Editors (Vim), Command-line Environment,
+  Data Wrangling, Git, security and much more.
+- `The Software Carpentry
+  <https://software-carpentry.org/lessons/index.html>`_
+  teaches basic skills  via workshops and lessons, here are direct links:
+- `The UNIX Shell <http://swcarpentry.github.io/shell-novice>`_ -
+  the fundamentals of UNIX Shell all users need to know.
 
-- http://swcarpentry.github.io/shell-novice/ [The UNIX Shell] The Unix shell fundamentals
-- https://swcarpentry.github.io/python-novice-inflammation/ [Introduction to Python]
-  Learn the basics of Python programming language.
-- http://swcarpentry.github.io/r-novice-inflammation/ [Introduction to R]
-  Learn the basics of R programming language.
+Programming
+^^^^^^^^^^^
 
-
+- `Introduction to Python <https://swcarpentry.github.io/python-novice-inflammation/>`_ - to
+  learn the basics of Python programming language.
+- `Introduction to R <http://swcarpentry.github.io/r-novice-inflammation/>`_ - to
+  learn the basics of R programming language.

@@ -9,6 +9,7 @@ RCIC User Documentation
 
    about/intro
    about/allocations
+   about/advisory
    about/staff
 
 .. toctree::
@@ -58,18 +59,14 @@ RCIC User Documentation
 
    slurm/jobs
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Tutorials
-
-   tutorials/listing
 
 .. toctree::
    :maxdepth: 1
-   :caption: User Guides
+   :caption: User Guides & Tutorials
 
    guides/beginner
    guides/reference
+   tutorials/listing
 
 .. toctree::
    :maxdepth: 1
