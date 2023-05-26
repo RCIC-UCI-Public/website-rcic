@@ -4,15 +4,16 @@ Introduction
 ============
 
 The Research Cyberinfrastructure Center :term:`RCIC` at the University of California, Irvine 
-deploys and supports resources for the UCI research community.  These include:
+deploys and supports resources for the UCI research community is the focal point of contact
+for providing High Performance Computing clusters and Scalable Storage Systems. These include:
 
 **Computing Cluster**
   :ref:`hpc3` is a scalable cluster-based computing infrastructure, UCI's next generation of 
   shared computing supporting both a condo and pay-per-cycle model.
   It includes a rich collection of domain-specific :ref:`modules` software packages.
 
-**Storage systems**
-  These storage systems  are used for storing and analyzing research data:
+**Storage Systems**
+  These storage Systems  are used for storing and analyzing research data:
 
   - :ref:`crsp` - Campus Research Storage Pool. Highly-reliable, encrypted-at-rest, scalable data 
     storage system available across the UCI campus network.
