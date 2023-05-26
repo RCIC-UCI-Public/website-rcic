@@ -3,14 +3,12 @@
 Contact
 =======
 
-If you need help with any of the RCIC-supported systems send an email to hpc-request@uci.edu
-
-**The email will generates a support ticket** and our team members will be happy to assist you. 
-We usually try to respond to the requests within 24hrs.  
+If you need help, please file a **support ticket** via sending an email
+to hpc-request@uci.edu. Our team members will try to assist you, we 
+usually respond to the requests within 24hrs.  
 
 .. admonition:: note
 
    The email must contain useful information for us to help you.
 
    Please see how to write a :ref:`support ticket`
-
