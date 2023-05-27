@@ -1,0 +1,76 @@
+
+.. _news 2019:
+
+2019 
+=====
+
+Jun 11
+------
+
+:blogtitle:`CRSP HAProxy load balancer maintenance on June 11, 2019`
+
+:blogauthor:`2019-05-30 by Imam Toufique`
+
+CRSP HaProxy servers will undergo maintenance on June 11th 2019, between 7AM PST - 8AM PST.
+There is no planned user service interruption during this time. However, if access to CRSP
+is disrupted due to any unforeseen issues, service will be restored as soon as possible.
+
+Thank you for your patience!
+
+May 15
+------
+
+:blogtitle:`Campus Research Storage (CRSP) Enters Full Production`
+
+:blogauthor:`2019-05-15 by Philip Papadopoulos`
+
+The :ref:`crsp` has entered full production.
+Approximately 1200 faculty and researcher accounts have been created and are active.
+Each faculty/researcher is allocated 1TB of highly-reliable, no-cost storage to
+utilize for research purposes. Additional space can be purchased.
+
+CRSP storage can be accessed from a standard web browser, a site-licensed
+client for Windows/Mac desktops, **sshfs** for Linux, and as a directly-mounted file
+system on the HPC Cluster.
+
+Mar 21
+------
+
+:blogtitle:`RCI Symposium to be held at Calit2 04/04/2019`
+
+:blogauthor:`2019-03-01 by Philip Papadopoulos`
+
+TODO The RCI link:/symposium/index.html[symposium] has been scheduled as forum
+for the UCI community to shape Research Cyberinfrastructure. 
+
+Filipp Furche, chair of the :ref:`advisory` sent an all campus invitation to the symposium.
+
+Lunch will be provided for registered participants.
+
+Jan 25
+------
+
+:blogtitle:`CRSP Hardware Delivered`
+
+:blogauthor:`2019-01-25 by Philip Papadopoulos`
+
+Campus resource storage cluster :ref:`crsp` has been physically delivered to
+UCI.  RCIC is currently working on configuration and acceptance testing.
+
+We expect friendly users to have access near mid February.
+
+Jan 24
+------
+
+:blogtitle:`HPC3 Request for Proposals Sent to Vendors`
+
+:blogauthor:`2019-01-24 by Philip Papadopoulos`
+
+Using standard UCI Procurement processes, the formal RFP for HPC3 has 
+been made public to vendors.  Responses are expected February 1, 2019.
+
+The RFP is requesting bids for two sub-clusters that will be interconnected 
+via Infiniband and 10 Gigabit Ethernet:
+
+- 12-node, 4 NVidia V100 GPUs per node, minimum of 32 cores/node
+- 36-node, CPU cluster, minimum of 32 cores/node

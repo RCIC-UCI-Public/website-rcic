@@ -14,9 +14,15 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: News
+   :caption: News & Events
 
-   news/news
+   news/latest
+   news/2022
+   news/2021
+   news/2020
+   news/2019
+   news/2017
+   news/symposium-2021
 
 .. toctree::
    :maxdepth: 1

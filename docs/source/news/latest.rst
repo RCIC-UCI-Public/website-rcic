@@ -4,9 +4,12 @@
 Recent Posts
 =============
 
+Mar 28
+------
+
 :blogtitle:`HPC3 Downtime Mar 28, 2023`
 
-:blogauthor:`Friday, Mar 17 2023 by Philip Papadopoulos`
+:blogauthor:`2023-03-17 by Philip Papadopoulos`
 
 We periodically need to perform maintenance on HPC3 where all users are logged out and all jobs are stopped.
 

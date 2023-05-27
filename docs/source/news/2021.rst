@@ -1,0 +1,31 @@
+
+.. _news 2021:
+
+2021 
+=====
+
+Jun 04
+------
+
+:blogtitle:`Research Infrastructure Symposium - June 4, 2021`
+
+:blogauthor:`2021-05-24 by Philip Papadopoulos`
+
+You are invited to participate in the **2021 Virtual symposium 
+of UCI's Research Cyberinfrastructure Center (RCIC)**.
+
+The symposium will take place on **June 4th, 2021, via zoom (10:00am - 2:30pm)**.
+This event aims to bring together students, researchers, staff, instructors, 
+and outreach partners who use or would like to use and/or contribute
+to the shared campus-wide hardware and software resources as well the human 
+expertise provided by RCIC and the UCI libraries.
+
+Participation is free and no registration is required, but only zoom users with
+an **@uci.edu** email address can participate.
+Please see the details in :ref:`symposium agenda 2021`.
+
+We look forward to seeing you online!
+
+| - Filipp Furche, Professor of Chemistry
+| - Phil Papadopoulos, RCIC Director
+

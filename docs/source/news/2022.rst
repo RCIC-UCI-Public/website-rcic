@@ -1,0 +1,103 @@
+
+.. _news 2022:
+
+2022 
+=====
+
+Aug 30
+------
+
+:blogtitle:`HPC3/HPC2 Downtime Aug 30, 2022`
+
+
+:blogauthor:`2022-08-01 by Philip Papadopoulos`
+
+**A Major OS Update will begin at 8am, on Tuesday, August 30, 2022**
+
+This is Phase 2 of the upgrade (Phase 1 was June 15, 2022).
+HPC2 and HPC3 will be upgraded to Enterprise Linux 8 (Rocky Linux) 
+from the current CentOS version 7.  This is a major update to the clusters and requires:
+
+* All Jobs to be terminated
+* All Queues to be empty
+* All Users to be logged out
+
+**Phase 2 (August 30, 2022, All day)** we will:
+  1. Reinstall all nodes with EL8
+  2. Reinstall all rebuilt applications
+  3. Update Slurm to the latest production release
+
+**As reminder, a major OS update has significant impact, these include**
+  * Most *user-compiled code* will need to be rebuilt.
+  * *Some conda environments* may need to be rebuilt to work properly with new system libraries.
+  * A few older applications simply will not build on EL8 and will be removed.
+  * The planned updates and sunset of RCIC-installed applications are TODO <</hpc3/modules-update.txt#,available online.>>
+
+**FAQ**
+
+**Is keeping CentOS7 an option?**
+  Not really. It will be end-of-life in  Jun 2024.
+  We are already seeing commercial vendors ending support for CentOS7.
+  The viability of CentOS7 as a functional OS will progressively diminish significantly
+  over the next 12 months.
+
+**I really need some of the removed software, what do I do?**
+  Please contact us via our ticketing system. In some cases, we may be able to build a
+  link:https://docs.sylabs.io/guides/3.5/user-guide/introduction.html[Singularity container] with the
+  older applications and dependencies.
+
+**Can I have queued jobs during this downtime?**
+  No. The Slurm upgrade requires there to be neither queued nor running jobs.
+
+**Can I continue using my conda environment after the upgrade?**
+  It is very likely that you will need to rebuild your conda environment.
+  Even if we build the same version of conda many underlying included packages
+  will be different and of a newer version. This may or may not require your
+  conda environment rebuild. You will have to test your environment and rebuild
+  it if broken. 
+
+  TODO We provide a guide <</hpc3/building-conda#, Building and using conda environments>>
+
+June 15
+-------
+
+:blogtitle:`HPC3/HPC2 Downtime June 15, 2022 and Aug TBD, 20202`
+
+:blogauthor:`2022-05-19 by Philip Papadopoulos`
+
+We periodically need to perform maintenance on HPC3 where all users are 
+logged out and all jobs are stopped.  We have two planned  outages for 
+this summer. The highlights of upcoming changes addressed by these two outages include:
+
+* DUO two-factor authentication will become standard on HPC2/3 login
+* Parallel File System and ZFS updated to latest stable releases
+* CentOS 7 will be sunset and Enterprise Linux 8 (EL8, Rocky Linux) will be the new OS
+  The entire application software stack will be rebuilt for EL8. Older versions will be retained where possible,
+  new application versions will be added
+* The version of Slurm will be updated to the latest stable release
+
+While we normally prefer to have only a single downtime, the changes are large 
+enough that we will handle the changes in two distinct phases.
+
+**Phase 1  (June 15, 2022, All day)**
+  * BeeGFS and ZFS file system updates
+  * Turn on Two-Factor (Duo) authentication
+
+**Phase 2 ( Aug TBD, 2022, All day)**
+  * Reinstall all nodes with EL8
+  * Reinstall all rebuilt applications
+  * Update Slurm
+
+The first downtime (June 15) should only have the apparent effect on users 
+that Duo authentication will now be required for password-based login to HPC3 and HPC2.
+
+The second downtime (Aug) will be much more impactful.
+In general, any user-compiled code will need to be rebuilt.
+Some conda environments may also need to be rebuilt to work properly with new system libraries.
+A few older applications simply will not build on EL8.
+Some widely-used versions of software - e.g. R version 3, older versions of R 4 are not buildable with 
+all R modules under EL8.  As the summer progresses, we will keep a list of sunset software.
+
+**Is keeping CentOS7 an option?**  
+  Not really. It will be end-of-life in Mid-2024. We are already seeing commercial vendors
+  ending support for CentOS7. The viability of CentOS7 as a functional OS will progressively diminish over the next 24 months.

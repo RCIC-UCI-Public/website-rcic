@@ -1,0 +1,46 @@
+
+.. _news 2020:
+
+2020 
+=====
+
+Nov 04
+------
+
+:blogtitle:`HPC3 Production and HPC Shutdown on 5 Jan 2021`
+
+:blogauthor:`2020-11-04 by Philip Papadopoulos`
+
+| We are pleased to announce that :ref:`hpc3` is in  *production*.
+| All existing HPC users have accounts on HPC3 and can get started right away.
+| A short presentation `HPC3 for HPC users  </_static/HPC3_for_HPC_Users.pdf>`_
+  answers some of the key questions up front.
+
+.. attention:: 
+  
+   The existing HPC cluster will run until 5 Jan 2021. 
+
+   On that day, RCIC will shut down the queuing system, kill all
+   running jobs and begin the process of physically dismantling HPC, moving some hardware to HPC3, and starting the
+   transition of selected *mid-life* nodes for a cluster called HPC2.
+
+   | Users should begin their transition to HPC3 now.
+   | Please note that any files in your current HPC home area will be discarded sometime in January.
+
+Jul 15
+------
+
+:blogtitle:`HPC3 Production Ramp Up`
+
+:blogauthor:`2020-07-15 by Philip Papadopoulos`
+
+We are pleased to announce that :ref:`hpc3` will enter its *production ramp up*
+on 20 July 2020. A short presentation `Production Ramp-up </_static/Production_Ramp_Up.pdf>`_ 
+describes this phase of HPC3.
+
+To handle the transition of a large number of users to HPC3 during the ramp up, we're asking that research
+groups/labs submit a single request to hpc-support@uci.edu (please see the presentation of what to include).
+
+| Friendly users on HPC3 have consumed over 1 million core hours on 1+ million jobs.
+| We expect the production ramp up to last about two months.
+
