@@ -4,7 +4,7 @@
 2019 
 =====
 
-Jun 11
+May 30
 ------
 
 :blogtitle:`CRSP HAProxy load balancer maintenance on June 11, 2019`
@@ -33,15 +33,69 @@ CRSP storage can be accessed from a standard web browser, a site-licensed
 client for Windows/Mac desktops, **sshfs** for Linux, and as a directly-mounted file
 system on the HPC Cluster.
 
+.. _symposium 2019:
+
+Symposium Apr 04
+----------------
+
+:blogtitle:`RCI Symposium at Calit2 04/04/2019`
+
+**Purpose of the Symposium**
+
+The Research Cyberinfrastructure Center was formed because of a 
+`faculty-driven process <https://sites.uci.edu/rci/>`_ and the recognition
+that computing and data are key to modern research enterprise.  In 2016,
+a symposium was held to gather input and ideas from the UCI research community.
+
+Three years later, it's time to gather again and talk about RCI @ UCI.
+There has been some key progress and part of the
+symposium is to introduce some of the emerging capabilities to the research
+community.  There will also be a panel session for group discussion and 
+a poster session during lunch so that the UCI research community 
+can see what kinds of projects are utilizing Cyberinfrastructure.
+
+Please come join us and learn about the Campus Research Storage Pool (CRSP) and
+the next-generation of HPC, HPC3.
+
+Come join us and tell what kinds of Research Cyberinfrastructure you 
+would like to see at UCI emerge over the next few years.
+
+**Proposed Agenda**
+
+.. table::
+   :class: noscroll-table
+
+   +-------------+-----------------------------------------------------------------------+
+   | Time        |  Topic                                                                |
+   +=============+=======================================================================+
+   | 11:00-11:15 | Welcome and Introduction to RCIC,                                     |
+   |             |                                                                       |
+   |             | *Filipp Furche, Philip Papadopoulos*                                  |
+   +-------------+-----------------------------------------------------------------------+
+   | 11:15-12:00 | Research Storage and the Campus Research Storage Pool :ref:`crsp`,    |
+   |             |                                                                       |
+   |             | *Imam Toufique, Philip Papadopoulos_*                                 |
+   +-------------+-----------------------------------------------------------------------+
+   | 12:15-01:00 | Box lunch                                                             |
+   +-------------+-----------------------------------------------------------------------+
+   | 01:00-01:45 | :ref:`hpc3` Motivation, Procurement, Emerging Policy,                 |
+   |             |                                                                       |
+   |             | *Filipp Furche, Aparna Chandramowlishwaran, Philip Papadopoulos*      |
+   +-------------+-----------------------------------------------------------------------+
+   | 01:45-02:30 | Panel Discussion: What do you see as the largest Research Cyber*      | 
+   |             |                                                                       |
+   |             | *challenges over the next 3-5 years? *Ali Mortizavi, Panel Moderator* |
+   +-------------+-----------------------------------------------------------------------+
+
 Mar 21
 ------
 
 :blogtitle:`RCI Symposium to be held at Calit2 04/04/2019`
 
-:blogauthor:`2019-03-01 by Philip Papadopoulos`
+:blogauthor:`2019-03-21 by Philip Papadopoulos`
 
-TODO The RCI link:/symposium/index.html[symposium] has been scheduled as forum
-for the UCI community to shape Research Cyberinfrastructure. 
+The RCI :ref:`symposium 2019`  has been scheduled as forum for the UCI 
+community to shape Research Cyberinfrastructure. 
 
 Filipp Furche, chair of the :ref:`advisory` sent an all campus invitation to the symposium.
 
