@@ -13,8 +13,7 @@ RCIC presentations
 
 - `RCIC Overview </_static/2021-symposium-RCIC-overview.pdf>`_ 
   presentation given during the June 4th, 2021 virtual symposium of UCI’s Research Cyberinfrastructure Center (RCIC).
-
-  TODO line Symposium agenda can be found <<symposium/symposium-2021.txt#,here>>
+  Please see symposium `agenda </news/2021.html>`_.
 
 - `Introduction to HPC3 </_static/2020-tutorial-intro-hpc3.pdf>`_
   December 2020 tutorial covers topics to help users move to HPC3 cluster:
