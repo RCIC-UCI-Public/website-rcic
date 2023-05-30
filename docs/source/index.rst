@@ -22,7 +22,6 @@ RCIC User Documentation
    news/2020
    news/2019
    news/2017
-   news/symposium-2021
 
 .. toctree::
    :maxdepth: 1
