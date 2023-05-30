@@ -4,7 +4,7 @@
 2017 
 =====
 
-Jun 11
+Oct 10
 ------
 
 :blogtitle:`RCIC Joins the Coalition for Academic Scientific Computation (CASC)`

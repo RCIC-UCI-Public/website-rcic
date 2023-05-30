@@ -4,7 +4,7 @@
 2022 
 =====
 
-Aug 30
+Aug 01
 ------
 
 :blogtitle:`HPC3/HPC2 Downtime Aug 30, 2022`
@@ -58,8 +58,8 @@ from the current CentOS version 7.  This is a major update to the clusters and r
 
   TODO We provide a guide <</hpc3/building-conda#, Building and using conda environments>>
 
-June 15
--------
+May 19
+------
 
 :blogtitle:`HPC3/HPC2 Downtime June 15, 2022 and Aug TBD, 20202`
 
