@@ -17,11 +17,7 @@ RCIC User Documentation
    :caption: News & Events
 
    news/latest
-   news/2022
-   news/2021
-   news/2020
-   news/2019
-   news/2017
+   news/archive
 
 .. toctree::
    :maxdepth: 1
@@ -78,4 +74,5 @@ RCIC User Documentation
    :caption: Reference
 
    references/glossary
+   references/hardware-faq
 
