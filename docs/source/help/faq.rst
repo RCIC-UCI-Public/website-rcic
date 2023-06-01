@@ -1,7 +1,456 @@
 .. _faq:
 
-FAQ 
-=====
+Frequently Asked Questions 
+==========================
 
-FAQ questions 
+.. contents::
+   :local:
+
+..
+  FAQ should be questions that actually got asked.
+  Formulate them as a question and an answer.
+  Consider that the answer is best as a reference to another place in the documentation.
+
+
+:bluelight:`HPC3 general`
+-------------------------
+
+Who can have an account?
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Anyone with a valid UCInetID. Please see :ref:`start`.
+
+Who defined the policy?
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* The HPC3 subcommittee of the RCIC advisory committee crafted the initial policy.
+* The RCIC Advisory committee approved the policy
+
+Please see :ref:`advisory`
+
+How do I acknowledge RCIC?
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please see :ref:`acknowledge` 
+
+Is there a description that can be used in grant applications?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please see :ref:`grant`
+
+Does this sharing cause problems with granting agencies?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We don’t believe so.  The *condo conversion factor (0.95)* essentially enables an owner to turn
+around and spend their converted hours on their owned hardware. The 5% reductions is a rational
+estimate of lack of availability of hardware when accounting for software maintenance, reboots,
+and other downtime. Grants should purchase the hardware capacity they require. Not more.
+Please see :ref:`buy hardware` for details.
+
+I don’t have any funds to purchase cycles or buy hardware, can I use HPC3?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Yes, if you are faculty member, you have granted cycles that are yours to use anyway you see fit
+for research. There are also the “free” queues, where jobs are not charged.
+Please see :ref:`no-cost allocations` for details. 
+
+If I purchase core-hours, is overhead charged?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We are actively working with UCI financial office to see if we can establish
+a rate that reduces the financial impact of overhead on recharged-cycles.
+
+:bluelight:`Accounting`
+-----------------------
+
+How can I be added to my PI's lab account?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PIs have control over who can charge to their account and how much they can charge.
+Please send a request to hpc-support@uci.edu
+*with a cc to your PI* and ask us to add you to the PI's account. 
+The PI will have to confirm via email reply that this change is allowed. 
+
+How do I prevent my grad student from *draining my account* before I know about it?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+RCIC will allow you to set up *charge limits* for any particular user.  If
+students hit their limits, they will have to ask you for more, or use the free queue.
+
+Will HPC3 allow long-running (multi-day/multi-week) jobs?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Yes. It is clear that substantial community of researchers requires this feature.
+
+How does core-hour accounting impact long-running jobs?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It really doesn't. SLURM will not  start the job unless there is enough
+credit to start the job. For example, a job is submitted with a requirements
+of *16 core-weeks* will not start unless an account has  *16 x 24 x 7 = 2688 core hours*.
+
+:bluelight:`Files storage and transfer`
+---------------------------------------
+
+I have to store many files, some are pretty large. Where do I do this?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Depending on your lab affiliation and how much space your lab has purchased
+you may have an access to personal and group-access areas in CRSP and DFS
+filesystems. See :ref:`dfs` and :ref:`crsp` for information where to store and how to
+check quotas.
+
+How do I backup important files?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It depends on what filesystem you are using.
+Your *$HOME* and CRSP's *$HOME* and *LAB areas* have automatic snapshots, you don't
+need to do anything special.  Please read 
+TODO <</storage/home-howtos#,HOME howtos>> and 
+TODO <</crsp/howtos#_deleted_files_recovery,CRSP howtos>> that explain what
+the snapshots do and how long they are active.
+For DFS you can use TODO <</storage/beegfs-howtos#sback,selective backup>>.
+
+How do I transfer files between a remote server and my directory?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please see TODO <</storage/beegfs-howtos#data-transfer, data transfer>> section.
+
+How do I use Filezilla with DUO?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please see TODO <</hpc3/ssh#_filezilla_and_duo, FileZilla with DUO>> section
+
+I accidentally deleted some files (or directories). Can they be restored?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- First, It depends on the time between the file creation and file deletion. If
+  a file was created or changed and there was a backup after that then it
+  you can use snapshots to restore files and directories provided that existing 
+  snapshots still hold the desired data.
+- The restoration method depends on where the files was originally
+  located: $HOME, DFS, or CRSP area. Please see respective 
+  guides TODO <</storage/home-howtos#,HOME howtos>>, 
+  TODO <</storage/beegfs-howtos#sback,DFS howto>>
+  and TODO <</crsp/howtos#_deleted_files_recovery,CRSP howtos>> 
+  for recovery explanation. 
+
+:bluelight:`DFS`
+----------------
+
+What are allocations for DFS?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Users have access to the private and group-shared areas on BeeGFS.
+UCI Faculty members can have low-cost recharge allocation(s) to fulfill their needs.
+Please see :ref:`allocations` 
+
+How do I purchase more DFS space?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please see :ref:`buy dfs` how to purchase more DFS storage
+
+:bluelight:`CRSP`
+-----------------
+
+Exactly who is entitled to baseline allocation?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All ladder faculty and any UCI employee who can serve as PI or Co-PI on an extramural grant.
+Please see :ref:`allocations` for details. 
+
+How do I purchase more space? 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please see how to :ref:`buy crsp`
+
+Can I expand space more than once?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Yes. We track when each of your space allocations expire and recharge 
+appropriately.  Multiple purchases can be used to expand your space.
+
+Can the recharge be used to expand my baseline allocation?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You will always have your baseline allocation and you can use recharge to buy more space.
+For example, if you were to purchase 10TB for 1 year ($600) and add it to your baseline, you will
+have 11TB of allocated space. Please see how to :ref:`buy crsp`
+and :ref:`recharge allocations` for pricing. 
+
+Can I grant access to my storage to others at UCI?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Yes. Under your control, you can add people (by the UCINetID) 
+to have read, write or read/write access to your storage.
+
+Can I grant access to my storage to others outside of UCI?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You will need to sponsor a UCINetID for your external collaborators. 
+They will then be able to access CRSP using normal mechanisms. Please see
+:ref:`access`.  TODO link:https://www.oit.uci.edu/help/ucinetid/types/sponsored/[sponsor a UCINetID]
+
+Can I add several students/postdocs to my Lab space, how do I do that?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO Please send a request to link:mailto:hpc-support@uci.edu[hpc-support@uci.edu] telling us the
+UCINetIDs and names of the people that you want to add.
+
+Can departments purchase CRSP space to store business data?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No. CRSP is designed and funded for research data.  Storing non-research data
+will compromise CRSP status as research equipment (which has significant tax implications).
+
+Am I charged on how much space I use on some sort of average basis?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No.  This is a capacity recharge similar to purchasing an N Terabyte disk dedicated for your use.
+If you are utilizing only 1/2 of the space, you are still charged for your purchased capacity.
+
+What happens if I can't pay for my space?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You will be required to bring your utilized capacity to be within your 
+baseline allocation.  RCIC can work with you to move data off of CRSP
+in a timely manner. 
+
+If a researcher is not reducing utilized capacity, access to all data
+in this space will be frozen (no read or write access). If, after multiple
+attempts, the owner of the space remains unresponsive, data will be deleted
+to bring it to baseline allocation.
+
+Can researchers pool their baseline allocation to make one large space?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No. In extensive consultation with RCIC Executive committee, we established
+the people cost of tracking and implementing such combinations outweigh the benefits.
+
+Are there any in/out network  charges similar to commercial cloud storage?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No. CRSP is connected at high-speed to the campus network and leverages this existing resource.
+
+I can't access CRSP from home, why?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All access modes of CRSP require you to be connected the UCI production network.
+From home, you must use the `campus VPN <https://www.oit.uci.edu/help/vpn>`_
+
+I downloaded Webdrive directly from their website, how do I add the UCI license?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You cannot. You must use CRSP provided TODO <</crsp/howtos.txt#crsp-desktop,CRSP Desktop>>
+which is a specialized version of Webdrive for Windows and Mac that already have the license key embedded.
+
+I want to publish some of my data on the web, can I do that?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Not yet. This is more complicated than it might appear. 
+The key questions revolve around data security.
+
+I have trouble accessing CRSP shares
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Consult our TODO link:/crsp/debugging.html[Troubleshooting Guide]
+
+:bluelight:`Disk Quotas`
+------------------------
+
+I cant save any files in my $HOME, i get a file write error, what is wrong?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You exceeded your $HOME disk quota. 
+See how to TODO <</storage/home-howtos#home-quota, check and fix your $HOME quota>>
+
+I cant save files in my CRSP area. How do i check my quotas?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TODO See <</crsp/howtos#check-quota, explanation>>.
+
+When writing files I get the “Disk quota exceeded” error on /dfsX/labY. How can it be?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You need to chack your quotas and verify directories permissions.
+TODO See <</storage/beegfs-howtos#dfs-quota,this guide>> for instructions on checking quotas and tips on data transfers.
+
+I am running a SLURM job and am getting the “Disk quota exceeded” error on /dfsX/labY?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO
+This is group writable area, all users who write in this area contribute to
+the quota and the quota is sum total of all written files. Even if your
+job output small files, others may have filled it. You need to (1) check your quota
+for the specific DFS filesystem See <</storage/beegfs-howtos#dfs-quota,this guide>> for instructions
+
+:bluelight:`SLURM jobs`
+-----------------------
+
+Why should I request an interactive shell and how do I do this?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Users need to use an interactive shell when they plan to run some tasks
+that take longer than 20 min and are compute intensive (CPU or
+memory) operations. These includes running applications (including GUI) or data
+transfers. The interactive shells are simply processes that run on compute nodes
+of the cluster. 
+TODO See how to request an <</hpc3/slurm#_interactive_job, interactive shell>>.
+
+How do I submit a job to the SLURM queue and see its status?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO
+You can submit a job as an interactive shell using [tt]*srun*
+command or a batch job using [tt]*sbatch* command and see
+its status with [tt]*squeue* command. See <</hpc3/slurm#_quick_start,
+quick start>> for examples.
+
+What are array jobs, how do I submit an array job?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Array jobs are identical independent jobs that are run using one or 
+more different input parameters. Instead of writing many submit scripts
+one can use a single script to submit many jobs.
+TODO See <</hpc3/examples#_array_jobs, array jobs>> for details.
+
+Why am I getting emails about running my application on login node?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is explained in TODO <</hpc3/slurm#_simple_code_of_conduct,simple code of conduct>>
+
+How do I charge my jobs to my account or my PI’s account?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Every user has a default account (UCnetID) and may have a few PI lab accounts.
+If not specified, a default account is charged (exception is free queues).
+
+TODO
+To specify a PI's account one need to use a [tt]*-A* slurm directive either on
+a command line when asking fort an interactive shell or in a SLURM batch
+job. See <</hpc3/slurm#_interactive_job, interactive shell>> and
+<</hpc3/examples#, batch examples>> for details.
+
+How do I buy more SLURM time?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A basic allocation is explained in :ref:`allocations` the <</hpc3/hpc3-reference#, reference guide>>.
+Only PIs can purchase more hours. 
+Please see :ref:`buy core-hours` <</hpc3/hpc3-expansion#, how to get more time>>.
+
+How do I ask for more cores for my job?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You need to specify options ``--ntasks`` or ``--cpus-per-task`` in your
+job submission. See TODO <</hpc3/slurm#, SLURM guide>> for examples. 
+
+
+If I ask for X cores does my job run X times faster?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Asking for more cores does not make your program run faster unless your program is
+capable of using multiple cores.  The performance of a  given program does not
+always scale with more CPUs.
+
+How do I know if I need more cores for my job?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are 2 distinct situations:
+
+1. You have a program that is multi-CPU aware.
+   Often such programs have a *parameter* that specifies the number of CPUs it will use.
+   If the program has no such switch, or you don’t set the switch, your program is likely
+   using 1 CPU (:red:`and you will be charged for several if you ask for more`).
+2. Your job failed with TODO <<#oom,OOM error>>.
+
+How do I know if I need more memory for a job?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. TODO Your job failed with <<#oom,OOM error>>.
+2. You have a knowledge of how much memory your program is using
+   on an input of a certain size and you have increased the input.
+
+To find out how much memory and CPU your job is using you need to use
+``sacct``, ``seff`` and ``sstat`` commands.
+TODO See <</hpc3/slurm#_monitor_jobs, job monitoring>> for details.
+
+How do I profile my job?
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+SLURM records statistics for every job, including how much memory
+and CPU was used, and the usage efficiency.
+
+SLURM provides TODO some <</hpc3/slurm#_monitor_jobs, job monitoring>> capabilities
+that can give an idea about consumed memory, CPU and the efficiency. For most
+jobs they provide sufficient information to understand what resources are needed.
+
+How do I see how many hours of allocation credit I have used?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You need to use ``sbank`` command.  See TODO.
+
+How do I see what jobs were run and what charges they incurred over a period of time  for a given account ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We have a TODO <</hpc3/slurm#_job_history, zotledger>> tool that provides this info.
+
+I can't submit jobs to GPU partition, is there something wrong with my account?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Nothing is wrong, you simply need to have a separate GPU account to submit
+jobs to GPU partition.  GPU accounts are not automatically given to everyone,
+your faculty adviser can request a GPU lab account.  For example, a PI *panteater*
+will have a *PANTEATER_LAB* account for CPU jobs and *PANTEATER_LAB_GPU* account for
+GPU jobs.
+
+My job failed with "out of memory error". What should i do?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Your job was removed by SLURM because it exceeded its memory request.
+All queues have TODO <</hpc3/slurm#_hpc3_queue_structure, specific associated memory>>.
+You need to increase the memory requirements for your job. See examples in
+TODO <</hpc3/examples#,this guide>>. 
+
+For the jobs that require more memory than the
+standard/free queues can provide or for the jobs that require A LOT of memory
+and not many CPUs, there is a limited number of higher memory nodes that are
+accessible via higher memory queues.
+
+You will have to request access to these higher memory queues 
+via sending email to hpc-support@uci.edu and provide a proof
+that your application needs a higher memory access.
+
+My job is in the queue with reason shown as *AssocGrpCPUMinutesLimit*, what is wrong?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You don't have enough hours in your account balance to run the job. See
+TODO <</hpc3/slurm#job-pending,how to find an explanation>>
+
+
+My job is killed after running for 48 hours, why?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You run your job with a default runtime, and SLURM killed the job once the run
+time limit was reached.
+
+All queues have specific default and max TODO <</hpc3/slurm#_hpc3_queue_structure,
+runtime  limits>>.  The default run time protects users from unintentionally
+using more CPU hours than intended.
+
+When your job needs longer run time than a default, you need to specify it
+with ``t`` ``time`` directive. TODO See <</hpc3/examples#time-limit, time limit>>.
+
+:bluelight:`Software`
+---------------------
+
+How do I install new software myself?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please see the TODO <</hpc3/software-tutorial#_user_installed_sw_and_environment_modules,
+user installed software>>
+
+How do I request software installation?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We have a guide that explains
+TODO <</hpc3/getting-help#_request_new_software,how to request new softare>>
 
