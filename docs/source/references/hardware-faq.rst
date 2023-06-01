@@ -6,51 +6,51 @@ Hardware FAQ
 Purchasing
 ----------
 
-1. **What does hardware purchase get me?**
+1. :bluelight:`What does hardware purchase get me?`
 
-   * *A larger bank of core hours*. RCIC does not allocate more core hours than the cluster can physically deliver.
-     When you add hardware, you expand the capacity of the system.
-   * *Hardware hours are added to your no-cost allocation.*
-   * *Consuming your core-hours does not have to be 7x24.* Idle private hardware represents never-to-recovered lost
-     computing capacity.  Your bank of hours can instead be spent in bursts.
-   * *The least-expensive way to add a large number of core hours*.  
-     Using 48-core nodes and 5 year warranty ~ 2.4 Million core hours 
-     would be credited over 6 years. At $11.5K (node, tax, integration),
-     this is roughly $0.005/core-hour.
+   1. :underline:`A larger bank of core hours` RCIC does not allocate more core hours than the cluster can physically deliver.
+      When you add hardware, you expand the capacity of the system.
+   2. :underline:`Hardware hours are added to your no-cost allocation`
+   3. :underline:`Consuming your core-hours does not have to be 7x24` Idle private hardware represents never-to-recovered lost
+      computing capacity.  Your bank of hours can instead be spent in bursts.
+   4. :underline:`The least-expensive way to add a large number of core hours`
+      Using 48-core nodes and 5 year warranty ~ 2.4 Million core hours 
+      would be credited over 6 years. At $11.5K (node, tax, integration),
+      this is roughly $0.005/core-hour.
 
    Using UCI-purchased hardware as an effective buffer and a no over-allocation
    policy, if all node owners utilized 100% of their allocation, there would
    still be about 20% of the cores unused.
 
-2. **Should I purchase hardware? Buy cores? Neither?**
+2. :bluelight:`Should I purchase hardware? Buy cores? Neither?`
 
    Our goal is to enable you to make efficient use of your grant or other funds.
    RCIC recovers only the cost of hardware through its recharges. We are fortunate at UCI,
    the people cost of administration is supported centrally by campus. Here's is advice
    that we believe is universally applicable:
 
-   1. *Prioritize your jobs* into ones that can be killed (and hence start over from 
+   1. :underline:`Prioritize your jobs` into ones that can be killed (and hence start over from 
       the beginning) and those that are more important. Use the free queues for your
       lower priority work and your allocation for higher-priority work.
       This will allow you to make effective use of the free queues.
-   2. *Analyze your own usage* to get a good feel for how long a typical job takes
+   2. :underline:`Analyze your own usage` to get a good feel for how long a typical job takes
       and how much memory it requires.  For, single node jobs, use the command
       ``seff -j JOBID`` to easily find out this information after a job has run.
       Note, ``seff`` doesn't produce accurate results for multi-node jobs.
-   3. *Estimate how much computing time you need in the allocated (non-killable) category*.
+   3. :underline:`Estimate how much computing time you need in the allocated (non-killable) category`.
       A typical 40-core node will credit your account with about 330,000 core hours/year.
       Determine how many whole nodes you need to purchase to meet your computing requirements
-   4. *If your estimate is less than 200K core hours/year*,  you can mostly rely upon 
+   4. :underline:`If your estimate is less than 200K core hours/year`,  you can mostly rely upon 
       the no-cost cycles (reminder, this allocation is per research lab, not per user).
-   5. *If your estimate is more than 200K core hours/year but less than 400K core hours*,
+   5. :underline:`If your estimate is more than 200K core hours/year but less than 400K core hours`,
       core-hour purchase will likely be the most cost-effective way to expand usage
-   6. *If your estimate is more than 400K core hours/year*, then purchasing hardware is the
+   6. :underline:`If your estimate is more than 400K core hours/year`, then purchasing hardware is the
       least expensive way to obtain additional hours.
-   7. *You should only purchase what your lab needs.*
+   7. :underline:`You should only purchase what your lab needs`.
  
-3. **Saving or Spending core hours?**
+3. :bluelight:`Saving or Spending core hours?`
 
-   *You should spend your allocation*. Core-hour accounting has many positives,
+   :underline:`You should spend your allocation`! Core-hour accounting has many positives,
    but to work effectively, the UCI community as a whole needs to spend their
    allocations at a regular rate.
 
