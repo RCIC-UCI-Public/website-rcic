@@ -10,13 +10,22 @@ for providing High Performance Computing clusters and Scalable Storage Systems. 
 **Computing Cluster**
   :ref:`hpc3` is a scalable cluster-based computing infrastructure, UCI's next generation of 
   shared computing supporting both a condo and pay-per-cycle model.
-  It includes a rich collection of domain-specific :ref:`modules` software packages.
+  UCI has purchased both CPU and GPU nodes hardware as part of HPC3. Annual funds are 
+  used to add to this resource enabling RCIC to provide no-cost allocations to a larger 
+  fraction of the UCI research community.
+
+  HPC3 includes a rich collection of domain-specific :ref:`modules` software packages.
+
 
 **Storage Systems**
   These storage Systems  are used for storing and analyzing research data:
 
   - :ref:`crsp` - Campus Research Storage Pool. Highly-reliable, encrypted-at-rest, scalable data 
     storage system available across the UCI campus network.
+
+    CRSP is funded through central campus to guarantee a fixed amount of no-cost storage to any
+    faculty member or staff researcher who requests space. These campus funds pay for the people,
+    the baseline infrastructure, and vendor maintenance required to provide the robust infrastructure.
   - :ref:`dfs` -  Cluster Parallel File Storage System  is high-quality/high-performance data 
     storage directly attached to HPC3.
 
