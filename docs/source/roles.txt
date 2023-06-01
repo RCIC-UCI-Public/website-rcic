@@ -70,3 +70,5 @@
 
 .. role:: blogauthor
 .. role:: blogtitle
+
+.. role:: underline
