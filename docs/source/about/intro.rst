@@ -41,6 +41,8 @@ for providing High Performance Computing clusters and Scalable Storage Systems. 
 
 The :ref:`allocations` explains the access to the computing and storage resources. 
 
+.. _access:
+
 Access
 ------
 
@@ -49,10 +51,14 @@ Access
 - Faculty can `sponsor external collaborators <https://uci.service-now.com/sp?id=kb_article_view&sysparm_article=KB0012503>`_
   to provide and share access.
 
+.. _grant:
+
 Grant Support
 -------------
 
 Please see the `HPC3 Description </_static//RCIC-description.pdf>`_  that can be used in grant applications.
+
+.. _acknowledge:
 
 How to Acknowledge RCIC
 -----------------------
