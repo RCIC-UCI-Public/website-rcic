@@ -72,3 +72,4 @@
 .. role:: blogtitle
 
 .. role:: underline
+.. role:: tt
