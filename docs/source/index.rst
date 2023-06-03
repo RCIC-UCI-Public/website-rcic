@@ -39,6 +39,7 @@ RCIC User Documentation
    storage/home
    storage/dfs
    storage/crsp
+   storage/data-transfer
 
 .. toctree::
    :maxdepth: 1
@@ -75,4 +76,5 @@ RCIC User Documentation
 
    references/glossary
    references/hardware-faq
+   references/unix-primer
 

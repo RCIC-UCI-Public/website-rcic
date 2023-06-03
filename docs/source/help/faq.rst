@@ -114,7 +114,7 @@ For DFS you can use TODO <</storage/beegfs-howtos#sback,selective backup>>.
 How do I transfer files between a remote server and my directory?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please see TODO <</storage/beegfs-howtos#data-transfer, data transfer>> section.
+Please see :ref:`data transfer` section.
 
 How do I use Filezilla with DUO?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -149,6 +149,14 @@ How do I purchase more DFS space?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Please see :ref:`buy dfs` how to purchase more DFS storage
+
+I want to use my group DFS area, how do i do this?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your PI already has a group DFS area you need to submit a ticket 
+to hpc-support@uci.edu requesting to be be added to a specific group
+for a specific DFS filesystem access, *with a cc to your PI*.
+Your PI will need to reply with a confirmation in order for us to approve your request.
 
 :bluelight:`CRSP`
 -----------------
@@ -271,8 +279,9 @@ TODO See <</crsp/howtos#check-quota, explanation>>.
 When writing files I get the “Disk quota exceeded” error on /dfsX/labY. How can it be?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You need to chack your quotas and verify directories permissions.
-TODO See <</storage/beegfs-howtos#dfs-quota,this guide>> for instructions on checking quotas and tips on data transfers.
+You need to check your quotas and verify directories permissions.
+See :ref:`dfs quotas` for instructions on checking quotas and 
+:ref:`data transfer` for tips on data transfers.
 
 I am running a SLURM job and am getting the “Disk quota exceeded” error on /dfsX/labY?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
