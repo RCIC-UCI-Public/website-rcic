@@ -309,7 +309,7 @@ Users manage their Selective Backup via two **control files** located in their
 
    The files are backed in the order as they are listed. That way, if a user runs out of
    selective disk quota before all listed files have been backed up, at least their most
-   prized data are saved.  By default, this file contains :ref:`$HOME` and
+   prized data are saved.  By default, this file contains :tt:`$HOME` and
    :tt:`/pub` areas of your account:
 
    .. code-block:: bash
