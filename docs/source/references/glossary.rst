@@ -8,8 +8,14 @@ This page includes a number of terms that we use in our documentation.
    RCIC
      The Research Cyberinfrastructure Center (RCIC) at the University of California, Irvine 
 
+   HPC
+     High Performance Computing
+
+   HTC
+     HIgh Throughput Computing
+
    HPC3
-     is a scalable cluster-based computing infrastructure.
+     is a scalable cluster-based computing infrastructure provided by RCIC.
      It is one of UCI’s shared-computing cluster that expands upon the condo-style model
      of GreenPlanet and the now-retired HPC clusters
 
@@ -35,3 +41,6 @@ This page includes a number of terms that we use in our documentation.
    UNIX
      is a multi-user operating system which allows more than one person to use the computer 
      resources at a time. See `definition of UNIX <https://www.techtarget.com/searchdatacenter/definition/Unix>`_
+  
+   SUs
+     Service Units. Same as computing core-hours.
