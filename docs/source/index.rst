@@ -27,10 +27,11 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: Cluster
+   :caption: HPC3
 
    hpc3/hpc3
-   hpc3/allocations
+   hpc3/reallocations
+   hpc3/specs
 
 .. toctree::
    :maxdepth: 1
@@ -68,6 +69,7 @@ RCIC User Documentation
 
    guides/beginner
    guides/reference
+   guides/ssh
    tutorials/listing
 
 .. toctree::
