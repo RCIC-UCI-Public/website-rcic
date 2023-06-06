@@ -10,8 +10,8 @@ The email opens a ticket in our ticketing system. Once your account is created y
 
 .. attention::
 
-   - :bluelight:`Your account` is your **UCINetID**
-   - :bluelight:`Your password` is **your regular password** that you use for it
+   | :bluelight:`Your account` is your **UCINetID**
+   | :bluelight:`Your password` is **your regular password** that you use for it
 
    We do not handle or reset passwords for UCINetID
 
