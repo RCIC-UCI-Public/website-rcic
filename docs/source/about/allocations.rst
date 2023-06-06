@@ -13,9 +13,9 @@ and :ref:`recharge allocations`.
   - :ref:`no-cost allocations`: UCI researchers [#]_ may request no-cost allocations to baseline levels of:
 
     1. **Computing cycles** - 
-       Computing cycles are  refilled (re-allocated) on a semi-annual 
-       (every 6 months). Re-allocation is based upon a lab’s previous
-       6 month utilization and available hours on UCI-purchased hardware. 
+       Computing cycles are refilled (reallocated) on a semi-annual 
+       (every 6 months).  See :ref:`reallocation` for details.
+
     2. **Campus Research Storage** (:term:`CRSP`) - 1TB per researcher.
 
   - :ref:`recharge allocations`:  when the baseline is insufficient for a particular lab,
@@ -91,8 +91,6 @@ The recharge tables below provides more details on costs and commitment.
 Proposed rates for CRSP and CPU/GPU hours are in the process of being approved by the UCI recharge
 rate review process. TODO (leave?) These have not been finalized.
 
-.. _recharge rates:
-
 .. table:: **Storage Related Recharges**
    :class: recharge-table
 
@@ -109,7 +107,7 @@ rate review process. TODO (leave?) These have not been finalized.
    | backup     |                      |                   | file systems on HPC3.                               |
    +------------+----------------------+-------------------+-----------------------------------------------------+
 
-.. _recharge hours:
+.. _recharge rates:
 
 .. table:: **HPC3 Computing Related Recharges**
    :class: recharge-table
@@ -167,8 +165,8 @@ RCIC does not post-bill for core hours and it is not possible to be surprised
 with a large bill at the end of a month. 
 
 Prepaid core hours are intended to be used within one calendar year.
-Unused prepaid hours are forfeit after 18 months. The current :ref:`recharge hours`
-rates are computed to recover the cost of hardware over a 5 year period at 60% use.
+Unused prepaid hours are forfeit after 18 months. The current :ref:`recharge rates`
+are computed to recover the cost of hardware over a 5 year period at 60% use.
 
 .. _buy hardware:
 
