@@ -43,4 +43,7 @@ This page includes a number of terms that we use in our documentation.
      resources at a time. See `definition of UNIX <https://www.techtarget.com/searchdatacenter/definition/Unix>`_
   
    SUs
-     Service Units. Same as computing core-hours.
+     Service Units are core-hours. All allocations are service units with cores being charged:
+
+     * 1 SU/core-hour for CPU (most users only work with CPU cores).
+     * 32 SUs/core-hour for GPU.

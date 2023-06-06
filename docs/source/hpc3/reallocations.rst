@@ -6,8 +6,10 @@ Reallocation
 Overview
 --------
 
-The vision defined in 2016 was that any :bluelight:`faculty member at UCI could request up to 200,000 core hours/year at
-no direct cost`. UCI invests in new equipment every year to reach this particular goal. The RCIC executive committee
+The vision defined in 2016 was that any
+  :bluelight:`Faculty member at UCI could request up to 200,000 core hours/year at no direct cost`
+
+UCI invests in new equipment every year to reach this particular goal. The RCIC executive committee
 also approved a plan that would not result on over-allocation of HPC3. 
 
 **There are numerous challanges in fairly providing access to these hours**:
@@ -16,7 +18,7 @@ also approved a plan that would not result on over-allocation of HPC3.
    * Usage by any group is uneven throughout the year. Bursts of computing followed periods of reduced/no use is common. 
 
 **To accommodate these challenges, these guiding principles are adopted**
-   * Allocations for a particular group are re-computed (re-allocation) every 6 months
+   * Allocations for a particular group are re-computed (reallocation) every 6 months
    * About 1/6th of all allocations are recomputed monthly 
    * Use of hours in the previous 6 months should guide the actual allocation for the next interval
    * Unused hours in the previous 6 months are considered "lost."  In other words, unused hours don't 
@@ -25,41 +27,50 @@ also approved a plan that would not result on over-allocation of HPC3.
 .. note:: Reallocation is based upon a lab’s previous 6 month utilization and available hours
           on UCI-purchased hardware and is processed automatically.
 
-          Reallocation is recomputed as *available hours over the next 6 month period*. 
-          Unused hours in previous 6 month period are considered forfeit.
+          | Reallocation of granted hours is recomputed as *available hours over the next 6 month period*. 
+          | Unused hours in previous 6 month period are considered forfeit.
 
 .. _allocation stacking:
 
-Allocation Stacking and Consumption
------------------------------------
+Stacking and Consumption
+------------------------
 
-Any particular lab allocation is made of up to three components:
+| All allocations are expressed in core-hours or :term:`SUs`.
+| Any particular lab allocation is made of up to three components:
 
-1. No cost allocation 
-2. Purchased core hours  (if any were bought)
-3. Converted hours from owned hardware (if any were bought)
+  ============================================ =====================
+  **No cost allocation**                       200K hours/year 
+  -------------------------------------------- ---------------------
+  **Purchased core hours**                     if any were bought
+  -------------------------------------------- ---------------------
+  **Converted hours from owned hardware**      if any were bought
+  ============================================ =====================
 
-At the beginning of every re-allocation period these hours are lumped together to make a "stacked allocation":
+At the beginning of every reallocation period these hours are lumped together
+to make a total or "stacked allocation":
+
+.. _stacked allocation:
 
 .. centered:: Stacked Allocation and Order of Debiting
 
 .. image:: images/Stacked-Allocation.png
+   :align: center
    :alt: Stacked Allocation and Order of Debiting
 
-There are six different stacking scenarios with the most common being: Granted-only, Granted+Owner, and 
-Granted+Recharge. 
+There are six different stacking scenarios with the most common being: granted only, granted+owner, and 
+granted+recharge. 
 
-The image also shows the order in which :term:`SUs` (or core-hours)  are debited from an account.  
-This ordering is important when RCIC recomputes how many granted hours should be given during re-allocation.
+Order of debiting stacked allocation:
+  | 1. owner SUs
+  | 2. granted Sus
+  | 3. recharge SUs
 
-.. important:: | All allocations are SUs charged at:
-               | * 1SU/core-hour  for CPU,  most users only work with CPU cores
-               | * 32SUs/core-hour for GPU.
+This ordering is important when RCIC recomputes how many granted hours should be given during reallocation.
 
 .. _no-cost reallocation:
 
-Reallocation of no-cost hours
------------------------------
+Granted hours
+-------------
 
 The total number of hours UCI can grant to faculty is limited by number of UCI-owned resources and the total request 
 from faculty. To support the largest number of requests possible, RCIC allocates granted hours based upon actual use
@@ -71,7 +82,7 @@ There are 5 bins of UCI-funded allocations (these are allocations for 6 months).
 
 .. _allocaiton bins:
 
-.. table:: Allocation Bins for Granted SUs (Core hours) 
+.. table:: Allocation Bins for Granted SUs
    :class: noscroll-table
 
    +----------------+------------------------------+
@@ -124,10 +135,10 @@ in the previous 6 months and the reallocation is calculated as follows:
 
 .. _converted hours:
 
-Converted Hours from Owned Hardware 
------------------------------------
+Converted hours
+---------------
 
-Hours (SUs) converted from owner hardware are not binned. They are computed for 
+Core-hours (SUs) converted from owner hardware are not binned. They are computed for 
 what the hardware could deliver over the next  6 month period using the formula:
 
 .. math:: SUs = ((Number_{cores} + 32 * Number_{GPUs}) * 8760 hours/year * .95)/2 
@@ -142,8 +153,8 @@ been dedicated to the owner, but went unused for periods of time.
 
 .. _purchased hours:
 
-Purchased Cycle hours
----------------------
+Purchased hours
+---------------
 
 Purchased cycle hours are expected to be used within 1 year and should be used on fairly regular basis.
 As per MOU for cycle purchases, unused cycles are forfeit after 18 months. 
