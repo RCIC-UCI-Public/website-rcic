@@ -47,3 +47,6 @@ This page includes a number of terms that we use in our documentation.
 
      * 1 SU/core-hour for CPU (most users only work with CPU cores).
      * 32 SUs/core-hour for GPU.
+
+   RFP
+    A formal Request For Proposal  process.
