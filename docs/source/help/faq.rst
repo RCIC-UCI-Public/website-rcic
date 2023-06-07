@@ -103,13 +103,16 @@ check quotas.
 How do I backup important files?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It depends on what filesystem you are using.
-Your *$HOME* and CRSP's *$HOME* and *LAB areas* have automatic snapshots, you don't
-need to do anything special.  Please read 
-TODO <</storage/home-howtos#,HOME howtos>> and 
-TODO <</crsp/howtos#_deleted_files_recovery,CRSP howtos>> that explain what
-the snapshots do and how long they are active.
-For DFS you can use TODO <</storage/beegfs-howtos#sback,selective backup>>.
+It depends on what filesystem you are using:
+
+:$HOME:
+  has automatic snapshots, you don't need to do anything special.
+  Please read :ref:`zfs snapshots` for details.
+:CRSP:
+  Your :tt:`$HOME` and :tt:`LAB areas` have automatic snapshots, you don't
+  need to do anything special. Please see  :ref:`crsp snapshots`.
+:DFS:
+  You can use :ref:`selective backup`.
 
 How do I transfer files between a remote server and my directory?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,11 +132,14 @@ I accidentally deleted some files (or directories). Can they be restored?
   you can use snapshots to restore files and directories provided that existing 
   snapshots still hold the desired data.
 - The restoration method depends on where the files was originally
-  located: $HOME, DFS, or CRSP area. Please see respective 
-  guides TODO <</storage/home-howtos#,HOME howtos>>, 
-  TODO <</storage/beegfs-howtos#sback,DFS howto>>
-  and TODO <</crsp/howtos#_deleted_files_recovery,CRSP howtos>> 
-  for recovery explanation. 
+  located. Please see respective guides for recovery explanation:
+
+  :$HOME:
+    :ref:`home files recovery`
+  :DFS:
+    :ref:`selective backup recovery`
+  :CRSP:
+    :ref:`crsp files recovery`
 
 :bluelight:`DFS`
 ----------------
@@ -197,7 +203,7 @@ Can I grant access to my storage to others outside of UCI?
 
 You will need to sponsor a UCINetID for your external collaborators. 
 They will then be able to access CRSP using normal mechanisms. Please see
-:ref:`access`.  TODO link:https://www.oit.uci.edu/help/ucinetid/types/sponsored/[sponsor a UCINetID]
+:ref:`access`.
 
 Can I add several students/postdocs to my Lab space, how do I do that?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -266,19 +272,17 @@ Consult our TODO link:/crsp/debugging.html[Troubleshooting Guide]
 :bluelight:`Disk Quotas`
 ------------------------
 
-I cant save any files in my $HOME, i get a file write error, what is wrong?
+I get file write error when saving files in my $HOME, what is wrong?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 You exceeded your $HOME disk quota. 
-See how to TODO <</storage/home-howtos#home-quota, check and fix your $HOME quota>>
+See :ref:`home quotas` that explains how to check and fix.
 
 I cant save files in my CRSP area. How do i check my quotas?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-TODO See <</crsp/howtos#check-quota, explanation>>.
+See :ref:`crsp quotas` for explanation.
 
 When writing files I get the “Disk quota exceeded” error on /dfsX/labY. How can it be?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 You need to check your quotas and verify directories permissions.
 See :ref:`dfs quotas` for instructions on checking quotas and 
 :ref:`data transfer` for tips on data transfers.
@@ -286,11 +290,10 @@ See :ref:`dfs quotas` for instructions on checking quotas and
 I am running a SLURM job and am getting the “Disk quota exceeded” error on /dfsX/labY?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
 This is group writable area, all users who write in this area contribute to
 the quota and the quota is sum total of all written files. Even if your
-job output small files, others may have filled it. You need to (1) check your quota
-for the specific DFS filesystem See <</storage/beegfs-howtos#dfs-quota,this guide>> for instructions
+job output small files, others may have filled it. 
+You need to check your :ref:`dfs quotas` for the specific DFS filesystem.
 
 :bluelight:`SLURM jobs`
 -----------------------
@@ -460,6 +463,4 @@ user installed software>>
 How do I request software installation?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We have a guide that explains
-TODO <</hpc3/getting-help#_request_new_software,how to request new softare>>
-
+Please see :ref:`software tickets` 
