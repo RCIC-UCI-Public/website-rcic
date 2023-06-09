@@ -1,7 +1,9 @@
 .. _specs:
 
 Specs
-============
+=====
+
+.. _hardware configuration:
 
 Hardware configuration
 ----------------------
