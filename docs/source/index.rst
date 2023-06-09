@@ -23,7 +23,8 @@ RCIC User Documentation
    :maxdepth: 1
    :caption: Account
 
-   account/start
+   account/getting-account
+   account/conduct
 
 .. toctree::
    :maxdepth: 1
