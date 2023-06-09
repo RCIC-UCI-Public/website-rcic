@@ -81,8 +81,8 @@ configurations shown first.
    | 1    | 40   | 372000    | intel,avx512,mlx5_ib                   | gpu:V100:4   |
    +------+------+-----------+----------------------------------------+--------------+
 
-.. note:: Features and GRES (Generic RESources) are SLURM resource
-          specifications that can be requested in SLURM job submissions.
+.. note:: Features and GRES (Generic RESources) are Slurm resource
+          specifications that can be requested in Slurm job submissions.
 
 .. _networking:
 
@@ -171,7 +171,7 @@ Support nodes are specialized nodes that provide very specific services:
    | Login nodes   | 3        | Point of entry  to the cluster.                               |
    |               |          | Have the same CPU, Network, Memory configuration as CPU nodes.|
    +---------------+----------+---------------------------------------------------------------+
-   | SLURM server  | 1        | SLURM scheduler                                               |
+   | Slurm server  | 1        | Slurm scheduler                                               |
    +---------------+----------+---------------------------------------------------------------+
    | Provisioning  | 2        | TODO                                                          |
    +---------------+----------+---------------------------------------------------------------+
