@@ -85,7 +85,7 @@ Yes. It is clear that substantial community of researchers requires this feature
 How does core-hour accounting impact long-running jobs?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It really doesn't. SLURM will not  start the job unless there is enough
+It really doesn't. Slurm will not  start the job unless there is enough
 credit to start the job. For example, a job is submitted with a requirements
 of *16 core-weeks* will not start unless an account has  *16 x 24 x 7 = 2688 core hours*.
 
@@ -287,7 +287,7 @@ You need to check your quotas and verify directories permissions.
 See :ref:`dfs quotas` for instructions on checking quotas and 
 :ref:`data transfer` for tips on data transfers.
 
-I am running a SLURM job and am getting the “Disk quota exceeded” error on /dfsX/labY?
+I am running a Slurm job and am getting the “Disk quota exceeded” error on /dfsX/labY?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is group writable area, all users who write in this area contribute to
@@ -295,7 +295,7 @@ the quota and the quota is sum total of all written files. Even if your
 job output small files, others may have filled it. 
 You need to check your :ref:`dfs quotas` for the specific DFS filesystem.
 
-:bluelight:`SLURM jobs`
+:bluelight:`Slurm jobs`
 -----------------------
 
 Why should I request an interactive shell and how do I do this?
@@ -308,7 +308,7 @@ transfers. The interactive shells are simply processes that run on compute nodes
 of the cluster. 
 TODO See how to request an <</hpc3/slurm#_interactive_job, interactive shell>>.
 
-How do I submit a job to the SLURM queue and see its status?
+How do I submit a job to the Slurm queue and see its status?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TODO
@@ -338,11 +338,11 @@ If not specified, a default account is charged (exception is free queues).
 
 TODO
 To specify a PI's account one need to use a [tt]*-A* slurm directive either on
-a command line when asking fort an interactive shell or in a SLURM batch
+a command line when asking fort an interactive shell or in a Slurm batch
 job. See <</hpc3/slurm#_interactive_job, interactive shell>> and
 <</hpc3/examples#, batch examples>> for details.
 
-How do I buy more SLURM time?
+How do I buy more Slurm time?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A basic allocation is explained in :ref:`allocations` the <</hpc3/hpc3-reference#, reference guide>>.
@@ -353,7 +353,7 @@ How do I ask for more cores for my job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You need to specify options ``--ntasks`` or ``--cpus-per-task`` in your
-job submission. See TODO <</hpc3/slurm#, SLURM guide>> for examples. 
+job submission. See TODO <</hpc3/slurm#, Slurm guide>> for examples. 
 
 
 If I ask for X cores does my job run X times faster?
@@ -388,10 +388,10 @@ TODO See <</hpc3/slurm#_monitor_jobs, job monitoring>> for details.
 How do I profile my job?
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-SLURM records statistics for every job, including how much memory
+Slurm records statistics for every job, including how much memory
 and CPU was used, and the usage efficiency.
 
-SLURM provides TODO some <</hpc3/slurm#_monitor_jobs, job monitoring>> capabilities
+Slurm provides TODO some <</hpc3/slurm#_monitor_jobs, job monitoring>> capabilities
 that can give an idea about consumed memory, CPU and the efficiency. For most
 jobs they provide sufficient information to understand what resources are needed.
 
@@ -417,7 +417,7 @@ GPU jobs.
 My job failed with "out of memory error". What should i do?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Your job was removed by SLURM because it exceeded its memory request.
+Your job was removed by Slurm because it exceeded its memory request.
 All queues have TODO <</hpc3/slurm#_hpc3_queue_structure, specific associated memory>>.
 You need to increase the memory requirements for your job. See examples in
 TODO <</hpc3/examples#,this guide>>. 
@@ -427,9 +427,14 @@ standard/free queues can provide or for the jobs that require A LOT of memory
 and not many CPUs, there is a limited number of higher memory nodes that are
 accessible via higher memory queues.
 
+TODO
 You will have to request access to these higher memory queues 
 via sending email to hpc-support@uci.edu and provide a proof
 that your application needs a higher memory access.
+
+How do I use higher memory partitions (highmem, hugemem, maxmem)?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TODO see above
 
 My job is in the queue with reason shown as *AssocGrpCPUMinutesLimit*, what is wrong?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -441,7 +446,7 @@ TODO <</hpc3/slurm#job-pending,how to find an explanation>>
 My job is killed after running for 48 hours, why?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You run your job with a default runtime, and SLURM killed the job once the run
+You run your job with a default runtime, and Slurm killed the job once the run
 time limit was reached.
 
 All queues have specific default and max TODO <</hpc3/slurm#_hpc3_queue_structure,
