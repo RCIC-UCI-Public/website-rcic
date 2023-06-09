@@ -120,7 +120,7 @@ All DFS-based file systems have quota enforcement.
 - Users can't change quotas, but can submit a ticket asking to be added
   to the group quotas provided there is a confirmation from the PI about the change.
 
-.. _dfs check quota:
+.. _dfs check quotas:
 
 How to check
 ^^^^^^^^^^^^
