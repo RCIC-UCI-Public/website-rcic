@@ -47,7 +47,7 @@ Access
 ------
 
 - Access to all RCIC resources requires a `UCINetID <https://www.oit.uci.edu/services/accounts-passwords/ucinetids/>`_.
-- Access to RCIC resources are subject to our `Acceptable Use Policy </_static/RCIC-Acceptable-Use-Policy.pdf>`_.
+- Access to all RCIC resources is subject to our `Acceptable Use Policy </_static/RCIC-Acceptable-Use-Policy.pdf>`_.
 - Faculty can `sponsor external collaborators <https://uci.service-now.com/sp?id=kb_article_view&sysparm_article=KB0012503>`_
   to provide and share access.
 
