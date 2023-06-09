@@ -63,7 +63,7 @@ We try to respond by the next business day.
 
     * file permissions
     * quota problems
-    * SLURM jobs submission errors
+    * Slurm jobs submission errors
     * OOM errors
 
 :underline:`When submitting a ticket`
@@ -115,13 +115,13 @@ When reporting login problems please include the following:
 :bluelight:`Cluster Problems`
 -----------------------------
 
-When reporting errors related to SLURM, allocation quotas,
+When reporting errors related to Slurm, allocation quotas,
 software errors, please include the following:
 
-* SLURM job ID
+* Slurm job ID
 * Node  where you see the issue (output of ``hostname`` command).
 * Your working directory  (output of ``pwd`` command)
-* Full path to the  files that you reference (SLURM submit script,
+* Full path to the  files that you reference (Slurm submit script,
   output/input/error files, your own scripts, etc).
   :red:`do not attach multiple files to your ticket`. Providing a path
   gives us much better access to the files.
