@@ -29,9 +29,9 @@ and :ref:`recharge allocations`.
             :red:`Allocations can not be combined into larger group or center accounts.`
 
 **Every user**
-  - :ref:`no-cost allocations` ``one time 1000 core-hour allocation``. This SLURM allocation
+  - :ref:`no-cost allocations` ``one time 1000 core-hour allocation``. This allocation
     provides baseline level of computing cycles and is required to allow 
-    users to access the `free` queues. It enables users who are not affiliated with 
+    users to access the Slurm `free` queues. It enables users who are not affiliated with 
     any research program to have meaningful access to HPC3. 
     Most users should use lab accounts instead of this one-time allocation.
 
