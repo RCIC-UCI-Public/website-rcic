@@ -49,4 +49,17 @@ This page includes a number of terms that we use in our documentation.
      * 32 SUs/core-hour for GPU.
 
    RFP
-    A formal Request For Proposal  process.
+     A formal Request For Proposal  process.
+
+   SSH
+     Secure Shell PRotocol http://en.wikipedia.org/wiki/Secure_Shell
+
+   motd
+     message of the day. See ``man motd`` for a definition.
+     We use this facility to show important messages to all users who login
+     on the clsuter.
+
+   Slurm
+     Slurm is an open-source workload manager, please see the official
+	 documentation  https://slurm.schedmd.com/slurm.html
+
