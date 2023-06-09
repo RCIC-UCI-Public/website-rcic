@@ -41,6 +41,16 @@ Basic skills
 - `The UNIX Shell <http://swcarpentry.github.io/shell-novice>`_ -
   the fundamentals of UNIX Shell all users need to know.
 
+.. _editors:
+
+File Editors
+^^^^^^^^^^^^
+
+See the following links for beginners guides, many more are available online:
+
+- `A beginners guide to vim <https://www.linux.com/training-tutorials/vim-101-beginners-guide-vim/>`_
+- `Absolute beginners guide to emacs <http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/>`_
+
 Programming
 ^^^^^^^^^^^
 
