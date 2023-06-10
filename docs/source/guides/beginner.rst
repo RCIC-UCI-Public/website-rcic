@@ -13,6 +13,8 @@ Your Laptop
 
 You will need to have a  few applications on your laptop, most are standard:
 
+.. _laptop apps:
+
 .. table:: Your laptop applications
    :class: noscroll-table
 
@@ -97,11 +99,24 @@ To directly login on :tt:`HPC3` cluster you must:
 
       1. Duo Push to XXX-XXX-1234
 
+     Passcode or option (1-1):
+
+  Type desired option (in this example *1*).
+
+  .. code-block:: text
+
      Passcode or option (1-1): 1
+
+  Now use the DUO app on your phone and respond to the received DUO
+  notification. Press :guilabel:`Approve` on your DUO app when prompted.
+  If the DUO authentication is successful you will see on your laptop:
+
+  .. code-block:: text
+
      Success. Logging you in...
 
 
-  After a successful login you will see a screen similar to the following:
+  And after a successful login you will see a screen similar to the following:
 
   .. code-block:: text
 
