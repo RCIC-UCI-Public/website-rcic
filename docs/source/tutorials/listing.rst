@@ -51,6 +51,8 @@ See the following links for beginners guides, many more are available online:
 - `A beginners guide to vim <https://www.linux.com/training-tutorials/vim-101-beginners-guide-vim/>`_
 - `Absolute beginners guide to emacs <http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/>`_
 
+.. _programming tutorials:
+
 Programming
 ^^^^^^^^^^^
 
@@ -58,3 +60,18 @@ Programming
   learn the basics of Python programming language.
 - `Introduction to R <http://swcarpentry.github.io/r-novice-inflammation/>`_ - to
   learn the basics of R programming language.
+
+.. _ssh tutorials:
+
+SSH
+^^^
+
+- `SSH Academy <https://www.ssh.com/academy/ssh/passphrase>`_ - learn about SSH passphrases
+-  `PAM module
+   <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/pluggable_authentication_modules>`_
+   DUO-supplied module design/implementation.
+- `https://www.ssh.com <https://www.ssh.com>`_
+- `Troubleshoot ssh problems <https://www.linux.com/topic/networking/4-reasons-why-ssh-connection-fails>`_
+- `Set up authorized_keys <https://www.ssh.com/ssh/authorized_keys/>`_
+- `How to use ssh-agent <https://www.ssh.com/ssh/agent>`_
+
