@@ -18,7 +18,7 @@ Frequently Asked Questions
 Who can have an account?
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Anyone with a valid UCInetID. Please see :ref:`start`.
+Anyone with a valid UCInetID. Please see :ref:`get account`.
 
 Who defined the policy?
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -122,7 +122,7 @@ Please see :ref:`data transfer` section.
 How do I use Filezilla with DUO?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please see TODO <</hpc3/ssh#_filezilla_and_duo, FileZilla with DUO>> section
+Please see :ref:`filezilla duo`.
 
 I accidentally deleted some files (or directories). Can they be restored?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -328,7 +328,10 @@ TODO See <</hpc3/examples#_array_jobs, array jobs>> for details.
 Why am I getting emails about running my application on login node?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This is explained in TODO <</hpc3/slurm#_simple_code_of_conduct,simple code of conduct>>
+You are causing problems for others users. Running applications on login nodes
+is a violation of our  :ref:`acceptable use` policy and 
+:ref:`conduct rules` rules. Review both and adjust your work on the
+cluster.
 
 How do I charge my jobs to my account or my PI’s account?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
