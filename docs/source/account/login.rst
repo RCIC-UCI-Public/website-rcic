@@ -231,6 +231,7 @@ of the following:
      ssh -X panteater@hpc3.rcic.uci.edu
      ssh -X hpc3.rcic.uci.edu -l panteater
 
+.. note:: Mac users must have XQuartz (standard application) installed in order to use XForwarding.
 
 .. _filezilla duo:
 
