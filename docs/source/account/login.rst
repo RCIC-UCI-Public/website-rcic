@@ -17,24 +17,27 @@ Please make sure you have enabled your DUO device using
 
 .. _ssh login:
 
-Login with ssh
----------------
+Using ssh
+---------
 
 :term:`SSH` is the only way to directly log in to HPC3 for interactive use and 
 we require multi-factor authentication for all password-based logins.
 
+We describe two main methods below.
+
 .. _ssh password duo:
 
-Password authentication with automated DUO push
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+I Password authentication
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Password authentication with automated DUO push on your phone
-is the most common mode for DUO authentication. It requires your phone to have 
+**Password authentication with automated DUO push on your phone**
+is the most common method for authentication. It requires your phone to have 
 internet access to receive the push notification from DUO and to send your 
 approval/denial back to DUO’s servers. 
 
 You access HPC3 via your favorite SSH (SCP, SFTP) client from your laptop and then respond to the DUO app on your phone.
-In this scenario HPC3 does not prompt you for DUO authentication. Instead the only DUO notification is on your phone.
+HPC3 prompts you for a password and requests to use  DUO authentication. The
+DUO push happens on your phone (or your other DUO-enabled device).
 
 **Step by Step**
 
@@ -118,66 +121,77 @@ After a successful login you will see a screen similar to the following:
 
 .. _ssh keys:
 
-Key-based ssh authentication
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+II Key-based authentication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you choose to use key-based authentication for your login, you have additional responsibilities:
 
-* **Every user-generated ssh key MUST have a non-empty passphrase**.
-  It is a requirement per our :ref:`acceptable use` policy 
-* **NEVER add a different user's ssh public into your authorized_keys file**. This is a violation of account sharing. 
-* **Generate a different private key and password for each device you plan to use**
-  for accessing HPC3.  For example, if you two different laptops, generate a private key for each laptop.
-* **Treat all of your ssh private keys with care**. If you are on a shared system (e.g. a lab workstation), make sure
-  that file permissions are set such you (and only you) can read and unlock the key with its passphrase.
-* If you don't want to keep re-entering your passphrase, you should learn how to manage your ssh keys with the help of ssh agents.
-  This provides a convenience of a "passwordless" ssh key, but has all the security of a password-protected key.
+.. attention:: 
 
-  Depending on your laptop, use the following guides:
+   * **Every user-generated ssh key MUST have a non-empty passphrase**.
+     It is a requirement per our :ref:`acceptable use` policy 
+   * **NEVER add a different user's ssh public into your authorized_keys file**. This is a violation of account sharing. 
+   * **Generate a different private key and password for each device you plan to use**
+     for accessing HPC3.  For example, if you two different laptops, generate a private key for each laptop.
+   * **Treat all of your ssh private keys with care**. If you are on a shared system (e.g. a lab workstation), make sure
+     that file permissions are set such you (and only you) can read and unlock the key with its passphrase.
+   * If you don't want to keep re-entering your passphrase, you should learn how to manage your ssh keys with the help of ssh agents.
+     This provides a convenience of a "passwordless" ssh key, but has all the security of a password-protected key.
 
-  :Linux: `ssh-agent <https://www.ssh.com/academy/ssh/agent>`_
-  :Windows: `PuTTY/Pageant <https://winscp.net/eng/docs/ui_pageant>`_
-  :Windows: `Powershell <https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement>`_
-  :MaxOS: `Proper use of ssh-client <https://www.getpagespeed.com/work/proper-use-of-ssh-client-in-mac-os-x>`_
+     Depending on your laptop, use the following guides:
 
-See more :ref:`ssh tutorials` links for more details.
+     :Linux: `ssh-agent <https://www.ssh.com/academy/ssh/agent>`_
+     :Windows: `PuTTY/Pageant <https://winscp.net/eng/docs/ui_pageant>`_
+     :Windows: `Powershell <https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement>`_
+     :MaxOS: `Proper use of ssh-client <https://www.getpagespeed.com/work/proper-use-of-ssh-client-in-mac-os-x>`_
 
-Generate your ssh keys per one of the guides (for OpenSSH see :ref:`generate ssh keys`).
+   See more :ref:`ssh tutorials` links for more details.
 
-In essence:
+**Step by Step**
 
-- the system from which you are initiating ssh (e.g. your laptop or workstation) should 
-  have a locally-generated and *password protected* ssh private key. 
-- the public key corresponding to that private key is placed on HPC3
-  in your   :tt:`$HOME/.ssh/authorized_keys` file.
+1. **Generate your ssh keys**
 
-Once your keys are setup simply use ssh commands.
-For example a user with UCINetID *panteater* can use one of the following:
+   This step is done once. Generate your ssh keys per one of the guides
+   (for OpenSSH see :ref:`generate ssh keys` below).  In essence:
 
-  .. code-block:: console
+   - the system from which you are initiating ssh (e.g. your laptop or workstation) should 
+     have a locally-generated and *password protected* ssh private key. 
+   - the public key corresponding to that private key is placed on HPC3
+     in your   :tt:`$HOME/.ssh/authorized_keys` file.
 
-     ssh panteater@hpc3.rcic.uci.edu
-     ssh hpc3.rcic.uci.edu -l panteater
+2. **Use ssh command to login**
+
+   Once your keys are setup simply use ssh commands.
+   For example a user with UCINetID *panteater* can use one of the following:
+
+   .. code-block:: console
+
+      ssh panteater@hpc3.rcic.uci.edu
+      ssh hpc3.rcic.uci.edu -l panteater
+
+   and provide your ssh key passphrase when prompted.
 
 .. _generate ssh keys:
 
 Generate ssh keys 
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
 
-Here we describe how to generate ssh keys  on your laptop and how to copy
-a public key to your account on the HPC3 cluster.
-
-Here we assume ssh is from OpenSSH, for other ssh versions please
+Here we assume your ``ssh`` is from OpenSSH, for other ssh versions please
 use your specific software instructions.
 
-1. Check ssh version
+To generate ssh keys on your laptop and to copy a public key to your account on the HPC3 cluster
+do the following:
+
+1. Check your ssh software is OpenSSH
 
    .. code-block:: console
 
       ssh -V
       OpenSSH_8.6p1, LibreSSL 3.3.6
+   
+   The output shows **OpenSSH**
 
-2. Create ssh keys
+2. Create ssh keys via ``ssh-keygen`` command
 
    .. code-block:: console
 
@@ -187,22 +201,21 @@ use your specific software instructions.
    and :tt:`myhpc.pub`  is a corresponding public key. They always are 
    generated and work as a pair. 
 
-   .. important:: | Private key should NEVER be shared
-                  | Use a passphrase for your key (remember it)
+   .. attention:: | Private key should NEVER be shared
+                  | Use a non-empty passphrase for your key (remember it)
 
-3. Transfer the public key from your laptop to your account on HPC3
+3. Use ``ssh-copy-id`` to transfer the public key from your laptop to your account on HPC3
 
    You will be prompted for the standard DUO authentication
-   and password to run this command.
+   and password to run this command. Use your UCINetID:
 
    .. code-block:: console
 
       cd ~/.ssh
       ssh-copy-id -i myhpc ucinetid@hpc3.rcic.uci.edu
 
-   UCInetID is your account. The key will be placed into your 
-   HPC3 home directory :tt:`$HOME/.ssh/authorized_keys file`
-
+   The key will be placed into your home directory in
+   :tt:`$HOME/.ssh/authorized_keys` file.
 
 .. _ssh xforward:
 
@@ -210,14 +223,16 @@ Ssh and Xforward
 ^^^^^^^^^^^^^^^^
 
 If you want X-windows graphics to be forwarded through your ssh connection,
-then you should use the :tt:`-X` option in your ssh command:
+then you should use the :tt:`-X` option in your ssh command, for example one
+of the following:
 
   .. code-block:: console
 
      ssh -X panteater@hpc3.rcic.uci.edu
-	    or 
      ssh -X hpc3.rcic.uci.edu -l panteater
 
+
+.. _filezilla duo:
 
 Using FileZilla and DUO 
 ------------------------
@@ -229,6 +244,9 @@ For exact instructions please see `Filezilla Site Manger <https://wiki.filezilla
 .. image:: images/filezilla.png
    :align: center
    :alt: site manager settings 
+
+
+.. _filezilla ssh keys:
 
 FileZilla with SSH keys 
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -246,7 +264,7 @@ Using  MobaXterm and DUO
 ------------------------
 
 Make sure that in your MobaXterm :guilabel:`SSH tab -> Advanced ssh settings`
-your :guilabel:`Remote Environment` is set to **Interative shell**:
+your :guilabel:`Remote Environment` is set to :guilabel:Interactive shell`:
 
 .. image:: images/mobaxterm.png
    :align: center
@@ -254,6 +272,6 @@ your :guilabel:`Remote Environment` is set to **Interative shell**:
 
 .. attention::
 
-   :red:`MobaXterm users DO NOT enable Remote monitoring!`
-   See :ref:`mobaxterm monitoring` for more info.
+   | DO NOT enable Remote monitoring!
+   | See :ref:`mobaxterm monitoring` for more info.
 
