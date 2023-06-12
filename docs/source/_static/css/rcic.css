@@ -8,6 +8,7 @@
 --rcicorange:#e56306;
 --paleblue:#e1effa;
 --bluelight: #0092e0;
+--proposed: #00afaf;
 }
 
 /* these colors can be used in roles */
@@ -77,8 +78,17 @@
   font-size: 90%;
   font-weight: 600;
   background-color: #efefff !important;
+/*
   padding: 0em 0.5ex;
   letter-spacing:0;
   -webkit-border-radius: 4px; border-radius: 4px;
   text-rendering:optimizeSpeed;word-wrap:break-word;
+*/
+}
+
+/* make a title  outside of TOC */
+.section {
+    color: #557799;
+	font-weight: bold;
+    font-size: 18px;
 }

@@ -55,7 +55,6 @@
 
 .. role:: handout
 
-
 .. Incremental Display
    ===================
 
@@ -73,3 +72,4 @@
 
 .. role:: underline
 .. role:: tt
+.. role:: section
