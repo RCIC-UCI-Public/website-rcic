@@ -44,6 +44,7 @@ RCIC User Documentation
    storage/crsp
    storage/data-transfer
 
+
 .. toctree::
    :maxdepth: 1
    :caption: Software
@@ -72,6 +73,7 @@ RCIC User Documentation
    guides/beginner
    guides/reference
    guides/ssh
+   storage/crsp-clients
    tutorials/listing
 
 .. toctree::
