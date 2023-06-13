@@ -91,6 +91,8 @@ The recharge tables below provides more details on costs and commitment.
 Proposed rates for CRSP and CPU/GPU hours are in the process of being approved by the UCI recharge
 rate review process. TODO (leave?) These have not been finalized.
 
+.. _recharge storage rates:
+
 .. table:: **Storage Related Recharges**
    :class: recharge-table
 
