@@ -5,6 +5,12 @@ CRSP clients
 
 Depending on your laptop there are a few clients that can be installed.
 
+Please note that RCIC does not provide Windows OS or macOS support for the campus.
+If there is an operating system related issue, RCIC will refer you to you get support
+to address your systems issue first before installing CRSP Desktop.
+
+For issues with clients please see :ref:`crsp troubleshoot`
+
 .. _client desktop mac:
 
 CRSP Desktop App for MacOS
@@ -225,13 +231,6 @@ The following figure shows 3 configured shares:
 
    Figure 12: Multiple Shares confgured
 
-.. _mac troubleshooting:
-
-Troubleshooting
-^^^^^^^^^^^^^^^
-
-TODO If you encounter issues with the installation, contact CRSP support via e-mail hpc-support@uci.edu.
-
 .. _client desktop windows:
 
 CRSP Desktop App for Windows
@@ -444,15 +443,6 @@ Here is an example with multiple connections configured and active:
    :alt: multiple lab shares
 
    Figure 11: Multiple Lab Shares
-
-
-.. _windows troublwshooting:
-
-Troubleshooting
-^^^^^^^^^^^^^^^
-
-TODO If you encounter issues with the installation, contact CRSP support via e-mail hpc-support@uci.edu.
-
 
 .. _client web browser:
 
