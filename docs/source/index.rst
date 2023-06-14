@@ -42,6 +42,7 @@ RCIC User Documentation
    storage/dfs
    storage/crsp
    storage/crsp-clients
+   storage/crsp-troubleshoot
 
 .. toctree::
    :maxdepth: 1
