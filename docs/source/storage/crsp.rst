@@ -159,7 +159,7 @@ Default Lab Setup
 ^^^^^^^^^^^^^^^^^
 
 For each LAB area, the :tt:`PI` is the owner of the space.
-There are two Unix groups pre-defined for all labs:
+There are two Unix groups predefined for all labs:
 
 * :tt:`pi_lab`: Only the lab owner is in this group 
 * :tt:`pi_lab_share`: All members of the lab including the lab owner.
@@ -209,20 +209,21 @@ instructions:
    +------------------------------+-------------------------------------------------------------------------------------------+
    | :ref:`client desktop windows`| *CRSP Desktop* clients are for accessing CRSP from Windows and MacOS laptops.             |
    | :ref:`client desktop mac`    | We provide licensed and branded version of a commercial software *Mountain Duck*.         |
-   |                              |                                                                                           |
-   |                              | .. important::                                                                            |
-   |                              |                                                                                           |
-   |                              |    Although CRSP storage system could be accessed via other commercial or open source     |
-   |                              |    software *CRSP Desktop* is the currently supported SFTP based software. Other software |
-   |                              |    support is provided only on a best effort basis (FileZilla, WinSCP, CyberDuck).        |
    +------------------------------+-------------------------------------------------------------------------------------------+
-   | :ref:`client web browser`    | This access is used for *lightweight* CRSP resource usage, supports file or direvtory     |
+   | :ref:`client web browser`    | This access is used for *light weight* CRSP resource usage, supports file or direvtory    |
    |                              | uploads/downloads and provides in-browser edit capabilities for certain file types.       |
    +------------------------------+-------------------------------------------------------------------------------------------+
    | :ref:`client sshfs`          | *SSHFS* can be used for accessing CRSP shares from a Linux laptop/desktop.                |
    +------------------------------+-------------------------------------------------------------------------------------------+
    | :ref:`client from hpc3`      | *NFS mount* on HPC3 provides and access to the CRSP's LAB and HOME areas.                 |
    +------------------------------+-------------------------------------------------------------------------------------------+
+
+.. attention:: 
+
+   Although CRSP storage system could be accessed via other commercial or open source
+   desktop clients such as FileZilla, WinSCP, CyberDuck, the  **CRSP Desktop** client is the currently
+   supported SFTP based software. Other desktop clients support is provided only on a best effort basis.
+
 
 
 TODO Consult our link:debugging.html[Troubleshooting Guide] if you have  trouble accessing your CRSP shares.
@@ -280,26 +281,185 @@ There are two ways to check your quotas:
 
 .. _crsp snapshots:
 
-CRSP Snapshots
---------------
+Snapshots
+---------
 
-TODO
+.. _crsp snapshots default:
 
+Default settings
+^^^^^^^^^^^^^^^^
+
+A snapshot of a file system is a logical, point-in-time, read-only, copy of all files. 
+It's not really a complete copy. Instead, the file system keeps track of files that are *changed*
+or *deleted* after the snapshot was made.
+
+By definition, **all snapshots are read-only**, meaning you cannot delete a file from a snapshot.
+Restoring a file from a snapshot is as simple as copying the file back to your working directory/folder.
+
+On CRSP, all snapshots are labeled by date and time. The timezone is GMT (Greenwich Mean Time).  
+Snapshots are point-in-time copies of the CRSP file system.  Snapshots are taken 
+
+TODO verify 
+
+* daily, keep last 14
+* weekly, keep last 8
+
+.. attention:: Files that were deleted more than 8 weeks ago are gone forever
+
+Is Snapshot a Backup?
+
+Not really. Backups are generally thought of as historical copies of files and users could go to a backup to  
+recover a file from many months ago. Snapshots provide some safety against the common "accidentally deleted" use case.  
+Files created and deleted in the same time interval between two snapshots are not recorded in any snapshot and have no recovery.
+CRSP does not keep historical backups of data.
+ 
+.. _crsp snapshots location:
+
+Location
+^^^^^^^^
+
+Due to the architecture of the underlying filesystem (GPFS)
+you must first navigate to the **top level of the CRSP file system**
+and then navigate downwards to the correct snapshot to find yours. 
+
+This means that you will see names of all possible labs or home area folders (and there are 1000s of them on CRSP).
+Rest assured that only you and those you designate can see any files inside.
+
+.. important:: All access permissions are fully enforced, even when navigating snapshots.
+
+Each snapshot is a directory  that is named after its creation date.
+The snapshots are held in:
+
+* :tt:`HOME-SNAPSHOTS` - directory for HOME area snapshots
+* :tt:`LAB-SNAPSHOTS` - directory for LAB area snapshots
+
+1. **From HPC3**
+
+   Top level of the CRSP file system is mounted as :tt:`/share/crsp` thus
+   the snapshots are available in :tt:`/share/crsp/HOME-SNAPSHOTS` and
+   :tt:`/share/crsp/LAB-SNAPSHOPTS`.
+
+   For example, a user *panteater* can find HOME area snapshots as:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ ls /share/crsp/HOME-SNAPSHOTS
+      @GMT-2021.07.11-10.00.00  @GMT-2021.08.06-01.00.14  @GMT-2021.08.10-13.00.07
+      @GMT-2021.07.18-10.00.00  @GMT-2021.08.07-01.00.14  @GMT-2021.08.11-01.00.14
+      @GMT-2021.07.25-10.00.00  @GMT-2021.08.08-01.00.14  @GMT-2021.08.11-13.00.07
+      @GMT-2021.08.01-10.00.00  @GMT-2021.08.08-10.00.00  @GMT-2021.08.12-01.00.14
+      @GMT-2021.08.03-01.00.14  @GMT-2021.08.09-01.00.14  @GMT-2021.08.12-13.00.07
+      @GMT-2021.08.04-01.00.14  @GMT-2021.08.09-13.00.07  @GMT-2021.08.13-01.00.14
+      @GMT-2021.08.05-01.00.14  @GMT-2021.08.10-01.00.14  @GMT-2021.08.13-13.00.07
+
+   And then browse the contents of a specific snapshot using your UCINetID as:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ ls /share/crsp/HOME-SNAPSHOTS/@GMT-2021.08.08-10.00.00/panteater
+
+2. **From CRSP Desktop**
+
+   In your *CRSP Desktop* application connect to the crsp-top-level 
+   share connection (it is predefined in the *CRSP Desktop* installation).
+
+   TODO See <<crsp-desktop-install-win.txt#,Windows>>  or <<crsp-desktop-install-mac.txt#,Mac>> instructions.
+
+   Once at the top level, you will find snapshots labeled by their creation date
+   in the folders labeled :guilabel:`HOME-SNAPSHOTS` and :guilabel:`LAB-SNAPSHOTS`.
+
+3. **From web browser**
+
+   In your :ref:`client web browser` interface navigate to the CRSP top level,
+   you will see a folder structure that is similar to the following:
+
+
+   .. _crsp lab top level:
+
+   .. figure:: images/crsp-lab-top-level.png
+      :align: center
+      :alt: crsp lab top level
+
+      File browser top level
+
+   Snapshots are held in the folders labeled :guilabel:`HOME-SNAPSHOTS` and :guilabel:`LAB-SNAPSHOTS`.
+   To find available snapshots for LAB area click on :guilabel:`LAB-SNAPSHOTS`:
+
+
+   .. _crsp lab snapshots:
+
+   .. figure:: images/crsp-lab-snapshots.png
+      :align: center
+      :alt: crsp lab snapshots
+
+      File browser LAB-SNAPSHOTS
+
+   In this example, the most recent snapshot is the last listed.  Its name indicates the 
+   time stamp when this snapshot was taken: May 05, 2021 at 19:00:01 (GMT).
+   This translates to May 5, 2021 11:00:01 AM (PST). 
+   This snapshot contains logical copy of all CRSP lab folders, as they were at that point in time.  
 
 .. _crsp files recovery:
 
 Deleted Files Recovery
------------------------
+----------------------
 
-TODO
+A common mistake is an accidental file deletion. In many cases, but not all,
+users can retrieve a previous copy of the file. 
 
-Mistakes happen and a common one is an unintentional deletion. In many cases, but not all,
-users can retrieve a previous copy of the file.  CRSP uses file system snapshots
-to create  read-only copies of user data at specific points in time.
-
-* Currently, CRSP snapshots the file system every 12 hours and retains snapshots for 1 week.
 * If the file you just deleted was created prior to the most-recent snapshot, you can get a
-  copy of the file as it was when the snapshot was created. *Any changes made after the most recent snapshot are lost.*
-* *If you wait longer than 7 days to recover a deleted file, it is gone forever.*
+  copy of the file as it was when the snapshot was created.
+* *Any changes made after the most recent snapshot are lost.*
+* If you wait longer than time specified in :ref:`crsp snapshots default` to recover a deleted file, it is gone forever.
 
-To recover a lost file, please see the <<snapshot-recovery.txt#, recovery guide>>.
+The following steps explain how to recover a deleted file from a snapshot
+using different access methods.
+
+1. **From CRSP Desktop**
+
+   Use your CRSP Desktop application to connect to the desired share
+   TODO (<<crsp-desktop-install-win.txt#,Windows>> or <<crsp-desktop-install-mac.txt#,Mac>> instructions) then 
+   use it just like a folder or network drive to copy desired files and folders from a
+   specific snapshot.
+
+2. **From HPC3**
+
+   One can use usual Unix commands ``ls``, ``cd``, ``cp`` to find and copy
+   desired files and directories from the snapshot to the location where you
+   need to restore them.
+
+   For example, a user *panteater*  who has an access to *peterlab* can restore a single file accidentally
+   deleted from its LAB area: 
+
+   .. code-block::
+
+      [user@login-x:~]$ cd /share/crsp/lab/peterlab/panteater
+      [user@login-x:~]$ cp /share/crsp/LAB-SNAPSHOTS/@GMT-2021.08.08-10.00.00/peterlab/panteater/important-file important-file
+
+3. **From web browser**
+
+   In order to recover the file, you must navigate into the 
+   :ref:`crsp lab top level` and :ref:`crsp lab snapshots`.
+   At this point, find the snapshot (folder) that has a copy of your file.
+
+   In the following example the path starts with :guilabel:`LAB-SNAPSHOTS / @GMT-2019.5.13-19.00.1`,
+   this indicates that we navigated into a specific snapshot :guilabel:`@GMT-2019.5.13-19.00.1`
+   in the LAB area. The rest of the path is the desired file *module-hpc.log-20201011* location.
+
+   Once the desired file is found:
+
+   | (1) select desired files by checking the box left of the file name
+   | (2) click :guilabel:`Download` to download selected files to your desired *writable folder*. 
+
+   .. centered:: Selecting files in snapshots 
+
+   .. image:: images/crsp-lab-snapshot-file.png
+      :align: center
+      :alt: selecting files in snapshot
+
+   At that point, you have restored from the snapshot your desired files.
+ 
+   You may also copy the file in your usual manner  per your host operating system  
+   `Windows <https://www.lifewire.com/how-do-i-copy-a-file-in-windows-2619210>`_,
+   `MacOS <https://alvinalexander.com/mac-os-x/mac-copy-files-mac-finder-copy-files>`_
+   and <Linux <https://www.cyberciti.biz/faq/copy-command>`_
