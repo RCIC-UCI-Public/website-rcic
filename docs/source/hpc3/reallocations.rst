@@ -114,6 +114,8 @@ in the previous 6 months and the reallocation is calculated as follows:
 :usage < 100 hours for 12 months:
   set to Min allocation 
 
+.. _reallocation bins:
+
 .. table:: Example Reallocation Scenarios for no-cost Granted Core hours
    :class: noscroll-table
 
