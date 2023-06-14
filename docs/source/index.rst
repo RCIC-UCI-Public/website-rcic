@@ -17,7 +17,6 @@ RCIC User Documentation
    :caption: News & Events
 
    news/latest
-   news/archive
 
 .. toctree::
    :maxdepth: 1
@@ -42,8 +41,7 @@ RCIC User Documentation
    storage/home
    storage/dfs
    storage/crsp
-   storage/data-transfer
-
+   storage/crsp-clients
 
 .. toctree::
    :maxdepth: 1
@@ -73,7 +71,8 @@ RCIC User Documentation
    guides/beginner
    guides/reference
    guides/ssh
-   storage/crsp-clients
+   guides/unix-primer
+   storage/data-transfer
    tutorials/listing
 
 .. toctree::
@@ -82,5 +81,5 @@ RCIC User Documentation
 
    references/glossary
    references/hardware-faq
-   references/unix-primer
+   references/archive
 
