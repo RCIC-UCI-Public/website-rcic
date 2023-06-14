@@ -1,7 +1,7 @@
 .. _news archive:
 
-Archive
-=======
+News Archive
+============
 
 .. _news 2022:
 
