@@ -89,6 +89,12 @@ It really doesn't. Slurm will not  start the job unless there is enough
 credit to start the job. For example, a job is submitted with a requirements
 of *16 core-weeks* will not start unless an account has  *16 x 24 x 7 = 2688 core hours*.
 
+My account reallocation is less than 100,00 core-hours, why is that?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The no-cost reallocation is calculated every 6 months based on the lab's
+previous  usage. PLease see details in :ref:`no-cost reallocation`.
+
 :bluelight:`Files storage and transfer`
 ---------------------------------------
 
