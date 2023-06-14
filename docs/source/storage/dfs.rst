@@ -399,7 +399,7 @@ from the following paths:
 .. _selective backup recovery:
 
 Deleted files recovery
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 .. note:: Deleted files and directories can be recovered provided they exist in the selective backup.
           Note: You have to be on a login node to access backup files.
