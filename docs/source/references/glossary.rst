@@ -8,6 +8,10 @@ This page includes a number of terms that we use in our documentation.
    RCIC
      The Research Cyberinfrastructure Center (RCIC) at the University of California, Irvine 
 
+   RPM
+     The RPM Package Manager (also known as RPM) is a powerful package
+	 management system. See `RPM <https://rpm.org>`_.
+
    HPC
      High Performance Computing
 
