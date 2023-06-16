@@ -48,6 +48,7 @@ RCIC User Documentation
    :maxdepth: 1
    :caption: Software
 
+   software/software
    software/modules
 
 .. toctree::
