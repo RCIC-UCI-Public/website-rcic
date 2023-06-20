@@ -386,7 +386,7 @@ User installed modules
 You don't need to create a new module if you are installing
 packages (a.k.a language modules) for Python/R/Perl, or when adding packages with conda.
 
-Please see the install guides in :ref:`software user installed` that explain
+Please see the install guides in :ref:`user installed` that explain
 how to create conda environments, or to install Python/R/Perl packages.
 
 Users can install additional software and add environment module for it
