@@ -1,0 +1,425 @@
+Module Name,CentOS 7,Rocky Linux 8,Comments
+abaqus/2019,yes,:red:`NO`,Unused
+afni/20.3.01,yes,yes,''
+afni/22.1.09,,yes,New version
+amber/19.11/gcc.8.4.0,yes,yes,''
+amber/21.12/gcc.11.2.0,,yes,New version
+anaconda/2020.07,yes,yes,''
+anaconda/2021.11,yes,yes,''
+anaconda/2022.05,yes,yes,New version
+ansys/2019R2,yes,yes,''
+ansys/2020R2,yes,yes,''
+ants/2.2.0,yes,yes,''
+ants/2.3.5,,yes,New version
+aria2/1.36.0,yes,yes,''
+ashs/2.0.0,yes,:red:`NO`,Unused
+awscli/2.8.3,,yes,New version
+bamtools/2.5.1,yes,yes,''
+bamtools/2.5.2,,yes,New version
+bandage/0.8.1,yes,:red:`NO`,Unused
+bazel/0.26.1,yes,yes,''
+bazel/4.2.2,,yes,New version
+bbmap/38.87,yes,yes,''
+bbmap/38.96,,yes,New version
+bcftools/1.10.2,yes,yes,''
+bcftools/1.15.1,,yes,New version
+bedops/2.4.39,yes,yes,''
+bedtools2/2.29.2,yes,yes,''
+bedtools2/2.30.0,,yes,New version
+bioconda/4.8.3,yes,yes,''
+biom-format/2.1.12,yes,yes,''
+bionetgen/2.5.1,yes,yes,''
+bionetgen/2.8.0,,yes,New version
+bismark/0.22.3,yes,yes,''
+bismark/0.23.1,,yes,New version
+boost/1.50.0/gcc.8.4.0,yes,yes,''
+boost/1.66.0/gcc.8.4.0,yes,yes,''
+boost/1.71.0/gcc.8.4.0,yes,yes,''
+boost/1.78.0/gcc.8.4.0,yes,yes,''
+boost/1.78.0/gcc.11.2.0,,yes,New version
+bowtie/1.2.3,yes,yes,''
+bowtie2/2.4.1,yes,yes,''
+bowtie2/2.4.4,yes,yes,''
+bowtie2/2.4.5,,yes,New version
+bowtie2-python2/2.4.1,yes,yes,''
+bracken/2.6.0,yes,yes,''
+bracken/2.6.2,,yes,New version
+breseq/0.35.7,yes,:red:`NO`,Unused
+bustools/0.40.0,yes,yes,''
+bwa/0.7.17,yes,yes,''
+bwa/0.7.8,yes,yes,''
+canu/2.0,yes,yes,''
+cdhit/4.8.1,yes,yes,''
+cellranger/3.0.2,yes,:red:`NO`,Unused
+cellranger/3.1.0,yes,yes,''
+cellranger/6.1.2,yes,yes,''
+cellranger/7.0.1,,yes,New version
+cgal/5.0.2,yes,:red:`NO`,Unused
+charm/6.10.1/gcc.8.4.0,yes,yes,''
+charm/6.10.1/gcc.8.4.0-openmpi.4.0.3,yes,:red:`NO`,Unused
+charm/7.0.0/gcc.11.2.0,,yes,New version
+chimera/1.15,yes,:red:`NO`,Unused
+cistem/1.0.0,yes,:red:`NO`,Unused
+clang/10.0.0,yes,:red:`NO`,Unused
+clang/11.1.0,,yes,New version
+clang/13.0.0,,yes,New version
+clang/9.0.1,yes,:red:`NO`,Unused
+cmake/3.20.5,,yes,New version
+cmake/3.22.1,,yes,New version
+cmseq/1.0.4,yes,yes,''
+computecpp/1.3.0,yes,:red:`NO`,Unused
+comsol/5.6.0,yes,:red:`NO`,Unused
+cuda/10.1.243,yes,yes,''
+cuda/11.4.0,yes,yes,''
+cuda/11.7.1,yes,yes,New version
+cudasdk/20.7,yes,:red:`NO`,Unused
+cufflinks/2.2.1,yes,:red:`NO`, :red:`Use singularity container`
+cutadapt/2.10,yes,yes,''
+cutadapt/4.0,,yes,New version
+deeptools/3.5.0,yes,yes,''
+deeptools/3.5.1,,yes,New version
+dendropy/4.5.2,yes,yes,''
+diamond/2.0.4,yes,yes,''
+diamond/2.0.15,,yes,New version
+dream3d/6.5.141,yes,:red:`NO`,Unused
+edirect/1.0,yes,:red:`NO`,:red:`Renamed as edirect/2020`
+edirect/2020,,yes,New version
+edirect/2022,,yes,New version
+eigen/3.3.7,yes,yes,''
+eigen/3.4.0,,yes,New version
+fastmitocalc/1.0,yes,:red:`NO`,Unused
+fastp/0.20.0,yes,yes,''
+fastp/0.23.2,,yes,New version
+fastqc/0.11.9,yes,yes,''
+fastqtl/2.184,yes,:red:`NO`,Unused
+fasttree/2.1.11,yes,yes,''
+ffmpeg/0.10.16,yes,yes,''
+ffmpeg/1.2.12,yes,yes,''
+ffmpeg/4.1.3,yes,yes,''
+fftw/3.3.10/gcc.11.2.0,,yes,New version
+fftw/3.3.10/gcc.11.2.0-openmpi.4.1.2,,yes,New version
+fftw/3.3.8/gcc.4.8.5,yes,:red:`NO`,:red:`Use fftw/3.3.8/gcc.system`
+fftw/3.3.8/gcc.system,,yes,New version
+fftw/3.3.8/gcc.8.4.0,yes,yes,''
+fftw/3.3.8/gcc.8.4.0-openmpi.4.0.3,yes,yes,''
+flye/2.7.1,yes,:red:`NO`,Unused
+foundation,yes,:red:`NO`,:red:`Renamed as foundation/v7`
+foundation/v7,,yes,New version
+foundation/v8,,yes,New version
+freebayes/1.3.2,yes,yes,''
+freesurfer/6.0.1,yes,yes,''
+freesurfer/7.1.1,yes,yes,''
+freesurfer/7.2.0,yes,yes,''
+freetype/2.10.2,yes,yes,''
+fsl/6.0.4,yes,yes,''
+gatk/2.4,yes,:red:`NO`,Unused
+gatk/4.1.9.0,yes,yes,''
+gatk/4.2.6.1,,yes,New version
+gaussian/16,yes,yes,''
+gcc/4.8.5,yes,:red:`NO`,:red:`Use gcc/system`
+gcc/system,,yes*,New version
+gcc/6.5.0,yes,yes,''
+gcc/8.4.0,yes,yes,''
+gcc/11.2.0,,yes,New version
+gdal/3.1.0,yes,yes,''
+gdal/3.4.1,,yes,New version
+geos/3.8.1,yes,yes,''
+geos/3.10.2,,yes,New version
+gffread/0.12.4,yes,:red:`NO`,Unused
+glpk/5.0,yes,yes,''
+go/1.13,yes,:red:`NO`,:red:`Removed per security issue. Use latest version`
+go/1.17.7,,yes,New version
+gromacs/2020.4/gcc.8.4.0,yes,yes,''
+gromacs/2020.4/gcc.8.4.0-cuda.10.1.243,yes,yes,''
+gromacs/2020.4/gcc.8.4.0-cuda.10.1.243.openmpi.4.0.3,yes,yes,''
+gromacs/2020.4/gcc.8.4.0-cuda.10.1.243.openmpi.4.0.3.plumed.2.6.1,yes,yes,''
+gromacs/2020.4/gcc.8.4.0-openmpi.4.0.3,yes,yes,''
+gromacs/2021.2/gcc.8.4.0,yes,yes,''
+gromacs/2021.2/gcc.8.4.0-cuda.10.1.243,yes,yes,''
+gromacs/2021.2/gcc.8.4.0-cuda.10.1.243.openmpi.4.0.3,yes,yes,''
+gromacs/2021.2/gcc.8.4.0-openmpi.4.0.3,yes,yes,''
+gromacs/2022.1/gcc.8.4.0,,yes,New version
+gromacs/2022.1/gcc.8.4.0-cuda.11.7.1,,yes,New version
+gromacs/2022.1/gcc.8.4.0-cuda.11.7.1.openmpi.4.1.2,,yes,New version
+gromacs/2022.1/gcc.8.4.0-openmpi.4.1.2,,yes,New version
+gsl/2.6/gcc.8.4.0,yes,yes,''
+gsl/2.7.1/gcc.11.2.0,,yes,New version
+hclust2/1.0.0,yes,yes,''
+hdf4/4.2.15,yes,yes,''
+hdf5/1.10.5/gcc.4.8.5,yes,:red:`NO`,:red:`Use hdf5/1.10.5/gcc.system`
+hdf5/1.10.5/gcc.system,,yes,New version
+hdf5/1.10.5/gcc.4.8.5-openmpi.1.10.7,yes,:red:`NO`,:red:`Use hdf5/1.10.5/gcc.system-openmpi.4.1.1`
+hdf5/1.10.5/gcc.system-openmpi.4.1.1,,yes,New version
+hdf5/1.10.5/gcc.8.4.0,yes,yes,''
+hdf5/1.10.5/gcc.8.4.0-openmpi.4.0.3,yes,yes,''
+hdf5/1.10.5/intel.2020u1,yes,yes,''
+hdf5/1.10.5/intel.2020u1-openmpi.4.0.3,yes,yes,''
+hdf5/1.13.1/gcc.11.2.0,,yes,New version
+hdf5/1.13.1/gcc.11.2.0-openmpi.4.1.2,,yes,New version
+hdf5/1.13.1/gcc.system,,yes,New version
+hdf5/1.13.1/gcc.system-openmpi.4.1.1,,yes,New version
+hdf5/1.13.1/intel.2022.2,,yes,New version
+hdf5/1.13.1/intel.2022.2-openmpi.4.1.2,,yes,New version
+hisat2/2.2.1,yes,yes,''
+hisat-genotype/1.3.2,yes,:red:`NO`,Unused
+hmmer/3.3,yes,yes,''
+htslib/1.10.2,yes,yes,''
+htslib/1.15.1,,yes,New version
+humann/3.0.1,yes,yes,''
+icu/65.1,yes,yes,''
+icu/70.1,,yes,New version
+igv/2.8.9,yes,yes,''
+igv/2.12.3,,yes,New version
+imagemagick/7.0.10.26,yes,yes,''
+imagemagick/7.1.0.30,,yes,New version
+intel/2020u1,yes,yes,New version
+intel/2022.2,,yes,New Version
+intel-tbb/20190605,yes,yes,''
+intel-tbb/2021.5.0,,yes,New version
+ioapi/3.2/gcc.4.8.5,yes,:red:`NO`,Unused
+ioapi/3.2/gcc.8.4.0,yes,:red:`NO`,Unused
+ioapi/3.2/intel.2020u1,yes,yes,''
+ioapi/3.2/gcc.11.2.0,,yes,New version
+ioapi/3.2/intel.2022.2,,yes,New version
+isal/2.30.0,,yes,New version
+jags/4.3.0,yes,yes,''
+java/1.7.0,yes,:red:`NO`,:red:`No longer provided by the OS`
+java/1.8.0,yes,yes,''
+java/11,yes,yes,''
+java/17,,yes,New version
+Jellyfish/2.3.0,yes,yes,''
+jsoncpp/1.9.4,yes,yes,''
+jsoncpp/1.9.5,,yes,New version
+julia/1.5.1,yes,yes,''
+julia/1.6.0,yes,yes,''
+julia/1.7.1,,yes,New version
+julia/1.8.2,,yes,New version
+kallisto/0.46.2,yes,yes,''
+kallisto/0.48.0,,yes,New version
+kneaddata/0.10.0,yes,yes,''
+kraken2/2.1.1,yes,yes,''
+kraken2/2.1.2,,yes,New version
+lammps/3Mar2020/gcc.8.4.0,yes,yes,''
+lammps/29Sep2021/gcc.11.2.0,,yes,New version
+lapack/3.9.0,yes,yes,''
+libdeflate/1.10,,yes,New version
+libjpeg/9d,yes,yes,''
+libpng/1.6.37,yes,yes,''
+likwid/5.0.1,yes,yes,''
+likwid/5.2.1,,yes,New version
+llvm/9.0.1,yes,yes,''
+llvm/10.0.0,yes,:red:`NO`,Unused
+llvm/11.1.0,,yes,New version
+llvm/13.0.0,,yes,New version
+loompy/3.0.6,yes,yes,''
+lz4/1.9.3,,yes,New version
+macs/2.2.7.1,yes,yes,''
+mafft/7.471,yes,yes,''
+mapDamage/2.2.0,yes,:red:`NO`,Unused
+marc/2020,yes,yes,''
+MATLAB/R2020a,yes,yes,''
+MATLAB/R2020b,yes,yes,''
+MATLAB/R2021b,yes,yes,''
+mcl/14.137,yes,yes,''
+mdanalysis/0.20.1,yes,:red:`NO`,Unused
+mdtraj/1.9.3,yes,yes,''
+mdtraj/1.9.7,,yes,New version
+megahit/1.2.9,yes,yes,''
+meme/5.2.0,yes,yes,''
+meme/5.4.1,,yes,New version
+mentat/2020,yes,yes,''
+metaphlan/3.0.14,yes,yes,''
+midas/1.3.2,yes,yes,''
+miniconda3/4.8.5,yes,yes,''
+miniconda3/4.12.0,,yes,New version
+minimap2/2.17,yes,yes,''
+minimap2/2.23,yes,:red:`NO`,Unused
+minimap2/2.24,,yes,New version
+mkl/2019.5.281,yes,yes,''
+mpich/3.3.2/gcc.8.4.0,yes,yes,:red:`Start using newer version`
+mpich/3.3.2/intel.2020u1,yes,:red:`NO`,Unused
+mpich/3.4/gcc.8.4.0,yes,yes,''
+mpich/3.4/intel.2020u1,yes,yes,''
+mpich/4.0/gcc.11.2.0,,yes,New version
+mpich/4.0/intel.2022.2,,yes,New version
+mrtrix3/3.0.2,yes,yes,''
+mrtrix3/3.0.3,,yes,New version
+mummer/4.0.0,yes,yes,''
+namd/2.14b2/gcc.8.4.0,yes,yes,''
+namd/2.14b2/gcc.8.4.0-cuda.10.1.243,yes,yes,''
+namd/2.14b2/gcc.8.4.0-openmpi.4.0.3,yes,yes,''
+ncbi-blast/2.10.0,yes,yes,''
+ncbi-blast/2.13.0,,yes,New version
+ncbi-ngs/2.10.2,yes,yes,''
+ncbi-vdb/2.10.2,yes,yes,''
+ncl/6.6.2,yes,yes,''
+nco/4.9.6/gcc.8.4.0,yes,yes,''
+nco/5.0.6/gcc.11.2.0,,yes,New version
+netcdf-c/4.7.0/gcc.4.8.5,yes,:red:`NO`,Unused
+netcdf-c/4.7.0/gcc.8.4.0,yes,yes,''
+netcdf-c/4.7.0/intel.2020u1,yes,yes,''
+netcdf-c/4.8.1/gcc.11.2.0,,yes,New version
+netcdf-c/4.8.1/intel.2022.2,,yes,New version
+numba/0.50.1,yes,:red:`NO`,:red:`Available via Python 3 modules`
+oneAPI/2021.1_beta05,yes,:red:`NO`,Unused
+openbabel/3.0.0,yes,:red:`NO`,Unused
+OpenBLAS/0.3.6,yes,yes,''
+OpenBLAS/0.3.19,,yes,New version
+OpenCL/2.2,yes,:red:`NO`,Unused
+openeye-toolkits/2019.10.2,yes,:red:`NO`,Unused
+openfoam/7,yes,:red:`NO`,Unused
+openmm/7.4.1,yes,:red:`NO`,Unused
+openmoltools/0.8.6,yes,:red:`NO`,Unused
+openmpi/1.10.7/gcc.4.8.5,yes,:red:`NO`,:red:`Use openmpi/4.1.1/gcc.system`
+openmpi/4.1.1/gcc.system,,yes,New version
+openmpi/4.0.3/gcc.6.5.0,yes,yes,''
+openmpi/4.0.3/gcc.8.4.0,yes,yes,''
+openmpi/4.0.3/intel.2020u1,yes,yes,''
+openmpi/4.1.2/gcc.8.4.0,,yes,New version
+openmpi/4.1.2/gcc.11.2.0,,yes,New version
+openmpi/4.1.2/intel.2022.2,,yes,New version
+opensees/3.3.0,yes,yes,''
+opensees/3.4.0,,yes,New version
+parallel/20200222,yes,yes,''
+parallel/20211222,,yes,New version
+paraview/5.8.0,yes,:red:`NO`,Unused
+perl/5.30.0,yes,yes,''
+perl/5.34.1,,yes,New version
+phylophlan/3.0.2,yes,yes,''
+picard-tools/1.87,yes,yes,''
+picard-tools/2.26.10,yes,yes,''
+picard-tools/2.27.1,,yes,New version
+pilon/1.23,yes,yes,''
+pilon/1.24,,yes,New version
+plink/2.00a2.3,yes,yes,''
+plinkseq/0.08,yes,:red:`NO`,Unused
+plinkseq/0.10,yes,:red:`NO`,Unused
+plumed/2.6.1/gcc.8.4.0,yes,:red:`NO`,Unused
+plumed/2.6.1/gcc.8.4.0-openmpi.4.0.3,yes,yes,''
+plumed/2.8.0/gcc.11.2.0,,yes,New version
+plumed/2.8.0/gcc.11.2.0-openmpi.4.1.2,,yes,New version
+prank/170427,yes,yes,''
+pratt/2.1,yes,:red:`NO`,Unused
+prodigal/2.6.3,yes,yes,''
+proj/6.3.2,yes,yes,''
+proj/9.0.0,,yes,New version
+protobuf/2.4.1,yes,:red:`NO`,Unused
+protobuf/3.11.4,yes,yes,''
+protobuf/3.19.4,,yes,New version
+pyemma/2.5.7,yes,:red:`NO`,Unused
+python/2.7.17,yes,yes,:red:`No longer supported`
+python/3.8.0,yes,yes,''
+python/3.10.2,,yes,New version
+pytorch/1.5.1,yes,yes,''
+pytorch/1.11.0,,yes,New version
+qiime2/2020.8,yes,yes,''
+qiime2/2021.2,yes,yes,''
+qiime2/2022.2,,yes,New version
+qtltools/1.3,yes,:red:`NO`,Unused
+R/3.6.2,yes,:red:`NO`,:red:`Use newer R version` 
+R/4.0.2,yes,:red:`NO`,:red:`Use newer R version`
+R/4.0.4,yes,yes,''
+R/4.1.2,yes,yes,''
+racon/1.4.13,yes,yes,''
+racon/1.5.0,,yes,New version
+raxml/8.2.12,yes,:red:`NO`,Unused
+relion/3.1.0,yes,:red:`NO`,Unused
+repeatmasker/4.1.0,yes,yes,''
+rMATS/4.0.2,yes,:red:`NO`,Unused
+rMATS/4.1.0,yes,yes,''
+rMATS/4.1.1,yes,yes,''
+rMATS/4.1.2,,yes,New version
+roary/3.13.0,yes,yes,''
+rosetta/3.13,,yes,New version
+rsem/1.3.3,yes,yes,''
+rstudio/1.3.1073,yes,:red:`NO`,Unused
+rstudio/1.4.1106,yes,yes,''
+rstudio/2022.02.1.461,,yes,New version
+rustc/1.50.0,yes,:red:`NO`,Unused
+rustc/1.62.0,,yes,New version
+salmon/1.2.1,yes,yes,''
+salmon/1.8.0,,yes,New version
+sambamba/0.8.0,yes,:red:`NO`,Unused
+samtools/1.10,yes,yes,''
+samtools/1.15.1,,yes,New version
+sas/94M7,yes,yes,''
+scalapack/2.1.0,yes,yes,''
+scHLAcount/0.1.1,yes,:red:`NO`,Unused
+schrodinger/2020.1,yes,:red:`NO`,Unused
+scons/3.1.1,yes,yes,''
+scons/4.2.0,,yes,New version
+scotch/6.0.9,yes,:red:`NO`,Unused
+singularity/3.4.1,yes,:red:`NO`,:red:`Does not work under new OS`
+singularity/3.7.2,yes,yes,''
+singularity/3.9.4,,yes,New version
+slim/3.6,yes,:red:`NO`,Unused
+smoldyn/2.61,yes,:red:`NO`,Unused
+spaceranger/1.1.0,yes,:red:`NO`,Unused
+SPAdes/3.14.0,yes,yes,''
+SPAdes/3.15.4,,yes,New version
+sqlite3/3.32.3,yes,yes,''
+sqlite3/3.38.2,,yes,New version
+sra-tools/2.10.4,yes,:red:`NO`,Unused
+sra-tools/2.10.9,yes,yes,''
+sra-tools/2.11.3,,yes,New version
+star/2.7.3a,yes,yes,''
+star/2.7.8a,yes,yes,''
+star/2.7.10a,,yes,New version
+stata/16,yes,yes,:red:`Requires license`
+stata/17,yes,yes,:red:`Requires license`
+stitch/1.6.3,yes,:red:`NO`,Unused
+stringtie/2.1.4,yes,yes,''
+stringtie/2.2.1,,yes,New version
+subread/2.0.1,yes,yes,''
+subread/2.0.3,,yes,New version
+suitesparse/5.7.1,yes,:red:`NO`,Unused
+sundials/5.6.1,yes,:red:`NO`,Unused
+szip/2.1.1,yes,yes,''
+tcl/8.6.9,yes,yes,''
+tcl/8.6.12,,yes,New version
+tensorflow/2.0.0,yes,yes,''
+tensorflow/2.8.0,,yes,New version
+tensorRT/6.0.1.5,yes,:red:`NO`,Unused
+tensorRT/8.4.2.4,,yes,New version
+tk/8.6.9,yes,:red:`NO`,Unused
+tk/8.6.12,,yes,New version
+tophat/2.1.1,yes,yes,''
+transdecoder/5.5.0,yes,:red:`NO`,Unused
+trf/4.0.9,yes,yes,''
+trimgalore/0.6.6,yes,yes,''
+trimgalore/0.6.7,,yes,New version
+trimmomatic/0.39,yes,yes,''
+trinity/2.8.6,yes,yes,''
+turbomole/7.5,yes,yes,''
+turbomole/7.6,yes,yes,''
+turbomole-mpi/7.5,yes,:red:`NO`,Unused
+turbomole-mpi/7.6,yes,:red:`NO`,Unused
+turbomole-smp/7.5,yes,yes,''
+turbomole-smp/7.6,yes,yes,''
+ucsc-tools/v393,yes,yes,''
+ucsc-tools/v429,,yes,New version
+ucx/1.8.0,,yes,New version
+ucx/1.12.0,,yes,New version
+udunits/2.2.26/gcc.4.8.5,yes,:red:`NO`,Unused
+udunits/2.2.26/gcc.8.4.0,yes,yes,''
+udunits/2.2.26/intel.2020u1,yes,yes,''
+udunits/2.2.28/gcc.11.2.0,,yes,New version
+udunits/2.2.28/intel.2022.2,,yes,New version
+unicycler/0.4.8,yes,yes,''
+unicycler/0.5.0,,yes,New version
+usearch/11.0.667,yes,:red:`NO`,Unused
+vasp/5.4.4,yes,yes,:red:`Requires license`
+vasp/6.1.2,yes,yes,:red:`Requires license`
+vcell/7.2.0.39,yes,:red:`NO`,Unused
+vcflib/1.0.1,yes,:red:`NO`,Unused
+vcftools/0.1.16,yes,yes,''
+velocyto/0.17.17,yes,yes,''
+vg/1.23.0,yes,:red:`NO`,Unused
+viennarna/2.4.17/gcc.8.4.0,yes,:red:`NO`,Unused
+vtk/9.0.1,yes,:red:`NO`,Unused
+windninja/3.7.3,yes,:red:`NO`,Unused
+wxWidgets/3.1.3,yes,:red:`NO`,Unused
+xerces-c/3.2.3,yes,:red:`NO`,Unused
+xz/5.2.4,yes,:red:`NO`,:red:`Available via system RPMs`
+xz/5.2.5,,yes,New version
+zlib/1.2.11,yes,:red:`NO`,:red:`Available via system RPMS`

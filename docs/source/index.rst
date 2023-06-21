@@ -50,6 +50,8 @@ RCIC User Documentation
 
    software/software
    software/modules
+   software/updates
+   software/user-installed
 
 .. toctree::
    :maxdepth: 1
