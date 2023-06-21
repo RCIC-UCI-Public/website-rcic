@@ -1,0 +1,34 @@
+#%Module1.0
+#####################################################################
+## Standard header for invoking autoloading functionality 
+##
+source /opt/rcic/include/rcic-module-head.tcl
+
+##### user edits start #####
+# provide module description, used in module help command
+proc ModulesHelp { } {
+        puts stderr "\tModule: gsutil version 4.53"
+}
+
+# provide module description, used in module display command
+module-whatis "Name___________ gsutil"
+module-whatis "Version________ 4.53"
+module-whatis "Description____ gsutil allows interactions with data in Google Buckets"
+
+# any module that were loaded for compiling the software need to be invoked
+if { [module-info mode load] } { LoadPrereq "python/3.8.0" }
+prereq  python/3.8.0 
+
+# set needed environment variables
+setenv GSUTIL_HOMEIX /pub/panteater/SW/gsutil/4.53 
+
+# update needed PATH, LD_LIBRARY_PATH, PYTHONPATH, etc
+prepend-path    PATH    "/pub/panteater/SW/gsutil/4.53/bin" 
+prepend-path PYTHONPATH "/pub/panteater/SW/gsutil/4.53/lib/python3.8/site-packages" 
+
+##### user edits end #####
+
+#####################################################################
+## Standard tail for invoking autoloading functionality 
+## 
+source /opt/rcic/include/rcic-module-tail.tcl
