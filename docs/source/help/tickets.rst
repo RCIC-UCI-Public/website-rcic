@@ -198,7 +198,7 @@ possible.  We strive to say "yes" to software requests, but sometimes do have to
 :underline:`Before asking us to install`:
 
   * Check if the software is already installed on the cluster.
-    See :ref:`software modules` for details.
+    See :ref:`list modules` for details.
   * Install it yourself. We encourage users first to build/install the applications
     in their user area.
 
