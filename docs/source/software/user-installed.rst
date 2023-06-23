@@ -717,7 +717,7 @@ latest available singularity version.
 
        Here, :tt:`hla.simg` is a desired Singularity container to build in the Singularity
        Image File (SIF) format, and :tt:`hla.recipe` is the container
-	   definition file download from the software website.
+       definition file download from the software website.
 
        A successful build will result in creating :tt:`hla.simg` container in the working  directory.
 
