@@ -38,6 +38,7 @@ RCIC User Documentation
    :maxdepth: 1
    :caption: Storage
 
+   storage/overview
    storage/home
    storage/dfs
    storage/crsp
