@@ -23,7 +23,7 @@ RCIC User Documentation
    :caption: Account
 
    account/getting-account
-   account/conduct
+   account/acceptable-use
    account/login
 
 .. toctree::
