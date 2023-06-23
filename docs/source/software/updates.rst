@@ -8,11 +8,12 @@ This page lists specific software and modules changes that are a result of the O
 Please see :ref:`modules` to learn how to use software modules, including 
 how to to see the most recent software versions and availability. 
 
-.. important:: If you are using any modules only by name without specifying versions
-               (for example ``module load X`` stop and start using module name with the version
-               as we always recommended: ``module load X/1.2.3``
-               Otherwise, you will get unexpected results of not knowing which version
-               of the software you are using when a new version is added or an old version is removed.
+.. important:: | If you use any modules only by name without specifying versions as:
+               | ``module load X``   - WRONG!
+               | stop and start using module name with the version as we always recommended:
+               | ``module load X/1.2.3``
+               | When loading without a version you may get unexpected results of using a wrong
+               | version of the software when a new version is added or an old version is removed.
 .. _softwre os:
 
 Operating System
