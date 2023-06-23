@@ -74,7 +74,6 @@ RCIC User Documentation
 
    guides/beginner
    guides/reference
-   software/building-software
    guides/ssh
    guides/unix-primer
    storage/data-transfer
