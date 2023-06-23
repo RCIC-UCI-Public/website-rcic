@@ -18,14 +18,10 @@ There is no cost for a user to obtain an account on HPC3 cluster.
    | :red:`We do not handle or reset passwords for UCINetID`
 
 
-TODO We delete inactive accounts after 1 year of no activity
+After you get a confirmation email about your account being created please review:
 
-Log in
--------
+* :ref:`acceptable use`
+* :ref:`login`
 
-TODO 
+.. note:: We delete inactive accounts after 1 year of no activity
 
-Quotas
-------
-
-Files
