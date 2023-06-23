@@ -30,13 +30,10 @@ what it should be used for, and shows links for in-depth how to use guides.
   | :red:`Do not use for data intensive batch jobs`
 
 :bluelight:`Scratch`
-  | **See details in** :ref:`SCratch storage guide <scratch>`.
+  | **See details in** :ref:`Scratch storage guide <scratch storage>`.
   | Local disk space unique to each compute node 
   | Fastest performance, data is removed when job completes
   | Use as scratch storage for batch Jobs that repeatedly access many small files or make frequent small reads/writes:
-  |   - at job start: user needs to explicitly copy input files from DFS/CRSP to $TMPDIR
-  |   - at job end: user needs to explicitly copy output files from $TMPDIR to DFS/CRSP
-  | In-depth how to use this storage is explained in TODO `Scratch storage <scratch>`
   | :red:`Not available on login nodes`
 
 :bluelight:`Parallel`
