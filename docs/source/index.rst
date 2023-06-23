@@ -78,7 +78,7 @@ RCIC User Documentation
    guides/ssh
    guides/unix-primer
    storage/data-transfer
-   tutorials/listing
+   guides/tutorials
 
 .. toctree::
    :maxdepth: 1
