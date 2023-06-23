@@ -35,16 +35,11 @@ who can charge to their account.  A "bank" can be filled in a variety of ways:
   UCI researchers can purchase prepaid time to fill/augment their banks.
 
 
-**Quick Guide to Most Common Information Requests**
+**Quick links to most common information requests**
   | What are :ref:`allocations` in detail
   | How does :ref:`reallocation` work
   | How to use :ref:`recharge allocations` for buying core-hours or hardware
   | Hardware :ref:`specs` 
-
-TODO  rm next lines:
-  | :ref:`reference guide` HPC3 Reference Guide Jump off point for Quick Start
-  | :ref:`ssh guide` Logging into HPC3. Sub guide to using ssh-agent effectively
-  | :ref:`slurm`  How to use the Job Scheduler
 
 .. _hpc3 goals:
 
