@@ -12,9 +12,6 @@ have numerous (often undocumented) software dependencies, unique build methods, 
 requirements when compared to other applications.
 The size of the problem is quite large, and grows with each new application.
 
-TODO [.h2copy]#Available Software on HPC3#
-TODO <<modules-update.txt#, DETAILED INFO about modules update for Linux 8>>
-
 **RCIC uses a multi-factor approach to provide a stable and flexible environment**
 
   * Adoption of a declarative, repeatable

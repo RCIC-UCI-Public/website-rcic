@@ -53,28 +53,37 @@ The allocation is associated with an account.
 
 .. _getting crsp account:
 
-Getting CRSP account
+Getting CRSP Account
 --------------------
 
 All requests described below must be sent to hpc-support@uci.edu
 
-* **I'm a researcher on campus**
+* **I'm a researcher on campus and I want to have an access**
   If you are a ladder-rank faculty or have an exception granted to act as PI on federal grants
   by UCI Office of research, your account should be pre-created. If you still do not have
   access, please send us a request.
-* **I'm a student/postdoc**
-  Your PI should send a request and include:
-
-  - your UCINetID
-  - indicate if your space should be limited. 
-
-  PI may combine multiple requests in a single email.
 
 * **I'm a researcher and I want to access my colleagues lab**
   Your colleague must send a request and ask for access for you to their lab.
 
 * **I'm a researcher and I want colleagues outside of UCI to have access to my lab**
   You must first sponsor a UCINetID (see :ref:`access`) then send a request to grant access.
+
+* **I'm a researcher and I want to add students/postdocs to my lab**
+  You should send a request and include:
+
+  - your existing CRSP lab name
+  - UCINetIDs and names of the people that you want to add
+  - indicate any of these people should have individual limits
+	and what the limits are. The default behavior is no individual limit. 
+
+* **I'm a student/postdoc**
+  Your PI should send a request and include:
+
+  - your UCINetID
+  - indicate if your space should have an individual limit.
+
+  PI may combine multiple requests in a single email.
 
 
 .. _crsp areas:
@@ -225,8 +234,7 @@ instructions:
    supported SFTP based software. Other desktop clients support is provided only on a best effort basis.
 
 
-
-TODO Consult our link:debugging.html[Troubleshooting Guide] if you have  trouble accessing your CRSP shares.
+Consult our :ref:`crsp troubleshoot` if you have trouble accessing your CRSP shares.
 
 .. _crsp quotas:
 
@@ -362,8 +370,8 @@ The snapshots are held in:
 
    In your *CRSP Desktop* application connect to the crsp-top-level 
    share connection (it is predefined in the *CRSP Desktop* installation).
-
-   TODO See <<crsp-desktop-install-win.txt#,Windows>>  or <<crsp-desktop-install-mac.txt#,Mac>> instructions.
+   See :ref:`client desktop windows` or :ref:`client desktop mac` for
+   detailed instructions.
 
    Once at the top level, you will find snapshots labeled by their creation date
    in the folders labeled :guilabel:`HOME-SNAPSHOTS` and :guilabel:`LAB-SNAPSHOTS`.
@@ -418,7 +426,7 @@ using different access methods.
 1. **From CRSP Desktop**
 
    Use your CRSP Desktop application to connect to the desired share
-   TODO (<<crsp-desktop-install-win.txt#,Windows>> or <<crsp-desktop-install-mac.txt#,Mac>> instructions) then 
+   (see :ref:`client desktop windows` or :ref:`client desktop mac` for instructions) then 
    use it just like a folder or network drive to copy desired files and folders from a
    specific snapshot.
 

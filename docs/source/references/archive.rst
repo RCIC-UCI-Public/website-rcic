@@ -35,7 +35,7 @@ from the current CentOS version 7.  This is a major update to the clusters and r
   * Most *user-compiled code* will need to be rebuilt.
   * *Some conda environments* may need to be rebuilt to work properly with new system libraries.
   * A few older applications simply will not build on EL8 and will be removed.
-  * The planned updates and sunset of RCIC-installed applications are TODO <</hpc3/modules-update.txt#,available online.>>
+  * The planned updates and sunset of RCIC-installed applications are :ref:`software updates`.
 
 **FAQ**
 
@@ -60,7 +60,7 @@ from the current CentOS version 7.  This is a major update to the clusters and r
   conda environment rebuild. You will have to test your environment and rebuild
   it if broken. 
 
-  TODO We provide a guide <</hpc3/building-conda#, Building and using conda environments>>
+  We provide a guide :ref:`Building and using conda environments <install conda>`.
 
 May 19
 ^^^^^^

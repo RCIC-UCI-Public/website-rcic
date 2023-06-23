@@ -214,8 +214,7 @@ They will then be able to access CRSP using normal mechanisms. Please see
 Can I add several students/postdocs to my Lab space, how do I do that?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO Please send a request to link:mailto:hpc-support@uci.edu[hpc-support@uci.edu] telling us the
-UCINetIDs and names of the people that you want to add.
+Please see :ref:`getting crsp account`
 
 Can departments purchase CRSP space to store business data?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -261,8 +260,10 @@ From home, you must use the `campus VPN <https://www.oit.uci.edu/help/vpn>`_
 I downloaded Webdrive directly from their website, how do I add the UCI license?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You cannot. You must use CRSP provided TODO <</crsp/howtos.txt#crsp-desktop,CRSP Desktop>>
+You cannot. **You must use RCIC-provided CRSP Desktop**
 which is a specialized version of Webdrive for Windows and Mac that already have the license key embedded.
+Please see :ref:`client desktop windows` and :ref:`client desktop mac` for
+instructions how to download and use.
 
 I want to publish some of my data on the web, can I do that?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -273,7 +274,7 @@ The key questions revolve around data security.
 I have trouble accessing CRSP shares
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Consult our TODO link:/crsp/debugging.html[Troubleshooting Guide]
+Consult our :ref:`crsp troubleshoot`.
 
 :bluelight:`Disk Quotas`
 ------------------------
@@ -471,10 +472,9 @@ with ``t`` ``time`` directive. TODO See <</hpc3/examples#time-limit, time limit>
 How do I install new software myself?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please see the TODO <</hpc3/software-tutorial#_user_installed_sw_and_environment_modules,
-user installed software>>
+Please see the :ref:`user installed` guide.
 
 How do I request software installation?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please see :ref:`software tickets` 
+Please see :ref:`software tickets`.

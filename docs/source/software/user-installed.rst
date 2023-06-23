@@ -357,8 +357,6 @@ When you want to install a specific R package you :red:`do not need to install R
 We provide a few versions of R that can be accessed via modules.  The base
 installs already have a lot of added packages. To find out what R is available:
 
-TODO verify R version
-
 .. code-block:: console
 
    [user@login-x:~]$ module avail R
