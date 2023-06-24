@@ -37,7 +37,7 @@ configurations shown first.
 .. sinfo -S  '-R -D c' -p standard,highmem,maxmem,gpu -o "   | %4D | %4c | %9m | %38f | %12G | " -e  | sed 's/(null)/      /'
 
 .. table::
-   :class: noscroll  table
+   :class: noscroll-table
 
    +------+------+-----------+----------------------------------------+--------------+
    | Nodes| CPUs | Memory    | Available Features                     | GRES         |
