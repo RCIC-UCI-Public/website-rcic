@@ -17,7 +17,7 @@ how to properly use HPC3. These rules apply to using Slurm for running jobs.
 
 Failure to follow conduct rules may adversely impact others working on the cluster. 
 
-.. _slurm partitions:
+.. _paritions structure:
 
 Partitions Structure
 --------------------
@@ -27,6 +27,8 @@ HPC3 has heterogeneous hardware, memory footprints, and nodes with GPUs.
 
 The tables below show available partitions, their memory, runtime
 and job preemption configuration, and cost per hour in :ref:`units cost`.
+
+.. _available partitions:
 
 .. table:: **Available CPU partitions**
    :widths: 15 30 20 20 15
@@ -50,14 +52,6 @@ and job preemption configuration, and cost per hour in :ref:`units cost`.
    | maxmem    | 1.5 TB/node / 1.5 TB/node |  1 day / 7 day   | 40 / node   | No         |
    +-----------+---------------------------+------------------+-------------+------------+
 
-* You must be added to a specific group to access the :tt:`highmem / hugemem/ maxmem` partitions.
-  If you are not a member of these groups then  you will not be able to submit jobs to these
-  partitions and ``sinfo`` command  will not show these partitions.
-
-* The :tt:`maxmem` partition is a single 1.5 TB node and that is reserved for those rare applications that
-  :underline:`really require that much memory`. You can only be allocated the entire node. No free
-  jobs run in this partition.
-
 .. table:: **Available GPU partitions**
    :widths: 15 30 20 20 15
    :class: noscroll-table
@@ -74,16 +68,132 @@ and job preemption configuration, and cost per hour in :ref:`units cost`.
    | gpu-debug | 3 GB / 9 GB               | 15 min / 30 min  | 33          | No         |
    +-----------+---------------------------+------------------+-------------+------------+
 
-* You must have a *gpu account* and you must specify it in order to submit to
-  the *gpu/gpu-debug* partitions. This is because of differential charging.
-  GPU accounts are not automatically given to everyone, your faculty adviser
-  can request a GPU lab account.
+.. _memory partitions:
 
-* Anyone can run jobs in *free-gpu* partition without special account.
+Higher memory
+^^^^^^^^^^^^^
 
-.. note:: Please do not override the memory defaults unless your particular job really requires it.
-   Analysis of more than 3 Million jobs on HPC3 indicated that more than 98% of jobs fit within
-   the defaults. With slightly smaller memory footprints, the scheduler has MORE choices as to where to place jobs on the cluster.
+There are a few applications that need more memory than a node in standard
+partition can offer.  users must be added to a specific group to access the 
+higher memory :tt:`highmem / hugemem / maxmem` partitions.
+
+If you are not a member of these groups then  you will not be able to submit jobs to these
+partitions and ``sinfo`` command  will not show these partitions.
+
+User must be either:
+
+  | (a) member of a group that purchased these node types or
+  | (b) demonstrate that their applications require more than standard memory.
+
+    .. attention:: To demonstrate  your job requires more memory submit a ticket with the
+                   following information:
+
+                   * your job ID and error message
+                   * what was your submit script
+                   * what is the memory (in Gb) that your job needs
+                   * include the output of ``seff`` and ``sacct`` commands about your job
+
+:bluelight:`highmem / hugemem`
+  There is no difference in cost/core-hour on any of the CPU partitions, 
+
+:bluelight:`maxmem` 
+  The partition is a single 1.5 TB node and that is reserved for those rare applications that
+  :underline:`really require that much memory`. You can only be allocated the entire node. No free
+  jobs run in this partition.
+
+
+.. _gpu partitions:
+
+GPU enabled 
+^^^^^^^^^^^
+
+:bluelight:`gpu/gpu-debug`
+  You must have a *gpu account* and you must specify it in order to submit
+  jobs to these partitions. This is because of differential charging.
+
+  **GPU accounts are not automatically given to everyone, your faculty adviser
+  can request a GPU lab account**.
+
+:bluelight:`free-gpu`
+  Anyone can run jobs in this partition without special account.
+
+.. _node info:
+
+Node Information
+----------------
+
+To find information about nodes and partitions details of configuration use
+``sinfo`` and ``scontrol`` commands.
+
+Run ``man sinfo`` command for detailed information about command options.
+
+
+A few useful examples:
+
+Show information about nodes grouped by features:
+  .. code-block:: console
+
+     [user@login-x:~]$ sinfo -o "%40N %5c %8m %30f %10G" -e
+     NODELIST                           CPUS MEMORY  AVAIL_FEATURES                 GRES
+     hpc3-17-[04-07]                    40   756000  intel,avx512,mlx5_ib           (null)
+     hpc3-19-07                         64   500000  amd,epyc,epyc7551,mlx5_ib      (null)
+     hpc3-22-[11-13]                    48   245000  intel,avx512,fastscratch,nvme  (null)
+     hpc3-l18-01                        64   500000  amd,epyc,epyc7601,mlx4_ib      (null)
+     hpc3-14-[00-31],hpc3-15-[00-19,21, 40   180000  intel,avx512,mlx5_ib           (null)
+     hpc3-15-[20,22-23],hpc3-17-[00-03, 40   372000  intel,avx512,mlx5_ib           (null)
+     hpc3-18-[00-01],hpc3-19-[00-06,09- 64   500000  amd,epyc,epyc7601,mlx5_ib      (null)
+     hpc3-19-12                         24   500000  intel,mlx4_ib                  (null)
+     hpc3-19-13                         36   500000  intel,mlx5_ib                  (null)
+     hpc3-19-[14-15]                    36   500000  intel,mlx4_ib                  (null)
+     hpc3-19-16                         44   500000  intel,mlx4_ib                  (null)
+     hpc3-19-17                         64   500000  amd,epyc,epyc7551,mlx4_ib      (null)
+     hpc3-20-[16-20,24],hpc3-22-05      48   372000  intel,avx512,mlx5_ib           (null)
+     hpc3-20-[21-22]                    48   756000  intel,avx512,fastscratch,nvme, (null)
+     hpc3-20-[23,25-32]                 48   180000  intel,avx512,mlx5_ib           (null)
+     hpc3-21-[00-32],hpc3-22-[00-04,06- 48   180000  intel,avx512,fastscratch,nvme, (null)
+     hpc3-l18-[04-05]                   28   245000  intel,avx512,mlx4_ib           (null)
+     hpc3-gpu-16-00                     40   180000  intel,avx512,mlx5_ib           gpu:V100:4
+     hpc3-l18-02                        40   1523544 amd,epyc,epyc7551,mlx4_ib      (null)
+     hpc3-gpu-18-00                     40   372000  intel,avx512,mlx5_ib           gpu:V100:4
+     hpc3-gpu-16-[01-07],hpc3-gpu-17-[0 40   180000  intel,avx512,mlx5_ib           gpu:V100:4
+     hpc3-gpu-23-[00-02,07-08],hpc3-gpu 32   245000  intel,avx512,fastscratch,nvme  gpu:A30:4
+     hpc3-gpu-23-[03-06]                32   245000  intel,avx512,fastscratch,nvme  gpu:A100:2
+
+Show information about each node by features without grouping:
+  .. code-block:: console
+
+     [user@login-x:~]$ sinfo -o "%20N %5c %8m %20f %10G" -N 
+     NODELIST             CPUS  MEMORY   AVAIL_FEATURES       GRES
+     hpc3-14-00           40    180000   intel,avx512,mlx5_ib (null)
+     hpc3-14-00           40    180000   intel,avx512,mlx5_ib (null)
+     hpc3-14-01           40    180000   intel,avx512,mlx5_ib (null)
+     hpc3-14-01           40    180000   intel,avx512,mlx5_ib (null)
+     hpc3-14-02           40    180000   intel,avx512,mlx5_ib (null)
+     ... output cut ...
+
+Show information about  a specific single node:
+  .. code-block:: console
+
+     [user@login-x:~]$ sinfo -o "%20N %5c %8m %20f %10G" -n hpc3-gpu-16-00
+     NODELIST             CPUS  MEMORY   AVAIL_FEATURES       GRES
+     hpc3-gpu-16-00       40    180000   intel,avx512,mlx5_ib gpu:V100:4
+
+Show configuration information about a standard queue:
+  .. code-block:: console
+
+     [user@login-x:~]$ scontrol show partition standard
+     PartitionName=standard
+        AllowGroups=ALL AllowAccounts=ALL AllowQos=normal,high
+        AllocNodes=ALL Default=YES QoS=normal
+        DefaultTime=2-00:00:00 DisableRootJobs=NO ExclusiveUser=NO GraceTime=0 Hidden=NO
+        MaxNodes=159 MaxTime=14-00:00:00 MinNodes=1 LLN=NO MaxCPUsPerNode=64
+        Nodes=hpc3-14-[00-31],hpc3-15-[00-19,21,24-31],hpc3-17-[08-11],...
+        PriorityJobFactor=100 PriorityTier=100 RootOnly=NO ReqResv=NO OverSubscribe=NO
+        OverTimeLimit=0 PreemptMode=OFF
+        State=UP TotalCPUs=7136 TotalNodes=159 SelectTypeParameters=CR_CORE_MEMORY
+        JobDefaults=(null)
+        DefMemPerCPU=3072 MaxMemPerCPU=6144
+        TRES=cpu=7136,mem=35665000M,node=159,billing=7136
 
 .. _slurm accounting:
 
@@ -92,21 +202,21 @@ Slurm Accounting
 
 Every HPC3 user is granted :underline:`one time 1,000 free CPU hours` as a startup allowance.
 This base allocation is there for you to become familiar with HPC3, Slurm scheduler, and accounting.
-This personal base account is created automatically when your HPC3 account is created. 
+This personal base account is created automatically when your HPC3 account is created.
 
 Most jobs ran on HPC3 are charged to a lab account because most HPC3 users are part of at least one research lab.
 If a lab account runs out of CPU hours, more CPU hours can be purchased via recharge.
 
-Any UCI Professor can request an HPC3 *Slurm lab account* and add researchers/students to this account. 
+Any UCI Professor can request an HPC3 *Slurm lab account* and add researchers/students to this account.
 The goal is faculty who request an account will be granted no-cost 200,000 CPU hours per fiscal year.
-Based upon the number of requests and the number of nodes that have been purchased by RCIC, this number will vary.  
+Based upon the number of requests and the number of nodes that have been purchased by RCIC, this number will vary.
 
 .. _slurm lab account:
 
 Getting Slurm Lab account
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PI may request a Slurm lab account by sending a request to hpc-support@uci.edu and specifying 
+PI may request a Slurm lab account by sending a request to hpc-support@uci.edu and specifying
 the following information:
 
 * PI name and UCINetID
@@ -129,8 +239,8 @@ Jobs will charge **core-hours** or **GPU-hours** to the account.
 The costs are calculated as follows.
 
 :1 core-hour:
-  | :bluelight:`is 1 allocation unit` charged for 
-  | 1 CPU used for 1 hour 
+  | :bluelight:`is 1 allocation unit` charged for
+  | 1 CPU used for 1 hour
   | Each CPU core-hour is charged to the specified account (or your default user account).
 
 :1 GPU-hour:
