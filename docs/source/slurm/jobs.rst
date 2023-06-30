@@ -60,6 +60,10 @@ General Recommendations
     guide that explains how to cleanly separate conda-set environment from your
     login environment.
 
+Details of jobs subscriptions, requesting resources, etc are descbided in
+detail in the sections below.
+
+
 .. _batch job:
 
 Batch Job
@@ -162,10 +166,380 @@ Once done with your work simply type at the prompt:
 
    [user@hpc3-x-y:~]$ exit
 
+.. _attach to job:
+
+Attach to a job
+---------------
+
+``srun --pty --jobid``
+
+.. attention:: The ssh access to compute nodes is turned off
+
+Users will need to use Slurm commands to find a job ID and to attach to
+*running jobs* if they want to run simple jobs verification commands on the node where their job is running.
+
+Once attached o a job, the user will be put on the node where the job is
+running (first listed if running on multi-node) and will 
+**run inside the cgroup (CPU, RAM etc.) of the running job**. This means the user:
+
+  * will be able to execute simple commands such as :tt:`ls, top, ps`, etc.
+  * :red:`will not be able to start new processes` that use resources outside of what is specified in
+    *jobid*. Any command will use computing resources, and will add to the usage of the job.
+  * needs to type ``exit`` after executing desired verification commands in order to
+    stop attachment from the job.  The original job will be still running.
+
+Find *jobid* and attach to it:
+  .. code-block:: console
+
+     [user@login-x:~]$ squeue -u panteater
+       JOBID PARTITION     NAME      USER ST       TIME  NODES NODELIST(REASON)
+     3559123      free    Tst41 panteater  R   17:12:33      5 hpc3-14-02
+     3559124      free    Tst42 panteater  R   17:13:33      7 hpc3-14-17,hpc3-15-[05-08]
+
+     [user@login-x:~]$ srun --pty --jobid 3559123 --overlap /bin/bash
+     [user@hpc3-14-02:~]$
+
+  Execute your commands at the prompt and exit:
+
+  .. code-block:: console
+
+     [user@hpc3-14-02:~]$ ls /tmp/panteater/
+     [user@hpc3-14-02:~]$ exit
+     [user@login-x:~]$
+
+
+Attach to a specific node using :tt:`-w` switch (for multi-node jobs):
+  .. code-block:: console
+
+     [user@login-x:~]$ srun --pty --jobid 3559124 --overlap -w hpc3-15-08 /bin/bash
+     [user@hpc3-15-08:~]$ 
+
+Most often users just need to see the processes of the job, etc. Such commands
+can be run directly.  
+
+Run ``top`` command while attaching to the running job: 
+  .. code-block:: console
+
+     [user@login-x:~]$ srun --pty --overlap --jobid $JOBID top
+
+.. _requesting resources:
+
+Requesting Resources
+--------------------
+
+.. _request constrains:
+
+Features/Constrains
+^^^^^^^^^^^^^^^^^^^
+
+HPC3 has a heterogeneous hardware with several different CPU types.
+You can request that a job only runs on nodes with certain *features*.
+
+The *features* can be requested via a use of constraints.
+To request a feature/constraint, you must add to your submit script:
+
+.. code-block:: bash
+
+   #SBATCH --constraint=<feature_name>
+
+where :tt:`<feature_name>` is one of the defined features (or one of the standard features described 
+in the `Slurm sbatch <https://slurm.schedmd.com/sbatch.html>`_ guide).
+
+We defined the following features for node selection:
+
+.. _defined constrains:
+
+.. table:: HPC3 Defined Features
+   :class: noscroll-table
+
+   +---------------------+------------------------------------------+----------------+------------+
+   | Feature Name        | Description (processor/storage)          | Node Count     | Cores      |
+   +=====================+==========================================+================+============+
+   | intel               | Intel node (including HPC legacy)        | compute: 171   | 24/40/48   |
+   |                     |                                          |                |            |
+   |                     |                                          | GPU: 32        | 40         |
+   +---------------------+------------------------------------------+----------------+------------+
+   | avx512              | Intel AVX512 node                        | compute: 166   | 28/40/48   |
+   |                     |                                          |                |            |
+   |                     |                                          | GPU: 32        | 40         |
+   +---------------------+------------------------------------------+----------------+------------+
+   | epyc or amd         | any AMD EPYC node                        | 19             | 40/64      |
+   +---------------------+------------------------------------------+----------------+------------+
+   | epyc7551            | AMD EPYC 7551 node                       | 3              | 40/64      |
+   +---------------------+------------------------------------------+----------------+------------+
+   | epyc7601            | AMD EPYC 7601 node                       | 16             | 64         |
+   +---------------------+------------------------------------------+----------------+------------+
+   | nvme or fastscratch | Intel AVX512 node with /tmp on NVMe disk | 66             | 48         |
+   +---------------------+------------------------------------------+----------------+------------+
+   | mlx5_ib             | Updated Infiniband firmware              | 131            | 40/48      |
+   +---------------------+------------------------------------------+----------------+------------+
+   | mlx4_ib             | Older   Infiniband firmware              | 6              | 24/28/36/44|
+   +---------------------+------------------------------------------+----------------+------------+
+
+To request nodes with updated Infiniband firmware for your MPI-based jobs:
+
+  .. code-block:: bash
+
+    #SBATCH --constraint=mlx5_ib
+
+To request nodes with a large local scratch storage:
+
+  .. code-block:: bash
+
+    #SBATCH --constraint=nvme
+    or
+    #SBATCH --constraint=fastscratch
+
+  See :ref:`scratch storage` for details.
+
+To request nodes with CPUS capable of AVX512 instructions:
+
+  .. code-block:: bash
+
+    #SBATCH --constraint=avx512
+
+.. _scratch storage:
+
+Scratch storage
+^^^^^^^^^^^^^^^
+
+Scratch storage is local to each compute node and is the fastest disk access
+for reading and writing the input/output job files.
+
+Scratch storage is created for each job automatically as :tt:`/tmp/ucinetid/jobid/`
+when the job starts on a compute node. Slurm *knows* this location and
+is referring to it  via an environment variable :tt:`$TMPDIR`.
+Users don't need to create :tt:`$TMPDIR` but simply need to use it in their
+submit scripts.
+
+For example, a user panteater who has 2 running jobs:
+
+  .. code-block:: console
+
+     [user@login-x:~]$ squeue -u panteater
+      squeue
+     JOBID     PARTITION      NAME      USER  ACCOUNT ST      TIME CPUS NODE NODELIST(REASON)
+     20960254   standard  test-001 panteater   PI_lab  R   1:41:12   25    1 hpc3-15-08
+     20889321   standard  test-008 panteater   PI_lab  R  17:24:10   20    1 hpc3-15-08
+
+  will have the following directories created by Slurm for the job on :tt:`hpc3-15-08`
+
+  .. code-block:: console
+
+     /tmp/panteater/20960254
+     /tmp/panteater/20889321
+
+  .. note:: While the directory is created automatically, it is A USER RESPONSIBILITY to
+            copy files to this location and copy the final results back before the job ends. 
+
+Slurm doesn't have any default amount of scratch space defined per job and that may be fine for most, but not all.
+The problem of having enough local scratch arises when nodes are shared by multiple jobs and users.
+:red:`One job can cause the other jobs running on the same node to fail`, so please be considerate of your
+colleagues by doing the following.
+
+1. **Your job creates just under a few Gb of temporary data directly in $TMPDIR**
+   and handles the automatic creation and deletion of these temp files.
+   Many Python, Perl, R, Java programs and 3rd party commercial software will
+   write to :tt:`$TMPDIR` which is the default for many applications.
+
+   You don't need to do anything special. Do not reset :tt:`$TMPDIR`.
+
+2. **Your job creates just under a few Gb of output in the directory where you
+   run the job and does many frequent small file reads and writes** (a few Kb every few minutes).  
+
+   You will need to use a scratch storage where you bring your job data, write temp files 
+   and then copy the final output files back when the job is done.
+
+   The reason is :red:`parallel filesystem (CRSP or DFS) is not suitable for small
+   writes and reads` and such operations need to be off-loaded to the local
+   scratch area on the node where the job is executed. 
+   Otherwise you create an I/O problem not just for yourself but for many others 
+   who use the same filesystem.
+
+   The following partial submit script shows how to use :tt:`$TMPDIR` for such jobs:
+
+   .. code-block:: bash
+
+      <the rest of submit script is ommitted>
+
+      #SBATCH --tmp=20G                 # requesting 20 GB (1 GB = 1,024 MB) local scratch
+
+      # explicitly copy input files from DFS/CRSP to $TMPDIR
+      # note, $TMPDIR already exists for your job
+      cd $TMPDIR
+      cp /dfs8/pub/myacount/path/to/my/jobs/data/*dbfiles  $TMPDIR
+
+      # create a directory for the application output
+      mkdir -p $TMPDIR/output
+
+      # your job commands are here
+      # output from application goes to $TMPDIR/output/
+      mapp -tf 45 -o $TMPDIR/output     # program output directory is specified via -o flag 
+      mapp2  > $TMPDIR/output/mapp.out  # program output in a specific file
+
+      # explicitly copy output files from $TMPDIR to DFS/CRSP
+      mv $TMPDIR/output/* /dfs8/pub/myaccount/myrun134/
+
+   In this scenario, Slurm job is run in :tt:`$TMPDIR` which is much faster
+   for the disk I/O, then the program output is copied back as a big write 
+   which is much more efficient compare to many small writes.
+
+3. **Your job creates many Gbs of temporary data (order of ~100Gb)**
+
+   You will need to submit your job to a node with a lot of local scratch storage
+   where you bring your job data, write temp files,
+   and then copy the final output files back when the job is done.
+
+   In your submit script define how much scratch space your job needs
+   (you may need to figure it out by trial test  run)
+   and request the nodes that have fast local scratch area via the following SLURM directives:
+
+   .. code-block:: bash
+
+
+      #SBATCH --tmp=180G                 # requesting 180 GB (1 GB = 1,024 MB) local scratch
+      #SBATCH --constraint=fastscratch   # requesting nodes with a lot of space in /tmp
+
+   Folow the above (job 2) submit script example to:
+
+   | - at job start explicitly copy input files from DFS/CRSP to :tt:`$TMPDIR`
+   | - at job end explicitly copy output files from :tt:`$TMPDIR` to DFS/CRSP
+
+.. _mail notification:
+
+Mail notification
+^^^^^^^^^^^^^^^^^
+
+To receive email notification on the status of jobs, include the following lines in your
+submit scripts and make the appropriate modifications to the second line:
+
+.. code-block:: console
+
+   #SBATCH --mail-type=fail,end
+   #SBATCH --mail-user=user@domain.com
+
+The first line specifies the event type for which a user requests an email (here failure/end events), the
+second specifies a valid email address. We suggest to use a very few event
+types especially if you submit hundreds of jobs. For more info, see output of ``man sbatch`` command.
+
+.. attention:: | DO NOT use mail event type ALL, BEGIN.
+               | DO NOT enable email notification if you submit hundreds of jobs.
+               | Sending an email for each job overloads Postfix server.
+
+.. _request memory:
+
+Memory
+^^^^^^
+
+There are nodes with different memory footprints. Slurm uses Linux
+`cgroups <:https://man7.org/linux/man-pages/man7/cgroups.7.html>`_ 
+to enforce that applications do not use more memory/cores than they have been allocated.
+
+Slurm has :tt:`default` and :tt:`*max` settings for a memory allocation per core
+for each partition. Please see all partitions settings in :ref:`available partitions`.
+
+:default settings:
+  Are used when a job submission script does not specify
+  different memory allocation, and for most jobs this is sufficient.
+
+:max settings:
+  Are used when a job requires more memory. 
+  Job memory specifications can not exceed the partition's max setting.
+  If a job specifies a memory per CPU limit that exceeds the system limit, the job's count of CPUs
+  per task will automatically be increased. This may result in the job failing due to CPU count limits.
+
+.. note:: Please do not override the memory defaults unless your particular job really requires it.
+   Analysis of more than 3 Million jobs on HPC3 indicated that more than 98% of jobs fit within
+   the defaults. With slightly smaller memory footprints, the scheduler has MORE choices as to 
+   where to place jobs on the cluster.
+
+.. note:: For information how to get an  access to higher memory partitions please see :ref:`memory partitions`
+
+When a job requires more memory:
+  the memory needs to be specified 
+  using one of the two mutually exclusive directives (one or another but not both):
+
+  |   :tt:`--mem-per-cpu=X<specification>` - memory per core 
+  |   :tt:`--mem=X<specification>` total memory  per job
+
+  where :tt:`X` is an integer and :tt:`<specification>` of an optional size
+  specification (M - megabytes, G - gigabytes, T - terabytes). A default is in megabytes. 
+
+  The same directives formats are used in slurm submit scripts and in ``srun`` command
+  for jobs in any partition.
+
+
+If you want more memory for the job you should:
+  | Scenario 1:
+  |   - ask for more total memory
+  | Scenario 2: 
+  |   - ask for max memory per core and if this is not enough
+  |   - request more cores. 
+
+  You will be charged more for
+  more cores, but you use a larger fraction of the node.
+
+**Examples of memory requests**:
+
+  1. Ask for the total job memory in submit script
+
+       .. code-block:: bash
+
+          #SBATCH --mem=500           # requesting 500MB memory for the job
+          #SBATCH --mem=4G            # requesting 4GB (1GB = 1,024MB) for the job
+
+  2. Ask for the memory per CPU in submit script
+
+       .. code-block:: bash
+     
+          #SBATCH --mem-per-cpu=5000  # requesting 5000MB memory per CPU
+          #SBATCH --mem-per-cpu=2G    # requesting 2GB memory per CPU
+
+  3.Ask for 180 Gb for job in standard partition:
+
+       .. code-block:: bash
+     
+          #SBATCH --partition=standard 
+          #SBATCH --mem-per-cpu=6G    # requesting max memory per CPU
+          #SBATCH --ntasks=30         # requesting 30 CPUS
+
+     Ask for max memory per CPU and a number of CPUS to make up needed 
+     total memory for job as *30 x 6Gb = 180Gb*
+
+  4. Use ``srun`` and request 2 CPUs with a default or max memory
+
+     .. code-block:: console
+     
+        [user@login-x:~]$ srun -p free --nodes=1 --ntasks=2 --pty /bin/bash -i
+        [user@login-x:~]$ srun -p free --nodes=1 --ntasks=2 --mem-per-cpu=18G --pty /bin/bash -i
+        [user@login-x:~]$ srun -p free --nodes=1 --ntasks=2 --mem=36G --pty /bin/bash -i
+     
+     | The first job will have a total memory *2 x 3Gb = 6Gb* 
+     | The second and third job each will have a total memory *2 x 18Gb = 36Gb*
+     
+  5. Use ``srun`` and request 4 CPUs and 10Gb memory per CPU,
+  
+     .. code-block:: console
+     
+        [user@login-x:~]$ srun -p free --nodes=1 --ntasks=4 --mem-per-cpu=10G --pty /bin/bash -i
+     
+     total memory for job is *4 x 10Gb = 40Gb*
+
+.. note:: All above examples are asking for 1 node. This is important to let SLURM
+   know that all your processes should be on a single node and not spread over
+   multiple nodes. Very few applications that are compiled and run with OpenMPI or
+   MPICH can use multiple nodes, the rest of applications  including interactive
+   sessions should use a single node.
+
+.. _job monitoring:
+
+Job Monitoring
+--------------
+
 .. _job status:
 
-Job Status
-----------
+Status
+^^^^^^
 
 | ``squeue``
 | ``scontrol show job``
@@ -192,67 +566,418 @@ To get detailed info about the job:
 
   The output will contain a list of *key=value* pairs that provide job information.
 
+.. _job accounting:
 
-.. _attach to job:
+Account balance
+^^^^^^^^^^^^^^^
 
-Attach to a job
----------------
+| ``sbank``
+| ``/pub/hpc3/zotledger``
 
-``srun --pty --jobid``
+In order to run jobs on HPC3, a user must have available CPU hours.
 
-.. attention:: The ssh access to compute nodes is turned off
+1. The `sbank <https://jcftang.github.io/slurm-bank>`_  is short for *Slurm Bank*.
+   It is used to display the balance of used and available hours to the user for a given account
+   (defaults to the current user).
 
-Users will need to use Slurm commands to find a job ID and to attach to
-*running jobs* if they want
-to run simple jobs verification commands on the node where their job is running.
+   Display the account balance for specific account:
+     .. code-block::
+    
+        [user@login-x:~]$ sbank balance statement -a panteater
+        User         Usage |     Account   Usage | Account Limit Available (CPU hrs)
+        ---------- ------- + ----------- ------- + ------------- ---------
+        panteater*      58 |   PANTEATER      58 |         1,000       942
 
-Find *jobid* and attach to it:
-  .. code-block:: console
-
-     [user@login-x:~]$ squeue -u panteater
-       JOBID PARTITION     NAME      USER ST       TIME  NODES NODELIST(REASON)
-     3559123      free    Tst41 panteater  R   17:12:33      5 hpc3-14-02
-     3559124      free    Tst42 panteater  R   17:13:33      7 hpc3-14-17,hpc3-15-[05-08]
-
-     [user@login-x:~]$ srun --pty --jobid 3559123 --overlap /bin/bash
-
-  This  will put a user on the *hpc3-14-02* node where the job is running
-  and will **run inside the cgroup (CPU, RAM etc.) of the running job**.
-
-  This means the user will be able to execute simple commands
-  such as :tt:`ls, top, ps`, etc., but will not be able to
-  start new processes that use resources outside of what is specified in
-  *jobid*. Any command will use computing resources, and therefore will add to
-  the usage of the job.
-
-  After executing your desired verification commands simply type **exit**.
-  The original job will be still running.
-
-Attach to a specific node using :tt:`-w` switch (for multi-node jobs):
-
-  .. code-block:: console
-
-     [user@login-x:~]$ srun --pty --jobid 3559124 --overlap -w hpc3-14-17 /bin/bash
-
-Most often users just need to see the processes of the job, etc. Such commands
-can be run directly.  Run ``top`` command while attaching to the running job: 
-
-  .. code-block:: console
-
-     [user@login-x:~]$ srun --pty --overlap --jobid $JOBID top
+   Display the account balances for specific user:
+     .. code-block::
+    
+        [user@login-x:~]$ sbank balance statement -u panteater
+        User        Usage |     Account    Usage | Account Limit Available (CPU hrs)
+        ---------- ------ + ----------- -------- + ------------- ---------
+        panteater*     58 |   PANTEATER       58 |         1,000       942
+        panteater*  6,898 |      PI_LAB    6,898 |       100,000    93,102
 
 
-.. _mail notification:
 
-Mail notification
------------------
+2. We have a cluster-specific tool to print a ledger of jobs based on specified arguments.
 
-.. _scratch storage:
+   Default is to print jobs of the current user for the last 30 days:
+     .. code-block:: console
 
-Using scratch storage
----------------------
+        [user@login-x:~]$ /pub/hpc3/zotledger -u panteater
+              DATE       USER   ACCOUNT PARTITION   JOBID JOBNAME ARRAYLEN CPUS WALLHOURS  SUs
+        2021-07-21  panteater panteater  standard 1740043    srun        -    1      0.00 0.00
+        2021-07-21  panteater panteater  standard 1740054    bash        -    1      0.00 0.00
+        2021-08-03  panteater    lab021  standard 1406123    srun        -    1      0.05 0.05
+        2021-08-03  panteater    lab021  standard 1406130    srun        -    4      0.01 0.02
+        2021-08-03  panteater    lab021  standard 1406131    srun        -    4      0.01 0.02
+            TOTALS          -         -         -       -       -        -    -      0.07 0.09
 
-| Use as scratch storage for batch Jobs that repeatedly access many small files or make frequent small reads/writes:
-|   - at job start: user needs to explicitly copy input files from DFS/CRSP to $TMPDIR
-|   - at job end: user needs to explicitly copy output files from $TMPDIR to DFS/CRSP
+   To find all available arguments for this command use:
+     .. code-block:: console
+
+        [user@login-x:~]$ /pub/hpc3/zotledger -h
+
+.. _job efficiency:
+
+Efficiency
+^^^^^^^^^^
+
+There are a few commands that provide info about resources consumed by the job.
+
+:This command is used for running jobs:
+  ``sstat``
+
+:These two commands can be used after the job completes:
+  | ``sacct``
+  | ``seff``
+
+All commands need to use a valid *jobid*.
+
+1. The `sstat <https://slurm.schedmd.com/sstat.html>`_ 
+   displays various running job and job steps resource utilization information.
+   For example, to print out a job's average CPU time use (avecpu), average number of bytes written by all tasks
+   (AveDiskWrite), average number of bytes read by all tasks (AveDiskRead),
+   as well as the total number of tasks (ntasks) execute:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ sstat -j 125610 --format=jobid,avecpu,aveDiskWrite,AveDiskRead,ntasks
+             JobID     AveCPU AveDiskWrite  AveDiskRead   NTasks
+      ------------ ---------- ------------ ------------ --------
+      125610.batch 10-18:11:+ 139983973691 153840335902        1
+
+
+2. The `sacct <https://slurm.schedmd.com/sacct.html>`_ command  can be used to see accounting 
+   data for all jobs and job steps.
+
+   Find accounting info about a specific job:
+     .. code-block:: console
+
+        [user@login-x:~]$ sacct -j 43223
+               JobID  JobName  Partition      Account  AllocCPUS      State ExitCode
+        ------------ -------- ---------- ------------ ---------- ---------- --------
+           36811_374    array   standard panteater_l+          1  COMPLETED      0:0
+
+   The command uses a default output format. A more useful example will set
+   a specific format that provides extra information.
+
+   Find detailed accounting info a job using specific format:
+     .. code-block:: console
+   
+        [user@login-x:~]$ export SACCT_FORMAT="JobID,JobName,Partition,Elapsed,State,MaxRSS,AllocTRES%32"
+        [user@login-x:~]$ sacct -j 600
+        JobID      JobName  Partition  Elapsed     State  MaxRSS AllocTRES
+        ---------- -------  --------  -------- --------- ------- --------------------------------
+               600    all1  free-gpu  03:14:42 COMPLETED         billing=2,cpu=2,gres/gpu=1,mem=+
+         600.batch   batch            03:14:42 COMPLETED 553856K           cpu=2,mem=6000M,node=1
+        600.extern  extern            03:14:42 COMPLETED       0 billing=2,cpu=2,gres/gpu=1,mem=+
+   
+
+     :MaxRSS:
+       shows your job memory usage.
+
+     :AllocTRES:
+       is trackable resources, these are the resources allocated to the job
+       after the job started running. The :tt:`%32` is simply a format specification to
+       reserve 32 characters for this option in the output. Format specification can
+       be used for any option.
+    
+     .. note:: Other useful options in SACCT_FORMAT are *User*, *NodeList*, *ExitCode*.
+               To see all available options, run ``man sacct`` command.
+
+
+2. The ``seff`` Slurm efficiency script is used to find useful information about the job
+   including the memory and CPU use and efficiency.  Note, ``seff`` doesn't
+   produce accurate results for multi-node jobs. Use this command for single node jobs.
+
+     .. code-block:: console
+
+        [user@login-x:~]$ seff -j 423438
+        Job ID: 423438
+        Cluster: hpc3
+        User/Group: panteater/panteater
+        State: COMPLETED (exit code 0)
+        Nodes: 1
+        Cores per node: 8
+        CPU Utilized: 00:37:34
+        CPU Efficiency: 12.21% of 05:07:36 core-walltime
+        Job Wall-clock time: 00:38:27
+        Memory Utilized: 2.90 MB
+        Memory Efficiency: 0.01% of 24.00 GB
+
+   Important info is on *CPU* and *Memory* lines.
+
+   :CPU efficiency:
+     at 12.21%  the job used only a small portion of requested 8 CPUs
+
+   :Memory efficiency:
+     at 0.011% the job used only a fraction of requested 24Gb of memory
+    
+   The user should fix the job submit script and ask for less memory per CPU
+   and for fewer CPUs.
+
+.. _job pending:
+
+Pending
+^^^^^^^
+
+Once you submit your job it should start running depending on the availability
+of the nodes, job priority and job resources.
+
+When a job is in *PD* (pending) status you need to determine why.
+
+.. important:: The balance in the account must have enough core hours to cover the job request. 
+
+               This applies to ALL partitions, including free. While your job
+               will not be charged when submitted to a free partition, there must be a
+               sufficient balance for Slurm to begin your job.
+
+.. _pending in personal account:
+
+Pending job in personal account
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Check your jobs status:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ squeue -u panteater
+      JOBID   PARTITION  NAME     USER    ACCOUNT ST TIME NODES NODELIST(REASON)
+      1666961  standard  tst1 panteater panteater PD 0:00     1 (AssocGrpCPUMinutesLimit)
+      1666962  standard  tst2 panteater panteater PD 0:00     1 (AssocGrpCPUMinutesLimit)
+
+   Note, the reason is :tt:`AssocGrpCPUMinutesLimit` which means there is not enough
+   balance left in the account. The job was submitted to use a personal account.
+
+2. Check your account balance
+
+   .. code-block:: console
+
+      [user@login-x:~]$ sbank balance statement -u panteater
+      User        Usage |     Account   Usage | Account Limit Available (CPU hrs)
+      ---------- ------ + ----------- ------- + ------------- ---------
+      panteater*     58 |   PANTEATER      58 |         1,000       942
+      panteater*  6,898 |      PI_LAB   6,898 |       100,000    93,102
+
+   The account has :tt:`942`  hours.
+
+3. Verify the job request
+
+   .. code-block:: console
+
+      [user@login-x:~]$
+      squeue -o "%i %u %j %C %T %L %R" -p standard -t PD -u panteater*
+      JOBID        USER NAME CPUS   STATE     TIME_LEFT  NODELIST(REASON)
+      1666961 panteater tst1  16  PENDING    3-00:00:00 (AssocGrpCPUMinutesLimit)
+      1666962 panteater tst2  16  PENDING    3-00:00:00 (AssocGrpCPUMinutesLimit)
+
+   Each jobs asks for 16 CPUs to run for 3 days which is :math:`16 * 24 * 3 = 1152`
+   core-hours, and it is more than 942 hours in the account balance.
+
+   .. attention:: These jobs will never be scheduled to run and need to be cancelled
+
+4. Fix your job
+
+   First, cancel the offending jobs.
+
+   .. code-block:: console
+
+      [user@login-x:~]$ scancel 1666961
+      [user@login-x:~]$ scancel 1666962
+
+   Next step depends on your job requirements. Do you really need 16 CPUs or 3
+   days to run the job?  If so, then use your lab account (here PI_LAB) instead of your
+   personal account *panteater*.
+
+   If you only have a personal account you will need to lower requirements of your
+   job so that requested resources will be no more than core hours available in
+   your account.  This may mean to use fewer CPUs, or less time, or fewer CPUs but with increased memory per
+   CPU.  Please see :ref:`job examples` for more info
+
+.. _pending in lab account:
+
+Pending job in LAB account
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Often users submit a job to a lab account and it results in PD status due to
+:tt:`AssocGrpCPUMinutesLimit` reason. 
+
+.. important::  A lab account has a combined single  balance and thus a single limit 
+                for all members of the lab.
+
+                Slurm will not  start a new job if :underline:`max time left of current jobs`
+                plus :underline:`max time of queued jobs`
+                would cause the account to go negative.
+
+A user needs to check if there are any other jobs already running on  the specified account
+and compute what is the time already requested and allocated by Slurm to all
+jobs on the LAB account.
+
+Slurm users MAX time a job might consume which is
+calculated as requested :math:`Number of cores * Number of hours` and internally marks those hours as unavailable.
+
+1. Check your jobs status
+
+   .. code-block:: console
+
+      [user@login-x:~]$ squeue -u panteater -t PD
+      JOBID     PARTITION     NAME      USER ACCOUNT ST  TIME CPUS NODE NODELIST(REASON)
+      12341501  standard  myjob_98 panteater  PI_lab PD  0:00    1    1 (AssocMaxJobsLimit)
+      12341502  standard  myjob_99 panteater  PI_lab PD  0:00    1    1 (AssocMaxJobsLimit)
+
+2. Check job requirements
+
+   .. code-block:: console
+
+      [user@login-x:~]$ scontrol show job 12341501
+      JobI4=12341501 JobName=myjob_98
+         UserId=panteater(1234567) GroupId=panteater(1234567) MCS_label=N/A
+         Priority=299 Nice=0 Account=PI_lab QOS=normal
+         JobState=PENDING Reason=AssocMaxJobsLimit Dependency=(null)
+         Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+         RunTime=00:00:00 TimeLimit=14-00:00:00 TimeMin=N/A
+         SubmitTime=2023-01-18T16:36:06 EligibleTime=2023-01-18T16:36:06
+         AccrueTime=2023-01-18T16:36:06
+         StartTime=Unknown EndTime=Unknown Deadline=N/A
+         <output  cut>
+
+   Similar output is for the second job.
+   For each of two pending  jobs the request is :math:`1 CPU * 14 days * 24 hrs = 336 hrs`
+
+3. Check the running jobs for your lab account
+
+   .. code-block:: console
+
+      [user@login-x:~]$ squeue -t R -A PI_lab -o "%.10i %.9P %.8j %.8u %.16a %.2t %.6C %l %L"
+         JOBID PARTITION     NAME     USER       ACCOUNT ST   CPUS  TIME_LIMIT TIME_LEFT
+      12341046  standard myjob_39  panteater      PI_lab  R      1 14-00:00:00 13-23:00:22
+      12341047  standard myjob_40  panteater      PI_lab  R      1 14-00:00:00 13-23:00:22
+      12341048  standard myjob_41  panteater      PI_lab  R      1 14-00:00:00 13-23:00:22
+      < total 200 lines for 200 jobs >
+
+4. Check the lab account balance
+
+   .. code-block:: console
+
+      [user@login-x:~]$ sbank balance statement -u panteater
+      User         Usage |  Account   Usage | Account Limit Available (CPU hrs)
+      ---------- ------- + ----------- -----+ ------------- ---------
+      panteater1       0 |   PI_LAB  75,800 |       225,000   67,300
+      panteater2  50,264 |   PI_LAB  75,800 |       225,000   67,300
+      panteater*  25,301 |   PI_LAB  75,800 |       225,000   67,300
+
+   Each of 200 running jobs in the account has run for about 1hr out of allocated 14 days.
+   Total max time Slurm has allocated for these running jobs is 
+   :math:`1 CPU * 200 jobs * 14 days * 24 hrs = 67200 hrs`.
+   There is about *200 hrs* already used, (each job run about an hour),
+   so remaining needed balance is :tt:`67100 hrs`. 
+   Per step 1 above, your pending jobs each require :math:`1 CPU * 14 days * 24 hrs = 336 hrs`.
+
+   Slurm is computing that if all current jobs ran to their MAX times and if the next job
+   were to run MAX time your account would end up negative: :math:`67300 - 67100 - 2 * 336 = -472 hrs`.
+
+   Therefore slurm puts these new jobs on hold.  
+   These 2 jobs will  start running once some of the remaining running jobs completed
+   and the account balance is sufficient.
+
+  .. important:: It is important to correctly estimate time needed for the job,
+                 and not ask for more resources (time, cpu, memory) than needed.
+
+.. _pending reasons:
+
+Pending Job Reasons
+~~~~~~~~~~~~~~~~~~~
+
+Jobs submitted to Slurm will start up as soon as the scheduler can find an appropriate resource. 
+While lack of resources or insufficient account balance are common reasons that prevent a job from starting,
+there are other possibilities. 
+
+RCIC does not generally put limits in place unless we see excess,
+unreasonable impact to shared resources (often, file systems), or other fairness issues.
+
+To see the state reasons of your pending jobs, you can run the ``squeue`` command
+with your account name as: 
+
+.. code-block:: console
+
+   [user@login-x:~]$ squeue -t PD -u peat
+   JOBID PARTITION NAME USER ACCOUNT ST TIME CPUS NODE NODELIST(REASON)
+   92005 standard  watA peat   p_lab PD 0:00    1    1 (ReqNodeNotAvail,Reserved for maintenance)
+   92008 standard  watA peat   p_lab PD 0:00    1    1 (ReqNodeNotAvail,Reserved for maintenance)
+   92011 standard  watA peat   p_lab PD 0:00    1    1 (ReqNodeNotAvail,Reserved for maintenance)
+   95475 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
+   95476 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
+
+
+Reasons that are often seen on HPC3 for job pending state
+and their explanation are s summarized below.
+
+AssocGrpCPUMinutesLimit:
+  Insufficient funds are available to run the job to completion.
+Dependency:
+  Job has a user-defined dependency on a running job and cannot start until the previous job has completed.
+Priority:
+  Slurm's scheduler is temporarily holding the job in pending state because other queued jobs have a higher priority.
+QOSMaxJobsPerUserLimit:
+  The user is already running the maximum number of jobs allowed by the particular partition.
+ReqNodeNotAvail, Reserved for maintenance:
+  If the job were to run for the requested maximum time, it would run into
+  a defined maintenance window. Job will not start until maintenance has been completed.
+Resources: 
+  The requested resource configuration is not currently available. If a job requests a
+  resource combination that physically does not exist, the job will remain in this state forever.
+
+To see all available job pending reasons and their definitions, please see output of
+``man squeue`` command in the *JOB REASON CODES* section.
+
+A job may be waiting for more than one reason, in which case only one of those reasons is displayed.
+
+==== Fix pending job
+
+You will need to resubmit the job  so that the requested execution hours can
+be covered by your bank account balance. Verify the following settings
+in your Slurm script for batch jobs:
+
+* *#SBATCH -A* use a different Slurm account (lab) where you have enough balance
+* *#SBATCH -p free* use free partition if you don't have another account
+* *#SBATCH --ntasks* or *#SBATCH --cpus-per-task* are you requesting correct CPU
+* *#SBATCH --mem* or *#SBATCH --mem-per-cpu* are you requesting correct memory
+* *#SBATCH --time* set a time limit  that is shorter than the default runtime
+(see <<memmap, the default settings >>)
+
+Similar fixes apply when using `srun` for interactive jobs.
+See <<examples.txt#,EXAMPLES>> for more info
+
+== Modify jobs prior to execution
+
+It is possible to make some changes to jobs that are still waiting to run in the
+queue by using the `scontrol` command.
+If changes need to be made for a running job, it may be better to kill the job
+and restart it after making the necessary changes.
+
+{prompt} [.bluelight]*scontrol update jobid=<jobid> timelimit=<new timelimit>* # <1>
+{prompt} [.bluelight]*scontrol update jobid=<jobid> qos=[low|normal|high]*     # <2>
+
+<1> *change time limit*. The  format set is  minutes,  minutes:seconds,  hours:minutes:seconds,  days-hours,
+days-hours:minutes  or  days-hours:minutes:seconds.  The _2-12:30_ means 2days, 12hrs, and 30 min.
+<2> *change QOS*.  By default, jobs are set to run with [.tt]*qos=normal*.  Users rarely need to change QOS.
+
+== Hold/Release/Cancel jobs
+
+{prompt} [.bluelight]*scontrol hold <jobid>*    # <1>
+{prompt} [.bluelight]*scontrol release <jobid>* # <2>
+{prompt} [.bluelight]*scancel <jobid>*          # <3>
+{prompt} [.bluelight]*scancel -u <username>*    # <4>
+
+<1> To prevent a pending job from starting.
+<2> To release held jobs to run (after they have accrued priority).
+<3> To cancel a specific job.
+<4> To cancel all jobs owned by a user. This only applies to jobs that
+are associated with your accounts.
+
+== Account Coordinators
+
+Slurm uses [.tt]*account coordinators* as users who can directly
+control accounts. Please see <<account-control#,Account Coordinators Guide>>
 
