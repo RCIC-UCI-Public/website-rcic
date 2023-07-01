@@ -222,7 +222,7 @@ Run ``top`` command while attaching to the running job:
 
      [user@login-x:~]$ srun --pty --overlap --jobid $JOBID top
 
-.. _requesting resources:
+.. _request resources:
 
 Requesting Resources
 --------------------
@@ -533,8 +533,8 @@ If you want more memory for the job you should:
 
 .. _job monitoring:
 
-Job Monitoring
---------------
+Monitoring
+----------
 
 .. _job status:
 
@@ -687,7 +687,7 @@ All commands need to use a valid *jobid*.
                To see all available options, run ``man sacct`` command.
 
 
-2. The ``seff`` Slurm efficiency script is used to find useful information about the job
+3. The ``seff`` Slurm efficiency script is used to find useful information about the job
    including the memory and CPU use and efficiency.  Note, ``seff`` doesn't
    produce accurate results for multi-node jobs. Use this command for single node jobs.
 
@@ -720,10 +720,17 @@ All commands need to use a valid *jobid*.
 .. _job pending:
 
 Pending
-^^^^^^^
+-------
 
-Once you submit your job it should start running depending on the availability
-of the nodes, job priority and job resources.
+Jobs submitted to Slurm will start up as soon as the scheduler can find an appropriate resource
+depending on the availability of the nodes, job priority and job resources.
+
+Lack of resources or insufficient account balance 
+(status reason is *AssocGrpCPUMinutesLimit*) are the most common
+reasons that prevent a job from starting.
+
+RCIC does not generally put limits in place unless we see excess,
+unreasonable impact to shared resources (often, file systems), or other fairness issues.
 
 When a job is in *PD* (pending) status you need to determine why.
 
@@ -736,7 +743,7 @@ When a job is in *PD* (pending) status you need to determine why.
 .. _pending in personal account:
 
 Pending job in personal account
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Check your jobs status:
 
@@ -750,7 +757,7 @@ Pending job in personal account
    Note, the reason is :tt:`AssocGrpCPUMinutesLimit` which means there is not enough
    balance left in the account. The job was submitted to use a personal account.
 
-2. Check your account balance
+2. Check your Slurm account balance
 
    .. code-block:: console
 
@@ -762,43 +769,27 @@ Pending job in personal account
 
    The account has :tt:`942`  hours.
 
-3. Verify the job request
+3. Check your job requirements
+
+   You can use ``scontrol show job <jobid>`` or a command below
 
    .. code-block:: console
 
-      [user@login-x:~]$
-      squeue -o "%i %u %j %C %T %L %R" -p standard -t PD -u panteater*
+      [user@login-x:~]$ squeue -o "%i %u %j %C %T %L %R" -p standard -t PD -u panteater
       JOBID        USER NAME CPUS   STATE     TIME_LEFT  NODELIST(REASON)
       1666961 panteater tst1  16  PENDING    3-00:00:00 (AssocGrpCPUMinutesLimit)
       1666962 panteater tst2  16  PENDING    3-00:00:00 (AssocGrpCPUMinutesLimit)
 
-   Each jobs asks for 16 CPUs to run for 3 days which is :math:`16 * 24 * 3 = 1152`
-   core-hours, and it is more than 942 hours in the account balance.
+   Each jobs asks for 16 CPUs to run for 3 days which is
 
-   .. attention:: These jobs will never be scheduled to run and need to be cancelled
+   :math:`16 * 24 * 3 = 1152` core-hours, and it is more than 942 hours in the account balance.
 
-4. Fix your job
-
-   First, cancel the offending jobs.
-
-   .. code-block:: console
-
-      [user@login-x:~]$ scancel 1666961
-      [user@login-x:~]$ scancel 1666962
-
-   Next step depends on your job requirements. Do you really need 16 CPUs or 3
-   days to run the job?  If so, then use your lab account (here PI_LAB) instead of your
-   personal account *panteater*.
-
-   If you only have a personal account you will need to lower requirements of your
-   job so that requested resources will be no more than core hours available in
-   your account.  This may mean to use fewer CPUs, or less time, or fewer CPUs but with increased memory per
-   CPU.  Please see :ref:`job examples` for more info
+   .. attention:: These jobs will never be scheduled to run and need to be canceled
 
 .. _pending in lab account:
 
 Pending job in LAB account
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Often users submit a job to a lab account and it results in PD status due to
 :tt:`AssocGrpCPUMinutesLimit` reason. 
@@ -810,12 +801,9 @@ Often users submit a job to a lab account and it results in PD status due to
                 plus :underline:`max time of queued jobs`
                 would cause the account to go negative.
 
-A user needs to check if there are any other jobs already running on  the specified account
-and compute what is the time already requested and allocated by Slurm to all
-jobs on the LAB account.
-
-Slurm users MAX time a job might consume which is
-calculated as requested :math:`Number of cores * Number of hours` and internally marks those hours as unavailable.
+.. note:: A user needs to check if there are any other jobs already running in the specified account
+          and compute what is the time already requested and allocated by Slurm to all
+          jobs on the LAB account.
 
 1. Check your jobs status
 
@@ -826,7 +814,18 @@ calculated as requested :math:`Number of cores * Number of hours` and internally
       12341501  standard  myjob_98 panteater  PI_lab PD  0:00    1    1 (AssocMaxJobsLimit)
       12341502  standard  myjob_99 panteater  PI_lab PD  0:00    1    1 (AssocMaxJobsLimit)
 
-2. Check job requirements
+2. Check the Slurm lab account balance
+
+   .. code-block:: console
+
+      [user@login-x:~]$ sbank balance statement -a PI_LAB
+      User         Usage |  Account   Usage | Account Limit Available (CPU hrs)
+      ---------- ------- + ----------- -----+ ------------- ---------
+      panteater1       0 |   PI_LAB  75,800 |       225,000   67,300
+      panteater2  50,264 |   PI_LAB  75,800 |       225,000   67,300
+      panteater*  25,301 |   PI_LAB  75,800 |       225,000   67,300
+
+3. Check your job requirements
 
    .. code-block:: console
 
@@ -840,12 +839,16 @@ calculated as requested :math:`Number of cores * Number of hours` and internally
          SubmitTime=2023-01-18T16:36:06 EligibleTime=2023-01-18T16:36:06
          AccrueTime=2023-01-18T16:36:06
          StartTime=Unknown EndTime=Unknown Deadline=N/A
-         <output  cut>
+         NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+         TRES=cpu=1,mem=6G,node=1,billing=1
+         <output  cut> 
 
-   Similar output is for the second job.
-   For each of two pending  jobs the request is :math:`1 CPU * 14 days * 24 hrs = 336 hrs`
+   Similar output is for the second job. Note :tt:`TimeLimit`.
+   For each of two pending jobs the resource request is
 
-3. Check the running jobs for your lab account
+   :math:`1 CPU * 14 days * 24 hrs = 336 hrs`
+
+4. Check ALL the running jobs for your lab account
 
    .. code-block:: console
 
@@ -856,45 +859,81 @@ calculated as requested :math:`Number of cores * Number of hours` and internally
       12341048  standard myjob_41  panteater      PI_lab  R      1 14-00:00:00 13-23:00:22
       < total 200 lines for 200 jobs >
 
-4. Check the lab account balance
-
-   .. code-block:: console
-
-      [user@login-x:~]$ sbank balance statement -u panteater
-      User         Usage |  Account   Usage | Account Limit Available (CPU hrs)
-      ---------- ------- + ----------- -----+ ------------- ---------
-      panteater1       0 |   PI_LAB  75,800 |       225,000   67,300
-      panteater2  50,264 |   PI_LAB  75,800 |       225,000   67,300
-      panteater*  25,301 |   PI_LAB  75,800 |       225,000   67,300
-
    Each of 200 running jobs in the account has run for about 1hr out of allocated 14 days.
    Total max time Slurm has allocated for these running jobs is 
-   :math:`1 CPU * 200 jobs * 14 days * 24 hrs = 67200 hrs`.
-   There is about *200 hrs* already used, (each job run about an hour),
+
+   :math:`1 CPU * 200 jobs * 14 days * 24 hrs = 67200 hrs`
+
+   There are about *200 hrs* already used, (each job run ~1 hr),
    so remaining needed balance is :tt:`67100 hrs`. 
-   Per step 1 above, your pending jobs each require :math:`1 CPU * 14 days * 24 hrs = 336 hrs`.
+   Per step 1 above, your 2 pending jobs require
+
+   :math:`1 CPU * 14 days * 24 hrs * 2 jobs = 672 hrs`.
 
    Slurm is computing that if all current jobs ran to their MAX times and if the next job
-   were to run MAX time your account would end up negative: :math:`67300 - 67100 - 2 * 336 = -472 hrs`.
+   were to run MAX time your account would end up negative:
 
-   Therefore slurm puts these new jobs on hold.  
+   :math:`67300 - 67100 - 672 = -472 hrs`.
+
+   Therefore Slurm puts these new jobs on hold.  
    These 2 jobs will  start running once some of the remaining running jobs completed
    and the account balance is sufficient.
 
   .. important:: It is important to correctly estimate time needed for the job,
                  and not ask for more resources (time, cpu, memory) than needed.
 
+.. _fix pending job:
+
+Fix your job
+^^^^^^^^^^^^
+
+   Similar fixes apply when using ``srun`` for interactive jobs.
+
+   You will need to cancel existing pending job (it will never run):
+
+   .. code-block:: console
+
+      [user@login-x:~]$ scancel <jobid>
+
+   Next, resubmit the job so that the requested execution hours can be covered by your bank account balance.
+   Check and update the following in your submit script:
+
+   1. If your job was run from personal account resubmit it using your lab
+      account where you have enough balance, check your:
+
+      * :tt:`SBATCH -A` use a different Slurm account (lab) where you have enough balance
+
+   2. Lower requirements of your job so that requested resources will be no more than core hours available in
+      your account. This may mean to use:
+
+      * fewer CPUs 
+
+        :tt:`SBATCH --ntasks` or :tt:`#SBATCH --cpus-per-task` 
+
+      * fewer CPUs but with increased memory per CPU 
+
+        :tt:`SBATCH --ntasks` and :tt:`#SBATCH --mem-per-cpu` 
+
+      * less memory
+
+        :tt:`SBATCH --mem` or :tt:`#SBATCH --mem-per-cpu`
+
+      * less time
+
+        :tt:`SBATCH --time` set a time limit that is shorter than the default runtime
+      
+
+      See :ref:`available partitions` for partitions default nad max settings. 
+
+   Please see :ref:`job examples` for more info 
+
 .. _pending reasons:
 
 Pending Job Reasons
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
-Jobs submitted to Slurm will start up as soon as the scheduler can find an appropriate resource. 
 While lack of resources or insufficient account balance are common reasons that prevent a job from starting,
 there are other possibilities. 
-
-RCIC does not generally put limits in place unless we see excess,
-unreasonable impact to shared resources (often, file systems), or other fairness issues.
 
 To see the state reasons of your pending jobs, you can run the ``squeue`` command
 with your account name as: 
@@ -909,12 +948,14 @@ with your account name as:
    95475 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
    95476 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
 
-
 Reasons that are often seen on HPC3 for job pending state
-and their explanation are s summarized below.
+and their explanation are summarized below.
 
 AssocGrpCPUMinutesLimit:
   Insufficient funds are available to run the job to completion.
+  Slurm users MAX time a job might consume which is
+  calculated as :tt:`Number of cores x Number of hours`
+  requested for the job, and internally marks those hours as unavailable.
 Dependency:
   Job has a user-defined dependency on a running job and cannot start until the previous job has completed.
 Priority:
@@ -930,54 +971,60 @@ Resources:
 
 To see all available job pending reasons and their definitions, please see output of
 ``man squeue`` command in the *JOB REASON CODES* section.
+A job may be waiting for more than one reason.
 
-A job may be waiting for more than one reason, in which case only one of those reasons is displayed.
+.. _modify job:
 
-==== Fix pending job
+Modification
+------------
 
-You will need to resubmit the job  so that the requested execution hours can
-be covered by your bank account balance. Verify the following settings
-in your Slurm script for batch jobs:
+It is possible to make some changes to jobs that are still waiting to run 
+by using the `scontrol` command.
 
-* *#SBATCH -A* use a different Slurm account (lab) where you have enough balance
-* *#SBATCH -p free* use free partition if you don't have another account
-* *#SBATCH --ntasks* or *#SBATCH --cpus-per-task* are you requesting correct CPU
-* *#SBATCH --mem* or *#SBATCH --mem-per-cpu* are you requesting correct memory
-* *#SBATCH --time* set a time limit  that is shorter than the default runtime
-(see <<memmap, the default settings >>)
-
-Similar fixes apply when using `srun` for interactive jobs.
-See <<examples.txt#,EXAMPLES>> for more info
-
-== Modify jobs prior to execution
-
-It is possible to make some changes to jobs that are still waiting to run in the
-queue by using the `scontrol` command.
 If changes need to be made for a running job, it may be better to kill the job
 and restart it after making the necessary changes.
 
-{prompt} [.bluelight]*scontrol update jobid=<jobid> timelimit=<new timelimit>* # <1>
-{prompt} [.bluelight]*scontrol update jobid=<jobid> qos=[low|normal|high]*     # <2>
+Change job time limit:
+  The  format set is  minutes,  minutes:seconds,  hours:minutes:seconds,  days-hours,
+  days-hours:minutes  or  days-hours:minutes:seconds.  The *2-12:30* means 2days, 12hrs, and 30 min.
 
-<1> *change time limit*. The  format set is  minutes,  minutes:seconds,  hours:minutes:seconds,  days-hours,
-days-hours:minutes  or  days-hours:minutes:seconds.  The _2-12:30_ means 2days, 12hrs, and 30 min.
-<2> *change QOS*.  By default, jobs are set to run with [.tt]*qos=normal*.  Users rarely need to change QOS.
+  .. code-block:: console
 
-== Hold/Release/Cancel jobs
+     [user@login-x:~]$ scontrol update jobid=<jobid> timelimit=<new timelimit>
 
-{prompt} [.bluelight]*scontrol hold <jobid>*    # <1>
-{prompt} [.bluelight]*scontrol release <jobid>* # <2>
-{prompt} [.bluelight]*scancel <jobid>*          # <3>
-{prompt} [.bluelight]*scancel -u <username>*    # <4>
+Change QOS:
+  By default, jobs are set to run with :.tt:`qos=normal`.
+  :underline:`Users rarely need to change QOS`. 
 
-<1> To prevent a pending job from starting.
-<2> To release held jobs to run (after they have accrued priority).
-<3> To cancel a specific job.
-<4> To cancel all jobs owned by a user. This only applies to jobs that
-are associated with your accounts.
+  .. code-block:: console
 
-== Account Coordinators
+     [user@login-x:~]$ scontrol update jobid=<jobid> qos=[low|normal|high]
 
-Slurm uses [.tt]*account coordinators* as users who can directly
-control accounts. Please see <<account-control#,Account Coordinators Guide>>
+.. _control jobs:
 
+Cancel/Hold/Release
+-------------------
+
+The following commands can be used to:
+
+Cancel a specific job:
+  .. code-block:: console
+
+     [user@login-x:~]$ scancel <jobid>
+
+To cancel all jobs owned by a user:
+  This only applies to jobs that are associated with your accounts
+
+  .. code-block:: console
+
+     [user@login-x:~]$ scancel -u <username>
+
+To prevent a pending job from starting:
+  .. code-block:: console
+
+     [user@login-x:~]$ scontrol hold <jobid>
+
+To release held jobs to run:
+  .. code-block:: console
+
+     [user@login-x:~]$ scontrol release <jobid>
