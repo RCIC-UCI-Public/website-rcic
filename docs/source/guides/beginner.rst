@@ -234,7 +234,7 @@ and hundreds of jobs running. What you do can adversely affect others.
 .. important:: Please follow :ref:`conduct rules` to avoid problems.
 
 We use Slurm scheduler to run CPU intensive or long running applications.
-In depth :ref:`slurm` guide provides extensive info about using the scheduler.
+In depth :ref:`Slurm guide<slurm manager>` provides extensive info about using the scheduler.
 This page shows a short summary.
 
 Slurm is an open-source workload manager for Linux clusters and provides:

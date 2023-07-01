@@ -115,4 +115,4 @@ Troubleshooting
 ---------------
 
 There are many online guides for ssh, please sea
-:doc:`SSH</tutorials/listing>` links.
+:doc:`SSH</guides/tutorials>` links.

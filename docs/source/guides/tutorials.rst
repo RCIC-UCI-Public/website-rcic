@@ -1,7 +1,7 @@
 .. _tutorials:
 
-Tutorials Links
-================
+Tutorials
+=========
 
 All users need to have a basic knowledge of UNIX and a basic but sufficient proficiency 
 with simple commands. Here we provide links to RCIC-authored presentations and links to online tutorials

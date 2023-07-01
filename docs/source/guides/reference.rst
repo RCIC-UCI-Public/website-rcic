@@ -9,7 +9,7 @@ Reference guide
 :doc:`Getting an account  </account/getting-account>`
     How to get an account on HPC3 cluster
 
-:doc:`Acceptable Use Policy </account/conduct>`
+:doc:`Acceptable Use Policy </account/acceptable-use>`
     Please read and abide by this policy for resources
     managed by the RCIC.
 

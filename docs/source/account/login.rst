@@ -145,7 +145,7 @@ If you choose to use key-based authentication for your login, you have additiona
      :Windows: `Powershell <https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement>`_
      :MaxOS: `Proper use of ssh-client <https://www.getpagespeed.com/work/proper-use-of-ssh-client-in-mac-os-x>`_
 
-   See more :ref:`ssh tutorials` links for more details.
+   See :ref:`tutorials` for more SSH links.
 
 **Step by Step**
 
