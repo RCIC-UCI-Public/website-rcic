@@ -740,6 +740,52 @@ When a job is in *PD* (pending) status you need to determine why.
                will not be charged when submitted to a free partition, there must be a
                sufficient balance for Slurm to begin your job.
 
+.. _pending reasons:
+
+Pending Job Reasons
+^^^^^^^^^^^^^^^^^^^
+
+While lack of resources or insufficient account balance are common reasons that prevent a job from starting,
+there are other possibilities. 
+
+To see the state reasons of your pending jobs, you can run the ``squeue`` command
+with your account name as: 
+
+.. code-block:: console
+
+   [user@login-x:~]$ squeue -t PD -u peat
+   JOBID PARTITION NAME USER ACCOUNT ST TIME CPUS NODE NODELIST(REASON)
+   92005 standard  watA peat   p_lab PD 0:00    1    1 (ReqNodeNotAvail,Reserved for maintenance)
+   92008 standard  watA peat   p_lab PD 0:00    1    1 (ReqNodeNotAvail,Reserved for maintenance)
+   92011 standard  watA peat   p_lab PD 0:00    1    1 (ReqNodeNotAvail,Reserved for maintenance)
+   95475 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
+   95476 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
+
+Reasons that are often seen on HPC3 for job pending state
+and their explanation are summarized below.
+
+AssocGrpCPUMinutesLimit:
+  Insufficient funds are available to run the job to completion.
+  Slurm users MAX time a job might consume which is
+  calculated as :tt:`Number of cores x Number of hours`
+  requested for the job, and internally marks those hours as unavailable.
+Dependency:
+  Job has a user-defined dependency on a running job and cannot start until the previous job has completed.
+Priority:
+  Slurm's scheduler is temporarily holding the job in pending state because other queued jobs have a higher priority.
+QOSMaxJobsPerUserLimit:
+  The user is already running the maximum number of jobs allowed by the particular partition.
+ReqNodeNotAvail, Reserved for maintenance:
+  If the job were to run for the requested maximum time, it would run into
+  a defined maintenance window. Job will not start until maintenance has been completed.
+Resources: 
+  The requested resource configuration is not currently available. If a job requests a
+  resource combination that physically does not exist, the job will remain in this state forever.
+
+To see all available job pending reasons and their definitions, please see output of
+``man squeue`` command in the *JOB REASON CODES* section.
+A job may be waiting for more than one reason.
+
 .. _pending in personal account:
 
 Pending job in personal account
@@ -898,80 +944,30 @@ Fix your job
    Next, resubmit the job so that the requested execution hours can be covered by your bank account balance.
    Check and update the following in your submit script:
 
-   1. If your job was run from personal account resubmit it using your lab
-      account where you have enough balance, check your:
+   1. If your job was run from personal account
 
-      * :tt:`SBATCH -A` use a different Slurm account (lab) where you have enough balance
+      | use a different Slurm account (lab) where you have enough balance
+      |   :tt:`SBATCH -A` 
 
    2. Lower requirements of your job so that requested resources will be no more than core hours available in
       your account. This may mean to use:
 
-      * fewer CPUs 
+      | fewer CPUs 
+      |   :tt:`SBATCH --ntasks` or :tt:`#SBATCH --cpus-per-task` 
 
-        :tt:`SBATCH --ntasks` or :tt:`#SBATCH --cpus-per-task` 
+      | fewer CPUs but with increased memory per CPU 
+      |   :tt:`SBATCH --ntasks` and :tt:`#SBATCH --mem-per-cpu` 
 
-      * fewer CPUs but with increased memory per CPU 
+      | less memory
+      |   :tt:`SBATCH --mem` or :tt:`#SBATCH --mem-per-cpu`
 
-        :tt:`SBATCH --ntasks` and :tt:`#SBATCH --mem-per-cpu` 
-
-      * less memory
-
-        :tt:`SBATCH --mem` or :tt:`#SBATCH --mem-per-cpu`
-
-      * less time
-
-        :tt:`SBATCH --time` set a time limit that is shorter than the default runtime
+      | set a time limit that is shorter than the default runtime
+      |   :tt:`SBATCH --time` 
       
 
       See :ref:`available partitions` for partitions default nad max settings. 
 
    Please see :ref:`job examples` for more info 
-
-.. _pending reasons:
-
-Pending Job Reasons
-^^^^^^^^^^^^^^^^^^^
-
-While lack of resources or insufficient account balance are common reasons that prevent a job from starting,
-there are other possibilities. 
-
-To see the state reasons of your pending jobs, you can run the ``squeue`` command
-with your account name as: 
-
-.. code-block:: console
-
-   [user@login-x:~]$ squeue -t PD -u peat
-   JOBID PARTITION NAME USER ACCOUNT ST TIME CPUS NODE NODELIST(REASON)
-   92005 standard  watA peat   p_lab PD 0:00    1    1 (ReqNodeNotAvail,Reserved for maintenance)
-   92008 standard  watA peat   p_lab PD 0:00    1    1 (ReqNodeNotAvail,Reserved for maintenance)
-   92011 standard  watA peat   p_lab PD 0:00    1    1 (ReqNodeNotAvail,Reserved for maintenance)
-   95475 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
-   95476 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
-
-Reasons that are often seen on HPC3 for job pending state
-and their explanation are summarized below.
-
-AssocGrpCPUMinutesLimit:
-  Insufficient funds are available to run the job to completion.
-  Slurm users MAX time a job might consume which is
-  calculated as :tt:`Number of cores x Number of hours`
-  requested for the job, and internally marks those hours as unavailable.
-Dependency:
-  Job has a user-defined dependency on a running job and cannot start until the previous job has completed.
-Priority:
-  Slurm's scheduler is temporarily holding the job in pending state because other queued jobs have a higher priority.
-QOSMaxJobsPerUserLimit:
-  The user is already running the maximum number of jobs allowed by the particular partition.
-ReqNodeNotAvail, Reserved for maintenance:
-  If the job were to run for the requested maximum time, it would run into
-  a defined maintenance window. Job will not start until maintenance has been completed.
-Resources: 
-  The requested resource configuration is not currently available. If a job requests a
-  resource combination that physically does not exist, the job will remain in this state forever.
-
-To see all available job pending reasons and their definitions, please see output of
-``man squeue`` command in the *JOB REASON CODES* section.
-A job may be waiting for more than one reason.
 
 .. _modify job:
 
