@@ -1,7 +1,7 @@
 
 .. _news:
 
-Recent Posts
+News & Events
 =============
 
 Mar 28

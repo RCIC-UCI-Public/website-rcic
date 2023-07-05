@@ -11,12 +11,7 @@ RCIC User Documentation
    about/allocations
    about/advisory
    about/staff
-
-.. toctree::
-   :maxdepth: 1
-   :caption: News & Events
-
-   news/latest
+   about/news
 
 .. toctree::
    :maxdepth: 1
