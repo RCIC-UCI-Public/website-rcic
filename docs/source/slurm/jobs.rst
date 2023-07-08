@@ -76,13 +76,13 @@ Submitting batch jobs to Slurm is done with the ``sbatch`` command
 and the job description is provided by the submit script.
 An example job submit script:
 
-.. centered:: File simplejob.sub
+.. centered:: File simple.sub
 
-.. literalinclude:: files/simplejob.sub
+.. literalinclude:: files/simple.sub
    :language: bash
 
 To submit a job on HPC3, login and using your favorite editor create
-:tt:`simplejob.sub` file with the contents shown above.
+:tt:`simple.sub` file with the contents shown above.
 
 Edit the Slurm account to charge for the job to either your personal account or lab account.
 Your personal account is the same as your UCINetID.
@@ -90,7 +90,7 @@ Your personal account is the same as your UCINetID.
 To submit the job:
   .. code-block:: console
 
-     [user@login-x:~]$ sbatch simplejob.sub
+     [user@login-x:~]$ sbatch simple.sub
      Submitted batch job 21877983
 
 When the job has been submitted, Slurm returns a job ID (here 21877983)  that will be used to reference the job
@@ -400,31 +400,10 @@ colleagues by doing the following.
       #SBATCH --tmp=180G                 # requesting 180 GB (1 GB = 1,024 MB) local scratch
       #SBATCH --constraint=fastscratch   # requesting nodes with a lot of space in /tmp
 
-   Folow the above (job 2) submit script example to:
+   Folow the above (job type 2 above) submit script example to:
 
    | - at job start explicitly copy input files from DFS/CRSP to :tt:`$TMPDIR`
    | - at job end explicitly copy output files from :tt:`$TMPDIR` to DFS/CRSP
-
-.. _mail notification:
-
-Mail notification
-^^^^^^^^^^^^^^^^^
-
-To receive email notification on the status of jobs, include the following lines in your
-submit scripts and make the appropriate modifications to the second line:
-
-.. code-block:: console
-
-   #SBATCH --mail-type=fail,end
-   #SBATCH --mail-user=user@domain.com
-
-The first line specifies the event type for which a user requests an email (here failure/end events), the
-second specifies a valid email address. We suggest to use a very few event
-types especially if you submit hundreds of jobs. For more info, see output of ``man sbatch`` command.
-
-.. attention:: | DO NOT use mail event type ALL, BEGIN.
-               | DO NOT enable email notification if you submit hundreds of jobs.
-               | Sending an email for each job overloads Postfix server.
 
 .. _request memory:
 
@@ -530,6 +509,66 @@ If you want more memory for the job you should:
    multiple nodes. Very few applications that are compiled and run with OpenMPI or
    MPICH can use multiple nodes, the rest of applications  including interactive
    sessions should use a single node.
+
+.. _request time:
+
+Request Time
+^^^^^^^^^^^^
+
+Similar to memory limits, Slurm has *default* and *max* settings for a runtime
+for each partition.  Please see all partitions settings in :ref:`available partitions`.
+
+:default settings:
+  are used when a job submission script does not specify
+  different runtime, and for most jobs this is sufficient.
+
+:max settings:
+  specify the longest time a job can run in a given partition.
+  Job time specifications can not exceed the partition's max setting.
+  When a job requires longer runtime than a default it needs to be specified in the Slurm
+  script using :tt:`#SBATCH --time=` (or  short notation :tt:`#SBATCH -t`) directive.
+
+Acceptable time formats are 
+
+  * minutes 
+  * minutes:seconds
+  * hours:minutes:seconds
+  * days-hours
+  * days-hours:minutes
+  * days-hours:minutes:seconds
+
+For example:
+
+.. code-block:: bash
+
+   #SBATCH --time=5        # 5 minutes
+   #SBATCH -t 36:30:00     # 36 hrs and 30 min
+   #SBATCH -t 7-00:00:00   # 7 days
+
+.. _mail notification:
+
+Mail notification
+^^^^^^^^^^^^^^^^^
+
+To receive email notification on the status of jobs, include the following lines in your
+submit scripts and make the appropriate modifications to the second line:
+
+.. code-block:: console
+
+   #SBATCH --mail-type=fail,end
+   #SBATCH --mail-user=user@domain.com
+
+The first line specifies the event type for which a user requests an email (here failure/end events), the
+second specifies a valid email address. We suggest to use a very few event
+types especially if you submit hundreds of jobs. For more info, see output of ``man sbatch`` command.
+
+Make sure to use your actual UCI-issued email address. While Slurm sends emails to any email address,
+we prefer you use your UCInetID@uci.edu email address. System administrators will use UCInetID@uci.edu
+if they need to contact you about a job.
+
+.. attention:: | DO NOT use mail event type ALL, BEGIN.
+               | DO NOT enable email notification if you submit hundreds of jobs.
+               | Sending an email for each job overloads Postfix server.
 
 .. _job monitoring:
 
