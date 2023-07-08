@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#SBATCH -p standard             ## partition/queue name
+#SBATCH --nodes=1               ## number of nodes the job will use
+#SBATCH --ntasks=1              ## number of processes to launch
+#SBATCH --cpus-per-task=6       ## number of OpenMP threads. !! MUST BE DEFINED !!
+                                ## total RAM request = 6 * 3 GB/core = 18 GB
+module load openmpi/4.0.3/gcc.8.4.0
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+/path/to/openmp-program

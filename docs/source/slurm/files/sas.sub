@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#SBATCH -p standard                   ## run on the standard partition
+#SBATCH -N 1                          ## run on a single node
+#SBATCH -n 10                         ## request 10 tasks (10 CPU)
+#SBATCH -t 00:60:00                   ## 60 min run time limit
+#SBATCH --mail-type=end               ## send email when the job ends
+#SBATCH --mail-user=UCInetID@uci.edu  ## use this email address
+
+module load SAS/9.4
+sas -noterminal mycode.sas

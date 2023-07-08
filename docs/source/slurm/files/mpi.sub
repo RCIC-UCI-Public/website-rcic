@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#SBATCH -p standard         ## partition/queue name
+#SBATCH --nodes=2           ## number of nodes the job will use
+#SBATCH --ntasks=80         ## number of processes to launch
+#SBATCH --cpus-per-task=1   ## number of MPI threads
+                            ## total RAM request = 80 * 3 GB/core = 240 GB
+
+# Run MPI application
+module load openmpi/4.1.1/gcc.system
+mpirun -np $SLURM_NTASKS your_app > output.txt

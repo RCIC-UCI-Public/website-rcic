@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --job-name=vasp-gpu  ## job name
+#SBATCH -p gpu               ## run in gpu partition
+#SBATCH -A panteater_lab_gpu ## charge GPU account
+#SBATCH --ntasks=10          ## number of tasks provides memory, alternatively
+                             ## use --mem parameter
+#SBATCH --cpus-per-task=1    ## number of cores the job needs
+#SBATCH -t 05:00:00          ## limit run to 5hrs
+#SBATCH --nodes=1            ## REQUIRED! run on a single node
+#SBATCH --gres=gpu:V100:1    ## REQUIRED! ask for 1 GPU
+
+module load vasp/6.3.2/cudasdk.22.9
+
+mpirun -np 1 vasp_std
+

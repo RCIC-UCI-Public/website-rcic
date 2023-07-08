@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#SBATCH -p standard  ## run on the standard partition
+#SBATCH -N 1         ## run on a single node
+#SBATCH -n 1         ## request 1 task (one CPU)
+#SBATCH -t 1-        ## 1-day run time limit
+
+module load R/4.1.2
+R CMD BATCH --no-save mycode.R

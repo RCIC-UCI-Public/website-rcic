@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#SBATCH --job-name=test_array   ## name of the job.
+#SBATCH -A panteater_lab        ## account to charge
+#SBATCH -p standard             ## partition/queue name
+#SBATCH --error=error_%A_%a.txt ## error log file name: %A is job id, %a is array task id
+#SBATCH --output=out_%A_%a.txt  ## output filename
+#SBATCH --nodes=1               ## number of nodes the job will use
+#SBATCH --ntasks=1              ## number of processes to launch for each array iteration
+#SBATCH --cpus-per-task=1       ## number of cores the job needs
+#SBATCH --time=1:00:00          ## time limit for each array task
+#SBATCH --array=1-100           ## number of array tasks is 100 and
+                                ## $SLURM_ARRAY_TASK_ID takes values from 1 to 100 inclusive
+
+# Slurm automatically sets $SLURM_ARRAY_TASK_ID variable 
+# Can use $SLURM_ARRAY_TASK_ID to specify the file names and other variables.
+
+# A user application *myanalyze* takes as an argument a file name based on task ID. 
+# Each array task takes a different input file: from data_file_1.txt to data_file_100.txt
+myanalyze data_file_$SLURM_ARRAY_TASK_ID.txt
+
+# A user application *mysimulate* takes as an argument an integer number 
+# which can be specified with $SLURM_ARRAY_TASK_ID, for example:
+mysimulate $SLURM_ARRAY_TASK_ID

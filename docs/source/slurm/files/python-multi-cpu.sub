@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#SBATCH -p standard                   ## run on the standard partition
+#SBATCH -N 1                          ## run on a single node
+#SBATCH -n 1                          ## request 1 task
+#SBATCH -c 12                         ## request 12 CPUs
+#SBATCH -t 5-                         ## 5 day run time limit
+
+module load python/3.8.0
+python myscript.py

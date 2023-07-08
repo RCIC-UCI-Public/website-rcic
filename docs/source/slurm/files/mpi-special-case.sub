@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --job-name=myjob
+#SBATCH -p standard
+#SBATCH -A ANTEATER_LAB
+#SBATCH --ntasks=80
+#SBATCH --nodes=2                ## (-N) number of nodes to use
+#SBATCH --cpus-per-task=1        ## number of cores the job needs
+#SBATCH --constraint="mlx5_ib"   ## run only on nodes with updated IB firmware
+#SBATCH -t 01-00:00:00
+
+# set these UCX parameters for openmpi
+export OMP_NUM_THREADS=1
+export UCX_TLS=rc,mm
+export UCX_NET_DEVICES=mlx5_0:1
+
+# load your application module
+module load vasp/6.1.2
+
+# original command is updated  with: -mca pml ucx 
+mpirun -np $SLURM_NTASKS -mca pml ucx vasp_std

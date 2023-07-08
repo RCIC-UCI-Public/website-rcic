@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#SBATCH -p standard                   ## run on the standard partition
+#SBATCH -N 1                          ## run on a single node
+#SBATCH -n 1                          ## request 1 task (1 CPU)
+#SBATCH -t 2:00:00                    ## 2 hr run time limit
+#SBATCH --mail-type=end               ## send email when the job ends
+#SBATCH --mail-user=UCInetID@uci.edu  ## use this email address
+
+module load python/3.8.0
+python myscript.py

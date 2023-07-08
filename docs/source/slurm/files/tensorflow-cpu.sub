@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#SBATCH -p free          ## run on the free partition
+#SBATCH -N 1             ## run on a single node
+#SBATCH -n 1             ## request 1 task
+#SBATCH -t 02-00:00:00   ## 2-day run time limit
+
+module load tensorflow/2.0.0
+python mycode.py

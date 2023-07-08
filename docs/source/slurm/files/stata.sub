@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#SBATCH -p standard                   ## run on the standard partition
+#SBATCH -N 1                          ## run on a single node
+#SBATCH -t 01-00:00:00                ## 1-day run time limit
+#SBATCH -n 8                          ## request 8 task (8 CPUs)
+
+module load stata/16
+stata-mp -b do mycode.do

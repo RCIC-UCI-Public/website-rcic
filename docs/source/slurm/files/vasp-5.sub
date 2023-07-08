@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --job-name=vasp          ## job name
+#SBATCH -p standard              ## partition to use
+#SBATCH -A panteater_lab         ## account to charge
+#SBATCH --ntasks=80              ## need 80 CPU cores
+#SBATCH --cpus-per-task=1        ## number of cores the job needs
+#SBATCH -t 12:00:00              ## set time limit to 12hrs
+#SBATCH --constraint="mlx5_ib"   ## REQUIRED! run only on nodes with updated IB firmware
+#SBATCH --nodes=2-4              ## run on 2-4 nodes
+
+# These are REQUIRED parameters 
+export OMP_NUM_THREADS=1
+export UCX_TLS=rc,mm
+export UCX_NET_DEVICES=mlx5_0:1
+
+# Load vasp module
+module load vasp/5.4.4
+
+# Run your vasp command, note added -mca pml ucx 
+mpirun -np $SLURM_NTASKS -mca pml ucx vasp_std

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#SBATCH -p standard      ## run on the standard partition
+#SBATCH -N 1             ## run on a single node
+#SBATCH -n 12            ## request 12 tasks (12 CPUs)
+#SBATCH -t 02-00:00:00   ## 2-day run time limit
+
+module load MATLAB/R2020a
+matlab -nodesktop -nosplash -singleCompThread -r mycode -logfile mycode.out

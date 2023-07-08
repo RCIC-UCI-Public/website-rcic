@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#SBATCH --job-name=vasp-cpu     ## job name
+#SBATCH -p standard             ## use standard partition
+#SBATCH -A panteater_lab        ## account to charge
+#SBATCH --ntasks=40             ## number of CPUs for the job
+#SBATCH --cpus-per-task=1       ## number of tasks per CPU 
+#SBATCH -t 12:00:00             ## time limit is 12hrs
+#SBATCH --nodes=2-4             ## run on 204 nodes
+#SBATCH --constraint="mlx5_ib"  ## run only on nodes with updated IB firmware
+
+export OMP_NUM_THREADS=1
+module load vasp/6.3.2/gcc.11.2.0
+
+mpirun -np $SLURM_NTASKS -mca pml ucx vasp_std
