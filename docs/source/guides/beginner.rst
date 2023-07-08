@@ -322,8 +322,8 @@ can be used *as is*.
   .. code-block:: console
 
      [user@login-x:~]$ cd /pub/$USER
-     [user@login-x:~]$ wget https://rcic.uci.edu/hpc3/examples/firstjob.sub
-     [user@login-x:~]$ wget https://rcic.uci.edu/hpc3/examples/days.py
+     [user@login-x:~]$ wget https://rcic.uci.edu/_static/examples/firstjob.sub
+     [user@login-x:~]$ wget https://rcic.uci.edu/_static/examples/days.py
      [user@login-x:~]$ cat firstjob.sub
 
   The commands are:
