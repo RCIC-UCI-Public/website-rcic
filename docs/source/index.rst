@@ -73,7 +73,6 @@ RCIC User Documentation
 
    guides/beginner
    guides/reference
-   guides/ssh
    guides/unix-primer
    storage/data-transfer
    guides/tutorials
