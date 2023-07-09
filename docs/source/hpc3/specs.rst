@@ -37,7 +37,7 @@ configurations shown first.
 .. sinfo -S  '-R -D c' -p standard,highmem,maxmem,gpu -o "   | %4D | %4c | %9m | %38f | %12G | " -e  | sed 's/(null)/      /'
 
 .. table::
-   :class: noscroll-table
+   :class: noscroll-table sortable
 
    +------+------+-----------+----------------------------------------+--------------+
    | Nodes| CPUs | Memory    | Available Features                     | GRES         |
@@ -211,8 +211,8 @@ or browse the table below.
 
 TODO Click on the column header for sorting.
 
-.. csv-table:: Node detil info updated :blogauthor:`21 Feb 2023`.
-   :class: noscroll-table
+.. csv-table:: Nodes info updated :blogauthor:`21 Feb 2023`.
+   :class: noscroll-table sortable
    :file: nodes.csv
    :widths: 5,5,18,20,15,22,10,5
    :header-rows: 1
