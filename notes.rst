@@ -32,17 +32,19 @@ did not work.  Modifications below.
 
 1. Download jquery.dataTables related css, js and images as:
 
-   wget https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css
-   wget https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js
-   wget https://cdn.datatables.net/1.10.23/css/../images/sort_asc.png
-   wget https://cdn.datatables.net/1.10.23/css/../images/sort_asc_disabled.png
-   wget https://cdn.datatables.net/1.10.23/css/../images/sort_both.png
-   wget https://cdn.datatables.net/1.10.23/css/../images/sort_desc.png          
-   wget https://cdn.datatables.net/1.10.23/css/../images/sort_desc_disabled.png
+   .. code-block:: bash
 
-   Move jquery.dataTables.min.css in _static/css/
-   Move jquery.dataTables.min.js to _static/js/ 
-   Move all images to _static/images/
+      wget https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css
+      wget https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js
+      wget https://cdn.datatables.net/1.10.23/css/../images/sort_asc.png
+      wget https://cdn.datatables.net/1.10.23/css/../images/sort_asc_disabled.png
+      wget https://cdn.datatables.net/1.10.23/css/../images/sort_both.png
+      wget https://cdn.datatables.net/1.10.23/css/../images/sort_desc.png          
+      wget https://cdn.datatables.net/1.10.23/css/../images/sort_desc_disabled.png
+
+   | Move jquery.dataTables.min.css in _static/css/
+   | Move jquery.dataTables.min.js to _static/js/ 
+   | Move all images to _static/images/
 
 2. Edit jquery.dataTables.min.css and change  *float* value to *none*
 
@@ -62,7 +64,8 @@ did not work.  Modifications below.
        $('table.sortable').DataTable();
    } );
 
-   Note, *sortable* is a table class. Use it when need table sorting as
+   Note, *sortable* is a table class. Use it when need table sorting in any
+   rst files as
 
    .. code-block:: rst
 
@@ -71,8 +74,10 @@ did not work.  Modifications below.
 
 4. In conf.py add
 
-   # custom css file
-   html_css_files = [ 'css/rcic.css','css/jquery.dataTables.min.css']
+   .. code-block:: text
 
-   # custom js files
-   html_js_files = ['js/jquery.dataTables.min.js', 'js/main.js',]
+      # custom css file
+      html_css_files = [ 'css/rcic.css','css/jquery.dataTables.min.css']
+
+      # custom js files
+      html_js_files = ['js/jquery.dataTables.min.js', 'js/main.js',]
