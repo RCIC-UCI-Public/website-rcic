@@ -77,7 +77,7 @@ in their availability  for :tt:`Rocky Linux 8`. See footnotes after the table
 for a few specific cases.
 
 .. csv-table:: 
-   :class: noscroll-table
+   :class: noscroll-table sortable
    :file: updates-list.csv
    :widths: 25,10,10,55
    :header-rows: 1

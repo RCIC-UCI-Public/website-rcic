@@ -8,7 +8,9 @@ and a broader **Advisory committee**.
 The Executive Committee meets roughly every month.
 The Advisory Committee meets approximately once per quarter.
 
-.. table:: **Executive Committee**
+.. centerd:: **Executive Committee**
+
+.. table::
    :class: noscroll-table
 
    +----------------------------------+-------------------------------------+------------------------------------------+
@@ -33,8 +35,10 @@ The Advisory Committee meets approximately once per quarter.
    | Prof. Doug Tobias                | Physical Sciences                   | Chemistry                                |
    +----------------------------------+-------------------------------------+------------------------------------------+
 
-.. table:: **Advisory Committee**
-   :class: noscroll-table
+.. centered:: **Advisory Committee**
+
+.. table:: 
+   :class: noscroll-table sortable
 
    +----------------------------------+-------------------------------------+-------------------------------------------+
    | Name                             | School/Unit                         | Department                                |
