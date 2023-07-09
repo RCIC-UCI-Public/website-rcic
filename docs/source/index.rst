@@ -79,7 +79,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: Reference
+   :caption: 📚 Reference
 
    references/glossary
    references/hardware-faq
