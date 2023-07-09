@@ -65,7 +65,10 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = [ '_static', 'pdfs']
 
 # custom css file
-html_css_files = [ 'css/rcic.css',]
+html_css_files = [ 'css/rcic.css','css/jquery.dataTables.min.css']
+
+# custom js files
+html_js_files = ['js/jquery.dataTables.min.js', 'js/main.js',]
 
 # top sidebar image image (relative to this dir) 
 html_logo = 'images/rcic-logo.png'

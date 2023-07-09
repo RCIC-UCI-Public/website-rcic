@@ -23,3 +23,56 @@ Images
    Resulting image is a combination of the original UCI logo plus text,
    with transparent background.
 
+
+Enable table sorting
+--------------------
+
+Original recipe https://stackoverflow.com/questions/64443832/sorting-table-with-rst-and-python-sphinx-in-html-output
+did not work.  Modifications below.
+
+1. Download jquery.dataTables related css, js and images as:
+
+   wget https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css
+   wget https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js
+   wget https://cdn.datatables.net/1.10.23/css/../images/sort_asc.png
+   wget https://cdn.datatables.net/1.10.23/css/../images/sort_asc_disabled.png
+   wget https://cdn.datatables.net/1.10.23/css/../images/sort_both.png
+   wget https://cdn.datatables.net/1.10.23/css/../images/sort_desc.png          
+   wget https://cdn.datatables.net/1.10.23/css/../images/sort_desc_disabled.png
+
+   Move jquery.dataTables.min.css in _static/css/
+   Move jquery.dataTables.min.js to _static/js/ 
+   Move all images to _static/images/
+
+2. Edit jquery.dataTables.min.css and change  *float* value to *none*
+
+   .. code-block:: text
+    
+      .dataTables_filter{float:right;text-align:right} 
+      to
+      .dataTables_filter{float:none;text-align:right} 
+
+   Otherwise table and above table show and search entries become misaligned.
+
+3. Create _static/js/main.js
+
+   .. code-block:: js
+
+   $(document).ready( function () {
+       $('table.sortable').DataTable();
+   } );
+
+   Note, *sortable* is a table class. Use it when need table sorting as
+
+   .. code-block:: rst
+
+      .. table::
+         :class: sortable
+
+4. In conf.py add
+
+   # custom css file
+   html_css_files = [ 'css/rcic.css','css/jquery.dataTables.min.css']
+
+   # custom js files
+   html_js_files = ['js/jquery.dataTables.min.js', 'js/main.js',]
