@@ -9,15 +9,14 @@ Charging jobs to an account is new for the UCI community. Like any policy, it ca
 * Users who are running a very large number of :ref:`free jobs` are likely to have some of
   their free jobs preempted (killed).
 
-TODO 
+In this section, we provide information about how to submit your jobs to Slurm, how
+to monitor them and how to request various resources.
 
-We provide the numerous <<examples.txt#,EXAMPLES>> that show in depth how to run array jobs, request GPUs,
+Additional specific :ref:`job examples` show in depth how to run array jobs, request GPUs,
 CPUs, and memory for a variety of different job types and common applications.
 
-TODO The scripts can be downloaded from link:examples[this directory].
-
-There are a few methods to submit your jobs to Slurm: *batch*, *interactive*, and
-*running jobs immediately*.  Please see sections below.
+.. contents::
+   :local:
 
 .. _recommendation:
 
