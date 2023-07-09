@@ -22,7 +22,7 @@ Reference guide
 :doc:`Beginner</guides/beginner>`
     New users step by step how to for information on how to start on HPC3.
 
-:doc:`SSH </guides/ssh>`
+:ref:`SSH keys <ssh guide>`
    How to use, tips and links.
 
 :doc:`Software modules </software/modules>`
