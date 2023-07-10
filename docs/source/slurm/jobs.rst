@@ -228,8 +228,8 @@ Requesting Resources
 
 .. _request constrains:
 
-Features/Constrains
-^^^^^^^^^^^^^^^^^^^
+Features/Constraints
+^^^^^^^^^^^^^^^^^^^^
 
 HPC3 has a heterogeneous hardware with several different CPU types.
 You can request that a job only runs on nodes with certain *features*.
