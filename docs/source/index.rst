@@ -32,7 +32,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: HPC3
+   :caption: 💡 HPC3
 
    hpc3/hpc3
    hpc3/reallocations
@@ -40,7 +40,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: Storage
+   :caption: 💡 Storage
 
    storage/overview
    storage/home
@@ -51,7 +51,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: Software
+   :caption: 🪄 Software
 
    software/software
    software/modules
@@ -60,7 +60,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: Slurm
+   :caption: 🪄 Slurm
 
    slurm/slurm
    slurm/jobs
@@ -70,7 +70,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: User Guides & Tutorials
+   :caption: 🚀 User Guides & Tutorials
 
    guides/beginner
    guides/reference
