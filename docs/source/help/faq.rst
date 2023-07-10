@@ -1,6 +1,6 @@
 .. _faq:
 
-Frequently Asked Questions 
+Frequently Asked Questions
 ==========================
 
 .. contents::
@@ -31,7 +31,7 @@ Please see :ref:`advisory`
 How do I acknowledge RCIC?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please see :ref:`acknowledge` 
+Please see :ref:`acknowledge`
 
 Is there a description that can be used in grant applications?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,7 +52,7 @@ I don’t have any funds to purchase cycles or buy hardware, can I use HPC3?
 
 Yes, if you are faculty member, you have granted cycles that are yours to use anyway you see fit
 for research. There are also the “free” queues, where jobs are not charged.
-Please see :ref:`no-cost allocations` for details. 
+Please see :ref:`no-cost allocations` for details.
 
 If I purchase core-hours, is overhead charged?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -68,8 +68,8 @@ How can I be added to my PI's lab account?
 
 PIs have control over who can charge to their account and how much they can charge.
 Please send a request to hpc-support@uci.edu
-*with a cc to your PI* and ask us to add you to the PI's account. 
-The PI will have to confirm via email reply that this change is allowed. 
+*with a cc to your PI* and ask us to add you to the PI's account.
+The PI will have to confirm via email reply that this change is allowed.
 
 How do I prevent my grad student from *draining my account* before I know about it?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,13 +87,14 @@ How does core-hour accounting impact long-running jobs?
 
 It really doesn't. Slurm will not  start the job unless there is enough
 credit to start the job. For example, a job is submitted with a requirements
-of *16 core-weeks* will not start unless an account has  *16 x 24 x 7 = 2688 core hours*.
+of *16 core-weeks* will not start unless an account has :math:`16 * 7 * 24 = 2688`
+core hours.
 
 My account reallocation is less than 100,00 core-hours, why is that?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The no-cost reallocation is calculated every 6 months based on the lab's
-previous  usage. PLease see details in :ref:`no-cost reallocation`.
+previous  usage. Please see details in :ref:`no-cost reallocation`.
 
 :bluelight:`Files storage and transfer`
 ---------------------------------------
@@ -103,7 +104,7 @@ I have to store many files, some are pretty large. Where do I do this?
 
 Depending on your lab affiliation and how much space your lab has purchased
 you may have an access to personal and group-access areas in CRSP and DFS
-filesystems. See :ref:`dfs` and :ref:`crsp` for information where to store and how to
+file systems. See :ref:`dfs` and :ref:`crsp` for information where to store and how to
 check quotas.
 
 How do I backup important files?
@@ -135,7 +136,7 @@ I accidentally deleted some files (or directories). Can they be restored?
 
 - First, It depends on the time between the file creation and file deletion. If
   a file was created or changed and there was a backup after that then it
-  you can use snapshots to restore files and directories provided that existing 
+  you can use snapshots to restore files and directories provided that existing
   snapshots still hold the desired data.
 - The restoration method depends on where the files was originally
   located. Please see respective guides for recovery explanation:
@@ -155,7 +156,7 @@ What are allocations for DFS?
 
 Users have access to the private and group-shared areas on BeeGFS.
 UCI Faculty members can have low-cost recharge allocation(s) to fulfill their needs.
-Please see :ref:`allocations` 
+Please see :ref:`allocations`
 
 How do I purchase more DFS space?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -165,7 +166,7 @@ Please see :ref:`buy dfs` how to purchase more DFS storage
 I want to use my group DFS area, how do i do this?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If your PI already has a group DFS area you need to submit a ticket 
+If your PI already has a group DFS area you need to submit a ticket
 to hpc-support@uci.edu requesting to be be added to a specific group
 for a specific DFS filesystem access, *with a cc to your PI*.
 Your PI will need to reply with a confirmation in order for us to approve your request.
@@ -177,9 +178,9 @@ Exactly who is entitled to baseline allocation?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All ladder faculty and any UCI employee who can serve as PI or Co-PI on an extramural grant.
-Please see :ref:`allocations` for details. 
+Please see :ref:`allocations` for details.
 
-How do I purchase more space? 
+How do I purchase more space?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Please see how to :ref:`buy crsp`
@@ -187,7 +188,7 @@ Please see how to :ref:`buy crsp`
 Can I expand space more than once?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Yes. We track when each of your space allocations expire and recharge 
+Yes. We track when each of your space allocations expire and recharge
 appropriately.  Multiple purchases can be used to expand your space.
 
 Can the recharge be used to expand my baseline allocation?
@@ -196,18 +197,18 @@ Can the recharge be used to expand my baseline allocation?
 You will always have your baseline allocation and you can use recharge to buy more space.
 For example, if you were to purchase 10TB for 1 year ($600) and add it to your baseline, you will
 have 11TB of allocated space. Please see how to :ref:`buy crsp`
-and :ref:`recharge allocations` for pricing. 
+and :ref:`recharge allocations` for pricing.
 
 Can I grant access to my storage to others at UCI?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Yes. Under your control, you can add people (by the UCINetID) 
+Yes. Under your control, you can add people (by the UCINetID)
 to have read, write or read/write access to your storage.
 
 Can I grant access to my storage to others outside of UCI?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You will need to sponsor a UCINetID for your external collaborators. 
+You will need to sponsor a UCINetID for your external collaborators.
 They will then be able to access CRSP using normal mechanisms. Please see
 :ref:`access`.
 
@@ -231,9 +232,9 @@ If you are utilizing only 1/2 of the space, you are still charged for your purch
 What happens if I can't pay for my space?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You will be required to bring your utilized capacity to be within your 
+You will be required to bring your utilized capacity to be within your
 baseline allocation.  RCIC can work with you to move data off of CRSP
-in a timely manner. 
+in a timely manner.
 
 If a researcher is not reducing utilized capacity, access to all data
 in this space will be frozen (no read or write access). If, after multiple
@@ -268,7 +269,7 @@ instructions how to download and use.
 I want to publish some of my data on the web, can I do that?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Not yet. This is more complicated than it might appear. 
+Not yet. This is more complicated than it might appear.
 The key questions revolve around data security.
 
 I have trouble accessing CRSP shares
@@ -281,7 +282,7 @@ Consult our :ref:`crsp troubleshoot`.
 
 I get file write error when saving files in my $HOME, what is wrong?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You exceeded your $HOME disk quota. 
+You exceeded your $HOME disk quota.
 See :ref:`home quotas` that explains how to check and fix.
 
 I cant save files in my CRSP area. How do i check my quotas?
@@ -291,7 +292,7 @@ See :ref:`crsp quotas` for explanation.
 When writing files I get the “Disk quota exceeded” error on /dfsX/labY. How can it be?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You need to check your quotas and verify directories permissions.
-See :ref:`dfs quotas` for instructions on checking quotas and 
+See :ref:`dfs quotas` for instructions on checking quotas and
 :ref:`data transfer` for tips on data transfers.
 
 I am running a Slurm job and am getting the “Disk quota exceeded” error on /dfsX/labY?
@@ -299,7 +300,7 @@ I am running a Slurm job and am getting the “Disk quota exceeded” error on /
 
 This is group writable area, all users who write in this area contribute to
 the quota and the quota is sum total of all written files. Even if your
-job output small files, others may have filled it. 
+job output small files, others may have filled it.
 You need to check your :ref:`dfs quotas` for the specific DFS filesystem.
 
 :bluelight:`Slurm jobs`
@@ -312,58 +313,53 @@ Users need to use an interactive shell when they plan to run some tasks
 that take longer than 20 min and are compute intensive (CPU or
 memory) operations. These includes running applications (including GUI) or data
 transfers. The interactive shells are simply processes that run on compute nodes
-of the cluster. 
-TODO See how to request an <</hpc3/slurm#_interactive_job, interactive shell>>.
+of the cluster. See how to request an :ref:`interactive job`.
 
 How do I submit a job to the Slurm queue and see its status?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
-You can submit a job as an interactive shell using [tt]*srun*
-command or a batch job using [tt]*sbatch* command and see
-its status with [tt]*squeue* command. See <</hpc3/slurm#_quick_start,
-quick start>> for examples.
+You can submit a job as an interactive shell using ``srun``
+command or a batch job using ``sbatch`` command and see
+a status of a submitted job with ``squeue`` command.
+See :ref:`slurm guide <jobs>` for examples.
 
 What are array jobs, how do I submit an array job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Array jobs are identical independent jobs that are run using one or 
+Array jobs are identical independent jobs that are run using one or
 more different input parameters. Instead of writing many submit scripts
-one can use a single script to submit many jobs.
-TODO See <</hpc3/examples#_array_jobs, array jobs>> for details.
+one can use a single script to submit many jobs. See :ref:`array jobs <job array>`
+for details.
 
 Why am I getting emails about running my application on login node?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You are causing problems for others users. Running applications on login nodes
-is a violation of our  :ref:`acceptable use` policy and 
+is a violation of our  :ref:`acceptable use` policy and
 :ref:`conduct rules` rules. Review both and adjust your work on the
 cluster.
 
 How do I charge my jobs to my account or my PI’s account?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Every user has a default account (UCnetID) and may have a few PI lab accounts.
+Every user has a default account (which is *UCnetID*) and may have a few PI lab accounts.
 If not specified, a default account is charged (exception is free queues).
 
-TODO
-To specify a PI's account one need to use a [tt]*-A* slurm directive either on
+To specify a PI's account one need to use a :tt:``-A`` Slurm directive either on
 a command line when asking fort an interactive shell or in a Slurm batch
-job. See <</hpc3/slurm#_interactive_job, interactive shell>> and
-<</hpc3/examples#, batch examples>> for details.
+job. See :ref:`slurm guide <jobs>` for examples.
 
 How do I buy more Slurm time?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A basic allocation is explained in :ref:`allocations` the <</hpc3/hpc3-reference#, reference guide>>.
-Only PIs can purchase more hours. 
-Please see :ref:`buy core-hours` <</hpc3/hpc3-expansion#, how to get more time>>.
+A basic allocation is explained in :ref:`allocations`.
+Only PI can purchase more hours, please see :ref:`buy core-hours`.
 
 How do I ask for more cores for my job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You need to specify options ``--ntasks`` or ``--cpus-per-task`` in your
-job submission. See TODO <</hpc3/slurm#, Slurm guide>> for examples. 
+job submission. See :ref:`request resources`.
 
 
 If I ask for X cores does my job run X times faster?
@@ -381,19 +377,21 @@ There are 2 distinct situations:
 1. You have a program that is multi-CPU aware.
    Often such programs have a *parameter* that specifies the number of CPUs it will use.
    If the program has no such switch, or you don’t set the switch, your program is likely
-   using 1 CPU (:red:`and you will be charged for several if you ask for more`).
-2. Your job failed with TODO <<#oom,OOM error>>.
+   using 1 CPU.
+2. Your job failed with OOM - out of memory errors.
+
+See See :ref:`request resources` for explanation how to get more CPUs or more memory.
 
 How do I know if I need more memory for a job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. TODO Your job failed with <<#oom,OOM error>>.
-2. You have a knowledge of how much memory your program is using
+1. Your job failed with OOM - out of memory errors.
+2. You have a general knowledge of how much memory your program is using
    on an input of a certain size and you have increased the input.
 
-To find out how much memory and CPU your job is using you need to use
-``sacct``, ``seff`` and ``sstat`` commands.
-TODO See <</hpc3/slurm#_monitor_jobs, job monitoring>> for details.
+To find out how much memory and CPU your job is using you need
+to use ``sacct``, ``seff`` and ``sstat`` commands.
+See :ref:`job monitoring <job monitoring>` for details.
 
 How do I profile my job?
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -401,70 +399,69 @@ How do I profile my job?
 Slurm records statistics for every job, including how much memory
 and CPU was used, and the usage efficiency.
 
-Slurm provides TODO some <</hpc3/slurm#_monitor_jobs, job monitoring>> capabilities
+Slurm provides :ref:`job monitoring <job monitoring>` capabilities
 that can give an idea about consumed memory, CPU and the efficiency. For most
 jobs they provide sufficient information to understand what resources are needed.
 
 How do I see how many hours of allocation credit I have used?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You need to use ``sbank`` command.  See TODO.
+You need to use ``sbank`` command.  See :ref:`job accounting`.
 
-How do I see what jobs were run and what charges they incurred over a period of time  for a given account ?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How do I see what jobs were run and what they cost over a period of time for an account ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We have a TODO <</hpc3/slurm#_job_history, zotledger>> tool that provides this info.
+We have a ``zotledger`` tool that provides this info.
+See :ref:`job accounting`.
 
-I can't submit jobs to GPU partition, is there something wrong with my account?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+I can't submit jobs to GPU partition, what is wrong with my account?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Nothing is wrong, you simply need to have a separate GPU account to submit
-jobs to GPU partition.  GPU accounts are not automatically given to everyone,
-your faculty adviser can request a GPU lab account.  For example, a PI *panteater*
-will have a *PANTEATER_LAB* account for CPU jobs and *PANTEATER_LAB_GPU* account for
-GPU jobs.
+jobs to GPU partition.
+
+GPU accounts are not automatically given to everyone, your faculty adviser can
+request a GPU lab account.  For example, a PI *panteater* will have accounts:
+
+| *PANTEATER_LAB* - for CPU jobs
+| *PANTEATER_LAB_GPU* - for GPU jobs
+
+All users can submit jobs to *free-gpu* partition without special GPU account.
 
 My job failed with "out of memory error". What should i do?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Your job was removed by Slurm because it exceeded its memory request.
-All queues have TODO <</hpc3/slurm#_hpc3_queue_structure, specific associated memory>>.
-You need to increase the memory requirements for your job. See examples in
-TODO <</hpc3/examples#,this guide>>. 
+All partitions have :ref:`specific configuration <paritions structure>`
+for memory, runtime, etc.
+You need to increase the memory requirements for your job. See examples of
+how to :ref:`request more memory <request memory>`.
 
 For the jobs that require more memory than the
-standard/free queues can provide or for the jobs that require A LOT of memory
+*standard/free* partitions can provide or for the jobs that require A LOT of memory
 and not many CPUs, there is a limited number of higher memory nodes that are
-accessible via higher memory queues.
+accessible via higher memory partitions.
+The :ref:`memory partitions` guide explains how to request an access.
 
-TODO
-You will have to request access to these higher memory queues 
-via sending email to hpc-support@uci.edu and provide a proof
-that your application needs a higher memory access.
+How do I use higher memory partitions highmem/hugemem/maxmem?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-How do I use higher memory partitions (highmem, hugemem, maxmem)?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-TODO see above
+The :ref:`memory partitions` guide explains how to request an access.
 
-My job is in the queue with reason shown as *AssocGrpCPUMinutesLimit*, what is wrong?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+My job is pending with reason shown as *AssocGrpCPUMinutesLimit*, what is wrong?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You don't have enough hours in your account balance to run the job. See
-TODO <</hpc3/slurm#job-pending,how to find an explanation>>
-
+:ref:`job pending` for an explanation and how to fix.
 
 My job is killed after running for 48 hours, why?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You run your job with a default runtime, and Slurm killed the job once the run
-time limit was reached.
+All queues have specific :ref:`default and max runtime limits <paritions structure>`.
+The default run time protects users from unintentionally using more CPU hours than intended.
 
-All queues have specific default and max TODO <</hpc3/slurm#_hpc3_queue_structure,
-runtime  limits>>.  The default run time protects users from unintentionally
-using more CPU hours than intended.
-
-When your job needs longer run time than a default, you need to specify it
-with ``t`` ``time`` directive. TODO See <</hpc3/examples#time-limit, time limit>>.
+You run your job with *a default runtime*, and Slurm killed the job once the run
+time limit was reached. If your job needs longer runtime, you need to :ref:`request time`.
 
 :bluelight:`Software`
 ---------------------
