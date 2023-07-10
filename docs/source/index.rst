@@ -12,6 +12,7 @@ RCIC User Documentation
    about/advisory
    about/staff
    about/news
+   about/quick-start
 
 .. toctree::
    :maxdepth: 1
