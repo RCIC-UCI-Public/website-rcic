@@ -1,14 +1,14 @@
 .. _crsp:
 
-CRSP 
-=====
+CRSP
+====
 
 Overview
 --------
 
 CRSP is a network-based multi-Petabyte storage cluster for the UCI campus research community.
-It is being put in place so that researchers across UCI have a reliable and resilient location
-to store their research data and share with defined groups.
+It is a reliable and resilient location created for researchers across UCI 
+to store and share their research data.
 
 CRSP is available across the network, it supports multiple modes of
 storing and retrieving data including web browsers, "folders" on laptops or desktops,
@@ -30,6 +30,38 @@ While there are many possible use cases, a driving one is:
 
 .. _crsp allocations:
 
+
+CRSP technologies
+-----------------
+
+**CRSP is a combination of several technologies**
+  * It is built with industry leading storage technology to ensure data high availability and resiliency.
+  * It is multi-site and is comprised of commodity server components from Dell for cost-effective scaling
+    and performance.
+  * The underlying parallel file system is :term:`GPFS`
+  * Additional support and integration software from `Arcastream <https://www.arcastream.com/>`_.
+
+**Features include**
+  * An active-active storage system setup between two hosting locations for high availability and redundancy,
+    with fully fault tolerant high speed networking.
+  * End-to-End 24x7 software and hardware support.
+  * A fully encrypted file system, featuring
+    `encryption at REST <https://www.ibm.com/docs/en/search/encryption?scope=STXKQY>`_
+    ensuring user data security.
+  * Several user access methods are in place, with enterprise level support.
+    All access mechanisms are fully load-balanced between data centers.
+  * A file system design that has massive scaling capabilities without compromising performance.
+  * A front-end access layer design that is capable of scaling horizontally as demand grows.
+  * Multiple user access methods, assuring a superior level of user experience.
+
+.. TODO  rm image below or make a new one
+.. .. centered:: A simplified illustration of CRSP architectural diagram
+
+.. .. image:: images/crsp-arch.png
+   :align: center
+   :alt: crsp  architecture
+
+
 Allocations
 -----------
 
@@ -42,7 +74,7 @@ CRSP allocations are provided for UCI faculty members as follows:
 **No cost baseline allocation**
   - 1TB quota per researcher
 
-**Recharge allocation - Lab area** 
+**Recharge allocation - Lab area**
   - Researchers who require more capacity than the baseline allocation, can purchase additional capacity,
     Please see  :ref:`recharge storage rates` and :ref:`buy crsp`
 
@@ -75,7 +107,7 @@ All requests described below must be sent to hpc-support@uci.edu
   - your existing CRSP lab name
   - UCINetIDs and names of the people that you want to add
   - indicate any of these people should have individual limits
-	and what the limits are. The default behavior is no individual limit. 
+	and what the limits are. The default behavior is no individual limit.
 
 * **I'm a student/postdoc**
   Your PI should send a request and include:
@@ -94,7 +126,7 @@ Private and Shared Areas
 Storage space on CRSP has the concepts of:
 
 :tt:`Space Owners`:
-  * Are entitled to a baseline allocation and are all ladder faculty, PIs and 
+  * Are entitled to a baseline allocation and are all ladder faculty, PIs and
     UCI employee serving as PI/Co-PI on an extramural grant.
   * Can store files in their LAB and can partition LAB into shared and no-shared area.
   * Can grant access to their LAB storage space to Grantees: students, postdocs, and other faculty members.
@@ -116,7 +148,7 @@ Storage space on CRSP is divided into :tt:`Private` and :tt:`Shared` areas.
 Private Area - HOME
 ^^^^^^^^^^^^^^^^^^^
 
-This allocation space, called :tt:`HOME`, is for $HOME directories: 
+This allocation space, called :tt:`HOME`, is for $HOME directories:
 
 * Not used for sharing with others.
 * Is required for Linux accounts and is ONLY used for an account related files.
@@ -132,7 +164,7 @@ Shared Area - LAB
 This allocation space, called :tt:`LAB`, is a *shared space area* per Space Owner.
 
 Space owner grants explicit access for this area to Grantees and decides how to allocate the space
-among its group members. 
+among its group members.
 
 The LAB areas provide the most flexibility for access control and sharing:
 
@@ -145,22 +177,22 @@ The LAB areas provide the most flexibility for access control and sharing:
 * Quota is for the  whole LAB area allocation and is a sum of what is stored
   in :tt:`share`  and in all personal directories.
 
-CRSP has many (and sometimes competing) goals for access, sharing, security, 
+CRSP has many (and sometimes competing) goals for access, sharing, security,
 manageability, and simplicity for researchers.  One of the technical complexities
-of CRSP is that the underlying file system and access enforcement mechanisms are 
-defined in Linux, but most users access is from Mac and Windows environments. 
+of CRSP is that the underlying file system and access enforcement mechanisms are
+defined in Linux, but most users access is from Mac and Windows environments.
 
-On Linux (Unix) an independent access controls to all files given to three different entities: 
+On Linux (Unix) an independent access controls to all files given to three different entities:
 
 * The *owner* of the file. This is the UCINetID that originally created the file
 * The *group* of the file. A group who might have access to this file
 * The *world* (or others). Everyone else on CRSP
 
-.. important:: In CRSP LAB areas sharing is controlled by **group** permissions 
+.. important:: In CRSP LAB areas sharing is controlled by **group** permissions
                and by who is a member of the particular group. The *world* has *no privilege*
-               to read or write files in any LAB area.  
+               to read or write files in any LAB area.
 
-.. note:: Owners of files may make their files explicitly private by removing all read/write permissions from group 
+.. note:: Owners of files may make their files explicitly private by removing all read/write permissions from group
 
 .. _default crsp lab:
 
@@ -170,7 +202,7 @@ Default Lab Setup
 For each LAB area, the :tt:`PI` is the owner of the space.
 There are two Unix groups predefined for all labs:
 
-* :tt:`pi_lab`: Only the lab owner is in this group 
+* :tt:`pi_lab`: Only the lab owner is in this group
 * :tt:`pi_lab_share`: All members of the lab including the lab owner.
 
 **Example Lab**
@@ -194,12 +226,12 @@ This shows that for the :tt:`ppapadop` Lab on CRSP:
    user and to the PI. These are LAB members  who are in the group
    :tt:`ppapadop_lab_share`: *ppapadop*, *ckhacher*, *itoufiqu*, *tandriol*, *iychang*.
 2. User *ppapadop* who is a PI can see all files.
-3. User *itoufiqu* can only see files in the :tt:`itoufiqu` and :tt:`share` folders. 
+3. User *itoufiqu* can only see files in the :tt:`itoufiqu` and :tt:`share` folders.
    Similarly, user *ckhacher* cn only see see files in the :tt:`ckhacher` and :tt:`share` folders.
 
 .. _crsp access:
 
-Accessing  CRSP 
+Accessing  CRSP
 ---------------
 
 You must either be on the campus network or connected to the
@@ -227,7 +259,7 @@ instructions:
    | :ref:`client from hpc3`      | *NFS mount* on HPC3 provides and access to the CRSP's LAB and HOME areas.                 |
    +------------------------------+-------------------------------------------------------------------------------------------+
 
-.. attention:: 
+.. attention::
 
    Although CRSP storage system could be accessed via other commercial or open source
    desktop clients such as FileZilla, WinSCP, CyberDuck, the  **CRSP Desktop** client is the currently
@@ -243,7 +275,7 @@ Quotas
 
 There are two ways to check your quotas:
 
-1. Using a web browser go to the 
+1. Using a web browser go to the
    `https://access.crsp.uci.edu/quota <https://access.crsp.uci.edu/quota[https://access.crsp.uci.edu/quota>`_
    You will be asked to authenticate yourself (DUO) and once successful you
    will see a simple text page indicating your quotas for HOME and LAB areas.
@@ -273,13 +305,13 @@ There are two ways to check your quotas:
      The 0.001 GB is used only by account related files.
    * is a member of ucinetid-pi LAB and used 39.799 GB of the allocated 1024 GB LAB area
      in :tt:`/mmfs1/crsp/lab/ucinetid-pi`. The total usage of the LAB area by all lab members is 374.092 GB.
-   
+
    Note the path naming on CRSP and HPC3:
 
    ==== ================================= ==================================
    Area Path on CRSP                      Path on HPC3
    ==== ================================= ==================================
-   HOME :tt:`/mmfs1/crsp/home`            :tt:`/share/crsp/home` 
+   HOME :tt:`/mmfs1/crsp/home`            :tt:`/share/crsp/home`
    LAB  :tt:`/mmfs1/crsp/lab/ucinetid-pi` :tt:`/share/crsp/lab/ucinetid-pi`
    ==== ================================= ==================================
 
@@ -297,17 +329,17 @@ Snapshots
 Default settings
 ^^^^^^^^^^^^^^^^
 
-A snapshot of a file system is a logical, point-in-time, read-only, copy of all files. 
+A snapshot of a file system is a logical, point-in-time, read-only, copy of all files.
 It's not really a complete copy. Instead, the file system keeps track of files that are *changed*
 or *deleted* after the snapshot was made.
 
 By definition, **all snapshots are read-only**, meaning you cannot delete a file from a snapshot.
 Restoring a file from a snapshot is as simple as copying the file back to your working directory/folder.
 
-On CRSP, all snapshots are labeled by date and time. The timezone is GMT (Greenwich Mean Time).  
-Snapshots are point-in-time copies of the CRSP file system.  Snapshots are taken 
+On CRSP, all snapshots are labeled by date and time. The timezone is GMT (Greenwich Mean Time).
+Snapshots are point-in-time copies of the CRSP file system.  Snapshots are taken
 
-TODO verify 
+TODO verify
 
 * daily, keep last 14
 * weekly, keep last 8
@@ -316,11 +348,11 @@ TODO verify
 
 Is Snapshot a Backup?
 
-Not really. Backups are generally thought of as historical copies of files and users could go to a backup to  
-recover a file from many months ago. Snapshots provide some safety against the common "accidentally deleted" use case.  
+Not really. Backups are generally thought of as historical copies of files and users could go to a backup to
+recover a file from many months ago. Snapshots provide some safety against the common "accidentally deleted" use case.
 Files created and deleted in the same time interval between two snapshots are not recorded in any snapshot and have no recovery.
 CRSP does not keep historical backups of data.
- 
+
 .. _crsp snapshots location:
 
 Location
@@ -328,7 +360,7 @@ Location
 
 Due to the architecture of the underlying filesystem (GPFS)
 you must first navigate to the **top level of the CRSP file system**
-and then navigate downwards to the correct snapshot to find yours. 
+and then navigate downwards to the correct snapshot to find yours.
 
 This means that you will see names of all possible labs or home area folders (and there are 1000s of them on CRSP).
 Rest assured that only you and those you designate can see any files inside.
@@ -368,7 +400,7 @@ The snapshots are held in:
 
 2. **From CRSP Desktop**
 
-   In your *CRSP Desktop* application connect to the crsp-top-level 
+   In your *CRSP Desktop* application connect to the crsp-top-level
    share connection (it is predefined in the *CRSP Desktop* installation).
    See :ref:`client desktop windows` or :ref:`client desktop mac` for
    detailed instructions.
@@ -402,10 +434,10 @@ The snapshots are held in:
 
       File browser LAB-SNAPSHOTS
 
-   In this example, the most recent snapshot is the last listed.  Its name indicates the 
+   In this example, the most recent snapshot is the last listed.  Its name indicates the
    time stamp when this snapshot was taken: May 05, 2021 at 19:00:01 (GMT).
-   This translates to May 5, 2021 11:00:01 AM (PST). 
-   This snapshot contains logical copy of all CRSP lab folders, as they were at that point in time.  
+   This translates to May 5, 2021 11:00:01 AM (PST).
+   This snapshot contains logical copy of all CRSP lab folders, as they were at that point in time.
 
 .. _crsp files recovery:
 
@@ -413,7 +445,7 @@ Deleted Files Recovery
 ----------------------
 
 A common mistake is an accidental file deletion. In many cases, but not all,
-users can retrieve a previous copy of the file. 
+users can retrieve a previous copy of the file.
 
 * If the file you just deleted was created prior to the most-recent snapshot, you can get a
   copy of the file as it was when the snapshot was created.
@@ -426,7 +458,7 @@ using different access methods.
 1. **From CRSP Desktop**
 
    Use your CRSP Desktop application to connect to the desired share
-   (see :ref:`client desktop windows` or :ref:`client desktop mac` for instructions) then 
+   (see :ref:`client desktop windows` or :ref:`client desktop mac` for instructions) then
    use it just like a folder or network drive to copy desired files and folders from a
    specific snapshot.
 
@@ -437,7 +469,7 @@ using different access methods.
    need to restore them.
 
    For example, a user *panteater*  who has an access to *peterlab* can restore a single file accidentally
-   deleted from its LAB area: 
+   deleted from its LAB area:
 
    .. code-block::
 
@@ -446,7 +478,7 @@ using different access methods.
 
 3. **From web browser**
 
-   In order to recover the file, you must navigate into the 
+   In order to recover the file, you must navigate into the
    :ref:`crsp lab top level` and :ref:`crsp lab snapshots`.
    At this point, find the snapshot (folder) that has a copy of your file.
 
@@ -457,17 +489,17 @@ using different access methods.
    Once the desired file is found:
 
    | (1) select desired files by checking the box left of the file name
-   | (2) click :guilabel:`Download` to download selected files to your desired *writable folder*. 
+   | (2) click :guilabel:`Download` to download selected files to your desired *writable folder*.
 
-   .. centered:: Selecting files in snapshots 
+   .. centered:: Selecting files in snapshots
 
    .. image:: images/crsp-lab-snapshot-file.png
       :align: center
       :alt: selecting files in snapshot
 
    At that point, you have restored from the snapshot your desired files.
- 
-   You may also copy the file in your usual manner  per your host operating system  
+
+   You may also copy the file in your usual manner  per your host operating system
    `Windows <https://www.lifewire.com/how-do-i-copy-a-file-in-windows-2619210>`_,
    `MacOS <https://alvinalexander.com/mac-os-x/mac-copy-files-mac-finder-copy-files>`_
    and <Linux <https://www.cyberciti.biz/faq/copy-command>`_
