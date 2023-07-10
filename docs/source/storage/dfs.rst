@@ -398,7 +398,7 @@ from the following paths:
   
 .. _selective backup recovery:
 
-Deleted files recovery
+Deleted Files Recovery
 ----------------------
 
 .. note:: Deleted files and directories can be recovered provided they exist in the selective backup.

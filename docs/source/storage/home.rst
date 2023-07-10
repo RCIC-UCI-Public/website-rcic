@@ -163,7 +163,7 @@ space in your :tt:`$HOME` in order to continue to work.
 
 .. _home files recovery:
 
-Deleted files recovery
+Deleted Files Recovery
 ^^^^^^^^^^^^^^^^^^^^^^
 
 You can use snapshots  to restore files and directories provided that
