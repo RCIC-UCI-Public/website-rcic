@@ -8,7 +8,7 @@ and a broader **Advisory committee**.
 The Executive Committee meets roughly every month.
 The Advisory Committee meets approximately once per quarter.
 
-.. centerd:: **Executive Committee**
+.. centered:: **Executive Committee**
 
 .. table::
    :class: noscroll-table
