@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# use on csv file to quicckly get simple stats
+# on use,d unused etc modules. Resultign info is
+# used in  updates.rst fiel table
+
+lines=`cat updates-list.csv | grep -v "Module Name" > tmp`
+
+old=`grep yes tmp | grep -v New | wc -l`
+unused=`grep Unused tmp | wc -l`
+no=`grep NO tmp | wc -l`
+new=`grep New tmp | wc -l`
+active=`grep yes tmp | grep -v NO | wc -l`
+
+echo "old    $old"
+echo "unused $unused"
+echo "no     $no"
+echo "new    $new"
+echo "active $active"
