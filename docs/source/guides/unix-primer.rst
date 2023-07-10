@@ -162,6 +162,7 @@ You type in your passphrase to your private key each time you login.
 
 .. image:: images/challenge-response-ssh.png
    :align: center
+   :width: 60%
    :alt: ssh challenge response
 
 **The Algorithm Steps**:
@@ -202,6 +203,7 @@ and then the agent responds for you.  In this scenario, you enter your the passp
 
 .. image:: images/challenge-response-ssh-agent.png
    :align: center
+   :width: 60%
    :alt: ssh challenge response agent
 
 
