@@ -1,4 +1,4 @@
-.. _beginner_guide:
+.. _beginner guide:
 
 Beginner guide
 ===============
