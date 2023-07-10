@@ -16,19 +16,15 @@ The system started as a 4000 core system when first constructed in June 2020.
 It has expanded several times with nodes purchased by UCI and faculty.
 
 As of March 2023, the following describes the cluster:
+  * 216 Batch-accessible nodes including:
 
-
-* 216 Batch-accessible nodes including:
-
-  * 13 nodes with 4 Nvidia V100 (16GB) GPUs
-  * 14 nodes with 4 Nvidia A30 (24GB) GPUs
-  * 4 nodes with 2 Nvidia A100 (80GB) GPUs
-* 9400 total cores (1256 AMD Epyc and 8144 Intel)
-* 57,846 GB Aggregate Memory
-* Three load-balanced login nodes
-* 94% nodes at 100Gb/s EDR Infiniband (195/207)
-
-TODO verify all above
+    * 13 nodes with 4 Nvidia V100 (16GB) GPUs
+    * 14 nodes with 4 Nvidia A30 (24GB) GPUs
+    * 4 nodes with 2 Nvidia A100 (80GB) GPUs
+  * 9400 total cores (1256 AMD Epyc and 8144 Intel)
+  * 57,846 GB Aggregate Memory
+  * Three load-balanced login nodes
+  * 96% nodes (221/230) at 100Gb/s EDR Infiniband
 
 HPC3 heterogeneous hardware has the following unique configurations with the most common
 configurations shown first.
@@ -175,7 +171,7 @@ Support nodes are specialized nodes that provide very specific services:
    +---------------+----------+---------------------------------------------------------------+
    | Slurm server  | 1        | Slurm scheduler                                               |
    +---------------+----------+---------------------------------------------------------------+
-   | Provisioning  | 2        | TODO                                                          |
+   | Provisioning  | 2        | 
    +---------------+----------+---------------------------------------------------------------+
    | Firewall      | 2        | `PFSense <https://www.pfsense.org/>`_ security                |
    +---------------+----------+---------------------------------------------------------------+
@@ -209,7 +205,7 @@ Most nodes in HPC3 have at least 40 cores/node.
 You may download node details info as the `CVS file </hpc3/nodes.csv>`_
 or browse the table below.
 
-TODO Click on the column header for sorting.
+Click on the column header for sorting.
 
 .. csv-table:: Nodes info updated :blogauthor:`21 Feb 2023`.
    :class: noscroll-table sortable
