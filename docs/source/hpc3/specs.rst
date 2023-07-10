@@ -171,9 +171,9 @@ Support nodes are specialized nodes that provide very specific services:
    +---------------+----------+---------------------------------------------------------------+
    | Slurm server  | 1        | Slurm scheduler                                               |
    +---------------+----------+---------------------------------------------------------------+
-   | Provisioning  | 2        | 
+   | Provisioning  | 1        | Management node                                               |
    +---------------+----------+---------------------------------------------------------------+
-   | Firewall      | 2        | `PFSense <https://www.pfsense.org/>`_ security                |
+   | Firewall      | 4        | `PFSense <https://www.pfsense.org/>`_ security                |
    +---------------+----------+---------------------------------------------------------------+
    | NFS server    | 1        | Home area with `ZFS <https://zfsonlinux.org/>`_               |
    |               |          | as the underlying file system                                 |
