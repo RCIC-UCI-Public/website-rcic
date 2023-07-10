@@ -15,6 +15,14 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
+   :caption: Getting Help
+
+   help/contact
+   help/faq
+   help/tickets
+
+.. toctree::
+   :maxdepth: 1
    :caption: Account
 
    account/getting-account
@@ -48,14 +56,6 @@ RCIC User Documentation
    software/modules
    software/updates
    software/user-installed
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Getting Help
-
-   help/contact
-   help/faq
-   help/tickets
 
 .. toctree::
    :maxdepth: 1
