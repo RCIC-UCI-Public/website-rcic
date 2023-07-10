@@ -9,7 +9,7 @@ Please see :ref:`modules` to learn how to use software modules, including
 how to to see the most recent software versions and availability. 
 
 .. important:: | If you use any modules only by name without specifying versions as:
-               | ``module load X``   - WRONG!
+               | ``module load X``  - :red:`DANGEROUS!`
                | stop and start using module name with the version as we always recommended:
                | ``module load X/1.2.3``
                | When loading without a version you may get unexpected results of using a wrong
