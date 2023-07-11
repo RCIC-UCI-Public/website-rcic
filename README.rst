@@ -25,3 +25,7 @@ Building HTML locally for testing
 
 3. Point your local browser to `build/html/index.html`.
 
+Editing
+-------
+
+See *notes.rst*

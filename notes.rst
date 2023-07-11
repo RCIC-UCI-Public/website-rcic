@@ -81,3 +81,32 @@ did not work.  Modifications below.
 
       # custom js files
       html_js_files = ['js/jquery.dataTables.min.js', 'js/main.js',]
+
+Editing
+-------
+
+Simply edit needed rst files and while in docs/ run
+
+.. code-block:: console
+
+   make html
+
+This will recreate only html files for changed rst files.
+
+When editing the following (from source/):
+
+* index.rst
+* conf.py
+* _static/js/*js
+* _static/css/*css
+* roles.txt
+
+need to run
+
+.. code-block:: console
+
+   make clean
+   make html
+
+The reason is changes to above files are used by all html files
+and doing *clean* ensures building all anew.
