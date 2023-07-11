@@ -24,7 +24,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: Account
+   :caption: 💡 Account
 
    account/getting-account
    account/acceptable-use
