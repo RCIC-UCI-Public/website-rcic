@@ -1,18 +1,52 @@
 
-Notes 
-============
+Notes
+=====
 
-Notes about specific files or settings 
+Notes about specific files or settings
 
-
-Images 
+Editing
 -------
 
-1. images/rcic-logo.png 
+Simply edit needed rst files and while in *website-rcic/docs/* run
+
+.. code-block:: console
+
+   make html
+
+This will recreate only html files for changed rst files.
+Reload needed html in the local browser for verification of changes.
+
+Any errors resulting from running ``make html`` need to be fixed before
+committing changes to git, otherwise errors will be picked by the build
+process after checking out the repo on the web server.
+
+When editing the following (top level *website-rcic/docs/source/*):
+
+* index.rst
+* conf.py
+* _static/js/*js
+* _static/css/*css
+* roles.txt
+
+need to run
+
+.. code-block:: console
+
+   make clean
+   make html
+
+The changes to the above files are used by all html files
+and doing *clean* ensures building all anew.
+
+
+Images
+------
+
+1. images/rcic-logo.png
 
    - get an account for https://uci.widencollective.com/login/sam
    - once approved login with uci credentials, get to the approved logos page
-     download UCI_MB_PI_WM_White.png  
+     download UCI_MB_PI_WM_White.png
    - In power point create an empty slide, add a color background
    - insert UCI image on top of it.
    - add text for RCIC, use white for letters and set background to transparent.
@@ -39,20 +73,20 @@ did not work.  Modifications below.
       wget https://cdn.datatables.net/1.10.23/css/../images/sort_asc.png
       wget https://cdn.datatables.net/1.10.23/css/../images/sort_asc_disabled.png
       wget https://cdn.datatables.net/1.10.23/css/../images/sort_both.png
-      wget https://cdn.datatables.net/1.10.23/css/../images/sort_desc.png          
+      wget https://cdn.datatables.net/1.10.23/css/../images/sort_desc.png
       wget https://cdn.datatables.net/1.10.23/css/../images/sort_desc_disabled.png
 
    | Move jquery.dataTables.min.css in _static/css/
-   | Move jquery.dataTables.min.js to _static/js/ 
+   | Move jquery.dataTables.min.js to _static/js/
    | Move all images to _static/images/
 
 2. Edit jquery.dataTables.min.css and change  *float* value to *none*
 
    .. code-block:: text
-    
-      .dataTables_filter{float:right;text-align:right} 
+
+      .dataTables_filter{float:right;text-align:right}
       to
-      .dataTables_filter{float:none;text-align:right} 
+      .dataTables_filter{float:none;text-align:right}
 
    Otherwise table and above table show and search entries become misaligned.
 
@@ -82,31 +116,3 @@ did not work.  Modifications below.
       # custom js files
       html_js_files = ['js/jquery.dataTables.min.js', 'js/main.js',]
 
-Editing
--------
-
-Simply edit needed rst files and while in docs/ run
-
-.. code-block:: console
-
-   make html
-
-This will recreate only html files for changed rst files.
-
-When editing the following (from source/):
-
-* index.rst
-* conf.py
-* _static/js/*js
-* _static/css/*css
-* roles.txt
-
-need to run
-
-.. code-block:: console
-
-   make clean
-   make html
-
-The reason is changes to above files are used by all html files
-and doing *clean* ensures building all anew.
