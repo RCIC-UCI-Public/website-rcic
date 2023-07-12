@@ -19,9 +19,12 @@ Building HTML locally for testing
 
    .. code-block:: console
 
-      git clone https://github.oit.uci.edu/ppapadop/rcic-website
-      cd rcic-website/docs
-      make html
+      git clone git@github.com:RCIC-UCI-Public/website-rcic.git
+      cd website-rcic
+      make default
+      make deploy
+
+   See ``make help`` for more options
 
 3. Point your local browser to `build/html/index.html`.
 
