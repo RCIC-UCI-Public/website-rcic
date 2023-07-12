@@ -3,6 +3,9 @@
 CRSP clients
 ============
 
+.. contents::
+   :local:
+
 Depending on your laptop there are a few clients that can be installed.
 
 Please note that RCIC does not provide Windows OS or macOS support for the campus.
