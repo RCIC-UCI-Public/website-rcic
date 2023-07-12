@@ -17,5 +17,5 @@ lighttpd.conf: lighttpd.conf.in
 help:
 	echo "Targets:"
 	echo "   default - create html documentation in docs subdir"
-	echo "   deploy - create docs, run lighttpd on port 3000 (kill lighttpd if necessary)"
+	echo "   deploy - create docs, run lighttpd on a local port (kill lighttpd if necessary)"
 	echo "   undeploy - kill lighttpd"
