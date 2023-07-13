@@ -76,3 +76,5 @@ Install on web server host
 
    Resulting *html/* is installed as **/var/www/html/rcic-website**
    which is the website *DocumentRoot*, configured in */etc/httpd/conf.d/ssl.conf*.
+
+   See details in the cron script.
