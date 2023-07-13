@@ -74,5 +74,5 @@ Install on web server host
    The script checks out website repo, verifies if there were any updates
    in the last our and runs a ``make html`` if needed.
 
-   Resulting *html/* is installed as **/var/ww/html/rcic-website**
+   Resulting *html/* is installed as **/var/www/html/rcic-website**
    which is the website *DocumentRoot*, configured in */etc/httpd/conf.d/ssl.conf*.
