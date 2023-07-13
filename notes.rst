@@ -80,7 +80,7 @@ did not work.  Modifications below.
    | Move jquery.dataTables.min.js to _static/js/
    | Move all images to _static/images/
 
-2. Edit jquery.dataTables.min.css and change  *float* value to *none*
+2. Edit jquery.dataTables.min.css and change  *float:right* value to *float:none*
 
    .. code-block:: text
 
@@ -88,7 +88,8 @@ did not work.  Modifications below.
       to
       .dataTables_filter{float:none;text-align:right}
 
-   Otherwise table and above table show and search entries become misaligned.
+   Otherwise the table and the elements "Show" and "Search" above it become misaligned,
+   and the table itself is reduced to 50% of the page width.
 
 3. Create _static/js/main.js
 
