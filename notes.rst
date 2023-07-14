@@ -72,6 +72,12 @@ These are from the rst file for TOC in RTD documentation, see https://docs.readt
 
 📚 Reference
 
+💓 Open source and user focused
+
+🔄 Up to date documentation
+
+|:card_index_dividers:| Documentation for every version
+
 
 Enable table sorting
 --------------------
