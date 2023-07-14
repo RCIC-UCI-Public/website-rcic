@@ -57,6 +57,21 @@ Images
    Resulting image is a combination of the original UCI logo plus text,
    with transparent background.
 
+Inline icons
+------------
+
+These are from the rst file for TOC in RTD documentation, see https://docs.readthedocs.io/en/stable/index.html
+
+⏩️  use this in reference guide
+
+🚀 Tutorials
+
+💡 Explanation
+
+🪄 How-to guides
+
+📚 Reference
+
 
 Enable table sorting
 --------------------
