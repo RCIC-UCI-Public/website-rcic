@@ -1,0 +1,89 @@
+#!/bin/bash -l
+
+SHELL=/bin/bash
+
+###########################
+### Set local variables ###
+###########################
+
+# log file
+LOGFILE=/var/log/website-rtd.log
+
+# git checkout in this directory
+GITDIR=/tmp/git
+
+# website DocumentRoot, configured in /etc/httpd/conf.d/ssl.conf
+WEBDIR=/var/www/html/rcic-website
+
+# temp files to comapre git commits
+prevCommit=/tmp/gitlog.prev
+nowCommit=/tmp/gitlog.now
+
+########################
+### Define functions ###
+########################
+
+# checkout or update git repo
+function updateGitRepo() {
+  if [ ! -d $GITDIR ]; then
+    mkdir $GITDIR
+  fi
+
+  cd $GITDIR
+  if [ ! -d website-rcic ]; then
+     git clone https://github.com/RCIC-UCI-Public/website-rcic.git
+  fi
+
+  cd website-rcic
+  git log -1 > $prevCommit
+  git pull
+  git log -1 > $nowCommit
+}
+
+# check for recent commits, rebuild if any
+function checkCommit () {
+  change=`diff $prevCommit $nowCommit`
+  timestamp=`date "+%Y-%m-%d %H:%M"`
+  if [ "$change"x == x ]; then
+    echo "$timestamp No change in last hour, not rebuilding" >> $LOGFILE
+  else   
+    echo "$timestamp Rebuilding RTD website" >> $LOGFILE
+    buildHtml
+  fi   
+}
+
+# build html pages in the repo
+function buildHtml () {
+  TEMP=$(mktemp  /tmp/build.XXX)
+
+  # enable module command
+  if [ -f /opt/rcic/Modules/init/bash ]; then
+    . /opt/rcic/Modules/init/bash
+  fi
+  module load python/3.8.0
+  module list
+
+  # build html pages
+  cd $GITDIR/website-rcic/docs
+  make clean html > $TEMP
+  success="build succeeded"
+  result=`grep "$success" $TEMP`
+  if [ "$result" == "$success". ]; then
+    # replace with new build
+    timestamp=`date "+%Y%m%d-%H%M"`
+    mv $WEBDIR /tmp/html.$timestamp 
+    mv build/html $WEBDIR
+  else
+    # leave previous build in place, current had errors.
+    # add build output to the logfile for a reference
+    cat $TEMP >> $LOGFILE
+  fi
+  /bin/rm $TEMP
+}
+
+###########
+### Run ###
+###########
+
+updateGitRepo
+checkCommit

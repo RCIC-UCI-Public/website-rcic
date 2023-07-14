@@ -69,12 +69,16 @@ Install on web server host
 
    This version results in correct themes.
 
-3. Create a cron script in */etc/cron.hourly*.
+3. Create a cron script ``cron-rtd-website `` and install as */etc/cron.hourly/rtd-website*.
 
-   The script checks out website repo, verifies if there were any updates
-   in the last our and runs a ``make html`` if needed.
+   The script:
 
-   Resulting *html/* is installed as **/var/www/html/rcic-website**
-   which is the website *DocumentRoot*, configured in */etc/httpd/conf.d/ssl.conf*.
+   * checks out website repo (this repo)
+   * verifies if there were any updates in the last hour,
+   * in case there wee updates it runs commands to create html files
+     and installs resulting *build/html/* as **/var/www/html/rcic-website**
+     which is the website *DocumentRoot*, configured in */etc/httpd/conf.d/ssl.conf*.
+	 A previous version is moved to /tmp.
+   * a success/failure is recorded in /var/log/website-rtd.log
 
    See details in the cron script.
