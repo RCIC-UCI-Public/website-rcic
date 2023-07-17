@@ -24,10 +24,10 @@ installation instructions.
 
 .. centered:: Software installation guides
 
-===================== =========================== ================
-:ref:`install conda`  :ref:`install python`       :ref:`install r`
-:ref:`install perl`   :ref:`install singularity`  :ref:`compile`
-===================== =========================== ================
+===================== =========================== ================ ======================
+:ref:`install conda`  :ref:`install python`       :ref:`install r` :ref:`install jupyter`
+:ref:`install perl`   :ref:`install singularity`  :ref:`compile`                        
+===================== =========================== ================ ======================
 
 .. _install conda:
 
@@ -847,3 +847,87 @@ Steps below explain the basic setup specific to the cluster.
 
    For instructions on creating modules for your installed
    software please see :ref:`user installed modules`.
+
+.. _install jupyter:
+
+Install in Jupyterhub
+---------------------
+
+Your JupyterLab server is a Singularity container. The container is a subset of the full HPC3 software stack.
+While the lab environment is reasonably complete, you may want to install
+additional Python or R modules.
+
+1. **Default settings**
+
+   Different containers will have a different subset of modules and available applications.
+   Here’s what your Lab interface may look like the first time you start.
+   The highlighted area is where you can upload/download files from/to your
+   laptop (built-in capabilities) and where empty Python or R notebooks are:
+
+   .. image:: images/jhub-initial.png
+      :align: center
+      :alt: server lab area
+
+   A standard Jupyter Notebook can be started from within your lab server.
+
+   The is also a Unix terminal application, you can use it for command-line access.
+   The following example shows the available software modules and the modules loaded by default:
+
+   .. image:: images/jhub-terminal.png
+      :align: center
+      :alt: server terminal app
+
+   |
+
+2. **Upload/Download Files**
+
+   You have a few choices to upload/download files. Among these are
+
+   * The upload/download capabilities of the built-in file browser
+   * Use ``scp`` from the :guilabel:`Terminal` widget in the lab (you must initiate ``scp`` from within your lab)
+   * Use ``curl`` to download files from the web
+
+3. **Adding Python packages with pip**
+
+   You can use Python from :guilabel:`Console`, :guilabel:`Notebook`
+   or :guilabel:`Terminal` simply via clicking on the App image in the *Launcher window*.
+
+   This example uses ``pip`` to install Python package :tt:`ttictoc`. In your lab, click on the
+   :guilabel:`Terminal` Icon, and after it opens run the command:
+
+   .. code-block:: console
+
+      $ pip install --user ttictoc
+
+   Your output should look something like:
+
+   .. image:: images/jhub-pip.png
+      :align: center
+      :alt: install with pip
+
+4. **Adding R packages**
+
+   You may need to install additional R packages.
+   Once you have added the package, you should be able to use it in your *R notebook*.
+
+   You must be in a :guilabel:`Terminal` to add new R modules as a user.
+   Check if *R* module is already loaded (output of ``module list``) and if
+   not load it with ``module laod`` command.
+
+   Start R and depending on your desired package you may need to use different options for installing.
+   In general, one needs to follow the software package instructions for installing it.
+   Most packages can be installed with the regular install command giving it a desired package name,
+   for example to install :tt:`cicerone` package:
+
+   .. code-block:: R
+
+      $ R
+      > install.packages("cicerone")
+
+   Some packages can be installed using source in github. Here is an example of
+   installing :tt:`SCopeLoomR`:
+
+   .. code-block:: R
+
+      > library('devtools')
+      > devtools::install_github("aertslab/SCopeLoomR")
