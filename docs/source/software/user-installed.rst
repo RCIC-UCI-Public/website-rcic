@@ -22,7 +22,7 @@ installation instructions.
 .. note:: | There are a few important initial installation steps that are unique to the HPC3.
           | They are explained in the guides below.
 
-.. centered:: Software installation guides
+.. centered:: HPC3 software installation guides
 
 ===================== =========================== ================ ======================
 :ref:`install conda`  :ref:`install python`       :ref:`install r` :ref:`install jupyter`
