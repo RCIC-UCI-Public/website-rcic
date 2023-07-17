@@ -301,10 +301,11 @@ Jupyterhub Portal
 
 Sometimes applications are available via containers on our *Jupyterhub portal*.
 This includes many Bioinformatics applications, Rstudio, etc. Below are the
-steps to start a container that will provide Rstudio along with a few other
-applications.
+steps to start a container.
 
-1. Point your browser
+1.  **Authenticate at Jupyterhub portal**
+
+   Point your browser
    to `https://hpc3.rcic.uci.edu/biojhub3/hub/login <https://hpc3.rcic.uci.edu/biojhub3/hub/login>`_
    You will see the following screen where you will Use your usual login
    credentials (UCInetID and password) to sign in:
@@ -314,7 +315,9 @@ applications.
       :width: 70%
       :alt: sign in
 
-2. After  a successful authentication you will see a screen with server options as in the figure below:
+2.  **Select your server configuration and login**
+
+   After  a successful authentication you will see a screen with server options as in the figure below:
 
    .. image:: images/jhub-login.png
       :align: center
@@ -324,27 +327,61 @@ applications.
 
    - :guilabel:`Select Partition/Reservation to use` - choose one of partitions or reservations
    - :guilabel:`Select Account to Charge` - choose one of your Slurm accounts
-   - change number of CPUs  and amount of memory if needed
-   - :guilabel:`Select a Containerized Notebook image` - select your desired container.
+   - :guilabel:`Select a Containerized Notebook image` - select your desired container
      Note, if you used this portal before check carefully the updated list of
-     containers. The older containers names are prepended with *Centos7*,
+     containers. The older containers names are prefixed with *Centos7*,
      new containers with *Rocky8*.
+   - change number of CPUs  and amount of memory if needed
 
-   Press :guilabel:`Start`.
+   Press :guilabel:`Start`.  You may see a screen that looks similar to:
+
+   .. image:: images/jhub-spawn.png
+      :align: center
+      :width: 70%
+      :alt: container starting
+
+3. **Your server environment**
 
    Once the notebook is done spawning, you will get a Launcher screen with a number GUI apps you can use.
-   One of those buttons is RStudio.
+   The first time you start your Lab interface it will look similar to:
 
-   **You must have sufficient space in your $HOME in order to run a session**.
-   If your $HOME is full the server will  fail to start with an error similar to
-   the following :red:`Spawn failed: Server at <...> didn't respond in 300 seconds`
-   where :red:`<...>` shows the http address of a compute node where the server was placed to start.
+   .. image:: images/jhub-initial-lab.png
+      :align: center
+      :width: 70%
+      :alt: container initial lab
 
-   In this case you need to bring your $HOME usage under the quota. Please see
-   :ref:`home quotas <home quotas>`.
 
-3. Be sure to stop your Juputerhub notebook server after you are done with your work.
-   From the :guilabel:`File` menu choose :guilabel:`Hub Control Panel` and you will be forwarded to
+   The container is a subset of the full HPC3 software stack. A standard Jupyter Notebook can be started
+   from within your lab server. You also have access to a Linux command-line terminal, if you need it.
+   You may need to download/upload files, or install a few R or Python
+   packages. Please see :ref:`install jupyter` guide.
+
+
+   .. important:: | **You must have sufficient space in your $HOME in order to run a session**.
+      | If your $HOME is full the server will  fail to start with an error similar to the following
+      | :red:`Spawn failed: Server at <...> didn't respond in 300 seconds`
+      | where :red:`<...>` shows the http address of a compute node where the server was placed to start.
+
+      **You need to bring your $HOME usage under the quota before
+      you can start your session**. Please see :ref:`home quotas <home quotas>`.
+
+
+4. **Shutdown your server**
+
+   Be sure to stop your Juputerhub server after you are done with your work.
+   This releases backend computing resources for other active computational needs.
+   Your notebooks and other files should be saved prior to shutting down your lab.
+   Jupyter writes a *state* file for your lab, so that when you relaunch, you
+   will be back where you were prior to shutting down.
+
+   From the :guilabel:`File` menu choose :guilabel:`Hub Control Panel`:
+
+   .. image:: images/jhub-control-panel.png
+      :align: center
+      :width: 70%
+      :alt: server control panel
+
+   and you will be forwarded to
    a screen where you can press on :guilabel:`Stop My Server` to shut down the server:
 
    .. image:: images/jhub-logout.png
