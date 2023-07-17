@@ -976,7 +976,7 @@ Fix your job
 
    Similar fixes apply when using ``srun`` for interactive jobs.
 
-   You will need to cancel existing pending job (it will never run):
+   **You will need to cancel existing pending job (it will never run)**:
 
    .. code-block:: console
 
@@ -1006,9 +1006,29 @@ Fix your job
       |   :tt:`SBATCH --time` 
       
 
-      See :ref:`available partitions` for partitions default nad max settings. 
+   3. If your job is pending  due to `ReqNodeNotAvail, Reserved for
+      maintenance` you need to re-submit your job with a shorter time limit
+      that will end BEFORE the maintenance begins.
 
-   Please see :ref:`job examples` for more info 
+	  To find out the reservation details use:
+
+      .. code-block:: console
+
+         [user@login-x:~]$ scontrol show reservation
+
+      | The first output line will include the maintenance times, for example:
+      | :red:`StartTime=2023-07-25T08:00:00 EndTime=2023-07-26T08:00:00 Duration=1-00:00:00`
+
+      Based on the info about the reservation and the current day/time you can
+      estimate what time limit :tt:`SBATCH --time` should be specified for your job in order for
+      it to finish before the maintenance starts.
+
+      If your job truly needs requested time limit, nothing can be done until the maintenance is over.
+      Remove your job from the queue and resubmit after the maintenance.
+
+   See :ref:`available partitions` for partitions default and max settings.
+
+   Please see :ref:`job examples` for more info.
 
 .. _modify job:
 
