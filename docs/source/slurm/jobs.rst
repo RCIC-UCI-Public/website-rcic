@@ -812,6 +812,8 @@ AssocGrpCPUMinutesLimit:
   requested for the job, and internally marks those hours as unavailable.
 Dependency:
   Job has a user-defined dependency on a running job and cannot start until the previous job has completed.
+DependencyNeverSatisfied:
+  Job has a user-defined dependency that failed. Job will never run and needs to be canceled.
 Priority:
   Slurm's scheduler is temporarily holding the job in pending state because other queued jobs have a higher priority.
 QOSMaxJobsPerUserLimit:
