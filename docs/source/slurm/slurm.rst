@@ -17,6 +17,118 @@ how to properly use HPC3. These rules apply to using Slurm for running jobs.
 
 Failure to follow conduct rules may adversely impact others working on the cluster. 
 
+.. _slurm accounting:
+
+Slurm Accounting
+----------------
+
+Every HPC3 user is granted :underline:`one time 1,000 free CPU hours` as a startup allowance.
+This base allocation is there for you to become familiar with HPC3, Slurm scheduler, and accounting.
+This personal base account is created automatically when your HPC3 account is created.
+
+Most jobs ran on HPC3 are charged to a lab account because most HPC3 users are part of at least one research lab.
+If a lab account runs out of CPU hours, more CPU hours can be purchased via recharge.
+
+Any UCI Professor can request an HPC3 *Slurm lab account* and add researchers/students to this account.
+The goal is faculty who request an account will be granted no-cost 200,000 CPU hours per fiscal year.
+Based upon the number of requests and the number of nodes that have been purchased by RCIC, this number will vary.
+
+.. _slurm lab account:
+
+Getting Slurm Lab account
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PI may request a Slurm lab account by sending a request to hpc-support@uci.edu and specifying
+the following information:
+
+* PI name and UCINetID
+* Names and UCINetIDs of the researchers, graduate students or other
+  collaborators to add to the account. They will be be able to charge CPU hours to the  lab account.
+* Optional: names of  *account coordinators*.  Account coordinators are lab members who will able to manage the group
+  members jobs, modify their queue priority, update limits for the total CPU hours for individual members, etc.
+  Typically, one or two lab members (Postdocs or Project Specialists).
+
+.. _units cost:
+
+Allocation units
+^^^^^^^^^^^^^^^^
+
+When a job is allocated resources, the resources include CPUs and memory.
+Memory in each partition is allocated per-CPU core.
+When you request more cores, your job is allocated more memory and vice versa.
+
+Jobs will charge **core-hours** or **GPU-hours** to the account.
+The costs are calculated as follows.
+
+:1 core-hour:
+  | :bluelight:`is 1 allocation unit` charged for
+  | 1 CPU used for 1 hour
+  | Each CPU core-hour is charged to the specified account (or your default user account).
+
+:1 GPU-hour:
+  | :bluelight:`is 33 allocation units` charged for
+  | 1 GPU used for 1 hour as 32 allocation units, plus
+  | 1 CPU used for 1 hour (required to run the job) as 1 allocation unit.
+  | Each GPU hour is charged to a GPU-enabled account which can only be used on GPU-nodes.
+
+**Example charges**
+
+.. table::
+   :class: noscroll-table
+
+   +--------------------------+----------------+
+   | A job is using           | Units  charged |
+   +==========================+================+
+   | 1 CPU X 1 hr             | 1              |
+   +--------------------------+----------------+
+   | 1 CPU X 6 min            | 0.1            |
+   +--------------------------+----------------+
+   | 10 CPU X 1 hr            | 10             |
+   +--------------------------+----------------+
+   | (1 GPU + 1 CPU ) X 1 hr  | 33             |
+   +--------------------------+----------------+
+
+.. _free jobs:
+
+Free Jobs
+^^^^^^^^^
+
+Jobs submitted to *free* partitions are free jobs.
+
+The design of HPC3 is that, on average, about 20% of the cluster is available for free jobs.
+The *free* partitions are designed to allow the cluster to run at ~100% utilization, and make it possible
+for the  allocated jobs to have very quick access to the resources when needed.
+This is accomplished by letting allocated jobs to displace (kill) running free jobs.
+
+Free jobs have the following properties:
+
+* **are not charged to any account**.  However, the balance in the account must have enough core hours to cover the job
+  request, even though this amount will not be charged.
+  This is how Slurm makes an estimate what resources are used and for how long.
+* **can be killed at any time to make room for allocated jobs**.
+  When the *standard* partition becomes full, jobs in *free* partition are killed in order to
+  allow the allocated jobs to run with a priority. In an attempt to get as much *goodput* through the system,
+  the most-recently started free jobs will be killed first.
+
+.. _allocated jobs:
+
+Allocated Jobs
+^^^^^^^^^^^^^^
+
+Jobs submitted to the *standard* partition are *allocated* jobs.
+
+Standard jobs have the following properties:
+
+* **are charged to a specified account**. Default is a user account.
+* **can not be killed** by any other job.
+* **can preempt free jobs**
+* once start running  will run to completion
+* jobs with QOS set to *normal* are charged for the CPU time consumed.
+* jobs with QOS set to *high* are charged double the CPU time consumed.
+* Jobs with QOS set to *high* are placed at the front of the jobs queue.
+  They are meant to be used when a user needs to jump in front of the queue when
+  the time from submission to running is of the essence (i.e. grant proposals and paper deadlines).
+
 .. _paritions structure:
 
 Partitions Structure
@@ -194,116 +306,4 @@ Show configuration information about a standard queue:
         JobDefaults=(null)
         DefMemPerCPU=3072 MaxMemPerCPU=6144
         TRES=cpu=7136,mem=35665000M,node=159,billing=7136
-
-.. _slurm accounting:
-
-Slurm Accounting
-----------------
-
-Every HPC3 user is granted :underline:`one time 1,000 free CPU hours` as a startup allowance.
-This base allocation is there for you to become familiar with HPC3, Slurm scheduler, and accounting.
-This personal base account is created automatically when your HPC3 account is created.
-
-Most jobs ran on HPC3 are charged to a lab account because most HPC3 users are part of at least one research lab.
-If a lab account runs out of CPU hours, more CPU hours can be purchased via recharge.
-
-Any UCI Professor can request an HPC3 *Slurm lab account* and add researchers/students to this account.
-The goal is faculty who request an account will be granted no-cost 200,000 CPU hours per fiscal year.
-Based upon the number of requests and the number of nodes that have been purchased by RCIC, this number will vary.
-
-.. _slurm lab account:
-
-Getting Slurm Lab account
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-PI may request a Slurm lab account by sending a request to hpc-support@uci.edu and specifying
-the following information:
-
-* PI name and UCINetID
-* Names and UCINetIDs of the researchers, graduate students or other
-  collaborators to add to the account. They will be be able to charge CPU hours to the  lab account.
-* Optional: names of  *account coordinators*.  Account coordinators are lab members who will able to manage the group
-  members jobs, modify their queue priority, update limits for the total CPU hours for individual members, etc.
-  Typically, one or two lab members (Postdocs or Project Specialists).
-
-.. _units cost:
-
-Allocation units
-^^^^^^^^^^^^^^^^
-
-When a job is allocated resources, the resources include CPUs and memory.
-Memory in each partition is allocated per-CPU core.
-When you request more cores, your job is allocated more memory and vice versa.
-
-Jobs will charge **core-hours** or **GPU-hours** to the account.
-The costs are calculated as follows.
-
-:1 core-hour:
-  | :bluelight:`is 1 allocation unit` charged for
-  | 1 CPU used for 1 hour
-  | Each CPU core-hour is charged to the specified account (or your default user account).
-
-:1 GPU-hour:
-  | :bluelight:`is 33 allocation units` charged for
-  | 1 GPU used for 1 hour as 32 allocation units, plus
-  | 1 CPU used for 1 hour (required to run the job) as 1 allocation unit.
-  | Each GPU hour is charged to a GPU-enabled account which can only be used on GPU-nodes.
-
-**Example charges**
-
-.. table::
-   :class: noscroll-table
-
-   +--------------------------+----------------+
-   | A job is using           | Units  charged |
-   +==========================+================+
-   | 1 CPU X 1 hr             | 1              |
-   +--------------------------+----------------+
-   | 1 CPU X 6 min            | 0.1            |
-   +--------------------------+----------------+
-   | 10 CPU X 1 hr            | 10             |
-   +--------------------------+----------------+
-   | (1 GPU + 1 CPU ) X 1 hr  | 33             |
-   +--------------------------+----------------+
-
-.. _free jobs:
-
-Free Jobs
-^^^^^^^^^
-
-Jobs submitted to *free* partitions are free jobs.
-
-The design of HPC3 is that, on average, about 20% of the cluster is available for free jobs.
-The *free* partitions are designed to allow the cluster to run at ~100% utilization, and make it possible
-for the  allocated jobs to have very quick access to the resources when needed.
-This is accomplished by letting allocated jobs to displace (kill) running free jobs.
-
-Free jobs have the following properties:
-
-* **are not charged to any account**.  However, the balance in the account must have enough core hours to cover the job
-  request, even though this amount will not be charged.
-  This is how Slurm makes an estimate what resources are used and for how long.
-* **can be killed at any time to make room for allocated jobs**.
-  When the *standard* partition becomes full, jobs in *free* partition are killed in order to
-  allow the allocated jobs to run with a priority. In an attempt to get as much *goodput* through the system,
-  the most-recently started free jobs will be killed first.
-
-.. _allocated jobs:
-
-Allocated Jobs
-^^^^^^^^^^^^^^
-
-Jobs submitted to the *standard* partition are *allocated* jobs.
-
-Standard jobs have the following properties:
-
-* **are charged to a specified account**. Default is a user account.
-* **can not be killed** by any other job.
-* **can preempt free jobs**
-* once start running  will run to completion
-* jobs with QOS set to *normal* are charged for the CPU time consumed.
-* jobs with QOS set to *high* are charged double the CPU time consumed.
-* Jobs with QOS set to *high* are placed at the front of the jobs queue.
-  They are meant to be used when a user needs to jump in front of the queue when
-  the time from submission to running is of the essence (i.e. grant proposals and paper deadlines).
 
