@@ -54,7 +54,7 @@ and data services.
    |                  |                        |                    |                  |                 |
    | CPU hours        |                        |                    | Hardware Purchase| ~$10K/node      | 
    +------------------+------------------------+--------------------+------------------+-----------------+
-   | **HPC3**         | 1000 [3]_  GPU-hrs     | Every 6 months     | Cycle Purchase   | $.01/core-hr    |
+   | **HPC3**         | 1000 [3]_  GPU-hrs     | Every 6 months     | Cycle Purchase   | $.32/core-hr    |
    |                  |                        |                    |                  |                 |
    | GPU hours        |                        |                    | Hardware Purchase| ~$35K/node      |
    +------------------+------------------------+--------------------+------------------+-----------------+
