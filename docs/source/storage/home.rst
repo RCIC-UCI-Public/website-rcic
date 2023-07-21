@@ -16,10 +16,12 @@ Storing Files
 
 **What to Store**
   * STORE only important files here that change relatively infrequently
-  * NOT store large jobs output and error files
-  * NOT store and then delete large data files. Such data is considered *transient*
+
+:red:`What NOT to Store`
+  * DO NOT store large jobs output and error files
+  * DO NOT store and then delete large data files. Such data is considered *transient*
     and should be stored on DFS filesystems.
-  * NOT store any large input data files that are used for computational jobs.
+  * DO NOT store any large input data files that are used for computational jobs.
     Use DFS file systems for this data.
 
 .. _home quotas:
