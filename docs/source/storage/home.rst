@@ -24,6 +24,32 @@ Storing Files
   * DO NOT store any large input data files that are used for computational jobs.
     Use DFS file systems for this data.
 
+:red:`NO Symbolic links`
+  Many users have additional space on one or more CRSP or DFS filesystems.
+  As a shortcut some created soft inks from their $HOME to one or more of these
+  filesystems. The links  might look similar to
+
+  .. code-block:: console
+
+     [user@login-x:~]$ pwd
+     /data/homezvol0/panteater
+     [user@login-x:~]$ ls -l
+     lrwxrwxrwx 1 panteater panteater 27 Jun 12 12:18 shared_lab -> /dfsX/pilab/shared_lab
+     lrwxrwxrwx 1 panteater panteater 25 Jun 12 12:18 crsplalab -> /share/crsp/lab/pilab
+
+  **This is a DANGEROUS practice as it often leads to unnecessary increase in
+  loads on both NFS filesystem where your $HOME is and on the linked CRSP or DFS filesystem**.
+
+  The  reason is a client (any command or process you run in your $HOME or
+  that needs anything from your $HOME) has to resolve this symbolic link and verify
+  mount **every single time**. This involves multiple operations and system
+  calls  between NFS filesystem where your $HOME is and a parallel filesystem
+  (CRSP or DFS). When executed many times by many users this creates a performance issue for everyone.
+
+  .. attention:: Remove all symbolic links from your $HOME or anywhere under its subdirectories
+                 and use aliases or enviornment variables in your .bashrc to
+                 create shortcuts to desired filesystems. See :ref:`symbolic links` for more info.
+
 .. _home quotas:
 
 Quotas

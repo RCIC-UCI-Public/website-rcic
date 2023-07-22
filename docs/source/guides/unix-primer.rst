@@ -110,6 +110,65 @@ permissions. For example, file mode ``drwxrwsr-x`` for **biofiles**:
 
 To learn more about files permissions execute command ``man ls``.
 
+.. _symbolic links:
+
+Symbolic Links
+--------------
+
+Symbolic links, also known as soft links or symlinks, are special types of files that point
+to other files. The data in the target file does not appear in a symbolic link, instead, it
+points to another file system entry.
+
+While symbolic links can be  a practical choice, sometimes they represent a wrong choice:
+
+* Symbolic links are appropriate when used to make shortcuts for the names between
+  the files on the same filesystem.
+* Symbolic links can be dangerous when created between NFS filesystem ($HOME)
+  and parallel filesystems such as CRSP or DFS. A single user symbolic links can create
+  serious performance issues for many users.  For example, if you have a link in
+  your $HOME that points to your CRSP lab area as:
+
+  .. code-block:: console
+
+     ls -l crsplab
+     crsplab -> /share/crsp/lab/pilab
+
+  This will force CRSP mount every time your $HOME is traversed and
+  this can degrade the overall accessibility of the filesystem for many users
+  depending on the current state of I/O requests in both filesystems.
+
+  .. attention:: | :red:`Do not create symbolic links between $HOME and CRSP or DFS!`
+                 | Use aliases or environment variables in place of symbolic links when
+                 | you are making shortcuts for the file names in different filesystems.
+
+
+  **Use aliases or enviornment variables**
+
+  A shortcut  name can be accomplished via an alias or an environment variable.
+  For example, in your .bashrc add
+
+  .. code-block:: bash
+
+     alias crsplab='cd /share/crsp/lab/pilab'
+     export CRSPLAB=/share/crsp/lab/pilab
+
+  Then use either an alias or a variable depending on your task.
+  When need to change to your CRSP lab area can simply execute one of:
+
+  .. code-block:: bash
+
+     crsplab
+     cd $CRSPLAB
+
+  When need to list contents  of your CRSP lab area:
+
+  .. code-block:: bash
+
+     ls $CRSPLAB
+
+For using aliases and environment variables in your Slurm jobs please see
+:ref:`using aliases`.
+
 .. _special characters:
 
 Special Characters

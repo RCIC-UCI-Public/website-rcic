@@ -10,6 +10,32 @@ cores/memory, GPU, etc.).
 Information about requesting resources for the jobs such as memory, local
 scratch, time, etc are explained in :ref:`request resources`.
 
+.. _using aliases:
+
+Using Aliases
+-------------
+
+You can use aliases and environment variables that are defined in your
+:tt:`.bashrc` file in your Slurm submit scripts.
+
+A user panteater has in :tt:`.bashrc`:
+
+.. code-block:: bash
+
+   alias pub='cd /pub/panteater'
+   export MYPUB=/pub/panteater
+
+The following script can be used to verify that the defined alias :tt:`pub` and
+environment variable :tt:`MYPUB` are accessible in Slurm job:
+
+.. centered:: File alias.sub
+
+.. literalinclude:: files/alias.sub
+   :language: bash
+
+Note, first line :tt:`#!/bin/bash -l` requests login shell, this is needed to
+execute  your :tt:`.bashrc` on the node where the job is run
+
 .. _job array:
 
 Array
