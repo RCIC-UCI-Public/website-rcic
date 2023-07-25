@@ -37,6 +37,7 @@ RCIC User Documentation
    hpc3/hpc3
    hpc3/reallocations
    hpc3/specs
+   hpc3/maintenance
 
 .. toctree::
    :maxdepth: 1
