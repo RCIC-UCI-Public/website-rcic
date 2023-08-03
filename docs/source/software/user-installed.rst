@@ -75,20 +75,22 @@ example panteater).
 
       [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
 
+   Next steps are executed on interactive node.
+
 2. **Load desired anaconda/miniconda module**
 
    For building in your user area, first you need to load anaconda module:
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load anaconda/2021.11
+      [user@hpc3-xx-yy:~]$ module load anaconda/2021.11
 
    Check that ``conda`` command is available after module loading, the output of the
    command below should be similar to:
 
    .. code-block:: console
 
-      [user@login-x:~]$ which conda
+      [user@hpc3-xx-yy:~]$ which conda
       /opt/apps/anaconda/2021.11/bin/conda
 
    .. attention:: Conda always provides python and a few other applications.
@@ -102,7 +104,7 @@ example panteater).
 
    .. code-block:: console
 
-      [user@login-x:~]$ conda info
+      [user@hpc3-xx-yy:~]$ conda info
            active environment : None
              user config file : /data/homezvol0/panteater/.condarc
        populated config files :
@@ -154,7 +156,7 @@ example panteater).
 
    .. code-block:: console
 
-      [user@login-x:~]$ conda init bash
+      [user@hpc3-xx-yy:~]$ conda init bash
 
    This adds a few lines to your :tt:`~/.bashrc` file which may not always be desirable
    for your work with other programs.  Edit the :tt:`~/.bashrc` file and move all the lines
@@ -181,7 +183,7 @@ example panteater).
 
    .. code-block:: console
 
-      [user@login-x:~]$ conda create -n Local2
+      [user@hpc3-xx-yy:~]$ conda create -n Local2
 
    This will take some time to complete as anaconda is installing a lot
    of packages in your directory :tt:`~/.conda` and depending on what you are
@@ -205,7 +207,7 @@ example panteater).
    The last few lines indicate the commands you will need for activating and
    deactivating your conda environment.
 
-6. **Install your software package**
+6. **Install your software packages**
 
    Using your newly created environment you can now install desired software
    :red:`per your software instructions`. The instructions vary, here is a handful of
@@ -213,11 +215,26 @@ example panteater).
 
    .. code-block:: bash
 
-      [user@login-x:~]$ conda install -c https://conda.binstar.org/bokeh ggplot    # Install ggplot
-      [user@login-x:~]$ conda install -c https://conda.binstar.org/asmeurer r-nlme # Install r-nlme
-      [user@login-x:~]$ conda install xarray                                       # install xarray
+      [user@hpc3-xx-yy:~]$ conda install -c https://conda.binstar.org/bokeh ggplot    # Install ggplot
+      [user@hpc3-xx-yy:~]$ conda install -c https://conda.binstar.org/asmeurer r-nlme # Install r-nlme
+      [user@hpc3-xx-yy:~]$ conda install xarray                                       # install xarray
 
-7. **Use your conda environment**
+7, **Clean your install**
+
+   During the install conda downloads packages, create cache, temporary files and logfiles.
+   All of these take quite a bit of space but are not needed after the install.
+
+   We recommend to clean your conda installation each time you create a new
+   environment or add packages to the existing environment.
+   The following command will remove index cache, lock files, unused cache packages, tarballs, and logfiles
+   from your :tt:`~/.conda/pkgs/`. This can free a few Gbs of disk space for each
+   install (size depends on installed packages).
+
+   .. code-block:: console
+
+      [user@hpc3-xx-yy:~]$ conda clean -a -f -y
+
+8. **Use your conda environment**
 
    The above installation steps 1-5 need to be done only once for
    specific software install in a specific local conda environment. Now you have your
@@ -232,21 +249,54 @@ example panteater).
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load anaconda/2021.11
-      [user@login-x:~]$ . ~/.mycondainit-2011.11
-      [user@login-x:~]$ conda activate Local2
+      [user@hpc3-xx-yy:~]$ module load anaconda/2021.11
+      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-2011.11
+      [user@hpc3-xx-yy:~]$ conda activate Local2
 
 
-   If you submit your computation via slurm script these 3 commands need to be
+   If you submit your computation via Slurm script these 3 commands need to be
    present before you execute your software commands.
 
-   Your environment is deactiated automatically when you logout or when your
+   Your environment is deactivated automatically when you logout or when your
    Slurm job finishes.
    To deactivate your environment right away you need to do:
 
    .. code-block:: console
 
-      [user@login-x:~]$ conda deactivate
+      [user@hpc3-xx-yy:~]$ conda deactivate
+
+9. **Tips**
+
+   Any ``conda`` commands can be executed after loading specific conda
+   module, one that was used to create your conda environment.
+
+   .. code-block:: console
+
+      [user@login-x:~]$ module load anaconda/2022.05
+
+   Here we are not activating any environments, just collecting info.
+
+   What conda environments do I have defined?
+     .. code-block:: console
+
+        [user@login-x:~]$ conda env list
+        # conda environments:
+        #
+        mageck             /data/homezvol0/npw/.conda/envs/mageck
+        ngl                /data/homezvol0/npw/.conda/envs/ngl
+        base            *  /opt/apps/anaconda/2022.05
+
+     Note, the :tt:`*` in the output means active loaded conda version (per
+     loaded module). Available environments are listed but no  activated.
+
+   How did I build my conda environments?
+     .. code-block:: console
+
+        [user@login-x:~]$ grep create ~/.conda/envs/*/conda-meta/history
+        /data/homezvol0/panteater/.conda/envs/mageck/conda-meta/history:# cmd: /opt/apps/anaconda/2022.05/bin/conda create -n mageck-vispr
+        /data/homezvol0/panteater/.conda/envs/ngl/conda-meta/history:# cmd: /opt/apps/anaconda/2020.07/bin/conda create -n ngless
+
+     Note, two listed environments  were created with different versions of conda.
 
 .. _install python:
 
@@ -292,23 +342,25 @@ Steps below explain the basic commands specific to the cluster.
 
       [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
 
+   Next steps are executed on interactive node.
+
 2. **Load desired python module**
 
    For building in your user area, first you need to load Python module:
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load python/3.8.0
+      [user@hpc3-xx-yy:~]$ module load python/3.8.0
 
    Check that ``python`` and ``pip`` commands are available to you, the output of the commands should
    be similar to:
 
    .. code-block:: console
 
-      [user@login-x:~]$ which python
+      [user@hpc3-xx-yy:~]$ which python
       /opt/apps/python/3.8.0/bin/python
 
-      [user@login-x:~]$ which pip
+      [user@hpc3-xx-yy:~]$ which pip
       /opt/apps/python/3.8.0/bin/pip
 
 
@@ -319,7 +371,7 @@ Steps below explain the basic commands specific to the cluster.
 
    .. code-block:: console
 
-      [user@login-x:~]$ pip install --user pluggy
+      [user@hpc3-xx-yy:~]$ pip install --user pluggy
       Collecting pluggy
         Using cached pluggy-1.0.0-py2.py3-none-any.whl (13 kB)
       Installing collected packages: pluggy
@@ -329,7 +381,7 @@ Steps below explain the basic commands specific to the cluster.
 
    .. code-block:: console
 
-      [user@login-x:~]$ python
+      [user@hpc3-xx-yy:~]$ python
       Python 3.8.0 (default, Jun  8 2022, 08:17:26)
       [GCC 8.5.0 20210514 (Red Hat 8.5.0-10)] on linux
       Type "help", "copyright", "credits" or "license" for more information.
@@ -344,7 +396,7 @@ Steps below explain the basic commands specific to the cluster.
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load python/3.8.0
+      [user@hpc3-xx-yy:~]$ module load python/3.8.0
 
    and proceed with the rest of the commands per your software instructions.
 
@@ -386,20 +438,22 @@ packages will go to the :tt:`$HOME/R` and is automatically available to the user
 
       [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
 
+   Next steps are executed on interactive node.
+
 2. **Load desired module**
 
    For building in your user area, first you need to load R module:
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load R/4.1.2
+      [user@hpc3-xx-yy:~]$ module load R/4.1.2
 
    Check that ``R`` command  is available to you, the output of
    the below command should be similar to:
 
    .. code-block:: console
 
-      [user@login-x:~]$ which R
+      [user@hpc3-xx-yy:~]$ which R
       /opt/apps/R/4.1.2/bin/R
 
 
@@ -407,7 +461,7 @@ packages will go to the :tt:`$HOME/R` and is automatically available to the user
 
    .. code-block:: console
 
-      [user@login-x:~]$ R
+      [user@hpc3-xx-yy:~]$ R
 
    Check if your package is already installed, for example for :tt:`farver`:
 
@@ -492,7 +546,7 @@ packages will go to the :tt:`$HOME/R` and is automatically available to the user
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load R/4.1.2
+      [user@hpc3-xx-yy:~]$ module load R/4.1.2
 
    and proceed with the rest of the commands per your software instructions.
 
@@ -550,23 +604,25 @@ Steps below explain the basic commands specific to the cluster.
 
       [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
 
+   Next steps are executed on interactive node.
+
 3. **Load desired perl module**
 
    For building in your user area, first you need to load Perl module, for example:
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load perl/5.30.0
+      [user@hpc3-xx-yy:~]$ module load perl/5.30.0
 
   Check that ``perl`` and ``cpanm`` are available,
   the output of the commands below will be similar to:
 
    .. code-block:: console
 
-      [user@login-x:~]$ which perl
+      [user@hpc3-xx-yy:~]$ which perl
       /opt/apps/perl/5.30.0/bin/perl
 
-      [user@login-x:~]$ which cpanm
+      [user@hpc3-xx-yy:~]$ which cpanm
       /opt/apps/perl/5.30.0/bin/cpanm
 
 4. **Install your software package**
@@ -575,7 +631,7 @@ Steps below explain the basic commands specific to the cluster.
 
    .. code-block:: console
 
-      [user@login-x:~]$ cpanm X::Tiny
+      [user@hpc3-xx-yy:~]$ cpanm X::Tiny
       --> Working on X::Tiny
       Fetching http://www.cpan.org/authors/id/F/FE/FELIPE/X-Tiny-0.21.tar.gz ... OK
       Configuring X-Tiny-0.21 ... OK
@@ -593,7 +649,7 @@ Steps below explain the basic commands specific to the cluster.
 
    .. code-block:: console
 
-      [user@login-x:~]$ perl -e "use X::Tiny"
+      [user@hpc3-xx-yy:~]$ perl -e "use X::Tiny"
 
    The command should produce no errors and no output, this means ``perl`` found
    the installed package.
@@ -605,7 +661,7 @@ Steps below explain the basic commands specific to the cluster.
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load perl/5.30.0
+      [user@hpc3-xx-yy:~]$ module load perl/5.30.0
 
    and proceed with using your packages per your software instructions.
 
@@ -653,7 +709,9 @@ latest available singularity version.
    .. code-block:: console
 
       [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
-      [user@login-x:~]$ cd /pub/ucinetid
+      [user@hpc3-xx-yy:~]$ cd /pub/ucinetid
+
+   Next steps are executed on interactive node.
 
 2. **Load desired singularity module**
 
@@ -661,7 +719,7 @@ latest available singularity version.
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load singularity/3.9.4
+      [user@hpc3-xx-yy:~]$ module load singularity/3.9.4
 
 3. **Run a container create command**
 
@@ -676,7 +734,7 @@ latest available singularity version.
 
        .. code-block:: console
 
-          [user@login-x:~]$ singularity pull vg.sif docker://quay.io/vgteam/vg:v1.43.0
+          [user@hpc3-xx-yy:~]$ singularity pull vg.sif docker://quay.io/vgteam/vg:v1.43.0
           INFO:    Converting OCI blobs to SIF format
           INFO:    Starting build...
           Getting image source signatures
@@ -699,7 +757,7 @@ latest available singularity version.
 
        .. code-block:: console
 
-          [user@login-x:~]$ ls
+          [user@hpc3-xx-yy:~]$ ls
           vg.sif
 
    3b. **Build from a recipe**
@@ -711,7 +769,7 @@ latest available singularity version.
 
        .. code-block:: console
 
-          [user@login-x:~]$ singularity build hla.simg hla.recipe
+          [user@hpc3-xx-yy:~]$ singularity build hla.simg hla.recipe
 
        Here, :tt:`hla.simg` is a desired Singularity container to build in the Singularity
        Image File (SIF) format, and :tt:`hla.recipe` is the container
@@ -725,7 +783,7 @@ latest available singularity version.
 
    .. code-block:: console
 
-      [user@login-x:~]$ singularity run vg.sif
+      [user@hpc3-xx-yy:~]$ singularity run vg.sif
       Singularity> vg version
 
       vg version v1.43.0 "Barisano"
@@ -746,8 +804,8 @@ latest available singularity version.
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load singularity/3.9.4
-      [user@login-x:~]$ singularity run /pub/anteater/vg.sif arg1 arg2 arg3
+      [user@hpc3-xx-yy:~]$ module load singularity/3.9.4
+      [user@hpc3-xx-yy:~]$ singularity run /pub/anteater/vg.sif arg1 arg2 arg3
 
    Additional commands to interact with the container are ``shell`` and ``exec``.
    Please see the `SingularityCE User Guide <https://docs.sylabs.io/guides/3.9/user-guide/introduction.html>`_
@@ -773,16 +831,21 @@ Steps below explain the basic setup specific to the cluster.
    that can use  a lot of  CPU time and memory. If you do this on login node
    you will have problems and your install will likely fail.
 
-   In addition, downloaded sources and temporary compilation files  can be large,
+   .. code-block:: console
+
+      [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
+
+   Next steps are executed on interactive node.
+
+2. **Find and load desired modules**
+
+   Downloaded sources and temporary compilation files for software installs can be large,
    we recommend to use your private  area in :tt:`/pub/ucinetid` or  your group lab
    allocation on another DFS file system for compiling and installing.
 
    .. code-block:: console
 
-      [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
-      [user@login-x:~]$ cd /pub/ucinetid
-
-2. **Find and load desired modules**
+      [user@hpc3-xx-yy:~]$ cd /pub/ucinetid
 
    Read your software instructions and figure out what modules provide what you will need
    for compilation.
@@ -793,11 +856,11 @@ Steps below explain the basic setup specific to the cluster.
 
    .. code-block:: console
 
-      [user@login-x:~]$ module avail gcc
-      [user@login-x:~]$ module avail intel
-      [user@login-x:~]$ module avail openmpi
-      [user@login-x:~]$ module avail cmake
-      [user@login-x:~]$ module avail foundation
+      [user@hpc3-xx-yy:~]$ module avail gcc
+      [user@hpc3-xx-yy:~]$ module avail intel
+      [user@hpc3-xx-yy:~]$ module avail openmpi
+      [user@hpc3-xx-yy:~]$ module avail cmake
+      [user@hpc3-xx-yy:~]$ module avail foundation
 
    Note, **foundation** includes ``cmake`` plus a few other tools. See ``module display foundation/v8``
    output for details.
@@ -814,8 +877,8 @@ Steps below explain the basic setup specific to the cluster.
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load cmake/3.22.1
-      [user@login-x:~]$ module load hdf5/1.13.1/gcc.11.2.0-openmpi.4.1.2
+      [user@hpc3-xx-yy:~]$ module load cmake/3.22.1
+      [user@hpc3-xx-yy:~]$ module load hdf5/1.13.1/gcc.11.2.0-openmpi.4.1.2
 
    Note, that HDF5 module :tt:`hdf5/1.13.1/gcc.11.2.0-openmpi.4.1.2` name
    implies that it is compiled with GCC and OpenMPI  and their versions are listed in
