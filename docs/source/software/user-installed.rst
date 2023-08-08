@@ -94,7 +94,7 @@ example panteater).
       /opt/apps/anaconda/2021.11/bin/conda
 
    .. attention:: Conda always provides python and a few other applications.
-                  For this reason DO NOT load any python modules when working
+                  For this reason DO NOT load any python or other modules when working
                   with anaconda/miniconda modules. If you do, your environment
                   will have problems.
 
