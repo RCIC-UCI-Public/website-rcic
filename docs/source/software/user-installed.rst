@@ -219,6 +219,27 @@ example panteater).
    The last few lines indicate the commands you will need for activating and
    deactivating your conda environment.
 
+   Note, sometimes, conda gives the following error (uid will be different):
+
+   .. code-block:: console
+
+      Collecting package metadata (current_repodata.json): done
+      Solving environment: done
+
+      NotWritableError: The current user does not have write permissions to a required path.
+        path: /opt/apps/anaconda/2021.11/pkgs/urls.txt
+        uid: 1234567
+        gid: 1234567
+
+      If you feel that permissions on this path are set incorrectly, you can manually
+      change them by executing
+
+        $ sudo chown 1234567:1234567 /opt/apps/anaconda/2021.11/pkgs/urls.txt
+
+      In general, it's not advisable to use 'sudo conda'.
+
+   In this case create :tt:`.condarc` file per Step 3 above and try again.
+
 6. **Install your software packages**
 
    Using your newly created environment you can now install desired software
@@ -249,14 +270,14 @@ example panteater).
 8. **Use your conda environment**
 
    The above installation steps 1-5 need to be done only once for
-   specific software install in a specific local conda environment. Now you have your
-   local copy of conda where you can install packages/programs you need.
+   specific software install in a specific local conda environment. 
 
    You can build multiple local environments using the same method.
    Or you can add more packages to the existing environments. The choice
    depends on the software and on its instructions.
 
    Every time you login and want to use your conda local environment and its packages you will need
+   to get an interactive node (Step 1) and then
    to run the following commands to activate your conda environment:
 
    .. code-block:: console
@@ -271,13 +292,56 @@ example panteater).
 
    Your environment is deactivated automatically when you logout or when your
    Slurm job finishes.
-   To deactivate your environment right away you need to do:
+   To deactivate your environment right away in your current shell you need to do:
 
    .. code-block:: console
 
       [user@hpc3-xx-yy:~]$ conda deactivate
 
-9. **Tips**
+9. **Build additional enviornments**
+
+   You can build more environments and can now reuse some of the conda
+   existing setup. For example, to add another environment (using the same
+   conda module):
+
+   Get an interactive node
+
+   .. code-block:: console
+
+      [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
+
+   On interactive node, load conda module and initialize conda, then create
+   and activate the new environment and install desired software:
+
+   .. code-block:: console
+
+      [user@hpc3-xx-yy:~]$ module load anaconda/2021.11
+      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-2011.11
+      [user@hpc3-xx-yy:~]$ conda create -n NewEnv
+       Collecting package metadata (current_repodata.json): done
+       Solving environment: done
+
+       ==> WARNING: A newer version of conda exists. <==
+         current version: 4.10.3
+         latest version: 23.7.2
+
+       Please update conda by running
+           $ conda update -n base -c defaults conda
+
+        Package Plan ##
+         environment location: /data/homezvol0/npw/.conda/envs/NewEnv
+
+       Proceed ([y]/n)? y
+
+       Preparing transaction: done
+       ... 
+       
+      [user@hpc3-xx-yy:~]$ conda activate NewEnv
+
+   Now you are ready to install software in your NewEnv.
+   
+
+10. **Tips**
 
    Any ``conda`` commands can be executed after loading specific conda
    module, one that was used to create your conda environment.
