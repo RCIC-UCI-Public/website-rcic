@@ -413,7 +413,7 @@ Memory
 ^^^^^^
 
 There are nodes with different memory footprints. Slurm uses Linux
-`cgroups <:https://man7.org/linux/man-pages/man7/cgroups.7.html>`_ 
+`cgroups <https://man7.org/linux/man-pages/man7/cgroups.7.html>`_ 
 to enforce that applications do not use more memory/cores than they have been allocated.
 
 Slurm has :tt:`default` and :tt:`*max` settings for a memory allocation per core
