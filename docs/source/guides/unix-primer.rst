@@ -119,23 +119,34 @@ Symbolic links, also known as soft links or symlinks, are special types of files
 to other files. The data in the target file does not appear in a symbolic link, instead, it
 points to another file system entry.
 
-While symbolic links can be  a practical choice, sometimes they represent a wrong choice:
+While symbolic links can be  a practical choice, sometimes they can have a significant, adverse impact on performance
 
-* Symbolic links are appropriate when used to make shortcuts for the names between
-  the files on the same filesystem.
-* Symbolic links can be dangerous when created between NFS filesystem ($HOME)
-  and parallel filesystems such as CRSP or DFS. A single user symbolic links can create
-  serious performance issues for many users.  For example, if you have a link in
-  your $HOME that points to your CRSP lab area as:
+* *Appropriate use:* 
+
+  * When making shortcuts for the names between the files on the same filesystem.
+
+  * When making shortcuts from a local file system to a remote file (networked) file system (e.g., /pub -> /dfs6/pub)
+
+* :red:`Should not be used:` Symbolic links between any two **networked** file systems.  
+  
+  As an example of inappropriate use: Suppose you define a "convenience" link from your home area to your PI's CRSP lab area as:
 
   .. code-block:: console
 
      ls -l crsplab
      crsplab -> /share/crsp/lab/pilab
 
-  This will force CRSP mount every time your $HOME is traversed and
-  this can degrade the overall accessibility of the filesystem for many users
-  depending on the current state of I/O requests in both filesystems.
+  In this scenario,  
+
+#. Every file operation that uses $(HOME)/crsplab as part of its path must first go to the $(HOME) server (NFS).  
+
+#. The home server then redirects to CRSP and a **second** network transaction is made the CRSP server.  
+
+  Essentially, this kind of "convenience" link forces the home
+  area server to be in the middle, doing completely useless work that can have significant impact on the
+  home area server *and* your code running on a cluster node. 
+
+  CRSP (and DFS) servers are  designed to handle high-volumes of traffic, while the home area is not. 
 
   .. attention:: | :red:`Do not create symbolic links between $HOME and CRSP or DFS!`
                  | Use aliases or environment variables in place of symbolic links when
