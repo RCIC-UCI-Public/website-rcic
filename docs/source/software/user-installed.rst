@@ -245,7 +245,7 @@ example panteater).
    In the previous step you created your local environment. Before installing
    software you need to activate it:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       [user@hpc3-xx-yy:~]$ conda activate Local2
       (Local2)[user@hpc3-xx-yy:~]$ 
