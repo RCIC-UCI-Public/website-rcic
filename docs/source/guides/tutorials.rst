@@ -12,7 +12,7 @@ with simple commands. Here we provide links to RCIC-authored presentations and l
 
 - `RCIC Overview </_static/2021-symposium-RCIC-overview.pdf>`_ 
   presentation given during the June 4th, 2021 virtual symposium of UCI’s Research Cyberinfrastructure Center (RCIC)
-  Please see symposium `agenda </news/2021.html>`_
+  Please see symposium :ref:`agenda<symposium 2021>`
 
 - `Introduction to HPC3 </_static/2020-tutorial-intro-hpc3.pdf>`_
   December 2020 tutorial covers topics to help users move to HPC3 cluster:
