@@ -161,7 +161,7 @@ example panteater).
    This adds a few lines to your :tt:`~/.bashrc` file which may not always be desirable
    for your work with other programs.  Edit the :tt:`~/.bashrc` file and move all the lines
    added by conda into another file, for example to :tt:`~/.mycondainit-2021.11`.
-   The lines are at the end of your :tt:`~/.bashrc` file (lines start end end with conda initialize
+   The lines are at the end of your :tt:`~/.bashrc` file (lines start end end with *conda initialize*
    and all the lines between them):
 
    .. code-block:: bash
@@ -169,8 +169,20 @@ example panteater).
       # >>> conda initialize >>>
       # !! Contents within this block are managed by 'conda init' !!
           <some lines are cut here>
+      __conda_setup="$('/opt/apps/anaconda/2021.11/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+      if [ $? -eq 0 ]; then
+          eval "$__conda_setup"
+      else
+          if [ -f "/opt/apps/anaconda/2021.11/etc/profile.d/conda.sh" ]; then
+              . "/opt/apps/anaconda/2021.11/etc/profile.d/conda.sh"
+          else
+              export PATH="/opt/apps/anaconda/2021.11/bin:$PATH"
+          fi
+      fi
       unset __conda_setup
       # <<< conda initialize <<<
+
+   Note, your lines will be a little different depending on what conda module was used.
 
 5. **Create a local environment**
 
