@@ -121,61 +121,64 @@ points to another file system entry.
 
 While symbolic links can be  a practical choice, sometimes they can have a significant, adverse impact on performance
 
-* *Appropriate use:* 
-
+*Appropriate use:* 
   * When making shortcuts for the names between the files on the same filesystem.
 
-  * When making shortcuts from a local file system to a remote file (networked) file system (e.g., /pub -> /dfs6/pub)
+  * When making shortcuts from a local file system to a remote file (networked) file system,
+    for example :tt:`/pub -> /dfs6/pub`
 
-* :red:`Should not be used:` Symbolic links between any two **networked** file systems.  
+:red:`Should not be used:` 
+  * Symbolic links between any two **networked** file systems.  
   
-  As an example of inappropriate use: Suppose you define a "convenience" link from your home area to your PI's CRSP lab area as:
+  As an example of inappropriate use suppose you define a *convenience* link
+  from your home area :tt:`$HOME` to your PI's CRSP lab area as:
 
   .. code-block:: console
 
-     ls -l crsplab
+     $ ls -l crsplab
      crsplab -> /share/crsp/lab/pilab
 
   In this scenario,  
 
-#. Every file operation that uses $(HOME)/crsplab as part of its path must first go to the $(HOME) server (NFS).  
+  #. Every file operation that uses :tt:`$HOME/crsplab` as part of its path must first go to the NFS server
+     that provides $HOME.
+  #. The NFS home server then redirects to CRSP server and a **second** network transaction is made for the CRSP server.  
 
-#. The home server then redirects to CRSP and a **second** network transaction is made the CRSP server.  
-
-  Essentially, this kind of "convenience" link forces the home
+  Essentially, this kind of *convenience* link forces the home
   area server to be in the middle, doing completely useless work that can have significant impact on the
-  home area server *and* your code running on a cluster node. 
+  home area server *and* on your code running on a cluster node. 
 
-  CRSP (and DFS) servers are  designed to handle high-volumes of traffic, while the home area is not. 
+  **CRSP** and **DFS** servers are  designed to handle high-volumes of traffic, while the home area server is not. 
 
   .. attention:: | :red:`Do not create symbolic links between $HOME and CRSP or DFS!`
                  | Use aliases or environment variables in place of symbolic links when
                  | you are making shortcuts for the file names in different filesystems.
 
 
-  **Use aliases or enviornment variables**
+**Use aliases or enviornment variables**
 
-  A shortcut  name can be accomplished via an alias or an environment variable.
-  For example, in your .bashrc add
+A shortcut  name can be accomplished via an alias or an environment variable.
+For example, in your :tt:`.bashrc` add
 
-  .. code-block:: bash
+.. code-block:: bash
 
-     alias crsplab='cd /share/crsp/lab/pilab'
-     export CRSPLAB=/share/crsp/lab/pilab
+   alias crsplab='cd /share/crsp/lab/pilab'
+   export CRSPLAB=/share/crsp/lab/pilab
 
-  Then use either an alias or a variable depending on your task.
-  When need to change to your CRSP lab area can simply execute one of:
+Then use either an alias or a variable depending on your task.
+When need to change to your CRSP lab area can simply execute one of the
+following commands (they are equivalent):
 
-  .. code-block:: bash
+.. code-block:: bash
 
-     crsplab
-     cd $CRSPLAB
+   $ crsplab
+   $ cd $CRSPLAB
 
-  When need to list contents  of your CRSP lab area:
+When need to list contents  of your CRSP lab area:
 
-  .. code-block:: bash
+.. code-block:: bash
 
-     ls $CRSPLAB
+   $ ls $CRSPLAB
 
 For using aliases and environment variables in your Slurm jobs please see
 :ref:`using aliases`.
