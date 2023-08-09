@@ -242,15 +242,25 @@ example panteater).
 
 6. **Install your software packages**
 
+   In the previous step you created your local environment. Before installing
+   software you need to activate it:
+
+   .. code-block:: bash
+
+      [user@hpc3-xx-yy:~]$ conda activate Local2
+      (Local2)[user@hpc3-xx-yy:~]$ 
+
+   Note that after activation  your prompt has the name of your conda environment.
+
    Using your newly created environment you can now install desired software
    :red:`per your software instructions`. The instructions vary, here is a handful of
    possible examples:
 
    .. code-block:: bash
 
-      [user@hpc3-xx-yy:~]$ conda install -c https://conda.binstar.org/bokeh ggplot    # Install ggplot
-      [user@hpc3-xx-yy:~]$ conda install -c https://conda.binstar.org/asmeurer r-nlme # Install r-nlme
-      [user@hpc3-xx-yy:~]$ conda install xarray                                       # install xarray
+      (Local2)[user@hpc3-xx-yy:~]$ conda install -c https://conda.binstar.org/bokeh ggplot    # Install ggplot
+      (Local2)[user@hpc3-xx-yy:~]$ conda install -c https://conda.binstar.org/asmeurer r-nlme # Install r-nlme
+      (Local2)[user@hpc3-xx-yy:~]$ conda install xarray                                       # install xarray
 
 7, **Clean your install**
 
@@ -283,7 +293,7 @@ example panteater).
    .. code-block:: console
 
       [user@hpc3-xx-yy:~]$ module load anaconda/2021.11
-      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-2011.11
+      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-2021.11
       [user@hpc3-xx-yy:~]$ conda activate Local2
 
 
@@ -296,7 +306,7 @@ example panteater).
 
    .. code-block:: console
 
-      [user@hpc3-xx-yy:~]$ conda deactivate
+      (Local2)[user@hpc3-xx-yy:~]$ conda deactivate
 
 9. **Build additional enviornments**
 
@@ -316,7 +326,7 @@ example panteater).
    .. code-block:: console
 
       [user@hpc3-xx-yy:~]$ module load anaconda/2021.11
-      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-2011.11
+      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-2021.11
       [user@hpc3-xx-yy:~]$ conda create -n NewEnv
        Collecting package metadata (current_repodata.json): done
        Solving environment: done
@@ -337,8 +347,9 @@ example panteater).
        ... 
        
       [user@hpc3-xx-yy:~]$ conda activate NewEnv
+      (NewEnv)[user@hpc3-xx-yy:~]$ 
 
-   Now you are ready to install software in your NewEnv.
+   Now you are ready to install software in your NewEnv environment.
    
 
 10. **Tips**
