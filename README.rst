@@ -82,3 +82,7 @@ Install on web server host
    * a success/failure is recorded in /var/log/website-rtd.log
 
    See details in the cron script.
+
+4. Periodically check broken links
+
+   https://www.brokenlinkcheck.com/broken-links.php
