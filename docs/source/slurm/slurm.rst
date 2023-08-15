@@ -180,6 +180,8 @@ and job preemption configuration, and cost per hour in :ref:`units cost`.
    | gpu-debug | 3 GB / 9 GB               | 15 min / 30 min  | 33          | No         |
    +-----------+---------------------------+------------------+-------------+------------+
 
+Note, there is no difference in cost/core-hour for default and max memory per core.
+
 .. _memory partitions:
 
 Higher memory
