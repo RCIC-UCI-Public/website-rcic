@@ -87,7 +87,7 @@ There are 5 bins of UCI-funded allocations (these are allocations for 6 months).
 
    +----------------+------------------------------+
    | Hours          | Note                         |
-   +=========+=====================================+
+   +================+==============================+
    | 100K hours     | Max allocation over 6 months |
    +----------------+------------------------------+
    |  75K hours     |                              |
