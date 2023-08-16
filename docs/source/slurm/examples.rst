@@ -479,18 +479,32 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
    .. code-block:: console
 
       [user@hpc3-14-00:~]$ jupyter notebook --no-browser --ip=$(hostname -s) --port=8989
+      [I 18:19:57.912 NotebookApp] JupyterLab extension loaded from /opt/apps/anaconda/2020.07/lib/python3.8/site-packages/jupyterlab
+      [I 18:19:57.912 NotebookApp] JupyterLab application directory is /opt/apps/anaconda/2020.07/share/jupyter/lab
+      [I 18:19:57.914 NotebookApp] Serving notebooks from local directory: /data/homezvol0/npw
+      [I 18:19:57.914 NotebookApp] The Jupyter Notebook is running at:
+      [I 18:19:57.914 NotebookApp] http://hpc3-14-00:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
+      [I 18:19:57.914 NotebookApp]  or http://127.0.0.1:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
+      [I 18:19:57.914 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+      [C 18:19:57.919 NotebookApp]
+          To access the notebook, open this file in a browser:
+              file:///data/homezvol0/panteater/.local/share/jupyter/runtime/nbserver-4042129-open.html
+          Or copy and paste one of these URLs:
+              http://hpc3-14-00:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
+           or http://127.0.0.1:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
 
-   There will be output from the  notebook command and it will include local host string and a token.
+   At this point, you don't have a prompt and you cant do anything in
+   this window as your jupyter notebook is running.
+
+   Note the last line of the output above, it includes local host string and a token.
    Take a note of this string and copy it. You will need to use it on your laptop in the browser in the last
-   step. This string will look similar to:
+   step. 
 
-   .. code-block:: bash
 
-      http://127.0.0.1:8989/?token=ae4ebf3bwd456780a047254898fabsd8234gefde11bb
-
-6. On your laptop connect to the cluster in a terminal window using ssh tunnel and information
-   about your Jupyter notebook start. For our example, for the above steps
-   settings (host *hpc3-14-00* and port *8989*) a user will do:
+6. On your laptop connect to the cluster in a new terminal window using ssh tunnel and information
+   about your Jupyter notebook start. For our example, for the settings
+   produced by the above steps (host *hpc3-14-00* and port *8989*) and for using a local laptop
+   port 9090 a user will do:
 
     .. code-block:: console
 
@@ -499,15 +513,22 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
    Use your ucinetid. When asked for a password, use your
    usual credentials. Note, the first occurrence of port in the ssh command
    *9090* is port on your laptop, and you can pick any free port on your laptop
-   (see your laptop documentation how to do this).
-   The second *8989* is the port on the cluster node that is configured for use.
+   (see your laptop documentation how to find a free port).
+   The second *8989* is the port on the cluster node that is configured for
+   use by jupyter.
 
-7. On your laptop open your browser and paste the string that was produced by
-   starting your Jupyter instance in step 5 above into the browser URL address area:
+7. On your laptop, open your browser and paste into the URL address area the string that was produced by
+   starting your Jupyter instance (in step 5) and substituting port for the local port:
 
-   | :bluelight:`http://127.0.0.1:8989/?token=ae4ebf3bwd456780a047254898fabsd8234gefde11bb`
+   | :bluelight:`http://127.0.0.1:`:red:`9090`:bluelight:`/?token=ae4ebf3bwd456780a047254898fabsd8234gefde11bb`
 
    Your Jupyter Notebook will be running in the browser on your laptop.
+
+.. note:: You can simplify and use the same ports on local and remote hosts.
+          In this case, your ssh command  in step 6 will have the same port number
+          for local and remote ports, and you don't have to change the port in
+          the token string in the last step but simply copy and paste line
+          from step 5 as is. You need to make sure on your local host this port is free.
 
 .. _job large memory:
 
