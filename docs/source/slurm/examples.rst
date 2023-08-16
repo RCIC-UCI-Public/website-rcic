@@ -473,7 +473,7 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
    one and check again until you find a free port
 
 5. Start the notebook with the :tt:`--ip`, :tt:`--port` and :tt:`--no-browser` options.
-   For the ip the following command will automatically fill in the correct
+   For the :tt:`ip` the following command will automatically fill in the correct
    value, for example:
 
    .. code-block:: console
@@ -494,12 +494,14 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
            or http://127.0.0.1:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
 
    At this point, you don't have a prompt and you cant do anything in
-   this window as your jupyter notebook is running.
+   this window as your Jupyter notebook is running.
 
-   Note the last line of the output above, it includes local host string and a token.
-   Take a note of this string and copy it. You will need to use it on your laptop in the browser in the last
-   step. 
+   Note the last URL line of the output above, it includes local host, port and a token.
+   Take a note of this line and copy it. You will need to use it on your laptop in the browser.
+   The URL line to use must start with :tt:`http://127.0.0.1:`.
 
+   Note, your output from ``jupyter notebook`` command  will have a different
+   port, host and a token string.
 
 6. On your laptop connect to the cluster in a new terminal window using ssh tunnel and information
    about your Jupyter notebook start. For our example, for the settings
@@ -510,25 +512,31 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
 
        ssh -L 9090:hpc3-14-00:8989 ucinetid@hpc3.rcic.uci.edu
 
-   Use your ucinetid. When asked for a password, use your
-   usual credentials. Note, the first occurrence of port in the ssh command
-   *9090* is port on your laptop, and you can pick any free port on your laptop
-   (see your laptop documentation how to find a free port).
-   The second *8989* is the port on the cluster node that is configured for
-   use by jupyter.
+   * Use your ucinetid. When asked for a password and DUO authentication, use your
+     usual credentials.
+   * Note, the first occurrence of port in the ``ssh`` command
+     :tt:`9090` is a local port on your laptop, and you can pick any free port on your laptop
+     (use your laptop documentation how to find a free port).
+   * The second port :tt:`8989` is the remote port on the cluster node that was configured for
+     use by Jupyter when you run the ``jupyter`` command.
 
-7. On your laptop, open your browser and paste into the URL address area the string that was produced by
-   starting your Jupyter instance (in step 5) and substituting port for the local port:
+   If you pick a local port that is already in use the ``ssh`` command will
+   fail, simply use another port number above 6000.
 
-   | :bluelight:`http://127.0.0.1:`:red:`9090`:bluelight:`/?token=ae4ebf3bwd456780a047254898fabsd8234gefde11bb`
+7. On your laptop, open your browser and paste into the URL address area the URL string that was produced by
+   starting your Jupyter instance (in step 5) and changing port for your
+   chosen local port (use a line from your output):
+
+   | :bluelight:`http://127.0.0.1:`:red:`9090`:bluelight:`/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9`
 
    Your Jupyter Notebook will be running in the browser on your laptop.
 
-.. note:: You can simplify and use the same ports on local and remote hosts.
-          In this case, your ssh command  in step 6 will have the same port number
-          for local and remote ports, and you don't have to change the port in
-          the token string in the last step but simply copy and paste line
-          from step 5 as is. You need to make sure on your local host this port is free.
+.. attention:: | You can simplify and use the same ports on local and remote hosts.
+               | In this case for our example:
+               | - in step 6, ssh command will have the same number for local and remote ports
+               |   ``ssh -L 8989:hpc3-14-00:8989 ucinetid@hpc3.rcic.uci.edu``
+               | - in step 7, you simply copy and paste unchanged URL line into your browser:
+               |    http://127.0.0.1:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
 
 .. _job large memory:
 
