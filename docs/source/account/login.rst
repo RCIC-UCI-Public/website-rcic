@@ -3,17 +3,24 @@
 Logging in
 ==========
 
+Please make sure you have enabled your DUO device using
+`UCI’s Duo infrastructure <https://www.oit.uci.edu/services/accounts-passwords/duo/>`_
+
 To connect to an HPC3 login node use:
 
 :server name:
-  :tt:`hpc3.rcic.uci.edu` there are several load-balanced systems
+  :tt:`hpc3.rcic.uci.edu`
 :login name: 
   your UCINetID
 :password: 
   your password associated with your UCINetID
 
-Please make sure you have enabled your DUO device using
-`UCI’s Duo infrastructure <https://www.oit.uci.edu/services/accounts-passwords/duo/>`_
+
+The following login methods are available, most common listed first:
+
+.. contents::
+   :local:
+
 
 .. _ssh login:
 
@@ -27,8 +34,8 @@ We describe two main methods below.
 
 .. _ssh password duo:
 
-I Password authentication
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Method I: Password authentication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Password authentication with automated DUO push on your phone**
 is the most common method for authentication. It requires your phone to have 
@@ -117,12 +124,12 @@ After a successful login you will see a screen similar to the following:
 
     ACCEPTABLE USE: https://rcic.uci.edu/documents/RCIC-Acceptable-Use-Policy.pdf
 
-   [anteater@login-x:~]$
+   [user@login-x:~]$
 
 .. _ssh keys:
 
-II Key-based authentication
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Method II: Key-based authentication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you choose to use key-based authentication for your login, you have additional responsibilities:
 
@@ -151,13 +158,13 @@ If you choose to use key-based authentication for your login, you have additiona
 
 1. **Generate your ssh keys**
 
-   This step is done once. Generate your ssh keys per one of the guides
+   This step is done once. Generate your ssh keys per one of the guides listed above,
    (for OpenSSH see :ref:`generate ssh keys` below).  In essence:
 
    - the system from which you are initiating ssh (e.g. your laptop or workstation) should 
-     have a locally-generated and *password protected* ssh private key. 
-   - the public key corresponding to that private key is placed on HPC3
-     in your   :tt:`$HOME/.ssh/authorized_keys` file.
+     have a locally-generated and *password protected* ssh private key and a
+     corresponding public key.
+   - the public key is placed on HPC3 in your   :tt:`$HOME/.ssh/authorized_keys` file.
 
 2. **Use ssh command to login**
 
@@ -198,7 +205,7 @@ do the following:
       ssh-keygen -t rsa -f myhpc  (choose a desired name, usually a single word)
 
    The above command will generate two files :tt:`myhpc` is  a private key
-   and :tt:`myhpc.pub`  is a corresponding public key. They always are 
+   and :tt:`myhpc.pub`  is a corresponding public key. They are always
    generated and work as a pair. 
 
    .. attention:: | Private key should NEVER be shared
@@ -212,7 +219,7 @@ do the following:
    .. code-block:: console
 
       cd ~/.ssh
-      ssh-copy-id -i myhpc ucinetid@hpc3.rcic.uci.edu
+      ssh-copy-id -i myhpc UCINetID@hpc3.rcic.uci.edu
 
    The key will be placed into your home directory in
    :tt:`$HOME/.ssh/authorized_keys` file.
@@ -276,3 +283,162 @@ your :guilabel:`Remote Environment` is set to :guilabel:Interactive shell`:
    | DO NOT enable Remote monitoring!
    | See :ref:`mobaxterm monitoring` for more info.
 
+
+.. _vscode:
+
+Using VSCode
+------------
+
+We do not allow running :tt:`VSCdoe` on login nodes as this practice proved to be problematic
+when users start many processes and often make login nodes unusable for others.
+
+.. attention:: Any VSCode instance will be removed from login nodes without a notice.
+
+Users can run :tt:`VSCode` on compute nodes. This involves using ssh key-based
+authentication. There are two major parts to running VSCode:
+
+:Part 1:
+  You need to submit a Slurm job specific to VSCode and
+:Part 2:
+  You need to configure your laptop VSCode client to talk to this job.
+
+Please follow the instruction steps below to setup your VSCode connection
+on compute nodes.
+
+1. Use ``ssh`` to connect to a cluster, see :ref:`ssh keys`.
+
+2. Submit a batch job to set up a *user-level sshd daemon* on compute node
+   which is needed for starting VSCode server.
+
+   .. code-block:: console
+
+      [user@login-x:~]$ sbatch /pub/hpc3/vscode-sshd.sh
+      Submitted batch job 21877983
+
+   Slurm returns a job ID (in this example 21877983).
+   Wait for the batch job to start running, the status in ``squeue`` output must be :tt:`R`:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ squeue -j 21877983
+      JOBID       PARTITION     NAME       USER   ACCOUNT ST    TIME  CPUS NODE NODELIST(REASON)
+      21877983    standard  vscode-s  panteater panteater R     0:04     1    1 hpc3-22-09
+
+3. Once the job starts running check its output file
+   :tt:`vscode-sshd-<jobID>.out` in the directory where you
+   submitted the job. There will be lines that look similar to:
+
+   .. code-block:: bash
+
+      Host hpc3-*
+        HostName hpc3-22-09
+        Port 6666
+        ProxyJump panteater@hpc3.rcic.uci.edu
+        User panteater
+        UserKnownHostsFile /dev/null
+        StrictHostKeyChecking no
+
+   Note, :tt:`HostName` will show a compute node name and the :tt:`Port`
+   will show a port number. You will need to use them in the next steps.
+
+4. This step needs to be done once and it will be used for all future invocations
+   of VSCode on HPC3.
+
+   On your laptop in your :tt:`$HOME` there is a directory :tt:`.ssh`
+   which was created when you enabled your ssh keys. Using a text editor,
+   create  a file :tt:`.ssh/config` with the following content:
+
+   .. code-block:: bash
+
+      Host hpc3-*
+        HostName %h
+        Port XXXX
+        ProxyJump UCINetID@hpc3.rcic.uci.edu
+        User UCINetID
+        UserKnownHostsFile /dev/null
+        StrictHostKeyChecking no
+
+   | Replace :tt:`UCINetID` with yours, and :tt:`XXXX` with the Port number from :tt:`vscode-sshd-<jobID>.out`.
+   | **Do not change any other other lines!**
+
+   If you already have :tt:`.ssh/config` file, simply add the content to it.
+
+5. On your laptop start your VSCode application.
+
+   Note, images below show VSCode application for MacOS, the Windows version
+   may look slightly different but the concept is the same.
+
+   5.1 Click on the *open remote window* icon and choose
+   :guilabel:`Connect to Host...Remote-SSH` from the menu:
+
+     .. image:: images/vscode-connect-1.png
+        :align: center
+        :alt: VSCode connect
+
+   5.2 Choose :guilabel:`+ Add new SSH host...` from the menu:
+     .. image:: images/vscode-connect-2.png
+        :align: center
+        :alt: VSCode connect add ssh host
+
+   5.3 In the :guilabel:`Enter SSH Connection command` box, enter the compute node
+   name from the output file of your submitted batch job and press `Enter` key:
+
+     .. image:: images/vscode-connect-3.png
+        :align: center
+        :alt: VSCode connect to host
+
+   5.4 In the :guilabel:`Enter SSH configuration file to update`
+   menu of choices, choose your local :tt:`.ssh/config` (use local path for
+   user area):
+
+     .. image:: images/vscode-connect-4.png
+        :align: center
+        :alt: VSCode connect to host
+
+   5.5 When the window updates press :guilabel:`Connect` button:
+
+     .. image:: images/vscode-connect-5.png
+        :align: center
+        :alt: VSCode connect to host
+
+   5.6 In a new window you will be asked to provide your ssh
+   credentials (passphrase) **two times**, type it where indicated by your
+   Application:
+
+     .. image:: images/vscode-setup.png
+        :align: center
+        :alt: VSCode setup
+
+     Once the authentication is successful you will see
+     the changes on the lower portion of the window, they indicate
+     that the connection is getting established and the server is getting setup
+     (shown with blue outline).
+     It may take a few minutes for the VSCode to setup the server.
+
+   5.7 Once done, you will see the *open remote window* icon showing compute node
+   name (added blue outline). This means your connection is redy and you  can
+   proceed with your work as usual:
+
+     .. image:: images/vscode-running.png
+        :align: center
+        :alt: VSCode setup
+
+6. Shutting down your remote VSCode server
+
+   The remote start of VSCode leaves the server running long after you have
+   finished your work and closed your remote connection.
+
+   .. attention::
+      | Shutdown your remote server once you finish your work.
+      | It is a simple 2-step process:
+
+      * on your laptop in VSCode application choose :guilabel:`File > Close Remote Connection`
+        and follow your application prompts to disconnect from the host.
+      * on login node cancel your VSCode job (by your jobID):
+
+        .. code-block:: console
+
+           [user@login-x:~]$ scancel 23383635
+
+        :red:`If you don't cancel, your job will continue consuming
+        your lab or your personal Slurm allocation balance`.
