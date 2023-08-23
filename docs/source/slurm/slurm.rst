@@ -22,7 +22,7 @@ Failure to follow conduct rules may adversely impact others working on the clust
 Slurm Accounting
 ----------------
 
-Every HPC3 user is granted :underline:`one time 1,000 free CPU hours` as a startup allowance.
+Every HPC3 user is granted :underline:`one time 1000 free CPU hours` as a startup allowance.
 This base allocation is there for you to become familiar with HPC3, Slurm scheduler, and accounting.
 This personal base account is created automatically when your HPC3 account is created.
 
@@ -102,13 +102,16 @@ This is accomplished by letting allocated jobs to displace (kill) running free j
 
 Free jobs have the following properties:
 
-* **are not charged to any account**.  However, the balance in the account must have enough core hours to cover the job
-  request, even though this amount will not be charged.
-  This is how Slurm makes an estimate what resources are used and for how long.
+* **are not charged to any account**.
+
+  .. important:: The account balance must have enough core hours to cover the job
+     request, even though this amount will not be charged.
+     This is how Slurm makes an estimate what resources are used and for how long.
 * **can be killed at any time to make room for allocated jobs**.
   When the *standard* partition becomes full, jobs in *free* partition are killed in order to
   allow the allocated jobs to run with a priority. In an attempt to get as much *goodput* through the system,
   the most-recently started free jobs will be killed first.
+* when using a personal account, a user is limited to submitting a 1000 core hour job.
 
 .. _allocated jobs:
 
