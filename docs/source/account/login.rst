@@ -305,7 +305,7 @@ smoothly, you *must set up ssh key-based authentication from your laptop to HPC3
 There are two major parts to running the :tt:`VSCode` server on a compute node and connecting to it from your laptop:
 
 :Part 1:
-  You need to submit a Slurm job specific to VSCode. This starts, on a the assigned compute node, a user-specific 
+  You need to submit a Slurm job specific to VSCode. This starts, on the assigned compute node, a user-specific 
   sshd that is only available to that user.
 :Part 2:
   You need to configure your laptop VSCode client to communicate with this job's sshd. Once set up properly, VSCode's
