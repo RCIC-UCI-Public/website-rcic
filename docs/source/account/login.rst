@@ -289,23 +289,33 @@ your :guilabel:`Remote Environment` is set to :guilabel:Interactive shell`:
 Using VSCode
 ------------
 
-We do not allow running :tt:`VSCdoe` on login nodes as this practice proved to be problematic
-when users start many processes and often make login nodes unusable for others.
+We do not allow running :tt:`VSCode` on login nodes because vscode usage can result in login
+nodes becoming unusable by all. 
 
-.. attention:: Any VSCode instance will be removed from login nodes without a notice.
+However, many users desire to use :tt:`VSCode`, so RCIC supports the following method so that you can 
+run the :tt:`VSCode` server on compute nodes as a Slurm job and connect to it from your laptop.  
+:tt:`VSCode's` remote server support requires ssh.  
 
-Users can run :tt:`VSCode` on compute nodes. This involves using ssh key-based
-authentication. There are two major parts to running VSCode:
+To make things work 
+smoothly, you *must set up ssh key-based authentication from your laptop to HPC3*.  
+
+.. attention:: Any running VSCode server instances will be removed from login nodes without a notice. The method provided in this guide is the only way to run :tt:`VSCode` on HPC3.
+
+
+There are two major parts to running the :tt:`VSCode` server on a compute node and connecting to it from your laptop:
 
 :Part 1:
-  You need to submit a Slurm job specific to VSCode and
+  You need to submit a Slurm job specific to VSCode. This starts, on a the assigned compute node, a user-specific 
+  sshd that is only available to that user.
 :Part 2:
-  You need to configure your laptop VSCode client to talk to this job.
+  You need to configure your laptop VSCode client to communicate with this job's sshd. Once set up properly, VSCode's
+  remote server development option performs all the work. 
 
 Please follow the instruction steps below to setup your VSCode connection
 on compute nodes.
 
-1. Use ``ssh`` to connect to a cluster, see :ref:`ssh keys`.
+1. Use ``ssh`` to connect to a cluster, see :ref:`ssh keys` to setup key-based authentication to HPC3.
+(*Critical*, the ssh-key you setup *must* be protected with a password.)
 
 2. Submit a batch job to set up a *user-level sshd daemon* on compute node
    which is needed for starting VSCode server.
@@ -323,6 +333,10 @@ on compute nodes.
       [user@login-x:~]$ squeue -j 21877983
       JOBID       PARTITION     NAME       USER   ACCOUNT ST    TIME  CPUS NODE NODELIST(REASON)
       21877983    standard  vscode-s  panteater panteater R     0:04     1    1 hpc3-22-09
+
+.. note:: If you need additional resources, you can add the request when you run sbatch. For example, if you
+      require 4 cpus instead of the default:  
+      :tt:`sbatch --cpus-per-task=4 /pub/hpc3/vscode-sshd.sh`
 
 3. Once the job starts running check its output file
    :tt:`vscode-sshd-<jobID>.out` in the directory where you
@@ -362,6 +376,12 @@ on compute nodes.
    | **Do not change any other other lines!**
 
    If you already have :tt:`.ssh/config` file, simply add the content to it.
+
+   .. note:: Each time you start a new :tt:`vscode-ssh.sh` job, the Port number *may change*. This happens because the
+      the vscode-sshd.sh looks for the first available network port within a pre-defined range on the specific compute 
+      node assigned to your job. Since that choice is dynamic, it can change for each new vscode-sshd.sh job. 
+      Simply edit your local :tt:`.ssh/config` to reflect the port of your *currently-running* vscode job  that you
+      started in Step 3.
 
 5. On your laptop start your VSCode application.
 
@@ -442,3 +462,8 @@ on compute nodes.
 
         :red:`If you don't cancel, your job will continue consuming
         your lab or your personal Slurm allocation balance`.
+
+7.0 Reconnecting to an already running VScode Server
+    
+   If you have not shutdown the server in Step 6 above, you simply re-open the connection as you did in Step 5.
+   Please remember, you Slurm job continues to charge your account as long as it consumes resources. 
