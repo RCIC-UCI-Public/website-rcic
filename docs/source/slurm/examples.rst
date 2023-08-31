@@ -332,7 +332,7 @@ steps to start a container.
 1.  **Authenticate at Jupyterhub portal**
 
    Point your browser
-   to `https://hpc3.rcic.uci.edu/biojhub3/hub/login <https://hpc3.rcic.uci.edu/biojhub3/hub/login>`_
+   to `https://hpc3.rcic.uci.edu/biojhub4/hub/login <https://hpc3.rcic.uci.edu/biojhub4/hub/login>`_
    You will see the following screen where you will Use your usual login
    credentials (UCInetID and password) to sign in:
 

@@ -140,11 +140,11 @@ your can store in :tt:`$HOME`.
      $ cd
      $ ls
      bin                examples     local        perl5
-     biojhub3_dir       info         mat.yaml     R
+     biojhub4_dir       info         mat.yaml     R
      classify-image.py  keras-nn.py  modulefiles  sbank-out
      $ du -s -h *
      7.0M	bin
-     166M	biojhub3_dir
+     166M	biojhub4_dir
      8.5K	classify-image.py
      647K	examples
      91K	info
