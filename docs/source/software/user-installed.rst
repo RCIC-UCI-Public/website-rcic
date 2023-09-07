@@ -3,24 +3,18 @@
 User installed software
 =======================
 
-Users often ask to add packages to
-:tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda` / :tt:`miniconda` base installations.
+Users often ask to add specific software packages for
+:tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda`.
 
-| These usually need to be installed by users themselves.
-| The following guides explain how to install software in user area:
-
-Please note, you don't need to install
-:tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda` / :tt:`miniconda`, we
-already have multiple versions of each software installed and they all are
-accessible via modules.
-
-Simply load Python/R/Perl/conda/miniconda  module  using command ``module avail``
-(read :ref:`list modules` for details) to find out
-what particular software is already installed), then follow your package
-installation instructions.
+| These software packages need to be installed by users themselves.
+| The following guides explain how to install desired software in user area:
 
 .. note:: | There are a few important initial installation steps that are unique to the HPC3.
           | They are explained in the guides below.
+
+          | Please note, you don't need to install :tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda`. We have a few
+          | versions of each software installed and they all are accessible via modules.
+
 
 .. centered:: HPC3 software installation guides
 
@@ -34,10 +28,19 @@ installation instructions.
 Install with conda
 ------------------
 
-When you want to build a specific application using conda
-you :red:`do not need to install Miniconda or Anaconda`.
+.. note:: | For general info on conda commands and builds please see conda documentation
+          | `Bulding Conda local environments <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html>`_
+
+**Steps below explain the basic conda application install specific to the cluster**.
+
+Usually, to install an application one needs to create a local conda environment.
+You can choose either Miniconda or Anaconda depending on what is your package
+installation instructions require and build your local conda environment.
+
+:red:`You do not need to install Miniconda or Anaconda` (your software
+instructions may say you do).
 We provide a few basic Minicaonda/Anaconda versions that can be accessed via modules.
-To find out what is available:
+To find out what modules are available:
 
 .. code-block:: console
 
@@ -49,21 +52,12 @@ To find out what is available:
    ---------------- /opt/rcic/Modules/modulefiles/LANGUAGES -----------------------
    anaconda/2020.07 anaconda/2021.11 anaconda/2022.05
 
-Usually, to install an application one needs to create a local conda environment.
-You can choose either Miniconda or Anaconda depending on what is your package
-installation instructions require and build your local conda environment.
-
-For additional info on conda-specific commands and builds please see conda documentation
-`Bulding Conda local environments <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html>`_
-
-Steps below explain the basic build specific to the cluster.
-
 To install conda environment in your user area
-follow the steps below. The example is given for the
-anaconda version 2021.11 for Python 3.9.7. The steps are the
-same for other versions of conda (substitute version numbers where needed).
-Your output will have your UCINetID where needed in steps below (we use as an
-example panteater).
+follow the example steps below. The example is given for the
+anaconda version 2021.11 and for Python 3.9.7. The steps are the
+same for other versions of conda (simply substitute name/version where needed).
+Your commands output will have your UCINetID where applicable in the steps below (we use as an
+example panteater UCINetID).
 
 1. **Get an interactive node**
 
@@ -75,11 +69,14 @@ example panteater).
 
       [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
 
+   For info how to get an interactive node with more memory or with GPU
+   see :ref:`interactive job`.
+
    Next steps are executed on interactive node.
 
 2. **Load desired anaconda/miniconda module**
 
-   For building in your user area, first you need to load anaconda module:
+   For building in your user area (this means in your $HOME area), first you need to load anaconda module:
 
    .. code-block:: console
 
