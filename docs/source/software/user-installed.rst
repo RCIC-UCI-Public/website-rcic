@@ -56,8 +56,11 @@ To install conda environment in your user area
 follow the example steps below. The example is given for the
 anaconda version 2021.11 and for Python 3.9.7. The steps are the
 same for other versions of conda (simply substitute name/version where needed).
-Your commands output will have your UCINetID where applicable in the steps below (we use as an
+Your commands output will have your UCINetID where applicable (in the steps below we use as an
 example panteater UCINetID).
+
+.. attention:: Note, if you previoulsy tried to install conda packages make sure that your :tt:`$HOME/.bashrc`
+   file does not have any conda-added lines (step 4 below explains what they are).
 
 1. **Get an interactive node**
 
