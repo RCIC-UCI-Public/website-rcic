@@ -369,7 +369,7 @@ colleagues by doing the following.
       # explicitly copy input files from DFS/CRSP to $TMPDIR
       # note, $TMPDIR already exists for your job
       cd $TMPDIR
-      cp /dfs8/pub/myacount/path/to/my/jobs/data/*dbfiles  $TMPDIR
+      cp /pub/myacount/path/to/my/jobs/data/*dbfiles  $TMPDIR
 
       # create a directory for the application output
       mkdir -p $TMPDIR/output
@@ -380,7 +380,7 @@ colleagues by doing the following.
       mapp2  > $TMPDIR/output/mapp.out  # program output in a specific file
 
       # explicitly copy output files from $TMPDIR to DFS/CRSP
-      mv $TMPDIR/output/* /dfs8/pub/myaccount/myrun134/
+      mv $TMPDIR/output/* /pub/myaccount/myrun134/
 
    In this scenario, Slurm job is run in :tt:`$TMPDIR` which is much faster
    for the disk I/O, then the program output is copied back as a big write 

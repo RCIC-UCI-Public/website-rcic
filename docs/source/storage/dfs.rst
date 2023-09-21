@@ -48,7 +48,7 @@ There is NO separate account for DFS filesystems.
 
 **No cost Private area:** 
   | All users have access to the Private Area. Each user is provided with a default allocation:
-  | - 1TB quota per account in :tt:`/pub/ucinetid` (it is a short name for :tt:`/dfs8/pub/ucinetid`).
+  | - 1TB quota per account in :tt:`/pub/ucinetid` 
   | - 1TB backup quota for a selective backup
 
 **Recharge allocation - Group Shared area:**
