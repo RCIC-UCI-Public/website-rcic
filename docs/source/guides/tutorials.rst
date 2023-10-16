@@ -55,6 +55,7 @@ See the following links for beginners guides, many more are available online:
   learn the basics of Python programming language
 - `Introduction to R <http://swcarpentry.github.io/r-novice-inflammation/>`_ - to
   learn the basics of R programming language
+- `Python Articles <https://pythonspeed.com/datascience/>`_ - how to **Speedup your data science and scientific computing code in Python**.
 
 ..   _ssh tutorials:
 
