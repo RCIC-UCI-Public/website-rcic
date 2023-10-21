@@ -52,3 +52,8 @@ what it should be used for, and shows links for in-depth how to use guides.
   | Use to keep source code, binaries
   | :red:`Do not use for writing/reading many small files`
 
+:bluelight:`Campus Storage Annex`
+  | **See details in** :ref:`CRSP ANNEX storage guide <crsp-annex>`.
+  | Provides a convenience access on all nodes via mount over BeeGFS 
+  | Performance is best for processing medium/large data files (order of 100s Mbs/Gbs)
+  | :red:`Do not use for writing/reading many small files`
