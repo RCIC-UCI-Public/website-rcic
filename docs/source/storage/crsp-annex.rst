@@ -23,21 +23,18 @@ replicating all of CRSP's features or availability.
            the Annex to CRSP-2.*  The rate for CRSP-2 storage will be set once the procurement has been completed. 
            The Annex will be shut down once CRSP-2 is in production.
 
-**The important differences between CRSP and CRSP ANNEX:**
-
+:red:`The important differences between CRSP and CRSP ANNEX:`
 
   * **CRSP ANNEX does not have snapshots**,  but RCIC maintains regular backups.
     Performance in CRSP ANNEX might vary from current CRSP.
 
   * **Files can only be accessed via the SFTP protocol or directly from HPC3**.
-    There is *NO web interface* for this system.
+    There is *NO web interface* for this system. SFTP (e.g. via the CRSP Desktop) is accessed through the :tt:`crsp-annex.crsp.uci.edu`
 
   * **Only a lab share directory is supported**.  Individual user directories within the lab file system
     are not created.
 
   * **CRSP ANNEX does not have the same, two site, redundancy of CRSP** and may have occasional (planned and unplanned) outages. 
-
-  * SFTP (e.g. via the CRSP Desktop) is accessed through the :tt:`crsp-annex.crsp.uci.edu`
 
   * **This is a temporary system.** Data will be moved from CRSP ANNEX to CRSP once the new hardware is procured and 
     installed (we expect that this will be completed bo later than July 1, 2024).
@@ -69,14 +66,15 @@ via a few methods. The client links in the table below provide installation
 instructions:
 
 .. table::
-   :widths: 30 70
+   :widths: 35 65
    :class: noscroll-table
 
    +------------------------------+-------------------------------------------------------------------------------------------+
    |  Client                      | Description                                                                               |
    +------------------------------+-------------------------------------------------------------------------------------------+
-   | :ref:`client desktop windows`| *CRSP Desktop* clients are for accessing CRSP ANNEXfrom Windows and MacOS laptops.        |  
-   | :ref:`client desktop mac`    | We provide licensed and branded version of a commercial software *Mountain Duck*.         |
+   | :ref:`client desktop windows`| *CRSP Desktop* clients are for accessing CRSP ANNEXfrom Windows and MacOS laptops.        |
+   |                              | We provide licensed and branded version of a commercial software *Mountain Duck*.         |
+   | :ref:`client desktop mac`    |                                                                                           |
    +------------------------------+-------------------------------------------------------------------------------------------+
    | :ref:`client sshfs`          | *SSHFS* can be used for accessing CRSP ANNEX shares from a Linux laptop/desktop.          |
    +------------------------------+-------------------------------------------------------------------------------------------+
