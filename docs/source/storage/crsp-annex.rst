@@ -6,8 +6,6 @@ CRSP ANNEX
 Overview
 --------
 
-:bluelight:`20-Oct-2023`
-
 CRSP was procured in 2018 and deployed into production in 2019 and is  *at capacity* with no practical path to expand its local 
 storage to accomodate new (large) storage requests.  RCIC has been in the process of procuring a replacement for CRSP (called 
 CRSP-2) to double storage capacity, have  significant room to grow, and meet the needs of UCI's research community for another 
@@ -16,53 +14,71 @@ CRSP-2) to double storage capacity, have  significant room to grow, and meet the
 RCIC does not want to turn away groups who want CRSP storage.  *CRSP ANNEX* allows us to bridge the gap 
 between now and when CRSP-2 is online and in production.
 
-The CRSP ANNEX is a :bluelight:`temporary storage solution the provides similar functionality to CRSP`, but is incapable or
+:bluelight:`The CRSP ANNEX is a temporary storage solution the provides similar functionality to CRSP`, but is incapable or
 replicating all of CRSP's features or availability.
 
  .. note:: RCIC will provide storage on CRSP ANNEX *only to groups who will commit to moving the data from
-           the Annex to CRSP-2.*  The rate for CRSP-2 storage will be set once the procurement has been completed. 
-           The Annex will be shut down once CRSP-2 is in production.
+           the CRSP ANNEX to CRSP-2.*  The rate for CRSP-2 storage will be set once the procurement has been completed. 
+           **The CRSP ANNEX will be shut down once CRSP-2 is in production**.
 
 :red:`The important differences between CRSP and CRSP ANNEX:`
 
-  * **CRSP ANNEX does not have snapshots**,  but RCIC maintains regular backups.
-    Performance in CRSP ANNEX might vary from current CRSP.
+  1. **This is a temporary system.** Data will be moved from CRSP ANNEX to CRSP-2 once the new hardware is procured and
+     installed. We expect that this will be completed no later than July 1, 2024.
 
-  * **Files can only be accessed via the SFTP protocol or directly from HPC3**.
-    There is *NO web interface* for this system. SFTP (e.g. via the CRSP Desktop) is accessed through the :tt:`crsp-annex.crsp.uci.edu`
+  2. **Files can only be accessed via the SFTP protocol or directly from HPC3**.
 
-  * **Only a lab share directory is supported**.  Individual user directories within the lab file system
-    are not created.
+     * SFTP (via the CRSP Desktop) is accessed through the :tt:`crsp-annex.crsp.uci.edu`
+     * From HPC3 access is :tt:`/dfs3b/crsp/lab/<pi>`
+     * There is *NO web interface* for this system
 
-  * **CRSP ANNEX does not have the same, two site, redundancy of CRSP** and may have occasional (planned and unplanned) outages. 
+  3. **CRSP ANNEX does not have snapshots**,  but RCIC maintains regular backups.
+     Performance in CRSP ANNEX might vary from current CRSP.
 
-  * **This is a temporary system.** Data will be moved from CRSP ANNEX to CRSP once the new hardware is procured and 
-    installed (we expect that this will be completed bo later than July 1, 2024).
+  4. **CRSP ANNEX does not have the same, two site, redundancy of CRSP** and may have occasional (planned and unplanned) outages.
 
-Default Annex Setup
-^^^^^^^^^^^^^^^^^^^
+  5. **Only a lab share directory is supported**. Individual user directories within the lab file system
+     are not created.
+
+Default CRSP ANNEX Setup
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 For each LAB area, the :tt:`PI` is the owner of the space.
 
-   * :tt:`pi_lab_share`: All members of the lab including the lab owner.
-   * Membership in :tt:`pi_lab_share` is identical between CRSP and CRSP ANNEX. There are no exceptions.
+   * Group :tt:`pi_lab_share`: all members of the lab including the lab owner.
+   * Membership in group :tt:`pi_lab_share` is identical between CRSP and CRSP ANNEX. There are no exceptions.
 
 Accessing  CRSP ANNEX
 ---------------------
 
 You must either be on the campus network or connected to the
-`UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to access CRSP.
+`UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to access CRSP ANNEX.
 
-SFTP (e.g. via the CRSP Desktop) is accessed through the :tt:`crsp-annex.crsp.uci.edu`, not through 
-:tt:`access.crsp.uci.edu`. If you are familiar with accessing CRSP, then you can make the following replacements in your
+SFTP (via the CRSP Desktop) is accessed through the :tt:`crsp-annex.crsp.uci.edu`.
+
+If you are familiar with accessing CRSP, then you can make the following replacements in your
 access configuration:
 
-* :tt:`access.crsp.uci.edu` --> :tt:`crsp-annex.crsp.uci.edu`
-* :tt:`/mmfs1/crsp/lab/<pi>` --> :tt:`/dfs3b/crsp/lab/<pi>`
-* :tt:`/share/crsp/lab/<pi>` --> :tt:`/dfs3b/crsp/lab/<pi>`
+.. table:: **Replacements for CRSP-ANEX access configuration**
+   :align: center
+   :width: 70%
+   :class: noscroll-table
 
-You can access  your granted CRSP storage from Windows, MAC, and Linux systems
-via a few methods. The client links in the table below provide installation
+   +-----------------------+----------------------------+
+   | CRSP access           | CRSP ANNEX access          |
+   +=======================+============================+
+   | access.crsp.uci.edu   | crsp-annex.crsp.uci.edu    |
+   +-----------------------+----------------------------+
+   | /mmfs1/crsp/lab/<pi>  | /dfs3b/crsp/lab/<pi>       |
+   +-----------------------+----------------------------+
+   | /share/crsp/lab/<pi>  | /dfs3b/crsp/lab/<pi>       |
+   +-----------------------+----------------------------+
+
+CRSP ANNEX clients
+------------------
+
+You can access your granted CRSP ANNEX storage from Windows, MAC, and Linux systems
+via a few methods. Most clients are the same as for accessing CRSP. The client links in the table below provide installation
 instructions:
 
 .. table::
@@ -72,13 +88,13 @@ instructions:
    +------------------------------+-------------------------------------------------------------------------------------------+
    |  Client                      | Description                                                                               |
    +------------------------------+-------------------------------------------------------------------------------------------+
-   | :ref:`client desktop windows`| *CRSP Desktop* clients are for accessing CRSP ANNEXfrom Windows and MacOS laptops.        |
+   | :ref:`client desktop windows`| *CRSP Desktop* clients are for accessing CRSP ANNEX from Windows and MacOS laptops.       |
    |                              | We provide licensed and branded version of a commercial software *Mountain Duck*.         |
    | :ref:`client desktop mac`    |                                                                                           |
    +------------------------------+-------------------------------------------------------------------------------------------+
    | :ref:`client sshfs`          | *SSHFS* can be used for accessing CRSP ANNEX shares from a Linux laptop/desktop.          |
    +------------------------------+-------------------------------------------------------------------------------------------+
-   | :ref:`client from hpc3`      | *DFS mount* on HPC3 provides and access to the CRSP's LAB and HOME areas.                 |
+   | Access from HPC3             | On HPC3, CRSP ANNEX shares are mounted in :tt:`/dfs3b/crsp/lab/<pi>`                      |
    +------------------------------+-------------------------------------------------------------------------------------------+
 
 .. attention::
