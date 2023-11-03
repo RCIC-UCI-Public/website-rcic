@@ -190,8 +190,9 @@ of a particular file.  For example,
 
 
 The user :tt:`panteater` is storing files under two different groups:
-- the file :tt:`performance.tst` is charged to the :tt:`panteater` group quota
-- the files in the subdirectory :tt:`biofiles` are charged to the :tt:`bio` group quota.
+
+- the files in the subdirectory **biofiles** are charged to the :tt:`bio` group quota.
+- the file **performance.tst** and subdirectory **myfiles** are charged to the :tt:`panteater` group quota
 
 Examine the permissions of the directories: :tt:`drwxrwsr-x`. Notice the :tt:`s` for 
 the group execute permissions (character positions 5-7). This is called the **sticky bit** for the directory.
@@ -216,15 +217,36 @@ Compare to permissions without sticky bit:
    +--------------+------------------+-----------------------------------------------------------------+
 
 The Unix command ``newgrp`` can be used to change the active Unix group.
+
+For example, the user :tt:`panteater` by default has a group :tt:`panteater`.
+The following sequence of simple commands shows the ownership of the files
+created under different groups and shows how to use ``newgrp`` command.
+
+.. code-block:: console
+
+   $ id panteater
+   uid=1234567(panteater) gid=1234567(panteater) groups=1234567(panteater),158571(bio)
+   $ touch aaa
+   $ ls -l aaa
+   -rw-rw-r-- 1 panteater panteater 0 Nov  3 14:57 aaa
+
+   $ newgp bio
+   $ touch bbb
+   $ ls -l bbb
+   -rw-rw-r-- 1 panteater bio 0 Nov  3 14:57 bbb
+
 Please type ``man newgrp`` to learn about this command.
 
 **Reasons for Over Quota**
   1. Under normal operation, when the sticky bit is set on a directory, the correct quota enforcement 
-     occurs automatically because files and subdirectories are written with correct group.
-     When all space is used over quota is issued. 
-  2. The most common quota problems on DFS result from inadvertently removing 
-     the sticky bit on a directory and then writing with the default (user personal group).
-     In this case writing files and running  jobs can fail.
+     occurs automatically because files and subdirectories are written with
+     correct group, no ``newgrp`` command is needed.  When all space is used over quota is issued.
+  2. The most common quota problems on DFS result from:
+
+     * inadvertently removing the sticky bit on a directory and then writing with the default personal group.
+     * changing the group ownership of a file or directory and then trying to write to it with the default personal group.
+
+     In these cases writing files and running jobs can fail.
   3. Moving data to HPC3 with software that overrides the sticky bit by explicitly setting 
      permissions in the most common way a sticky bit becomes unset.
 
@@ -239,7 +261,7 @@ Fix over quotas
 
 **Fixing Permissions**
   You can use the ``chmod`` command to fix directories that don't have a sticky bit set,
-  but should.  The following command  will add the sticky bit to a particular directory.
+  but should have. The following command  will add the sticky bit to a particular directory.
 
   .. code-block:: console
 
@@ -254,17 +276,26 @@ Fix over quotas
      $ find . -type d -exec chmod g+s {} \; -print
 
 **Fixing Group Ownership**
-  You can also use the ``chgrp`` command to change the group ownership of 
+  You can also use the ``chgrp``  and ``chown`` commands to change the group ownership of
   a file or directory. For example, to change the group from :tt:`panteater` to :tt:`bio`
-  on a specific file (or directory):
+  on a specific file or directory:
 
   .. code-block:: console
   
-     $ ls -l performance.txt
+     $ ls -l
+     total 55524423
+     drwxrwsr-x  7 panteater bio                 7 Aug  5  2019 biofiles
      -rw-r--r--  1 panteater panteater  4294967296 May 31  2019 performance.tst
+     drwxrwsr-x  3 panteater panteater           2 Oct  8 17:11 myfiles
+
      $ chgrp bio performance.txt
-     $ ls -l performance.txt
+     $ chown -R panteater:bio myfiles
+     $ ls -l
+     total 55524423
+     drwxrwsr-x  7 panteater bio                 7 Aug  5  2019 biofiles
      -rw-r--r--  1 panteater bio        4294967296 May 31  2019 performance.tst
+     drwxrwsr-x  3 panteater bio                 2 Oct  8 17:11 myfiles
+
 
   The :tt:`ls -l` command is used to show permissions before and after the change. 
 
