@@ -55,6 +55,7 @@ There is NO separate account for DFS filesystems.
   UCI Faculty members can have low-cost recharge allocation(s) to fulfill their needs.
   These group areas are quota allocations in **/dfsX/group-lab-path** based on PI's purchase.
   The storage owner (PI) can specify additional users who have read/write capability on the filesystem.
+  Please see :ref:`Recharge Allocations <recharge allocations>` for details how to request. 
 
   .. note:: If you are submitting a ticket requesting to
             be added to a specific group for a specific filesystem access, please note
