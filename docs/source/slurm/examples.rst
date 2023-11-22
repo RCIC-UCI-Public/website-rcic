@@ -481,7 +481,7 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
       [user@hpc3-14-00:~]$ jupyter notebook --no-browser --ip=$(hostname -s) --port=8989
       [I 18:19:57.912 NotebookApp] JupyterLab extension loaded from /opt/apps/anaconda/2020.07/lib/python3.8/site-packages/jupyterlab
       [I 18:19:57.912 NotebookApp] JupyterLab application directory is /opt/apps/anaconda/2020.07/share/jupyter/lab
-      [I 18:19:57.914 NotebookApp] Serving notebooks from local directory: /data/homezvol0/npw
+      [I 18:19:57.914 NotebookApp] Serving notebooks from local directory: /data/homezvol0/panteater
       [I 18:19:57.914 NotebookApp] The Jupyter Notebook is running at:
       [I 18:19:57.914 NotebookApp] http://hpc3-14-00:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
       [I 18:19:57.914 NotebookApp]  or http://127.0.0.1:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9

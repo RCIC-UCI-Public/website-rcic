@@ -339,7 +339,7 @@ example panteater UCINetID).
            $ conda update -n base -c defaults conda
 
         Package Plan ##
-         environment location: /data/homezvol0/npw/.conda/envs/NewEnv
+         environment location: /data/homezvol0/panteater/.conda/envs/NewEnv
 
        Proceed ([y]/n)? y
 
@@ -369,8 +369,8 @@ example panteater UCINetID).
         [user@login-x:~]$ conda env list
         # conda environments:
         #
-        mageck             /data/homezvol0/npw/.conda/envs/mageck
-        ngl                /data/homezvol0/npw/.conda/envs/ngl
+        mageck             /data/homezvol0/panteater/.conda/envs/mageck
+        ngl                /data/homezvol0/panteater/.conda/envs/ngl
         base            *  /opt/apps/anaconda/2022.05
 
      Note, the :tt:`*` in the output means active loaded conda version (per

@@ -467,7 +467,7 @@ Once you have done that, you can then:
    * Select the path as :tt:`/dfs3b/crsp/lab/<pi>`
    * Recommend that you change the Nickname to something like: :tt:`CRSP ANNEX <pi>`
 
-The following figure shows this set up for a particular user (*ppapadop*) and and particular pi (*npw*)
+The following figure shows this set up for a particular user (*ppapadop*) and a particular pi (*npw*)
 
 .. figure:: images/win/win-crsp-annex.png
    :align: center
