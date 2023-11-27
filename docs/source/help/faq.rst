@@ -161,7 +161,7 @@ Please see :ref:`allocations`
 How do I purchase more DFS space?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please see :ref:`buy dfs` how to purchase more DFS storage
+Please see how to :ref:`buy dfs`
 
 I want to use my group DFS area, how do i do this?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
