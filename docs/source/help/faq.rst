@@ -345,7 +345,7 @@ How do I charge my jobs to my account or my PI’s account?
 Every user has a default account (which is *UCnetID*) and may have a few PI lab accounts.
 If not specified, a default account is charged (exception is free queues).
 
-To specify a PI's account one need to use a :tt:``-A`` Slurm directive either on
+To specify a PI's account one need to use a ``-A`` Slurm directive either on
 a command line when asking fort an interactive shell or in a Slurm batch
 job. See :ref:`slurm guide <jobs>` for examples.
 
