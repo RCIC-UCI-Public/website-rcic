@@ -306,6 +306,14 @@ You need to check your :ref:`dfs quotas` for the specific DFS filesystem.
 :bluelight:`Slurm jobs`
 -----------------------
 
+My job failed with OOM error 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OOM signifies out of memory errors.
+This means you requested a certain amount of memory but your job went over the
+limit and SLURM has terminated your job. You need to request more memory.
+See :ref:`How to get more memory <request memory>`.
+
 Why should I request an interactive shell and how do I do this?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -380,7 +388,7 @@ There are 2 distinct situations:
    using 1 CPU.
 2. Your job failed with OOM - out of memory errors.
 
-See See :ref:`request resources` for explanation how to get more CPUs or more memory.
+See :ref:`request resources` for explanation how to get more CPUs or more memory.
 
 How do I know if I need more memory for a job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
