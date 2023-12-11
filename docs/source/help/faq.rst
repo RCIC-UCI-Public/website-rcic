@@ -63,8 +63,8 @@ a rate that reduces the financial impact of overhead on recharged-cycles.
 :bluelight:`Accounting`
 -----------------------
 
-How can I be added to my PI's lab account?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How can I be added to my PI's Slurm lab account?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PIs have control over who can charge to their account and how much they can charge.
 Please send a request to hpc-support@uci.edu
@@ -163,8 +163,8 @@ How do I purchase more DFS space?
 
 Please see how to :ref:`buy dfs`
 
-I want to use my group DFS area, how do i do this?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+I want to use my PI's group DFS area, how do i do this?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If your PI already has a group DFS area you need to submit a ticket
 to hpc-support@uci.edu requesting to be be added to a specific group
@@ -173,6 +173,11 @@ Your PI will need to reply with a confirmation in order for us to approve your r
 
 :bluelight:`CRSP`
 -----------------
+
+I want to use my PI's group CRSP area, how do i do this?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please see :ref:`getting crsp account`
 
 Exactly who is entitled to baseline allocation?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
