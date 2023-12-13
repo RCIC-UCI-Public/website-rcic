@@ -63,6 +63,8 @@ a rate that reduces the financial impact of overhead on recharged-cycles.
 :bluelight:`Accounting`
 -----------------------
 
+.. _add lab account:
+
 How can I be added to my PI's Slurm lab account?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

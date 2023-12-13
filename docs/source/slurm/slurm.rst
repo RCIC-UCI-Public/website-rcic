@@ -1,6 +1,6 @@
 .. _slurm manager:
 
-SLURM workload manager
+Slurm workload manager
 ======================
 
 HPC3 is using the `SLURM <http://slurm.schedmd.com/slurm.html>`_
@@ -35,7 +35,7 @@ Based upon the number of requests and the number of nodes that have been purchas
 
 .. _slurm lab account:
 
-Getting Slurm Lab account
+Getting Slurm Lab Account
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 PI may request a Slurm lab account by sending a request to hpc-support@uci.edu and specifying
@@ -48,9 +48,12 @@ the following information:
   members jobs, modify their queue priority, update limits for the total CPU hours for individual members, etc.
   Typically, one or two lab members (Postdocs or Project Specialists).
 
+.. attention:: | Students and group members who wish to use Slurm lab account
+               | please see :ref:`add lab account`
+
 .. _units cost:
 
-Allocation units
+Allocation Units
 ^^^^^^^^^^^^^^^^
 
 When a job is allocated resources, the resources include CPUs and memory.
@@ -187,7 +190,7 @@ Note, there is no difference in cost/core-hour for default and max memory per co
 
 .. _memory partitions:
 
-Higher memory
+Higher Memory
 ^^^^^^^^^^^^^
 
 There are a few applications that need more memory than a node in standard
@@ -221,15 +224,17 @@ User must be either:
 
 .. _gpu partitions:
 
-GPU enabled 
+GPU-enabled
 ^^^^^^^^^^^
 
 :bluelight:`gpu/gpu-debug`
-  You must have a *gpu account* and you must specify it in order to submit
+  You must have a *GPU account* and you must specify it in order to submit
   jobs to these partitions. This is because of differential charging.
 
   **GPU accounts are not automatically given to everyone, your faculty adviser
-  can request a GPU lab account**.
+  can request a GPU lab account**. See how to
+  :ref:`request Slurm lab account <slurm lab account>` and add a note that
+  this request is for GPU account.
 
 :bluelight:`free-gpu`
   Anyone can run jobs in this partition without special account.
