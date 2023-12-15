@@ -161,8 +161,6 @@ and job preemption configuration, and cost per hour in :ref:`units cost`.
    +-----------+---------------------------+------------------+-------------+------------+
    | free      | 3 GB / 18 GB              | 1 day / 3 day    | None        | Yes        |
    +-----------+---------------------------+------------------+-------------+------------+
-   | debug     | 3 GB / 18 GB              | 15 min / 30 min  | 1           | No         |
-   +-----------+---------------------------+------------------+-------------+------------+
    | highmem   | 6 GB / 10 GB              | 2 day / 14 day   | 1           | No         |
    +-----------+---------------------------+------------------+-------------+------------+
    | hugemem   | 18 GB / 18 GB             |  2 day / 14 day  | 1           | No         |
@@ -182,8 +180,6 @@ and job preemption configuration, and cost per hour in :ref:`units cost`.
    | gpu       | 3 GB / 9 GB               | 2 day / 14 day   | 33          | No         |
    +-----------+---------------------------+------------------+-------------+------------+
    | free-gpu  | 3 GB / 9 GB               | 1 day / 3 day    | 0           | Yes        |
-   +-----------+---------------------------+------------------+-------------+------------+
-   | gpu-debug | 3 GB / 9 GB               | 15 min / 30 min  | 33          | No         |
    +-----------+---------------------------+------------------+-------------+------------+
 
 Note, there is no difference in cost/core-hour for default and max memory per core.
@@ -227,7 +223,7 @@ User must be either:
 GPU-enabled
 ^^^^^^^^^^^
 
-:bluelight:`gpu/gpu-debug`
+:bluelight:`gpu`
   You must have a *GPU account* and you must specify it in order to submit
   jobs to these partitions. This is because of differential charging.
 

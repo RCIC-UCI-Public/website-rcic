@@ -285,7 +285,7 @@ To run a GPU job one needs to request:
 
    To see all available partitions use ``sinfo`` command
    that lists all partitions and nodes managed by Slurm. All users can use
-   *free-gpu* and *gpu-debug* partitions. To use one of GPU partitions add to
+   *free-gpu* partition. To use one of GPU partitions add to
    your submit script
 
    .. code-block:: bash
