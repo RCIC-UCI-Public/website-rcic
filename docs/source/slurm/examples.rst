@@ -584,8 +584,8 @@ Matlab
    .. literalinclude:: files/matlab-multi-cpu.sub
       :language: bash
 
-   The above will submit the Matlab code [.tt]*mycode.m* with specified requested resources.
-   Note: because the default is one CPU per task, [.tt]*-n 12* can be thought of as requesting 12 CPUs.
+   The above will submit the Matlab code [.tt]`mycode.m` with specified requested resources.
+   Note: because the default is one CPU per task, [.tt]`-n 12` can be thought of as requesting 12 CPUs.
 
    The equivalent command-line method:
 
