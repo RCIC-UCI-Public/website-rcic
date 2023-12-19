@@ -596,6 +596,40 @@ Matlab
                                --wrap="matlab -nodesktop -nosplash -singleCompThread \
                                -r mycode -logfile mycode.out"
 
+3. Parallel pool on a single node 
+
+   Matlab jobs can be run on multiple CPUs in a parallel pool. This
+   requires :tt:`parpool` and :tt:`parcluster` matlab commmands in
+   matlab script to setup the pool. The :tt:`parfor` loop is used to distribute iterations to multiple workers
+   where each worker is running on a different CPU.
+
+   .. note:: Current Matlab license does not include **MATLAB Parallel Server** 
+             therefore running parallel jobs across multiple nodes is not
+             supported. Parallel pool jobs can be only run on a single node.
+
+   .. centered:: File matlab-parallel.sub
+
+   .. literalinclude:: files/matlab-parallel.sub
+      :language: bash
+
+   The above submit script will submit the Matlab code :tt:`prime.m` with specified requested resources
+   and collect desired output in the output file :tt:`matlab-example.out` (separate from SLURM output file).
+   Note that requested number of tasks is used in Matlab script to setup the
+   parallel pool size via a SLURM variable :tt:`SLURM_NTASKS`.
+   Contents of prime.m:
+
+   .. centered:: File prime.m
+
+   .. literalinclude:: files/prime.m
+      :language: matlab
+
+   Changing the Matlab code to :tt:`hello.m` in the submit script  can run "Hello World" example
+   that shows another way to use parallel workers.
+
+   .. centered:: File hello.m
+
+   .. literalinclude:: files/hello.m
+      :language: matlab
 
 .. _job mpi:
 

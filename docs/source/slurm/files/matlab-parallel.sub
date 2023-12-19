@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#SBATCH --job-name=matlab-example ## set job name
+#SBATCH -p free                   ## partition
+#SBATCH -N 1                      ## number of nodes can be only 1
+#SBATCH --ntasks=10               ## set number of CPUs for parallel run
+#SBATCH -t 00:30:00               ## time limit 30 min
+#SBATCH --out=slurm-%A.out        ## slurm output
+
+# load a MatLab module
+module load MATLAB/R2021b
+
+# matlab script basename 
+MATLAB_FILE=prime
+
+# execute code 
+cd $SLURM_SUBMIT_DIR
+matlab -nodisplay -nodesktop -nosplash -r $MATLAB_FILE > matlab-example.out
