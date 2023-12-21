@@ -763,8 +763,8 @@ Sometime people need to create containers for running specific versions of
 applications or sets of applications.
 We provide Singularity containers that can be built and used from Docker recipes.
 
-For in-depth guide please see
-`SingularityCE User Guide <https://docs.sylabs.io/guides/3.9/user-guide/introduction.html>`_
+For more info about using containers please see
+`SingularityCE User Guide <https://docs.sylabs.io/guides/latest/user-guide/introduction.html>`_
 
 When you want to build a Singularity container you :red:`do not need to install Singularity`.
 We provide a few versions of Singularity and its prerequisites that can be accessed via modules.
@@ -811,7 +811,7 @@ latest available singularity version.
 3. **Run a container create command**
 
    Follow your specific software instructions for your build.
-   Singularity  containers can be created in two ways:
+   Singularity  containers can be created as follows:
 
    3a. **Create from a download of pre-built images**
 
@@ -848,6 +848,13 @@ latest available singularity version.
           vg.sif
 
    3b. **Build from a recipe**
+
+       This approach involves using a definition file (also called a recipe file)
+       and administrative access to the node which we do not allow to regular
+       users. You will need to submit a ticket and provide us with a recipe
+       file and your software URL.  
+
+..   3b. **Build from a recipe**
 
        This approach involves using a definition file (also called a recipe file)
        for building a container. The definition file can be downloaded (from your
@@ -895,7 +902,7 @@ latest available singularity version.
       [user@hpc3-xx-yy:~]$ singularity run /pub/anteater/vg.sif arg1 arg2 arg3
 
    Additional commands to interact with the container are ``shell`` and ``exec``.
-   Please see the `SingularityCE User Guide <https://docs.sylabs.io/guides/3.9/user-guide/introduction.html>`_
+   Please see the `SingularityCE User Guide <https://docs.sylabs.io/guides/latest/user-guide/introduction.html>`_
    for in-depth command reference.
 
 .. _compile:
