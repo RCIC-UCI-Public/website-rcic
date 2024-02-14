@@ -4,6 +4,9 @@
 Data transfer
 =============
 
+.. contents::
+   :local:
+
 If you need to bring some data from your laptop or another host to the
 cluster you will mainly need to use ``scp`` (there is an equivalent for
 Windows)  or ``rsync`` commands. 
@@ -115,3 +118,63 @@ For example, for a recursive copy  of a local directory and to show a verbose ou
 
    $ rsync -rv mydata panteater@hpc3.rcic.uci.edu:/dfsX/panteater_lab/panteater
 
+.. _aspera data:
+
+Using Aspera
+------------
+
+There is no installation of Aspera cluster-wide as the Aspera client needs to
+be installed by the user in a user-writeable area.
+
+1. **Download**
+
+   You  will need to download and install Aspera Connect software from: https://www.ibm.com/aspera/connect/.
+   Copy the URL for :blue:`Linux` on the download page and paste into ``wget`` command to download:
+
+   .. code-block:: console
+
+      $ wget https://d3gcli72yxqn2z.cloudfront.net/downloads/connect/latest/bin/ibm-aspera-connect_4.2.8.540_linux_x86_64.tar.gz
+
+   Per above, a file is saved as :tt:`ibm-aspera-connect_4.2.8.540_linux_x86_64.tar.gz`.
+   Note, available version for this example download is :tt:`4.2.8.540` and will
+   differ when new version becomes available.
+
+2. **Install**
+
+   Use the correct version number from your download in the following commands
+
+   .. code-block:: console
+
+      $ tar -zxvf ibm-aspera-connect-VERSION_linux_x86_64.tar.gz
+      $ ./ibm-aspera-connect-VERSION_linux_x86_64.sh
+
+   This will result in creating :tt:`$HOME/.aspera/connect` directory which will have all
+   needed components of the Aspera Connect client as far as compiled binary, certificates, etc.
+
+3. **Use**
+
+   Sites that require using Aspera Client for upload/download usually provide
+   specific instructions how to connect to their Aspera servers.
+
+   The following example shows a download of a fastq file from a remote server
+   to a local directory :tt:`dir1`.  Command is broken with :tt:`\\` into multiple lines for readability):
+
+   .. code-block:: console
+
+      $ $HOME/.aspera/connect/bin/ascp  \
+         -v \
+         -P33001 \
+         -i $HOME/.aspera/connect/etc/asperaweb_id_dsa.openssh \
+         era-fasp@fasp.sra.ebi.ac.uk:vol1/fastq/SRR179/003/SRR1798143/SRR1798143.fastq.gz dir1/
+
+   - ``-v``  use verbose mode
+   - ``-P33001`` is the initial TCP connect port. Your server may need
+     other port identified.  We have network settings to allow such high numbered ports to be opened for the transfer.
+   - ``-i`` is the private key file created during the install.
+
+   Any other flags will depend on the Aspera server setup.
+   For additional help on usage:
+
+   .. code-block:: console
+
+      $ $HOME/.aspera/connect/bin/ascp -h
