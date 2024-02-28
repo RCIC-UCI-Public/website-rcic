@@ -400,21 +400,57 @@ steps to start a container.
    Jupyter writes a *state* file for your lab, so that when you relaunch, you
    will be back where you were prior to shutting down.
 
+   .. attention:: The shutdown process involves (1) shutting down ALL your notebooks (2) then 
+                  shutting down the server. If you simply shutdown the server, the notebooks
+                  remain running and consume server resources. 
+
+   **Step 1: Shut down notebooks**
+
+   For each active notebook, from the :guilabel:`File` menu choose :guilabel:`Close and Shutdown Notebook`:
+
+   .. image:: images/close-notebook-1.png
+      :align: center
+      :width: 80%
+      :alt: close notebook method 1
+
+   There will be a pop-up window asking to confirm, click :guilabel:`Ok`
+
+   .. image:: images/close-notebook-1-confirm.png
+      :align: center
+      :width: 30%
+      :alt: confirm close notebook method 1
+
+   Alternatively, choose the sessions tab on the left hand panel and click
+   :guilabel:`SHUT DOWN` for each session:
+
+   .. image:: images/close-notebook-2.png
+      :align: center
+      :width: 80%
+      :alt: close notebook method 2
+
+   **Step 2: Shutdown server**
+
    From the :guilabel:`File` menu choose :guilabel:`Hub Control Panel`:
 
-   .. image:: images/jhub-control-panel.png
+   .. image:: images/jhub-logout-1.png
       :align: center
-      :width: 70%
-      :alt: server control panel
+      :width: 80%
+      :alt: control panel
 
    and you will be forwarded to
    a screen where you can press on :guilabel:`Stop My Server` to shut down the server:
 
-   .. image:: images/jhub-logout.png
+   .. image:: images/jhub-logout-2.png
       :align: center
-      :width: 70%
+      :width: 80%
       :alt: server logout
 
+   your window should look similar to the following when the server is stopped:
+
+   .. image:: images/jhub-logout-3.png
+      :align: center
+      :width: 85%
+      :alt: server logout result
 
 .. _Jupyter notebook:
 
