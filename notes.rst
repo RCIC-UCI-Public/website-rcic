@@ -60,21 +60,15 @@ Images
 Inline icons
 ------------
 
-These are from the rst file for TOC in RTD documentation, see https://docs.readthedocs.io/en/stable/index.html
+These inline icons are from the rst file for TOC in RTD documentation, see https://docs.readthedocs.io/en/stable/index.html
 
-⏩️  use this in reference guide
-
-🚀 Tutorials
-
-💡 Explanation
-
-🪄 How-to guides
-
-📚 Reference
-
-💓 Open source and user focused
-
-🔄 Up to date documentation
+- ⏩️  use this in reference guide
+- 🚀 Tutorials
+- 💡 Explanation
+- 🪄 How-to guides
+- 📚 Reference
+- 💓 Open source and user focused
+- 🔄 Up to date documentation
 
 |:card_index_dividers:| Documentation for every version
 
