@@ -973,8 +973,8 @@ Often users submit a job to a lab account and it results in PD status due to
 
 .. _fix pending job:
 
-Fix your job
-^^^^^^^^^^^^
+Fix pending job
+^^^^^^^^^^^^^^^
 
    Similar fixes apply when using ``srun`` for interactive jobs.
 
@@ -1017,20 +1017,23 @@ Fix your job
       .. code-block:: console
 
          [user@login-x:~]$ scontrol show reservation
+         ReservationName=RCIC: HPC3 scheduled maintenance StartTime=2024-03-27T08:00:00 EndTime=2024-03-28T08:00:00 Duration=1-00:00:00
+            Nodes=hpc3-14-[00-31],... NodeCnt=228 CoreCnt=9936 Features=(null) PartitionName=(null) Flags=MAINT,IGNORE_JOBS,SPEC_NODES,ALL_NODES
+            TRES=cpu=9936
+            Users=root,... Groups=(null) Accounts=(null) Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+            MaxStartDelay=(null)
 
-      | The first output line will include the maintenance times, for example:
-      | :red:`StartTime=2023-07-25T08:00:00 EndTime=2023-07-26T08:00:00 Duration=1-00:00:00`
+      The first output line includes the maintenance start time, end time and duration.
 
       Based on the info about the reservation and the current day/time you can
       estimate what time limit :tt:`SBATCH --time` should be specified for your job in order for
-      it to finish before the maintenance starts.
+      it to finish :red:`before the maintenance starts`.
 
       If your job truly needs requested time limit, nothing can be done until the maintenance is over.
       Remove your job from the queue and resubmit after the maintenance.
 
-   See :ref:`available partitions` for partitions default and max settings.
-
-   Please see :ref:`job examples` for more info.
+   Please see :ref:`available partitions` for partitions default and max settings
+   and :ref:`job examples` for additional info.
 
 .. _modify job:
 
@@ -1044,12 +1047,18 @@ If changes need to be made for a running job, it may be better to kill the job
 and restart it after making the necessary changes.
 
 Change job time limit:
-  The  format set is  minutes,  minutes:seconds,  hours:minutes:seconds,  days-hours,
-  days-hours:minutes  or  days-hours:minutes:seconds.  The *2-12:30* means 2days, 12hrs, and 30 min.
+  If your job is already running and you have established that it will not
+  finish by its current time limit you can request an extension of time limit`.
 
-  .. code-block:: console
+  Only the Slurm administrator can increase job's :tt:`TimeLimit`, therefore you
+  need to submit a ticket indicating:
 
-     [user@login-x:~]$ scontrol update jobid=<jobid> timelimit=<new timelimit>
+  - your jobid
+  - your desired time extension
+
+  Note, we need to receive your request before your job's current end time
+  and your bank account must have sufficient funds to cover the desired time
+  extension.
 
 Change QOS:
   By default, jobs are set to run with :.tt:`qos=normal`.
