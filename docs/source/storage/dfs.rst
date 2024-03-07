@@ -157,17 +157,22 @@ command to check user/group quotas on a particular DFS pool.
   3. can write in personal :tt:`/pub/panteater` area, where the default allocation
      is 1Tb (1Tb = 1024Gb) and ~756Gb is already used by the user.
 
-**To see the quotas for selective backup:**
+..
+   next two blocks are commented out 
 
-  .. code-block:: console
+..
+   **To see the quotas for selective backup:**
 
-     $ dfsquotas panteater sbak
+     .. code-block:: console
 
-**To see the quotas for** :tt:`dfs6` **and selective backup:**
+        $ dfsquotas panteater sbak
 
-  .. code-block:: console
+..
+   **To see the quotas for** :tt:`dfs6` **and selective backup:**
 
-     $ dfsquotas panteater "dfs6 sbak"
+     .. code-block:: console
+
+        $ dfsquotas panteater "dfs6 sbak"
 
 
 .. _dfs over quota:
@@ -200,22 +205,26 @@ the group execute permissions (character positions 5-7). This is called the **st
 It is subtle, but important difference: :tt:`x` instead of :tt:`s` in the group execute permission.
 Compare to permissions without sticky bit: 
 
+
+trial :tt:`wo`:red:`rds`
+
 .. _sticky bit:
 
 .. table::
+   :widths: 15,15,70
    :class: noscroll-table
 
-   +--------------+------------------+-----------------------------------------------------------------+
-   |  Sticky  bit | Directory mode   | Description                                                     |
-   +==============+==================+=================================================================+
-   |              | :tt:`drwxrwsr-x` | In the origin directory, created files and directories are      | 
-   | is set       |                  | written with the group permissions :tt:`rws`  of the origin     |
-   |              |                  | directory and the sticky bit is set.                            |
-   +--------------+------------------+-----------------------------------------------------------------+
-   |              | :tt:`drwxrwxr-x` | In the origin directory, created files and directories are      |
-   |              |                  | written with the active UNIX group permissions :tt:`rwx` of the |
-   | is not set   |                  | origin directory, which defaults to your login.                 |     
-   +--------------+------------------+-----------------------------------------------------------------+
+   +------------+---------------------------------------+-----------------------------------------------------------------+
+   | Sticky  bit| Directory mode                        | Description                                                     |
+   +============+=======================================+=================================================================+
+   |            | :gray:`drwx`:red:`rws`:gray:`r-x`     | In the origin directory, created files and directories are      |
+   | is set     |                                       | written with the group permissions :red:`rws` of the origin     |
+   |            |                                       | directory. The sticky bit :red:`s` is set.                      |
+   +------------+---------------------------------------+-----------------------------------------------------------------+
+   |            |:gray:`drwx`:bluelight:`rwx`:gray:`r-x`| In the origin directory, created files and directories are      |
+   |            |                                       | written with the active UNIX group permissions :bluelight:`rwx` |
+   | is NOT set |                                       | of the origin directory, which defaults to your login.          |
+   +------------+---------------------------------------+-----------------------------------------------------------------+
 
 The Unix command ``newgrp`` can be used to change the active Unix group.
 
@@ -418,43 +427,66 @@ Where backups are
 A user can access backup files on the login nodes of the cluster
 from the following paths:
 
-**/sbak/selective-backup/hpc-backups/ucinetid/data/homezvolX/ucinetid**
-  for user $HOME
-**/sbak/selective-backup/hpc-backups/ucinetid/pub/ucinetid**
- for /pub/$USER/
-**/sbak/selective-backup/hpc-backups/ucinetid/DELETED-FILES/$DATE**
-  for deleted files by date, count towards backup quota.
-**/sbak/selective-backup/hpc-logs/$DATE/ucinetid**
-  for backup logs are available for the past X days where X is defined
-  in *HPC_KEEP_DELETED=X* in your :t:`.hpc-selective-backup` 
-  
+.. table::
+   :widths: 15,85
+   :class: noscroll-table
+
+   +------------------------------------------------------+-------------------------------+
+   | Where                                                | What                          |
+   +======================================================+===============================+
+   | /sbak/zvolX/backups/ucinetid/data/homezvolX/ucinetid | user $HOME                    |
+   +------------------------------------------------------+-------------------------------+
+   | /sbak/zvolX/backups/ucinetid/pub/ucinetid            | /pub/$USER/                   |
+   +------------------------------------------------------+-------------------------------+
+   | /sbak/zvolX/backups/ucinetid/DELETED-FILES           | deleted files by date         |
+   |                                                      | (counts towards backup quota) |
+   +------------------------------------------------------+-------------------------------+
+   | /sbak/zvolX/logs/$DATE/ucinetid                      | backup logs by date,          |
+   |                                                      | available for the past Y days |
+   +------------------------------------------------------+-------------------------------+
+
+.. note:: | The :tt:`X` in :tt:`/sbak/zvolX`  maps to the volume number shown
+            in your :tt:`$HOME` variable. In other words, the mapping is:
+          |     /data/homezvol0 ->  /sbak/zvol0/backups
+          |     /data/homezvol1 ->  /sbak/zvol1/backups
+          |     /data/homezvol2 ->  /sbak/zvol2/backups
+          |     /data/homezvol3 ->  /sbak/zvol3/backups
+
+          | The number of days :tt:`Y` is defined by :tt:`HPC_KEEP_DELETED=Y` in your :tt:`.hpc-selective-backup`
+
 .. _selective backup recovery:
 
 Deleted Files Recovery
 ----------------------
 
-.. note:: Deleted files and directories can be recovered provided they exist in the selective backup.
-          Note: You have to be on a login node to access backup files.
+.. note:: | Deleted files and directories can be recovered provided they exist in the selective backup.
+          | You have to be on a login node to access backup files.
 
-Here is a general procedure for user :tt:`panteater` to restore accidentally 
-deleted directory :tt:`spring-2022` and files in it.
+Below is a general procedure for user :tt:`panteater` to restore accidentally
+deleted from :tt:`/pub/panteater` directory :tt:`spring-2022` and files in it.
 
 .. code-block:: console
 
-   $ cd /sbak/selective-backup/hpc-backups/panteater/DELETED-FILES   # see 1
+   $ cd /sbak/zvol0/backups/panteater/DELETED-FILES                  # see 1
    $ find . -type d -name spring-2022                                # see 2
-   ./2022-0621/pub/panteater/spring-2022
-   ./2022-0629/pub/panteater/spring-2022
-   $ ls ./2022-0629/pub/panteater/spring-2022/                       # see 3
+   ./2024-0214/pub/panteater/spring-2022
+   ./2024-0213/pub/panteater/spring-2022
+
+   $ ls ./2024-0214/pub/panteater/spring-2022/                       # see 3
    schedule1    schedule1.sub   slurm.template
-   $ cp -p -r ./2022-0629/pub/panteater/spring-2022 /pub/panteater   # see 4
+
+   $ cp -p -r ./2024-0214/pub/panteater/spring-2022 /pub/panteater   # see 4
 
 The above commands mean:
 
-1. This command puts you at the top level of a backup directory for your files.
-2. This command finds all backups by date where the desired directory exists.
+1. The ``cd``  command puts you at the top level of a backup directory for your files.
+2. The ``find`` command finds all backups by date where the desired directory exists.
+   Here, two snapshots are found by date: :tt:`2024-0214` and :tt:`2024-0213`.
 3. Run ``ls`` command for the specific snapshot to see if it has needed files.
-4. If needed files exists in the backup, user can copy the files back to the pub directory.
-   It is recommended to use ``-p`` and ``-r`` options. Option ``-p`` makes sure that
-   copy command preserves the time stamp and the ownership of a file. 
-   Option ``-r`` means "copy recursively", this is needed when copying a directory and its contents.
+4. If needed files exists in the backup, user can use ``cp`` command to copy the
+   files back to the pub directory.  It is recommended to use ``-p`` and ``-r``
+   options. Option ``-p`` makes sure that copy command preserves the time stamp
+   and the ownership of a file.  Option ``-r`` means "copy recursively", this is
+   needed when copying a directory and its contents.
+
+One can restore in a similar way files and directories deleted from $HOME.
