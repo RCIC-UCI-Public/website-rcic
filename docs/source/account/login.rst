@@ -233,10 +233,21 @@ If you want X-windows graphics to be forwarded through your ssh connection,
 then you should use the :tt:`-X` option in your ssh command, for example one
 of the following:
 
-  .. code-block:: console
+.. code-block:: console
 
-     ssh -X panteater@hpc3.rcic.uci.edu
-     ssh -X hpc3.rcic.uci.edu -l panteater
+   ssh -X panteater@hpc3.rcic.uci.edu
+   ssh -X hpc3.rcic.uci.edu -l panteater
+
+Once logged in chck if your enviornment variabl :tt:`DISPLAY` is set:
+
+.. code-block:: console
+
+   [user@login-x:~]$ echo $DISPLAY
+   DISPLAY=localhost:27.0
+
+If the Xforward is enabled in your ssh connection the :tt:`DISPLAY`
+will be set to a similar string, otherwise the output will be empty (no
+Xforward).
 
 .. note:: Mac users must have XQuartz (standard application) installed in order to use XForwarding.
 
