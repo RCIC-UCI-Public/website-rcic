@@ -316,7 +316,9 @@ You need to check your :ref:`dfs quotas` for the specific DFS filesystem.
 My job failed with OOM error 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-OOM signifies out of memory errors.
+OOM signifies out of memory errors. The actual message can vary depending on 
+where and how you run your application and may contain *OOM Killed*,
+*oom_kill events* or *oom-kill*.
 This means you requested a certain amount of memory but your job went over the
 limit and SLURM has terminated your job. You need to request more memory.
 See :ref:`How to get more memory <request memory>`.
