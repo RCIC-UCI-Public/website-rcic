@@ -30,19 +30,23 @@ function updateGitRepo() {
   fi
 
   cd $GITDIR
+  if [ ! -f website-rcic/Makefile ]; then
+     rm -rf website-rcic
+  fi
   if [ ! -d website-rcic ]; then
      git clone https://github.com/RCIC-UCI-Public/website-rcic.git
+     change="need"
+  else
+     cd website-rcic
+     git log -1 > $prevCommit
+     git pull
+     git log -1 > $nowCommit
+     change=`diff $prevCommit $nowCommit`
   fi
-
-  cd website-rcic
-  git log -1 > $prevCommit
-  git pull
-  git log -1 > $nowCommit
 }
 
 # check for recent commits, rebuild if any
 function checkCommit () {
-  change=`diff $prevCommit $nowCommit`
   timestamp=`date "+%Y-%m-%d %H:%M"`
   if [ "$change"x == x ]; then
     echo "$timestamp No change in last hour, not rebuilding" >> $LOGFILE
