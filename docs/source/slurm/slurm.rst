@@ -115,6 +115,7 @@ Free jobs have the following properties:
   allow the allocated jobs to run with a priority. In an attempt to get as much *goodput* through the system,
   the most-recently started free jobs will be killed first.
 * when using a personal account, a user is limited to submitting a 1000 core hour job.
+* submitted with ``sbatch`` for batch jobs or with ``srun`` for interactive jobs.
 
 .. _allocated jobs:
 
@@ -134,6 +135,7 @@ Standard jobs have the following properties:
 * Jobs with QOS set to *high* are placed at the front of the jobs queue.
   They are meant to be used when a user needs to jump in front of the queue when
   the time from submission to running is of the essence (i.e. grant proposals and paper deadlines).
+* submitted with ``sbatch`` for batch jobs or with ``srun`` for interactive jobs.
 
 .. _paritions structure:
 
