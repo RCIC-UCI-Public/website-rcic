@@ -910,20 +910,24 @@ latest available singularity version.
 Compile software
 ----------------
 
-Sometimes people need to compile specific versions of applications.
+Sometimes people need to compile specific versions of applications from source.
 This is done according to the specific software instructions
-and taking into account cluster existing modules.
+and using cluster's existing modules.
+
+.. attention:: Commands ``sudo`` and ``su`` are not available per security vulnerability.
 
 In general, for compiling  one needs a compiler, some prerequisite software packages, ``make``,
-``cmake`` or a few other build tools. All of these are accessible via modules.
+``cmake`` or a few other build tools. All of generic build tools needed for compilation are accessible via modules.
 
 Steps below explain the basic setup specific to the cluster.
 
 1. **Get an interactive node**
 
-   Always claim an interactive node because software builds involve compilation and downloads
-   that can use  a lot of  CPU time and memory. If you do this on login node
-   you will have problems and your install will likely fail.
+   Always claim an interactive node because software builds involve downloads
+   and compilation and both actions can use a lot of CPU time and memory.
+   If you do installations on a login node you will have problems and your install will likely fail.
+
+   From a login node:
 
    .. code-block:: console
 
@@ -956,18 +960,16 @@ Steps below explain the basic setup specific to the cluster.
       [user@hpc3-xx-yy:~]$ module avail cmake
       [user@hpc3-xx-yy:~]$ module avail foundation
 
-   Note, **foundation** includes ``cmake`` plus a few other tools. See ``module display foundation/v8``
-   output for details.
+   Module **foundation** includes ``cmake``, ``make`` plus a few other commands.
+   For details see the output of ``module display foundation/v8``.
 
-   Your software may have a prerequisite such as HDF5. We have a few HDF5 versions
-   installed.
-
-   For any prerequisites please check already installed modules and load if you find
+   Your software may have prerequisites, 
+   for any prerequisites please check already installed modules and load if you find
    that they satisfy your software needs. See :ref:`modules` guide for
    information how to find and use modules.
 
-   For example, if you are compiling software that needs gcc compiler, cmake,
-   OpenMPI-aware HDF5 you will need to load the following modules:
+   For example, if you are compiling software that needs ``gcc`` compiler, ``cmake``,
+   and OpenMPI-aware HDF5 you will need to load the following modules:
 
    .. code-block:: console
 
@@ -992,16 +994,42 @@ Steps below explain the basic setup specific to the cluster.
    After loading the modules you can configure and compile per your package instructions.
 
    Many packages use ``configure`` or ``cmake`` for configuring
-   and for specifying the installation location. We recommend to use your user area
-   for the installation location, for example, :tt:`/pub/ucinetid/sw/`.
-   The resulting install will create :tt:`bin`, :tt:`lib`, and any
-   other subdirectories in :tt:`/pub/ucinetid/sw/`
+   and for specifying the installation location. The instructions
+   may tell to edit makefiles and set some variables.
+
+   For example, if your software package requires HDF5, you can use ``module display``
+   command to find out what environment variables are set  by a specific HDF5
+   module and then use them in your makefiles or in your configuration commands.
+
+   While your software package may have some optional configuration parameters,
+   specifying an installation location is a MUST. We recommend to use your user
+   area for the installation location, for example, :tt:`/pub/ucinetid/sw/`.
+
+   If using ``cmake`` provide installation directory during the **install
+   stage**:
+
+   .. code-block:: bash
+
+      cmake -DCMAKE_BUILD_TYPE=RELEASE <other args per instructions>
+      cmake -DCMAKE_INSTALL_PREFIX=/pub/ucinetid/sw
+
+   If using ``make`` provide installation directory during the **configure stage**:
+
+   .. code-block:: bash
+
+      configure --prefix=/pub/ucinetid/sw <other args per instructions>
+      make
+      make install
+
+   The resulting configuration will create :tt:`bin`, :tt:`lib`, and any
+   other required subdirectories in :tt:`/pub/ucinetid/sw/` and the following
+   install commands will install compiled files there.
+
 
 4. **Create a module for your software**
 
-   This step may be optional and depends on what your software install provides and how your
-   software is built.
-
+   This step may be optional and depends on what your software installation provides
+   and how it was built.
    For instructions on creating modules for your installed
    software please see :ref:`user installed modules`.
 
