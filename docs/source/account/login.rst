@@ -155,7 +155,8 @@ If you choose to use key-based authentication for your login, you have additiona
 
    :MacOS:  :ref:`generate-ssh-keys-mac`
    :Linux:  :ref:`generate-ssh-keys-linux`
-   :Windows: :ref:`generate-ssh-keys-windows`
+   :Windows (PuTTY): :ref:`generate-ssh-keys-windows-putty`
+   :Windows (Powershell): :ref:`generate-ssh-keys-windows-powershell`
 
    Once you generate your SSH keys and copy the public key to HPC3
 
