@@ -6,28 +6,19 @@ Generate SSH keys
 =================
 
 We provide info here how to generate SSH keys on different laptops
+and to copy a public key to your account on the HPC3 cluster.
+
 
 .. contents::
    :local:
-
-.. _generate-ssh-keys-linux:
-
-Generate SSH keys on Linux
---------------------------
-
-Follow the of the steps for :ref:`generating ssh keys on MacOS <generate-ssh-keys-mac>`
-except in the first step use any terminal application that is available on your laptop.
 
 .. _generate-ssh-keys-mac:
 
 Generate SSH keys on MacOS
 --------------------------
 
-Here we assume your ``ssh`` is from OpenSSH, for other ssh versions please
+We assume your ``ssh`` is from OpenSSH, for other ssh distributions please
 use your specific software instructions.
-
-To generate ssh keys on your laptop and to copy a public key to your account on the HPC3 cluster
-do the following:
 
 1. Open your :tt:`Terminal` application
 
@@ -88,21 +79,23 @@ do the following:
       \|==. .            |
       +----[SHA256]-----+
 
-   The above command will add a `:tt:`.ssh` folder in your $HOME and 
-   generate two files there: a private key :tt:`key-to-hpc3`
-   and a public key :tt:`key-to-hpc3.pub`. They are always
-   generated and work as a pair. 
+   The above command will add a :tt:`.ssh` directory (directory is another name for folder)
+   in your :tt:`$HOME` directory and generate two files there: a private key :tt:`key-to-hpc3`
+   and a public key :tt:`key-to-hpc3.pub`. They are always generated and work as a pair. 
 
-   .. attention:: | Private key should NEVER be shared. It remains on your laptop
-                  | Use a non-empty passphrase for your key and remember it!
+   .. attention:: | Private key should NEVER be shared. It remains on your laptop.
+                  | Alwyas use a non-empty passphrase for your key and remember it!
 
-   Check your ssh keys:
+   Check your ssh keys. The first command simply lists the contents of your
+   :tt:`.ssh/` directory, and the second prints  the contents of your public
+   ssh key:
 
    .. parsed-literal::
 
-      :blue:`ls .ssh`
+      :blue:`ls ~/.ssh`
       key-to-hpc3     key-to-hpc3.pub
-      :blue:`cat .ssh/key-to-hpc3.pub`
+
+      :blue:`cat ~/.ssh/key-to-hpc3.pub`
       ssh-rsa AAAA1yc2Ew...characters deleted...97VU0yRlaTxEX= panteater\@uci.edu (MacBook Air)
 
 
@@ -123,29 +116,37 @@ do the following:
       Are you sure you want to continue connecting (yes/no/[fingerprint])?  :blue:`yes`
       /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
       /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
-      (panteater\@hpc3.rcic.uci.edu) Password:  :red:`type your UCInetID password here`
+      (panteater\@hpc3.rcic.uci.edu) Password:  :red:`type your UCInetID password`
       (panteater\@hpc3.rcic.uci.edu) Duo two-factor login for panteater
 
       Enter a passcode or select one of the following options:
 
        1. Duo Push to XXX-XXX-1234
 
-      Passcode or option (1-1): 1
+      Passcode or option (1-1): :red:`type 1`
 
       Number of key(s) added:        1
 
       Now try logging into the machine, with:   "ssh panteater\@hpc3.rcic.uci.edu"
       and check to make sure that only the key(s) you wanted were added.
 
-   The key will be placed into your HPC3 account in
-   :tt:`$HOME/.ssh/authorized_keys` file.
+   The content of your public key will be added to :tt:`$HOME/.ssh/authorized_keys` file
+   in your HPC3 account.
+
+.. _generate-ssh-keys-linux:
+
+Generate SSH keys on Linux
+--------------------------
+
+Follow the of the steps for :ref:`generating ssh keys on MacOS <generate-ssh-keys-mac>`
+except in the first step use any terminal application that is available on your laptop.
 
 .. _generate-ssh-keys-windows:
 
 Generate SSH keys on Windows
 ----------------------------
 
-Please use one of 
+Depending on what is installed on your Windows laptop please use one of:
 
 - `PuTTY/Pageant <https://winscp.net/eng/docs/ui_pageant>`_
 - `Powershell <https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement>`_
