@@ -92,3 +92,7 @@
 	font-weight: bold;
     font-size: 18px;
 }
+
+/* add a bit of padding after the image. Otherwise
+   regular text is too close to the image bottom */
+img.addpadding {padding: 0.5em;}
