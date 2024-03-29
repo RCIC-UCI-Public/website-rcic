@@ -199,7 +199,7 @@ installer is the simplest method)
 Copy SSH Public Key From Windows to HPC3
 -------------------------------------------
 
-   Since Windows does have the convenience of ``ssh-copy-id``, one has to type a bit more.  The following can be run 
+   Since Windows does not have the convenience of ``ssh-copy-id``, one has to type a bit more.  The following can be run 
    from either a Command window or a Powershell window to place the key :tt:`panteater-to-hpc3.pub` in the appropriate place.
 
    .. parsed-literal::
