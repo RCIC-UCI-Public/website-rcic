@@ -146,11 +146,15 @@ Generate SSH keys on Linux
 Follow the of the steps for :ref:`generating ssh keys on MacOS <generate-ssh-keys-mac>`
 except in the first step use any terminal application that is available on your laptop.
 
+.. _generate-ssh-keys-windows-powershell:
+
 Generate SSH keys on Windows in Powershell
 ------------------------------------------
 
 Follow the of the steps for :ref:`generating ssh keys on MacOS <generate-ssh-keys-mac>`
 except in the first step use Powershell that is available on your laptop.
+Once the keys are generated you will need to copy to the contents of your public key to HPC3.
+See :ref:`copy-ssh-keys-windows` below.
 
 .. _generate-ssh-keys-windows-putty:
 
@@ -162,53 +166,61 @@ Windows laptops and desktops.  Other software that can use key-based authenticat
 PuTTYgen.   This tutorial assumes that you have downloaded and installed PuTTY, Pageant, PuTTYgen (using their MSI-based
 installer is the simplest method)
 
-Open PuTTYgen from the Windows Start Button to see the following screen and press the *Generate* button
+1. Open PuTTYgen from the Windows Start Button to see the following screen and
+   press the :guilabel:`Generate` button
 
-.. image:: images/puttygen-initial.png
-   :align: center
-   :alt: PuTTYgen start screen
+   .. image:: images/puttygen-initial.png
+      :align: center
+      :width: 90%
+      :alt: PuTTYgen start screen
+      :class: addpadding
 
-Assign a passphrase and save both the public and private key.   
+2. Assign a passphrase and save both the public and private key.   
 
-.. image:: images/puttygen-passphrase.png
-   :align: center
-   :alt: PuTTYgen assign passphrase and save
+   .. image:: images/puttygen-passphrase.png
+      :align: center
+      :width: 90%
+      :alt: PuTTYgen assign passphrase and save
+      :class: addpadding
 
-.. note::
+   .. note::
 
-   A reasonable pattern for your private key name *ucinetid*-to-hpc3 and *ucinetid*-to-hpc3.pub for the public key. 
-   replace *ucinetid* with your specific id, e.g., *panteater*.
+      A reasonable pattern for your private key name :tt:`ucinetid-to-hpc3` and :tt:`ucinetid-to-hpc3.pub` for the public key. 
+      replace *ucinetid* with your specific id, e.g., *panteater*.
 
-The private key file is of type *ppk* for PuTTY Private Key.  You will need to copy to the contents of your
-*public* key to HPC3.  The private key should remain on your laptop. 
-
-.. _generate-ssh-keys-windows-powershell:
+   The private key file is of type *ppk* for PuTTY Private Key.
+   The private key should remain on your laptop. 
+   You will need to copy to the contents of your *public* key to HPC3. 
+   See section :ref:`copy-ssh-keys-windows` below.
 
 
 .. _copy-ssh-keys-windows:
 
-Copying SSH Public Key From Windows to HPC3
+Copy SSH Public Key From Windows to HPC3
 -------------------------------------------
 
-Since Windows does have the convenience of ``ssh-copy-id``, one has to type a bit more.  The following can be run 
-from either a Command window or a Powershell window to place the key *panteater-to-hpc3.pub* in the appropriate place.
+   Since Windows does have the convenience of ``ssh-copy-id``, one has to type a bit more.  The following can be run 
+   from either a Command window or a Powershell window to place the key :tt:`panteater-to-hpc3.pub` in the appropriate place.
 
-.. parsed-literal::
+   .. parsed-literal::
 
-   C:\> :blue:`type .\\panteater-to-hpc.pub | ssh panteater@hpc3.rcic.uci.edu "cat >> .ssh/authorized_keys"`
-   (panteater@hpc3.rcic.uci.edu) Password:
-   (panteater@hpc3.rcic.uci.edu) Duo two-factor login for panteater
+      C:\> :blue:`type .\\panteater-to-hpc.pub | ssh panteater@hpc3.rcic.uci.edu "cat >> .ssh/authorized_keys"`
+      (panteater\@hpc3.rcic.uci.edu) Password: :red:`type your UCInetID password`
+      (panteater\@hpc3.rcic.uci.edu) Duo two-factor login for panteater
 
-   Enter a passcode or select one of the following options:
+      Enter a passcode or select one of the following options:
+   
+      1. Duo Push to XXX-XXX-1234
+   
+      Passcode or option (1-1): :red:`type 1`
 
-   1. Duo Push to XXX-XXX-1234
+      C:\>
 
-   Passcode or option (1-1): 1
+      The content of your public key will be added to :tt:`$HOME/.ssh/authorized_keys` file
+      in your HPC3 account.
 
-   C:\>
 
-   The content of your public key will be added to :tt:`$HOME/.ssh/authorized_keys` file
-   in your HPC3 account.
+.. _additional tutorials:
 
 Additional tutorials
 --------------------
