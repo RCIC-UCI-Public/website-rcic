@@ -101,6 +101,11 @@ use your specific software instructions.
 
 3. Transfer your public ssh key to HPC3
 
+   .. attention::
+
+      For windows, ``ssh-copy-id`` does not exist, utilize the method  
+      :ref:`Copy ssh keys on Windows <copy-ssh-keys-windows>`
+
    Use ``ssh-copy-id`` command to copy your public key
    from your laptop to your account on HPC3.
 
@@ -141,6 +146,12 @@ Generate SSH keys on Linux
 Follow the of the steps for :ref:`generating ssh keys on MacOS <generate-ssh-keys-mac>`
 except in the first step use any terminal application that is available on your laptop.
 
+Generate SSH keys on Windows in Powershell
+------------------------------------------
+
+Follow the of the steps for :ref:`generating ssh keys on MacOS <generate-ssh-keys-mac>`
+except in the first step use Powershell that is available on your laptop.
+
 .. _generate-ssh-keys-windows-putty:
 
 Generate SSH keys on Windows with PuttyGen
@@ -173,12 +184,31 @@ The private key file is of type *ppk* for PuTTY Private Key.  You will need to c
 
 .. _generate-ssh-keys-windows-powershell:
 
-Generate SSH keys on Windows in Powershell
-------------------------------------------
 
-Follow the of the steps for :ref:`generating ssh keys on MacOS <generate-ssh-keys-mac>`
-except in the first step use Powershell that is available on your laptop.
+.. _copy-ssh-keys-windows:
 
+Copying SSH Public Key From Windows to HPC3
+-------------------------------------------
+
+Since Windows does have the convenience of ``ssh-copy-id``, one has to type a bit more.  The following can be run 
+from either a Command window or a Powershell window to place the key *panteater-to-hpc3.pub* in the appropriate place.
+
+.. parsed-literal::
+
+   C:\> :blue:`type .\\panteater-to-hpc.pub | ssh panteater@hpc3.rcic.uci.edu "cat >> .ssh/authorized_keys"`
+   (panteater@hpc3.rcic.uci.edu) Password:
+   (panteater@hpc3.rcic.uci.edu) Duo two-factor login for panteater
+
+   Enter a passcode or select one of the following options:
+
+   1. Duo Push to XXX-XXX-1234
+
+   Passcode or option (1-1): 1
+
+   C:\>
+
+   The content of your public key will be added to :tt:`$HOME/.ssh/authorized_keys` file
+   in your HPC3 account.
 
 Additional tutorials
 --------------------
