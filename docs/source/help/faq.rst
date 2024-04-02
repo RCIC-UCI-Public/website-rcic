@@ -20,6 +20,12 @@ Who can have an account?
 
 Anyone with a valid UCInetID. Please see :ref:`get account`.
 
+How long can I have an account after graduation/separation from UCI?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For as long as your UCInetID is valid.
+Please see :ref:`closing account`.
+
 Who defined the policy?
 ~~~~~~~~~~~~~~~~~~~~~~~
 
