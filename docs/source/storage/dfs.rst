@@ -84,8 +84,10 @@ Storing Files
 **File permissions**
 
   .. important:: File permissions are used in determining quotas.
-                 When we creat **Private area** and  **Group shared area** on DFS 
+                 When we create **Private area** and  **Group shared area** on DFS 
                  we set correct permissions on the top level directories. 
+                 The permissions involve setting logical UNIX groups. 
+                 Please see :ref:`unix primer`  to familiarize yourself with UNIX groups.
 
 
   .. warning:: Each group lab area is initially configured with the **group sticky bit set**
@@ -129,7 +131,7 @@ How to check
 For all DFS file systems  including selective backup one can use ``dfsquotas``
 command to check user/group quotas on a particular DFS pool. 
 
-**To see the quotas for user** :tt:`panteater` **on** :tt:`/dfs6`:
+**To see the quotas for user** :tt:`panteater` **on private allocation in** :tt:`/dfs6`:
 
   .. code-block:: console
 
@@ -142,20 +144,49 @@ command to check user/group quotas on a particular DFS pool.
            user/group     ||           size          ||    chunk files
           name     |  id  ||    used    |    hard    ||  used   |  hard
      --------------|------||------------|------------||---------|---------
-      panteater_lab|012345||   26.25 TiB|   50.00 TiB||  1310459| 18500000  # see 1
-        alpha_users|158537||      0 Byte|      1 Byte||        0|        1  # see 2
+      panteater_lab|012345||   26.25 GiB| 1024.00 GiB||  1310459|unlimited  # see 1
+        alpha_users|158537||      0 Byte| 1024.00 Gib||        0|unlimited  # see 2
           panteater|000865||  755.59 GiB| 1024.00 GiB||   258856|unlimited  # see 3
 
-  The above shows that a user :tt:`panteater`:
+  The above shows that a user :tt:`panteater` can write in its personal
+  area :tt:`/pub/panteater` using the above listed 3 groups:
 
-  1. can write in the allocation for the group :tt:`panteater_lab`
-     where the total space is 50Tb and ~26Tb of it is already used. Note, space
-     used by the group include all users allowed to write in this area.
-  2. :tt:`panteater` belongs to a supplementary group :tt:`alpha_users`, this group
-     has no allocation (1 byte) and the user will not be able to store any files
-     that have this group ownership.
-  3. can write in personal :tt:`/pub/panteater` area, where the default allocation
-     is 1Tb (1Tb = 1024Gb) and ~756Gb is already used by the user.
+  1. :tt:`panteater` belongs to a supplementary group :tt:`panteater_lab`, and
+     wrote 26.25Gb of data.
+  2. :tt:`panteater` belongs to a supplementary group :tt:`alpha_users`, and
+     did not write any files  using this group, but can if needed.
+  3. using a default :tt:`panteater` group  user wrote
+     ~756Gb of total allocation of 1Tb (1Tb = 1024Gb).
+
+  .. note:: Listed above groups are logical UNIX groups associated with the user account,
+            and the primary use of such groups is to assign "group ownership" of files and directories.
+            The 1Tb allocation is a total space that can be used by all listed
+            user UNIX groups combined, not by each group individually.
+
+**To see the quotas for user** :tt:`panteater` **in lab shared allocation in** :tt:`/dfs9`:
+
+  .. code-block:: console
+
+     $ dfsquotas panteater dfs9
+
+     ==== [Group Quotas on dfs6]
+
+     Quota information for storage pool Default (ID: 1):
+
+           user/group     ||           size          ||    chunk files
+          name     |  id  ||    used    |    hard    ||  used   |  hard
+     --------------|------||------------|------------||---------|---------
+      panteater_lab|012345||   38.36 TiB|   40.00 TiB||  1310459|unlimited  # see 4
+        alpha_users|158537||      0 byte|    1   byte||        0|        1  # see 5
+          panteater|000865||      0 byte|    1   byte||        0|        1  # see 5
+
+  4. The above shows that user :tt:`panteater` can write in its group allocation on :tt:`dfs9`
+     only if using UNIX group :tt:`panteater_lab` for which there is 40Tb
+     allocation.  Note, the allocated space 40Tb and the used space 38.36Tb
+     are totals by all users allowed to write in this area.
+  5. There is 0 quota (shown as 1 byte) for a personal UNIX group
+     :tt:`panteater` or a supplemental UNIX group :tt:`alpha_users`. If a user tries
+     to write  using these UNIX groups it will result in permissions and over the quota errors.
 
 ..
    next two blocks are commented out 
