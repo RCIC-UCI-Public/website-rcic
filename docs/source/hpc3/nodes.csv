@@ -208,6 +208,7 @@ hpc3-gpu-23-05,RCIC,Dell PowerEdge R750xa,GRZD6S3,2027-10-16,Intel(R) Xeon(R) Go
 hpc3-gpu-23-06,RCIC,Dell PowerEdge R750xa,DRZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-23-07,RCIC,GIGABYTE,GLGBR5312A0019,NaN,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-23-08,RCIC,GIGABYTE,GLGBR5312A0029,NaN,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
+hpc3-gpu-23-09,vswarup,GIGABYTE,G292-280-00,NaN,Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz,3095,64
 hpc3-gpu-24-00,RCIC,Dell PowerEdge R750xa,2SZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-24-01,RCIC,Dell PowerEdge R750xa,4SZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-24-02,RCIC,Dell PowerEdge R750xa,JRZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
