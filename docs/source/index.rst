@@ -47,6 +47,7 @@ RCIC User Documentation
    storage/home
    storage/dfs
    storage/crsp
+   storage/crsp-annex
    storage/crsp-clients
    storage/crsp-troubleshoot
 

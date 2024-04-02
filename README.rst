@@ -37,6 +37,8 @@ See *notes.rst*
 Install on web server host
 --------------------------
 
+Current web server host is web3.oit.uci.edu  (rcic.uci.edu is an alias )
+
 1. Install prerequisites for system python
 
    .. code-block:: console
@@ -57,17 +59,36 @@ Install on web server host
       yum install rocks-devel-7.1-13.x86_64.rpm
       yum install rcic-module-support-1.2-1.x86_64.rpm
       yum install rcic-module-path-1.0-5.x86_64.rpm
-      yum install python_3.8.0-3.8.0-5.x86_64.rpm
-      yum install python_3.8.0-module
       yum install python_3.8.0-module-3.8.0-5.x86_64.rpm
       yum install python_3.8.0-pip-20.0.2-4.x86_64.rpm
       yum install python_3.8.0-setuptools-46.0.0-4.x86_64.rpm
       yum install python_3.8.0-urllib3-1.25.8-4.x86_64.rpm
 
+      bash
+      module load pytohn/3.8.0
       pip install sphinx==6.2.0
       pip install sphinx_rtd_theme
 
    This version results in correct themes.
+
+   **After the server update to OS 8** :
+
+   Install corresponding RPMS for the updated OS.
+
+   .. code-block:: console
+
+      yum install rocks-devel
+      yum install rcic-module-support
+      yum install rcic-module-path
+      yum install python_3.8.0-module
+      yum install python_3.8.0-pip
+      yum install python_3.8.0-setuptools
+      yum install python_3.8.0-urllib3
+
+      bash
+      module load python/3.8.0
+      pip install sphinx==6.2.0
+      pip install sphinx_rtd_theme
 
 3. Create a cron script ``cron-rtd-website `` and install as */etc/cron.hourly/rtd-website*.
 
@@ -78,7 +99,7 @@ Install on web server host
    * in case there wee updates it runs commands to create html files
      and installs resulting *build/html/* as **/var/www/html/rcic-website**
      which is the website *DocumentRoot*, configured in */etc/httpd/conf.d/ssl.conf*.
-	 A previous version is moved to /tmp.
+     A previous version is moved to /tmp.
    * a success/failure is recorded in /var/log/website-rtd.log
 
    See details in the cron script.

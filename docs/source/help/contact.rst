@@ -9,7 +9,7 @@ Submit support ticket
 ---------------------
 
 If you need help, please submit a **support ticket** via sending an email
-to hpc-request@uci.edu. Our team members will try to assist you.
+to hpc-support@uci.edu. Our team members will try to assist you.
 
 | The email must contain useful information for us to help you.
 | Please see how to :ref:`submit ticket`

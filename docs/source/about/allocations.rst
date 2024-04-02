@@ -20,8 +20,8 @@ and :ref:`recharge allocations`.
 
   - :ref:`recharge allocations`:  when the baseline is insufficient for a particular lab,
     researchers can purchase additional capacity using grant or other funds. The recharge
-    (pi-funded) allocations are available for :ref:`buy computing`, :ref:`buy crsp` and
-    :ref:`buy dfs`.
+    (pi-funded) allocations are available for :ref:`buy computing`, :ref:`CRSP storage <buy crsp>` and
+    :ref:`DFS storage <buy dfs>`.
 
   .. note:: **Faculty allocations are PI-centered** but the owners can  grant
             access to their allocations to students, postdocs, and other faculty members.
@@ -221,8 +221,8 @@ Please see :ref:`hardware faq` for additional info about hardware purchases.
 
 .. _buy crsp:
 
-CRSP storage
-^^^^^^^^^^^^
+Purchase CRSP storage
+^^^^^^^^^^^^^^^^^^^^^
 
 | Please send a request to hpc-support@uci.edu telling us
 |   1. How much CRSP space you need (TB)
@@ -234,8 +234,8 @@ on the CRSP system.
 
 .. _buy dfs:
 
-DFS storage
-^^^^^^^^^^^
+Purchase DFS storage
+^^^^^^^^^^^^^^^^^^^^
 
 | Please send a request to hpc-support@uci.edu telling us
 |   1. How much DFS space you need (TB)

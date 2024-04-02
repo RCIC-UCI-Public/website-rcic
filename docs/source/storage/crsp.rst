@@ -75,7 +75,7 @@ CRSP allocations are provided for UCI faculty members as follows:
   - 1TB quota per researcher
 
 **Recharge allocation - Lab area**
-  - Researchers who require more capacity than the baseline allocation, can purchase additional capacity,
+  - Researchers who require more capacity than the baseline allocation, can purchase additional capacity.
     Please see  :ref:`recharge storage rates` and :ref:`buy crsp`
 
 In general, users do not get a default CRSP allocation.

@@ -138,7 +138,8 @@ hpc3-20-28,pjohnso3,PowerEdge R640,BXDYJD3,2026-08-04,Intel(R) Xeon(R) Gold 6240
 hpc3-20-29,pjohnso3,PowerEdge R640,BXF0KD3,2026-08-02,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
 hpc3-20-30,pjohnso3,PowerEdge R640,BXDWJD3,2026-08-04,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
 hpc3-20-31,pjohnso3,PowerEdge R640,BXD8KD3,2026-08-04,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
-hpc3-21-00,vberroca,PowerEdge R640,DH35KD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
+hpc3-20-32,vberroca,PowerEdge R640,BXDXJD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
+hpc3-21-00,RCIC,PowerEdge R640,DH35KD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
 hpc3-21-01,RCIC,PowerEdge R640,DH36KD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
 hpc3-21-02,RCIC,PowerEdge R640,DH2XJD3,2026-08-04,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
 hpc3-21-03,RCIC,PowerEdge R640,DH27KD3,2026-08-04,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48

@@ -285,7 +285,7 @@ To run a GPU job one needs to request:
 
    To see all available partitions use ``sinfo`` command
    that lists all partitions and nodes managed by Slurm. All users can use
-   *free-gpu* and *gpu-debug* partitions. To use one of GPU partitions add to
+   *free-gpu* partition. To use one of GPU partitions add to
    your submit script
 
    .. code-block:: bash
@@ -332,7 +332,7 @@ steps to start a container.
 1.  **Authenticate at Jupyterhub portal**
 
    Point your browser
-   to `https://hpc3.rcic.uci.edu/biojhub3/hub/login <https://hpc3.rcic.uci.edu/biojhub3/hub/login>`_
+   to `https://hpc3.rcic.uci.edu/biojhub4/hub/login <https://hpc3.rcic.uci.edu/biojhub4/hub/login>`_
    You will see the following screen where you will Use your usual login
    credentials (UCInetID and password) to sign in:
 
@@ -400,21 +400,57 @@ steps to start a container.
    Jupyter writes a *state* file for your lab, so that when you relaunch, you
    will be back where you were prior to shutting down.
 
+   .. attention:: The shutdown process involves (1) shutting down ALL your notebooks (2) then 
+                  shutting down the server. If you simply shutdown the server, the notebooks
+                  remain running and consume server resources. 
+
+   **Step 1: Shut down notebooks**
+
+   For each active notebook, from the :guilabel:`File` menu choose :guilabel:`Close and Shutdown Notebook`:
+
+   .. image:: images/close-notebook-1.png
+      :align: center
+      :width: 80%
+      :alt: close notebook method 1
+
+   There will be a pop-up window asking to confirm, click :guilabel:`Ok`
+
+   .. image:: images/close-notebook-1-confirm.png
+      :align: center
+      :width: 30%
+      :alt: confirm close notebook method 1
+
+   Alternatively, choose the sessions tab on the left hand panel and click
+   :guilabel:`SHUT DOWN` for each session:
+
+   .. image:: images/close-notebook-2.png
+      :align: center
+      :width: 80%
+      :alt: close notebook method 2
+
+   **Step 2: Shutdown server**
+
    From the :guilabel:`File` menu choose :guilabel:`Hub Control Panel`:
 
-   .. image:: images/jhub-control-panel.png
+   .. image:: images/jhub-logout-1.png
       :align: center
-      :width: 70%
-      :alt: server control panel
+      :width: 80%
+      :alt: control panel
 
    and you will be forwarded to
    a screen where you can press on :guilabel:`Stop My Server` to shut down the server:
 
-   .. image:: images/jhub-logout.png
+   .. image:: images/jhub-logout-2.png
       :align: center
-      :width: 70%
+      :width: 80%
       :alt: server logout
 
+   your window should look similar to the following when the server is stopped:
+
+   .. image:: images/jhub-logout-3.png
+      :align: center
+      :width: 85%
+      :alt: server logout result
 
 .. _Jupyter notebook:
 
@@ -481,7 +517,7 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
       [user@hpc3-14-00:~]$ jupyter notebook --no-browser --ip=$(hostname -s) --port=8989
       [I 18:19:57.912 NotebookApp] JupyterLab extension loaded from /opt/apps/anaconda/2020.07/lib/python3.8/site-packages/jupyterlab
       [I 18:19:57.912 NotebookApp] JupyterLab application directory is /opt/apps/anaconda/2020.07/share/jupyter/lab
-      [I 18:19:57.914 NotebookApp] Serving notebooks from local directory: /data/homezvol0/npw
+      [I 18:19:57.914 NotebookApp] Serving notebooks from local directory: /data/homezvol0/panteater
       [I 18:19:57.914 NotebookApp] The Jupyter Notebook is running at:
       [I 18:19:57.914 NotebookApp] http://hpc3-14-00:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
       [I 18:19:57.914 NotebookApp]  or http://127.0.0.1:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
@@ -584,8 +620,8 @@ Matlab
    .. literalinclude:: files/matlab-multi-cpu.sub
       :language: bash
 
-   The above will submit the Matlab code [.tt]*mycode.m* with specified requested resources.
-   Note: because the default is one CPU per task, [.tt]*-n 12* can be thought of as requesting 12 CPUs.
+   The above will submit the Matlab code :tt:`mycode.m` with specified requested resources.
+   Note: because the default is one CPU per task, :tt:`-n 12` can be thought of as requesting 12 CPUs.
 
    The equivalent command-line method:
 
@@ -596,6 +632,40 @@ Matlab
                                --wrap="matlab -nodesktop -nosplash -singleCompThread \
                                -r mycode -logfile mycode.out"
 
+3. Parallel pool on a single node 
+
+   Matlab jobs can be run on multiple CPUs in a parallel pool. This
+   requires :tt:`parpool` and :tt:`parcluster` matlab commmands in
+   matlab script to setup the pool. The :tt:`parfor` loop is used to distribute iterations to multiple workers
+   where each worker is running on a different CPU.
+
+   .. note:: Current Matlab license does not include **MATLAB Parallel Server** 
+             therefore running parallel jobs across multiple nodes is not
+             supported. Parallel pool jobs can be only run on a single node.
+
+   .. centered:: File matlab-parallel.sub
+
+   .. literalinclude:: files/matlab-parallel.sub
+      :language: bash
+
+   The above submit script will submit the Matlab code :tt:`prime.m` with specified requested resources
+   and collect desired output in the output file :tt:`matlab-example.out` (separate from SLURM output file).
+   Note that requested number of tasks is used in Matlab script to setup the
+   parallel pool size via a SLURM variable :tt:`SLURM_NTASKS`.
+   Contents of prime.m:
+
+   .. centered:: File prime.m
+
+   .. literalinclude:: files/prime.m
+      :language: matlab
+
+   Changing the Matlab code to :tt:`hello.m` in the submit script  can run "Hello World" example
+   that shows another way to use parallel workers.
+
+   .. centered:: File hello.m
+
+   .. literalinclude:: files/hello.m
+      :language: matlab
 
 .. _job mpi:
 

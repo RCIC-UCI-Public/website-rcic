@@ -202,14 +202,14 @@ You must be on the UCI/VPN Network for this link to work.
 
 Most nodes in HPC3 have at least 40 cores/node.
 
-You may download node details info as the `CVS file </hpc3/nodes.csv>`_
+You may download node details info as the `CVS file </_static/nodes.csv>`_
 or browse the table below.
 
 Click on the column header for sorting.
 
 .. csv-table:: Nodes info updated :blogauthor:`21 Feb 2023`.
    :class: noscroll-table sortable
-   :file: nodes.csv
+   :file: ../_static/nodes.csv
    :widths: 5,5,18,20,15,22,10,5
    :header-rows: 1
 

@@ -23,5 +23,18 @@ After you get a confirmation email about your account being created please revie
 * :ref:`acceptable use`
 * :ref:`login`
 
-.. note:: We delete inactive accounts after 1 year of no activity
+.. _closing account:
 
+Closing an account
+==================
+
+For as long as you have a valid UCInetID and you use your account it remains active. 
+When you separate from UCI your UCInetID will become inactive some time after
+the separation.
+
+The accounts are closed when:
+
+1. An account has no activity for 1 year.
+2. Once your UCInetID loses student status your HPC3 account will be closed.
+   Most student alumni keep student status for up to 1 year after the graduation.
+3. When your UCInetID loses staff/researcher/PI affiliation, your account will be closed.

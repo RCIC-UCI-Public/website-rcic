@@ -64,7 +64,7 @@ We try to respond by the next business day.
     * file permissions
     * quota problems
     * Slurm jobs submission errors
-    * OOM errors
+    * OOM Killed errors
 
 :underline:`When submitting a ticket`
 

@@ -3,24 +3,18 @@
 User installed software
 =======================
 
-Users often ask to add packages to
-:tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda` / :tt:`miniconda` base installations.
+Users often ask to add specific software packages for
+:tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda`.
 
-| These usually need to be installed by users themselves.
-| The following guides explain how to install software in user area:
-
-Please note, you don't need to install
-:tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda` / :tt:`miniconda`, we
-already have multiple versions of each software installed and they all are
-accessible via modules.
-
-Simply load Python/R/Perl/conda/miniconda  module  using command ``module avail``
-(read :ref:`list modules` for details) to find out
-what particular software is already installed), then follow your package
-installation instructions.
+| These software packages need to be installed by users themselves.
+| The following guides explain how to install desired software in user area:
 
 .. note:: | There are a few important initial installation steps that are unique to the HPC3.
           | They are explained in the guides below.
+
+          | Please note, you don't need to install :tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda`. We have a few
+          | versions of each software installed and they all are accessible via modules.
+
 
 .. centered:: HPC3 software installation guides
 
@@ -34,10 +28,19 @@ installation instructions.
 Install with conda
 ------------------
 
-When you want to build a specific application using conda
-you :red:`do not need to install Miniconda or Anaconda`.
+.. note:: | For general info on conda commands and builds please see conda documentation
+          | `Bulding Conda local environments <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html>`_
+
+**Steps below explain the basic conda application install specific to the cluster**.
+
+Usually, to install an application one needs to create a local conda environment.
+You can choose either Miniconda or Anaconda depending on what is your package
+installation instructions require and build your local conda environment.
+
+:red:`You do not need to install Miniconda or Anaconda` (your software
+instructions may say you do).
 We provide a few basic Minicaonda/Anaconda versions that can be accessed via modules.
-To find out what is available:
+To find out what modules are available:
 
 .. code-block:: console
 
@@ -49,21 +52,15 @@ To find out what is available:
    ---------------- /opt/rcic/Modules/modulefiles/LANGUAGES -----------------------
    anaconda/2020.07 anaconda/2021.11 anaconda/2022.05
 
-Usually, to install an application one needs to create a local conda environment.
-You can choose either Miniconda or Anaconda depending on what is your package
-installation instructions require and build your local conda environment.
-
-For additional info on conda-specific commands and builds please see conda documentation
-`Bulding Conda local environments <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html>`_
-
-Steps below explain the basic build specific to the cluster.
-
 To install conda environment in your user area
-follow the steps below. The example is given for the
-anaconda version 2021.11 for Python 3.9.7. The steps are the
-same for other versions of conda (substitute version numbers where needed).
-Your output will have your UCINetID where needed in steps below (we use as an
-example panteater).
+follow the example steps below. The example is given for the
+anaconda version 2021.11 and for Python 3.9.7. The steps are the
+same for other versions of conda (simply substitute name/version where needed).
+Your commands output will have your UCINetID where applicable (in the steps below we use as an
+example panteater UCINetID).
+
+.. attention:: Note, if you previoulsy tried to install conda packages make sure that your :tt:`$HOME/.bashrc`
+   file does not have any conda-added lines (step 4 below explains what they are).
 
 1. **Get an interactive node**
 
@@ -75,11 +72,14 @@ example panteater).
 
       [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
 
+   For info how to get an interactive node with more memory or with GPU
+   see :ref:`interactive job`.
+
    Next steps are executed on interactive node.
 
 2. **Load desired anaconda/miniconda module**
 
-   For building in your user area, first you need to load anaconda module:
+   For building in your user area (this means in your $HOME area), first you need to load anaconda module:
 
    .. code-block:: console
 
@@ -339,7 +339,7 @@ example panteater).
            $ conda update -n base -c defaults conda
 
         Package Plan ##
-         environment location: /data/homezvol0/npw/.conda/envs/NewEnv
+         environment location: /data/homezvol0/panteater/.conda/envs/NewEnv
 
        Proceed ([y]/n)? y
 
@@ -369,8 +369,8 @@ example panteater).
         [user@login-x:~]$ conda env list
         # conda environments:
         #
-        mageck             /data/homezvol0/npw/.conda/envs/mageck
-        ngl                /data/homezvol0/npw/.conda/envs/ngl
+        mageck             /data/homezvol0/panteater/.conda/envs/mageck
+        ngl                /data/homezvol0/panteater/.conda/envs/ngl
         base            *  /opt/apps/anaconda/2022.05
 
      Note, the :tt:`*` in the output means active loaded conda version (per
@@ -763,8 +763,8 @@ Sometime people need to create containers for running specific versions of
 applications or sets of applications.
 We provide Singularity containers that can be built and used from Docker recipes.
 
-For in-depth guide please see
-`SingularityCE User Guide <https://docs.sylabs.io/guides/3.9/user-guide/introduction.html>`_
+For more info about using containers please see
+`SingularityCE User Guide <https://docs.sylabs.io/guides/latest/user-guide/introduction.html>`_
 
 When you want to build a Singularity container you :red:`do not need to install Singularity`.
 We provide a few versions of Singularity and its prerequisites that can be accessed via modules.
@@ -811,7 +811,7 @@ latest available singularity version.
 3. **Run a container create command**
 
    Follow your specific software instructions for your build.
-   Singularity  containers can be created in two ways:
+   Singularity  containers can be created as follows:
 
    3a. **Create from a download of pre-built images**
 
@@ -848,6 +848,13 @@ latest available singularity version.
           vg.sif
 
    3b. **Build from a recipe**
+
+       This approach involves using a definition file (also called a recipe file)
+       and administrative access to the node which we do not allow to regular
+       users. You will need to submit a ticket and provide us with a recipe
+       file and your software URL.  
+
+..   3b. **Build from a recipe**
 
        This approach involves using a definition file (also called a recipe file)
        for building a container. The definition file can be downloaded (from your
@@ -895,7 +902,7 @@ latest available singularity version.
       [user@hpc3-xx-yy:~]$ singularity run /pub/anteater/vg.sif arg1 arg2 arg3
 
    Additional commands to interact with the container are ``shell`` and ``exec``.
-   Please see the `SingularityCE User Guide <https://docs.sylabs.io/guides/3.9/user-guide/introduction.html>`_
+   Please see the `SingularityCE User Guide <https://docs.sylabs.io/guides/latest/user-guide/introduction.html>`_
    for in-depth command reference.
 
 .. _compile:
@@ -903,20 +910,24 @@ latest available singularity version.
 Compile software
 ----------------
 
-Sometimes people need to compile specific versions of applications.
+Sometimes people need to compile specific versions of applications from source.
 This is done according to the specific software instructions
-and taking into account cluster existing modules.
+and using cluster's existing modules.
+
+.. attention:: Commands ``sudo`` and ``su`` are not available per security vulnerability.
 
 In general, for compiling  one needs a compiler, some prerequisite software packages, ``make``,
-``cmake`` or a few other build tools. All of these are accessible via modules.
+``cmake`` or a few other build tools. All of generic build tools needed for compilation are accessible via modules.
 
 Steps below explain the basic setup specific to the cluster.
 
 1. **Get an interactive node**
 
-   Always claim an interactive node because software builds involve compilation and downloads
-   that can use  a lot of  CPU time and memory. If you do this on login node
-   you will have problems and your install will likely fail.
+   Always claim an interactive node because software builds involve downloads
+   and compilation and both actions can use a lot of CPU time and memory.
+   If you do installations on a login node you will have problems and your install will likely fail.
+
+   From a login node:
 
    .. code-block:: console
 
@@ -949,18 +960,16 @@ Steps below explain the basic setup specific to the cluster.
       [user@hpc3-xx-yy:~]$ module avail cmake
       [user@hpc3-xx-yy:~]$ module avail foundation
 
-   Note, **foundation** includes ``cmake`` plus a few other tools. See ``module display foundation/v8``
-   output for details.
+   Module **foundation** includes ``cmake``, ``make`` plus a few other commands.
+   For details see the output of ``module display foundation/v8``.
 
-   Your software may have a prerequisite such as HDF5. We have a few HDF5 versions
-   installed.
-
-   For any prerequisites please check already installed modules and load if you find
+   Your software may have prerequisites, 
+   for any prerequisites please check already installed modules and load if you find
    that they satisfy your software needs. See :ref:`modules` guide for
    information how to find and use modules.
 
-   For example, if you are compiling software that needs gcc compiler, cmake,
-   OpenMPI-aware HDF5 you will need to load the following modules:
+   For example, if you are compiling software that needs ``gcc`` compiler, ``cmake``,
+   and OpenMPI-aware HDF5 you will need to load the following modules:
 
    .. code-block:: console
 
@@ -985,16 +994,42 @@ Steps below explain the basic setup specific to the cluster.
    After loading the modules you can configure and compile per your package instructions.
 
    Many packages use ``configure`` or ``cmake`` for configuring
-   and for specifying the installation location. We recommend to use your user area
-   for the installation location, for example, :tt:`/pub/ucinetid/sw/`.
-   The resulting install will create :tt:`bin`, :tt:`lib`, and any
-   other subdirectories in :tt:`/pub/ucinetid/sw/`
+   and for specifying the installation location. The instructions
+   may tell to edit makefiles and set some variables.
+
+   For example, if your software package requires HDF5, you can use ``module display``
+   command to find out what environment variables are set  by a specific HDF5
+   module and then use them in your makefiles or in your configuration commands.
+
+   While your software package may have some optional configuration parameters,
+   specifying an installation location is a MUST. We recommend to use your user
+   area for the installation location, for example, :tt:`/pub/ucinetid/sw/`.
+
+   If using ``cmake`` provide installation directory during the **install
+   stage**:
+
+   .. code-block:: bash
+
+      cmake -DCMAKE_BUILD_TYPE=RELEASE <other args per instructions>
+      cmake -DCMAKE_INSTALL_PREFIX=/pub/ucinetid/sw
+
+   If using ``make`` provide installation directory during the **configure stage**:
+
+   .. code-block:: bash
+
+      configure --prefix=/pub/ucinetid/sw <other args per instructions>
+      make
+      make install
+
+   The resulting configuration will create :tt:`bin`, :tt:`lib`, and any
+   other required subdirectories in :tt:`/pub/ucinetid/sw/` and the following
+   install commands will install compiled files there.
+
 
 4. **Create a module for your software**
 
-   This step may be optional and depends on what your software install provides and how your
-   software is built.
-
+   This step may be optional and depends on what your software installation provides
+   and how it was built.
    For instructions on creating modules for your installed
    software please see :ref:`user installed modules`.
 

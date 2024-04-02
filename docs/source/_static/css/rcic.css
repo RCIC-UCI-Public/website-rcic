@@ -21,10 +21,10 @@
 .rcicblue {color: #00579e;}
 .proposed {color: #00afaf; font-weight: bold;}
 .bluelight {color: #0092e0;}
-.bluegray {color: #88bfd1};
+.bluegray {color: #88bfd1;}
 
 /* ==== for recharge able ==== */
-.recharge table table {
+.recharge-table table {
     width: 100% !important;
 }
 /* table header */
@@ -92,3 +92,7 @@
 	font-weight: bold;
     font-size: 18px;
 }
+
+/* add a bit of padding after the image. Otherwise
+   regular text is too close to the image bottom */
+img.addpadding {padding: 0.5em;}

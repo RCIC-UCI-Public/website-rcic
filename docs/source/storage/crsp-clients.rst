@@ -130,6 +130,9 @@ Configure Lab Share
 
 This will **Map CRSP Lab Share** as a folder on your laptop.
 
+  .. attention:: If Accessing :ref:`crsp annex`, then this step requires modification and is similar to 
+                 :ref:`windows add shares`
+
 **Configure Step 1**
   Once the CRSP Desktop application is opened, there will be a small icon in the top toolbar:
 
@@ -178,6 +181,7 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
   .. note:: The **URL** is created from the information you type in other fields,
             you don't directly change it. This URL is for  using the SFTP protocol to access
             CRSP and is an end-to-end encrypted connection.
+
 
 **Configure Step 3**
   After editing the bookmark with the specific information, your screen should
@@ -343,6 +347,9 @@ Configure Lab Share
 
 This will **Map CRSP Lab Share** as a folder on your laptop.
 
+  .. attention:: If Accessing :ref:`crsp annex`, then this step requires modification and is similar to 
+                 :ref:`windows add shares`
+
 **Configure Step 1**
   CRSP Desktop shows in the Windows
   `Notification Area <https://support.microsoft.com/en-us/windows/customize-the-taskbar-notification-area-e159e8d2-9ac5-b2bd-61c5-bb63c1d437c3>`_
@@ -446,6 +453,30 @@ Here is an example with multiple connections configured and active:
    :alt: multiple lab shares
 
    Figure 11: Multiple Lab Shares
+
+
+Configuring CRSP Annex 
+^^^^^^^^^^^^^^^^^^^^^^
+
+Configuring CRSP Desktop to access data on :ref:`crsp annex` is very similar to configuring CRSP. 
+However, instead of using the :guilabel:`CRSP Lab` as the connection type under 
+:guilabel:`panteater` bookmark, you should instead select the :guilabel:`SFTP (SSH File Transfer Protocol)`.
+Once you have done that, you can then:
+
+   * Select the Server as :tt:`crsp-annex.crsp.uci.edu`
+   * Select the path as :tt:`/dfs3b/crsp/lab/<pi>`
+   * Recommend that you change the Nickname to something like: :tt:`CRSP ANNEX <pi>`
+
+The following figure shows this set up for a particular user (*ppapadop*) and a particular pi (*npw*)
+
+.. figure:: images/win/win-crsp-annex.png
+   :align: center
+   :width: 60%
+   :alt: CRSP Annex configuration
+
+   Figure 12: CRSP Annex configuration
+
+
 
 .. _client web browser:
 

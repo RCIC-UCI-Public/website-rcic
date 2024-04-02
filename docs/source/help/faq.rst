@@ -20,6 +20,12 @@ Who can have an account?
 
 Anyone with a valid UCInetID. Please see :ref:`get account`.
 
+How long can I have an account after graduation/separation from UCI?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For as long as your UCInetID is valid.
+Please see :ref:`closing account`.
+
 Who defined the policy?
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -63,8 +69,10 @@ a rate that reduces the financial impact of overhead on recharged-cycles.
 :bluelight:`Accounting`
 -----------------------
 
-How can I be added to my PI's lab account?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _add lab account:
+
+How can I be added to my PI's Slurm lab account?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PIs have control over who can charge to their account and how much they can charge.
 Please send a request to hpc-support@uci.edu
@@ -161,10 +169,10 @@ Please see :ref:`allocations`
 How do I purchase more DFS space?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please see :ref:`buy dfs` how to purchase more DFS storage
+Please see how to :ref:`buy dfs`
 
-I want to use my group DFS area, how do i do this?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+I want to use my PI's group DFS area, how do i do this?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If your PI already has a group DFS area you need to submit a ticket
 to hpc-support@uci.edu requesting to be be added to a specific group
@@ -173,6 +181,11 @@ Your PI will need to reply with a confirmation in order for us to approve your r
 
 :bluelight:`CRSP`
 -----------------
+
+I want to use my PI's group CRSP area, how do i do this?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please see :ref:`getting crsp account`
 
 Exactly who is entitled to baseline allocation?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -306,6 +319,16 @@ You need to check your :ref:`dfs quotas` for the specific DFS filesystem.
 :bluelight:`Slurm jobs`
 -----------------------
 
+My job failed with OOM error 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OOM signifies out of memory errors. The actual message can vary depending on 
+where and how you run your application and may contain *OOM Killed*,
+*oom_kill events* or *oom-kill*.
+This means you requested a certain amount of memory but your job went over the
+limit and SLURM has terminated your job. You need to request more memory.
+See :ref:`How to get more memory <request memory>`.
+
 Why should I request an interactive shell and how do I do this?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -345,7 +368,7 @@ How do I charge my jobs to my account or my PI’s account?
 Every user has a default account (which is *UCnetID*) and may have a few PI lab accounts.
 If not specified, a default account is charged (exception is free queues).
 
-To specify a PI's account one need to use a :tt:``-A`` Slurm directive either on
+To specify a PI's account one need to use a ``-A`` Slurm directive either on
 a command line when asking fort an interactive shell or in a Slurm batch
 job. See :ref:`slurm guide <jobs>` for examples.
 
@@ -380,7 +403,7 @@ There are 2 distinct situations:
    using 1 CPU.
 2. Your job failed with OOM - out of memory errors.
 
-See See :ref:`request resources` for explanation how to get more CPUs or more memory.
+See :ref:`request resources` for explanation how to get more CPUs or more memory.
 
 How do I know if I need more memory for a job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

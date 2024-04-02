@@ -55,6 +55,7 @@ See the following links for beginners guides, many more are available online:
   learn the basics of Python programming language
 - `Introduction to R <http://swcarpentry.github.io/r-novice-inflammation/>`_ - to
   learn the basics of R programming language
+- `Python Articles <https://pythonspeed.com/datascience/>`_ - how to **Speedup your data science and scientific computing code in Python**.
 
 ..   _ssh tutorials:
 
@@ -68,4 +69,5 @@ See the following links for beginners guides, many more are available online:
 - `Troubleshoot ssh problems <https://www.linux.com/topic/networking/4-reasons-why-ssh-connection-fails>`_
 - `Set up authorized_keys <https://www.ssh.com/ssh/authorized_keys/>`_
 - `How to use ssh-agent <https://www.ssh.com/ssh/agent>`_
-
+- `Linux ssh-agent <https://www.ssh.com/academy/ssh/agent>`_
+- `MacOS proper use of ssh-client <https://www.getpagespeed.com/work/proper-use-of-ssh-client-in-mac-os-x>`_

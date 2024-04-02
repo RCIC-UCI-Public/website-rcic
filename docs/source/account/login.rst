@@ -145,30 +145,28 @@ If you choose to use key-based authentication for your login, you have additiona
    * If you don't want to keep re-entering your passphrase, you should learn how to manage your ssh keys with the help of ssh agents.
      This provides a convenience of a "passwordless" ssh key, but has all the security of a password-protected key.
 
-     Depending on your laptop, use the following guides:
-
-     :Linux: `ssh-agent <https://www.ssh.com/academy/ssh/agent>`_
-     :Windows: `PuTTY/Pageant <https://winscp.net/eng/docs/ui_pageant>`_
-     :Windows: `Powershell <https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement>`_
-     :MaxOS: `Proper use of ssh-client <https://www.getpagespeed.com/work/proper-use-of-ssh-client-in-mac-os-x>`_
-
    See :ref:`tutorials` for more SSH links.
 
 **Step by Step**
 
 1. **Generate your ssh keys**
 
-   This step is done once. Generate your ssh keys per one of the guides listed above,
-   (for OpenSSH see :ref:`generate ssh keys` below).  In essence:
+   This step is done once.  Depending on your laptop, use the following guides:
 
-   - the system from which you are initiating ssh (e.g. your laptop or workstation) should 
-     have a locally-generated and *password protected* ssh private key and a
-     corresponding public key.
-   - the public key is placed on HPC3 in your   :tt:`$HOME/.ssh/authorized_keys` file.
+   :MacOS:  :ref:`generate-ssh-keys-mac`
+   :Linux:  :ref:`generate-ssh-keys-linux`
+   :Windows (PuTTY): :ref:`generate-ssh-keys-windows-putty`
+   :Windows (Powershell): :ref:`generate-ssh-keys-windows-powershell`
+
+   Once you generate your SSH keys and copy the public key to HPC3
+
+   | (a) your laptop or workstation from which you are initiating ssh will have 
+   |     a *password protected* ssh private key and a corresponding public key.
+   | (b) your public ssh key is copied to HPC3 in your :tt:`$HOME/.ssh/authorized_keys` file.
 
 2. **Use ssh command to login**
 
-   Once your keys are setup simply use ssh commands.
+   Once your keys are setup simply use ``ssh`` commands.
    For example a user with UCINetID *panteater* can use one of the following:
 
    .. code-block:: console
@@ -177,52 +175,6 @@ If you choose to use key-based authentication for your login, you have additiona
       ssh hpc3.rcic.uci.edu -l panteater
 
    and provide your ssh key passphrase when prompted.
-
-.. _generate ssh keys:
-
-Generate ssh keys 
-~~~~~~~~~~~~~~~~~
-
-Here we assume your ``ssh`` is from OpenSSH, for other ssh versions please
-use your specific software instructions.
-
-To generate ssh keys on your laptop and to copy a public key to your account on the HPC3 cluster
-do the following:
-
-1. Check your ssh software is OpenSSH
-
-   .. code-block:: console
-
-      ssh -V
-      OpenSSH_8.6p1, LibreSSL 3.3.6
-   
-   The output shows **OpenSSH**
-
-2. Create ssh keys via ``ssh-keygen`` command
-
-   .. code-block:: console
-
-      ssh-keygen -t rsa -f myhpc  (choose a desired name, usually a single word)
-
-   The above command will generate two files :tt:`myhpc` is  a private key
-   and :tt:`myhpc.pub`  is a corresponding public key. They are always
-   generated and work as a pair. 
-
-   .. attention:: | Private key should NEVER be shared
-                  | Use a non-empty passphrase for your key (remember it)
-
-3. Use ``ssh-copy-id`` to transfer the public key from your laptop to your account on HPC3
-
-   You will be prompted for the standard DUO authentication
-   and password to run this command. Use your UCINetID:
-
-   .. code-block:: console
-
-      cd ~/.ssh
-      ssh-copy-id -i myhpc UCINetID@hpc3.rcic.uci.edu
-
-   The key will be placed into your home directory in
-   :tt:`$HOME/.ssh/authorized_keys` file.
 
 .. _ssh xforward:
 
@@ -233,10 +185,21 @@ If you want X-windows graphics to be forwarded through your ssh connection,
 then you should use the :tt:`-X` option in your ssh command, for example one
 of the following:
 
-  .. code-block:: console
+.. code-block:: console
 
-     ssh -X panteater@hpc3.rcic.uci.edu
-     ssh -X hpc3.rcic.uci.edu -l panteater
+   ssh -X panteater@hpc3.rcic.uci.edu
+   ssh -X hpc3.rcic.uci.edu -l panteater
+
+Once logged in chck if your enviornment variabl :tt:`DISPLAY` is set:
+
+.. code-block:: console
+
+   [user@login-x:~]$ echo $DISPLAY
+   DISPLAY=localhost:27.0
+
+If the Xforward is enabled in your ssh connection the :tt:`DISPLAY`
+will be set to a similar string, otherwise the output will be empty (no
+Xforward).
 
 .. note:: Mac users must have XQuartz (standard application) installed in order to use XForwarding.
 
@@ -252,17 +215,16 @@ For exact instructions please see `Filezilla Site Manger <https://wiki.filezilla
 .. image:: images/filezilla.png
    :align: center
    :alt: site manager settings 
-
+   :class: addpadding
 
 .. _filezilla ssh keys:
 
-FileZilla with SSH keys 
-^^^^^^^^^^^^^^^^^^^^^^^
+**FileZilla with SSH keys**
 
 Sometimes it is more convenient to use SSH keys based authentication (in place of DUO).
 There are three mechanisms for use of the FileZilla client with SSH-2 keys.
 
-Once you :ref:`generate ssh keys` see the detailed instructions for the
+Once you :ref:`generated your ssh keys <generate ssh keys>` see the detailed instructions for the
 `FileZilla SSH key based authentication <https://wiki.filezilla-project.org/Howto#SFTP_using_SSH-2:_Key_based_authentication>`_
 mechanisms to setup your FileZilla client.
 
@@ -277,6 +239,7 @@ your :guilabel:`Remote Environment` is set to :guilabel:Interactive shell`:
 .. image:: images/mobaxterm.png
    :align: center
    :alt: advanced ssh settings 
+   :class: addpadding
 
 .. attention::
 
@@ -387,46 +350,51 @@ on compute nodes.
    Note, images below show VSCode application for MacOS, the Windows version
    may look slightly different but the concept is the same.
 
-   5.1 Click on the *open remote window* icon and choose
-   :guilabel:`Connect to Host...Remote-SSH` from the menu:
+   | 5.1 Click on the *open remote window* icon and choose
+   |     :guilabel:`Connect to Host...Remote-SSH` from the menu:
 
      .. image:: images/vscode-connect-1.png
         :align: center
         :alt: VSCode connect
+        :class: addpadding
 
    5.2 Choose :guilabel:`+ Add new SSH host...` from the menu:
+
      .. image:: images/vscode-connect-2.png
         :align: center
         :alt: VSCode connect add ssh host
+        :class: addpadding
 
-   5.3 In the :guilabel:`Enter SSH Connection command` box, enter the compute node
-   name from the output file of your submitted batch job and press `Enter` key:
+   | 5.3 In the :guilabel:`Enter SSH Connection command` box, enter the compute node
+   |     name from the output file of your submitted batch job and press `Enter` key:
 
      .. image:: images/vscode-connect-3.png
         :align: center
         :alt: VSCode connect to host
+        :class: addpadding
 
-   5.4 In the :guilabel:`Enter SSH configuration file to update`
-   menu of choices, choose your local :tt:`.ssh/config` (use local path for
-   user area):
+   | 5.4 In the :guilabel:`Enter SSH configuration file to update` menu of
+   |     choices, choose your local :tt:`.ssh/config` (use local path for user area):
 
      .. image:: images/vscode-connect-4.png
         :align: center
         :alt: VSCode connect to host
+        :class: addpadding
 
    5.5 When the window updates press :guilabel:`Connect` button:
 
      .. image:: images/vscode-connect-5.png
         :align: center
         :alt: VSCode connect to host
+        :class: addpadding
 
-   5.6 In a new window you will be asked to provide your ssh
-   credentials (passphrase) **two times**, type it where indicated by your
-   Application:
+   | 5.6 In a new window you will be asked to provide your ssh credentials 
+   |     (passphrase) **two times**, type it where indicated by your Application:
 
      .. image:: images/vscode-setup.png
         :align: center
         :alt: VSCode setup
+        :class: addpadding
 
      Once the authentication is successful you will see
      the changes on the lower portion of the window, they indicate
@@ -434,13 +402,13 @@ on compute nodes.
      (shown with blue outline).
      It may take a few minutes for the VSCode to setup the server.
 
-   5.7 Once done, you will see the *open remote window* icon showing compute node
-   name (added blue outline). This means your connection is redy and you  can
-   proceed with your work as usual:
+   | 5.7 Once done, you will see the *open remote window* icon showing compute node name (in blue
+   |     outline). This means your connection is redy and you  can proceed with your work as usual:
 
      .. image:: images/vscode-running.png
         :align: center
         :alt: VSCode setup
+        :class: addpadding
 
 6. Shutting down your remote VSCode server
 

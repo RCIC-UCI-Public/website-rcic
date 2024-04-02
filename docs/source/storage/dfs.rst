@@ -29,7 +29,7 @@ file systems.
     No special backup is available. Deleted data are gone forever.
   * Accessible only from HPC3 as a regular filesystem for storing data on the cluster.
     There are a few separate storage pools which are mounted on the cluster as **/dfsX**.
-  * For recharge allocations please see buying :ref:`buy dfs`.
+  * For recharge allocations please see :ref:`buy dfs`.
   * .. warning :: DFS filesystems  must not be used to store personally-identifiable information that would fall
                  under guidelines  such as `FERPA <https://www2.ed.gov/policy/gen/guid/fpco/ferpa/index.html>`_
                  (e.g. Student data) and `HIPAA <https://www.hhs.gov/hipaa/index.html>`_ (health-care data).
@@ -48,13 +48,14 @@ There is NO separate account for DFS filesystems.
 
 **No cost Private area:** 
   | All users have access to the Private Area. Each user is provided with a default allocation:
-  | - 1TB quota per account in :tt:`/pub/ucinetid` (it is a short name for :tt:`/dfs8/pub/ucinetid`).
+  | - 1TB quota per account in :tt:`/pub/ucinetid` 
   | - 1TB backup quota for a selective backup
 
 **Recharge allocation - Group Shared area:**
   UCI Faculty members can have low-cost recharge allocation(s) to fulfill their needs.
   These group areas are quota allocations in **/dfsX/group-lab-path** based on PI's purchase.
   The storage owner (PI) can specify additional users who have read/write capability on the filesystem.
+  Please see :ref:`Recharge Allocations <recharge allocations>` for details how to request. 
 
   .. note:: If you are submitting a ticket requesting to
             be added to a specific group for a specific filesystem access, please note
@@ -83,8 +84,10 @@ Storing Files
 **File permissions**
 
   .. important:: File permissions are used in determining quotas.
-                 When we creat **Private area** and  **Group shared area** on DFS 
+                 When we create **Private area** and  **Group shared area** on DFS 
                  we set correct permissions on the top level directories. 
+                 The permissions involve setting logical UNIX groups. 
+                 Please see :ref:`unix primer`  to familiarize yourself with UNIX groups.
 
 
   .. warning:: Each group lab area is initially configured with the **group sticky bit set**
@@ -128,7 +131,7 @@ How to check
 For all DFS file systems  including selective backup one can use ``dfsquotas``
 command to check user/group quotas on a particular DFS pool. 
 
-**To see the quotas for user** :tt:`panteater` **on** :tt:`/dfs6`:
+**To see the quotas for user** :tt:`panteater` **on private allocation in** :tt:`/dfs6`:
 
   .. code-block:: console
 
@@ -141,32 +144,66 @@ command to check user/group quotas on a particular DFS pool.
            user/group     ||           size          ||    chunk files
           name     |  id  ||    used    |    hard    ||  used   |  hard
      --------------|------||------------|------------||---------|---------
-      panteater_lab|012345||   26.25 TiB|   50.00 TiB||  1310459| 18500000  # see 1
-        alpha_users|158537||      0 Byte|      1 Byte||        0|        1  # see 2
+      panteater_lab|012345||   26.25 GiB| 1024.00 GiB||  1310459|unlimited  # see 1
+        alpha_users|158537||      0 Byte| 1024.00 Gib||        0|unlimited  # see 2
           panteater|000865||  755.59 GiB| 1024.00 GiB||   258856|unlimited  # see 3
 
-  The above shows that a user :tt:`panteater`:
+  The above shows that a user :tt:`panteater` can write in its personal
+  area :tt:`/pub/panteater` using the above listed 3 groups:
 
-  1. can write in the allocation for the group :tt:`panteater_lab`
-     where the total space is 50Tb and ~26Tb of it is already used. Note, space
-     used by the group include all users allowed to write in this area.
-  2. :tt:`panteater` belongs to a supplementary group :tt:`alpha_users`, this group
-     has no allocation (1 byte) and the user will not be able to store any files
-     that have this group ownership.
-  3. can write in personal :tt:`/pub/panteater` area, where the default allocation
-     is 1Tb (1Tb = 1024Gb) and ~756Gb is already used by the user.
+  1. :tt:`panteater` belongs to a supplementary group :tt:`panteater_lab`, and
+     wrote 26.25Gb of data.
+  2. :tt:`panteater` belongs to a supplementary group :tt:`alpha_users`, and
+     did not write any files  using this group, but can if needed.
+  3. using a default :tt:`panteater` group  user wrote
+     ~756Gb of total allocation of 1Tb (1Tb = 1024Gb).
 
-**To see the quotas for selective backup:**
+  .. note:: Listed above groups are logical UNIX groups associated with the user account,
+            and the primary use of such groups is to assign "group ownership" of files and directories.
+            The 1Tb allocation is a total space that can be used by all listed
+            user UNIX groups combined, not by each group individually.
 
-  .. code-block:: console
-
-     $ dfsquotas panteater sbak
-
-**To see the quotas for** :tt:`dfs6` **and selective backup:**
+**To see the quotas for user** :tt:`panteater` **in lab shared allocation in** :tt:`/dfs9`:
 
   .. code-block:: console
 
-     $ dfsquotas panteater "dfs6 sbak"
+     $ dfsquotas panteater dfs9
+
+     ==== [Group Quotas on dfs6]
+
+     Quota information for storage pool Default (ID: 1):
+
+           user/group     ||           size          ||    chunk files
+          name     |  id  ||    used    |    hard    ||  used   |  hard
+     --------------|------||------------|------------||---------|---------
+      panteater_lab|012345||   38.36 TiB|   40.00 TiB||  1310459|unlimited  # see 4
+        alpha_users|158537||      0 byte|    1   byte||        0|        1  # see 5
+          panteater|000865||      0 byte|    1   byte||        0|        1  # see 5
+
+  4. The above shows that user :tt:`panteater` can write in its group allocation on :tt:`dfs9`
+     only if using UNIX group :tt:`panteater_lab` for which there is 40Tb
+     allocation.  Note, the allocated space 40Tb and the used space 38.36Tb
+     are totals by all users allowed to write in this area.
+  5. There is 0 quota (shown as 1 byte) for a personal UNIX group
+     :tt:`panteater` or a supplemental UNIX group :tt:`alpha_users`. If a user tries
+     to write  using these UNIX groups it will result in permissions and over the quota errors.
+
+..
+   next two blocks are commented out 
+
+..
+   **To see the quotas for selective backup:**
+
+     .. code-block:: console
+
+        $ dfsquotas panteater sbak
+
+..
+   **To see the quotas for** :tt:`dfs6` **and selective backup:**
+
+     .. code-block:: console
+
+        $ dfsquotas panteater "dfs6 sbak"
 
 
 .. _dfs over quota:
@@ -190,41 +227,67 @@ of a particular file.  For example,
 
 
 The user :tt:`panteater` is storing files under two different groups:
-- the file :tt:`performance.tst` is charged to the :tt:`panteater` group quota
-- the files in the subdirectory :tt:`biofiles` are charged to the :tt:`bio` group quota.
+
+- the files in the subdirectory **biofiles** are charged to the :tt:`bio` group quota.
+- the file **performance.tst** and subdirectory **myfiles** are charged to the :tt:`panteater` group quota
 
 Examine the permissions of the directories: :tt:`drwxrwsr-x`. Notice the :tt:`s` for 
 the group execute permissions (character positions 5-7). This is called the **sticky bit** for the directory.
 It is subtle, but important difference: :tt:`x` instead of :tt:`s` in the group execute permission.
 Compare to permissions without sticky bit: 
 
+
+trial :tt:`wo`:red:`rds`
+
 .. _sticky bit:
 
 .. table::
+   :widths: 15,15,70
    :class: noscroll-table
 
-   +--------------+------------------+-----------------------------------------------------------------+
-   |  Sticky  bit | Directory mode   | Description                                                     |
-   +==============+==================+=================================================================+
-   |              | :tt:`drwxrwsr-x` | In the origin directory, created files and directories are      | 
-   | is set       |                  | written with the group permissions :tt:`rws`  of the origin     |
-   |              |                  | directory and the sticky bit is set.                            |
-   +--------------+------------------+-----------------------------------------------------------------+
-   |              | :tt:`drwxrwxr-x` | In the origin directory, created files and directories are      |
-   |              |                  | written with the active UNIX group permissions :tt:`rwx` of the |
-   | is not set   |                  | origin directory, which defaults to your login.                 |     
-   +--------------+------------------+-----------------------------------------------------------------+
+   +------------+---------------------------------------+-----------------------------------------------------------------+
+   | Sticky  bit| Directory mode                        | Description                                                     |
+   +============+=======================================+=================================================================+
+   |            | :gray:`drwx`:red:`rws`:gray:`r-x`     | In the origin directory, created files and directories are      |
+   | is set     |                                       | written with the group permissions :red:`rws` of the origin     |
+   |            |                                       | directory. The sticky bit :red:`s` is set.                      |
+   +------------+---------------------------------------+-----------------------------------------------------------------+
+   |            |:gray:`drwx`:bluelight:`rwx`:gray:`r-x`| In the origin directory, created files and directories are      |
+   |            |                                       | written with the active UNIX group permissions :bluelight:`rwx` |
+   | is NOT set |                                       | of the origin directory, which defaults to your login.          |
+   +------------+---------------------------------------+-----------------------------------------------------------------+
 
 The Unix command ``newgrp`` can be used to change the active Unix group.
+
+For example, the user :tt:`panteater` by default has a group :tt:`panteater`.
+The following sequence of simple commands shows the ownership of the files
+created under different groups and shows how to use ``newgrp`` command.
+
+.. code-block:: console
+
+   $ id panteater
+   uid=1234567(panteater) gid=1234567(panteater) groups=1234567(panteater),158571(bio)
+   $ touch aaa
+   $ ls -l aaa
+   -rw-rw-r-- 1 panteater panteater 0 Nov  3 14:57 aaa
+
+   $ newgp bio
+   $ touch bbb
+   $ ls -l bbb
+   -rw-rw-r-- 1 panteater bio 0 Nov  3 14:57 bbb
+
 Please type ``man newgrp`` to learn about this command.
 
 **Reasons for Over Quota**
   1. Under normal operation, when the sticky bit is set on a directory, the correct quota enforcement 
-     occurs automatically because files and subdirectories are written with correct group.
-     When all space is used over quota is issued. 
-  2. The most common quota problems on DFS result from inadvertently removing 
-     the sticky bit on a directory and then writing with the default (user personal group).
-     In this case writing files and running  jobs can fail.
+     occurs automatically because files and subdirectories are written with
+     correct group, no ``newgrp`` command is needed.  When all space is used over quota is issued.
+  2. The most common quota problems on DFS result from:
+
+     * inadvertently removing the sticky bit on a directory and then writing with the default personal group.
+     * changing the group ownership of a file or directory and then trying to write to it with the default personal group.
+
+     In these cases writing files and running jobs can fail.
   3. Moving data to HPC3 with software that overrides the sticky bit by explicitly setting 
      permissions in the most common way a sticky bit becomes unset.
 
@@ -239,7 +302,7 @@ Fix over quotas
 
 **Fixing Permissions**
   You can use the ``chmod`` command to fix directories that don't have a sticky bit set,
-  but should.  The following command  will add the sticky bit to a particular directory.
+  but should have. The following command  will add the sticky bit to a particular directory.
 
   .. code-block:: console
 
@@ -254,17 +317,26 @@ Fix over quotas
      $ find . -type d -exec chmod g+s {} \; -print
 
 **Fixing Group Ownership**
-  You can also use the ``chgrp`` command to change the group ownership of 
+  You can also use the ``chgrp``  and ``chown`` commands to change the group ownership of
   a file or directory. For example, to change the group from :tt:`panteater` to :tt:`bio`
-  on a specific file (or directory):
+  on a specific file or directory:
 
   .. code-block:: console
   
-     $ ls -l performance.txt
+     $ ls -l
+     total 55524423
+     drwxrwsr-x  7 panteater bio                 7 Aug  5  2019 biofiles
      -rw-r--r--  1 panteater panteater  4294967296 May 31  2019 performance.tst
+     drwxrwsr-x  3 panteater panteater           2 Oct  8 17:11 myfiles
+
      $ chgrp bio performance.txt
-     $ ls -l performance.txt
+     $ chown -R panteater:bio myfiles
+     $ ls -l
+     total 55524423
+     drwxrwsr-x  7 panteater bio                 7 Aug  5  2019 biofiles
      -rw-r--r--  1 panteater bio        4294967296 May 31  2019 performance.tst
+     drwxrwsr-x  3 panteater bio                 2 Oct  8 17:11 myfiles
+
 
   The :tt:`ls -l` command is used to show permissions before and after the change. 
 
@@ -386,43 +458,66 @@ Where backups are
 A user can access backup files on the login nodes of the cluster
 from the following paths:
 
-**/sbak/selective-backup/hpc-backups/ucinetid/data/homezvolX/ucinetid**
-  for user $HOME
-**/sbak/selective-backup/hpc-backups/ucinetid/pub/ucinetid**
- for /pub/$USER/
-**/sbak/selective-backup/hpc-backups/ucinetid/DELETED-FILES/$DATE**
-  for deleted files by date, count towards backup quota.
-**/sbak/selective-backup/hpc-logs/$DATE/ucinetid**
-  for backup logs are available for the past X days where X is defined
-  in *HPC_KEEP_DELETED=X* in your :t:`.hpc-selective-backup` 
-  
+.. table::
+   :widths: 15,85
+   :class: noscroll-table
+
+   +------------------------------------------------------+-------------------------------+
+   | Where                                                | What                          |
+   +======================================================+===============================+
+   | /sbak/zvolX/backups/ucinetid/data/homezvolX/ucinetid | user $HOME                    |
+   +------------------------------------------------------+-------------------------------+
+   | /sbak/zvolX/backups/ucinetid/pub/ucinetid            | /pub/$USER/                   |
+   +------------------------------------------------------+-------------------------------+
+   | /sbak/zvolX/backups/ucinetid/DELETED-FILES           | deleted files by date         |
+   |                                                      | (counts towards backup quota) |
+   +------------------------------------------------------+-------------------------------+
+   | /sbak/zvolX/logs/$DATE/ucinetid                      | backup logs by date,          |
+   |                                                      | available for the past Y days |
+   +------------------------------------------------------+-------------------------------+
+
+.. note:: | The :tt:`X` in :tt:`/sbak/zvolX`  maps to the volume number shown
+            in your :tt:`$HOME` variable. In other words, the mapping is:
+          |     /data/homezvol0 ->  /sbak/zvol0/backups
+          |     /data/homezvol1 ->  /sbak/zvol1/backups
+          |     /data/homezvol2 ->  /sbak/zvol2/backups
+          |     /data/homezvol3 ->  /sbak/zvol3/backups
+
+          | The number of days :tt:`Y` is defined by :tt:`HPC_KEEP_DELETED=Y` in your :tt:`.hpc-selective-backup`
+
 .. _selective backup recovery:
 
 Deleted Files Recovery
 ----------------------
 
-.. note:: Deleted files and directories can be recovered provided they exist in the selective backup.
-          Note: You have to be on a login node to access backup files.
+.. note:: | Deleted files and directories can be recovered provided they exist in the selective backup.
+          | You have to be on a login node to access backup files.
 
-Here is a general procedure for user :tt:`panteater` to restore accidentally 
-deleted directory :tt:`spring-2022` and files in it.
+Below is a general procedure for user :tt:`panteater` to restore accidentally
+deleted from :tt:`/pub/panteater` directory :tt:`spring-2022` and files in it.
 
 .. code-block:: console
 
-   $ cd /sbak/selective-backup/hpc-backups/panteater/DELETED-FILES   # see 1
+   $ cd /sbak/zvol0/backups/panteater/DELETED-FILES                  # see 1
    $ find . -type d -name spring-2022                                # see 2
-   ./2022-0621/pub/panteater/spring-2022
-   ./2022-0629/pub/panteater/spring-2022
-   $ ls ./2022-0629/pub/panteater/spring-2022/                       # see 3
+   ./2024-0214/pub/panteater/spring-2022
+   ./2024-0213/pub/panteater/spring-2022
+
+   $ ls ./2024-0214/pub/panteater/spring-2022/                       # see 3
    schedule1    schedule1.sub   slurm.template
-   $ cp -p -r ./2022-0629/pub/panteater/spring-2022 /pub/panteater   # see 4
+
+   $ cp -p -r ./2024-0214/pub/panteater/spring-2022 /pub/panteater   # see 4
 
 The above commands mean:
 
-1. This command puts you at the top level of a backup directory for your files.
-2. This command finds all backups by date where the desired directory exists.
+1. The ``cd``  command puts you at the top level of a backup directory for your files.
+2. The ``find`` command finds all backups by date where the desired directory exists.
+   Here, two snapshots are found by date: :tt:`2024-0214` and :tt:`2024-0213`.
 3. Run ``ls`` command for the specific snapshot to see if it has needed files.
-4. If needed files exists in the backup, user can copy the files back to the pub directory.
-   It is recommended to use ``-p`` and ``-r`` options. Option ``-p`` makes sure that
-   copy command preserves the time stamp and the ownership of a file. 
-   Option ``-r`` means "copy recursively", this is needed when copying a directory and its contents.
+4. If needed files exists in the backup, user can use ``cp`` command to copy the
+   files back to the pub directory.  It is recommended to use ``-p`` and ``-r``
+   options. Option ``-p`` makes sure that copy command preserves the time stamp
+   and the ownership of a file.  Option ``-r`` means "copy recursively", this is
+   needed when copying a directory and its contents.
+
+One can restore in a similar way files and directories deleted from $HOME.
