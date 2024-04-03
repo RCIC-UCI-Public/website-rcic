@@ -137,7 +137,7 @@ Storage space on CRSP has the concepts of:
   * Can access the LAB space to which they have been granted access by Space Owners
     and store files there.
 
-.. note:: A :tt:`directory` meaning on Unix  is equivalent to a :tt:`folder` on MacOS, Windows.
+.. note:: A :tt:`directory` meaning on Unix  is equivalent to a :tt:`folder` on macOS, Windows.
           In what follows, we will use the term :tt:`file` to mean
           :tt:`file`, :tt:`folder`, or :tt:`directory`.
 
@@ -248,7 +248,7 @@ instructions:
    +------------------------------+-------------------------------------------------------------------------------------------+
    |  Client                      | Description                                                                               |
    +------------------------------+-------------------------------------------------------------------------------------------+
-   | :ref:`client desktop windows`| *CRSP Desktop* clients are for accessing CRSP from Windows and MacOS laptops.             |
+   | :ref:`client desktop windows`| *CRSP Desktop* clients are for accessing CRSP from Windows and macOS laptops.             |
    | :ref:`client desktop mac`    | We provide licensed and branded version of a commercial software *Mountain Duck*.         |
    +------------------------------+-------------------------------------------------------------------------------------------+
    | :ref:`client web browser`    | This access is used for *light weight* CRSP resource usage, supports file or direvtory    |
@@ -501,5 +501,5 @@ using different access methods.
 
    You may also copy the file in your usual manner  per your host operating system
    `Windows <https://www.lifewire.com/how-do-i-copy-a-file-in-windows-2619210>`_,
-   `MacOS <https://alvinalexander.com/mac-os-x/mac-copy-files-mac-finder-copy-files>`_
-   and <Linux <https://www.cyberciti.biz/faq/copy-command>`_
+   `macOS <https://alvinalexander.com/mac-os-x/mac-copy-files-mac-finder-copy-files>`_
+   and `Linux <https://www.cyberciti.biz/faq/copy-command>`_.

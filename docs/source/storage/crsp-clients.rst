@@ -16,10 +16,10 @@ For issues with clients please see :ref:`crsp troubleshoot`
 
 .. _client desktop mac:
 
-CRSP Desktop App for MacOS
+CRSP Desktop App for macOS
 --------------------------
 
-The CRSP Desktop for MacOS is a licensed and branded version of the generic |mduck|_ product.
+The CRSP Desktop for macOS is a licensed and branded version of the generic |mduck|_ product.
 It allows you to map one or more CRSP *drives* or *file paths* to a folder on your Mac.
 
 **System Requirements**

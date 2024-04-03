@@ -21,7 +21,7 @@ You will need to have a  few applications on your laptop, most are standard:
    +-----------------+-------------+-------------+---------------+---------------------------+
    | **Application** |  Your laptop model                                                    |
    |                 +-------------+-------------+---------------+---------------------------+
-   | **Type**        | **Linux**   | **MacOS**   | **Windows**   | **Windows 10**            |
+   | **Type**        | **Linux**   | **macOS**   | **Windows**   | **Windows 10**            |
    +=================+=============+=============+===============+===========================+
    |  VPN access     | Install client VPN software per the instructions |ucivpn|_            |
    +-----------------+-------------+-------------+---------------+---------------------------+

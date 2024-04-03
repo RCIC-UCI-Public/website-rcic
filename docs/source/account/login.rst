@@ -153,7 +153,7 @@ If you choose to use key-based authentication for your login, you have additiona
 
    This step is done once.  Depending on your laptop, use the following guides:
 
-   :MacOS:  :ref:`generate-ssh-keys-mac`
+   :macOS:  :ref:`generate-ssh-keys-mac`
    :Linux:  :ref:`generate-ssh-keys-linux`
    :Windows (PuTTY): :ref:`generate-ssh-keys-windows-putty`
    :Windows (Powershell): :ref:`generate-ssh-keys-windows-powershell`
@@ -347,7 +347,7 @@ on compute nodes.
 
 5. On your laptop start your VSCode application.
 
-   Note, images below show VSCode application for MacOS, the Windows version
+   Note, images below show VSCode application for macOS, the Windows version
    may look slightly different but the concept is the same.
 
    | 5.1 Click on the *open remote window* icon and choose

@@ -88,7 +88,7 @@ instructions:
    +------------------------------+-------------------------------------------------------------------------------------------+
    |  Client                      | Description                                                                               |
    +------------------------------+-------------------------------------------------------------------------------------------+
-   | :ref:`client desktop windows`| *CRSP Desktop* clients are for accessing CRSP ANNEX from Windows and MacOS laptops.       |
+   | :ref:`client desktop windows`| *CRSP Desktop* clients are for accessing CRSP ANNEX from Windows and macOS laptops.       |
    |                              | We provide licensed and branded version of a commercial software *Mountain Duck*.         |
    | :ref:`client desktop mac`    |                                                                                           |
    +------------------------------+-------------------------------------------------------------------------------------------+

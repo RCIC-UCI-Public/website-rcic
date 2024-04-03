@@ -105,7 +105,7 @@ We try to respond by the next business day.
 When reporting login problems please include the following:
 
 * Where from are you trying to log in (from campus or over the VPN?)
-* What kind of computer and Operating System are you connecting from (Windows, MacOS, etc)?
+* What kind of computer and Operating System are you connecting from (Windows, macOS, Linux, etc.)?
 * What software and what version are you using to connect?
 * Copy and paste into your email What **exact commands** you typed and what **exact errors** you saw.
   Usually there are just a few lines.

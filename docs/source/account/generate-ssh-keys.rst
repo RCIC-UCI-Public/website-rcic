@@ -14,7 +14,7 @@ and to copy a public key to your account on the HPC3 cluster.
 
 .. _generate-ssh-keys-mac:
 
-Generate SSH keys on MacOS
+Generate SSH keys on macOS
 --------------------------
 
 We assume your ``ssh`` is from OpenSSH, for other ssh distributions please
@@ -143,7 +143,7 @@ use your specific software instructions.
 Generate SSH keys on Linux
 --------------------------
 
-Follow the of the steps for :ref:`generating ssh keys on MacOS <generate-ssh-keys-mac>`
+Follow the of the steps for :ref:`generating ssh keys on macOS <generate-ssh-keys-mac>`
 except in the first step use any terminal application that is available on your laptop.
 
 .. _generate-ssh-keys-windows-powershell:
@@ -151,7 +151,7 @@ except in the first step use any terminal application that is available on your 
 Generate SSH keys on Windows in Powershell
 ------------------------------------------
 
-Follow the of the steps for :ref:`generating ssh keys on MacOS <generate-ssh-keys-mac>`
+Follow the of the steps for :ref:`generating ssh keys on macOS <generate-ssh-keys-mac>`
 except in the first step use Powershell that is available on your laptop.
 Once the keys are generated you will need to copy to the contents of your public key to HPC3.
 See :ref:`copy-ssh-keys-windows` below.
