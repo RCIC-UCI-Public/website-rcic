@@ -234,12 +234,14 @@ There are a few specifics about how the modules are built that are unique to HPC
 
 **Rules of module loading/unloading**:
 
-1. .. important:: | Always include the version number when loading a module.
-                  | This will ensure that you always get the version you intend.
-
-                  | If used without version, a default behavior is loading the latest
-                  | available at the time of loading. This may not be what is needed.
-
+1. .. attention:: | Always include the version number when loading a module:
+                  | ``module load X/1.2.3``
+                  | This ensures you will get the version you need.
+                  |
+                  | If used without version, a default behavior is loading the latest currently available:
+                  | ``module load X``  - :red:`DANGEROUS`
+                  | This may give unexpected results of using a wrong version of the software  when a new 
+                  | version is added or an old version is removed. Always use module name with the version.
 2. You can load multiple modules, loading order is not important.
 3. You need to load modules:
 
