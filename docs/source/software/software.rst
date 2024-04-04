@@ -52,13 +52,28 @@ How to use
                | All installed software is compiled specifically for this OS.
 
 **Already installed software**
-  For the most part, cluster users only need to know (or discover) the
-  :underline:`already-available application environment module` and load 
+  For the most part, cluster users only need to know or discover the
+  already available application environment module and load
   it prior to using the application. Please see:
 
   * :ref:`modules` to learn how to use software modules, including 
     how to to see the most recent software versions and availability. 
   * :ref:`software updates` for details about installed software and their modules.
+
+**Licensed Software**
+  Access to some applications requires a license. Only registered users can
+  use such software. We do not purchase or provide licenses.
+  Licenses are usually bought by the PIs for their groups group and the access must be approved by a PI.
+
+  When submitting a ticket requesting an access to the licensed software
+  please cc your email request to the PI to assist with the confirmation processing.
+
+  Current licensed software:
+    | Abaqus
+    | Gaussian
+    | Stata 16 and 17
+    | VASP 5.* and 6.*
+
 
 **New software**
   If you want to request new software, please see :ref:`user installed` :underline:`before` :ref:`software tickets`.
