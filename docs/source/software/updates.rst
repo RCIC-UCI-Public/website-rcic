@@ -8,44 +8,51 @@ This page lists specific software and modules changes that are a result of the O
 Please see :ref:`modules` to learn how to use software modules, including
 how to to see the most recent software versions and availability.
 
-.. attention:: | If you use any modules only by name without specifying versions as:
-               | ``module load X``  - :red:`DANGEROUS!`
-               | stop and start using module name with the version as we always recommended:
-               | ``module load X/1.2.3``
-               | When loading without a version you may get unexpected results of using a wrong
-               | version of the software when a new version is added or an old version is removed.
-.. _softwre os:
-
-Operating System
-----------------
-
-.. important:: | HPC3 operating system is **Rocky Linux 8.8** (as of July 25, 2023).
-               | All installed software is compiled specifically for this OS.
-
-Please note:
-
-* ``screen`` is not available, use ``tmux``.
-* ``docker`` is not available per security vulnerability. Use *singularity* instead.
-* ``sudo`` and ``su`` are not available to regular users per security vulnerability.
-* If you compiled any software packages yourself using :tt:`gcc`, :tt:`intel`,
-  :tt:`openmpi` modules you may  have to recompile your packages anew if your
-  software no longer works as before.
-* Some commands, include files and libraries are available from system RPMs
-  and do not require modules. If you compiled any software using such
-  libraries/binaries you may need to recompile anew as some have changed with the new OS.
-* If you installed any packages with :tt:`anaconda` or :tt:`miniconda`, it is possible you will
-  need to reinstall them. In this case, please try to use the latest version of
-  :tt:`anaconda` or :tt:`miniconda` modules that we provide. Please see
-  :ref:`install  conda` user guide that explains how to build and use conda environments on HPC3.
-
-.. _modules availability:
-
-Availability
+General Info
 ------------
 
-All software that we provide via modules is rebuilt for the new Operating System.
-To see all installed modules please use ``module av`` command when logged in
-on HPC3 cluster.
+* .. important:: | HPC3 operating system is **Rocky Linux 8.8** (as of July 25, 2023).
+                 | All installed software is compiled specifically for this OS.
+* The :tt:`intel` and :tt:`mkl` modules provide access to a number of Intel Math Kernel Libraries
+  including LAPACK, SCALAPACK, BLAS and threading options. The MKL libraries can be linked with Intel
+  or GNU compilers. If you are compiling software yourself and are using :tt:`intel` or :tt:`mkl`
+  modules please see `Intel MKL Documentaion <https://software.intel.com/en-us/mkl/documentation/view-all>`_
+  and `Intel MKL Link Advisory <https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-link-line-advisor.html#gs.o9qcu1>`_
+  to help you figure out how to use variables set by them.
+* ``docker`` is not available per security vulnerability. Use *singularity* instead.
+* ``sudo`` and ``su`` are not available to regular users per security vulnerability.
+* ``screen`` command  is not available, use ``tmux``.
+* Operating system provides default compiler :tt:`gcc 8.5.0` and :tt:`openmpi 4.1.1`
+  which are available via modules:
+
+  ============== ========================
+  Package        Module
+  ============== ========================
+  gcc 8.5.0      gcc.system
+  openmpi 4.1.1  openmpi/4.1.1/gcc.system
+  ============== ========================
+
+.. _rocky8.8 updates:
+
+Rocky Linux 8.8 updates
+-----------------------
+
+Operating System:
+  | HPC3 operating system is **Rocky Linux 8.8** (as of July 25, 2023).
+  | All installed software is compiled specifically for this OS.
+
+**For user compiled or installed software**:
+
+1. If you compiled any software packages yourself using :tt:`gcc`, :tt:`intel`,
+   :tt:`openmpi` modules you may  have to recompile your packages anew if your
+   software no longer works as before.
+2. Some commands, include files and libraries are available from system RPMs
+   and do not require modules. If you compiled any software using such
+   libraries/binaries you may need to recompile anew as some have changed with the new OS.
+3. If you installed any packages with :tt:`anaconda` or :tt:`miniconda`, it is possible you will
+   need to reinstall them. In this case, please try to use the latest version of
+   :tt:`anaconda` or :tt:`miniconda` modules that we provide. Please see
+   :ref:`install  conda` user guide that explains how to build and use conda environments on HPC3.
 
 **Summary of changes**
 
@@ -127,18 +134,7 @@ See notes after the table for a few specific cases.
    | unicycler/0.4.8                                                   |                                     |
    +-------------------------------------------------------------------+-------------------------------------+
 
-
 **Notes**
-
-* Operating system provided default compiler :tt:`gcc 8.5.0` and :tt:`openmpi 4.1.1`
-  are available via modules:
-
-  ============== ========================
-  Package        Module
-  ============== ========================
-  gcc 8.5.0      gcc.system
-  openmpi 4.1.1  openmpi/4.1.1/gcc.system
-  ============== ========================
 
 * :tt:`sra-tools` tools prior to v.3 do not handle writing temp files to a
   separate directory and  are removed as they cause issues. Please see
@@ -149,15 +145,6 @@ See notes after the table for a few specific cases.
   Python 3**. Test your application with the :tt:`-W` default command-line option
   to see any deprecation warnings and follow online guides (google) for porting
   Python 2 to Python 3.
-* Intel and mkl module provide access to a number of Intel Math Kernel Libraries
-  including LAPACK, SCALAPACK, BLAS and threading options. The MKL libraries can be linked with Intel
-  or GNU compilers. If you are compiling your software and using intel or mkl
-  modules please see links
-  `Intel MKL Documentaion <https://software.intel.com/en-us/mkl/documentation/view-all>`_
-  and `Intel MKL Link Advisory <https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-link-line-advisor.html#gs.o9qcu1>`_
-  to help you figure out how to use them.
-* Access to some applications (VASP, Stata) requires a license. Only registered users can
-  use such software. Licenses are usually per PI's group and the access must be approved by a PI.
 * :tt:`Cufflinks` does not work under Rocky Linux 8. Use a singularity container build with cufflinks compiled for CentOS 7.
   The image **/dfs8/singularity-images/cufflinks.simg** is build with **singularity/3.7.2**.
   Example of usage:
