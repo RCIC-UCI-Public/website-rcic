@@ -1,7 +1,7 @@
 .. _job examples:
 
-Job example scripts
-===================
+Job examples
+============
 
 This section has several examples of submission scripts for the most common applications.
 You will have to tailor the :tt:`SBATCH` options for your requirements (i.e., partition,
