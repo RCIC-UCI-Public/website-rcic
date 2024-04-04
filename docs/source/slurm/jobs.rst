@@ -520,32 +520,45 @@ Request Time
 Similar to memory limits, Slurm has *default* and *max* settings for a runtime
 for each partition.  Please see all partitions settings in :ref:`available partitions`.
 
+.. important:: All interactive jobs  submitted with ``srun`` command and
+               all batch jobs submitted with ``sbatch`` command
+               have time limits whether you explicitly set them or not.
+
 :default settings:
-  are used when a job submission script does not specify
+  are used when a job submission script or ``srun`` command do  not specify
   different runtime, and for most jobs this is sufficient.
 
 :max settings:
   specify the longest time a job can run in a given partition.
   Job time specifications can not exceed the partition's max setting.
-  When a job requires longer runtime than a default it needs to be specified in the Slurm
-  script using :tt:`#SBATCH --time=` (or  short notation :tt:`#SBATCH -t`) directive.
 
-Acceptable time formats are 
+When a job requires longer run time than a default it needs to be specified
+using Slurm time directive :tt:`--time=format` (or the equivalent short notation
+:tt:`-t format`.
 
-  * minutes 
-  * minutes:seconds
-  * hours:minutes:seconds
-  * days-hours
-  * days-hours:minutes
-  * days-hours:minutes:seconds
+| Acceptable time **formats** are :
+|   minutes
+|   minutes:seconds
+|   hours:minutes:seconds
+|   days-hours
+|   days-hours:minutes
+|   days-hours:minutes:seconds
 
-For example:
+For example, for Slurm script:
 
 .. code-block:: bash
 
    #SBATCH --time=5        # 5 minutes
    #SBATCH -t 36:30:00     # 36 hrs and 30 min
    #SBATCH -t 7-00:00:00   # 7 days
+
+Similarly,  for ``srun`` command:
+
+.. code-block:: bash
+
+   srun --time=10 <other arguments>      # 10 minutes
+   srun -t 15:00:00  <other arguments>   # 15 hours
+   srun -t 5-00:00:00 <other arguments>  # 5 days
 
 .. _mail notification:
 
