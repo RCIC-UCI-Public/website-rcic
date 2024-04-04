@@ -3,6 +3,96 @@
 News Archive
 ============
 
+.. _news 2023:
+
+2023 
+----
+
+Dec 19
+^^^^^^
+
+| :blogtitle:`HPC3 Downtime Dec 19, 2023`
+| :blogauthor:`2023-12-14 by Philip Papadopoulos`
+
+The next outage will be December 19, 2023, beginning at 8am
+
+RCIC will be performing our regular, between quarters, maintenance next Tuesday, Dec 19.
+All users will be logged out, pending jobs will remain queued.
+
+**Maintenance Items**:
+  1. Update BeeGFS from 7.4.1 --> 7.4.2. This addresses some known bugs within BeeGFS (used on all DFSx file systems)
+  2. Move a shared directory (hpc3tools) from the older disk-based NAS to a newer all flash system
+  3. Move selected labs from DFS4/DFS5 to DFS9 for space balancing
+  4. Replace some switches that allow us to access hardware consoles on nodes
+  5. Internal Slurm configuration update
+  6. Reboot all nodes (required for BeeGFS update)
+
+**Impacts**:
+  * HPC3 and its file systems will be unavailable.
+  * You will not be able to login or access files in /dfsX or /home.
+  * All existing logins will be terminated.
+  * No jobs can run during the maintenance period.
+  * Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on Tuesday will be held.
+    Please see :ref:`requesting time limits <request time>` on queues.
+
+We expect to return HPC3 to service late afternoon, late afternoon Dec 19.
+
+Jul 25
+^^^^^^
+
+| :blogtitle:`HPC3 Downtime Jul 25, 2023`
+| :blogauthor:`2023-03-12 by Philip Papadopoulos`
+
+The next outage will be July 25, 2023, beginning at 8am
+
+.. note:: This is the first of two outages planned for this summer.
+
+In this outage we will be doing the following:
+  1. Reinstalling all login/compute nodes with Rocky Linux 8.8 and
+     applications recompiled for Rocky Linux 8.8.
+  2. Updating management/storage nodes to Rocky Linux 8.8.
+  3. Updating Slurm to its most recent release.
+
+**Effects on Jobs**
+  - Prior to the maintenance, :underline:`jobs that are not guaranteed to finish
+    before 8am on July 25, will be held`. All queues have default time limits
+    (see the RCIC website). You can also change the time limits for your jobs
+    to tell Slurm that your jobs will finish prior to 8am.
+  - Queued jobs - We will endeavor to keep queued jobs during the Slurm
+    upgrade. However, it is possible that any held jobs may need to be
+    resubmitted after HPC3 is returned to service.
+
+**Effects on user-compiled code**
+  - In general, user-compiled code will NOT need to be recompiled.
+  - However, there are some differences among Rocky 8.6 (installed last summer), Rocky
+    8.7 (updated early 2023) and Rocky 8.8. You might need to rebuild your application(s).
+
+Mar 28
+^^^^^^
+
+| :blogtitle:`HPC3 Downtime Mar 28, 2023`
+| :blogauthor:`2023-03-17 by Philip Papadopoulos`
+
+We periodically need to perform maintenance on HPC3 where all users are logged out and all jobs are stopped.
+
+The next outage will be March 28, 2023, beginning at 8am.
+
+The major items on the list are the following:
+  1. Upgrade All DFS servers to Rocky Linux 8.7
+  2. Upgrade Home Area Server to Rocky Linux 8.7
+  3. Reset BIOS on the dfs-3a-1 server
+  4. Replace Failed Drive on dfs-2
+  5. Replace dfs-7-1 with its now-repaired original server
+
+  We will be touching a majority of storage servers during the downtime,
+  but will not upgrade the version of BeeGFS.
+
+**Why are we doing this now?**
+  CentOS 7 (which is still present on several file servers) hits end-of-life in June 2024
+  and needs to be phased out everywhere. BeeGFS has declared that now-and-future versions of BeeGFS will not support CentOS 7.
+
+**We plan to upgrade the version of BeeGFS, cluster-wide, during a summer downtime.**
+
 .. _news 2022:
 
 2022 
@@ -11,10 +101,8 @@ News Archive
 Aug 01
 ^^^^^^
 
-:blogtitle:`HPC3/HPC2 Downtime Aug 30, 2022`
-
-
-:blogauthor:`2022-08-01 by Philip Papadopoulos`
+| :blogtitle:`HPC3/HPC2 Downtime Aug 30, 2022`
+| :blogauthor:`2022-08-01 by Philip Papadopoulos`
 
 **A Major OS Update will begin at 8am, on Tuesday, August 30, 2022**
 
@@ -65,9 +153,8 @@ from the current CentOS version 7.  This is a major update to the clusters and r
 May 19
 ^^^^^^
 
-:blogtitle:`HPC3/HPC2 Downtime June 15, 2022 and Aug TBD, 20202`
-
-:blogauthor:`2022-05-19 by Philip Papadopoulos`
+| :blogtitle:`HPC3/HPC2 Downtime June 15, 2022 and Aug TBD, 20202`
+| :blogauthor:`2022-05-19 by Philip Papadopoulos`
 
 We periodically need to perform maintenance on HPC3 where all users are 
 logged out and all jobs are stopped.  We have two planned  outages for 
@@ -106,7 +193,6 @@ all R modules under EL8.  As the summer progresses, we will keep a list of sunse
   Not really. It will be end-of-life in Mid-2024. We are already seeing commercial vendors
   ending support for CentOS7. The viability of CentOS7 as a functional OS will progressively diminish over the next 24 months.
 
-
 .. _news 2021:
 
 2021 
@@ -117,9 +203,8 @@ all R modules under EL8.  As the summer progresses, we will keep a list of sunse
 Symposium Jun 04
 ^^^^^^^^^^^^^^^^
 
-:blogtitle:`Research Infrastructure Symposium`
-
-:rcicorange:`Date: 04 June 2021,  Zoom 10:00am - 2:30pm.`
+| :blogtitle:`Research Infrastructure Symposium`
+| :rcicorange:`Date: 04 June 2021,  Zoom 10:00am - 2:30pm.`
 
 You are invited to participate in the 2021 virtual symposium of UCI's Research Cyberinfrastructure Center (RCIC).
 The symposium will take place on June 4th, 2021, via zoom (details below). This event aims to bring together
@@ -177,9 +262,8 @@ with a :bluelight:`@uci.edu` email address can participate.
 May 04
 ^^^^^^
 
-:blogtitle:`Research Infrastructure Symposium - June 4, 2021`
-
-:blogauthor:`2021-05-24 by Philip Papadopoulos`
+| :blogtitle:`Research Infrastructure Symposium - June 4, 2021`
+| :blogauthor:`2021-05-24 by Philip Papadopoulos`
 
 You are invited to participate in the **2021 Virtual symposium 
 of UCI's Research Cyberinfrastructure Center (RCIC)**.
@@ -208,9 +292,8 @@ We look forward to seeing you online!
 Nov 04
 ^^^^^^
 
-:blogtitle:`HPC3 Production and HPC Shutdown on 5 Jan 2021`
-
-:blogauthor:`2020-11-04 by Philip Papadopoulos`
+| :blogtitle:`HPC3 Production and HPC Shutdown on 5 Jan 2021`
+| :blogauthor:`2020-11-04 by Philip Papadopoulos`
 
 | We are pleased to announce that :ref:`hpc3` is in  *production*.
 | All existing HPC users have accounts on HPC3 and can get started right away.
@@ -231,9 +314,8 @@ Nov 04
 Jul 15
 ^^^^^^
 
-:blogtitle:`HPC3 Production Ramp Up`
-
-:blogauthor:`2020-07-15 by Philip Papadopoulos`
+| :blogtitle:`HPC3 Production Ramp Up`
+| :blogauthor:`2020-07-15 by Philip Papadopoulos`
 
 We are pleased to announce that :ref:`hpc3` will enter its *production ramp up*
 on 20 July 2020. A short presentation `Production Ramp-up </_static/Production_Ramp_Up.pdf>`_ 
@@ -254,9 +336,8 @@ groups/labs submit a single request to hpc-support@uci.edu (please see the prese
 May 30
 ^^^^^^
 
-:blogtitle:`CRSP HAProxy load balancer maintenance on June 11, 2019`
-
-:blogauthor:`2019-05-30 by Imam Toufique`
+| :blogtitle:`CRSP HAProxy load balancer maintenance on June 11, 2019`
+| :blogauthor:`2019-05-30 by Imam Toufique`
 
 CRSP HaProxy servers will undergo maintenance on June 11th 2019, between 7AM PST - 8AM PST.
 There is no planned user service interruption during this time. However, if access to CRSP
@@ -267,9 +348,8 @@ Thank you for your patience!
 May 15
 ^^^^^^
 
-:blogtitle:`Campus Research Storage (CRSP) Enters Full Production`
-
-:blogauthor:`2019-05-15 by Philip Papadopoulos`
+| :blogtitle:`Campus Research Storage (CRSP) Enters Full Production`
+| :blogauthor:`2019-05-15 by Philip Papadopoulos`
 
 The :ref:`crsp` has entered full production.
 Approximately 1200 faculty and researcher accounts have been created and are active.
@@ -285,7 +365,7 @@ system on the HPC Cluster.
 Symposium Apr 04
 ^^^^^^^^^^^^^^^^
 
-:blogtitle:`RCI Symposium at Calit2 04/04/2019`
+| :blogtitle:`RCI Symposium at Calit2 04/04/2019`
 
 **Purpose of the Symposium**
 
@@ -337,9 +417,8 @@ would like to see at UCI emerge over the next few years.
 Mar 21
 ^^^^^^
 
-:blogtitle:`RCI Symposium to be held at Calit2 04/04/2019`
-
-:blogauthor:`2019-03-21 by Philip Papadopoulos`
+| :blogtitle:`RCI Symposium to be held at Calit2 04/04/2019`
+| :blogauthor:`2019-03-21 by Philip Papadopoulos`
 
 The RCI :ref:`symposium 2019`  has been scheduled as forum for the UCI 
 community to shape Research Cyberinfrastructure. 
@@ -351,9 +430,8 @@ Lunch will be provided for registered participants.
 Jan 25
 ^^^^^^
 
-:blogtitle:`CRSP Hardware Delivered`
-
-:blogauthor:`2019-01-25 by Philip Papadopoulos`
+| :blogtitle:`CRSP Hardware Delivered`
+| :blogauthor:`2019-01-25 by Philip Papadopoulos`
 
 Campus resource storage cluster :ref:`crsp` has been physically delivered to
 UCI.  RCIC is currently working on configuration and acceptance testing.
@@ -363,9 +441,8 @@ We expect friendly users to have access near mid February.
 Jan 24
 ^^^^^^
 
-:blogtitle:`HPC3 Request for Proposals Sent to Vendors`
-
-:blogauthor:`2019-01-24 by Philip Papadopoulos`
+| :blogtitle:`HPC3 Request for Proposals Sent to Vendors`
+| :blogauthor:`2019-01-24 by Philip Papadopoulos`
 
 Using standard UCI Procurement processes, the formal RFP for HPC3 has 
 been made public to vendors.  Responses are expected February 1, 2019.
@@ -385,9 +462,8 @@ via Infiniband and 10 Gigabit Ethernet:
 Oct 10
 ^^^^^^
 
-:blogtitle:`RCIC Joins the Coalition for Academic Scientific Computation (CASC)`
-
-:blogauthor:`2017-10-10 by Allen Schiano`
+| :blogtitle:`RCIC Joins the Coalition for Academic Scientific Computation (CASC)`
+| :blogauthor:`2017-10-10 by Allen Schiano`
 
 The UCI Research Cyberinfrastructure Center has been accepted as a member of the 
 nation-wide Coalition for Academic Computing (CASC). 
