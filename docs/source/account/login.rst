@@ -167,14 +167,26 @@ If you choose to use key-based authentication for your login, you have additiona
 2. **Use ssh command to login**
 
    Once your keys are setup simply use ``ssh`` commands.
-   For example a user with UCINetID *panteater* can use one of the following:
+   For example a user with UCINetID *panteater* can use one of the following
+   commands  and provide your ssh passphrase when prompted:
 
    .. code-block:: console
 
       ssh panteater@hpc3.rcic.uci.edu
       ssh hpc3.rcic.uci.edu -l panteater
 
-   and provide your ssh key passphrase when prompted.
+   The above commands assume using default ssh keys (usually ~/.ssh/id_rsa,
+   .ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519, and ~/.ssh/identity).
+
+   If your ssh keys have non-default names and you do not have mapping in your
+   :tt:`~/.ssh/config` file, or if your ssh client does not use this file (FileZilla),
+   then you need to specify ssh key via :tt:`-i` flag:
+
+   .. code-block:: console
+
+      ssh -i ~/.ssh/key-to-hpc3 panteater@hpc3.rcic.uci.edu
+      ssh -i ~/.ssh/key-to-hpc3 hpc3.rcic.uci.edu -l panteater
+
 
 .. _ssh xforward:
 
