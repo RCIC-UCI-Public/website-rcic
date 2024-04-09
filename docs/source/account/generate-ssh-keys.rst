@@ -138,6 +138,25 @@ use your specific software instructions.
    The content of your public key will be added to :tt:`$HOME/.ssh/authorized_keys` file
    in your HPC3 account.
 
+4. Create key mapping 
+
+   This task is done once for generated ssh keys pair.
+
+   Your ssh keys are stored in the default directory but they have
+   non-default names. We need to add newly generated key's name to the ssh
+   configuration file to let the ssh commands know what keys to use when
+   connecting to HPC3 cluster.
+
+   Create :tt:`~/.ssh/config` file with your choice of editor and add the following:
+
+   .. parsed-literal::
+
+      Host hpc3.rcic.uci.edu 
+        IdentityFile ~/.ssh/key-to-hpc3
+
+   The :tt:`~/ssh/config` is a user's ssh configuiration file that is used  by ssh commands.
+   The added content tells ssh to use this specific ssh key when connecting to HPC3.
+
 .. _generate-ssh-keys-linux:
 
 Generate SSH keys on Linux
