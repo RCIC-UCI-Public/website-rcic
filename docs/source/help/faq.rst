@@ -162,9 +162,16 @@ I accidentally deleted some files (or directories). Can they be restored?
 What are allocations for DFS?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Users have access to the private and group-shared areas on BeeGFS.
-UCI Faculty members can have low-cost recharge allocation(s) to fulfill their needs.
-Please see :ref:`allocations`
+Users have access to the private and group-shared areas on DFS.
+
+:private: 
+  :red:`Private areas are in /pub/$USER and are for user only, not shared with anyone.`
+
+:group-shared:
+   UCI Faculty members can have low-cost recharge allocation(s) and have 
+   areas to fulfill their needs where they can add group members to the access.
+
+Please see :ref:`allocations` for details.
 
 How do I purchase more DFS space?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -187,8 +194,8 @@ I want to use my PI's group CRSP area, how do i do this?
 
 Please see :ref:`getting crsp account`
 
-Exactly who is entitled to baseline allocation?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Exactly who is entitled to my CRSP baseline allocation?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All ladder faculty and any UCI employee who can serve as PI or Co-PI on an extramural grant.
 Please see :ref:`allocations` for details.
@@ -212,8 +219,8 @@ For example, if you were to purchase 10TB for 1 year ($600) and add it to your b
 have 11TB of allocated space. Please see how to :ref:`buy crsp`
 and :ref:`recharge allocations` for pricing.
 
-Can I grant access to my storage to others at UCI?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Can I grant access to my CRSP storage to others at UCI?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Yes. Under your control, you can add people (by the UCINetID)
 to have read, write or read/write access to your storage.

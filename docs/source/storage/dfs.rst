@@ -76,7 +76,7 @@ Storing Files
 **Where to Store**
   Pick a location depending on the type of data (personal or group access)
 
-  1. The **/pub/ucinetid** is a unique private access area. Use this for data you don't need to share with anyone.
+  1. :red:`The /pub/ucinetid is a unique PRIVATE access area and is NOT shared with other users.`
   2. Most users have access to one or more group-shared areas in **/dfsX/<group-lab-path>**.
      Within this area, all group members have read and write access.
      The organization is up to the group members with one exception: :red:`do not change sticky bit settings`. 
