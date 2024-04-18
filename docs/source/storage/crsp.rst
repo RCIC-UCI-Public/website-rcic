@@ -324,29 +324,28 @@ There are two ways to check your quotas:
 Snapshots
 ---------
 
+A snapshot of a file system is a logical, point-in-time, read-only, copy of all files.
+It's not really a complete copy. Instead, the file system keeps track of files that are *changed*
+or *deleted* after the snapshot was made.  Snapshots are point-in-time copies of the CRSP file system. 
+
 .. _crsp snapshots default:
 
 Default settings
 ^^^^^^^^^^^^^^^^
 
-A snapshot of a file system is a logical, point-in-time, read-only, copy of all files.
-It's not really a complete copy. Instead, the file system keeps track of files that are *changed*
-or *deleted* after the snapshot was made.
-
 By definition, **all snapshots are read-only**, meaning you cannot delete a file from a snapshot.
-Restoring a file from a snapshot is as simple as copying the file back to your working directory/folder.
+Restoring a file from a snapshot is as simple as copying the file back to your desired directory/folder.
 
 On CRSP, all snapshots are labeled by date and time. The timezone is GMT (Greenwich Mean Time).
-Snapshots are point-in-time copies of the CRSP file system.  Snapshots are taken
 
-TODO verify
+:bluelight:`Snapshots are taken:`
 
-* daily, keep last 14
-* weekly, keep last 8
+    - daily, keep last 14
+    - weekly, keep last 8
 
 .. attention:: Files that were deleted more than 8 weeks ago are gone forever
 
-Is Snapshot a Backup?
+:bluelight:`Is Snapshot a Backup?`
 
 Not really. Backups are generally thought of as historical copies of files and users could go to a backup to
 recover a file from many months ago. Snapshots provide some safety against the common "accidentally deleted" use case.
