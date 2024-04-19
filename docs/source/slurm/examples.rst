@@ -923,6 +923,9 @@ important option to avoid deadlocking is ``--temp $TMPDIR`` and do downloads in
 Stata
 -----
 
+| :red:`Stata is a licensed software and is only available to users whose labs paid for the license`. 
+| See :ref:`licensed software` for details.
+
 .. centered:: File stata.sub
 
 .. literalinclude:: files/stata.sub
@@ -975,11 +978,8 @@ Tensorflow
 VASP
 ----
 
-VASP is a licensed software and is only available to users whose labs paid
-for the license. Users must be in specific groups in order to access this software.
-
-In order to be in a specific vasp group we need a confirmation from your PI who bought the
-license and we need to have a record of such license.
+| :red:`VASP is a licensed software and is only available to users whose labs paid for the license`. 
+| See :ref:`licensed software` for details.
 
 1. VASP versions 5.4.4 and 6.1.2
 

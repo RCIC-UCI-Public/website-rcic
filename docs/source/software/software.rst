@@ -21,19 +21,29 @@ literally hundreds of domain-specific, community-supported, applications maintai
   * :ref:`software updates` for details about installed software and their modules.
   * :ref:`job examples` for details about specific software use.
 
-:bluelight:`Licensed Software`
-  Access to some applications requires a license. Only registered users can
-  use such software. We do not purchase or provide licenses.
-  Licenses are usually bought by the PIs for their groups group and the access must be approved by a PI.
+.. _licensed software:
 
-  When submitting a ticket requesting an access to the licensed software
-  please cc your email request to the PI to assist with the confirmation processing.
+:bluelight:`Licensed Software`
+  Access to some applications requires a license.
 
   Current licensed software:
     | Abaqus
     | Gaussian
     | Stata 16 and 17
     | VASP 5.* and 6.*
+
+  .. note:: While all users can view and load modules for licensed software only registered users
+            (*users must be in specific groups*) can use such software.
+
+  RCIC does not purchase or provide licenses, we only enable an access to the licenses.
+  Licenses are usually bought by the PIs for their labs and the group access must be approved by a PI.
+
+  In order to be in a specific license software  group we need a confirmation from your
+  PI who bought the license and we need to have a record of such license
+  (proof of license from the PI).
+
+  When submitting a ticket requesting an access to the licensed software
+  please cc your email request to your PI to assist with the confirmation processing.
 
 :bluelight:`New software`
   Please see :ref:`user installed` :underline:`before` :ref:`software tickets`.
