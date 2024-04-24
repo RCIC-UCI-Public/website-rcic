@@ -933,6 +933,10 @@ Steps below explain the basic setup specific to the cluster.
 
       [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
 
+   .. note:: If your software requires CUDA support you will need to use an interactive
+             node  in one of gpu-enabled partitions (see :ref:`interactive job` for details)
+             and load one of available CUDA modules in the next step.
+
    Next steps are executed on interactive node.
 
 2. **Find and load desired modules**
