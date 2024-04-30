@@ -271,7 +271,7 @@ created under different groups and shows how to use ``newgrp`` command.
    $ ls -l aaa
    -rw-rw-r-- 1 panteater panteater 0 Nov  3 14:57 aaa
 
-   $ newgp bio
+   $ newgrp bio
    $ touch bbb
    $ ls -l bbb
    -rw-rw-r-- 1 panteater bio 0 Nov  3 14:57 bbb
