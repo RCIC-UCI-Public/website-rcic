@@ -2,7 +2,7 @@
 
 # -- Project information
 project = u'RCIC'
-copyright = u'2019-2023, The Regents of the University of California'
+copyright = u'2019-2024, The Regents of the University of California'
 author = u'RCIC'
 
 version = 'latest'
@@ -56,12 +56,12 @@ rst_prolog = """
 """
 
 # ---------------------------------------------
-#      Options for HTML output 
+#      Options for HTML output
 # ---------------------------------------------
 
 html_theme = 'sphinx_rtd_theme'
 
-# custom dir for storing pdf files 
+# custom dir for storing pdf files
 html_static_path = [ '_static', 'pdfs']
 
 # custom css file
@@ -70,7 +70,7 @@ html_css_files = [ 'css/rcic.css','css/jquery.dataTables.min.css']
 # custom js files
 html_js_files = ['js/jquery.dataTables.min.js', 'js/main.js',]
 
-# top sidebar image image (relative to this dir) 
+# top sidebar image image (relative to this dir)
 html_logo = 'images/rcic-logo.png'
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
