@@ -28,8 +28,7 @@ While there are many possible use cases, a driving one is:
              `data security <https://research.uci.edu/compliance/human-research-protections/researchers/data-security.html>`_
              provided by the `UCI Office of Research <https://www.research.uci.edu/>`_
 
-.. _crsp allocations:
-
+.. _crsp technologies:
 
 CRSP technologies
 -----------------
@@ -61,6 +60,7 @@ CRSP technologies
    :align: center
    :alt: crsp  architecture
 
+.. _crsp allocations:
 
 Allocations
 -----------
@@ -273,6 +273,34 @@ Consult our :ref:`crsp troubleshoot` if you have trouble accessing your CRSP sha
 Quotas
 ------
 
+All CRSP-based file systems have quota enforcement.
+
+- CRSP allocations are provided for UCI faculty members.
+  In general, users do not get a default CRSP allocation.
+  The allocation owners can grant access to their spaces to students, postdocs, and other faculty members.
+ 
+- Users who are granted access have $HOME area which is used only by account related files.
+  This area is NOT for storing anything else.
+
+- User who are granted access to one or more  PI's lab areas (see :ref:`crsp areas`)
+  may have additional quota limits set by their PIs for the group area.
+
+- All CRSP quotas are enforced in two areas: total space used and number of
+  files.
+
+- When writing in group area users need to remember that all members of the
+  group contribute to the quota. It's the sum total usage that counts.
+  When quotas are exceeded, users can no longer write in the affected
+  filesystem  and will need to remove some files and directories to free space.
+
+- Users can't change quotas, but can submit a ticket asking to be added
+  to the group quotas provided there is a confirmation from the PI about the change.
+
+.. _crsp check quotas:
+
+How to check
+^^^^^^^^^^^^
+
 There are two ways to check your quotas:
 
 1. Using a web browser go to the
@@ -290,21 +318,23 @@ There are two ways to check your quotas:
 
       [user@login-x:~]$ cat  /share/crsp/home/panteater/quotas.txt
       Quota Report for panteater : 06/12/23 17:30
-      == Storage Areas that you own  ==
+      == Storage Areas that you own  ==                                                   (1)
       == Your use in Paths to which you have access  ==
-           /mmfs1/crsp/home                        0.001 GB/     0.020 GB      6/40       files
-                total bytes in use          :    115.735 GB/     0.000 GB
-           /mmfs1/crsp/lab/ucinetid-pi            39.799 GB/  1024.000 GB   2900/100000   files
-                total bytes in use          :    374.092 GB/  1024.000 GB
+         /mmfs1/crsp/home                    0.001 GB/     0.020 GB      6/40       files (2)
+              total bytes in use        :  115.735 GB/     0.000 GB
+         /mmfs1/crsp/lab/ucinetid-pi        39.799 GB/  1024.000 GB   2900/100000   files (3)
+              total bytes in use        :  374.092 GB/  1024.000 GB
 
-   The first command above gives an idea when the file was updated.
-   The second command shows that the user *panteater*:
+   | The first ``ls`` command above gives an idea when the file was updated.
+   | The second ``cat`` command shows that the user *panteater*:
 
-   * does not own any area (user is not a PI).
-   * has no usage in HOME area :tt:`/mmfs1/crsp/home`, this is a correct behavior.
-     The 0.001 GB is used only by account related files.
-   * is a member of ucinetid-pi LAB and used 39.799 GB of the allocated 1024 GB LAB area
-     in :tt:`/mmfs1/crsp/lab/ucinetid-pi`. The total usage of the LAB area by all lab members is 374.092 GB.
+   | (1) does not own any area (user is not a PI).
+   | (2) has no usage in HOME area :tt:`/mmfs1/crsp/home`, this is a correct behavior.
+   |     The 0.001 GB is used only by account related files. Currently the user
+   |     used 6 out of 40 files (40 is a quota).
+   | (3) is a member of ucinetid-pi LAB and used 39.799 GB of the allocated 1024 GB LAB area
+   |     in :tt:`/mmfs1/crsp/lab/ucinetid-pi` and 2900 files (quota 100000). 
+   |     The total usage of the LAB area by all lab members is 374.092 GB.
 
    Note the path naming on CRSP and HPC3:
 
@@ -317,6 +347,69 @@ There are two ways to check your quotas:
 
   .. note:: | If you are a PI of the lab you will to see the usage of your lab quota for all lab members.
             | If you are a member of the lab you will see only what you have used from the lab quota allocation.
+
+.. _crsp over quota:
+
+Over quotas
+^^^^^^^^^^^
+
+When quota is filled either in used space or in number of files, the users will not be able to write any files
+or directories and submitted jobs will fail with :red:`quota exceeded errors`
+
+For example, the following output in quotas check  show the quotas exceeded for the user in number
+of files (a) in storage used (b):
+
+.. parsed-literal::
+
+      mmfs1/crsp/home                    0.014 GB/     0.020 GB     :red:`40/40`       files (a)
+          total bytes in use        :  115.735 GB/     0.000 GB
+      mmfs1/crsp/lab/ucinetid-pi      :red:`1029.799 GB/  1024.000 GB`   2900/100000   files (b)
+          total bytes in use        : :red:`1029.799 GB/  1024.000 GB`
+
+
+.. _fix crsp overquota:
+
+Fix over quotas
+^^^^^^^^^^^^^^^
+
+**Fix number of files**
+
+The number of files  quotas are reasonably set at the time of the account
+creation. When the quota is exceeded we recommend that users:
+
+* check what they wrote and remove any temporary files
+* use ``tar`` or ``zip`` commands to create single files from the directories containing many small files
+  and remove original small files. 
+* files number quota exceeding in $HOME  is usually related to temp files that
+  Jupyter  puts for each web-based access session.  Check how many such files
+  you have and remove older files 
+  while logged in on HPC3:
+
+  .. code-block:: console
+
+     ls -l /share/crsp/home/npw/.local/share/jupyter/runtime/
+     total 1024
+     -rw-rw---- 1 panteater panteater 254 Jan 30 14:41 nbserver-114022.json
+     -rw-rw---- 1 panteater panteater 562 Jan 30 14:41 nbserver-114022-open.html
+     -rw-rw---- 1 panteater panteater 255 Mar 14  2022 nbserver-3966545.json
+     -rw-rw---- 1 panteater panteater 562 Mar 14  2022 nbserver-3966545-open.html
+     ... cut lines ...
+     rm /share/crsp/home/npw/.local/share/jupyter/runtime/nbserver-3966545*
+
+   if you never login on HPC3 but use web-based access only for your CRSP lab
+   space you will need to submit a ticket asking us to remove such files. 
+
+**Fix space quota**
+
+Usually quota violations happen when:
+
+* users fill space over quota. Either reduce your usage or buy additional space (see :ref:`crsp allocations`). 
+* users use ``rsync`` or ``scp`` commands to transfer the files that results
+  in wrong ownership permissions.
+
+  Please see :ref:`fix DFS over quota <dfs over quota>` section that provides info on how to find
+  offending files (wrong group permission) and how to fix. 
+  The only difference is a path to he written files. 
 
 
 .. _crsp snapshots:
