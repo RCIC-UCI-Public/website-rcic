@@ -188,22 +188,20 @@ command to check user/group quotas on a particular DFS pool.
      :tt:`panteater` or a supplemental UNIX group :tt:`alpha_users`. If a user tries
      to write  using these UNIX groups it will result in permissions and over the quota errors.
 
-..
-   next two blocks are commented out 
+..  next two blocks are commented out 
 
-..
-   **To see the quotas for selective backup:**
+..  **To see the quotas for selective backup:**
 
      .. code-block:: console
 
         $ dfsquotas panteater sbak
 
-..
-   **To see the quotas for** :tt:`dfs6` **and selective backup:**
+..  **To see the quotas for** :tt:`dfs6` **and selective backup:**
 
      .. code-block:: console
 
         $ dfsquotas panteater "dfs6 sbak"
+
 
 
 .. _dfs over quota:
