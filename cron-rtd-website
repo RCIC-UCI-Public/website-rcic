@@ -72,7 +72,8 @@ function buildHtml () {
   make clean html > $TEMP
   success="build succeeded"
   result=`grep "$success" $TEMP`
-  if [ "$result" == "$success". ]; then
+  #if [ "$result" == "$success". ]; then
+  if [ $? -eq 0  ]; then
     # replace with new build
     timestamp=`date "+%Y%m%d-%H%M"`
     mv $WEBDIR /tmp/html.$timestamp 
