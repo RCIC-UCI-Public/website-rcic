@@ -14,6 +14,137 @@ to address your systems issue first before installing CRSP Desktop.
 
 For issues with clients please see :ref:`crsp troubleshoot`
 
+.. _duo crsp:
+
+DUO Multifactor Authentication
+------------------------------
+
+In July 2024, `Campus DUO authentication <https://www.oit.uci.edu/services/accounts-passwords/duo/>`_  
+will be **mandatory** for all CRSP desktop clients.  The push response of DUO can become very tiresome. 
+On some clients, DUO can make CRSP unusable because *every* file transfer requires *another* 
+DUO push.  RCIC cannot "turn off DUO." 
+
+However, **ssh keys** with strong passwords is a *secure* method to to provide a different 
+second factor of authentication that does not require DUO after initial setup. 
+
+**Quick Start**
+
+1. You should follow the guide to :ref:`generate ssh keys` for different platforms. 
+
+2. Use the :ref:`manage crsp keys` guide for uploading public keys to CRSP
+
+3. **DO NOT COPY** *private* ssh-keys. Every different physical device should have a different *ssh key pair*
+
+4. *All ssh keys* that you generate *MUST have a strong password*.  Passwordless keys are a security violation.
+   Learn how to use `SSH Agent <https://www.ssh.com/academy/ssh/agent>`_ on your desktop laptop. If on Windows,
+   you can also `Putty's pageant <https://winscp.net/eng/docs/ui_pageant>`_. SSH agents securely store a private
+   key *in memory* so that you only have to type the key's password once.
+
+.. _manage crsp keys:
+
+Managing Public SSH Keys on CRSP
+--------------------------------
+
+CRSP uses ssh for authentication but *does not grant shell access*.  Only three underlying 
+protocols are supported for accessing CRSP
+
+* SFTP - `the secure shell file transfer protocol <https://www.ssh.com/academy/ssh/sftp-ssh-file-transfer-protocol>`_. 
+  This is the *only* protocol available to desktop clients.
+
+* NFSv4 - Network File System. This is only supported on :ref:`HPC3 <hpc3>` through the path `/share/crsp`.
+
+* HTTPS - This provides very simple, browser-based access to CRSP. This is a *fallback* access method.
+
+
+Since there is no shell access to CRSP, you *should use* the procedure below to copy an
+ssh public key to CRSP
+
+To make ssh key management a bit more tractable, RCIC has built a very simple facility to *add* a new public
+key to your :tt:`.ssh/authorized_keys` file on CRSP or to completely *replace* the contents of the
+authorized_keys file.
+
+.. note::
+
+   In the next sections, command-line clients are used. These are available at the Linux terminal, the
+   Mac Terminal, Windows Command line, and Windows Powershell
+
+
+Add an SSH Public Key
+^^^^^^^^^^^^^^^^^^^^^
+
+Suppose you have new *public* key in format similar to (single line broken for readability):
+
+.. parsed-literal::
+
+   ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1QciUGQzHTtvMir69BxFUpcaHSfnibqUqOotPVPYQcnJ71P12lHhy5R4K9h8SnYQHopwPK0
+   LxRWkc51LyI6cDSUEbqfk+ow+SbV2vmVBCBhAaYiUDmZIBwqXV8jsOoVdRJcjeV0ToHn/B4MEGOBscT3jVd5cSC3F29dPU/oMEED5EPlZe2mZnOn
+   VMaCK4tlNA5BpBc2AyV4aypLoAoXQzlYZKcaT8PVAK8lC+iom6qNU4G/Us+KXnV0ECrGm8BBcKSkU7H8A5qbof8jfHrqDHWm2GB6/PezHo4UHEfWH
+   jPA3QknLjRU71ydNCT5FVae5gmmwoIPPLqSKsYEXyK+E/ULhkJ/Guo/apeBMp1IiOhU8QCusuKEE6hbScoEJJVgjj1vfiTigyg1khcj1v/QrnV
+   5IJiqx6vpkOhfbmbvZK0L+WElR05qzUEL34AklhPkL3xpEb0n4AqT9ROBtKLsQToFefp8oE2cugSyYd1vRmLfGsaljgh9LzzBgvdFyeJi
+   k= ssh key for go-kart laptop
+
+
+**Now you need to add this key so that it can be recognized by CRSP**. To accomplish this, use 
+sftp to "put" the *public key* into the file :tt:`$HOME/.ssh/add`. You will be asked for DUO authentication
+to authenticate to CRSP (only after July 2024).
+
+In the following example, **replace** *panteater* with your UCINetID and **replace** the *panteater-uci.pub* 
+with the name of the local file that holds the **public key**. What you type is in :bluelight:`blue`.
+
+.. _sftp put public key:
+
+.. parsed-literal::
+
+   :bluelight:`sftp panteater@access.crsp.uci.edu:.ssh`
+   Password:
+   Duo two-factor login for panteater
+
+   Enter a passcode or select one of the following options:
+
+        1. Duo Push to XXX-XXX-1234
+
+   Passcode or option (1-1): 1
+   Connected to access.crsp.uci.edu.
+   Changing to: /mmfs1/crsp/home/panteater/.ssh
+   sftp> :bluelight:`put panteter-uci.rsa.pub add`
+   Uploading panteater-uci.rsa.pub to /mmfs1/crsp/home/panteater/.ssh/add
+   panteater-uci.rsa.pub                                              100%  742     9.1KB/s   00:00
+   sftp> :bluelight:`ls`
+     add              authorized_keys  known_hosts
+   sftp> :bluelight:`quit`
+
+After approximately 5 minutes, the contents of what you uploaded into the file named `add` will be appended
+to your `authorized_keys` file.   You will know that this has been completed when the file `add` disappears.
+
+Verifying Access
+^^^^^^^^^^^^^^^^
+
+Once appended, you should be able to sftp to CRSP using the *private* key as the identity as in the following 
+example. Notice that the *passphrase* for the key was requested and DUO was *not* required
+
+.. parsed-literal::
+
+    :bluelight:`sftp -i panteater-uci panteater@access.crsp.uci.edu`
+    Enter passphrase for key 'panteater-uci':
+    Connected to access.crsp.uci.edu.
+    sftp>
+
+
+Overwrite authorized_keys
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sometimes your `$HOME/.ssh/authorized_keys` needs more complex editing than simple addition of new
+key.  You can completely *overwrite* the contents of the authorized_keys file with a new version
+
+1. Create a new version of the file on your local machine called `newkeys`. Edit it so that it appears exactly how it 
+   you need it to appear on CRSP
+
+2. Follow the :ref:`SFTP Procedure <sftp put public key>` *EXCEPT* put the file as `overwrite` instead of `add`.  
+   e.g., `put newkeys overwrite`
+
+3. Wait 5 minutes for the new file to be put in place
+
+
 .. _client desktop mac:
 
 CRSP Desktop App for macOS
