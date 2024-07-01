@@ -782,7 +782,9 @@ Python
 R
 --
 
-1. Single core/CPU
+1. **Single core/CPU**
+
+   Nearly all R jobs will only use a single core. 
 
    .. centered:: File R-single-cpu.sub
 
@@ -800,10 +802,13 @@ R
       [user@login-x:~]$ sbatch -p standard -N 1 -n 1 -t 1- \
                                --wrap="R CMD BATCH --no-save mycode.R"
 
-2. Multiple core/CPU
+2. **Single node Parallelization**
 
-   .. attention:: Nearly all R jobs will only use a single core. Please make sure your job is
-                  multi-threaded or is explicitly using R parallel libraries.
+   When working on a single compute node, one can use R *parallel* libraries
+   to achieve the *processor level parallelism*.  Your code must use **library("parallel")**
+   When you request X CPUs your code will run on a single node (serial job)
+   but will be using X requested CPUs in parallel.
+
 
    .. centered:: File R-multi-cpu.sub
 
@@ -820,6 +825,22 @@ R
       [user@login-x:~]$ module load R/3.6.2*
       [user@login-x:~]$ sbatch -p standard -N 1 -n 12 -t 00:20:00 \
                                --wrap="R CMD BATCH --no-save mycode.R"
+
+3. **Multi-Node Parallelization** 
+
+   There are very few jobs that need this. 
+
+   One can use parallelization across multiple compute nodes. 
+   To allow for communication between R processes running on different compute
+   nodes your job neds to meet the following requirements:
+
+   - the desired R software package must be using MPI, specifically must use
+     *library('Rmpi')*. The desired software package and the Rmpi library must be installed by the user. Before
+     installing load one of the MPI modules in addition to your R module.
+     For example for *R/4.3.3* use *openmpi/4.1.2/gcc.11.2.0*
+   - your submit script must load the same R and MPI modules that were used for the library install.
+   - your submit script must request a number of nodes and a number of CPUs to use. 
+   - your submit script actual execute command must use ``mpirun``
 
 .. _job rstudio:
 
