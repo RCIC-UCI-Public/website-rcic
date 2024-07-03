@@ -166,8 +166,8 @@ key to your :tt:`.ssh/authorized_keys` file on CRSP or to completely *replace* t
 
 .. _crsp access methods:
 
-Other Protocols for Accessing CRSP
-----------------------------------
+Supported Protocols for Accessing CRSP
+--------------------------------------
 
 There are only three underlying data transfer protocols supported for accessing CRSP:
 
