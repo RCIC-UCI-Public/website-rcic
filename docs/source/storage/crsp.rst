@@ -40,11 +40,11 @@ During the upgrade, CRSP will be completely unavailable (outage is expected to l
 * **All user/lab files will have been copied from CRSP to its replacement (CRSP2)**. If you actively access CRSP now,
   you will be able to do so after the upgrade. Your files will be in the same location as they were prior to upgrade.
 
-* **DUO Multifactor Authentication will be required for ALL desktop clients**. Please see `<duo crsp>` for using
-  SSH-keys with strong passwords
+* **DUO Multifactor Authentication will be required for ALL desktop clients**. Please 
+  see :ref:`Using DUO with CRSP <duo crsp>` for using SSH-keys with strong passwords
 
-* **The scp (Secure Copy) interface to CRSP will no longer be available**. Please see `<crsp access methods>` for
-  supported methods
+* **The scp (Secure Copy) interface to CRSP will no longer be available**. Please 
+  see :ref:`Supported Access Methods <crsp access methods>` 
 
 * **Snapshot locations for labs will move**. This is due to an underlying configuration change.
 
