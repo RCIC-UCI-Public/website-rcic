@@ -99,7 +99,32 @@ use your specific software instructions.
       ssh-rsa AAAA1yc2Ew...characters deleted...97VU0yRlaTxEX= panteater\@uci.edu (MacBook Air)
 
 
-3. Transfer your public ssh key to HPC3
+.. _generate PEM-formatted keys:
+
+3. PEM-formatted keys
+
+   PEM-formatted keys are the most reliable format for the :ref:`CRSP Desktop Client <crsp clients>`. The procedure is essentially identical
+   to the previous step but adds an explicit format and the :tt:`.pem` file extension. 
+
+   **Replace**
+
+   .. parsed-literal::
+
+     :blue:`ssh-keygen -t rsa -f  ~/.ssh/key-to-hpc3 -C "panteater@uci.edu (MacBook Air)"`
+
+   **With**
+
+   .. parsed-literal::
+   
+     :blue:`ssh-keygen -t rsa -f  ~/.ssh/key-to-hpc3.pem -m PEM -C "panteater@uci.edu (MacBook Air)"`
+
+
+   The above will create files :tt:`key-to-hpc3.pem` and :tt:`key-to-hpc3.pem.pub`
+
+
+.. _copy ssh keys:
+
+4. Transfer your public ssh key to HPC3
 
    .. attention::
 
@@ -138,7 +163,7 @@ use your specific software instructions.
    The content of your public key will be added to :tt:`$HOME/.ssh/authorized_keys` file
    in your HPC3 account.
 
-4. Create key mapping 
+5. Create key mapping 
 
    This task is done once for generated ssh keys pair.
 

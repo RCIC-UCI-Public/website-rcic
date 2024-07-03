@@ -24,12 +24,22 @@ will be **mandatory** for all CRSP desktop clients.  The push response of DUO ca
 On some clients, DUO can make CRSP unusable because *every* file transfer requires *another* 
 DUO push.  RCIC cannot "turn off DUO." 
 
-However, **ssh keys** with strong passwords is a *secure* method to to provide a different 
-second factor of authentication that does not require DUO after initial setup. 
+However, **ssh keys** with **strong passwords** is a *secure* method to to provide a different 
+second factor of authentication. SSH keys managed properly do not require DUO after initial setup but still maintain
+strong security.  *Never copy an ssh private key file!*
 
 **Quick Start**
 
 1. You should follow the guide to :ref:`generate ssh keys` for different platforms. 
+
+   .. note::
+       It is **highly recommended** that your private key file is in 
+       *PEM* format *and* has a :tt:`.pem` file extension.
+       The CRSP desktop client seems to more reliably recognize :ref:`PEM-formatted keys <generate PEM-formatted keys>`
+
+   .. note::
+       If using Windows, it is recommended to use the :ref:`Powershell method <generate-ssh-keys-windows-powershell>` 
+       for generating keys and not use PuTTY.
 
 2. Use the :ref:`manage crsp keys` guide for uploading public keys to CRSP
 
@@ -48,15 +58,9 @@ second factor of authentication that does not require DUO after initial setup.
 Managing Public SSH Keys on CRSP
 --------------------------------
 
-CRSP uses ssh for authentication but *does not grant shell access*.  Only three underlying 
-protocols are supported for accessing CRSP:
+CRSP uses ssh for authentication but *does not grant shell access*.  This means that common methods 
+updating as user's :tt:`authorized_keys` file cannot be used.
 
-* **SFTP** - `the secure shell file transfer protocol <https://www.ssh.com/academy/ssh/sftp-ssh-file-transfer-protocol>`_. 
-  This is the *only* protocol available to desktop clients.
-
-* **NFSv4** - Network File System. This is only supported on :ref:`HPC3 <hpc3>` through the path `/share/crsp`.
-
-* **HTTPS** - This provides very simple, browser-based access to CRSP. This is a *fallback* access method.
 
 
 Since there is no shell access to CRSP, you *should use* the procedure below to copy an
@@ -133,7 +137,8 @@ key to your :tt:`.ssh/authorized_keys` file on CRSP or to completely *replace* t
        Connected to access.crsp.uci.edu.
        **sftp>**
 
-3. **Overwrite authorized_keys**
+
+**Starting over: Overwrite authorized_keys**
 
    Sometimes your :tt:`$HOME/.ssh/authorized_keys` needs more complex editing than simple addition of new
    key.  You can completely *overwrite* the contents of the :tt:`authorized_keys` file with a new version.
@@ -154,6 +159,23 @@ key to your :tt:`.ssh/authorized_keys` file on CRSP or to completely *replace* t
          **sftp>** :bluelight:`quit`
 
    3. Wait 5 minutes for the new file to be put in place
+
+
+
+.. _crsp access methods:
+
+Other Protocols for Accessing CRSP
+----------------------------------
+
+There are only three underlying data transfer protocols supported for accessing CRSP:
+
+* **SFTP** - `the secure shell file transfer protocol <https://www.ssh.com/academy/ssh/sftp-ssh-file-transfer-protocol>`_. 
+  This is the *only* protocol available to desktop clients.
+
+* **NFSv4** - Network File System. This is only supported on :ref:`HPC3 <hpc3>` through the path `/share/crsp`.
+
+* **HTTPS** - This provides very simple, browser-based access to CRSP. This is a *fallback* access method.
+
 
 
 .. _client desktop mac:
