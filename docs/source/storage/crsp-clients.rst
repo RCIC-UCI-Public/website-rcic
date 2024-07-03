@@ -28,6 +28,8 @@ However, **ssh keys** with **strong passwords** is a *secure* method to to provi
 second factor of authentication. SSH keys managed properly do not require DUO after initial setup but still maintain
 strong security.  *Never copy an ssh private key file!*
 
+.. _crsp quick start:
+
 **Quick Start**
 
 1. You should follow the guide to :ref:`generate ssh keys` for different platforms. 
@@ -549,13 +551,13 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
     * It is the UCNetID of your adviser, If you are a graduate student or post-doctoral researcher
 
   In this example configuration, we are going to use the following specific
-  information for user *npw* to access the *ppapadop* lab:
+  information for user *ppapadop* to access the *npw* lab:
 
-  * UCNetID - npw
-  * UCNetID of the CRSP lab owner - ppapadop
+  * UCNetID - ppapadop
+  * UCNetID of the CRSP lab owner - npw
 
-  You will edit 4 fields in the default bookmark: :guilabel:`Nickname`, :guilabel:`Username`, :guilabel:`Password`
-  and :guilabel:`Path`.
+  You will edit 5 fields in the default bookmark: :guilabel:`Nickname`, :guilabel:`Username`, 
+  :guilabel:`SSH Private Key`, :guilabel:`Path`, and :guilabel:`Connect Mode`.
 
   .. figure:: images/win/win-panteater-default.png
      :align: center
@@ -564,7 +566,7 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
      Figure 8: Default template bookmark
 
-  .. note:: Only the last part of the **Path** that represents your UCNetID (underlined)
+  .. note:: Only the last part of the **Path** that represents **CRSP Lab Owner's** UCNetID (highlighted)
             should be edited. The **/mmfs1/crsp/lab** must remain.
 
   .. note:: The **URL** is created from the information you type in other fields,
@@ -583,6 +585,16 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
      Figure 9: Edited bookmark
 
+  .. note::  This uses an SSH key that you should have generated when following the 
+    :ref:`Quick Start <crsp quick start>` procedure for working effectively with DUO.
+    The corresponding public key should have also been :ref:`copied <manage crsp keys>`
+    to :tt:`~/.ssh/authorized_keys` on CRSP itself.
+
+
+  .. attention:: You should *change* the connect mode to **Online**. This keeps all files on CRSP
+                 and reduces local cache space. If you use CRSP from multiple clients, this the *most reliable*
+                 mechanism for keeping all data in sync.
+
 .. _windows connect share:
 
 Connect to Lab Share
@@ -600,6 +612,8 @@ you should see your edited bookmark.  For our example, it looks like the followi
 
 Click :guilabel:`connect` to open your share.
 At this point, your lab share is connected and you can use it just like a folder or network drive.
+If you are not running ssh-agent or CRSP desktop has not remembered your password, you should asked for the 
+*passphrase* to your ssh private key file that you specified.
 
 .. _windows add shares:
 
