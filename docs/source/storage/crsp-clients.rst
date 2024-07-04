@@ -171,13 +171,17 @@ Supported Protocols for Accessing CRSP
 
 There are only three underlying data transfer protocols supported for accessing CRSP:
 
-* **SFTP** - `the secure shell file transfer protocol <https://www.ssh.com/academy/ssh/sftp-ssh-file-transfer-protocol>`_. 
-  This is the *only* protocol available to desktop clients.
+:SFTP:
+  | `The secure shell file transfer protocol <https://www.ssh.com/academy/ssh/sftp-ssh-file-transfer-protocol>`_. 
+  | This is the *only* protocol available to desktop clients.
 
-* **NFSv4** - Network File System. This is only supported on :ref:`HPC3 <hpc3>` through the path `/share/crsp`.
+:NFSv4: 
+  Network File System. This is only supported on :ref:`HPC3 <hpc3>` through
+  the path :tt:`/share/crsp`.
 
-* **HTTPS** - This provides very simple, browser-based access to CRSP. This is a *fallback* access method.
-
+:HTTPS:
+  | This provides very simple, browser-based access to CRSP.
+  | This is a *fallback* access method.
 
 
 .. _client desktop mac:
