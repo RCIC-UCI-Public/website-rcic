@@ -3,6 +3,9 @@
 Allocations
 ===========
 
+.. contents::
+   :local:
+
 RCIC resources are funded and operated under a `shared financial model of
 no-cost and recharge (pi-funded) allocations`.
 UCI researchers  can have two types of allocations: :ref:`no-cost allocations` 
