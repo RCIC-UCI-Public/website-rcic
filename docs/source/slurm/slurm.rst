@@ -3,6 +3,9 @@
 Slurm workload manager
 ======================
 
+.. contents::
+   :local:
+
 HPC3 is using the `SLURM <http://slurm.schedmd.com/slurm.html>`_
 as the workload manager and job scheduler.
 Slurm is widely used widely at super computer centers and is actively maintained.

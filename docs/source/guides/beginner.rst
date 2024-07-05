@@ -3,6 +3,9 @@
 Beginner guide
 ===============
 
+.. contents::
+   :local:
+
 This is a step by step beginner guide that explains how to get an account, to login,
 and to do a few simple things on HPC3 cluster.
 

@@ -3,6 +3,9 @@
 Job examples
 ============
 
+.. contents::
+   :local:
+
 This section has several examples of submission scripts for the most common applications.
 You will have to tailor the :tt:`SBATCH` options for your requirements (i.e., partition,
 cores/memory, GPU, etc.).

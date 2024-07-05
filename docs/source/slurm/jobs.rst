@@ -3,6 +3,9 @@
 Jobs
 =====
 
+.. contents::
+   :local:
+
 Charging jobs to an account is new for the UCI community. Like any policy, it can be two-edged. 
 
 * A large fraction of users should be able to run :ref:`allocated jobs` and never see the limits of their accounts.

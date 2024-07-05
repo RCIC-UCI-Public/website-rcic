@@ -3,6 +3,9 @@
 UNIX primer
 ===========
 
+.. contents::
+   :local:
+
 The information is intended for **new HPC3 users** and
 for **users that are new to Linux/UNIX-like operating systems.**
 Please consult the rest of the user guides for information that is not covered here.
