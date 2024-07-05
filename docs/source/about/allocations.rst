@@ -8,23 +8,22 @@ Allocations
 
 RCIC resources are funded and operated under a `shared financial model of
 no-cost and recharge (pi-funded) allocations`.
-UCI researchers  can have two types of allocations: :ref:`no-cost allocations` 
-and :ref:`recharge allocations`.
-
 
 **Faculty**
-  - :ref:`no-cost allocations`: UCI researchers [#]_ may request no-cost allocations to baseline levels of:
+  UCI researchers [#]_ can have two types of allocations: 
 
-    1. **Computing cycles** - 
-       Computing cycles are refilled (reallocated) on a semi-annual 
-       (every 6 months).  See :ref:`reallocation` for details.
+  1. :ref:`no-cost allocations`:  may request no-cost allocations to baseline levels of:
 
-    2. **Campus Research Storage** (:term:`CRSP`) - 1TB per researcher.
+     * **Computing cycles**: are reallocated every 6 months. See :ref:`reallocation` for details.
+     * **Campus Research Storage** (:term:`CRSP`): 1TB per researcher.
 
-  - :ref:`recharge allocations`:  when the baseline is insufficient for a particular lab,
-    researchers can purchase additional capacity using grant or other funds. The recharge
-    (pi-funded) allocations are available for :ref:`buy computing`, :ref:`CRSP storage <buy crsp>` and
-    :ref:`DFS storage <buy dfs>`.
+  #. :ref:`recharge allocations`:  when the baseline is insufficient for a particular lab,
+     researchers can purchase additional capacity using grant or other funds. The recharge
+     (PI-funded) allocations are available for
+
+     * :ref:`buy computing`
+     * :ref:`CRSP storage <buy crsp>`
+     * :ref:`DFS storage <buy dfs>`
 
   .. note:: **Faculty allocations are PI-centered** but the owners can  grant
             access to their allocations to students, postdocs, and other faculty members.
@@ -32,7 +31,7 @@ and :ref:`recharge allocations`.
             :red:`Allocations can not be combined into larger group or center accounts.`
 
 **Every user**
-  - :ref:`no-cost allocations` ``one time 1000 core-hour allocation``. This allocation
+  - :ref:`no-cost allocations` :red:`one time 1000 core-hour allocation`. This allocation
     provides baseline level of computing cycles and is required to allow 
     users to access the Slurm `free` queues. It enables users who are not affiliated with 
     any research program to have meaningful access to HPC3. 
