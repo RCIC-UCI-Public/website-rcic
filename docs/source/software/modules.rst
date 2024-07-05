@@ -3,12 +3,19 @@
 Environment modules
 ===================
 
+.. contents::
+   :local:
+
 Overview
 ---------
 
-Most software installed on the cluster can be  accessed only after loading the appropriate
-*environment module*. For the most part, cluster users only need to know (or discover) the
-already-available software *environment module* and load it prior to using the application.
+A very large fraction of scientific software applications on HPC3
+requires to use environment modules `environment modules <https://modules.readthedocs.io/en/latest/>`_
+associated with them. This software can only be  accessed only after loading the appropriate
+environment modules.
+
+Some applications that are installed with the system OS do not require any special settings,
+because they must be always accessible by users, thus they are easily available without any modules.
 
 **What are Modules**
   There are a few meanings for modules
@@ -16,35 +23,46 @@ already-available software *environment module* and load it prior to using the a
   1. **Language modules** or packages  are collections of related variables, functions and subroutines that perform a set
      of specific programming tasks. Simply put they are files consisting Python/R/Perl code.
      To access a language module or find out what is installed, you need to
-     use its language Python/R/Perl interface.
+     use its language Python/R/Perl interface.  For example,
+
+     Example use of Python modules (packages) :
+
+     .. code-block:: python
+
+        import numpy as np
+        import matplotlib.pyplot as plt
+
+     Example use of R modules (packages) :
+
+     .. code-block:: R
+
+        library(corrr)
+
+     Example use of Perl modules (packages) :
+
+     .. code-block:: perl
+
+        use File::Temp qw(tempfile);
 
   2. **Environment modules** are used to activate a specific software (including Python/R/Perl)
      that a user wants to use. Environment modules provide a way to control which versions of software are active.
-     Typically, a user only needs to know which module is needed to gain access to its applications.
 
-Some applications that are installed with the system OS do not require any special settings,
-because they must be always accessible by users, thus they are easily available without any modules.
+     For the most part, cluster users only need to know (or discover) the
+     already-available software *environment module* and load it prior to using the application.
+     Modules are simple files or scripts that, when executed, affect your Unix environment variables.
 
-A very large fraction of scientific software applications on HPC3
-requires to use environment modules associated with them.
+     Environment modules are simple to use:
 
-`Environment Modules <https://modules.readthedocs.io/en/latest/>`_
-  provide an access to specific software and control which versions of software are active.
-  Modules are simple files or scripts that, when executed,
-  affect your Unix environment variables.
+       * **loading** a module is used to activate the software. It
+         modifies environment variables ``PATH`` for finding applications binaries,
+         ``LD_LIBRARY_PATH`` for shared object libraries, sets specific variables if needed, etc.
+       * **unloading** a module is used to deactivate the software. It
+         reverses the action of loading and resets the environment variables set by loading.
 
-Modules are quite simple to use:
+       Modules are accessible via ``module`` command. To find in-depth details about
+       using this command  please see ``module --help``.
 
-* **loading** a module is used to activate the software. It
-  modifies environment variables (``PATH`` for finding applications binaries,
-  ``LD_LIBRARY_PATH`` for shared object libraries etc).
-* **unloading** a module is used to deactivate the software. It
-  reverses the action of loading and unsets the environment variables set by loading.
-
-Modules are accessible via ``module`` command. To find in-depth details about
-using this command  please see ``module --help``.
-
-Please see sections below to learn how to identify and use them.
+       Please see sections below to learn how to identify and use them.
 
 .. _list modules:
 
