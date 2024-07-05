@@ -41,6 +41,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
    :caption: 💡 Storage
 
    storage/overview
