@@ -3,6 +3,9 @@
 CRSP Troubleshooting
 ====================
 
+.. contents::
+   :local:
+
 Please note that RCIC does not provide Windows OS or macOS support for the campus.
 If there is an operating system related issue, RCIC will refer you to you get support
 to address your systems issue first before installing CRSP Desktop.

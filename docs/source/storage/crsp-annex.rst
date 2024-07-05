@@ -3,6 +3,9 @@
 CRSP ANNEX
 ==========
 
+.. contents::
+   :local:
+
 Overview
 --------
 

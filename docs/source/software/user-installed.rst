@@ -3,6 +3,9 @@
 User installed software
 =======================
 
+.. contents::
+   :Local:
+
 Users often ask to add specific software packages for
 :tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda`.
 

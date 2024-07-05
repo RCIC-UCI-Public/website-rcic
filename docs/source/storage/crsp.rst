@@ -3,6 +3,9 @@
 CRSP
 ====
 
+.. contents::
+   :local:
+
 Overview
 --------
 
