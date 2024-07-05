@@ -56,7 +56,7 @@ literally hundreds of domain-specific, community-supported, applications maintai
 .. _software:
 
 How it is built
-===============
+---------------
 
 Some software is quick and easy to compile, install, and make available to users. Other applications 
 have numerous (often undocumented) software dependencies, unique build methods, and conflicting 
