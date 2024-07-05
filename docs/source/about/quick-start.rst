@@ -3,44 +3,38 @@
 Getting started
 ===============
 
-A step-by-step :ref:`beginner guide` includes info presented below.
 
-This is a quick start outline for people who are new to RCIC
-resources. Please carefully read the links at the end of each
-paragraph to get detailed information.
+This is a quick start outline for people who are new to RCIC resources.
+Please carefully read the links below to get detailed information
+to our cluster-specific guides.
 
-⏩️ **Get an account**
+* Use navigation menu on the left to browse through the rest of the website sections
+* Use :guilabel:`Search` field in the top left corner to search
+  this website  documentation for specific topics.
+
+**Get an account**
   Note, you need to have a valid *UCINetID*.
 
-  | For HPC3 cluster account please see :ref:`get account`.
-  | For CRSP account please see :ref:`getting crsp account`.
+  | :ref:`Getting HPC3 account <get account>`
+  | :ref:`getting crsp account`
 
+**Login**
+  | :ref:`login` guide explains how to login.
+  | :ref:`acceptable use` provides info about simple rules of conduct.
 
-⏩️ **Log in**
-  The :ref:`login` guide explains how to login.
+**User guides**
 
-  | When you login on  the cluster you will be put on one of the login nodes. 
-  | Please read :ref:`acceptable use` to find out simple rules of conduct.
+  | :ref:`reference guide` summarizes the topic by categories.
+  | :ref:`beginner guide` step-by-step if you a new to the cluster.
 
-⏩️ **User guides**
-
-  Read the :ref:`reference guide`. It summarizes the topic by categories.
-  Check the step-by-step :ref:`beginner guide` if you a new to the cluster.
-
-⏩️ **Running jobs**
-  We provide a few Slurm user guides that explain in detail
-  how to use Slurm workload manager for running computational jobs. 
+**Running jobs**
+  How to use Slurm workload manager for running computational jobs:
 
   | :ref:`slurm manager`
-  | :ref:`jobs`
+  | :ref:`Jobs howto <jobs>`
   | :ref:`job examples`
 
+**How to get help**
+  | :ref:`faq`
+  | :ref:`tickets`.
 
-⏩️ **How to get help**
-  Please see :ref:`faq`  and :ref:`tickets`.
-
-
-Browse through the rest of the website sections
-for specific topics and use *Search* field
-in the top left corner of any RCIC website page to search 
-its documentation.
