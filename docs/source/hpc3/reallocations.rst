@@ -3,6 +3,9 @@
 Reallocation
 ============
 
+.. contents::
+   :local:
+
 Overview
 --------
 
