@@ -493,6 +493,13 @@ The default run time protects users from unintentionally using more CPU hours th
 You run your job with *a default runtime*, and Slurm killed the job once the run
 time limit was reached. If your job needs longer runtime, you need to :ref:`request time`.
 
+My job needs longer time than 14 days, how do I request this?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First, you  need to submit your job for the partition's
+:ref:`max runtime limits <paritions structure>`. Then request 
+:ref:`job time limit modification <modify job>`.
+
 :bluelight:`Software`
 ---------------------
 

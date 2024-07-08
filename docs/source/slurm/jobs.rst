@@ -517,8 +517,8 @@ If you want more memory for the job you should:
 
 .. _request time:
 
-Request Time
-^^^^^^^^^^^^
+Runtime
+^^^^^^^
 
 Similar to memory limits, Slurm has *default* and *max* settings for a runtime
 for each partition.  Please see all partitions settings in :ref:`available partitions`.
@@ -562,6 +562,12 @@ Similarly,  for ``srun`` command:
    srun --time=10 <other arguments>      # 10 minutes
    srun -t 15:00:00  <other arguments>   # 15 hours
    srun -t 5-00:00:00 <other arguments>  # 5 days
+
+
+If your job and was submitted for the max default time
+and you realize it will not finish by the specified runtime limit
+you can ask for a runtime extension (not for free jobs).
+Please see :ref:`change job time limit <modify job>`.
 
 .. _mail notification:
 
@@ -1057,16 +1063,16 @@ Modification
 ------------
 
 It is possible to make some changes to jobs that are still waiting to run 
-by using the `scontrol` command.
+by using the ``scontrol`` command.
 
 If changes need to be made for a running job, it may be better to kill the job
 and restart it after making the necessary changes.
 
 Change job time limit:
   If your job is already running and you have established that it will not
-  finish by its current time limit you can request an extension of time limit`.
+  finish by its current time limit you can request an extension of time limit.
 
-  Only the Slurm administrator can increase job's :tt:`TimeLimit`, therefore you
+  Only the Slurm administrator can increase job's time limit, therefore you
   need to submit a ticket indicating:
 
   - your jobid
@@ -1077,7 +1083,7 @@ Change job time limit:
   extension.
 
 Change QOS:
-  By default, jobs are set to run with :.tt:`qos=normal`.
+  By default, jobs are set to run with :tt:`qos=normal`.
   :underline:`Users rarely need to change QOS`. 
 
   .. code-block:: console
