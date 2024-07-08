@@ -452,7 +452,7 @@ Download Desktop App
       :width: 50%
       :alt: web browser login
 
-      Figure 1: Login using your UCI credentials
+      Figure 13 Login using your UCI credentials
 
 
 **Download Step 2:**
@@ -463,7 +463,7 @@ Download Desktop App
      :align: center
      :alt: crsp top level
 
-     Figure 2: CRSP web browser top level
+     Figure 14: CRSP web browser top level
 
 **Download Step 3:**
   After :guilabel:`software` opens click on the :guilabel:`CRSP-Desktop` folder.
@@ -475,7 +475,7 @@ Download Desktop App
      :align: center
      :alt: select file to download
 
-     Figure 3: Select file to download
+     Figure 15: Select file to download
 
 .. _windows install:
 
@@ -495,7 +495,7 @@ Install Desktop App
      :width: 60%
      :alt: install downloaded app
 
-     Figure 4: Install the CRSP Desktop.
+     Figure 16: Install the CRSP Desktop.
 
 **Install Step 3**
   After a successful installation, follow the instructions and
@@ -506,7 +506,7 @@ Install Desktop App
      :width: 60%
      :alt: restart computer
 
-     Figure 5: Restart your computer
+     Figure 17: Restart your computer
 
   Congratulations!  CRSP Desktop is now installed in your system!
 
@@ -530,7 +530,7 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
      :width: 60%
      :alt: start desktop app
 
-     Figure 6: Start CRSP Desktop App
+     Figure 18: Start CRSP Desktop App
 
   Once opened in a set of *bookmarks*  choose a template bookmark labeled :guilabel:`panteater`.
 
@@ -539,7 +539,7 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
      :width: 60%
      :alt: choose template bookmark
 
-     Figure 7: Choose the template bookmark
+     Figure 19: Choose the template bookmark
 
   You will Edit this bookmark with your specific information.
 
@@ -568,7 +568,7 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
      :width: 60%
      :alt: default template bookmark
 
-     Figure 8: Default template bookmark
+     Figure 20: Default template bookmark
 
   .. note:: Only the last part of the **Path** that represents **CRSP Lab Owner's** UCNetID (highlighted)
             should be edited. The **/mmfs1/crsp/lab** must remain.
@@ -587,7 +587,7 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
      :width: 60%
      :alt: edited bookmark
 
-     Figure 9: Edited bookmark
+     Figure 21: Edited bookmark
 
   .. note::  This uses an SSH key that you should have generated when following the 
     :ref:`Quick Start <crsp quick start>` procedure for working effectively with DUO.
@@ -612,7 +612,7 @@ you should see your edited bookmark.  For our example, it looks like the followi
    :width: 60%
    :alt: connect to lab share
 
-   Figure 10: Connect to Lab Share
+   Figure 22: Connect to Lab Share
 
 Click :guilabel:`connect` to open your share.
 At this point, your lab share is connected and you can use it just like a folder or network drive.
@@ -643,7 +643,7 @@ window similar to the following:
    :width: 60%
    :alt: enter ssh key passphrase share
 
-   Figure 11:  Enter the ssh key passphrase
+   Figure 23:  Enter the ssh key passphrase
 
 Notice that a local file (ssh private key) and a *passphrase* is requested. You can optionally save the passphrase.
 Assuming that the *public* key for the private key has been properly installed on CRSP, you should be connected 
@@ -662,7 +662,7 @@ reconnects to CRSP.
    :width: 60%
    :alt: enter user password
 
-   Figure 12:  Enter the password associated with YOUR UCINetID
+   Figure 24:  Enter the password associated with YOUR UCINetID
 
 
 :bluelight:`Step 2` Respond to the DUO push
@@ -672,7 +672,7 @@ reconnects to CRSP.
    :width: 60%
    :alt: Respond to DUO 
 
-   Figure 13:  Respond to DUO 
+   Figure 25:  Respond to DUO 
 
 
 Usually, you would enter :tt:`1` in the box, and you will receive a duo push on your phone. If your phone isn't
@@ -695,7 +695,7 @@ Here is an example with multiple connections configured and active:
    :width: 60%
    :alt: multiple lab shares
 
-   Figure 11: Multiple Lab Shares
+   Figure 26: Multiple Lab Shares
 
 
 Configuring CRSP Annex 
@@ -717,7 +717,7 @@ The following figure shows this set up for a particular user (*ppapadop*) and a 
    :width: 60%
    :alt: CRSP Annex configuration
 
-   Figure 12: CRSP Annex configuration
+   Figure 27: CRSP Annex configuration
 
 
 
@@ -753,7 +753,7 @@ UCINETID and password, followed by the prompts for DUO authentication:
    :width: 60%
    :alt: standard webauth login
 
-   Figure 1: Standard Webauth Login
+   Figure 28: Standard Webauth Login
 
 Once logged in, you will be presented with the CRSP top level screen. You can follow the links to
 your Lab areas (shared) or HOME area (private).
@@ -764,7 +764,7 @@ The file browser will only show you folders for which you have access:
    :width: 60%
    :alt: top level file browser
 
-   Figure 2: Top level File Browser
+   Figure 29: Top level File Browser
 
 .. important:: We recommend that you do most work on CRSP in your lab area.
                Lab areas are flexible for sharing.
@@ -788,7 +788,7 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
       :width: 60%
       :alt:  Create a new file or folder
 
-      Figure 3: Create a new file or folder
+      Figure 30: Create a new file or folder
 
 **Move files or directories**
   Select the file or folder, click on :guilabel:`Move`, and in a popup dialog box
@@ -799,7 +799,7 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
       :width: 60%
       :alt: move file or folder
 
-      Figure 4: Move file or folder
+      Figure 31: Move file or folder
 
 **Delete files or directories**
   To delete one or more files or folders, select files or folders and click on
@@ -810,7 +810,7 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
       :width: 60%
       :alt: delete file or folder
 
-      Figure 5: Delete file or folder
+      Figure 32: Delete file or folder
 
 **Upload/download files or directories**
   Files and folders could be uploaded using drag-n-drop capability in the file browser dashboard.
@@ -822,7 +822,7 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
       :width: 60%
       :alt: upload/download file or folder
 
-      Figure 6: Upload file/folder via drag-n-drop
+      Figure 33: Upload file/folder via drag-n-drop
 
 **In-browser file editing**
   To use this feature just click on the file, a text editor will open in a new
@@ -834,7 +834,7 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
       :width: 60%
       :alt: in-browser file editing
 
-      Figure 7: In-browser File Editing
+      Figure 34: In-browser File Editing
 
 .. _client sshfs:
 
