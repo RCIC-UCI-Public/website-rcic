@@ -64,7 +64,6 @@ access configuration:
 
 .. table:: **Replacements for CRSP-ANEX access configuration**
    :align: center
-   :width: 70%
    :class: noscroll-table
 
    +-----------------------+----------------------------+
