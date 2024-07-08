@@ -44,7 +44,9 @@ During the upgrade, CRSP will be completely unavailable (outage is expected to l
   you will be able to do so after the upgrade. Your files will be in the same location as they were prior to upgrade.
 
 * **DUO Multifactor Authentication will be required for ALL desktop clients**. Please 
-  see :ref:`Using DUO with CRSP <duo crsp>` for using SSH-keys with strong passwords
+  see :ref:`Using DUO with CRSP <duo crsp>` for using SSH-keys with strong passwords. Once you have set up key-based
+  authentication, you need to re-configure your :ref:`CRSP Desktop Client Bookmark <windows configure share>` to use 
+  your key *instead of your password*.
 
 * **The scp (Secure Copy) interface to CRSP will no longer be available**. Please 
   see :ref:`Supported Access Methods <crsp access methods>` 
