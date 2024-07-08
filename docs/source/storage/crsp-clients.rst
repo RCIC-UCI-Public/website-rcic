@@ -619,6 +619,67 @@ At this point, your lab share is connected and you can use it just like a folder
 If you are not running ssh-agent or CRSP desktop has not remembered your password, you should asked for the 
 *passphrase* to your ssh private key file that you specified.
 
+.. _windows duo vs passphrase:
+
+Password + DUO vs. Passphrase
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You have two authentication options when connecting to CRSP. 
+
+1. SSH Key with Passphrase
+
+2. UCINetID + password + DUO Push
+
+It is highly recommended that you use ssh keys with a passphrase as described in the 
+:ref:`Quick Start <crsp quick start>` guide.
+
+**What to Expect with a Passphrase**
+
+When you click :guilabel:`connect` in the :ref:`previous step <windows connect share>`, you should see popup
+window similar to the following:
+
+.. figure:: images/win/crsp-passphrase.png
+   :align: center
+   :width: 60%
+   :alt: enter ssh key passphrase share
+
+   Figure 11:  Enter the ssh key passphrase
+
+Notice that a local file (ssh private key) and a *passphrase* is requested. You can optionally save the passphrase.
+Assuming that the *public* key for the private key has been properly installed on CRSP, you should be connected 
+*without a DUO prompt*. 
+
+**What to expect with a Password + DUO**
+
+If you do NOT install an ssh key, you will be prompted for your UCINetID password and a DUO push. Even if you have
+the CRSP Desktop remember your password, the DUO Push will be **required each and every time** the desktop 
+reconnects to CRSP.  
+
+:bluelight:`Step 1` Enter your password, similar to the following:
+
+.. figure:: images/win/crsp-username-pw.png
+   :align: center
+   :width: 60%
+   :alt: enter user password
+
+   Figure 12:  Enter the password associated with YOUR UCINetID
+
+
+:bluelight:`Step 2` Respond to the DUO push
+
+.. figure:: images/win/crsp-duo.png
+   :align: center
+   :width: 60%
+   :alt: Respond to DUO 
+
+   Figure 13:  Respond to DUO 
+
+
+Usually, you would enter :tt:`1` in the box, and you will receive a duo push on your phone. If your phone isn't
+available, then you can enter one of your DUO backup codes that you set up when you `enrolled in 
+DUO <https://www.oit.uci.edu/services/accounts-passwords/duo/>`_ through the UCI Office of Information Technology
+
+
 .. _windows add shares:
 
 Add New Shares
