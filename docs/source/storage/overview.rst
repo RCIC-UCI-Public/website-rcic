@@ -7,12 +7,12 @@ How to use
 HPC3 has several storage systems available.  Connectivity, File System architecture, 
 and physical hardware all contribute to performance.
 
-.. centered::  :bluelight:`HPC3 Storage pictogram`
-
-.. image:: images/storage.png
+.. figure:: images/storage.png
    :align: center
    :width: 100%
    :alt: hpc3 storage
+
+   HPC3 Storage pictogram
 
 .. attention:: | Storage is shared among all users. 
                | The nature of networked-storage makes is possible for

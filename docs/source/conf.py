@@ -94,3 +94,5 @@ html_theme_options = {
     #'includehidden': True,
     #'titles_only': False
 }
+# enable figure auto numbering
+numfig = True

@@ -54,11 +54,11 @@ to make a total or "stacked allocation":
 
 .. _stacked allocation:
 
-.. centered:: Stacked Allocation and Order of Debiting
-
-.. image:: images/Stacked-Allocation.png
+.. figure:: images/Stacked-Allocation.png
    :align: center
    :alt: Stacked Allocation and Order of Debiting
+
+   Stacked Allocation and Order of Debiting
 
 There are six different stacking scenarios with the most common being: granted only, granted+owner, and 
 granted+recharge. 

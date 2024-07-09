@@ -22,10 +22,11 @@ use your specific software instructions.
 
 1. Open your :tt:`Terminal` application
 
-.. image:: images/macos-terminal.png
+.. figure:: images/macos-terminal.png
    :align: center
-   :alt: macos Terminal App
+   :alt: macOS Terminal App
 
+   Open macOS Terminal App
 
 2. In the Terminal window check your ssh software is OpenSSH
 
@@ -213,19 +214,23 @@ installer is the simplest method)
 1. Open PuTTYgen from the Windows Start Button to see the following screen and
    press the :guilabel:`Generate` button
 
-   .. image:: images/puttygen-initial.png
+   .. figure:: images/puttygen-initial.png
       :align: center
       :width: 90%
       :alt: PuTTYgen start screen
       :class: addpadding
 
+      PuTTYgen start screen
+
 2. Assign a passphrase and save both the public and private key.   
 
-   .. image:: images/puttygen-passphrase.png
+   .. figure:: images/puttygen-passphrase.png
       :align: center
       :width: 90%
       :alt: PuTTYgen assign passphrase and save
       :class: addpadding
+
+      PuTTYgen assign passphrase and save
 
    .. note::
 

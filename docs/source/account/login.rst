@@ -221,13 +221,15 @@ Using FileZilla and DUO
 ------------------------
 
 If you use FileZilla (Windows users) for files transfer you will need to
-change your login type to interactive in :guilabel:`FileZilla Site Manger` settings. 
+change your login type to :guilabel:`interactive` in :guilabel:`FileZilla Site Manger` settings. 
 For exact instructions please see `Filezilla Site Manger <https://wiki.filezilla-project.org/Site_Manager>`_
 
-.. image:: images/filezilla.png
+.. figure:: images/filezilla.png
    :align: center
    :alt: site manager settings 
    :class: addpadding
+
+   Set login type
 
 .. _filezilla ssh keys:
 
@@ -248,10 +250,12 @@ Using  MobaXterm and DUO
 Make sure that in your MobaXterm :guilabel:`SSH tab -> Advanced ssh settings`
 your :guilabel:`Remote Environment` is set to :guilabel:Interactive shell`:
 
-.. image:: images/mobaxterm.png
+.. figure:: images/mobaxterm.png
    :align: center
    :alt: advanced ssh settings 
    :class: addpadding
+
+   Advancesd ssh settings
 
 .. attention::
 
@@ -365,48 +369,61 @@ on compute nodes.
    | 5.1 Click on the *open remote window* icon and choose
    |     :guilabel:`Connect to Host...Remote-SSH` from the menu:
 
-     .. image:: images/vscode-connect-1.png
+     .. figure:: images/vscode-connect-1.png
         :align: center
         :alt: VSCode connect
         :class: addpadding
 
+        Connect to host
+
    5.2 Choose :guilabel:`+ Add new SSH host...` from the menu:
 
-     .. image:: images/vscode-connect-2.png
+     .. figure:: images/vscode-connect-2.png
         :align: center
         :alt: VSCode connect add ssh host
         :class: addpadding
 
+        Add new ssh host
+
    | 5.3 In the :guilabel:`Enter SSH Connection command` box, enter the compute node
    |     name from the output file of your submitted batch job and press `Enter` key:
 
-     .. image:: images/vscode-connect-3.png
+     .. figure:: images/vscode-connect-3.png
         :align: center
         :alt: VSCode connect to host
         :class: addpadding
+
+        Enter SSH Connection command
 
    | 5.4 In the :guilabel:`Enter SSH configuration file to update` menu of
    |     choices, choose your local :tt:`.ssh/config` (use local path for user area):
 
-     .. image:: images/vscode-connect-4.png
+     .. figure:: images/vscode-connect-4.png
         :align: center
         :alt: VSCode connect to host
         :class: addpadding
+
+        Enter SSH configuration file to update
 
    5.5 When the window updates press :guilabel:`Connect` button:
 
-     .. image:: images/vscode-connect-5.png
+     .. figure:: images/vscode-connect-5.png
         :align: center
         :alt: VSCode connect to host
         :class: addpadding
+
+        Presss connect
 
    | 5.6 In a new window you will be asked to provide your ssh credentials 
    |     (passphrase) **two times**, type it where indicated by your Application:
 
-     .. image:: images/vscode-setup.png
+     .. figure:: images/vscode-setup.png
         :align: center
         :alt: VSCode setup
         :class: addpadding
+
+        Provide ssh credentials
+
 
      Once the authentication is successful you will see
      the changes on the lower portion of the window, they indicate
@@ -417,10 +434,12 @@ on compute nodes.
    | 5.7 Once done, you will see the *open remote window* icon showing compute node name (in blue
    |     outline). This means your connection is redy and you  can proceed with your work as usual:
 
-     .. image:: images/vscode-running.png
+     .. figure:: images/vscode-running.png
         :align: center
         :alt: VSCode setup
         :class: addpadding
+
+        Connection is ready
 
 6. Shutting down your remote VSCode server
 

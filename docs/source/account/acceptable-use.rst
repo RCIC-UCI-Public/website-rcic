@@ -77,14 +77,16 @@ These processes add to the overall load on the cluster.
 Do check the lower portion of your MobaXterm window to verify that your
 monitoring is disabled. See figures below for a reference:
 
-.. centered:: Figure 1: :red:`Monitoring enabled - WRONG!`
 
-.. image:: images/mobaxterm-mon.png
+.. figure:: images/mobaxterm-mon.png
    :align: center
    :alt: WRONG!
 
-.. centered:: Figure 2: Monitoring disabled - correct!
+   :red:`Monitoring enabled - WRONG!`
 
-.. image:: images/mobaxterm-no-mon.png
+
+.. figure:: images/mobaxterm-no-mon.png
    :align: center
    :alt: Correct
+
+   Monitoring disabled - correct!

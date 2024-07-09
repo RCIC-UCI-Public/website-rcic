@@ -234,12 +234,13 @@ The figure below shows where your SSH private key and
 public keys are located. The server encrypts the **challenge** with YOUR public key.
 You type in your passphrase to your private key each time you login.
 
-.. centered:: :bluelight:`SSH Keys Challenge Response`
 
-.. image:: images/challenge-response-ssh.png
+.. figure:: images/challenge-response-ssh.png
    :align: center
    :width: 60%
    :alt: ssh challenge response
+
+   SSH Keys Challenge Response
 
 **The Algorithm Steps**:
 
@@ -275,13 +276,12 @@ respond to login challenges for you.**
 In essence, you type in private key passphrase once when loading your local agent
 and then the agent responds for you.  In this scenario, you enter your the passphrase to your private key once.
 
-.. centered:: :bluelight:`SSH Challenge Response with Agent`
-
-.. image:: images/challenge-response-ssh-agent.png
+.. figure:: images/challenge-response-ssh-agent.png
    :align: center
    :width: 60%
    :alt: ssh challenge response agent
 
+   SSH Challenge Response with Agent
 
 **The algorithmic steps**:
 

@@ -339,18 +339,23 @@ steps to start a container.
    You will see the following screen where you will Use your usual login
    credentials (UCInetID and password) to sign in:
 
-   .. image:: images/jhub-signin.png
+   .. figure:: images/jhub-signin.png
       :align: center
-      :width: 70%
+      :width: 90%
       :alt: sign in
+ 
+      Sign in
 
 2.  **Select your server configuration and login**
 
    After  a successful authentication you will see a screen with server options as in the figure below:
 
-   .. image:: images/jhub-login.png
+   .. figure:: images/jhub-login.png
       :align: center
-      :alt: server login
+      :width: 90%
+      :alt: server options
+
+      Choose Server Options
 
    **Modify**
 
@@ -364,21 +369,24 @@ steps to start a container.
 
    Press :guilabel:`Start`.  You may see a screen that looks similar to:
 
-   .. image:: images/jhub-spawn.png
+   .. figure:: images/jhub-spawn.png
       :align: center
-      :width: 70%
+      :width: 90%
       :alt: container starting
+
+      Container is starting
 
 3. **Your server environment**
 
    Once the notebook is done spawning, you will get a Launcher screen with a number GUI apps you can use.
    The first time you start your Lab interface it will look similar to:
 
-   .. image:: images/jhub-initial-lab.png
+   .. figure:: images/jhub-initial-lab.png
       :align: center
-      :width: 70%
+      :width: 90%
       :alt: container initial lab
 
+      Container initial lab
 
    The container is a subset of the full HPC3 software stack. A standard Jupyter Notebook can be started
    from within your lab server. You also have access to a Linux command-line terminal, if you need it.
@@ -411,49 +419,61 @@ steps to start a container.
 
    For each active notebook, from the :guilabel:`File` menu choose :guilabel:`Close and Shutdown Notebook`:
 
-   .. image:: images/close-notebook-1.png
+   .. figure:: images/close-notebook-1.png
       :align: center
-      :width: 80%
-      :alt: close notebook method 1
+      :width: 90%
+      :alt: close notebook
+
+      Close and Shutdown Notebook
 
    There will be a pop-up window asking to confirm, click :guilabel:`Ok`
 
-   .. image:: images/close-notebook-1-confirm.png
+   .. figure:: images/close-notebook-1-confirm.png
       :align: center
-      :width: 30%
-      :alt: confirm close notebook method 1
+      :width: 50%
+      :alt: confirm close notebook
+
+      Confirm Closing Notebook
 
    Alternatively, choose the sessions tab on the left hand panel and click
    :guilabel:`SHUT DOWN` for each session:
 
-   .. image:: images/close-notebook-2.png
+   .. figure:: images/close-notebook-2.png
       :align: center
-      :width: 80%
+      :width: 90%
       :alt: close notebook method 2
+
+      Alternative notebook closure method
 
    **Step 2: Shutdown server**
 
    From the :guilabel:`File` menu choose :guilabel:`Hub Control Panel`:
 
-   .. image:: images/jhub-logout-1.png
+   .. figure:: images/jhub-logout-1.png
       :align: center
-      :width: 80%
+      :width: 90%
       :alt: control panel
+
+      Hub Control panel
 
    and you will be forwarded to
    a screen where you can press on :guilabel:`Stop My Server` to shut down the server:
 
-   .. image:: images/jhub-logout-2.png
+   .. figure:: images/jhub-logout-2.png
       :align: center
-      :width: 80%
+      :width: 90%
       :alt: server logout
+
+      Server logout
 
    your window should look similar to the following when the server is stopped:
 
-   .. image:: images/jhub-logout-3.png
+   .. figure:: images/jhub-logout-3.png
       :align: center
-      :width: 85%
+      :width: 90%
       :alt: server logout result
+
+      Server Logout Result
 
 .. _Jupyter notebook:
 

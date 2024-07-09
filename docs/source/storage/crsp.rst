@@ -242,11 +242,11 @@ In the following, we will use the lab for a PI *ppapadop* as an example:
 * *ckhacher*, *itoufiqu*, *tandriol*, *iychang* are in the group :tt:`ppapadop_lab_share`.
   They are lab members (grantees) that were given an access to the LAB area  by the PI.
 
-  .. centered:: Example: LAB top-level folder (using MAC CRSP Desktop)
-
-  .. image:: images/crsp-lab-share-highlight.png
+  .. figure:: images/crsp-lab-share-highlight.png
      :align: center
      :alt: crsp lab share example
+
+     Example LAB top-level folder (using MAC CRSP Desktop)
 
 This shows that for the :tt:`ppapadop` Lab on CRSP:
 
@@ -533,7 +533,6 @@ The snapshots are held in:
    In your :ref:`client web browser` interface navigate to the CRSP top level,
    you will see a folder structure that is similar to the following:
 
-
    .. _crsp lab top level:
 
    .. figure:: images/crsp-lab-top-level.png
@@ -544,7 +543,6 @@ The snapshots are held in:
 
    Snapshots are held in the folders labeled :guilabel:`HOME-SNAPSHOTS` and :guilabel:`LAB-SNAPSHOTS`.
    To find available snapshots for LAB area click on :guilabel:`LAB-SNAPSHOTS`:
-
 
    .. _crsp lab snapshots:
 
@@ -611,11 +609,12 @@ using different access methods.
    | (1) select desired files by checking the box left of the file name
    | (2) click :guilabel:`Download` to download selected files to your desired *writable folder*.
 
-   .. centered:: Selecting files in snapshots
 
-   .. image:: images/crsp-lab-snapshot-file.png
+   .. figure:: images/crsp-lab-snapshot-file.png
       :align: center
       :alt: selecting files in snapshot
+
+      Selecting files in snapshots
 
    At that point, you have restored from the snapshot your desired files.
 

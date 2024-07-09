@@ -1056,20 +1056,22 @@ additional Python or R modules.
    The highlighted area is where you can upload/download files from/to your
    laptop (built-in capabilities) and where empty Python or R notebooks are:
 
-   .. image:: images/jhub-initial.png
+   .. figure:: images/jhub-initial.png
       :align: center
       :alt: server lab area
+
+      Server Lab Area
 
    A standard Jupyter Notebook can be started from within your lab server.
 
    The is also a Unix terminal application, you can use it for command-line access.
    The following example shows the available software modules and the modules loaded by default:
 
-   .. image:: images/jhub-terminal.png
+   .. figure:: images/jhub-terminal.png
       :align: center
       :alt: server terminal app
 
-   |
+      Server Terminal App
 
 2. **Upload/Download Files**
 
@@ -1093,9 +1095,11 @@ additional Python or R modules.
 
    Your output should look something like:
 
-   .. image:: images/jhub-pip.png
+   .. figure:: images/jhub-pip.png
       :align: center
       :alt: install with pip
+
+      Installing with pip
 
 4. **Adding R packages**
 
