@@ -8,7 +8,7 @@ General information about the :ref:`maintenance`  is applicable to all
 scheduled downtimes. Any additional information is outlined in
 notification emails (sent to all users)  and in the events below.
 
-Mar 27
+Jul 8
 ------
 
 | :blogtitle:`HPC3 Downtime Jul 16, 2024`
