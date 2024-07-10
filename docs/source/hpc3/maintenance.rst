@@ -16,15 +16,15 @@ There can be multiple few reasons for the maintenance, for example:
 :bluelight:`Before the maintenance`:
   * We send email notification to all users specifying the expected start/end
     time and other relevant information specific to the maintenance.
-  * .. attention:: If you are submitting jobs that are not guaranteed to finish before the
-                   maintenance start time, the jobs  will be held in the queue.
-
-    All queues have default time limit, see :ref:`available partitions`.
+  * All queues have default time limit, see :ref:`available partitions`.
     As the maintenance period approaches, submitting with the default time
     limit will affect more jobs.
 
-    If you want to run something before the maintenance, resubmit your job with a shorter
-    time limit, see :ref:`request time`.
+    .. attention:: If you are submitting jobs that are not guaranteed to finish before the
+                   maintenance start time, the jobs  will be held in the queue.
+
+                   :red:`If you want to run something before the maintenance, resubmit your job with a shorter
+                   time limit`, see :ref:`request time`.
 
   * Check the status of your submitted jobs and remove all that are held due to
     the maintenance or are in :tt:`CG` state.
