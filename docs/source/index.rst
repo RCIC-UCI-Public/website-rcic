@@ -5,6 +5,7 @@ RCIC User Documentation
 .. toctree::
    :glob:
    :maxdepth: 1
+   :numbered:
    :caption: About RCIC
 
    about/intro
@@ -16,6 +17,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
    :caption: Getting Help
 
    help/contact
@@ -24,6 +26,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
    :caption: Account
 
    account/getting-account
@@ -32,6 +35,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
    :caption: HPC3
 
    hpc3/hpc3
@@ -54,6 +58,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
    :caption: Software
 
    software/software
@@ -63,6 +68,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
    :caption: Slurm
 
    slurm/slurm
@@ -72,6 +78,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
    :caption: 🚀 User Guides & Tutorials
 
    guides/beginner
