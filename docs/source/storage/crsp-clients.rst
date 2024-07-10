@@ -220,7 +220,7 @@ Download Desktop App
                you need to uninstall it.
 
 **Download Step 1:**
-  Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles>`_
+  Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
   using your UCNetID and passwordd, follow with DUO authentication:
 
   .. figure:: images/authenticate.png
@@ -233,7 +233,7 @@ Download Desktop App
 
 **Download Step 2:**
   After a successful authentication in the **CRSP File Browser window** under
-  :guilabel:`Files` tab click on the :guilabel:`software`:
+  :guilabel:`CRSP-Desktop-Downloads` tab click on the :guilabel:`CONNECT`:
 
   .. figure:: images/crsp-top-level.png
      :align: center
@@ -242,10 +242,9 @@ Download Desktop App
      CRSP web browser top level
 
 **Download Step 3:**
-  After :guilabel:`software` opens click on the :guilabel:`CRSP-Desktop` folder.
-  Select **CRSP-Desktop-Mac.zip** (this means click on a little square icon left of
-  the file name, it will become checked) and then click :guilabel:`Download` to download the file.
-  Note, the menu with :guilabel:`Download` will appear only after you select the file:
+  You should see three items on screen: a :tt:`.pkg` file for Mac clients, a :tt:`.exe` file for Windows,
+  and :tt:`older-versions` folder. For the Mac, simply click on the file with :guilabel:`.pkg` ending.
+  If your screen looks like a list, simply click on the icon :green:`outlined in green` to change to an icon view.
 
   .. figure:: images/mac/mac-download.png
      :align: center
@@ -254,14 +253,15 @@ Download Desktop App
      Select file to download
 
 **Download Step 4:**
-  You may see a pop-ip window asking to allow the download, click :guilabel:`Allow`:
+  You should then see a screen with a downoad button on it and the full name of the file that will be downloaded
+  to your local computer. click :guilabel:`Download` and save the file to your local computer.
 
-  .. figure:: images/mac/mac-download-allow.png
+  .. figure:: images/mac/mac-download-2.png
      :align: center
      :width: 50%
-     :alt: confirm download
+     :alt: Download
 
-     Confirm download
+     Download
 
 .. _mac install:
 
@@ -424,8 +424,8 @@ It allows you to map one or more CRSP *drives* or *file paths* to a folder on yo
    +------------------------------+---------------------------------------+
    | Supported Operating System   | Minimum Hardware Requirements         |
    +==============================+=======================================+
-   | Windows                      | Pentium Class Processor               |
-   | Windows 8 / Windows 10 /     |                                       |
+   |                              | Pentium Class Processor               |
+   | Windows 10 /                 |                                       |
    | Windows 11                   | 4 GB of memory (8 GB recommended)     |
    |                              |                                       |
    |                              | 1 GB of disk space                    |
@@ -444,7 +444,7 @@ Download Desktop App
                you need to uninstall it.
 
 **Download Step 1:**
-  Using your choice of the web browser login to the `CRSP File Browser * <https://access.crsp.uci.edu/myfiles>`_
+  Using your choice of the web browser login to the `CRSP File Browser * <https://access.crsp.uci.edu/myfiles/>`_
   using your UCNetID and passwordd, follow with DUO authentication:
 
   .. figure:: images/authenticate.png
@@ -456,8 +456,10 @@ Download Desktop App
 
 
 **Download Step 2:**
+
   After a successful authentication in the **CRSP File Browser window** under
-  :guilabel:`Files` tab click on the :guilabel:`software`:
+  :guilabel:`CRSP-Desktop-Downloads` tab click on the :guilabel:`CONNECT`:
+
 
   .. figure:: images/crsp-top-level.png
      :align: center
@@ -466,16 +468,27 @@ Download Desktop App
      CRSP web browser top level
 
 **Download Step 3:**
-  After :guilabel:`software` opens click on the :guilabel:`CRSP-Desktop` folder.
-  Select **CRSP-Desktop-Windows.exe** (this means click on a little square icon left of
-  the file name, it will become checked) and then click :guilabel:`Download` to download the file.
-  Note, the menu with :guilabel:`Download` will appear only after you select the file:
+  You should see three items on screen: a :tt:`.exe` file for Windows, a :tt:`.pkg` file for Mac,
+  and :tt:`older-versions` folder. For the Windows, simply click on the file with :guilabel:`.exe` ending.
+  If your screen looks like a list, simply click on the icon :green:`outlined in green` to change to an icon view.
 
   .. figure:: images/win/win-download-crsp-desktop.png
      :align: center
      :alt: select file to download
 
      Select file to download
+
+
+**Download Step 4:**
+  You should then see a screen with a downoad button on it and the full name of the file that will be downloaded
+  to your local computer. click :guilabel:`Download` and save the file to your local computer.
+
+  .. figure:: images/win/win-download-crsp-desktop-2.png
+     :align: center
+     :width: 50%
+     :alt: Download
+
+     Download
 
 .. _windows install:
 
