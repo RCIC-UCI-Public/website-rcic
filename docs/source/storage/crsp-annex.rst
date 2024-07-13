@@ -105,6 +105,68 @@ instructions:
    desktop clients such as FileZilla, WinSCP, CyberDuck, the  **CRSP Desktop** client is the currently
    supported SFTP based software. Other desktop clients support is provided only on a best effort basis.
 
+.. _configure crsp annex:
+
+Configure CRSP Desktop
+----------------------
+
+.. important:: This section applies only to the
+               users who have an access to :ref:`crsp annex`.
+
+Configuring CRSP Desktop App to access data on :ref:`crsp annex` is very similar
+to adding CRSP new shares.
+
+Configure Step 1
+  Create a new connection  per your platform
+  :ref:`add share on macOS <mac add shares>` or :ref:`add share on Windows <windows add shares>`. 
+
+Configure Step 2
+  You will edit 5 fields in the default bookmark: connection type (from the menu) 
+  :guilabel:`Nickname`, :guilabel:`Server`, :guilabel:`Username`, and :guilabel:`Path`.
+  Here the image shows default bookmark editing on macOS (the image is almost identical on Windows):
+
+  .. figure:: images/crsp/mac-crsp-annex-default.png
+     :align: center
+     :width: 60%
+     :alt: CRSP Annex configuration default
+
+     Default template
+
+  .. attention:: 
+            * :guilabel:`CRSP Lab` - change the connection type to :guilabel:`SFTP (SSH File Transfer Protocol)`
+              via choosing it from the menu.
+            * :guilabel:`Nickname` - we recommend that you change it to **CRSP Annex - <pi>**
+            * :guilabel:`Server` - set as :tt:`crsp-annex.crsp.uci.edu`
+            * :guilabel:`Username` - your UCINetID
+            * :guilabel:`Path` - set the path as :tt:`/dfs3b/crsp/lab/<pi>`
+            * The **URL** is created automatically from the information you type in other fields,
+              you don't directly change it. This URL is for  using the SFTP protocol to access
+
+Configure Step 3
+   After the editing configured bookmark should look similar to the ones below (with your information).
+
+   The following show this set up for a particular user (*ppapadop*) and a particular pi (*npw*):
+
+   on MacOS
+     Click :guilabel:`Connect` to connect to your CRSP Annex share:
+
+     .. figure:: images/crsp/mac-crsp-annex.png
+        :align: center
+        :width: 60%
+        :alt: macOS CRSP Annex configuration
+
+        macOS: CRSP Annex configuration
+
+   on Windows
+     Click :guilabel:`OK` to connect to your CRSP Annex share:
+
+     .. figure:: images/crsp/win-crsp-annex.png
+        :align: center
+        :width: 60%
+        :alt: CRSP Annex configuration
+
+        Windows: CRSP Annex configuration
+
 Deleted Files Recovery
 ----------------------
 

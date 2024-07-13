@@ -313,8 +313,6 @@ macOS: Configure Lab Share
 
 This will **Map CRSP Lab Share** as a folder on your laptop.
 
-If accessing :ref:`crsp annex` please see section :ref:`configure crsp annex`.
-
 **Configure Step 1**
   Once the CRSP Desktop application is opened, there will be a small icon in the top toolbar:
 
@@ -406,11 +404,15 @@ At this point, your lab share is connected and you can use it just like a folder
 
 .. figure:: images/mac/mac-crsp-filebrowser.png
    :align: center
-   :width: 70%
+   :width: 80%
    :alt: lab share in file browser
 
    Lab Share in file browser
 
+.. note:: The snapshots folder is *hidden*.
+          To view hidden files/folders in Finder, on the open folder
+          press :guilabel:`Command + Shift + .` (period) to make the hidden files appear.
+ 
 .. _mac duo vs passphrase:
 
 macOS: Password + DUO vs. Passphrase
@@ -457,14 +459,18 @@ You have two authentication options when connecting to CRSP:
       Enter the password associated with YOUR UCINetID
 
 
-   :bluelight:`Step 2` Respond to the DUO push in the next screen.
+   :bluelight:`Step 2` Respond to the DUO push 
 
-..   .. figure:: images/win/crsp-duo.png
+   .. figure:: images/mac/mac-crsp-duo.png
       :align: center
-      :width: 60%
+      :width: 50%
       :alt: Respond to DUO
 
       Respond to DUO
+
+   Usually, you would enter 1 in the box, click on :guilabel:`Continue` and you will receive a duo push on your phone.
+   If your phone isn’t available, then you can enter one of your DUO backup codes that
+   you set up when you enrolled in DUO through the UCI Office of Information Technology.
 
 .. _mac add shares:
 
@@ -782,69 +788,6 @@ Here is an example with multiple connections configured and active:
    :alt: multiple lab shares
 
    Multiple Lab Shares
-
-.. _configure crsp annex:
-
-Configuring CRSP Annex 
-----------------------
-
-.. important:: This section applies only to the
-               users who have an access to :ref:`crsp annex`.
-
-Configuring CRSP Desktop App to access data on :ref:`crsp annex` is very similar
-to adding CRSP new shares.
-
-Configure Step 1
-  Create a new connection  per your platform
-  :ref:`add share on macOS <mac add shares>` or :ref:`add share on Windows <windows add shares>`. 
-
-Configure Step 2
-  You will edit 5 fields in the default bookmark: connection type (from the menu) 
-  :guilabel:`Nickname`, :guilabel:`Server`, :guilabel:`Username`, and :guilabel:`Path`.
-  Here the image shows default bookmark editing on macOS (the image is almost identical on Windows):
-
-  .. figure:: images/crsp/mac-crsp-annex-default.png
-     :align: center
-     :width: 60%
-     :alt: CRSP Annex configuration default
-
-     Default template
-
-  .. attention:: 
-            * :guilabel:`CRSP Lab` - change the connection type to :guilabel:`SFTP (SSH File Transfer Protocol)`
-              via choosing it from the menu.
-            * :guilabel:`Nickname` - we recommend that you change it to **CRSP Annex - <pi>**
-            * :guilabel:`Server` - set as :tt:`crsp-annex.crsp.uci.edu`
-            * :guilabel:`Username` - your UCINetID
-            * :guilabel:`Path` - set the path as :tt:`/dfs3b/crsp/lab/<pi>`
-            * The **URL** is created automatically from the information you type in other fields,
-              you don't directly change it. This URL is for  using the SFTP protocol to access
-
-Configure Step 3
-   After the editing configured bookmark should look similar to the ones below (with your information).
-
-   The following show this set up for a particular user (*ppapadop*) and a particular pi (*npw*):
-
-   on MacOS
-     Click :guilabel:`Connect` to connect to your CRSP Annex share:
-
-     .. figure:: images/crsp/mac-crsp-annex.png
-        :align: center
-        :width: 60%
-        :alt: macOS CRSP Annex configuration
-
-        macOS: CRSP Annex configuration
-
-   on Windows
-     Click :guilabel:`OK` to connect to your CRSP Annex share:
-
-     .. figure:: images/crsp/win-crsp-annex.png
-        :align: center
-        :width: 60%
-        :alt: CRSP Annex configuration
-
-        Windows: CRSP Annex configuration
-
 
 .. _client web browser:
 
