@@ -446,7 +446,7 @@ Snapshots - Deleted Data Recovery
 
 A snapshot of a file system is a *logical, point-in-time, read-only, copy* of all files.
 It's not really a complete copy. Instead, the file system keeps track of files that are *changed*
-or *deleted* after the snapshot was made.  Snapshots are point-in-time copies of the CRSP file system. 
+or *deleted* after the snapshot was made.  CRSP Snapshots are point-in-time copies of the CRSP file system. 
 
 .. _crsp snapshots default:
 
@@ -459,36 +459,28 @@ Restoring a file from a snapshot is as simple as copying the file back to your d
 On CRSP, all snapshots are labeled by date and time. The timezone is GMT (Greenwich Mean Time).
 
 :bluelight:`Snapshots are taken:`
-
-    - daily, keep for 90 days 
-
-.. attention:: Files that were deleted/changed more than  90 days ago are gone forever
+  - daily, keep for 90 days 
+  - .. attention:: Files that were deleted/changed more than  90 days ago are gone forever
 
 :bluelight:`Is Snapshot a Backup?`
+  Almost. Backups are generally thought of as *historical* copies of files to an *offsite location*. 
+  In a traditional backup, users could go back in time months or years to recover a file. 
+  A snapshot is a point-in-time *virtual* copy of a filesystem that is kept on the filesystem itself. 
 
-Almost. Backups are generally thought of as *historical* copies of files to an *offsite location*. 
-In a traditional backup, users could go back in time months or years to recover a file. 
-A snapshot is a point-in-time *virtual* copy of a filesystem that is kept on the filesystem itself. 
+  Snapshots provide some safety against the common "I accidentally deleted it" case.
+  Files created and deleted in the same time interval between two snapshots are not recorded in any 
+  snapshot and have no recovery.
 
+  CRSP does not keep historical backups of data. But, there is an *offsite* copy of all CRSP data. In essence, every file
+  in CRSP has *three* copies - two (one in each sub cluster) in Irvine and one (offsite) in San Diego.
 
-Snapshots provide some safety against the common "I accidentally deleted it" case.
-Files created and deleted in the same time interval between two snapshots are not recorded in any 
-snapshot and have no recovery.
-
-CRSP does not keep historical backups of data. But, there is an *offsite* copy of all CRSP data. In essence, every file
-in CRSP has *three* copies - two (one in each sub cluster) in Irvine and one (offsite) in San Diego.
-
-
-
-.. note::
-  | *Snapshots* allow you **self-service restore** of files/folders that you have recently deleted or ovewritten.
-  |
-  | *Offsite backups* protect against total failure of CRSP itself (highly unlikely). 
+  .. note::
+    * *Snapshots* allow you **self-service restore** of files/folders that you have recently deleted or ovewritten.
+    * *Offsite backups* protect against total failure of CRSP itself (highly unlikely). 
 
 :bluelight:`When I've found a good snapshot, what do I do?`
-
-**Answer:**  Just copy the file or folders that you want to restore *from the snapshot* back to the area where you 
-want the file so that you can access it normally. 
+  **Answer:**  Just copy the file or folders that you want to restore *from the snapshot* back to the area where you 
+  want the file so that you can access it normally. 
 
 .. _crsp snapshots location:
 
@@ -506,44 +498,47 @@ Restoring Lab Data from Snapshots
 
 Since most CRSP data is stored in a lab area, this most likely the applicable guide for recovering your data.
 
-:bluelight:`1. Using CRSP Desktop or HPC3`
+:bluelight:`1. Using HPC3`
+  Located at the top-level of your lab directory is the :tt:`.snapshots` directory. 
+  This directory is owned by the root user and cannot be changed by any user.  
 
-Located at the top-level of your lab directory is the :tt:`.snapshots` directory.  On a Mac, this directory is hidden
-by default.  This directory is owned by the root user and cannot be changed by any user.  
+  **Navigate to the** :tt:`.snapshots` **directory**, where you will see directories that 
+  have names that look like *@GMT-YYYY.MM.DD-hh.mm.ss*.  This encoding
+  indicates date and time when the snapshot was taken. For
+  the lab *ppapadop*, on HPC3 you would find the *ppapadop* snapshots as below:
 
-**Navigate to the** :tt:`.snapshots` **directory**, where you will see directories that look like
-*GMT-<Year>.<Month>.<Day>-<Time of Day>*.  This encoding indicates when the snapshot was taken.  For
-the lab *ppapadop*, on HPC3 you would find the *ppapadop* snapshots as below:
+     .. code-block:: console
 
-   .. code-block:: console
-
-      [user@login-x:~]$ ls -tr1 /share/crsp/lab/ppapadop/.snapshots
-      @GMT-2024.07.15-07.00.00
-      @GMT-2024.07.14-07.00.00
-      @GMT-2024.07.13-07.00.00
-      @GMT-2024.07.12-07.00.00
-      @GMT-2024.07.11-07.00.00
-      @GMT-2024.07.10-07.00.00
-      @GMT-2024.07.09-07.00.00
-      @GMT-2024.07.08-07.00.00
-      @GMT-2024.07.07-07.00.00
-      @GMT-2024.07.06-07.00.00
-      @GMT-2024.07.05-07.00.00
+        [user@login-x:~]$ ls -tr1 /share/crsp/lab/ppapadop/.snapshots
+        @GMT-2024.07.15-07.00.00
+        @GMT-2024.07.14-07.00.00
+        @GMT-2024.07.13-07.00.00
+        @GMT-2024.07.12-07.00.00
+        @GMT-2024.07.11-07.00.00
+        @GMT-2024.07.10-07.00.00
+        @GMT-2024.07.09-07.00.00
+        @GMT-2024.07.08-07.00.00
+        @GMT-2024.07.07-07.00.00
+        @GMT-2024.07.06-07.00.00
+        @GMT-2024.07.05-07.00.00
 
 
-:bluelight:`Using the CRSP Desktop`
+:bluelight:`2. Using the CRSP Desktop`
+  On a Mac, the :tt:`.snapshots` folder is hidden by default.  
+  See :ref:`Mac connect share section <mac connect share>` for a reference how
+  to view hidden folders in the :guilabel:`Finder`.
 
-Click on the :tt:`.snapshots` folder at the top level of your already-configured lab share
+  Click on the :tt:`.snapshots` folder at the top level of your already-configured lab share
 
-   .. _crsp lab snaphot:
+  .. _crsp lab snaphot:
 
-   .. figure:: images/crsp-lab-snapshot.png
-      :align: center
-      :alt: crsp lab .snapshots directory
+  .. figure:: images/crsp-lab-snapshot.png
+     :align: center
+     :alt: crsp lab .snapshots directory
 
-      :tt:`.snapshots` directory or folder at the top-level of the lab
+     :tt:`.snapshots` directory or folder at the top-level of the lab
 
-Then you will see a set folders (tip: sort by name), that has the date and time when each snapshot was taken. 
+  Then you will see a set folders (tip: sort by name), that has the date and time when each snapshot was taken. 
 
    .. _crsp lab snaphot nav:
 
@@ -554,43 +549,36 @@ Then you will see a set folders (tip: sort by name), that has the date and time 
       Example folders in :tt:`.snapshots` directory
 
 
-Continue navigating to a date where you believe a copy of your *deleted* or *ovewritten* file is located.
-**Copy it back to your working area.**
+  Continue navigating to a date where you believe a copy of your *deleted* or *ovewritten* file is located.
+  **Copy it back to your working area.**
 
-:bluelight:`2. Using Web Access`
+:bluelight:`3. Using Web Interface`
+  This is very similar to the above, follow the following rough steps
 
-
-This is very similar to the above, follow the following rough steps
-
-#. Open your web browser to `https://access.crsp.uci.edu/myfiles/`
-#. Click on :guilabel:`My-Labs`
-#. Navigate to your lab and its :tt:`.snapshots` folder
-#. Find the date of interest, and then *download* the file(s)/folder(s) to your local system
-
-
+  #. Open your web browser to `https://access.crsp.uci.edu/myfiles/ <https://access.crsp.uci.edu/myfiles/>`_
+  #. Click on :guilabel:`My-Labs`
+  #. Navigate to your lab and its :tt:`.snapshots` folder
+  #. Find the date of interest, and then *download* the file(s)/folder(s) to your local system
 
 Restoring $HOME Data
 ^^^^^^^^^^^^^^^^^^^^
 
 Snapshots for the home area are kept in one place for ALL users.  If you are on HPC3,
 you can see all the  home snapshots at :tt:`/share/crsp/home/.snapshots`.  This will have the same
-*GMT-<Year>.<Month>.<Day>-<Time of Day>* format is shown above in :ref:`Lab Area Snapshots <crsp lab snapshots>`.
-You, can navigate into one of these directories and you will see *all* user home areas. You will only have
-permission to further descend into *your home area*
-
+naming format *@GMT-YYYY.MM.DD-hh.mm.ss* as shown above in :ref:`Lab Area Snapshots <crsp lab snapshots>`.
+You, can navigate into one of these directories and you will see *all* user
+home areas names. You will only have permission to further descend into *your home area*
 
 :bluelight:`Using the Web Interface`
-
-Since ``$HOME`` areas usually don't contain signficant data, it can be a little more straightforward
-to use the Web Interface. 
-
-
-#. Open your web browser to `https://access.crsp.uci.edu/myfiles/`
-#. Click on :guilabel:`Home-Snapshots`
-#. Find the date of interest,  and click on it
-#. You are looking at the state of your ``$HOME`` area on that date
-#. *Download* the file(s)/folder(s) to your local system
+  Since ``$HOME`` areas usually don't contain signficant data, it can be a little more straightforward
+  to use the Web Interface. 
 
 
-.. note:: if you don't see the :guilabel:`Home-Snapshots`, but see a folder listing instead, then click
-   in the upper right on the :guilabel:`Power Icon`
+  #. Open your web browser to `https://access.crsp.uci.edu/myfiles/ <https://access.crsp.uci.edu/myfiles/>`_
+  #. Click on :guilabel:`Home-Snapshots`
+  #. Click on the date of interest. 
+     You will be looking at the state of your ``$HOME`` on that date
+  #. Download the file(s)/folder(s) to your local system
+
+  .. note:: if you don't see the :guilabel:`Home-Snapshots`, but see a folder listing instead, then click
+     in the upper right on the :guilabel:`Power Icon`
