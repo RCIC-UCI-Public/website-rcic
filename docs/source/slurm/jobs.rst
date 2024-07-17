@@ -1,7 +1,7 @@
 .. _jobs:
 
-Jobs
-=====
+Jobs howto
+==========
 
 .. contents::
    :local:
