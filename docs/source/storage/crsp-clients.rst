@@ -743,7 +743,7 @@ Logging in
 ^^^^^^^^^^^
 
 Using your choice of the web browser, login on
-`https://access.crsp.uci.edu/myfiles <https://access.crsp.uci.edu/myfiles>`_
+`https://access.crsp.uci.edu/myfiles/ <https://access.crsp.uci.edu/myfiles/>`_
 
 You will see a standard UCI Webauth login screen and will be prompted for
 UCINETID and password, followed by the prompts for DUO authentication:
