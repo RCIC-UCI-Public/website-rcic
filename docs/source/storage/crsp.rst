@@ -51,7 +51,8 @@ After the upgrade
 * **The scp (Secure Copy) interface to CRSP is no longer available**. Please 
   see :ref:`Supported Access Methods <crsp access methods>` 
 
-* **Snapshot locations for labs will move**. This is due to an underlying configuration change.
+* **Snapshot locations for labs will move**. This is due to an underlying configuration change. See
+  :ref:`CRSP Snapshots <crsp snapshots>`.
 
 * **Faculty labs will no longer be automatically created on CRSP2**. Instead, faculty who want to activate their *no-cost*
   CRSP allocation should send an email to hpc-support@rcic.uci.edu. 
@@ -459,7 +460,7 @@ Restoring a file from a snapshot is as simple as copying the file back to your d
 On CRSP, all snapshots are labeled by date and time. The timezone is GMT (Greenwich Mean Time).
 
 :bluelight:`Snapshots are taken:`
-  - daily, keep for 90 days 
+  - Daily, kept for 89 days 
   - .. attention:: Files that were deleted/changed more than  90 days ago are gone forever
 
 :bluelight:`Is Snapshot a Backup?`
