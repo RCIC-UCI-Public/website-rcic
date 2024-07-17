@@ -37,10 +37,10 @@ While there are many possible use cases, a driving one is:
 CRSP to CRSP2 Transition
 ------------------------
 
-On July 16, 2024 CRSP is undergoing a complete hardware upgrade to replace end-of-life hardware and expand capacity.
-During the upgrade, CRSP will be completely unavailable (outage is expected to last 8-10 hours).  After the upgrade
+On July 16, 2024 CRSP underwent a complete hardware upgrade to replace end-of-life hardware and expand capacity.
+After the upgrade
 
-* **All user/lab files will have been copied from CRSP to its replacement (CRSP2)**. If you actively access CRSP now,
+* **All active user/lab files have been copied from CRSP to its replacement (CRSP2)**. If you actively access CRSP now,
   you will be able to do so after the upgrade. Your files will be in the same location as they were prior to upgrade.
 
 * **DUO Multifactor Authentication will be required for ALL desktop clients**. Please 
@@ -48,10 +48,11 @@ During the upgrade, CRSP will be completely unavailable (outage is expected to l
   authentication, you need to re-configure your :ref:`CRSP Desktop Client Bookmark <windows configure share>` to use 
   your key *instead of your password*.
 
-* **The scp (Secure Copy) interface to CRSP will no longer be available**. Please 
+* **The scp (Secure Copy) interface to CRSP is no longer available**. Please 
   see :ref:`Supported Access Methods <crsp access methods>` 
 
-* **Snapshot locations for labs will move**. This is due to an underlying configuration change.
+* **Snapshot locations for labs will move**. This is due to an underlying configuration change. See
+  :ref:`CRSP Snapshots <crsp snapshots>`.
 
 * **Faculty labs will no longer be automatically created on CRSP2**. Instead, faculty who want to activate their *no-cost*
   CRSP allocation should send an email to hpc-support@rcic.uci.edu. 
@@ -65,8 +66,8 @@ CRSP technologies
   * It is built with industry leading storage technology to ensure data high availability and resiliency.
   * It is multi-site and is comprised of commodity server components from Dell for cost-effective scaling
     and performance.
-  * The underlying parallel file system is :term:`GPFS`
-  * Additional support and integration software from `Arcastream <https://www.arcastream.com/>`_.
+  * The underlying parallel file system is :term:`GPFS`  (also known as IBM Spectrum Scale)
+  * Additional support and integration software from `Kalray <https://www.kalrayinc.com/products/ngenea>`_.
 
 **Features include**
   * An active-active storage system setup between two hosting locations for high availability and redundancy,
@@ -120,30 +121,28 @@ All requests described below must be sent to hpc-support@uci.edu
 
 * **I'm a researcher on campus and I want to have an access**
   If you are a ladder-rank faculty or have an exception granted to act as PI on federal grants
-  by UCI Office of research, your account should be pre-created. If you still do not have
-  access, please send us a request.
+  by UCI Office of research, you may request a no-cost 1TB allocation (a 'lab' allocation) by sending
+  a request to emailto:hpc-support@rcic.uci.edu
 
 * **I'm a researcher and I want to access my colleagues lab**
   Your colleague must send a request and ask for access for you to their lab.
 
 * **I'm a researcher and I want colleagues outside of UCI to have access to my lab**
-  You must first sponsor a UCINetID (see :ref:`access`) then send a request to grant access.
+  You must first sponsor a UCINetID (see :ref:`access`) then send a request to grant access. CRSP is only
+  available on the UCI Network or through the campus VPN.
 
 * **I'm a researcher and I want to add students/postdocs to my lab**
   You should send a request and include:
 
   - your existing CRSP lab name
   - UCINetIDs and names of the people that you want to add
-  - indicate any of these people should have individual limits
-	and what the limits are. The default behavior is no individual limit.
 
 * **I'm a student/postdoc**
-  Your PI should send a request and include:
+  **Your PI** should send a request and include:
 
   - your UCINetID
-  - indicate if your space should have an individual limit.
 
-  PI may combine multiple requests in a single email.
+  A PI may combine multiple requests in a single email.
 
 
 .. _crsp areas:
@@ -178,13 +177,14 @@ Private Area - HOME
 
 This allocation space, called :tt:`HOME`, is for $HOME directories:
 
+* It has a very very small allocation per user.  Data on CRSP should be stored in *Lab Areas*
 * Not used for sharing with others.
 * Is required for Linux accounts and is ONLY used for an account related files.
 * :red:`DO NOT use HOME for storing any data`.
 * File :tt:`quotas.txt` is created and updated in your $HOME area automatically and
   provides information about your quota status for HOME and LAB areas.
 
-.. _crsp chared:
+.. _crsp shared:
 
 Shared Area - LAB
 ^^^^^^^^^^^^^^^^^
@@ -199,9 +199,9 @@ The LAB areas provide the most flexibility for access control and sharing:
 * The space owner by default has read access to every file and directory in the LAB
 * Only the space owner has the ability to create files or new directories in the top-level of the LAB area.
 * Grantees have a personal directory  named with their UCINetID.
-  Files stored here are viewed only by the space owner and the grantee.
-* A directory called :tt:`share` is available to all members of the lab
-  who can read/write all files stored under it.
+  Files stored there by the grantee are viewable only by the space owner and the grantee.
+* A directory called :tt:`share` is available to all members of the lab.
+  Anyone in the lab can read/write files stored under it.
 * Quota is for the  whole LAB area allocation and is a sum of what is stored
   in :tt:`share`  and in all personal directories.
 
@@ -279,7 +279,7 @@ instructions:
    | :ref:`client desktop windows`| *CRSP Desktop* clients are for accessing CRSP from Windows and macOS laptops.             |
    | :ref:`client desktop mac`    | We provide licensed and branded version of a commercial software *Mountain Duck*.         |
    +------------------------------+-------------------------------------------------------------------------------------------+
-   | :ref:`client web browser`    | This access is used for *light weight* CRSP resource usage, supports file or direvtory    |
+   | :ref:`client web browser`    | This access is used for *light weight* CRSP resource usage, supports file or directory    |
    |                              | uploads/downloads and provides in-browser edit capabilities for certain file types.       |
    +------------------------------+-------------------------------------------------------------------------------------------+
    | :ref:`client sshfs`          | *SSHFS* can be used for accessing CRSP shares from a Linux laptop/desktop.                |
@@ -301,9 +301,9 @@ Consult our :ref:`crsp troubleshoot` if you have trouble accessing your CRSP sha
 Quotas
 ------
 
-All CRSP-based file systems have quota enforcement.
+All CRSP-based file systems have quota enforcement. 
 
-- CRSP allocations are provided for UCI faculty members.
+- **CRSP allocations are provided for UCI faculty members.**
   In general, users do not get a default CRSP allocation.
   The allocation owners can grant access to their spaces to students, postdocs, and other faculty members.
  
@@ -313,8 +313,8 @@ All CRSP-based file systems have quota enforcement.
 - User who are granted access to one or more  PI's lab areas (see :ref:`crsp areas`)
   may have additional quota limits set by their PIs for the group area.
 
-- All CRSP quotas are enforced in two areas: total space used and number of
-  files.
+- **All CRSP quotas are enforced in two areas: total space used and number of
+  files.**
 
 - When writing in group area users need to remember that all members of the
   group contribute to the quota. It's the sum total usage that counts.
@@ -442,12 +442,12 @@ Usually quota violations happen when:
 
 .. _crsp snapshots:
 
-Snapshots
----------
+Snapshots - Deleted Data Recovery
+---------------------------------
 
-A snapshot of a file system is a logical, point-in-time, read-only, copy of all files.
+A snapshot of a file system is a *logical, point-in-time, read-only, copy* of all files.
 It's not really a complete copy. Instead, the file system keeps track of files that are *changed*
-or *deleted* after the snapshot was made.  Snapshots are point-in-time copies of the CRSP file system. 
+or *deleted* after the snapshot was made.  CRSP Snapshots are point-in-time copies of the CRSP file system. 
 
 .. _crsp snapshots default:
 
@@ -460,165 +460,126 @@ Restoring a file from a snapshot is as simple as copying the file back to your d
 On CRSP, all snapshots are labeled by date and time. The timezone is GMT (Greenwich Mean Time).
 
 :bluelight:`Snapshots are taken:`
-
-    - daily, keep last 14
-    - weekly, keep last 8
-
-.. attention:: Files that were deleted more than 8 weeks ago are gone forever
+  - Daily, kept for 89 days 
+  - .. attention:: Files that were deleted/changed more than  90 days ago are gone forever
 
 :bluelight:`Is Snapshot a Backup?`
+  Almost. Backups are generally thought of as *historical* copies of files to an *offsite location*. 
+  In a traditional backup, users could go back in time months or years to recover a file. 
+  A snapshot is a point-in-time *virtual* copy of a filesystem that is kept on the filesystem itself. 
 
-Not really. Backups are generally thought of as historical copies of files and users could go to a backup to
-recover a file from many months ago. Snapshots provide some safety against the common "accidentally deleted" use case.
-Files created and deleted in the same time interval between two snapshots are not recorded in any snapshot and have no recovery.
-CRSP does not keep historical backups of data.
+  Snapshots provide some safety against the common "I accidentally deleted it" case.
+  Files created and deleted in the same time interval between two snapshots are not recorded in any 
+  snapshot and have no recovery.
+
+  CRSP does not keep historical backups of data. But, there is an *offsite* copy of all CRSP data. In essence, every file
+  in CRSP has *three* copies - two (one in each sub cluster) in Irvine and one (offsite) in San Diego.
+
+  .. note::
+    * *Snapshots* allow you **self-service restore** of files/folders that you have recently deleted or ovewritten.
+    * *Offsite backups* protect against total failure of CRSP itself (highly unlikely). 
+
+:bluelight:`When I've found a good snapshot, what do I do?`
+  **Answer:**  Just copy the file or folders that you want to restore *from the snapshot* back to the area where you 
+  want the file so that you can access it normally. 
 
 .. _crsp snapshots location:
 
-Location
-^^^^^^^^
+Locations of Snapshots
+^^^^^^^^^^^^^^^^^^^^^^
 
-Due to the architecture of the underlying filesystem (GPFS)
-you must first navigate to the **top level of the CRSP file system**
-and then navigate downwards to the correct snapshot to find yours.
+* Each Lab has its own :tt:`.snapshots` directory
+* To restore data into your ``$HOME`` area, you must use the web console
 
-This means that you will see names of all possible labs or home area folders (and there are 1000s of them on CRSP).
-Rest assured that only you and those you designate can see any files inside.
 
-.. important:: All access permissions are fully enforced, even when navigating snapshots.
+.. _crsp lab snapshots:
 
-Each snapshot is a directory  that is named after its creation date.
-The snapshots are held in:
+Restoring Lab Data from Snapshots 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :tt:`HOME-SNAPSHOTS` - directory for HOME area snapshots
-* :tt:`LAB-SNAPSHOTS` - directory for LAB area snapshots
+Since most CRSP data is stored in a lab area, this most likely the applicable guide for recovering your data.
 
-1. **From HPC3**
+:bluelight:`1. Using HPC3`
+  Located at the top-level of your lab directory is the :tt:`.snapshots` directory. 
+  This directory is owned by the root user and cannot be changed by any user.  
 
-   Top level of the CRSP file system is mounted as :tt:`/share/crsp` thus
-   the snapshots are available in :tt:`/share/crsp/HOME-SNAPSHOTS` and
-   :tt:`/share/crsp/LAB-SNAPSHOPTS`.
+  **Navigate to the** :tt:`.snapshots` **directory**, where you will see directories that 
+  have names that look like *@GMT-YYYY.MM.DD-hh.mm.ss*.  This encoding
+  indicates date and time when the snapshot was taken. For
+  the lab *ppapadop*, on HPC3 you would find the *ppapadop* snapshots as below:
 
-   For example, a user *panteater* can find HOME area snapshots as:
+     .. code-block:: console
 
-   .. code-block:: console
+        [user@login-x:~]$ ls -tr1 /share/crsp/lab/ppapadop/.snapshots
+        @GMT-2024.07.15-07.00.00
+        @GMT-2024.07.14-07.00.00
+        @GMT-2024.07.13-07.00.00
+        @GMT-2024.07.12-07.00.00
+        @GMT-2024.07.11-07.00.00
+        @GMT-2024.07.10-07.00.00
+        @GMT-2024.07.09-07.00.00
+        @GMT-2024.07.08-07.00.00
+        @GMT-2024.07.07-07.00.00
+        @GMT-2024.07.06-07.00.00
+        @GMT-2024.07.05-07.00.00
 
-      [user@login-x:~]$ ls /share/crsp/HOME-SNAPSHOTS
-      @GMT-2021.07.11-10.00.00  @GMT-2021.08.06-01.00.14  @GMT-2021.08.10-13.00.07
-      @GMT-2021.07.18-10.00.00  @GMT-2021.08.07-01.00.14  @GMT-2021.08.11-01.00.14
-      @GMT-2021.07.25-10.00.00  @GMT-2021.08.08-01.00.14  @GMT-2021.08.11-13.00.07
-      @GMT-2021.08.01-10.00.00  @GMT-2021.08.08-10.00.00  @GMT-2021.08.12-01.00.14
-      @GMT-2021.08.03-01.00.14  @GMT-2021.08.09-01.00.14  @GMT-2021.08.12-13.00.07
-      @GMT-2021.08.04-01.00.14  @GMT-2021.08.09-13.00.07  @GMT-2021.08.13-01.00.14
-      @GMT-2021.08.05-01.00.14  @GMT-2021.08.10-01.00.14  @GMT-2021.08.13-13.00.07
 
-   And then browse the contents of a specific snapshot using your UCINetID as:
+:bluelight:`2. Using the CRSP Desktop`
+  On a Mac, the :tt:`.snapshots` folder is hidden by default.  
+  See :ref:`Mac connect share section <mac connect share>` for a reference how
+  to view hidden folders in the :guilabel:`Finder`.
 
-   .. code-block:: console
+  Click on the :tt:`.snapshots` folder at the top level of your already-configured lab share
 
-      [user@login-x:~]$ ls /share/crsp/HOME-SNAPSHOTS/@GMT-2021.08.08-10.00.00/panteater
+  .. _crsp lab snaphot:
 
-2. **From CRSP Desktop**
+  .. figure:: images/crsp-lab-snapshot.png
+     :align: center
+     :alt: crsp lab .snapshots directory
 
-   In your *CRSP Desktop* application connect to the crsp-top-level
-   share connection (it is predefined in the *CRSP Desktop* installation).
-   See :ref:`client desktop windows` or :ref:`client desktop mac` for
-   detailed instructions.
+     :tt:`.snapshots` directory or folder at the top-level of the lab
 
-   Once at the top level, you will find snapshots labeled by their creation date
-   in the folders labeled :guilabel:`HOME-SNAPSHOTS` and :guilabel:`LAB-SNAPSHOTS`.
+  Then you will see a set folders (tip: sort by name), that has the date and time when each snapshot was taken. 
 
-3. **From web browser**
+   .. _crsp lab snaphot nav:
 
-   In your :ref:`client web browser` interface navigate to the CRSP top level,
-   you will see a folder structure that is similar to the following:
-
-   .. _crsp lab top level:
-
-   .. figure:: images/crsp-lab-top-level.png
+   .. figure:: images/crsp-lab-snapshot-nav.png
       :align: center
-      :alt: crsp lab top level
+      :alt: crsp lab .snapshots directory contents
 
-      File browser top level
-
-   Snapshots are held in the folders labeled :guilabel:`HOME-SNAPSHOTS` and :guilabel:`LAB-SNAPSHOTS`.
-   To find available snapshots for LAB area click on :guilabel:`LAB-SNAPSHOTS`:
-
-   .. _crsp lab snapshots:
-
-   .. figure:: images/crsp-lab-snapshots.png
-      :align: center
-      :alt: crsp lab snapshots
-
-      File browser LAB-SNAPSHOTS
-
-   In this example, the most recent snapshot is the last listed.  Its name indicates the
-   time stamp when this snapshot was taken: May 05, 2021 at 19:00:01 (GMT).
-   This translates to May 5, 2021 11:00:01 AM (PST).
-   This snapshot contains logical copy of all CRSP lab folders, as they were at that point in time.
-
-.. _crsp files recovery:
-
-Deleted Files Recovery
-----------------------
-
-A common mistake is an accidental file deletion. In many cases, but not all,
-users can retrieve a previous copy of the file.
-
-* If the file you just deleted was created prior to the most-recent snapshot, you can get a
-  copy of the file as it was when the snapshot was created.
-* *Any changes made after the most recent snapshot are lost.*
-* If you wait longer than time specified in :ref:`crsp snapshots default` to recover a deleted file, it is gone forever.
-
-The following steps explain how to recover a deleted file from a snapshot
-using different access methods.
-
-1. **From CRSP Desktop**
-
-   Use your CRSP Desktop application to connect to the desired share
-   (see :ref:`client desktop windows` or :ref:`client desktop mac` for instructions) then
-   use it just like a folder or network drive to copy desired files and folders from a
-   specific snapshot.
-
-2. **From HPC3**
-
-   One can use usual Unix commands ``ls``, ``cd``, ``cp`` to find and copy
-   desired files and directories from the snapshot to the location where you
-   need to restore them.
-
-   For example, a user *panteater*  who has an access to *peterlab* can restore a single file accidentally
-   deleted from its LAB area:
-
-   .. code-block::
-
-      [user@login-x:~]$ cd /share/crsp/lab/peterlab/panteater
-      [user@login-x:~]$ cp /share/crsp/LAB-SNAPSHOTS/@GMT-2021.08.08-10.00.00/peterlab/panteater/important-file important-file
-
-3. **From web browser**
-
-   In order to recover the file, you must navigate into the
-   :ref:`crsp lab top level` and :ref:`crsp lab snapshots`.
-   At this point, find the snapshot (folder) that has a copy of your file.
-
-   In the following example the path starts with :guilabel:`LAB-SNAPSHOTS / @GMT-2019.5.13-19.00.1`,
-   this indicates that we navigated into a specific snapshot :guilabel:`@GMT-2019.5.13-19.00.1`
-   in the LAB area. The rest of the path is the desired file *module-hpc.log-20201011* location.
-
-   Once the desired file is found:
-
-   | (1) select desired files by checking the box left of the file name
-   | (2) click :guilabel:`Download` to download selected files to your desired *writable folder*.
+      Example folders in :tt:`.snapshots` directory
 
 
-   .. figure:: images/crsp-lab-snapshot-file.png
-      :align: center
-      :alt: selecting files in snapshot
+  Continue navigating to a date where you believe a copy of your *deleted* or *ovewritten* file is located.
+  **Copy it back to your working area.**
 
-      Selecting files in snapshots
+:bluelight:`3. Using Web Interface`
+  This is very similar to the above, follow the following rough steps
 
-   At that point, you have restored from the snapshot your desired files.
+  #. Open your web browser to `https://access.crsp.uci.edu/myfiles/ <https://access.crsp.uci.edu/myfiles/>`_
+  #. Click on :guilabel:`My-Labs`
+  #. Navigate to your lab and its :tt:`.snapshots` folder
+  #. Find the date of interest, and then *download* the file(s)/folder(s) to your local system
 
-   You may also copy the file in your usual manner  per your host operating system
-   `Windows <https://www.lifewire.com/how-do-i-copy-a-file-in-windows-2619210>`_,
-   `macOS <https://alvinalexander.com/mac-os-x/mac-copy-files-mac-finder-copy-files>`_
-   and `Linux <https://www.cyberciti.biz/faq/copy-command>`_.
+Restoring $HOME Data
+^^^^^^^^^^^^^^^^^^^^
+
+Snapshots for the home area are kept in one place for ALL users.  If you are on HPC3,
+you can see all the  home snapshots at :tt:`/share/crsp/home/.snapshots`.  This will have the same
+naming format *@GMT-YYYY.MM.DD-hh.mm.ss* as shown above in :ref:`Lab Area Snapshots <crsp lab snapshots>`.
+You, can navigate into one of these directories and you will see *all* user
+home areas names. You will only have permission to further descend into *your home area*
+
+:bluelight:`Using the Web Interface`
+  Since ``$HOME`` areas usually don't contain signficant data, it can be a little more straightforward
+  to use the Web Interface. 
+
+
+  #. Open your web browser to `https://access.crsp.uci.edu/myfiles/ <https://access.crsp.uci.edu/myfiles/>`_
+  #. Click on :guilabel:`Home-Snapshots`
+  #. Click on the date of interest. 
+     You will be looking at the state of your ``$HOME`` on that date
+  #. Download the file(s)/folder(s) to your local system
+
+  .. note:: if you don't see the :guilabel:`Home-Snapshots`, but see a folder listing instead, then click
+     in the upper right on the :guilabel:`Power Icon`

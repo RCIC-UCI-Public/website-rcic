@@ -176,8 +176,8 @@ There are only three underlying data transfer protocols supported for accessing 
   | This is the *only* protocol available to desktop clients.
 
 :NFSv4: 
-  Network File System. This is only supported on :ref:`HPC3 <hpc3>` through
-  the path :tt:`/share/crsp`.
+  | Network File System.
+  | This is only supported on :ref:`HPC3 <hpc3>` through the path :tt:`/share/crsp`.
 
 :HTTPS:
   | This provides very simple, browser-based access to CRSP.
@@ -192,9 +192,8 @@ CRSP Desktop App for macOS
 The CRSP Desktop for macOS is a licensed and branded version of the generic |mduck|_ product.
 It allows you to map one or more CRSP *drives* or *file paths* to a folder on your Mac.
 
-**System Requirements**
-
-.. table::
+.. table:: **System Requirements**
+   :align: center
    :class: noscroll-table
 
    +------------------------------+---------------------------------------+
@@ -209,19 +208,19 @@ It allows you to map one or more CRSP *drives* or *file paths* to a folder on yo
 
 .. _mac download:
 
-Download Desktop App
-^^^^^^^^^^^^^^^^^^^^
+macOS: Download Desktop App
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. important:: You must either be on the campus network or connected to the
-               `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to download the installers.
-.. important:: UCI pays a per-seat license for CRSP Desktop. Please do not share
-               your downloaded copy of CRSP Desktop Installer with anyone.
-.. important:: If you have a different (previous or newer) version of the CRSP Desktop (or Mountain Duck),
-               you need to uninstall it.
+.. important:: * You must either be on the campus network or connected to the
+                 `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to download the installers.
+               * UCI pays a per-seat license for CRSP Desktop.
+                 Please do not share your downloaded copy of CRSP Desktop Installer with anyone.
+               * If you have a different (previous or newer) version of the
+                 CRSP Desktop (or Mountain Duck), you need to uninstall it.
 
 **Download Step 1:**
-  Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles>`_
-  using your UCNetID and passwordd, follow with DUO authentication:
+  Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
+  using your UCNetID and password, follow with DUO authentication:
 
   .. figure:: images/authenticate.png
       :align: center
@@ -232,41 +231,55 @@ Download Desktop App
 
 
 **Download Step 2:**
-  After a successful authentication in the **CRSP File Browser window** under
-  :guilabel:`Files` tab click on the :guilabel:`software`:
+  | After a successful authentication the window will look similar to the one shown below.
+  | Click on the :guilabel:`CRSP-Desktop-Downloads` tab, then click on the :guilabel:`CONNECT`:
 
-  .. figure:: images/crsp-top-level.png
+  .. figure:: images/crsp/crsp-browser-top-level.png
      :align: center
+     :width: 80%
      :alt: crsp top level
 
      CRSP web browser top level
 
 **Download Step 3:**
-  After :guilabel:`software` opens click on the :guilabel:`CRSP-Desktop` folder.
-  Select **CRSP-Desktop-Mac.zip** (this means click on a little square icon left of
-  the file name, it will become checked) and then click :guilabel:`Download` to download the file.
-  Note, the menu with :guilabel:`Download` will appear only after you select the file:
+  You should see three items on screen: a :guilabel:`.pkg` file for Mac clients, a :guilabel:`.exe` file for Windows,
+  and :guilabel:`older-versions` folder.  To toggle the between list and icon view  click on the Layout
+  icon :green:`outlined in green`.
+
+  For the Mac, simply click on the file with :guilabel:`.pkg` ending:
 
   .. figure:: images/mac/mac-download.png
      :align: center
+     :width: 80%
      :alt: select file to download
 
      Select file to download
 
 **Download Step 4:**
-  You may see a pop-ip window asking to allow the download, click :guilabel:`Allow`:
+  You should then see a screen with a download button on it and the full name of the file that will be downloaded
+  to your local computer. Click :guilabel:`Download`:
+
+  .. figure:: images/mac/mac-download-2.png
+     :align: center
+     :width: 80%
+     :alt: Download
+
+     Download
+
+  You may see a popup window asking  if you want to allow downloads from this
+  site, click on :guilabel:`Allow` button and save the file to your local computer:
 
   .. figure:: images/mac/mac-download-allow.png
      :align: center
      :width: 50%
-     :alt: confirm download
+     :alt: Download
 
      Confirm download
 
 .. _mac install:
 
-Install Desktop App
-^^^^^^^^^^^^^^^^^^^
+macOS: Install Desktop App
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Install Step 1:**
   Find the downloaded file, depending on your Mac configuration, the file is in your
@@ -274,7 +287,7 @@ Install Desktop App
 
   .. figure:: images/mac/mac-desktop-app.png
      :align: center
-     :width: 50%
+     :width: 80%
      :alt: downloaded crsp desktop app
 
      Downloaded CRSP Desktop app
@@ -286,7 +299,7 @@ Install Desktop App
 
   .. figure:: images/mac/mac-desktop-open-confirm.png
      :align: center
-     :width: 50%
+     :width: 80%
      :alt: confirm opening download app
 
      Confirm opening of CRSP Desktop app
@@ -295,20 +308,17 @@ Install Desktop App
 
 .. _mac configure share:
 
-Configure Lab Share
-^^^^^^^^^^^^^^^^^^^
+macOS: Configure Lab Share
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This will **Map CRSP Lab Share** as a folder on your laptop.
-
-  .. attention:: If Accessing :ref:`crsp annex`, then this step requires modification and is similar to 
-                 :ref:`windows add shares`
 
 **Configure Step 1**
   Once the CRSP Desktop application is opened, there will be a small icon in the top toolbar:
 
   .. figure:: images/mac/mac-top-toolbar.png
      :align: center
-     :width: 70%
+     :width: 80%
      :alt: crsp desktop app in the top toolbar
 
      CRSP Desktop app in the top toolbar
@@ -335,8 +345,8 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
   * UCNetID - npw
   * UCNetID of the CRSP lab owner - ppapadop
 
-  You will edit 4 fields in the default bookmark: :guilabel:`Nickname`, :guilabel:`Username`, :guilabel:`Password`
-  and :guilabel:`Path`.
+  You will edit 5 fields in the default bookmark: :guilabel:`Nickname`, :guilabel:`Username`, 
+  :guilabel:`SSH Private Key`, :guilabel:`Path`, and :guilabel:`Connect Mode`:
 
   .. figure:: images/mac/mac-bookmark-default.png
      :align: center
@@ -345,12 +355,21 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
      Default template bookmark
 
-  .. note:: Only the last part of the **Path** that represents your UCNetID (underlined)
-            should be edited. The **/mmfs1/crsp/lab** must remain.
-
-  .. note:: The **URL** is created from the information you type in other fields,
-            you don't directly change it. This URL is for  using the SFTP protocol to access
-            CRSP and is an end-to-end encrypted connection.
+  .. attention:: 
+            * :guilabel:`Nickname` - we recommend that you change it to something like: **CRSP LAb - <pi> lab**
+            * :guilabel:`Username` - your UCINetID
+            * :guilabel:`SSH Private Key` - use an SSH key name that you should have generated when following the 
+              :ref:`Quick Start <crsp quick start>` procedure for working effectively with DUO.
+              The corresponding public key should have also been :ref:`copied <manage crsp keys>`
+              to :tt:`~/.ssh/authorized_keys` on CRSP itself.
+            * :guilabel:`Path` - only the last part (highlighted) that represents **CRSP Lab Owner's UCNetID**
+              should be edited. The **/mmfs1/crsp/lab** must remain unchanged.
+            * :guilabel:`Connect Mode` - should be changed to **Online**. This keeps all files on CRSP
+              and reduces local cache space. If you use CRSP from multiple clients, this the *most reliable*
+              mechanism for keeping all data in sync.
+            * The **URL** is created automatically from the information you type in other fields,
+              you don't directly change it. This URL is for  using the SFTP protocol to access
+              CRSP and is an end-to-end encrypted connection.
 
 
 **Configure Step 3**
@@ -368,8 +387,8 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
 .. _mac connect share:
 
-Connect to Lab Share
-^^^^^^^^^^^^^^^^^^^^
+macOS: Connect to Lab Share
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After editing, if you click on the CRSP Desktop Notification Icon (top bar),
 you should see your edited bookmark. For our example:
@@ -385,15 +404,78 @@ At this point, your lab share is connected and you can use it just like a folder
 
 .. figure:: images/mac/mac-crsp-filebrowser.png
    :align: center
-   :width: 70%
+   :width: 80%
    :alt: lab share in file browser
 
    Lab Share in file browser
 
+.. note:: The snapshots folder is *hidden*.
+          To view hidden files/folders in Finder, on the open folder
+          press :guilabel:`Command + Shift + .` (period) to make the hidden files appear.
+ 
+.. _mac duo vs passphrase:
+
+macOS: Password + DUO vs. Passphrase
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You have two authentication options when connecting to CRSP:
+
+:bluelight:`1. SSH Key with Passphrase`
+   **What to Expect with a Passphrase**
+
+   It is highly recommended that you use ssh keys with a passphrase as described in the
+   :ref:`Quick Start <crsp quick start>` guide.
+
+   When you click :guilabel:`connect` in the :ref:`previous step <mac connect share>`, you should see popup
+   window similar to the following (with your ssh key info):
+
+   .. figure:: images/mac/mac-crsp-passphrase.png
+      :align: center
+      :width: 50%
+      :alt: enter ssh key passphrase share
+
+      Enter the ssh key passphrase
+
+   Notice that a local file (ssh private key :tt:`~/.ssh/crsp-npw`) and a *passphrase* are requested.
+   You can optionally save the passphrase.
+
+   Assuming that the *public* key for the private key has been properly installed on CRSP, you should be connected
+   *without a DUO prompt*.
+
+:bluelight:`2. UCINetID + password + DUO Push`
+   **What to expect with a Password + DUO**
+
+   If you do NOT install an ssh key, you will be prompted for your UCINetID password and a DUO push. Even if you have
+   the CRSP Desktop remember your password, the DUO Push will be **required each and every time** the desktop
+   reconnects to CRSP.
+
+   :bluelight:`Step 1` Enter your password, similar to the following:
+
+   .. figure:: images/mac/mac-crsp-username-pw.png
+      :align: center
+      :width: 60%
+      :alt: enter user password
+
+      Enter the password associated with YOUR UCINetID
+
+
+   :bluelight:`Step 2` Respond to the DUO push 
+
+   .. figure:: images/mac/mac-crsp-duo.png
+      :align: center
+      :width: 50%
+      :alt: Respond to DUO
+
+      Respond to DUO
+
+   Usually, you would enter 1 in the box, click on :guilabel:`Continue` and you will receive a duo push on your phone.
+   If your phone isn’t available, then you can enter one of your DUO backup codes that
+   you set up when you enrolled in DUO through the UCI Office of Information Technology.
+
 .. _mac add shares:
 
-Add New Shares
-^^^^^^^^^^^^^^
+macOS: Add New Shares
+^^^^^^^^^^^^^^^^^^^^^
 
 You are not limited to just a single, mapped, space. To create a new share,
 click :guilabel:`Open Connection` to create a new template and edit it
@@ -416,16 +498,16 @@ CRSP Desktop App for Windows
 The CRSP Desktop for Windows is a licensed and branded version of the generic |mduck|_ product.
 It allows you to map one or more CRSP *drives* or *file paths* to a folder on your PC.
 
-**System Requirements**
 
-.. table::
+.. table:: **System Requirements**
+   :align: center
    :class: noscroll-table
 
    +------------------------------+---------------------------------------+
    | Supported Operating System   | Minimum Hardware Requirements         |
    +==============================+=======================================+
-   | Windows                      | Pentium Class Processor               |
-   | Windows 8 / Windows 10 /     |                                       |
+   |                              | Pentium Class Processor               |
+   | Windows 10 /                 |                                       |
    | Windows 11                   | 4 GB of memory (8 GB recommended)     |
    |                              |                                       |
    |                              | 1 GB of disk space                    |
@@ -433,19 +515,19 @@ It allows you to map one or more CRSP *drives* or *file paths* to a folder on yo
 
 .. _windows download:
 
-Download Desktop App
-^^^^^^^^^^^^^^^^^^^^
+Windows: Download Desktop App
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. important:: You must either be on the campus network or connected to the
-               `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to download the installers.
-.. important:: UCI pays a per-seat license for CRSP Desktop. Please do not share
-               your downloaded copy of CRSP Desktop Installer with anyone.
-.. important:: If you have a different (previous or newer) version of the CRSP Desktop (or Mountain Duck),
-               you need to uninstall it.
+.. important:: * You must either be on the campus network or connected to the
+                 `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to download the installers.
+               * UCI pays a per-seat license for CRSP Desktop. Please do not share
+                 your downloaded copy of CRSP Desktop Installer with anyone.
+               * If you have a different (previous or newer) version of the CRSP Desktop (or Mountain Duck),
+                 you need to uninstall it.
 
 **Download Step 1:**
-  Using your choice of the web browser login to the `CRSP File Browser * <https://access.crsp.uci.edu/myfiles>`_
-  using your UCNetID and passwordd, follow with DUO authentication:
+  Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
+  using your UCNetID and password, follow with DUO authentication:
 
   .. figure:: images/authenticate.png
       :align: center
@@ -456,31 +538,45 @@ Download Desktop App
 
 
 **Download Step 2:**
-  After a successful authentication in the **CRSP File Browser window** under
-  :guilabel:`Files` tab click on the :guilabel:`software`:
+  | After a successful authentication the window will look similar to the one shown below.
+  | Click on the :guilabel:`CRSP-Desktop-Downloads` tab, then click on the :guilabel:`CONNECT`:
 
-  .. figure:: images/crsp-top-level.png
+  .. figure:: images/crsp/crsp-browser-top-level.png
      :align: center
+     :width: 80%
      :alt: crsp top level
 
      CRSP web browser top level
 
 **Download Step 3:**
-  After :guilabel:`software` opens click on the :guilabel:`CRSP-Desktop` folder.
-  Select **CRSP-Desktop-Windows.exe** (this means click on a little square icon left of
-  the file name, it will become checked) and then click :guilabel:`Download` to download the file.
-  Note, the menu with :guilabel:`Download` will appear only after you select the file:
+  You should see three items on screen: a :guilabel:`.pkg` file for Mac clients, a :guilabel:`.exe` file for Windows,
+  and :guilabel:`older-versions` folder.  To toggle the between list and icon view click on the Layout
+  icon :green:`outlined in green`.
+
+  For the Windows, simply click on the file with :guilabel:`.exe` ending.
 
   .. figure:: images/win/win-download-crsp-desktop.png
      :align: center
+     :width: 80%
      :alt: select file to download
 
      Select file to download
 
+**Download Step 4:**
+  You should then see a screen with a download button on it and the full name of the file that will be downloaded
+  to your local computer. Click :guilabel:`Download` and save the file to your local computer:
+
+  .. figure:: images/win/win-download-crsp-desktop-2.png
+     :align: center
+     :width: 80%
+     :alt: Download
+
+     Download
+
 .. _windows install:
 
-Install Desktop App
-^^^^^^^^^^^^^^^^^^^
+Windows: Install Desktop App
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Install Step 1**
   By default, the file is downloaded in your :guilabel:`Downloads` folder. Find the downloaded file,
@@ -512,8 +608,8 @@ Install Desktop App
 
 .. _windows configure share:
 
-Configure Lab Share
-^^^^^^^^^^^^^^^^^^^
+Windows: Configure Lab Share
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This will **Map CRSP Lab Share** as a folder on your laptop.
 
@@ -561,7 +657,7 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
   * UCNetID of the CRSP lab owner - npw
 
   You will edit 5 fields in the default bookmark: :guilabel:`Nickname`, :guilabel:`Username`, 
-  :guilabel:`SSH Private Key`, :guilabel:`Path`, and :guilabel:`Connect Mode`.
+  :guilabel:`SSH Private Key`, :guilabel:`Path`, and :guilabel:`Connect Mode`:
 
   .. figure:: images/win/win-panteater-default.png
      :align: center
@@ -570,12 +666,21 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
      Default template bookmark
 
-  .. note:: Only the last part of the **Path** that represents **CRSP Lab Owner's** UCNetID (highlighted)
-            should be edited. The **/mmfs1/crsp/lab** must remain.
-
-  .. note:: The **URL** is created from the information you type in other fields,
-            you don't directly change it. This URL is for  using the SFTP protocol to access
-            CRSP and is an end-to-end encrypted connection.
+  .. attention:: 
+            * :guilabel:`Nickname` - we recommend that you change it to something like: **CRSP LAb - <pi> lab**
+            * :guilabel:`Username` - your UCINetID
+            * :guilabel:`SSH Private Key` - use an SSH key name that you should have generated when following the 
+              :ref:`Quick Start <crsp quick start>` procedure for working effectively with DUO.
+              The corresponding public key should have also been :ref:`copied <manage crsp keys>`
+              to :tt:`~/.ssh/authorized_keys` on CRSP itself.
+            * :guilabel:`Path` - only the last part (highlighted) that represents **CRSP Lab Owner's UCNetID**
+              should be edited. The **/mmfs1/crsp/lab** must remain unchanged.
+            * :guilabel:`Connect Mode` - should be changed to **Online**. This keeps all files on CRSP
+              and reduces local cache space. If you use CRSP from multiple clients, this the *most reliable*
+              mechanism for keeping all data in sync.
+            * The **URL** is created automatically from the information you type in other fields,
+              you don't directly change it. This URL is for  using the SFTP protocol to access
+              CRSP and is an end-to-end encrypted connection.
 
 **Configure Step 3**
   After editing the bookmark with the specific information, your screen should
@@ -589,20 +694,10 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
      Edited bookmark
 
-  .. note::  This uses an SSH key that you should have generated when following the 
-    :ref:`Quick Start <crsp quick start>` procedure for working effectively with DUO.
-    The corresponding public key should have also been :ref:`copied <manage crsp keys>`
-    to :tt:`~/.ssh/authorized_keys` on CRSP itself.
-
-
-  .. attention:: You should *change* the connect mode to **Online**. This keeps all files on CRSP
-                 and reduces local cache space. If you use CRSP from multiple clients, this the *most reliable*
-                 mechanism for keeping all data in sync.
-
 .. _windows connect share:
 
-Connect to Lab Share
-^^^^^^^^^^^^^^^^^^^^
+Windows: Connect to Lab Share
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After editing, if you click on the :guilabel:`CRSP Desktop` notification icon,
 you should see your edited bookmark.  For our example, it looks like the following:
@@ -621,69 +716,66 @@ If you are not running ssh-agent or CRSP desktop has not remembered your passwor
 
 .. _windows duo vs passphrase:
 
-Password + DUO vs. Passphrase
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Windows: Password + DUO vs. Passphrase
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You have two authentication options when connecting to CRSP. 
+You have two authentication options when connecting to CRSP:
 
-1. SSH Key with Passphrase
+:bluelight:`1. SSH Key with Passphrase`
+   **What to Expect with a Passphrase**
 
-2. UCINetID + password + DUO Push
+   It is highly recommended that you use ssh keys with a passphrase as described in the
+   :ref:`Quick Start <crsp quick start>` guide.
 
-It is highly recommended that you use ssh keys with a passphrase as described in the 
-:ref:`Quick Start <crsp quick start>` guide.
+   When you click :guilabel:`connect` in the :ref:`previous step <windows connect share>`, you should see popup
+   window similar to the following:
 
-**What to Expect with a Passphrase**
+   .. figure:: images/win/crsp-passphrase.png
+      :align: center
+      :width: 60%
+      :alt: enter ssh key passphrase share
 
-When you click :guilabel:`connect` in the :ref:`previous step <windows connect share>`, you should see popup
-window similar to the following:
+      Enter the ssh key passphrase
 
-.. figure:: images/win/crsp-passphrase.png
-   :align: center
-   :width: 60%
-   :alt: enter ssh key passphrase share
+   Notice that a local file (ssh private key) and a *passphrase* is requested. You can optionally save the passphrase.
+   Assuming that the *public* key for the private key has been properly installed on CRSP, you should be connected
+   *without a DUO prompt*.
 
-   Enter the ssh key passphrase
+:bluelight:`2. UCINetID + password + DUO Push`
+   **What to expect with a Password + DUO**
 
-Notice that a local file (ssh private key) and a *passphrase* is requested. You can optionally save the passphrase.
-Assuming that the *public* key for the private key has been properly installed on CRSP, you should be connected 
-*without a DUO prompt*. 
+   If you do NOT install an ssh key, you will be prompted for your UCINetID password and a DUO push. Even if you have
+   the CRSP Desktop remember your password, the DUO Push will be **required each and every time** the desktop
+   reconnects to CRSP.
 
-**What to expect with a Password + DUO**
+   :bluelight:`Step 1` Enter your password, similar to the following:
 
-If you do NOT install an ssh key, you will be prompted for your UCINetID password and a DUO push. Even if you have
-the CRSP Desktop remember your password, the DUO Push will be **required each and every time** the desktop 
-reconnects to CRSP.  
+   .. figure:: images/win/crsp-username-pw.png
+      :align: center
+      :width: 60%
+      :alt: enter user password
 
-:bluelight:`Step 1` Enter your password, similar to the following:
-
-.. figure:: images/win/crsp-username-pw.png
-   :align: center
-   :width: 60%
-   :alt: enter user password
-
-   Enter the password associated with YOUR UCINetID
+      Enter the password associated with YOUR UCINetID
 
 
-:bluelight:`Step 2` Respond to the DUO push
+   :bluelight:`Step 2` Respond to the DUO push
 
-.. figure:: images/win/crsp-duo.png
-   :align: center
-   :width: 60%
-   :alt: Respond to DUO 
+   .. figure:: images/win/crsp-duo.png
+      :align: center
+      :width: 60%
+      :alt: Respond to DUO
 
-   Respond to DUO
+      Respond to DUO
 
 
-Usually, you would enter :tt:`1` in the box, and you will receive a duo push on your phone. If your phone isn't
-available, then you can enter one of your DUO backup codes that you set up when you `enrolled in 
-DUO <https://www.oit.uci.edu/services/accounts-passwords/duo/>`_ through the UCI Office of Information Technology
-
+   Usually, you would enter :tt:`1` in the box, and you will receive a duo push on your phone. If your phone isn't
+   available, then you can enter one of your DUO backup codes that you set up when you `enrolled in
+   DUO <https://www.oit.uci.edu/services/accounts-passwords/duo/>`_ through the UCI Office of Information Technology
 
 .. _windows add shares:
 
-Add New Shares
-^^^^^^^^^^^^^^
+Windows: Add New Shares
+^^^^^^^^^^^^^^^^^^^^^^^
 You are not limited to just a single, mapped, space. To create a new share,
 click :guilabel:`Open Connection` to create a new template and edit it
 following the directions above.
@@ -692,34 +784,10 @@ Here is an example with multiple connections configured and active:
 
 .. figure:: images/win/win-multiple-connections.png
    :align: center
-   :width: 60%
+   :width: 50%
    :alt: multiple lab shares
 
    Multiple Lab Shares
-
-
-Configuring CRSP Annex 
-^^^^^^^^^^^^^^^^^^^^^^
-
-Configuring CRSP Desktop to access data on :ref:`crsp annex` is very similar to configuring CRSP. 
-However, instead of using the :guilabel:`CRSP Lab` as the connection type under 
-:guilabel:`panteater` bookmark, you should instead select the :guilabel:`SFTP (SSH File Transfer Protocol)`.
-Once you have done that, you can then:
-
-   * Select the Server as :tt:`crsp-annex.crsp.uci.edu`
-   * Select the path as :tt:`/dfs3b/crsp/lab/<pi>`
-   * Recommend that you change the Nickname to something like: :tt:`CRSP ANNEX <pi>`
-
-The following figure shows this set up for a particular user (*ppapadop*) and a particular pi (*npw*)
-
-.. figure:: images/win/win-crsp-annex.png
-   :align: center
-   :width: 60%
-   :alt: CRSP Annex configuration
-
-   CRSP Annex configuration
-
-
 
 .. _client web browser:
 
@@ -733,9 +801,8 @@ Please note that File Browser is suitable only for lightweight use.
 We provide :ref:`client desktop mac` and :ref:`client desktop windows`
 for moderate to heavy use.
 
-.. important:: Your system must be updated with the latest version of Google Chrome, or Firefox or Safari
-
-.. important:: You must be registered and setup with `UCI DUO <https://www.oit.uci.edu/help/duo>`_
+.. important:: * Your system must be updated with the latest version of Google Chrome, or Firefox or Safari
+               * You must be registered and setup with `UCI DUO <https://www.oit.uci.edu/help/duo>`_
 
 .. _web browser login:
 
@@ -995,13 +1062,13 @@ or any other LAB directories you have access for.
    | UCINetID | UCINetID | /share/crsp/lab/LABNAME/share    | all lab members                         |
    +----------+----------+----------------------------------+-----------------------------------------+
 
-The following example shows the directory structure and permissions (# by)
+The following example shows the directory structure and permissions
 for a PI panteater who has a lab and added 2 students:
 
 .. code-block:: console
 
    [user@login-x:~]$ ls -ld /share/crsp/lab/panteater
-   drwxr-x--T 3 panteater panteater    512 Mar  6 15:58 /share/crsp/lab/panteater
+   drwxr-x--T 3 panteater panteater_lab_share  512 Mar  6 15:58 /share/crsp/lab/panteater
 
    [user@login-x:~]$ ls -l /share/crsp/lab/panteater
    drwx--S--- 2 panteater panteater_lab       2048 Jul 12 10:22 panteater # by PI

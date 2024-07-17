@@ -154,7 +154,7 @@ I accidentally deleted some files (or directories). Can they be restored?
   :DFS:
     :ref:`selective backup recovery`
   :CRSP:
-    :ref:`crsp files recovery`
+    :ref:`crsp snapshots`
 
 :bluelight:`DFS`
 ----------------
