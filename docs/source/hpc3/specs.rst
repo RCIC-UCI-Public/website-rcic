@@ -207,7 +207,7 @@ or browse the table below.
 
 Click on the column header for sorting.
 
-.. csv-table:: Nodes info updated :blogauthor:`21 Feb 2023`.
+.. csv-table:: Nodes info updated :blogauthor:`17 Jul 2024`.
    :class: noscroll-table sortable
    :file: ../_static/nodes.csv
    :widths: 5,5,18,20,15,22,10,5
