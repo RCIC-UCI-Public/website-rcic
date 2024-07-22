@@ -404,7 +404,7 @@ Symposium Apr 04
 **Purpose of the Symposium**
 
 The Research Cyberinfrastructure Center was formed because of a 
-`faculty-driven process <https://sites.uci.edu/rci/>`_ and the recognition
+`faculty-driven process <https://web.archive.org/web/20240226070259/https://sites.uci.edu/rci/>`_ and the recognition
 that computing and data are key to modern research enterprise.  In 2016,
 a symposium was held to gather input and ideas from the UCI research community.
 
