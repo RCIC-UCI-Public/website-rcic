@@ -1087,7 +1087,7 @@ for a PI panteater who has a lab and added 2 students:
    drwxrws--T 4 panteater panteater_lab_share  512 Nov  2  2020 share     # by all in lab
 
 
-.. hpc3 crsp data:
+.. _hpc3 crsp data:
 
 Moving data to CRSP
 ^^^^^^^^^^^^^^^^^^^
@@ -1104,3 +1104,11 @@ from DFS6 to your LAB share on CRSP:
 
 .. |mduck| replace:: Mountain Duck link:https://mountainduck.io/[Mountain Duck] product.
 .. _`mduck`: https://mountainduck.io
+
+.. _unsupported clients:
+
+Unsupported Clients
+-------------------
+
+Please see the :ref:`Unsupported CRSP Clients Guide <unsupported clients guide>` for some pointers on
+unsupported clients.  
