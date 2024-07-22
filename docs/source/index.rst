@@ -54,6 +54,7 @@ RCIC User Documentation
    storage/crsp
    storage/crsp-annex
    storage/crsp-clients
+   storage/crsp-unsupported-clients
    storage/crsp-troubleshoot
 
 .. toctree::
