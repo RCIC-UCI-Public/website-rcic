@@ -802,7 +802,7 @@ We provide :ref:`client desktop mac` and :ref:`client desktop windows`
 for moderate to heavy use.
 
 .. important:: * Your system must be updated with the latest version of Google Chrome, or Firefox or Safari
-               * You must be registered and setup with `UCI DUO <https://www.oit.uci.edu/help/duo>`_
+               * You must be registered and setup with `UCI DUO <https://www.oit.uci.edu/services/accounts-passwords/duo/>`_
 
 .. _web browser login:
 
