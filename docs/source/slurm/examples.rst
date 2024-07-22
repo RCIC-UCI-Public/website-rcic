@@ -332,7 +332,7 @@ Sometimes applications are available via containers on our *Jupyterhub portal*.
 This includes many Bioinformatics applications, Rstudio, etc. Below are the
 steps to start a container.
 
-1.  **Authenticate at Jupyterhub portal**
+1. **Authenticate at Jupyterhub portal**
 
    Point your browser
    to `https://hpc3.rcic.uci.edu/biojhub4/hub/login <https://hpc3.rcic.uci.edu/biojhub4/hub/login>`_
@@ -346,7 +346,7 @@ steps to start a container.
  
       Sign in
 
-2.  **Select your server configuration and login**
+#. **Select your server configuration and login**
 
    After  a successful authentication you will see a screen with server options as in the figure below:
 
@@ -376,7 +376,7 @@ steps to start a container.
 
       Container is starting
 
-3. **Your server environment**
+#. **Your server environment**
 
    Once the notebook is done spawning, you will get a Launcher screen with a number GUI apps you can use.
    The first time you start your Lab interface it will look similar to:
@@ -393,7 +393,6 @@ steps to start a container.
    You may need to download/upload files, or install a few R or Python
    packages. Please see :ref:`install jupyter` guide.
 
-
    .. important:: | **You must have sufficient space in your $HOME in order to run a session**.
       | If your $HOME is full the server will  fail to start with an error similar to the following
       | :red:`Spawn failed: Server at <...> didn't respond in 300 seconds`
@@ -402,8 +401,45 @@ steps to start a container.
       **You need to bring your $HOME usage under the quota before
       you can start your session**. Please see :ref:`home quotas <home quotas>`.
 
+#. **Your server generated files**
 
-4. **Shutdown your server**
+   Your running container generates session files and directories. Usually, these are placed in
+   your $HOME. For example, if you login on HPC3 you might see in your $HOME:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ ls
+      biojhub4.12098786.err 
+      biojhub4.12098786.out 
+      biojhub4_dir           
+
+   * :tt:`biojhub4.12098786.err` is a session error file. The number in the
+     file name is a Slurm jobID. The file contains 
+     info messages about the session plus will have any error messages which are helpful 
+     to identify reasons for container failure to start or work.
+   * :tt:`biojhub4.12098786.out` is a session output file. It contains 
+     mostly environment settings associated with the container.
+   * :tt:`biojhub4_dir` - a directory to keep container generated files (temporary, cache, or persistent). 
+     This is NOT a place where you work with your data files and programs, this is needed for a container. 
+
+   If you run many sessions without clearing out these files and directories
+   you can fill up your $HOME quota and your container will not start a new
+   session or will fail to continue the current one. 
+
+   One can set an alternative place for :tt:`biojhub4_dir` in the pub area. 
+   You will need to edit your :tt:`~/.bashrc` file and add at the end a line
+   using your account in place of UCINetID:
+
+   .. code-block:: console
+   
+      export biojhub4HOME="/pub/UCInetID/biojhub4_dir"
+
+   Your next invocation of the container will write session files in your
+   :tt:`/pub/UCInetID/biojhub4_dir` location. The :tt:`biojhub4.*.err`
+   and :tt:`biojhub4.*.err` files are still written in your $HOME and
+   need a periodic removal.
+
+#. **Shutdown your server**
 
    Be sure to stop your Juputerhub server after you are done with your work.
    This releases backend computing resources for other active computational needs.

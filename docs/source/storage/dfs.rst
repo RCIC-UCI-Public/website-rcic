@@ -9,7 +9,7 @@ DFS
 Overview
 --------
 
-Scalable storage on HPC3 in the **/dfsX**  and **/pub** file paths are parallel file systems running
+Scalable storage on HPC3 in the :tt:`/dfsX`  and :tt:`/pub` file paths are parallel file systems running
 `BeeGFS <https://www.beegfs.io/c/>`_ on top of `ZFS <https://zfsonlinux.org/>`_. 
 This is a network-based multi-Petabyte storage cluster for the UCI campus research community.
 It is put in place so that researchers across UCI have a reliable and resilient location
@@ -31,7 +31,7 @@ file systems.
   * All DFS systems are *single copy, high-performance storage* intended for scratch data. 
     No special backup is available. Deleted data are gone forever.
   * Accessible only from HPC3 as a regular filesystem for storing data on the cluster.
-    There are a few separate storage pools which are mounted on the cluster as **/dfsX**.
+    There are a few separate storage pools which are mounted on the cluster as :tt:`/dfsX`.
   * For recharge allocations please see :ref:`buy dfs`.
   * .. warning :: DFS filesystems  must not be used to store personally-identifiable information that would fall
                  under guidelines  such as `FERPA <https://www2.ed.gov/policy/gen/guid/fpco/ferpa/index.html>`_
@@ -49,21 +49,20 @@ Allocations
 There is NO separate account for DFS filesystems. 
 :ref:`dfs quotas` are enforced using groups.
 
-**No cost Private area:** 
-  | All users have access to the Private Area. Each user is provided with a default allocation:
+**No cost allocation -  Private area:** 
+  All users have access to the Private Area. Each user is provided with a default allocation:
+
   | - 1TB quota per account in :tt:`/pub/ucinetid` 
   | - 1TB backup quota for a selective backup
 
-**Recharge allocation - Group Shared area:**
-  UCI Faculty members can have low-cost recharge allocation(s) to fulfill their needs.
-  These group areas are quota allocations in **/dfsX/group-lab-path** based on PI's purchase.
-  The storage owner (PI) can specify additional users who have read/write capability on the filesystem.
-  Please see :ref:`Recharge Allocations <recharge allocations>` for details how to request. 
-
-  .. note:: If you are submitting a ticket requesting to
-            be added to a specific group for a specific filesystem access, please note
-            we will need your PI confirmation in order to approve your request.
-            Use a cc to your PI when submitting a ticket. 
+**Recharge allocation - Group shared area:**
+  UCI Faculty members (PIs) can have low-cost recharge allocation(s) to fulfill their needs.
+  
+  * These group areas are quota allocations in :tt:`/dfsX/group-lab-path` based on PI's purchase.
+  * The PI is the storage owner. 
+  * The PI can specify additional users who can have read and write access to the area.
+  * Please see :ref:`Recharge Allocations <recharge allocations>` for details
+    how to purchase. 
 
 .. _dfs files:
 
@@ -74,57 +73,73 @@ Storing Files
   * Any frequently changing files
   * Any large input data files that are used for computational jobs
   * Jobs transient input/output/error files
-  * Large user-authored software installations
+  * Large user-authored  or third-party software installations
   
 **Where to Store**
-  Pick a location depending on the type of data (personal or group access)
+  Pick a location depending on the type of data (private or group access):
 
-  1. :red:`The /pub/ucinetid is a unique PRIVATE access area and is NOT shared with other users.`
-  2. Most users have access to one or more group-shared areas in **/dfsX/<group-lab-path>**.
-     Within this area, all group members have read and write access.
-     The organization is up to the group members with one exception: :red:`do not change sticky bit settings`. 
+  :tt:`/pub/ucinetid`
+    * is a unique PRIVATE access area
+    * :red:`is NOT shared with other users`
+    * :red:`do NOT change this directory permissions`
+    * the organization of files and directories is up to the user
+
+  :tt:`/dfsX/<group-lab-path>`
+    * is a specific group shared area, users may have access to one or more group areas
+    * :red:`all group members have read and write access`
+    * :red:`do NOT change directories permissions or sticky bit settings`, see a warning below
+    * the organization of files and directories is up to the group members
 
 **File permissions**
 
-  .. important:: File permissions are used in determining quotas.
-                 When we create **Private area** and  **Group shared area** on DFS 
+  | File permissions are used in determining quotas.
+  | The permissions involve setting logical UNIX groups. 
+
+  .. important:: When we create **Private areas** and  **Group shared areas** on DFS 
                  we set correct permissions on the top level directories. 
-                 The permissions involve setting logical UNIX groups. 
-                 Please see :ref:`unix primer`  to familiarize yourself with UNIX groups.
 
+  .. _sticky warning:
 
-  .. warning:: Each group lab area is initially configured with the **group sticky bit set**
-               so tht only allowed users can access this area. We advise users to NOT change
-               permissions on the directories and files when writing in the group area.
-               :red:`Incorrect permissions can lead to quota exceeded errors`.
+  .. warning:: * Each **Group shared area** is initially configured with the **group sticky bit set**
+                 so that only allowed users can access this area.
+               * We advise users to NOT change permissions on the directories and files when writing in the group area.
+               * :red:`Incorrect permissions can lead to quota exceeded errors`.
 
-
-  Please make sure you understand UNIX :ref:`file permissions`.
-
+  Please see :ref:`unix primer`  to familiarize yourself with UNIX groups
+  and make sure you understand UNIX :ref:`file permissions`.
 
 .. _dfs quotas:
 
 Quotas
 ------
 
-All DFS-based file systems have quota enforcement.  
+All DFS-based file systems have quota enforcement for all private and group shared areas.  
 
-- Every user has a default **personal group** which is the same as their login.
-  The only :tt:`1TB personal quota` is on **/pub/ucinetid**, the rest are group quotas.
+- When writing in **Private area** users need to remember that:
 
-- Every user has a default :tt:`1Tb selective backup quota`.
+  * Every user has a **default personal group** which is the same as their login.
+  * The :tt:`1TB personal group quota` is on **/pub/ucinetid**.
+  * Every user has a default :tt:`1Tb selective backup quota`.
 
-- Users have :tt:`1 byte quota` on all DFS systems (except personal quota), it is the group quota
-  that is used. :red:`If you create file with the incorrect group, you will likely
-  see over quota errors`.
 
-- When writing in group area users need to remember that all members of the
-  group contribute to the quota. It's the sum total usage that counts.
-  When quotas are exceeded, users can no longer write in the affected
-  filesystem  and will need to remove some files and directories to free space.
+- When writing in **Group shared area** users need to remember that:
 
-- Users can't change quotas, but can submit a ticket asking to be added
-  to the group quotas provided there is a confirmation from the PI about the change.
+  * All members of the group contribute to the quota. It's the sum total usage that counts.
+  * :red:`There are no individual user quotas in the Group shared area`, only the group quota is used.
+  * :red:`If you create file with the incorrect group, you will likely see over quota errors`.
+  * When quotas are exceeded, all users in the group will no longer be able to write in the affected
+    filesystem  and will need to remove some files and directories to free space.
+
+- Users can't change quotas, but a PI can submit a ticket asking to update the
+  quota. Please see :ref:`buy dfs`.
+
+- Users can submit a ticket asking to be added to the group shared area.
+
+  .. note:: If you are submitting a ticket requesting to
+            be added to a specific group for a specific filesystem access, please note
+            we will need your PI confirmation in order to approve your request.
+            Use a cc to your PI when submitting a ticket. The PI must confirm 
+            the requested change via email reply.
 
 .. _dfs check quotas:
 
@@ -151,7 +166,7 @@ command to check user/group quotas on a particular DFS pool.
         alpha_users|158537||      0 Byte| 1024.00 Gib||        0|unlimited  # see 2
           panteater|000865||  755.59 GiB| 1024.00 GiB||   258856|unlimited  # see 3
 
-  The above shows that a user :tt:`panteater` can write in its personal
+  The above shows that a user :tt:`panteater` can write in its private
   area :tt:`/pub/panteater` using the above listed 3 groups:
 
   1. :tt:`panteater` belongs to a supplementary group :tt:`panteater_lab`, and
@@ -187,7 +202,7 @@ command to check user/group quotas on a particular DFS pool.
      only if using UNIX group :tt:`panteater_lab` for which there is 40Tb
      allocation.  Note, the allocated space 40Tb and the used space 38.36Tb
      are totals by all users allowed to write in this area.
-  5. There is 0 quota (shown as 1 byte) for a personal UNIX group
+  5. There is 0 quota (shown as 1 byte) for a default personal group
      :tt:`panteater` or a supplemental UNIX group :tt:`alpha_users`. If a user tries
      to write  using these UNIX groups it will result in permissions and over the quota errors.
 
@@ -205,18 +220,16 @@ command to check user/group quotas on a particular DFS pool.
 
         $ dfsquotas panteater "dfs6 sbak"
 
-
-
 .. _dfs over quota:
 
 Over quotas
 ^^^^^^^^^^^
 
 When quota is filled, the users will not be able to write any files 
-or directories and submitted jobs will fail with :red:`quota exceeded errors`
+or directories and submitted jobs will fail with :red:`quota exceeded errors`.
 
 Quota is enforced by the file system based upon the :tt:`Unix group membership`
-of a particular file.  For example,
+of a particular file.  For example:
 
 .. code-block:: console
 
@@ -237,8 +250,6 @@ the group execute permissions (character positions 5-7). This is called the **st
 It is subtle, but important difference: :tt:`x` instead of :tt:`s` in the group execute permission.
 Compare to permissions without sticky bit: 
 
-
-trial :tt:`wo`:red:`rds`
 
 .. _sticky bit:
 
