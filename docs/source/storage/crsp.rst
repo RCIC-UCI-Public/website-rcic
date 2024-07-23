@@ -529,7 +529,7 @@ Since most CRSP data is stored in a lab area, this most likely the applicable gu
   See :ref:`Mac connect share section <mac connect share>` for a reference how
   to view hidden folders in the :guilabel:`Finder`.
 
-  Click on the :tt:`.snapshots` folder at the top level of your already-configured lab share
+  Click on the :tt:`.snapshots` folder at the top level of your already-configured lab share:
 
   .. _crsp lab snaphot:
 
@@ -539,7 +539,7 @@ Since most CRSP data is stored in a lab area, this most likely the applicable gu
 
      :tt:`.snapshots` directory or folder at the top-level of the lab
 
-  Then you will see a set folders (tip: sort by name), that has the date and time when each snapshot was taken. 
+  Then you will see a set folders (tip: sort by name), that has the date and time when each snapshot was taken:
 
    .. _crsp lab snaphot nav:
 
@@ -548,7 +548,6 @@ Since most CRSP data is stored in a lab area, this most likely the applicable gu
       :alt: crsp lab .snapshots directory contents
 
       Example folders in :tt:`.snapshots` directory
-
 
   Continue navigating to a date where you believe a copy of your *deleted* or *ovewritten* file is located.
   **Copy it back to your working area.**
