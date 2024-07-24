@@ -201,6 +201,7 @@ hpc3-gpu-18-00,MRI,ProLiant DL380 Gen10,2M20040H6K,2024-12-18,Intel(R) Xeon(R) G
 hpc3-gpu-18-01,MRI,ProLiant DL380 Gen10,2M201004KC,2024-12-18,Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz,192,40
 hpc3-gpu-18-02,MRI,ProLiant DL380 Gen10,2M201108R5,2024-12-18,Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz,192,40
 hpc3-gpu-18-03,alviny6,PowerEdge R750xa,60C33Z3,2028-10-08,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
+hpc3-gpu-18-04,elizaml4,PowerEdge R750xa,70C33Z3,2028-10-08,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-23-00,RCIC,Dell PowerEdge R750xa,HSZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-23-01,RCIC,Dell PowerEdge R750xa,DSZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-23-02,RCIC,Dell PowerEdge R750xa,FSZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
