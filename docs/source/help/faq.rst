@@ -149,12 +149,9 @@ I accidentally deleted some files (or directories). Can they be restored?
 - The restoration method depends on where the files was originally
   located. Please see respective guides for recovery explanation:
 
-  :$HOME:
-    :ref:`home files recovery`
-  :DFS:
-    :ref:`selective backup recovery`
-  :CRSP:
-    :ref:`crsp snapshots`
+  - :ref:`$HOME files <home files recovery>`
+  - :ref:`DFS files <selective backup recovery>`
+  - :ref:`CRSP files <crsp snapshots>`
 
 :bluelight:`DFS`
 ----------------
