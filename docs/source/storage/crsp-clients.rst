@@ -833,7 +833,7 @@ using your UCNetID and password, followed by the prompts for DUO authentication:
 Once logged in, you will be presented with the CRSP top level screen. You can follow the links to
 your Lab areas (shared) or HOME area (private):
 
-.. figure:: images/web/crsp-browser-lab-connect.png
+.. figure:: images/web/browser-lab-connect.png
    :align: center
    :width: 70%
    :alt: web browser top level
@@ -850,9 +850,9 @@ To see your labs, Click on :guilabel:`My-Labs`, then click on :guilabel:`CONNECT
 You will see a screen similar to the next one. In this example a user *npw*
 has an access to 4 labs:
 
-.. figure:: images/web/crsp-file-browser-labs.png
+.. figure:: images/web/browser-user-labs.png
    :align: center
-   :width: 70%
+   :width: 80%
    :alt: web browser labs
 
    File browser labs for user *npw*
@@ -869,7 +869,7 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
   new folder. Click on :guilabel:`NEW FOLDER` and on a newly opened line type
   desired folder name:
 
-  .. figure:: images/web/crsp-browser-create-folder.png
+  .. figure:: images/web/browser-create-folder.png
      :align: center
      :width: 80%
      :alt:  Create a new folder 
@@ -881,32 +881,32 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
   file then click on :guilabel:`NEW FILE`  and on a newly opened line type
   desired file name:
 
-  .. figure:: images/web/crsp-browser-create-file.png
+  .. figure:: images/web/browser-create-file.png
      :align: center
      :width: 80%
      :alt:  Create a new file 
 
      Create a new file
 
-**Download files or directories**
-  Select a file or folder to download, click on :guilabel:`Download`:
+**Download files**
+  Select a file or multiple files to download, click on :guilabel:`Download`:
 
-  .. figure:: images/web/crsp-browser-file-download.png 
+  .. figure:: images/web/browser-file-download.png 
      :align: center
      :width: 80%
-     :alt: File or folder download 
+     :alt: File download 
 
-     File or folder download 
+     File download 
   
-  * a file will be downloaded as a file with the same name
-  * a folder will be downlded as :tt:`folder-name.zip` file
-    and will need to be unzipped to access the contents.
+  * a single file will be downloaded as a file with the same name
+  * multile files will be downloaded as :tt:`download.zip`  file
+    which will need to be unzipped to access the contents.
 
 **Upload files**
   Navigate to a folder where you want to upload files to and click on
   the upload button at the bottom-right of the screen:
 
-  .. figure:: images/web/crsp-browser-upload-1.png
+  .. figure:: images/web/browser-upload-file.png
      :align: center
      :width: 80%
      :alt: File upload
@@ -915,9 +915,10 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
 
   Then follow your local laptop file finder application that will let you
   choose file or multiple files for upload.
-  Once uploaded the CRSP browser will show a confirmation similar to:
+  Once uploaded the CRSP browser will show a confirmation similar to
+  the one below showing your uploaded file name:
 
-  .. figure:: images/web/crsp-browser-upload-result.png 
+  .. figure:: images/web/browser-upload-file-confirm.png 
      :align: center
      :width: 80%
      :alt: File upload
@@ -928,7 +929,7 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
   Navigate to a folder or directory you want to remove and click on
   the icon before its name to choose it, then click on :guilabel:`REMOVE`:
 
-  .. figure:: images/web/crsp-browser-rm-file.png 
+  .. figure:: images/web/browser-rm-file.png 
      :align: center
      :width: 80%
      :alt: delete file or folder
@@ -938,7 +939,7 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
   You will see a popup window asking to type item name,
   in this example it is :tt:`test-file`:
 
-  .. figure:: images/web/crsp-brwoser-rm-confirm.png
+  .. figure:: images/web/browser-rm-file-confirm.png
      :align: center
      :width: 60%
      :alt: confirm delete
@@ -949,12 +950,21 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
   To logout from the CRSP browser click on the power icon
   in the top right corner:
 
-   .. figure:: images/web/crsp-browser-logout.png
+   .. figure:: images/web/browser-logout.png
       :align: center
       :width: 80%
       :alt: CRSP File Browser logout
 
       CRSP File Browser logout 
+
+   You should see a confirmation:
+
+   .. figure:: images/web/browser-logout-confirm.png
+      :align: center
+      :width: 80%
+      :alt: CRSP File Browser logout confirmation
+
+      CRSP File Browser logout  confirmation
 
 .. _client sshfs:
 
