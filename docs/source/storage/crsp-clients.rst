@@ -819,35 +819,43 @@ for moderate to heavy use.
 Logging in
 ^^^^^^^^^^^
 
-Using your choice of the web browser, login on
-`https://access.crsp.uci.edu/myfiles/ <https://access.crsp.uci.edu/myfiles/>`_
+Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
+using your UCNetID and password, followed by the prompts for DUO authentication:
 
-You will see a standard UCI Webauth login screen and will be prompted for
-UCINETID and password, followed by the prompts for DUO authentication:
-
-.. figure:: images/web/web-auth-login.png
+.. figure:: images/authenticate.png
    :align: center
-   :width: 60%
-   :alt: standard webauth login
+   :width: 50%
+   :alt: web browser login
 
-   Standard Webauth Login
+   Login on CRSP File Browser using your UCI credentials
+
 
 Once logged in, you will be presented with the CRSP top level screen. You can follow the links to
-your Lab areas (shared) or HOME area (private).
-The file browser will only show you folders for which you have access:
+your Lab areas (shared) or HOME area (private):
 
-.. figure:: images/web/web-toplevel.png
+.. figure:: images/web/crsp-browser-lab-connect.png
    :align: center
-   :width: 60%
-   :alt: top level file browser
+   :width: 70%
+   :alt: web browser top level
 
    Top level File Browser
 
-.. important:: We recommend that you do most work on CRSP in your lab area.
-               Lab areas are flexible for sharing.
+.. important:: 
+   * Nothing can be stored in HOME area, it is used for for files associated with the account
+     and for storing quota info file.  It is a completely private area, only you have access.
+   * We recommend that you do most work on CRSP in your lab area.
+     Lab areas are flexible for sharing. You can be granted access to multiple Lab areas.
 
-You can be granted access to multiple Lab areas, but only you will have access to your HOME area.
-HOME area is mainly used for files associated with the account, it is completely private area.
+To see your labs, Click on :guilabel:`My-Labs`, then click on :guilabel:`CONNECT`.
+You will see a screen similar to the next one. In this example a user *npw*
+has an access to 4 labs:
+
+.. figure:: images/web/crsp-file-browser-labs.png
+   :align: center
+   :width: 70%
+   :alt: web browser labs
+
+   File browser labs for user *npw*
 
 .. _web browser navigation:
 
@@ -856,62 +864,97 @@ Navigating File Browser
 
 The File Browser is fairly easy to navigate, with some very basic sets of functions.
 
-**Create files or directories**
-  Click on :guilabel:`New` dropdown button, select :guilabel:`Text file` or
-  :guilabel:`Folder`. Refer to the screenshot below:
+**Create folders (directories)**
+  Click on desired folders to navigate to a location where you want to create a
+  new folder. Click on :guilabel:`NEW FOLDER` and on a newly opened line type
+  desired folder name:
 
-   .. figure:: images/web/browser-dashboard2.png
-      :align: center
-      :width: 60%
-      :alt:  Create a new file or folder
+  .. figure:: images/web/crsp-browser-create-folder.png
+     :align: center
+     :width: 80%
+     :alt:  Create a new folder 
 
-      Create a new file or folder
+     Create a new folder
 
-**Move files or directories**
-  Select the file or folder, click on :guilabel:`Move`, and in a popup dialog box
-  fill in the name of destination folder.  Refer to the screenshot below:
+**Create files**
+  Click on desired folders to navigate to a location where you want to create a
+  file then click on :guilabel:`NEW FILE`  and on a newly opened line type
+  desired file name:
 
-   .. figure:: images/web/browser-dashboard4.png
-      :align: center
-      :width: 60%
-      :alt: move file or folder
+  .. figure:: images/web/crsp-browser-create-file.png
+     :align: center
+     :width: 80%
+     :alt:  Create a new file 
 
-      Move file or folder
+     Create a new file
+
+**Download files or directories**
+  Select a file or folder to download, click on :guilabel:`Download`:
+
+  .. figure:: images/web/crsp-browser-file-download.png 
+     :align: center
+     :width: 80%
+     :alt: File or folder download 
+
+     File or folder download 
+  
+  * a file will be downloaded as a file with the same name
+  * a folder will be downlded as :tt:`folder-name.zip` file
+    and will need to be unzipped to access the contents.
+
+**Upload files**
+  Navigate to a folder where you want to upload files to and click on
+  the upload button at the bottom-right of the screen:
+
+  .. figure:: images/web/crsp-browser-upload-1.png
+     :align: center
+     :width: 80%
+     :alt: File upload
+
+     File upload
+
+  Then follow your local laptop file finder application that will let you
+  choose file or multiple files for upload.
+  Once uploaded the CRSP browser will show a confirmation similar to:
+
+  .. figure:: images/web/crsp-browser-upload-result.png 
+     :align: center
+     :width: 80%
+     :alt: File upload
+
+     File upload confirmation
 
 **Delete files or directories**
-  To delete one or more files or folders, select files or folders and click on
-  the icon:trash[role="red"] to delete selected files or/and folders.  Refer to the screenshot below:
+  Navigate to a folder or directory you want to remove and click on
+  the icon before its name to choose it, then click on :guilabel:`REMOVE`:
 
-   .. figure:: images/web/browser-dashboard3.png
+  .. figure:: images/web/crsp-browser-rm-file.png 
+     :align: center
+     :width: 80%
+     :alt: delete file or folder
+
+     Delete file or folder
+
+  You will see a popup window asking to type item name,
+  in this example it is :tt:`test-file`:
+
+  .. figure:: images/web/crsp-brwoser-rm-confirm.png
+     :align: center
+     :width: 60%
+     :alt: confirm delete
+
+     Confirm deletion via typing file or folder name 
+
+**Logout from CRSP FIle Browser**
+  To logout from the CRSP browser click on the power icon
+  in the top right corner:
+
+   .. figure:: images/web/crsp-browser-logout.png
       :align: center
-      :width: 60%
-      :alt: delete file or folder
+      :width: 80%
+      :alt: CRSP File Browser logout
 
-      Delete file or folder
-
-**Upload/download files or directories**
-  Files and folders could be uploaded using drag-n-drop capability in the file browser dashboard.
-  Simply drag any file from your computer, an :guilabel:`Upload` button appears in the dashboard inline with the file name.
-  Press :guilabel:`Upload` button, your file/folder will be uploaded via the file browser.  Refer to the screenshot below:
-
-   .. figure:: images/web/browser-dashboard6.png
-      :align: center
-      :width: 60%
-      :alt: upload/download file or folder
-
-      Upload file/folder via drag-n-drop
-
-**In-browser file editing**
-  To use this feature just click on the file, a text editor will open in a new
-  browser tab.  After completing edits, to save the edited file, select
-  :guilabel:`File Save`. Refer to the screenshot below:
-
-   .. figure:: images/web/browser-dashboard5.png
-      :align: center
-      :width: 60%
-      :alt: in-browser file editing
-
-      In-browser File Editing
+      CRSP File Browser logout 
 
 .. _client sshfs:
 
