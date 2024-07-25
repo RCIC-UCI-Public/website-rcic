@@ -242,7 +242,7 @@ In the following, we will use the lab for a PI *ppapadop* as an example:
 * *ckhacher*, *itoufiqu*, *tandriol*, *iychang* are in the group :tt:`ppapadop_lab_share`.
   They are lab members (grantees) that were given an access to the LAB area  by the PI.
 
-  .. figure:: images/crsp-lab-share-highlight.png
+  .. figure:: images/crsp/crsp-lab-share-highlight.png
      :align: center
      :alt: crsp lab share example
 
@@ -533,7 +533,7 @@ Since most CRSP data is stored in a lab area, this most likely the applicable gu
 
   .. _crsp lab snaphot:
 
-  .. figure:: images/crsp-lab-snapshot.png
+  .. figure:: images/crsp/crsp-lab-snapshot.png
      :align: center
      :alt: crsp lab .snapshots directory
 
@@ -543,7 +543,7 @@ Since most CRSP data is stored in a lab area, this most likely the applicable gu
 
    .. _crsp lab snaphot nav:
 
-   .. figure:: images/crsp-lab-snapshot-nav.png
+   .. figure:: images/crsp/crsp-lab-snapshot-nav.png
       :align: center
       :alt: crsp lab .snapshots directory contents
 
