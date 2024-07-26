@@ -232,7 +232,7 @@ macOS: Download Desktop App
   Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
   using your UCNetID and password, follow with DUO authentication:
 
-  .. figure:: images/authenticate.png
+  .. figure:: images/crsp/authenticate.png
       :align: center
       :width: 50%
       :alt: web browser login
@@ -539,7 +539,7 @@ Windows: Download Desktop App
   Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
   using your UCNetID and password, follow with DUO authentication:
 
-  .. figure:: images/authenticate.png
+  .. figure:: images/crsp/authenticate.png
       :align: center
       :width: 50%
       :alt: web browser login
@@ -822,7 +822,7 @@ Logging in
 Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
 using your UCNetID and password, followed by the prompts for DUO authentication:
 
-.. figure:: images/authenticate.png
+.. figure:: images/crsp/authenticate.png
    :align: center
    :width: 50%
    :alt: web browser login
