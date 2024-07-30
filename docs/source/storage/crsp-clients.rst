@@ -230,7 +230,7 @@ macOS: Download Desktop App
 
 **Download Step 1:**
   Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
-  using your UCNetID and password, follow with DUO authentication:
+  using your UCNetID and password:
 
   .. figure:: images/crsp/authenticate.png
       :align: center
@@ -239,6 +239,14 @@ macOS: Download Desktop App
 
       Login using your UCI credentials
 
+  Respond to the DUO push:
+
+  .. figure:: images/crsp/duo-push.png
+     :align: center
+     :width: 50%
+     :alt: web browser login
+
+     Duo push
 
 **Download Step 2:**
   | After a successful authentication the window will look similar to the one shown below.
@@ -546,6 +554,14 @@ Windows: Download Desktop App
 
       Login using your UCI credentials
 
+  Respond to the DUO push:
+
+  .. figure:: images/crsp/duo-push.png
+     :align: center
+     :width: 50%
+     :alt: web browser login
+
+     Duo push
 
 **Download Step 2:**
   | After a successful authentication the window will look similar to the one shown below.
@@ -820,18 +836,30 @@ Logging in
 ^^^^^^^^^^^
 
 Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
-using your UCNetID and password, followed by the prompts for DUO authentication:
+using your UCNetID and password:
 
-.. figure:: images/crsp/authenticate.png
-   :align: center
-   :width: 50%
-   :alt: web browser login
+  .. figure:: images/crsp/authenticate.png
+     :align: center
+     :width: 50%
+     :alt: web browser login
 
-   Login on CRSP File Browser using your UCI credentials
+     Login on CRSP File Browser using your UCI credentials
 
+Respond to the DUO push:
 
-Once logged in, you will be presented with the CRSP top level screen. You can follow the links to
-your Lab areas (shared) or HOME area (private):
+  .. figure:: images/crsp/duo-push.png
+     :align: center
+     :width: 50%
+     :alt: web browser login
+
+     Duo push
+
+Connect to your Lab or HOME area
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once logged in, you will be presented with the CRSP top level screen. You can
+follow the tabs to your Lab shared areas in :guilabel:`My-labs` or HOME
+private area in :guilabel:`My-Home`:
 
 .. figure:: images/web/browser-lab-connect.png
    :align: center
