@@ -127,6 +127,12 @@ use your specific software instructions.
 
 4. Transfer your public ssh key to HPC3
 
+   .. warning::
+
+      If you are wanting to transfer ssh keys to :ref:`CRSP <crsp>`, follow the
+      guide for :ref:`Managing Keys on CRSP <manage crsp keys>` 
+
+
    .. attention::
 
       For windows, ``ssh-copy-id`` does not exist, utilize the method  
@@ -247,6 +253,11 @@ installer is the simplest method)
 
 Copy SSH Public Key From Windows to HPC3
 -------------------------------------------
+
+   .. warning::
+
+      If you are wanting to transfer ssh keys to :ref:`CRSP <crsp>`, follow the
+      guide for :ref:`Managing Keys on CRSP <manage crsp keys>` 
 
    Since Windows does not have the convenience of ``ssh-copy-id``, one has to type a bit more.  The following can be run 
    from either a Command window or a Powershell window to place the key :tt:`panteater-to-hpc3.pub` in the appropriate place.
