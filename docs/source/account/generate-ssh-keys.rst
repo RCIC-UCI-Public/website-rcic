@@ -22,30 +22,30 @@ use your specific software instructions.
 
 1. Open your :tt:`Terminal` application
 
-.. figure:: images/macos-terminal.png
-   :align: center
-   :alt: macOS Terminal App
+   .. figure:: images/macos-terminal.png
+      :align: center
+      :alt: macOS Terminal App
 
-   Open macOS Terminal App
+      Open macOS Terminal App
 
-2. In the Terminal window check your ssh software is OpenSSH
+#. In the Terminal window check your ssh software is OpenSSH
 
    .. parsed-literal::
 
       :blue:`ssh -V`
       OpenSSH_8.6p1, LibreSSL 3.3.6
    
-   The output shows **OpenSSH**, your version may differ depending on your
+   The output shows *OpenSSH*, your version may differ depending on your
    installed ssh.
 
-3. Create ssh keys 
+#. Create ssh keys 
 
    To create the keys, one needs to choose:
 
    - **name** for ssh keys files; this needs to be a single word with no spaces
    - **comment**  to add to the key; use your UCINetID
-   - **very strong passphrase** must be used for protecting your SSH key;
-     it can contain spaces, numbers and special characters and must be at least 10
+   - **very strong passphrase** must be used for protecting your SSH key.
+     It can contain spaces, numbers and special characters and must be at least 10
      characters long. :red:`WARNING: Do not use empty passphrase!`
 
    In the following example we use the following choices:
@@ -54,7 +54,8 @@ use your specific software instructions.
    :comment:  "panteater\@uci.edu (MacBook Air)"
    :passphrase:  you need to type it twice when prompted
 
-   Execute the ``ssh-keygen`` command to create ssh keys:
+   Execute the ``ssh-keygen`` command to create **RSA type** ssh keys.
+   Use your UCINETID in place of *panteater*:
 
    .. parsed-literal::
 
@@ -84,12 +85,25 @@ use your specific software instructions.
    in your :tt:`$HOME` directory and generate two files there: a private key :tt:`key-to-hpc3`
    and a public key :tt:`key-to-hpc3.pub`. They are always generated and work as a pair. 
 
-   .. attention:: | Private key should NEVER be shared. It remains on your laptop.
-                  | Alwyas use a non-empty passphrase for your key and remember it!
+   .. _generate PEM-formatted keys:
 
-   Check your ssh keys. The first command simply lists the contents of your
+   .. attention::
+      | If you are creating ssh key pair for CRSP desktop client use the modified command
+      | ``ssh-keygen`` shown below to create **PEM-formatted keys**.
+
+      | PEM-formatted keys are the most reliable format for the :ref:`CRSP Desktop Client <crsp clients>`. 
+      | The command is essentially identical to the one above but adds an explicit format and the :tt:`.pem` file extension. 
+
+      | replace:
+      | :blue:`ssh-keygen -t rsa -f  ~/.ssh/key-to-hpc3 -C "panteater@uci.edu (MacBook Air)"`
+      | with:
+      | :blue:`ssh-keygen -t rsa -f  ~/.ssh/key-to-hpc3.pem -m PEM -C "panteater@uci.edu (MacBook Air)"`
+
+      This will create files :tt:`key-to-hpc3.pem` (private key) and :tt:`key-to-hpc3.pem.pub` (public key)
+
+#. Check your ssh keys. The first command simply lists the contents of your
    :tt:`.ssh/` directory, and the second prints  the contents of your public
-   ssh key:
+   RSA type ssh key:
 
    .. parsed-literal::
 
@@ -99,95 +113,14 @@ use your specific software instructions.
       :blue:`cat ~/.ssh/key-to-hpc3.pub`
       ssh-rsa AAAA1yc2Ew...characters deleted...97VU0yRlaTxEX= panteater\@uci.edu (MacBook Air)
 
+   .. important:: | Private key should NEVER be shared. It remains on your laptop.
+                  | Alwyas use a non-empty passphrase for your key and remember it!
 
-.. _generate PEM-formatted keys:
+#. Transfer your public ssh key
 
-3. PEM-formatted keys
+   Once your keys are generated you will need to copy the contents of your public
+   key to the desired server. See :ref:`copy-ssh-keys-macos`.
 
-   PEM-formatted keys are the most reliable format for the :ref:`CRSP Desktop Client <crsp clients>`. The procedure is essentially identical
-   to the previous step but adds an explicit format and the :tt:`.pem` file extension. 
-
-   **Replace**
-
-   .. parsed-literal::
-
-     :blue:`ssh-keygen -t rsa -f  ~/.ssh/key-to-hpc3 -C "panteater@uci.edu (MacBook Air)"`
-
-   **With**
-
-   .. parsed-literal::
-   
-     :blue:`ssh-keygen -t rsa -f  ~/.ssh/key-to-hpc3.pem -m PEM -C "panteater@uci.edu (MacBook Air)"`
-
-
-   The above will create files :tt:`key-to-hpc3.pem` and :tt:`key-to-hpc3.pem.pub`
-
-
-.. _copy ssh keys:
-
-4. Transfer your public ssh key to HPC3
-
-   .. warning::
-
-      If you are wanting to transfer ssh keys to :ref:`CRSP <crsp>`, follow the
-      guide for :ref:`Managing Keys on CRSP <manage crsp keys>` 
-
-
-   .. attention::
-
-      For windows, ``ssh-copy-id`` does not exist, utilize the method  
-      :ref:`Copy ssh keys on Windows <copy-ssh-keys-windows>`
-
-   Use ``ssh-copy-id`` command to copy your public key
-   from your laptop to your account on HPC3.
-
-   You will be prompted for the standard password and DUO authentication
-   by this command. Use your UCINetID, here is an example session for user panteater:
-
-   .. parsed-literal::
-
-      :blue:`ssh-copy-id -i ~/.ssh/key-to-hpc3 panteater@hpc3.rcic.uci.edu`
-      The authenticity of host 'hpc3.rcic.uci.edu (128.200.221.16)' can't be established.
-      ED25519 key fingerprint is SHA256:KLY8s4Aq1JBrD8pCitYkn7MbZjUu6FOyUzgyuOevSuk.
-      This key is not known by any other names
-      Are you sure you want to continue connecting (yes/no/[fingerprint])?  :blue:`yes`
-      /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
-      /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
-      (panteater\@hpc3.rcic.uci.edu) Password:  :red:`type your UCInetID password`
-      (panteater\@hpc3.rcic.uci.edu) Duo two-factor login for panteater
-
-      Enter a passcode or select one of the following options:
-
-       1. Duo Push to XXX-XXX-1234
-
-      Passcode or option (1-1): :red:`type 1`
-
-      Number of key(s) added:        1
-
-      Now try logging into the machine, with:   "ssh panteater\@hpc3.rcic.uci.edu"
-      and check to make sure that only the key(s) you wanted were added.
-
-   The content of your public key will be added to :tt:`$HOME/.ssh/authorized_keys` file
-   in your HPC3 account.
-
-5. Create key mapping 
-
-   This task is done once for generated ssh keys pair.
-
-   Your ssh keys are stored in the default directory but they have
-   non-default names. We need to add newly generated key's name to the ssh
-   configuration file to let the ssh commands know what keys to use when
-   connecting to HPC3 cluster.
-
-   Create :tt:`~/.ssh/config` file with your choice of editor and add the following:
-
-   .. parsed-literal::
-
-      Host hpc3.rcic.uci.edu 
-        IdentityFile ~/.ssh/key-to-hpc3
-
-   The :tt:`~/ssh/config` is a user's ssh configuiration file that is used  by ssh commands.
-   The added content tells ssh to use this specific ssh key when connecting to HPC3.
 
 .. _generate-ssh-keys-linux:
 
@@ -196,6 +129,8 @@ Generate SSH keys on Linux
 
 Follow the of the steps for :ref:`generating ssh keys on macOS <generate-ssh-keys-mac>`
 except in the first step use any terminal application that is available on your laptop.
+Once your keys are generated you will need to copy the contents of your public
+key to the desired server. See :ref:`copy-ssh-keys-macos`.
 
 .. _generate-ssh-keys-windows-powershell:
 
@@ -204,8 +139,8 @@ Generate SSH keys on Windows in Powershell
 
 Follow the of the steps for :ref:`generating ssh keys on macOS <generate-ssh-keys-mac>`
 except in the first step use Powershell that is available on your laptop.
-Once the keys are generated you will need to copy to the contents of your public key to HPC3.
-See :ref:`copy-ssh-keys-windows` below.
+Once the keys are generated you will need to copy to the contents of your
+public key to the desired server.  See :ref:`copy-ssh-keys-windows` below.
 
 .. _generate-ssh-keys-windows-putty:
 
@@ -228,7 +163,7 @@ installer is the simplest method)
 
       PuTTYgen start screen
 
-2. Assign a passphrase and save both the public and private key.   
+#. Assign a passphrase and save both the public and private key.   
 
    .. figure:: images/puttygen-passphrase.png
       :align: center
@@ -245,39 +180,104 @@ installer is the simplest method)
 
    The private key file is of type *ppk* for PuTTY Private Key.
    The private key should remain on your laptop. 
-   You will need to copy to the contents of your *public* key to HPC3. 
+   You will need to copy to the contents of your *public* key to the server. 
    See section :ref:`copy-ssh-keys-windows` below.
 
+.. _copy-ssh-keys-macos:
 
-.. _copy-ssh-keys-windows:
+Copy SSH public keys from macOS
+-------------------------------
 
-Copy SSH Public Key From Windows to HPC3
--------------------------------------------
+.. warning::
 
-   .. warning::
+   If you need to transfer ssh keys to CRSP, follow the
+   guide for :ref:`Managing Keys on CRSP <manage crsp keys>` 
 
-      If you are wanting to transfer ssh keys to :ref:`CRSP <crsp>`, follow the
-      guide for :ref:`Managing Keys on CRSP <manage crsp keys>` 
+To transfer the keys to HPC3:
 
-   Since Windows does not have the convenience of ``ssh-copy-id``, one has to type a bit more.  The following can be run 
-   from either a Command window or a Powershell window to place the key :tt:`panteater-to-hpc3.pub` in the appropriate place.
+1. Use ``ssh-copy-id`` command to copy your public key
+   from your laptop to your account on HPC3.
+
+   You will be prompted for the standard password and DUO authentication
+   by this command.  Here is an example session for user panteater, **use
+   your UCINETID** in its place:
 
    .. parsed-literal::
 
-      C:\> :blue:`type .\\panteater-to-hpc.pub | ssh panteater@hpc3.rcic.uci.edu "cat >> .ssh/authorized_keys"`
-      (panteater\@hpc3.rcic.uci.edu) Password: :red:`type your UCInetID password`
+      :blue:`ssh-copy-id -i ~/.ssh/key-to-hpc3 panteater@hpc3.rcic.uci.edu`
+      The authenticity of host 'hpc3.rcic.uci.edu (128.200.221.16)' can't be established.
+      ED25519 key fingerprint is SHA256:KLY8s4Aq1JBrD8pCitYkn7MbZjUu6FOyUzgyuOevSuk.
+      This key is not known by any other names
+      Are you sure you want to continue connecting (yes/no/[fingerprint])?  :blue:`yes`
+      /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+      /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+      (panteater\@hpc3.rcic.uci.edu) Password:  :red:`type your UCInetID password`
       (panteater\@hpc3.rcic.uci.edu) Duo two-factor login for panteater
 
       Enter a passcode or select one of the following options:
-   
-      1. Duo Push to XXX-XXX-1234
-   
-      Passcode or option (1-1): :red:`type 1`
 
-      C:\>
+       1. Duo Push to XXX-XXX-1234
 
-      The content of your public key will be added to :tt:`$HOME/.ssh/authorized_keys` file
-      in your HPC3 account.
+         Passcode or option (1-1): :blue:`1`
+
+       Number of key(s) added:        1
+
+       Now try logging into the machine, with  :blue:`ssh panteater@hpc3.rcic.uci.edu`
+       and check to make sure that only the key(s) you wanted were added.
+
+   The content of your public key will be added to :tt:`$HOME/.ssh/authorized_keys` file
+   in your HPC3 account.
+
+#. Create key mapping 
+
+   This task is done on your laptop once for generated ssh keys pair.
+
+   Your ssh keys are stored in the default directory but they have
+   non-default names. We need to add newly generated key's name to the ssh
+   configuration file to let the ssh commands know what keys to use when
+   connecting to HPC3 cluster.
+
+   Create :tt:`~/.ssh/config` file with your choice of editor and add the following:
+
+   .. parsed-literal::
+
+      Host hpc3.rcic.uci.edu 
+        IdentityFile ~/.ssh/key-to-hpc3
+
+   The :tt:`~/ssh/config` is a user's ssh configuiration file that is used  by ssh commands.
+   The added content tells ssh to use this specific ssh key when connecting to HPC3.
+
+.. _copy-ssh-keys-windows:
+
+Copy SSH Public Key From Windows
+--------------------------------
+
+.. warning::
+
+   If you need to transfer ssh keys to CRSP, follow the
+   guide for :ref:`Managing Keys on CRSP <manage crsp keys>`.
+
+To transfer the keys to HPC3:
+
+Since Windows does not have the convenience of ``ssh-copy-id``, one has to type a bit more.  The following can be run 
+from either a *Command window* or a *Powershell window* to place the key :tt:`panteater-to-hpc3.pub` in the appropriate place.
+
+.. parsed-literal::
+
+   C:\> :blue:`type .\\panteater-to-hpc.pub | ssh panteater@hpc3.rcic.uci.edu "cat >> .ssh/authorized_keys"`
+   (panteater\@hpc3.rcic.uci.edu) Password: :red:`type your UCInetID password`
+   (panteater\@hpc3.rcic.uci.edu) Duo two-factor login for panteater
+
+   Enter a passcode or select one of the following options:
+   
+   1. Duo Push to XXX-XXX-1234
+   
+   Passcode or option (1-1): :blue:`1`
+
+   C:\>
+
+The content of your public key will be added to :tt:`$HOME/.ssh/authorized_keys` file
+in your HPC3 account.
 
 
 .. _additional tutorials:
