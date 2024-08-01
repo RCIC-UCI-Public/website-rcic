@@ -9,6 +9,7 @@
 --paleblue:#e1effa;
 --bluelight: #0092e0;
 --proposed: #00afaf;
+--gray: #777777;
 }
 
 /* these colors can be used in roles */
@@ -22,6 +23,7 @@
 .proposed {color: #00afaf; font-weight: bold;}
 .bluelight {color: #0092e0;}
 .bluegray {color: #88bfd1;}
+.gray {color: #777777;}
 
 /* ==== for recharge able ==== */
 .recharge-table table {
