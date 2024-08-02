@@ -131,7 +131,6 @@ After a successful login you will see a screen similar to the following:
 Method II: Key-based authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
 Please read the :ref:`Guide to Generating SSH Keys <generate ssh keys>` before you begin.
 
 If you choose to use key-based authentication for your login, you have additional responsibilities:
@@ -161,11 +160,10 @@ If you choose to use key-based authentication for your login, you have additiona
    :Windows (PuTTY): :ref:`generate-ssh-keys-windows-putty`
    :Windows (Powershell): :ref:`generate-ssh-keys-windows-powershell`
 
-   Once you generate your SSH keys and copy the public key to HPC3
-
-   | (a) your laptop or workstation from which you are initiating ssh will have 
-   |     a *password protected* ssh private key and a corresponding public key.
-   | (b) your public ssh key is copied to HPC3 in your :tt:`$HOME/.ssh/authorized_keys` file.
+   Once you generate your SSH keys and copy the public key to HPC3:
+      * your laptop or workstation from which you are initiating ssh will have 
+        a *passphrase protected* ssh private key and a corresponding public key.
+      * your public ssh key is added on HPC3 to your :tt:`$HOME/.ssh/authorized_keys` file.
 
 #. **Use ssh command to login**
 
