@@ -5,9 +5,63 @@
 Generate SSH keys
 =================
 
-We provide info here how to generate SSH keys on different laptops
-and to copy a public key to your account on the HPC3 cluster.
+In the information provided here shows you how to generate SSH keys on different laptops
+and then copy a public key to your account on the HPC3 cluster. If you have reached this
+guide wanting to use :ref:`CRSP <crsp>`, many of the steps are identical. The main difference
+is in the step of *copying public keys*.  CRSP uses :ref:`this procedure <manage crsp keys>` for that step.
 
+
+.. attention::
+
+   In the guides below  ``key-to-hpc3`` is used as a key name. This is only an *example* key name. You can use whatever
+   you want that makes sense to you.  For example, you could use ``key-to-crsp`` if creating a key pair to use with
+   :ref:`CRSP <crsp>`
+   
+
+**FAQS for Key Generation**
+
+What is being created?
+    You are generating an ssh *key pair*.  The pair is two parts: a private key, and a public key.
+    The private part remains on your laptop. The public key is copied to the remote system.
+
+Where is the key pair stored?
+     The key pair is really two text files. These files are usually stored in the ``.ssh`` subdirectory for your
+     $HOME directory on *your* laptop or desktop
+
+What's the difference between a passphrase and a password?
+     A passphrase is used to unlock the *private part* of a key pair.  Choose a phrase that is unique (i.e., don't
+     use your UCINetID password).  A password is interepreted by the remote system and must therefore be sent
+     over the network to be verified. The passphrase is local and is never
+     transmitted over the network.
+
+What do I do if I lose/forget my passphrase?
+     Follow the procedure below to generate a *new* key pair and upload the *public* part of the new key. Finally,
+     destroy the old private key.
+
+Do I share the private part of my key?
+     No. Never. The private part ( a file on your local system) should never leave your laptop. It doesn't need to be
+     backed up.  If it is lost, you can always generate a new pair.
+
+How does the remote system accept my key?
+     Short answer:  Public key cryptography with challenge/response.   A little more information: Using Password+DUO,
+     you have placed the public key on the remote server in an ``authorized_keys`` file.  When you log in,
+     your client presents the *public key* to the server.  The server then *challenges* your client to prove that you
+     have the private key.  It does this by encrypting a message that can only be decrypted using the private key.  If
+     you can respond with contents of that challenge, then the server accepts your identification.
+
+What if somebody gets a copy of my public key?
+     Nothing to worry about. Public key cryptography means that security is not compromised if the public key were
+     exposed. 
+
+Can I use the same key pair to authenticate to both HPC3 and CRSP?
+    Technically, yes. But it is recommended that you create a unique key pair for each remote system. 
+    Each key pair should have its own unique password.
+
+Can I omit the passphrase when creating my key pair?
+    This is a violation of UCI password security rules.  While you can create a passwordless key, you never should.
+
+CONTENTS
+========
 
 .. contents::
    :local:
@@ -59,7 +113,8 @@ use your specific software instructions.
 
    .. parsed-literal::
 
-      :blue:`ssh-keygen -t rsa -f  ~/.ssh/key-to-hpc3 -C "panteater@uci.edu (MacBook Air)"`
+      :blue:`cd ~/.ssh`
+      :blue:`ssh-keygen -t rsa -f  key-to-hpc3 -C "panteater@uci.edu (MacBook Air)"`
       Generating public/private rsa key pair.
       Created directory '/Users/panteater/.ssh'.
       Enter passphrase (empty for no passphrase):
@@ -95,9 +150,9 @@ use your specific software instructions.
       | The command is essentially identical to the one above but adds an explicit format and the :tt:`.pem` file extension. 
 
       | replace:
-      | :blue:`ssh-keygen -t rsa -f  ~/.ssh/key-to-hpc3 -C "panteater@uci.edu (MacBook Air)"`
+      | :blue:`ssh-keygen -t rsa -f  key-to-hpc3 -C "panteater@uci.edu (MacBook Air)"`
       | with:
-      | :blue:`ssh-keygen -t rsa -f  ~/.ssh/key-to-hpc3.pem -m PEM -C "panteater@uci.edu (MacBook Air)"`
+      | :blue:`ssh-keygen -t rsa -f  key-to-hpc3.pem -m PEM -C "panteater@uci.edu (MacBook Air)"`
 
       This will create files :tt:`key-to-hpc3.pem` (private key) and :tt:`key-to-hpc3.pem.pub` (public key)
 

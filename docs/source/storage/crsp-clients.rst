@@ -53,7 +53,7 @@ strong security.  *Never copy an ssh private key file!*
 
    Learn how to use `SSH Agent <https://www.ssh.com/academy/ssh/agent>`_ on your desktop/laptop. If on Windows,
    you can also `Putty's pageant <https://winscp.net/eng/docs/ui_pageant>`_. SSH agents securely store a private
-   key *in memory* so that you only have to type the key's password once.
+   key *in memory* so that you only have to type the key's passphrase once.
 
 .. _manage crsp keys:
 
@@ -129,8 +129,9 @@ key to your :tt:`$HOME/.ssh/authorized_keys` file on CRSP or to completely *repl
    5. The sftp's ``quit`` command  stops sftp session.
    6. The last ``cd`` command puts you in your home area on your laptop.
 
-   After approximately 5 minutes, on the CRSP server the contents of what you uploaded into the file named :tt:`add` will be appended
-   to your :tt:`$HOME/.ssh/authorized_keys` file.  You will know that this has been completed when the file :tt:`add` disappears.
+   After approximately 5 minutes, the CRSP server will *append* the contents of the uploaded file named :tt:`add` 
+   to your :tt:`$HOME/.ssh/authorized_keys` file.  You will know that this has been completed when the
+   file :tt:`add` disappears. 
 
 2. **Verifying Access**
 

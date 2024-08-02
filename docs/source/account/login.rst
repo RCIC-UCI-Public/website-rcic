@@ -131,6 +131,9 @@ After a successful login you will see a screen similar to the following:
 Method II: Key-based authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
+Please read the :ref:`Guide to Generating SSH Keys <generate ssh keys>` before you begin.
+
 If you choose to use key-based authentication for your login, you have additional responsibilities:
 
 .. attention:: 
