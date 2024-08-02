@@ -20,45 +20,47 @@ is in the step of *copying public keys*.  CRSP uses :ref:`this procedure <manage
 
 **FAQS for Key Generation**
 
-What is being created?
+:bluelight:`What is being created?`
     You are generating an ssh *key pair*.  The pair is two parts: a private key, and a public key.
     The private part remains on your laptop. The public key is copied to the remote system.
 
-Where is the key pair stored?
-     The key pair is really two text files. These files are usually stored in the ``.ssh`` subdirectory for your
-     $HOME directory on *your* laptop or desktop
+:bluelight:`Where is the key pair stored?`
+     The key pair is really two text files. These files are usually stored in the :tt:`.ssh` subdirectory for your
+     $HOME directory on *your* laptop or desktop.
 
-What's the difference between a passphrase and a password?
-     A passphrase is used to unlock the *private part* of a key pair.  Choose a phrase that is unique (i.e., don't
-     use your UCINetID password).  A password is interepreted by the remote system and must therefore be sent
-     over the network to be verified. The passphrase is local and is never
-     transmitted over the network.
+:bluelight:`What's the difference between a passphrase and a password?`
+     * A *passphrase* is used to unlock the *private part* of an ssh  key pair.  Choose a phrase that is unique (i.e., don't
+       use your UCINetID password).  The passphrase is local and is never transmitted over the network.
+       :red:`Never use an empty passphrase !`
+     * A *password* is interpreted by the remote system and must therefore be sent
+       over the network to be verified.
 
-What do I do if I lose/forget my passphrase?
+:bluelight:`What do I do if I lose/forget my passphrase?`
      Follow the procedure below to generate a *new* key pair and upload the *public* part of the new key. Finally,
      destroy the old private key.
 
-Do I share the private part of my key?
-     No. Never. The private part ( a file on your local system) should never leave your laptop. It doesn't need to be
+:bluelight:`Do I share the private part of my key?`
+     :red:`No. Never.` The private part (a file on your local system) should never leave your laptop. It doesn't need to be
      backed up.  If it is lost, you can always generate a new pair.
 
-How does the remote system accept my key?
+:bluelight:`How does the remote system accept my key?`
      Short answer:  Public key cryptography with challenge/response.   A little more information: Using Password+DUO,
-     you have placed the public key on the remote server in an ``authorized_keys`` file.  When you log in,
+     you have placed the public key on the remote server in an :tt:`authorized_keys` file.  When you log in,
      your client presents the *public key* to the server.  The server then *challenges* your client to prove that you
      have the private key.  It does this by encrypting a message that can only be decrypted using the private key.  If
-     you can respond with contents of that challenge, then the server accepts your identification.
+     you can respond with contents of that challenge (providing your
+     passphrase when prompted), then the server accepts your identification.
 
-What if somebody gets a copy of my public key?
+:bluelight:`What if somebody gets a copy of my public key?`
      Nothing to worry about. Public key cryptography means that security is not compromised if the public key were
      exposed. 
 
-Can I use the same key pair to authenticate to both HPC3 and CRSP?
+:bluelight:`Can I use the same key pair to authenticate to both HPC3 and CRSP?`
     Technically, yes. But it is recommended that you create a unique key pair for each remote system. 
     Each key pair should have its own unique password.
 
-Can I omit the passphrase when creating my key pair?
-    This is a violation of UCI password security rules.  While you can create a passwordless key, you never should.
+:bluelight:`Can I omit the passphrase when creating my key pair?`
+    :red:`This is a violation of UCI password security rules`.  While technically you can create a passwordless key, you never should.
 
 CONTENTS
 ========
@@ -117,7 +119,7 @@ use your specific software instructions.
       :blue:`ssh-keygen -t rsa -f  key-to-hpc3 -C "panteater@uci.edu (MacBook Air)"`
       Generating public/private rsa key pair.
       Created directory '/Users/panteater/.ssh'.
-      Enter passphrase (empty for no passphrase):
+      Enter passphrase (empty for no passphrase): :red:`Do not use empty passphrase !!!`
       Enter same passphrase again:
       Your identification has been saved in /Users/panteater/.ssh/key-to-hpc3
       Your public key has been saved in /Users/panteater/.ssh/key-to-hpc3.pub
@@ -218,7 +220,7 @@ installer is the simplest method)
 
       PuTTYgen start screen
 
-#. Assign a passphrase and save both the public and private key.   
+#. Assign a non-empty passphrase and save both the public and private key.
 
    .. figure:: images/puttygen-passphrase.png
       :align: center
@@ -226,7 +228,7 @@ installer is the simplest method)
       :alt: PuTTYgen assign passphrase and save
       :class: addpadding
 
-      PuTTYgen assign passphrase and save
+      PuTTYgen assign a non-empty passphrase and save
 
    .. note::
 
