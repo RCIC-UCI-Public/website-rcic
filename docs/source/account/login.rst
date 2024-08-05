@@ -249,7 +249,7 @@ Using  MobaXterm and DUO
 ------------------------
 
 Make sure that in your MobaXterm :guilabel:`SSH tab -> Advanced ssh settings`
-your :guilabel:`Remote Environment` is set to :guilabel:Interactive shell`:
+your :guilabel:`Remote Environment` is set to :guilabel:`Interactive shell`:
 
 .. figure:: images/mobaxterm.png
    :align: center
@@ -260,8 +260,8 @@ your :guilabel:`Remote Environment` is set to :guilabel:Interactive shell`:
 
 .. attention::
 
-   | DO NOT enable Remote monitoring!
-   | See :ref:`mobaxterm monitoring` for more info.
+   :red:`Do NOT enable Remote monitoring!`
+   See :ref:`mobaxterm monitoring` for more info.
 
 
 .. _vscode:
