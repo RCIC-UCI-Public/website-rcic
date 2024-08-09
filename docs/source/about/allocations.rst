@@ -1,7 +1,7 @@
 .. _allocations:
 
-Allocations
-===========
+Resource Allocations
+====================
 
 .. contents::
    :local:
