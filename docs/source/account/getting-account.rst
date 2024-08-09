@@ -3,17 +3,26 @@
 Getting an account
 ==================
 
-| Anyone with a valid UCINetID can have an account.
+| Anyone with a **valid UCINetID** can have an account.
 | There is no cost for a user to obtain an account on HPC3 cluster.
 
-1. Please send email to hpc-support@uci.edu and provide
+1. Please send email (from your UCINetID email) to hpc-support@uci.edu and provide:
 
-   * **your name**
-   * your **UCINetID**
-   * Optionally, if you are affiliated with a PI lab and want to use PI lab resources
-     specify what resources you are requesting and cc your email to your PI.
+   * Your name
+   * Your UCINetID
+   * Optionally, *if you are affiliated with a PI lab and want to use PI lab resources*
+
+     You need to check with your PI what resources are available to the group
+     (some PIs don't have all resources) and need to specify what resources you are requesting:
+
+     | :ref:`How to be added to PI group Slurm account <add lab account>`
+     | :ref:`How to be added to PI group DFS access <add lab dfs>`
+     | :ref:`How to be added to PI group CRSP access <getting crsp account>`
+
+     **You must cc** your email to your PI.
      We will need a confirmation from your PI to add you to the lab resources
      access and cc keeps everything on the same ticket for simplicity.
+
 
 #. The email opens a ticket in our ticketing system.
    Once your account is created you will be notified by email.
