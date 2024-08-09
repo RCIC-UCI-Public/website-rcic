@@ -9,11 +9,11 @@ RCIC User Documentation
    :caption: About RCIC
 
    about/intro
+   about/quick-start
    about/allocations
+   about/news
    about/advisory
    about/staff
-   about/news
-   about/quick-start
 
 .. toctree::
    :maxdepth: 1
