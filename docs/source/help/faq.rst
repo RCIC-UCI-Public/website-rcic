@@ -175,6 +175,8 @@ How do I purchase more DFS space?
 
 Please see how to :ref:`buy dfs`
 
+.. _add lab dfs:
+
 I want to use my PI's group DFS area, how do i do this?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -185,6 +187,8 @@ Your PI will need to reply with a confirmation in order for us to approve your r
 
 :bluelight:`CRSP`
 -----------------
+
+.. _add lab crsp:
 
 I want to use my PI's group CRSP area, how do i do this?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
