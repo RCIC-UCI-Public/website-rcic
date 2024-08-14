@@ -17,6 +17,8 @@ CRSP is available across the network, it supports multiple modes of
 storing and retrieving data including web browsers, "folders" on laptops or desktops,
 and just another file path on UCI's High-performance computing clusters.
 
+.. important:: CRSP is only available on the UCI Network or through the campus VPN.
+
 While there are many possible use cases, a driving one is:
    :bluelight:`A faculty researcher and the data needed to support the research lab, graduate students
    and postdocs.  In this model, a lab "area" is created on CRSP and is logically owned by the
@@ -117,32 +119,39 @@ The allocation is associated with an account.
 Getting CRSP Account
 --------------------
 
-All requests described below must be sent to hpc-support@uci.edu
+All requests described below must be sent to hpc-support@uci.edu.
 
-* **I'm a researcher on campus and I want to have an access**
+:underline:`I am a researcher on campus and I want to have an access`:
   If you are a ladder-rank faculty or have an exception granted to act as PI on federal grants
-  by UCI Office of research, you may request a no-cost 1TB allocation (a 'lab' allocation) by sending
-  a request to emailto:hpc-support@rcic.uci.edu
+  by UCI Office of research, you may request a no-cost 1TB lab allocation and include:
 
-* **I'm a researcher and I want to access my colleagues lab**
-  Your colleague must send a request and ask for access for you to their lab.
+  - your UCInetID 
+  - UCINetIDs and names of the people that you want to add
 
-* **I'm a researcher and I want colleagues outside of UCI to have access to my lab**
-  You must first sponsor a UCINetID (see :ref:`access`) then send a request to grant access. CRSP is only
-  available on the UCI Network or through the campus VPN.
-
-* **I'm a researcher and I want to add students/postdocs to my lab**
+:underline:`I am a researcher and I want to add students/postdocs to my lab`:
   You should send a request and include:
 
   - your existing CRSP lab name
-  - UCINetIDs and names of the people that you want to add
+  - UCINetIDs and names of the people you want to add
 
-* **I'm a student/postdoc**
-  **Your PI** should send a request and include:
+:underline:`Ia m a researcher and I want to access my colleagues lab`:
+  Your colleague must send a request to grant access to their lab and include:
+
+  - existing CRSP lab name
+  - your UCINetIDs
+
+:underline:`Ia m a researcher and I want colleagues outside of UCI to have access to my lab`:
+  You must first sponsor a UCINetID (see :ref:`access`) then send a request to grant access.
+
+:underline:`I am a student/postdoc/researcher and i want to access my PI lab`:
+  You should send a request and include:
 
   - your UCINetID
-
-  A PI may combine multiple requests in a single email.
+  - your PI's UCINetID or existing CRSP lab name
+  - :red:`You must cc your request to the PI`. 
+    Once the ticket is generated (you receive an automated email response) 
+    the PI will have to respond to the cc with a confirmation.
+    We will not create an account without your PI's confirmation.
 
 
 .. _crsp areas:
