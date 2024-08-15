@@ -691,14 +691,14 @@ There are a few commands that provide info about resources consumed by the job.
 :This command is used for running jobs:
   ``sstat``
 
-:These two commands can be used after the job completes:
-  | ``sacct``
-  | ``seff``
+:These commands can be used after the job completes:
+  ``sacct``,  ``seff``
 
 All commands need to use a valid *jobid*.
 
 1. The `sstat <https://slurm.schedmd.com/sstat.html>`_ 
    displays various running job and job steps resource utilization information.
+
    For example, to print out a job's average CPU time use (avecpu), average number of bytes written by all tasks
    (AveDiskWrite), average number of bytes read by all tasks (AveDiskRead),
    as well as the total number of tasks (ntasks) execute:
@@ -712,7 +712,8 @@ All commands need to use a valid *jobid*.
 
 
 2. The `sacct <https://slurm.schedmd.com/sacct.html>`_ command  can be used to see accounting 
-   data for all jobs and job steps.
+   data for all jobs and job steps and other useful info such how long job
+   waited in the queue.
 
    Find accounting info about a specific job:
      .. code-block:: console
@@ -737,17 +738,25 @@ All commands need to use a valid *jobid*.
         600.extern  extern            03:14:42 COMPLETED       0 billing=2,cpu=2,gres/gpu=1,mem=+
    
 
-     :MaxRSS:
-       shows your job memory usage.
-
-     :AllocTRES:
-       is trackable resources, these are the resources allocated to the job
-       after the job started running. The :tt:`%32` is simply a format specification to
+     * *MaxRSS*: shows your job memory usage.
+     * *AllocTRES*: is trackable resources, these are the resources allocated to the job
+       after the job started running. The :tt:`%32` is a format specification to
        reserve 32 characters for this option in the output. Format specification can
        be used for any option.
     
-     .. note:: Other useful options in SACCT_FORMAT are *User*, *NodeList*, *ExitCode*.
-               To see all available options, run ``man sacct`` command.
+   Find how long your jobs were queued (column *Planned*) before they started running:
+     .. code-block:: console
+   
+        [user@login-x:~]$ export SACCT_FORMAT='JobID%20,Submit,Start,Elapsed,Planned'
+        [user@login-x:~]$ sacct -j 30054126,30072212,30072182 -X
+               JobID              Submit               Start    Elapsed    Planned
+        ------------ ------------------- ------------------- ---------- ----------
+            30054126 2024-07-14T11:17:00 2024-07-14T17:03:08   00:22:09   05:46:08
+            30072182 2024-07-14T20:29:30 2024-07-14T20:31:16   00:05:20   00:01:46
+            30072212 2024-07-14T20:44:14 2024-07-14T20:44:26   00:05:58   00:00:12
+
+   .. note:: Other useful options in SACCT_FORMAT are *User*, *NodeList*, *ExitCode*.
+             To see all available options, run ``man sacct`` command.
 
 
 3. The ``seff`` Slurm efficiency script is used to find useful information about the job
@@ -850,6 +859,26 @@ Resources:
 To see all available job pending reasons and their definitions, please see output of
 ``man squeue`` command in the *JOB REASON CODES* section.
 A job may be waiting for more than one reason.
+
+.. _pending reason resources:
+
+Pending job due to Resources
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If your job is in pending status due to the reason *Resources*
+it means the resources you requested are currently busy.
+
+1. Check Slurm estimate for the job start time:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ squeue --start -j 325111
+      JOBID  PARTITION NAME      USER ST          START_TIME NODES SCHEDNODES  NODELIST(REASON)
+      325111      free  GEN panteater PD 2024-08-15T13:36:57     1 hpc3-14-00  (Resources)
+
+   | The estimated time start is listed under *START_TIME*.
+   | You either have to wait or you need to change your job requirements. 
+     See :ref:`fix pending jobs <fix pending job>`.
 
 .. _pending in personal account:
 
