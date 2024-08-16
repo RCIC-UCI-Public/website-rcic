@@ -253,17 +253,28 @@ example panteater UCINetID).
       [user@hpc3-xx-yy:~]$ conda activate Local2
       (Local2)[user@hpc3-xx-yy:~]$ 
 
-   Note that after activation  your prompt has the name of your conda environment.
+   Note that after activation your prompt changed and has **Local2** prepended.
 
    Using your newly created environment you can now install desired software
    :red:`per your software instructions`. The instructions vary, here is a handful of
    possible examples:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      (Local2)[user@hpc3-xx-yy:~]$ conda install -c https://conda.binstar.org/bokeh ggplot    # Install ggplot
-      (Local2)[user@hpc3-xx-yy:~]$ conda install -c https://conda.binstar.org/asmeurer r-nlme # Install r-nlme
-      (Local2)[user@hpc3-xx-yy:~]$ conda install xarray                                       # install xarray
+      (Local2)[user@hpc3-xx-yy:~]$ conda install -c https://conda.binstar.org/bokeh ggplot
+      (Local2)[user@hpc3-xx-yy:~]$ conda install xarray
+      (Local2)[user@hpc3-xx-yy:~]$ conda install r-base=4.3.1
+
+   .. important::
+      | Some instructions  give commands to install in the base
+        environment.  While this is ok for a full personal install of conda, it will
+        not work on the cluster where you are using conda module and where the base environment
+        is read only.  If your instrucitons specify to install in base, for example:
+      | ``conda install -n base somea-pkg-name``
+      | simply remove base from the command as:
+      | ``conda install somea-pkg-name``
+      | This will tell conda to isntall in your active environment where you
+        have write permissions and not in base where users have no write permissions.
 
 7, **Clean your install**
 
@@ -278,7 +289,7 @@ example panteater UCINetID).
 
    .. code-block:: console
 
-      [user@hpc3-xx-yy:~]$ conda clean -a -f -y
+      (base)[user@hpc3-xx-yy:~]$ conda clean -a -f -y
 
 8. **Use your conda environment**
 
@@ -297,8 +308,11 @@ example panteater UCINetID).
 
       [user@hpc3-xx-yy:~]$ module load anaconda/2021.11
       [user@hpc3-xx-yy:~]$ . ~/.mycondainit-2021.11
-      [user@hpc3-xx-yy:~]$ conda activate Local2
+      (base)[user@hpc3-xx-yy:~]$ conda activate Local2
+      (Local2)[user@hpc3-xx-yy:~]$
 
+   Note, once conda is initialized *(base)* is added to the prompt, and once
+   you activate your environment its  name *(Local2)* is added.
 
    If you submit your computation via Slurm script these 3 commands need to be
    present before you execute your software commands.
@@ -310,6 +324,7 @@ example panteater UCINetID).
    .. code-block:: console
 
       (Local2)[user@hpc3-xx-yy:~]$ conda deactivate
+      (base)[user@hpc3-xx-yy:~]$
 
 9. **Build additional enviornments**
 
