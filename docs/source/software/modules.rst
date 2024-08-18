@@ -230,109 +230,107 @@ Using modules
 
 RCIC-authored modules follow a uniform build, formatting and :ref:`module names` schema.
 
-There are a few specifics about how the modules are built that are unique to HPC3.
+There are a few specifics about how the modules are built that are unique to HPC3:
+  * Nearly all modules have version numbers to specify the software version they provide.
+    :red:`Version numbers are important!`
+  * We use a notion of :tt:`Category` to group some modules together. This is
+    only a convenience and the categories show in the output of ``module display`` commands.
+  * Many modules are compiled with GCC compiler. For some we do not
+    specify compiler in the module name, for others we do. This is dictated by
+    the software build specifics. The prerequisite compiler will be automatically loaded if needed.
+  * If a module name contains
 
-* Nearly all modules have version numbers to specify the software version they provide.
-  :red:`Version numbers are important!`
-* We use a notion of :tt:`Category` to group some modules together. This is
-  only a convenience and the categories show in the output of module display commands.
-* Many modules are compiled with GCC compiler. For some we do not
-  specify compiler in the module name, for others we do. This is dictated by
-  the software build specifics.  The prerequisite compiler will be automatically loaded if needed.
-* If a module name contains :tt:`gcc` or :tt:`intel` it was compile with this compiler.
-* If a module name contains :tt:`openmpi` or :tt:`mpich` it was compile with this MPI implementation enabled.
-* If a module name contains  :tt:`cuda` it means a module provides a GPU-enabled
-  software that needs to be run on GPU-enabled nodes (any of GPU partitions).
-* Automatic prerequisites loading: if a module has any prerequisite modules they are automatically added when
-  the module is loaded,
-* Automatic prerequisites unloading: the prerequisite modules are automatically removed when the module is
-  unloaded. Our modifications to modules has Smart unloading:  when a prerequisite
-  was already loaded, unloading the higher-level module will leave the prerequisite intact.
-* We provide a convenient way for users to add their own modules. Please see :ref:`user installed modules`.
+    | :tt:`gcc` or :tt:`intel`: it was compiled with this compiler.
+    | :tt:`openmpi` or :tt:`mpich`: it was compiled with this MPI implementation enabled.
+    | :tt:`cuda`:  it provides a GPU-enabled software that can be run in any GPU partition.
+  * Automatic prerequisites loading: if a module has any prerequisite modules they are automatically added when
+    the module is loaded,
+  * Automatic prerequisites unloading: the prerequisite modules are automatically removed when the module is
+    unloaded. Our modifications to modules has Smart unloading:  when a prerequisite
+    was already loaded, unloading the higher-level module will leave the prerequisite intact.
+  * We provide a convenient way for users to add their own modules. Please see :ref:`user installed modules`.
 
 **Rules of module loading/unloading**:
+  1. :red:`Never load modules in your .bashrc file`.
+  #. You need to load modules:
 
-1. .. attention:: | Always include the version number when loading a module:
-                  | ``module load X/1.2.3``
-                  | This ensures you will get the version you need.
-                  |
-                  | If used without version, a default behavior is loading the latest currently available:
-                  | ``module load X``  - :red:`DANGEROUS`
-                  | This may give unexpected results of using a wrong version of the software  when a new 
-                  | version is added or an old version is removed. Always use module name with the version.
-2. You can load multiple modules, loading order is not important.
-3. You need to load modules:
+     * in Slurm submit scripts for batch jobs
+     * in your interactive shell for interactive jobs
+  
+     Modules are automatically unloaded when your batch or interactive job exists.
+  #. When loading a module always use the module name with its version.
 
-   * in Slurm submit scripts for batch jobs
-   * in your interactive shell for interactive jobs
+     ``module load X/1.2.3`` - this ensures you will get the version you need:
+     
+     ``module load X``  - :red:`DANGEROUS`
+     if used without version, a default behavior is loading the latest currently available.
+     This may give unexpected results of using a wrong version of the software  when a new 
+     version is added or an old version is removed.
 
-   In these cases modules are automatically unloaded when your batch or
-   interactive job exists.
+  #. You can load multiple modules, loading order is not important.
+  #. You can unload modules that you explicitly loaded via ``module load`` command:
 
-4. You can unload modules that you explicitly loaded:
+     .. code-block:: console
 
-   .. code-block:: console
+        [user@login-x:~]$ module load bwa/0.7.17
+           <do some work>
+        [user@login-x:~]$ module unload bwa/0.7.17
 
-      [user@login-x:~]$ module load bwa/0.7.17
-         <do some work>
-      [user@login-x:~]$ module unload bwa/0.7.17
+     **Never unload modules that were auto-loaded by a module itself**.
 
-   Never unload modules that were auto-loaded by a module itself.
+  #. If you loaded multiple modules and need to unload them (rare cases),
+     **always unload modules in the reverse order of loading**:
+     last-loaded should be first unloaded. Not doing
+     this can result in an expected or broken environment.
 
-5. If you loaded multiple modules and need to unload them (rare cases),
-   **always unload modules in the reverse order of loading**:
-   last-loaded should be first unloaded. Not doing
-   this can result in an expected or broken environment.
+     For example, if you loaded modules as:
 
-   For example, if you loaded modules as:
+     .. code-block:: console
 
-   .. code-block:: console
+        [user@login-x:~]$ module load bwa/0.7.17
+        [user@login-x:~]$ module load proj/9.0.0
+        [user@login-x:~]$ module load bracken/2.6.0
 
-      [user@login-x:~]$ module load bwa/0.7.17
-      [user@login-x:~]$ module load proj/9.0.0
-      [user@login-x:~]$ module load bracken/2.6.0
+     You will need to unload them in reverse:
 
-   You will need to unload them in reverse:
+     .. code-block:: console
 
-   .. code-block:: console
+        [user@login-x:~]$ module unload bracken/2.6.0
+        [user@login-x:~]$ module unload proj/9.0.0
+        [user@login-x:~]$ module unload bwa/0.7.17
+  
+     It is easier to unload all loaded modules via
+  
+     .. code-block:: console
 
-      [user@login-x:~]$ module unload bracken/2.6.0
-      [user@login-x:~]$ module unload proj/9.0.0
-      [user@login-x:~]$ module unload bwa/0.7.17
+        [user@login-x:~]$ module purge
 
-   It is easier to unload all loaded modules via
+Suppose you want access to GCC compiler version 8.4.0:
+  The following sequence shows which version of gcc is active prior
+  to module loading (default gcc is installed with the system OS),
+  after module load, and after the unloading.
 
-   .. code-block:: console
+  .. code-block:: console
 
-      [user@login-x:~]$ module purge
+     [user@login-x:~]$ module list                # 1
+     No Modulefiles Currently Loaded.
+     [user@login-x:~]$ gcc --version | grep ^gcc
+     gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-10)
 
-Suppose you want access to GCC compiler version 8.4.0.
+     [user@login-x:~]$ module load gcc/8.4.0      # 2
+     [user@login-x:~]$ module list
+     Currently Loaded Modulefiles:
+       1) gcc/8.4.0
+     [user@login-x:~]$ gcc --version | grep ^gcc
+     gcc (GCC) 8.4.0
 
-The following sequence shows which version of gcc is active prior
-to module loading (default gcc is installed with the system OS),
-after module load, and after the unloading.
+     [user@login-x:~]$ module unload gcc/8.4.0   # 3
+     [user@login-x:~]$ gcc --version | grep ^gcc
+     gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-10)
 
-.. code-block:: console
-
-   [user@login-x:~]$ module list                # 1
-   No Modulefiles Currently Loaded.
-   [user@login-x:~]$ gcc --version | grep ^gcc
-   gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-10)
-
-   [user@login-x:~]$ module load gcc/8.4.0      # 2
-   [user@login-x:~]$ module list
-   Currently Loaded Modulefiles:
-     1) gcc/8.4.0
-   [user@login-x:~]$ gcc --version | grep ^gcc
-   gcc (GCC) 8.4.0
-
-   [user@login-x:~]$ module unload gcc/8.4.0   # 4
-   [user@login-x:~]$ gcc --version | grep ^gcc
-   gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-10)
-
-| 1 check which modules are loaded, and what is active gcc version
-| 2 load desired gcc module, verify gcc version
-| 3 unload the module, this restores the environment, active gcc version is reverted to default
+  | 1 check which modules are loaded, and what is active gcc version
+  | 2 load desired gcc module, verify gcc version
+  | 3 unload the module, this restores the environment, active gcc version is reverted to default
 
 .. _module names:
 
