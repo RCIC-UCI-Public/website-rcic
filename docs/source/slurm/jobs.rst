@@ -798,7 +798,7 @@ Jobs submitted to Slurm will start up as soon as the scheduler can find an appro
 depending on the availability of the nodes, job priority and job resources.
 
 Lack of resources or insufficient account balance 
-(status reason is *AssocGrpCPUMinutesLimit*) are the most common
+(status reason is *AssocGrpCPUMinutesLimit* or *AssocGrpBillingMinutes*) are the most common
 reasons that prevent a job from starting.
 
 RCIC does not generally put limits in place unless we see excess,
@@ -806,11 +806,12 @@ unreasonable impact to shared resources (often, file systems), or other fairness
 
 When a job is in *PD* (pending) status you need to determine why.
 
-.. important:: The balance in the account must have enough core hours to cover the job request. 
+.. important:: **The balance in the account must have enough core hours to cover the job request**. 
 
-               This applies to ALL partitions, including free. While your job
-               will not be charged when submitted to a free partition, there must be a
-               sufficient balance for Slurm to begin your job.
+               *  This applies to all jobs submitted with ``sbatch`` or ``srun``.
+               * This applies to ALL partitions, including free. While your job
+                 will not be charged when submitted to a free partition, there must be a
+                 sufficient balance for Slurm to begin your job.
 
 .. _pending reasons:
 
@@ -820,8 +821,8 @@ Pending Job Reasons
 While lack of resources or insufficient account balance are common reasons that prevent a job from starting,
 there are other possibilities. 
 
-To see the state reasons of your pending jobs, you can run the ``squeue`` command
-with your account name as: 
+To see the reasons of your pending jobs, you can run the ``squeue`` command
+with your account as: 
 
 .. code-block:: console
 
@@ -833,14 +834,16 @@ with your account name as:
    95475 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
    95476 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
 
-Reasons that are often seen on HPC3 for job pending state
-and their explanation are summarized below.
+Most common reasons for job pending state
+and their explanations are summarized below.
 
 AssocGrpCPUMinutesLimit:
   Insufficient funds are available to run the job to completion.
   Slurm users MAX time a job might consume which is
   calculated as :tt:`Number of cores x Number of hours`
   requested for the job, and internally marks those hours as unavailable.
+AssocGrpBillingMinutes:
+  Same as `AssocGrpCPUMinutesLimit` above.
 Dependency:
   Job has a user-defined dependency on a running job and cannot start until the previous job has completed.
 DependencyNeverSatisfied:
@@ -865,7 +868,7 @@ A job may be waiting for more than one reason.
 Pending job due to Resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If your job is in pending status due to the reason *Resources*
+If your job is in pending status due to the reason :red:`Resources`
 it means the resources you requested are currently busy.
 
 1. Check Slurm estimate for the job start time:
@@ -884,6 +887,10 @@ it means the resources you requested are currently busy.
 
 Pending job in personal account
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If your job is pending status due to the reason :red:`AssocGrpCPUMinutesLimit` or :red:`AssocGrpBillingMinutes` 
+it means there is not enough balance left in your personal account to run your job.
+The checks are the same for both. 
 
 1. Check your jobs status:
 
@@ -931,8 +938,9 @@ Pending job in personal account
 Pending job in LAB account
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Often users submit a job to a lab account and it results in PD status due to
-:tt:`AssocGrpCPUMinutesLimit` reason. 
+If your job is in pending status due to the reason :red:`AssocGrpCPUMinutesLimit` or :red:`AssocGrpBillingMinutes` 
+it means there is not enough balance left in your lab account to run your job.
+The checks are the same for both. 
 
 .. important::  A lab account has a combined single  balance and thus a single limit 
                 for all members of the lab.
@@ -951,8 +959,8 @@ Often users submit a job to a lab account and it results in PD status due to
 
       [user@login-x:~]$ squeue -u panteater -t PD
       JOBID     PARTITION     NAME      USER ACCOUNT ST  TIME CPUS NODE NODELIST(REASON)
-      12341501  standard  myjob_98 panteater  PI_lab PD  0:00    1    1 (AssocMaxJobsLimit)
-      12341502  standard  myjob_99 panteater  PI_lab PD  0:00    1    1 (AssocMaxJobsLimit)
+      12341501  standard  myjob_98 panteater  PI_lab PD  0:00    1    1 (AssocGrpCPUMinutesLimit)
+      12341502  standard  myjob_99 panteater  PI_lab PD  0:00    1    1 (AssocGrpCPUMinutesLimit)
 
 2. Check the Slurm lab account balance
 
@@ -973,7 +981,7 @@ Often users submit a job to a lab account and it results in PD status due to
       JobI4=12341501 JobName=myjob_98
          UserId=panteater(1234567) GroupId=panteater(1234567) MCS_label=N/A
          Priority=299 Nice=0 Account=PI_lab QOS=normal
-         JobState=PENDING Reason=AssocMaxJobsLimit Dependency=(null)
+         JobState=PENDING Reason=AssocGrpCPUMinutesLimit Dependency=(null)
          Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
          RunTime=00:00:00 TimeLimit=14-00:00:00 TimeMin=N/A
          SubmitTime=2023-01-18T16:36:06 EligibleTime=2023-01-18T16:36:06
@@ -1027,7 +1035,8 @@ Often users submit a job to a lab account and it results in PD status due to
 Fix pending job
 ^^^^^^^^^^^^^^^
 
-   Similar fixes apply when using ``srun`` for interactive jobs.
+   Fixes apply for batch jobs submitted with ``sbatch`` or for interactive
+   jobs submitted with ``srun``.
 
    **You will need to cancel existing pending job (it will never run)**:
 
