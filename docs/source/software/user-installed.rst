@@ -999,8 +999,12 @@ Steps below explain the basic setup specific to the cluster.
       [user@hpc3-xx-yy:~]$ module load hdf5/1.13.1/gcc.11.2.0-openmpi.4.1.2
 
    Note, that HDF5 module :tt:`hdf5/1.13.1/gcc.11.2.0-openmpi.4.1.2` name
-   implies that it is compiled with GCC and OpenMPI  and their versions are listed in
-   the module name.
+   implies that:
+
+   * it is compiled with GCC and OpenMPI  and their versions are listed in
+     the module name.
+   * prerequisite GCC and OpenMPI modules will be automatically loaded by the hdf5 module
+     no need to load them separately.
 
    **If you use intel or mkl modules:**
      Intel and mkl module provide access to a number of Intel Math Kernel Libraries
