@@ -162,7 +162,7 @@ Display modules
 **Find information about specified module**
   .. code-block:: console
 
-     [user@login-x:~]$ odule whatis hdf5/1.10.5/gcc.8.4.0
+     [user@login-x:~]$ module whatis hdf5/1.10.5/gcc.8.4.0
      hdf5/1.10.5/gcc.8.4.0: Category------- TOOLS
      hdf5/1.10.5/gcc.8.4.0: Name----------- hdf5
      hdf5/1.10.5/gcc.8.4.0: Version-------- 1.10.5
@@ -230,107 +230,256 @@ Using modules
 
 RCIC-authored modules follow a uniform build, formatting and :ref:`module names` schema.
 
+HPC3-specific
+^^^^^^^^^^^^^
+
 There are a few specifics about how the modules are built that are unique to HPC3:
-  * Nearly all modules have version numbers to specify the software version they provide.
-    :red:`Version numbers are important!`
-  * We use a notion of :tt:`Category` to group some modules together. This is
-    only a convenience and the categories show in the output of ``module display`` commands.
-  * Many modules are compiled with GCC compiler. For some we do not
-    specify compiler in the module name, for others we do. This is dictated by
-    the software build specifics. The prerequisite compiler will be automatically loaded if needed.
-  * If a module name contains
 
-    | :tt:`gcc` or :tt:`intel`: it was compiled with this compiler.
-    | :tt:`openmpi` or :tt:`mpich`: it was compiled with this MPI implementation enabled.
-    | :tt:`cuda`:  it provides a GPU-enabled software that can be run in any GPU partition.
-  * Automatic prerequisites loading: if a module has any prerequisite modules they are automatically added when
-    the module is loaded,
-  * Automatic prerequisites unloading: the prerequisite modules are automatically removed when the module is
-    unloaded. Our modifications to modules has Smart unloading:  when a prerequisite
-    was already loaded, unloading the higher-level module will leave the prerequisite intact.
-  * We provide a convenient way for users to add their own modules. Please see :ref:`user installed modules`.
-
-**Rules of module loading/unloading**:
-  1. :red:`Never load modules in your .bashrc file`.
-  #. You need to load modules:
-
-     * in Slurm submit scripts for batch jobs
-     * in your interactive shell for interactive jobs
-  
-     Modules are automatically unloaded when your batch or interactive job exists.
-  #. When loading a module always use the module name with its version.
-
-     ``module load X/1.2.3`` - this ensures you will get the version you need:
-     
-     ``module load X``  - :red:`DANGEROUS`
-     if used without version, a default behavior is loading the latest currently available.
-     This may give unexpected results of using a wrong version of the software  when a new 
-     version is added or an old version is removed.
-
-  #. You can load multiple modules, loading order is not important.
-  #. You can unload modules that you explicitly loaded via ``module load`` command:
-
-     .. code-block:: console
-
-        [user@login-x:~]$ module load bwa/0.7.17
-           <do some work>
-        [user@login-x:~]$ module unload bwa/0.7.17
-
-     **Never unload modules that were auto-loaded by a module itself**.
-
-  #. If you loaded multiple modules and need to unload them (rare cases),
-     **always unload modules in the reverse order of loading**:
-     last-loaded should be first unloaded. Not doing
-     this can result in an expected or broken environment.
-
-     For example, if you loaded modules as:
-
-     .. code-block:: console
-
-        [user@login-x:~]$ module load bwa/0.7.17
-        [user@login-x:~]$ module load proj/9.0.0
-        [user@login-x:~]$ module load bracken/2.6.0
-
-     You will need to unload them in reverse:
-
-     .. code-block:: console
-
-        [user@login-x:~]$ module unload bracken/2.6.0
-        [user@login-x:~]$ module unload proj/9.0.0
-        [user@login-x:~]$ module unload bwa/0.7.17
-  
-     It is easier to unload all loaded modules via
-  
-     .. code-block:: console
-
-        [user@login-x:~]$ module purge
-
-Suppose you want access to GCC compiler version 8.4.0:
-  The following sequence shows which version of gcc is active prior
-  to module loading (default gcc is installed with the system OS),
-  after module load, and after the unloading.
+**Nearly all modules have version numbers**
+  Version numbers specify the software version they provide, they are important!
+  You will need to use them when loading or unloading modules.
+**We use a notion of Category to group modules**
+  This is only a convenience and simply list modules according to the categories
+  in the output of ``module avail``  or ``module display`` commands.
+  A partial output example shows AI-LEARNING, BIOTOOLS and CHEMISTRY categories: 
 
   .. code-block:: console
 
-     [user@login-x:~]$ module list                # 1
+     [user@login-x:~]$ module avail
+     ----------------------------- /opt/rcic/Modules/modulefiles/AI-LEARNING -----------------
+     pytorch/1.5.1  pytorch/1.11.0  tensorflow/2.0.0  tensorflow/2.8.0  tensorRT/8.4.2.4  
+
+     ----------------------------- /opt/rcic/Modules/modulefiles/BIOTOOLS --------------------
+     bamtools/2.5.2    bowtie2-python2/2.4.1  bwa/0.7.8        edirect/2020     gatk/4.1.9.0   
+     bcftools/1.10.2   bowtie2/2.4.1          bwa/0.7.17       edirect/2022     gatk/4.2.6.1  
+     bcftools/1.15.1   bowtie2/2.4.4          cutadapt/2.10    fastp/0.20.0     hmmer/3.3     
+     ... 
+     ----------------------------- /opt/rcic/Modules/modulefiles/CHEMISTRY -------------------
+     amber/19.11/gcc.8.4.0   gromacs/2021.2/gcc.8.4.0-cuda.10.1.243  
+     amber/21.12/gcc.11.2.0  gromacs/2021.2/gcc.8.4.0-cuda.10.1.243.openmpi.4.0.3 
+     ... 
+
+**Many modules are compiled with GCC compiler**
+  For some of them we do not specify compiler in the module name, for others we do. This is dictated by
+  the software build specifics. The prerequisite compiler will be automatically
+  loaded by the module if needed.
+**We use a module naming schema for module names**
+  See :ref:`module names` for an explanation.
+**Automatic prerequisites loading**
+  If a module has any prerequisite modules they are automatically added when
+  the module is loaded. Users don't need to worry about prerequisites.
+**Automatic prerequisites unloading**
+  The prerequisite modules are automatically removed when the module is
+  unloaded. Our modifications to modules has Smart unloading:  when a prerequisite
+  was already loaded, unloading the higher-level module will leave the prerequisite intact.
+**Users can add their own modules**
+  We provide a convenient and simple way for users :ref:`to add their own modules <user installed modules>`.
+
+Module load/unload rules
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+To get the most out of modules please follow a few simple rules. 
+
+1. :red:`Never load modules in your .bashrc  or .bash_profilefiles`.
+
+   The :tt:`.bashrc` is the individual per-interactive-shell startup file that is
+   executed every time a user starts a new shell.
+   The :tt:`.bash_profile` is the personal initialization file, executed for login shells.
+   Modules  if loaded in these files will be present for the duration of the
+   shell life and will change the shell environment for all commands which is completely unnecessary.
+
+#. You need to load modules:
+
+   * in Slurm submit scripts for batch jobs
+   * in your interactive shell for interactive jobs
+  
+   Modules are automatically unloaded when your batch or interactive job exists.
+#. When loading a module always use the module name with its version.
+
+   ``module load X/1.2.3`` - this ensures you will get the version you need:
+     
+   ``module load X``  - :red:`DANGEROUS`
+   if used without version, a default behavior is loading the latest currently available.
+   This may give unexpected results of using a wrong version of the software  when a new 
+   version is added or an old version is removed.
+
+#. You can load multiple modules, loading order is not important.
+#. You can unload only modules that you explicitly loaded via ``module load`` command:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ module load bwa/0.7.17
+         <do some work>
+      [user@login-x:~]$ module unload bwa/0.7.17
+
+#. :red:`Never unload modules that were auto-loaded by a module itself`
+
+   Environment modules do their job, but have limitations.
+   You can easily render your environment into a completely
+   broken mess if you randomly unload modules.
+
+   For example, if you unload one of the prerequisite modules that were
+   automatically loaded when you did :tt:`module load PkgName/1.2.3` you won't see any errors or
+   complaints until you attempt to run :tt:`PkgName` program. Needed libraries or binaries
+   that were provided by unloaded module will not be available.
+   The solution is to unload only modules that you explicitly loaded. 
+
+#. If you loaded multiple modules and need to unload them (rare cases),
+   **always unload modules in the reverse order of loading**:
+   last-loaded should be first unloaded. Not doing
+   this can result in an expected or broken environment.
+
+   For example, if you loaded modules as:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ module load bwa/0.7.17
+      [user@login-x:~]$ module load proj/9.0.0
+      [user@login-x:~]$ module load bracken/2.6.0
+
+   You will need to unload them in reverse:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ module unload bracken/2.6.0
+      [user@login-x:~]$ module unload proj/9.0.0
+      [user@login-x:~]$ module unload bwa/0.7.17
+
+   It is easier to unload all loaded modules via
+
+   .. code-block:: console
+
+      [user@login-x:~]$ module purge
+
+How modules change environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Module change user environment via setting environment variables 
+and modifying PATH-like existing variables. 
+
+Suppose you want access to GCC compiler version 8.4.0.
+
+Check if any modules are loaded, and what is active gcc version
+
+  .. code-block:: console
+
+     [user@login-x:~]$ module list
      No Modulefiles Currently Loaded.
      [user@login-x:~]$ gcc --version | grep ^gcc
      gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-10)
 
-     [user@login-x:~]$ module load gcc/8.4.0      # 2
+Load desired gcc module and verify what is gcc version after loading
+
+  .. code-block:: console
+
+     [user@login-x:~]$ module load gcc/8.4.0
      [user@login-x:~]$ module list
      Currently Loaded Modulefiles:
        1) gcc/8.4.0
      [user@login-x:~]$ gcc --version | grep ^gcc
      gcc (GCC) 8.4.0
 
+Unload the module, this restores the environment, active gcc version is reverted to default
+
+  .. code-block:: console
+
      [user@login-x:~]$ module unload gcc/8.4.0   # 3
      [user@login-x:~]$ gcc --version | grep ^gcc
      gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-10)
 
-  | 1 check which modules are loaded, and what is active gcc version
-  | 2 load desired gcc module, verify gcc version
-  | 3 unload the module, this restores the environment, active gcc version is reverted to default
+.. _moudles for compiling:
+
+Using modules for  compiling 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For user installed software often there are prerequisites that a specific
+software needs. We provide many modules that satisfy these requirements.
+
+You need to figure out what modules you need to load and what environment 
+variables set by the module you need to use in your software compilation process. 
+
+For each module, we keep the variables set by module according to what the
+software developers provide, and otherwise we use a common convention.
+For examples. the software installation directory is often specified by the
+variable :tt:`SWNAME_DIR` or :tt:`SWNAME_HOME`.
+There is no exact formula but one can always see what
+variables are set by a given module via ``module display`` command.
+
+Lets say you are compiling VASP software and it requires OpenBLAS, SCALAPCK,
+OpenMPI-enabled FFTW  as prerequisites.  VASP installation guide expects you to set
+certain variables in the Makefiles according to where these prerequisites are
+installed. 
+
+A short snippet of VASP makefile shows variables that need setting:
+
+  .. code-block:: makefile
+   
+     OPENBLAS_ROOT ?=     # need OPENBLAS installation dir
+     SCALAPACK_ROOT ?=    # need SCALAPACK installation dir
+     FFTW_ROOT  ?=        # need FFTW installation dir
+     HDF5_ROOT  ?=        # need HDF5 installation dir
+
+     LLIBS      += -L$(HDF5_ROOT)/lib -lhdf5_fortran  # this line uses existing set variable
+     INCS       += -I$(HDF5_ROOT)/include             # this line uses existing set variable
+     INCS_FFTLIB = -I./include -I$(FFTW_ROOT)/include # this line uses existing set variable
+
+We can get all the needed info for the first 4 lines via existing  modules.
+Load the modules that will provide prerequisites:
+
+  .. code-block:: console
+  
+     [user@login-x:~]$ module load scalapack/2.1.0
+     [user@login-x:~]$ module load OpenBLAS/0.3.19
+     [user@login-x:~]$ module load fftw/3.3.10/gcc.11.2.0-openmpi.4.1.2
+     [user@login-x:~]$ module load hdf5/1.13.1/gcc.11.2.0
+
+Check what each module provides, for example for scalapack:
+
+  .. code-block:: console
+  
+     [user@login-x:~]$ module display scalapack/2.1.0
+	 -------------------------------------------------------------------
+     /opt/rcic/Modules/modulefiles/LIBRARIES/scalapack/2.1.0:
+
+     module-whatis   {Category_______ LIBRARIES}
+     module-whatis   {Name___________ scalapack}
+     module-whatis   {Version________ 2.1.0}
+     module-whatis   {Description____ ScaLAPACK 2.1.0 is a library of high-performance linear algebra routines}
+     module-whatis   {                for parallel distributed memory machines. ScaLAPACK solves dense and}
+     module-whatis   {                banded linear systems, least squares problems, eigenvalue problems,}
+     module-whatis   {                and singular value problems. See http://www.netlib.org/scalapack/}
+     module-whatis   {Prerequisites__ rcic-module-support}
+     module-whatis   {                scalapack_2.1.0}
+     setenv          SCALAPACK_DIR /opt/apps/scalapack/2.1.0
+     prepend-path    LD_LIBRARY_PATH /opt/apps/scalapack/2.1.0/lib
+
+  Here, `SCALAPACK_DIR` is the location of SCALAPACK installation.
+
+  Similarly, looking at the rest of the loaded modules one can 
+  get information about installation directories, include files, libraries, etc.
+  for the remaining prerequisites.
+
+Once you find all the needed variables edit the makefile:
+
+  .. code-block:: makefile
+
+     OPENBLAS_ROOT ?= $(OPENBLAS_HOME)    # edited line
+     SCALAPACK_ROOT ?= $(SCALAPACK_DIR)   # edited line
+     FFTW_ROOT  ?= $(FFTW_DIR)            # edited line
+     HDF5_ROOT  ?= $(HDF5_HOME)           # edited line
+
+     LLIBS      += -L$(HDF5_ROOT)/lib -lhdf5_fortran   # no change
+     INCS       += -I$(HDF5_ROOT)/include              # no change
+     INCS_FFTLIB = -I./include -I$(FFTW_ROOT)/include  # no change
+
+  Note, you use a variable  such as :tt:`$(SCALAPACK_DIR)` and not what it 
+  resolves to,  which is :tt:`/opt/apps/scalapack/2.1.0`. This makes it
+  easier to reuse the makefile if you decide to choose a different version of
+  a specific module. We keep the environment variables names the same for
+  different  versions of  a given module. 
+
+Proceed with your software instructions to run ``make`` or similar commands
+to compile your software.
 
 .. _module names:
 
@@ -368,33 +517,6 @@ We do not attempt to build every variant of *compiler x mpi*  for these kinds of
 | 3 - module for a specific version of boost built with a specific compiler.
 | 4 - two modules for hdf5 version built with Intel and GCC compilers and openmpi.
 | 5 - module for a specific namd version built with gcc compiler and cuda.
-
-
-.. _module limitations:
-
-Limitations
------------
-
-**Caveat emptor** - Environment modules do their job, but have limitations.
-
-You can easily render your environment into a completely
-broken mess if you randomly unload modules.
-
-For example, if you unload one of the prerequisite modules that were
-automatically loaded when you did :tt:`module load PkgName/1.2.3` you won't see any errors or
-complaints until you attempt to run :tt:`PkgName` program. Needed libraries or binaries
-that were provided by unloaded module will not be available.
-The solution is to unload onyl modjule that you explicitely loaded. Please
-follow the rules in :ref:`use modules`.
-
-.. THIS is no longer valid
-   2. Some modules overwrite environment variables, **clang** module is an
-   example of this. Clang requires LLVM and GCC, but overwrites the :tt:`CC` environment variable.
-   If you you load gcc module and then load clang module, that will work just fine. However,
-   if you then unload clang module, the :tt:`CC` environment variable will NOT be restored to [.tt]*CC=gcc*. Instead the environment
-   variable will no longer be defined.
-
-   IMPORTANT: When a module changes an environment variable, _it does not record the previous version of it._
 
 .. _user installed modules:
 
