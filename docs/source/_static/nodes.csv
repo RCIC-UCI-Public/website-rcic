@@ -177,6 +177,11 @@ hpc3-22-01,RCIC,PowerEdge R640,DH3TJD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CP
 hpc3-22-02,RCIC,PowerEdge R640,DH3SJD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
 hpc3-22-03,RCIC,PowerEdge R640,DH34KD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
 hpc3-22-04,RCIC,PowerEdge R640,DH39KD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
+hpc3-23-00,caoph,PowerEdge R650,8YZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
+hpc3-23-01,caoph,PowerEdge R650,9YZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
+hpc3-23-02,caoph,PowerEdge R650,BYZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
+hpc3-23-03,caoph,PowerEdge R650,CYZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
+hpc3-23-04,ruic20,PowerEdge R650,8ZZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
 hpc3-22-05,vswarup,PowerEdge R640,5G233L3,2026-12-24,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,384,48
 hpc3-22-06,caoph,PowerEdge R640,1G233L3,2026-12-25,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
 hpc3-22-07,caoph,PowerEdge R640,3G233L3,2026-12-25,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
@@ -202,10 +207,6 @@ hpc3-gpu-18-01,MRI,ProLiant DL380 Gen10,2M201004KC,2024-12-18,Intel(R) Xeon(R) G
 hpc3-gpu-18-02,MRI,ProLiant DL380 Gen10,2M201108R5,2024-12-18,Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz,192,40
 hpc3-gpu-18-03,alviny6,PowerEdge R750xa,60C33Z3,2028-10-08,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-18-04,elizaml4,PowerEdge R750xa,70C33Z3,2028-10-08,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
-hpc3-gpu-23-00,RCIC,Dell PowerEdge R750xa,HSZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
-hpc3-gpu-23-01,RCIC,Dell PowerEdge R750xa,DSZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
-hpc3-gpu-23-02,RCIC,Dell PowerEdge R750xa,FSZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
-hpc3-gpu-23-03,RCIC,Dell PowerEdge R750xa,CRZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-23-04,RCIC,Dell PowerEdge R750xa,FRZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-23-05,RCIC,Dell PowerEdge R750xa,GRZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-23-06,RCIC,Dell PowerEdge R750xa,DRZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
@@ -221,6 +222,10 @@ hpc3-gpu-24-05,RCIC,Dell PowerEdge R750xa,1SZD6S3,2027-10-16,Intel(R) Xeon(R) Go
 hpc3-gpu-24-06,RCIC,Dell PowerEdge R750xa,3SZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-24-07,RCIC,Dell PowerEdge R750xa,6SZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-24-08,RCIC,Dell PowerEdge R750xa,GSZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
+hpc3-gpu-l54-00,RCIC,Dell PowerEdge R750xa,HSZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
+hpc3-gpu-l54-01,RCIC,Dell PowerEdge R750xa,DSZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
+hpc3-gpu-l54-02,RCIC,Dell PowerEdge R750xa,FSZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
+hpc3-gpu-l54-03,RCIC,Dell PowerEdge R750xa,CRZD6S3,2027-10-16,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-gpu-l54-07,rhayes1,Dell PowerEdge R750xa,4G39144,2029-07-12,Intel(R) Xeon(R) Gold 6326 CPU @ 2.90GHz,256,32
 hpc3-l18-00,RCIC,AS -2023US-TR4,S268672X8630679,2020-12-31,AMD EPYC 7601 32-Core Processor,512,64
 hpc3-l18-01,seyedam,Super Server,123456789,2020-12-31,AMD EPYC 7601 32-Core Processor,512,64
