@@ -44,25 +44,26 @@ General Recommendations
 
 **Inherited environment**
 
-  Any method of the job submission to SLURM (batch, immediate, interactive) will inherit all environment
+  Any method of the job submission to SLURM (batch, interactive) will inherit all environment
   variables that were set in your login shell (on the login node where you are executing job submission). 
 
-  * Make sure that there are no environment variables in
-    the login shell that can cause problems in the batch script or in ``srun`` command.
+  By default there are none, unless one changes the environment via
+  setting environment variables either on command line or in :tt:`$HOME/.bashrc` file
+  or is using conda.
 
-    By default there are none, unless one changes the environment via
-    setting environment variables either on command line or in :tt:`$HOMEbashrc` file
-    or is using conda.
+  * Check your :tt:`$HOME/.bashrc` and make  sure that there are no environment variables set
+    that can cause problems in the batch script or in ``srun`` command.
 
-    This is why one needs to load modules either in the SLURM submit script
-    or on an interactive node once you execute the `srun` command and not in the
+  * Do not load modules in your :tt:`$HOME/.bashrc` because this will change the
+    environment for your login shell.  One needs to load modules either in the SLURM submit script
+    or on an interactive node after you executed the ``srun`` command and not in the
     login shell before the job submission.
 
   * If you are using conda please review :ref:`install conda` 
     guide that explains how to cleanly separate conda-set environment from your
     login environment.
 
-Details of jobs subscriptions, requesting resources, etc are descbided in
+Details of jobs subscriptions, requesting resources, etc are described in
 detail in the sections below.
 
 
@@ -118,6 +119,8 @@ Interactive job
 
 The command ``srun`` is used to submit an interactive job which runs in a shell terminal.
 The job uses your console for for standard input/output/error. 
+
+**All interactive jobs must be run on a single node, they can not be run on multiple nodes**.
 
 Use this method:
   when you want to test a short computation, compile
@@ -253,6 +256,39 @@ Run ``top`` command while attaching to the running job:
 
 Requesting Resources
 --------------------
+
+.. _request nodes:
+
+Nodes
+^^^^^
+
+
+Single node jobs:
+  Most jobs on HPC3  including all :ref:`interactive jobs <interactive job>` are single node jobs
+  and must be run on a single node.
+
+  Users should explicitly ask for 1 node.  This is important to let SLURM know that all your processes 
+  should be on a single node and not spread over multiple nodes.
+
+  If a single node job is submitted to multiple nodes it will either:
+
+    * fail 
+    * misuse the resources. You will be charged for reserved and unused resources.
+
+  In your submit script use:
+
+    .. code-block:: bash
+  
+       #SBATCH --nodes=1                ## (-N) use 1 node
+
+Multiple node jobs:
+  Very few applications that are compiled to run with OpenMPI or
+  MPICH need to  use multiple nodes. For such applications
+  your submit script need to include number of nodes:
+
+    .. code-block:: bash
+
+       #SBATCH --nodes=2                ## (-N) use 2 nodes
 
 .. _request constrains:
 
@@ -474,7 +510,7 @@ When a job requires more memory:
   where :tt:`X` is an integer and :tt:`<specification>` of an optional size
   specification (M - megabytes, G - gigabytes, T - terabytes). A default is in megabytes. 
 
-  The same directives formats are used in slurm submit scripts and in ``srun`` command
+  The same directives formats are used in Slurm submit scripts and in ``srun`` command
   for jobs in any partition.
 
 
@@ -533,12 +569,6 @@ If you want more memory for the job you should:
         [user@login-x:~]$ srun -p free --nodes=1 --ntasks=4 --mem-per-cpu=10G --pty /bin/bash -i
      
      total memory for job is *4 x 10Gb = 40Gb*
-
-.. note:: All above examples are asking for 1 node. This is important to let SLURM
-   know that all your processes should be on a single node and not spread over
-   multiple nodes. Very few applications that are compiled and run with OpenMPI or
-   MPICH can use multiple nodes, the rest of applications  including interactive
-   sessions should use a single node.
 
 .. _request time:
 
@@ -1097,7 +1127,7 @@ Fix pending job
       maintenance` you need to re-submit your job with a shorter time limit
       that will end BEFORE the maintenance begins.
 
-	  To find out the reservation details use:
+      To find out the reservation details use:
 
       .. code-block:: console
 
