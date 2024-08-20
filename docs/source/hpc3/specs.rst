@@ -15,16 +15,16 @@ additional purchases have been made to bring the cluster to its current configur
 The system started as a 4000 core system when first constructed in June 2020.
 It has expanded several times with nodes purchased by UCI and faculty.
 
-As of March 2023, the following describes the cluster:
-  * 216 Batch-accessible nodes including:
+As of August 2024, the following describes the cluster:
+  * 235 Batch-accessible nodes including:
 
-    * 13 nodes with 4 Nvidia V100 (16GB) GPUs
-    * 14 nodes with 4 Nvidia A30 (24GB) GPUs
+    * 14 nodes with 4 Nvidia V100 (16GB) GPUs
+    * 18 nodes with 4 Nvidia A30 (24GB) GPUs
     * 4 nodes with 2 Nvidia A100 (80GB) GPUs
-  * 9400 total cores (1256 AMD Epyc and 8144 Intel)
-  * 57,846 GB Aggregate Memory
+  * 10208 total cores (1256 AMD Epyc and 8952 Intel)
+  * 67,451 GB Aggregate Memory
   * Three load-balanced login nodes
-  * 96% nodes (221/230) at 100Gb/s EDR Infiniband
+  * 96% nodes (226/225) at 100Gb/s EDR Infiniband
 
 HPC3 heterogeneous hardware has the following unique configurations with the most common
 configurations shown first.
@@ -36,47 +36,51 @@ configurations shown first.
    :class: noscroll-table sortable
 
    +------+------+-----------+----------------------------------------+--------------+
-   | Nodes| CPUs | Memory    | Available Features                     | GRES         |
+   | Nodes| CPUs | Memory(KB)| Available Features                     | GPUs type:#  | 
    +======+======+===========+========================================+==============+
-   | 81   | 40   | 180000    | intel,avx512,mlx5_ib                   |              |
+   | 81   | 40   | 180000    | intel,avx512,mlx5_ib                   |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 43   | 48   | 180000    | intel,avx512,fastscratch,nvme,mlx5_ib  |              |
+   | 43   | 48   | 180000    | intel,avx512,fastscratch,nvme,mlx5_ib  |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 16   | 64   | 500000    | amd,epyc,epyc7601,mlx5_ib              |              |
+   | 15   | 64   | 500000    | amd,epyc,epyc7601,mlx5_ib              |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 9    | 48   | 180000    | intel,avx512,mlx5_ib                   |              |
+   | 9    | 48   | 180000    | intel,avx512,mlx5_ib                   |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 3    | 48   | 245000    | intel,avx512,fastscratch,nvme          |              |
+   | 9    | 48   | 245000    | intel,avx512,fastscratch,nvme          |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 2    | 28   | 245000    | intel,avx512,mlx4_ib                   |              |
+   | 2    | 28   | 245000    | intel,avx512,mlx4_ib                   |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 2    | 36   | 500000    | intel,mlx4_ib                          |              |
+   | 2    | 36   | 500000    | intel,mlx4_ib                          |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 1    | 24   | 500000    | intel,mlx4_ib                          |              |
+   | 1    | 24   | 500000    | intel,mlx4_ib                          |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 1    | 36   | 500000    | intel,mlx5_ib                          |              |
+   | 1    | 36   | 500000    | intel,mlx5_ib                          |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 1    | 44   | 500000    | intel,mlx4_ib                          |              |
+   | 1    | 44   | 500000    | intel,mlx4_ib                          |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 1    | 64   | 500000    | amd,epyc,epyc7551,mlx5_ib              |              |
+   | 1    | 64   | 500000    | amd,epyc,epyc7551,mlx5_ib              |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 1    | 64   | 500000    | amd,epyc,epyc7551,mlx4_ib              |              |
+   | 1    | 64   | 500000    | amd,epyc,epyc7551,mlx4_ib              |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 1    | 64   | 500000    | amd,epyc,epyc7601,mlx4_ib              |              |
+   | 1    | 64   | 500000    | amd,epyc,epyc7601,mlx4_ib              |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 1    | 40   | 1523544   | amd,epyc,epyc7551,mlx4_ib              |              |
+   | 2    | 64   | 2063000   | intel,avx512,nvme,mlx6_ib              |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 15   | 40   | 372000    | intel,avx512,mlx5_ib                   |              |
+   | 1    | 40   | 1523544   | amd,epyc,epyc7551,mlx4_ib              |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 7    | 48   | 372000    | intel,avx512,mlx5_ib                   |              |
+   | 15   | 40   | 372000    | intel,avx512,mlx5_ib                   |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 14   | 32   | 245000    | intel,avx512,fastscratch,nvme          | gpu:A30:4    |
+   | 7    | 48   | 372000    | intel,avx512,mlx5_ib                   |              | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 12   | 40   | 180000    | intel,avx512,mlx5_ib                   | gpu:V100:4   |
+   | 1    | 64   | 3090000   | intel,avx512,nvme,mlx5_ib              | gpu:A30:4    | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 4    | 32   | 245000    | intel,avx512,fastscratch,nvme          | gpu:A100:2   |
+   | 17   | 32   | 245000    | intel,avx512,fastscratch,nvme,mlx5_ib  | gpu:A30:4    | 
    +------+------+-----------+----------------------------------------+--------------+
-   | 1    | 40   | 372000    | intel,avx512,mlx5_ib                   | gpu:V100:4   |
+   | 13   | 40   | 180000    | intel,avx512,mlx5_ib                   | gpu:V100:4   | 
+   +------+------+-----------+----------------------------------------+--------------+
+   | 4    | 32   | 245000    | intel,avx512,fastscratch,nvme          | gpu:A100:2   | 
+   +------+------+-----------+----------------------------------------+--------------+
+   | 1    | 40   | 372000    | intel,avx512,mlx5_ib                   | gpu:V100:4   | 
    +------+------+-----------+----------------------------------------+--------------+
 
 .. note:: Features and GRES (Generic RESources) are Slurm resource
@@ -132,9 +136,9 @@ Most-common configurations:
 
   All memory is DDR4, EEC, most common capacity is 192GB.
 
-  ======= ======= ======= =======
-  192GB   384GB   512GB   768GB
-  ======= ======= ======= =======
+  ======= ======= ======= ======= =======
+  192GB   256GB    384GB   512GB   768GB
+  ======= ======= ======= ======= =======
 
 GPU-Enabled Nodes
 ^^^^^^^^^^^^^^^^^
@@ -207,7 +211,7 @@ or browse the table below.
 
 Click on the column header for sorting.
 
-.. csv-table:: Nodes info updated :blogauthor:`17 Jul 2024`.
+.. csv-table:: Nodes info updated :blogauthor:`20 Aug 2024`.
    :class: noscroll-table sortable
    :file: ../_static/nodes.csv
    :widths: 5,5,18,20,15,22,10,5
