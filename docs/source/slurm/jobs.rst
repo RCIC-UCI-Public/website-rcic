@@ -116,8 +116,15 @@ Interactive job
 
 ``srun``
 
-The command ``srun`` is used to run an interactive job immediately and uses your console
-for for standard input/output/error instead of redirecting them to files.
+The command ``srun`` is used to submit an interactive job which runs in a shell terminal.
+The job uses your console for for standard input/output/error. 
+
+Use this method:
+  when you want to test a short computation, compile
+  software, or run an interactive Python or R session.
+
+Do not use this method:
+  when your job runs for many hours or days. Use ``sbatch`` instead.
 
 .. important:: | ``srun`` submits jobs for execution but it does not bypass scheduler priority.
                | If your job cannot run immediately, you will wait until Slurm can schedule your request.
@@ -132,10 +139,42 @@ The main difference between ``srun`` and ``sbatch``:
    +==================================================+=========================================+
    | Interactive and blocking                         | Batch processing and non-blocking       |
    +--------------------------------------------------+-----------------------------------------+
+   | You type commands interactively                  | Your commands run unattended            |
+   +--------------------------------------------------+-----------------------------------------+
    | Can be used to create job steps in submit scripts| Can do everything ``srun`` can and more.|
    +--------------------------------------------------+-----------------------------------------+
 
-Examples of interactive jobs:
+1. Get an interactive node: 
+
+   .. code-block:: console
+
+      [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
+      srun: job 32654143 queued and waiting for resources
+      srun: job 32654143 has been allocated resources
+      [user@hpc3-y-z:~]$ 
+
+   Once the ``srun`` command is executed, the scheduler allocates
+   available resource and starts an interactive shell on the available node.
+   Your shell prompt will indicate a new *hostname*.
+
+#. Execute your interactive commands
+
+   .. code-block:: console
+
+      [user@hpc3-y-z:~]$ module load python/3.10.2
+      [user@hpc3-y-z:~]$ myProgRun.py -arg1 someDir/ -d outputDir/ -f file.nii -scale > outfile
+
+#.  Once done with your work simply type at the prompt:
+
+.. code-block:: console
+
+   [user@hpc3-y-z:~]$ exit
+
+Examples of interactive job requests:
+  Note, these options :tt:`--pty /bin/bash -i` must be the last on a command line
+  and should not be separated by other options.
+
+
   .. code-block:: console
 
      [user@login-x:~]$ srun -A PI_LAB --pty /bin/bash -i                     # 1
@@ -150,23 +189,9 @@ Examples of interactive jobs:
   3. use *free* partition and ask for 8Gb of memory per job (ONLY when you truly need it)
   4. use *standard* partition and ask for 4 CPUs for 10 hrs
   5. use *free-gpu* partition and ask for one GPU. :red:`DO NOT ask for more than 1 GPU!`
-  6. start an interactive session for GUI jobs. 
-
-     First, a user must login with ssh Xforwarding enabled see :ref:`ssh xforward` guide
-     and then use the :tt:`--x11` in ``srun`` command to enable Xforwarding.
-
-Note, these options :tt:`--pty /bin/bash -i` must be the last on a command line
-and should not be separated by other options.
-
-Once the ``srun`` command is executed, the scheduler allocates
-available resource and starts an interactive shell on the available node.
-Your shell prompt will indicate a new *hostname*.
-
-Once done with your work simply type at the prompt:
-
-.. code-block:: console
-
-   [user@hpc3-x-y:~]$ exit
+  6. | start an interactive session with Xforwarding enabled (option :tt:`--x11`) for GUI jobs. 
+     | Note, a user  should have logged on HPC3 with ssh Xforwarding enabled see :ref:`ssh xforward`
+       before running this ``srun`` command.
 
 .. _attach to job:
 
