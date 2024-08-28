@@ -653,7 +653,22 @@ Some jobs may need more memory. For these jobs users will need to
 Matlab
 ------
 
-1. Single core/CPU:
+.. note:: | To start Matlab non-interactively, use the **-batch** option.
+          | To start Matlab interactively, use the **-r** option.
+
+1. Interactive job
+
+   Get an interactive node and start Matlab 
+
+   .. code-block:: console
+
+      [user@login-x:~]$ srun -p free --pty /bin/bash -i
+      srun: job 2839817 queued and waiting for resources
+      srun: job 2839817 has been allocated resources
+      [user@hpc3-y-z:~]$ module load MATLAB/R2020a
+      [user@hpc3-y-z:~]$ matlab -r
+
+#. Single core/CPU
 
    .. centered:: File matlab-single-cpu.sub
 
@@ -661,18 +676,18 @@ Matlab
       :language: bash
 
    The above submit script will submit the Matlab code :tt:`mycode.m` with specified requested resources.
-   Note: because the default is one CPU per task, :tt:`-n 1` can be thought of as requesting just one CPU.
+   Note, you dont  need to specify :tt:`.m` extension, Matlab automatically appends it.
+   Because the default is one CPU per task, :tt:`-n 1` can be thought of as requesting just one CPU.
 
-   The equivalent command-line method:
+   The equivalent command-line method (lines are broken for readability):
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load MATLAB/R2020a*
+      [user@login-x:~]$ module load MATLAB/R2020a
       [user@login-x:~]$ sbatch -p standard -N 1 -n 1 -t 05-00:00:00 \
-                               --wrap="matlab -nodesktop -nosplash -singleCompThread \
-                               -r mycode -logfile mycode.out"
+                        --wrap="matlab -batch -singleCompThread mycode -logfile mycode.out"
 
-2. Multiple core/CPU
+#. Multiple core/CPU
 
    .. centered:: File matlab-multi-cpu.sub
 
@@ -680,27 +695,27 @@ Matlab
       :language: bash
 
    The above will submit the Matlab code :tt:`mycode.m` with specified requested resources.
-   Note: because the default is one CPU per task, :tt:`-n 12` can be thought of as requesting 12 CPUs.
+   Note, you dont  need to specify :tt:`.m` extension, Matlab automatically appends it.
+   Because the default is one CPU per task, :tt:`-n 12` can be thought of as requesting 12 CPUs.
 
-   The equivalent command-line method:
+   The equivalent command-line method (lines are broken for readability):
 
    .. code-block:: console
 
       [user@login-x:~]$ module load MATLAB/R2020a
       [user@login-x:~]$ sbatch -p standard -N 1 -n 12 -t 02-00:00:00 \
-                               --wrap="matlab -nodesktop -nosplash -singleCompThread \
-                               -r mycode -logfile mycode.out"
+                        --wrap="matlab -batch -singleCompThread mycode -logfile mycode.out"
 
-3. Parallel pool on a single node 
+#. Parallel pool on a single node 
 
    Matlab jobs can be run on multiple CPUs in a parallel pool. This
-   requires :tt:`parpool` and :tt:`parcluster` matlab commmands in
-   matlab script to setup the pool. The :tt:`parfor` loop is used to distribute iterations to multiple workers
+   requires use of  :tt:`parpool` and :tt:`parcluster` commands in
+   Matlab script to setup the pool. The :tt:`parfor` loop is used to distribute iterations to multiple workers
    where each worker is running on a different CPU.
 
-   .. note:: Current Matlab license does not include **MATLAB Parallel Server** 
-             therefore running parallel jobs across multiple nodes is not
-             supported. Parallel pool jobs can be only run on a single node.
+   .. note:: | Current UCI Matlab license does not include **MATLAB Parallel Server**. 
+             | This means  running parallel jobs across multiple nodes is not supported.
+             | :red:`Parallel pool jobs can be run only on a single node`.
 
    .. centered:: File matlab-parallel.sub
 
@@ -919,9 +934,11 @@ There a few ways to run Rstudio.
    .. code-block:: console
 
       [user@login-x:~]$ srun -p free --pty --x11 /bin/bash -i
-      [user@login-x:~]$ module load rstudio/1.4.1106
-      [user@login-x:~]$ module load R/4.0.2
-      [user@login-x:~]$ rstudio
+      srun: job 1839817 queued and waiting for resources
+      srun: job 1839817 has been allocated resources
+      [user@lhpc3-y-z:~]$ module load rstudio/1.4.1106
+      [user@lhpc3-y-z:~]$ module load R/4.0.2
+      [user@hpc3-y-z:~]$ rstudio
 
 2. **Mac users**
 
@@ -942,9 +959,11 @@ There a few ways to run Rstudio.
    .. code-block:: console
 
       [user@login-x:~]$ srun -p free --pty --x11 /bin/bash -i   # claim an interactive session
-      [user@login-x:~]$ module load rstudio/1.4.1106            # load rstudio module
-      [user@login-x:~]$ module load R/4.0.2                     # load R module
-      [user@login-x:~]$ QMLSCENE_DEVICE=softwarecontext rstudio # enforce rendering in rstudio
+      srun: job 1839817 queued and waiting for resources
+      srun: job 1839817 has been allocated resources
+      [user@hpc3-y-z:~]$ module load rstudio/1.4.1106            # load rstudio module
+      [user@hpc3-y-z:~]$ module load R/4.0.2                     # load R module
+      [user@hpc3-y-z:~]$ QMLSCENE_DEVICE=softwarecontext rstudio # enforce rendering in rstudio
 
 3. **All users**
 

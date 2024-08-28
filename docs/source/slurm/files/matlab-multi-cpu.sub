@@ -6,4 +6,4 @@
 #SBATCH -t 02-00:00:00   ## 2-day run time limit
 
 module load MATLAB/R2020a
-matlab -nodesktop -nosplash -singleCompThread -r mycode -logfile mycode.out
+matlab -batch -singleCompThread mycode -logfile mycode.out

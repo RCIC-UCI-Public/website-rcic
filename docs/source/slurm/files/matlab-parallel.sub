@@ -15,4 +15,4 @@ MATLAB_FILE=prime
 
 # execute code 
 cd $SLURM_SUBMIT_DIR
-matlab -nodisplay -nodesktop -nosplash -r $MATLAB_FILE > matlab-example.out
+matlab -batch $MATLAB_FILE > matlab-example.out
