@@ -18,13 +18,20 @@ manage their Slurm lab accounts access.
 Access Control
 --------------
 
-1. To add a user to your lab's Slurm account do:
+1. To view your lab's Slurm account coordinators do:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ sacctmgr show account panteater_lab withcoordinator
+      [user@login-x:~]$ sacctmgr show account panteater_lab,panteater_lab_gpu withcoordinator format=Account%-25,Descr,Org,Coord
+
+2. To add a user to your lab's Slurm account do:
 
    .. code-block:: console
 
       [user@login-x:~]$ sacctmgr add user panteater account=panteater_lab
 
-2. To remove a user from your lab's Slurm charge account do:
+3. To remove a user from your lab's Slurm charge account do:
 
    .. code-block:: console
 
