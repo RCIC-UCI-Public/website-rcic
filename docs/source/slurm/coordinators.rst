@@ -117,11 +117,11 @@ Manage User Jobs
 
       [user@login-x:~]$ scancel -u panteater --state=pending
 
-5. Cancel  all jobs in the account:
+5. Cancel all jobs in the account:
 
    .. code-block:: console
 
-      [user@login-x:~]$ scancel -A panteater_la
+      [user@login-x:~]$ scancel -A panteater_lab
 
 6. Hold jobs by jobid:
 
