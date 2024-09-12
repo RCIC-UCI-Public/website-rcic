@@ -245,11 +245,12 @@ GPU-enabled
 Node Information
 ----------------
 
-To find information about nodes and partitions details of configuration use
-``sinfo`` and ``scontrol`` commands.
+| ``sinfo``    show information about nodes and partitions 
+| ``scontrol`` show details of configuration
 
-Run ``man sinfo`` command for detailed information about command options.
-
+Use above commands to get information about nodes and partitions. 
+There a lot of command line options available, please run ``man sinfo`` 
+and ``man sinfo`` for detailed information about command options.
 
 A few useful examples:
 
@@ -301,6 +302,36 @@ Show information about  a specific single node:
      NODELIST             CPUS  MEMORY   AVAIL_FEATURES       GRES
      hpc3-gpu-16-00       40    180000   intel,avx512,mlx5_ib gpu:V100:4
 
+Show information about how many CPU and GPUs are available in gpu partition:
+  .. code-block:: console
+
+     [user@login-x:~]$ sinfo -NO "CPUsState:14,Memory:9,AllocMem:10,Gres:14,GresUsed:22,NodeList:20" -p gpu
+     CPUS(A/I/O/T) MEMORY  ALLOCMEM GRES        GRES_USED              NODELIST
+     40/0/0/40     180000  122880   gpu:V100:4  gpu:V100:4(IDX:0-3)    hpc3-gpu-16-00
+     20/20/0/40    180000  174080   gpu:V100:4  gpu:V100:3(IDX:0-1,3)  hpc3-gpu-16-02
+     4/36/0/40     180000  22528    gpu:V100:4  gpu:V100:3(IDX:0,2-3)  hpc3-gpu-17-04
+     0/40/0/40     372000  0        gpu:V100:4  gpu:V100:0(IDX:N/A)    hpc3-gpu-18-00
+     4/36/0/40     180000  32768    gpu:V100:4  gpu:V100:4(IDX:0-3)    hpc3-gpu-18-01
+     4/36/0/40     180000  32768    gpu:V100:4  gpu:V100:4(IDX:0-3)    hpc3-gpu-18-02
+     4/28/0/32     245000  12288    gpu:A30:4   gpu:A30:2(IDX:0,2)     hpc3-gpu-18-03
+     2/30/0/32     245000  6144     gpu:A30:4   gpu:A30:1(IDX:3)       hpc3-gpu-18-04
+     0/32/0/32     245000  0        gpu:A30:4   gpu:A30:0(IDX:N/A)     hpc3-gpu-24-05
+     4/28/0/32     245000  32768    gpu:A30:4   gpu:A30:1(IDX:0)       hpc3-gpu-24-08
+     0/32/0/32     245000  0        gpu:A30:4   gpu:A30:0(IDX:N/A)     hpc3-gpu-k54-01
+     15/17/0/32    245000  46080    gpu:A100:2  gpu:A100:2(IDX:0-1)    hpc3-gpu-l54-03
+     0/32/0/32     245000  0        gpu:A30:4   gpu:A30:0(IDX:N/A)     hpc3-gpu-l54-07
+
+  The above output (similar lines removed for brevity) shows the 
+
+  * number of cores by state as "Allocated/Idle/Other/Total" in the column CPUS(A/I/O/T).
+  * memory already in use (ALLOCMEM)
+  * GPUs in use (GRES_USED), the part after GPU type means
+
+    * 0(IDX:N/A) all are free
+    * 4(IDX:0-3) all four are in use (0,1,2,3)
+    * 3(IDX:0,2-3) three are in use (0,2,3) and one (1) is free
+
+    
 Show configuration information about a standard queue:
   .. code-block:: console
 
