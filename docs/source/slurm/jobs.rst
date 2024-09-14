@@ -918,6 +918,17 @@ To see all available job pending reasons and their definitions, please see outpu
 ``man squeue`` command in the *JOB REASON CODES* section.
 A job may be waiting for more than one reason.
 
+.. _pending reason maintenance:
+
+Pending job due to Maintenance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If your job is in pending status due to the reason :red:`ReqNodeNotAvail, Reserved for maintenance`
+it means if your job is started now it will not complete by the time the
+scheduled maintenance starts. Slurm is holding your job because no jobs can run during the maintenance period.
+You either have to wait or you need to change your job requirements.
+See :ref:`fix pending jobs <fix pending job>`.
+
 .. _pending reason resources:
 
 Pending job due to Resources
@@ -1123,7 +1134,7 @@ Fix pending job
       |   :tt:`SBATCH --time` 
       
 
-   3. If your job is pending  due to `ReqNodeNotAvail, Reserved for
+   3. If your job is pending  due to :red:`ReqNodeNotAvail, Reserved for
       maintenance` you need to re-submit your job with a shorter time limit
       that will end BEFORE the maintenance begins.
 
@@ -1146,6 +1157,8 @@ Fix pending job
 
       If your job truly needs requested time limit, nothing can be done until the maintenance is over.
       Remove your job from the queue and resubmit after the maintenance.
+
+      If you did not specify time limit, the default time setting is in effect.
 
    Please see :ref:`available partitions` for partitions default and max settings
    and :ref:`job examples` for additional info.
