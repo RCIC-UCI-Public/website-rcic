@@ -137,12 +137,16 @@ example panteater UCINetID).
 
    Check **package cache** and **envs directories** entries in the above output.
    There should be 2 lines for each, one referring to the system installed
-   location (lines start with */opt/apps*) and another to your user location
-   (line starts with */data/homezvol...*).
-   If there are missing entries that point to your user area, you will need
+   location (lines start with :tt:`/opt/apps`) and another to your user location
+   (line starts with :tt:`/data/homezvol`).
+
+   Note, by default conda does installations in $HOME and usually
+   there is plenty of space in $HOME for multiple environments.
+
+   If there are missing entries which point to your user area, you will need
    to create a file in your $HOME using your favorite editor.
-   The file name is :tt:`.condarc` and the content is (substitute your
-   version, home directory and user name):
+   The file name is :tt:`.condarc` and the content is similar to
+   the following (substitute your version, home directory and user name):
 
    .. code-block:: console
 
@@ -153,15 +157,33 @@ example panteater UCINetID).
         - /data/homezvol0/panteater/.conda/envs
         - /opt/apps/anaconda/2021.11/envs
 
-   Alternatively do this dynamically and use your /pub/$USER
 
-   .. code-block:: console
+   Alternative install location:
+      It is possible to change installs to go to a different location.
+      For example, if you want to install conda environments in your
+      :tt:`/pub/$USER/anaconda/2021.11` directory,
+      your :tt:`.condarc` should be edited to look like: 
 
-      [user@login-x:~]$ conda config --write \
-        --set pkgs_dirs /pub/$USER/anaconda/2021.11/pkgs \
-        --append pkgs_dirs /opt/apps/anaconda/2021.11/pkgs \
-        --set envs_dirs /pub/$USER/anaconda/2021.11/envs \
-        --append envs_dirs /opt/apps/anaconda/2021.11/pkgs
+      .. code-block:: console
+
+         pkgs_dirs:
+           - /pub/$USER/anaconda/2021.11/pkgs
+           - /opt/apps/anaconda/2021.11/pkgs
+         envs_dirs:
+           - /pub/$USER/anaconda/2021.11/envs
+           - /opt/apps/anaconda/2021.11/envs
+
+      In place of editing one can do this dynamically and run command:
+
+      .. code-block:: console
+
+         [user@login-x:~]$ conda config --write \
+           --set pkgs_dirs /pub/$USER/anaconda/2021.11/pkgs \
+           --append pkgs_dirs /opt/apps/anaconda/2021.11/pkgs \
+           --set envs_dirs /pub/$USER/anaconda/2021.11/envs \
+           --append envs_dirs /opt/apps/anaconda/2021.11/pkgs
+
+   Your :tt:`condarc` file is always in $HOME regardless of the install location.
 
 4. **Initialize conda for your shell**
 
