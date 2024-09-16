@@ -153,6 +153,16 @@ example panteater UCINetID).
         - /data/homezvol0/panteater/.conda/envs
         - /opt/apps/anaconda/2021.11/envs
 
+   Alternatively do this dynamically and use your /pub/$USER
+
+   .. code-block:: console
+
+      [user@login-x:~]$ conda config --write \
+        --set pkgs_dirs /pub/$USER/anaconda/2021.11/pkgs \
+        --append pkgs_dirs /opt/apps/anaconda/2021.11/pkgs \
+        --set envs_dirs /pub/$USER/anaconda/2021.11/envs \
+        --append envs_dirs /opt/apps/anaconda/2021.11/pkgs
+
 4. **Initialize conda for your shell**
 
    Run command:
@@ -164,7 +174,7 @@ example panteater UCINetID).
    This adds a few lines to your :tt:`~/.bashrc` file which may not always be desirable
    for your work with other programs.  Edit the :tt:`~/.bashrc` file and move all the lines
    added by conda into another file, for example to :tt:`~/.mycondainit-2021.11`.
-   The lines are at the end of your :tt:`~/.bashrc` file (lines start end end with *conda initialize*
+   The lines are at the end of your :tt:`~/.bashrc` file (lines start end with *conda initialize*
    and all the lines between them):
 
    .. code-block:: bash
