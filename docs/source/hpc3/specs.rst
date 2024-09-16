@@ -36,7 +36,7 @@ configurations shown first.
    :class: noscroll-table sortable
 
    +------+------+-----------+----------------------------------------+--------------+
-   | Nodes| CPUs | Memory(KB)| Available Features                     | GPUs type:#  | 
+   | Nodes| CPUs | Memory(MB)| Available Features                     | GPUs type:#  | 
    +======+======+===========+========================================+==============+
    | 81   | 40   | 180000    | intel,avx512,mlx5_ib                   |              | 
    +------+------+-----------+----------------------------------------+--------------+
