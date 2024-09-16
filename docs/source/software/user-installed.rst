@@ -183,7 +183,7 @@ example panteater UCINetID).
            --set envs_dirs /pub/$USER/anaconda/2021.11/envs \
            --append envs_dirs /opt/apps/anaconda/2021.11/pkgs
 
-   Your :tt:`condarc` file is always in $HOME regardless of the install location.
+   Your :tt:`.condarc` file is always in $HOME regardless of the install location.
 
 4. **Initialize conda for your shell**
 
