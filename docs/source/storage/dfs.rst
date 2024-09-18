@@ -216,13 +216,13 @@ command to check user/group quotas on a particular DFS pool.
 
      $ dfsquotas panteater all
 
-     ==== Group quotas on dfs3b for user npw
+     ==== Group quotas on dfs3b for user panteater
      No quotas to report
 
-     ==== Group quotas on dfs4 for user npw
+     ==== Group quotas on dfs4 for user panteater
      No quotas to report
 
-     ==== Group quotas on dfs5 for user npw
+     ==== Group quotas on dfs5 for user panteater
      No quotas to report
 
 	 ==== Group quotas on dfs6 for user panteater
@@ -234,10 +234,10 @@ command to check user/group quotas on a particular DFS pool.
           alpha_users | 158537 ||     0 Byte | 1024.00 Gib ||       0 | unlimited
           panteater   | 000865 || 755.59 GiB | 1024.00 GiB ||  258856 | unlimited
 
-     ==== Group quotas on dfs7 for user npw
+     ==== Group quotas on dfs7 for user panteater
      No quotas to report
 
-     ==== Group quotas on dfs8 for user npw
+     ==== Group quotas on dfs8 for user panteater
      No quotas to report
 
 	 ==== Group quotas on dfs9 for user panteater
