@@ -155,16 +155,14 @@ command to check user/group quotas on a particular DFS pool.
 
      $ dfsquotas panteater dfs6
 
-     ==== [Group Quotas on dfs6]
-
-     Quota information for storage pool Default (ID: 1):
-
-           user/group     ||           size          ||    chunk files
-          name     |  id  ||    used    |    hard    ||  used   |  hard
-     --------------|------||------------|------------||---------|---------
-      panteater_lab|012345||   26.25 GiB| 1024.00 GiB||  1310459|unlimited  # see 1
-        alpha_users|158537||      0 Byte| 1024.00 Gib||        0|unlimited  # see 2
-          panteater|000865||  755.59 GiB| 1024.00 GiB||   258856|unlimited  # see 3
+	 ==== Group quotas on dfs6 for user panteater
+     ----------------------------------------------------------------------------
+                    Group      ||          Size            ||    Chunk Files         
+                 name | id     ||      used  | allocated   ||    used | allocated   
+     -----------------------------------------------------------------------------
+      panteater_lab   | 012345 ||  26.25 GiB | 1024.00 GiB || 1310459 | unlimited  # see 1
+          alpha_users | 158537 ||     0 Byte | 1024.00 Gib ||       0 | unlimited  # see 2
+          panteater   | 000865 || 755.59 GiB | 1024.00 GiB ||  258856 | unlimited  # see 3
 
   The above shows that a user :tt:`panteater` can write in its private
   area :tt:`/pub/panteater` using the above listed 3 groups:
@@ -187,16 +185,14 @@ command to check user/group quotas on a particular DFS pool.
 
      $ dfsquotas panteater dfs9
 
-     ==== [Group Quotas on dfs6]
-
-     Quota information for storage pool Default (ID: 1):
-
-           user/group     ||           size          ||    chunk files
-          name     |  id  ||    used    |    hard    ||  used   |  hard
-     --------------|------||------------|------------||---------|---------
-      panteater_lab|012345||   38.36 TiB|   40.00 TiB||  1310459|unlimited  # see 4
-        alpha_users|158537||      0 byte|    1   byte||        0|        1  # see 5
-          panteater|000865||      0 byte|    1   byte||        0|        1  # see 5
+	 ==== Group quotas on dfs9 for user panteater
+     ----------------------------------------------------------------------------
+                    Group      ||          Size            ||    Chunk Files         
+                 name | id     ||      used  | allocated   ||    used | allocated   
+     -----------------------------------------------------------------------------
+        panteater_lab | 012345 ||   38.36 TiB|   40.00 TiB || 1310459 | unlimited  # see 4
+          alpha_users | 158537 ||      0 byte|    1   byte ||       0 |         1  # see 5
+            panteater | 000865 ||      0 byte|    1   byte ||       0 |         1  # see 5
 
   4. The above shows that user :tt:`panteater` can write in its group allocation on :tt:`dfs9`
      only if using UNIX group :tt:`panteater_lab` for which there is 40Tb
@@ -214,11 +210,49 @@ command to check user/group quotas on a particular DFS pool.
 
         $ dfsquotas panteater sbak
 
-..  **To see the quotas for** :tt:`dfs6` **and selective backup:**
+**To see the quotas on all DFS filesystemss**:
 
-     .. code-block:: console
+  .. code-block:: console
 
-        $ dfsquotas panteater "dfs6 sbak"
+     $ dfsquotas panteater all
+
+     ==== Group quotas on dfs3b for user npw
+     No quotas to report
+
+     ==== Group quotas on dfs4 for user npw
+     No quotas to report
+
+     ==== Group quotas on dfs5 for user npw
+     No quotas to report
+
+	 ==== Group quotas on dfs6 for user panteater
+     ----------------------------------------------------------------------------
+                    Group      ||          Size            ||    Chunk Files         
+                 name | id     ||      used  | allocated   ||    used | allocated   
+     -----------------------------------------------------------------------------
+      panteater_lab   | 012345 ||  26.25 GiB | 1024.00 GiB || 1310459 | unlimited
+          alpha_users | 158537 ||     0 Byte | 1024.00 Gib ||       0 | unlimited
+          panteater   | 000865 || 755.59 GiB | 1024.00 GiB ||  258856 | unlimited
+
+     ==== Group quotas on dfs7 for user npw
+     No quotas to report
+
+     ==== Group quotas on dfs8 for user npw
+     No quotas to report
+
+	 ==== Group quotas on dfs9 for user panteater
+     ----------------------------------------------------------------------------
+                    Group      ||          Size            ||    Chunk Files         
+                 name | id     ||      used  | allocated   ||    used | allocated   
+     -----------------------------------------------------------------------------
+        panteater_lab | 012345 ||   38.36 TiB|   40.00 TiB || 1310459 | unlimited
+          alpha_users | 158537 ||      0 byte|    1   byte ||       0 |         1
+            panteater | 000865 ||      0 byte|    1   byte ||       0 |         1
+
+
+  When you see **No quotas to report** it means there are no quotas for the
+  user on this specific DFS filesystem.
+
 
 .. _dfs over quota:
 

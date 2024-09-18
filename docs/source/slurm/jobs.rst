@@ -690,7 +690,7 @@ Account balance
 ^^^^^^^^^^^^^^^
 
 | ``sbank``
-| ``/pub/hpc3/zotledger``
+| ``zotledger``
 
 In order to run jobs on HPC3, a user must have available CPU hours.
 
@@ -722,7 +722,7 @@ In order to run jobs on HPC3, a user must have available CPU hours.
    Default is to print jobs of the current user for the last 30 days:
      .. code-block:: console
 
-        [user@login-x:~]$ /pub/hpc3/zotledger -u panteater
+        [user@login-x:~]$ zotledger -u panteater
               DATE       USER   ACCOUNT PARTITION   JOBID JOBNAME ARRAYLEN CPUS WALLHOURS  SUs
         2021-07-21  panteater panteater  standard 1740043    srun        -    1      0.00 0.00
         2021-07-21  panteater panteater  standard 1740054    bash        -    1      0.00 0.00
@@ -734,7 +734,7 @@ In order to run jobs on HPC3, a user must have available CPU hours.
    To find all available arguments for this command use:
      .. code-block:: console
 
-        [user@login-x:~]$ /pub/hpc3/zotledger -h
+        [user@login-x:~]$ zotledger -h
 
 .. _job efficiency:
 
