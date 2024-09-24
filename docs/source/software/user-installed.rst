@@ -1124,6 +1124,38 @@ additional Python or R modules.
 
       Server Terminal App
 
+   Depending on the Singularity version and container build your
+   initial screen  in the Terminal app may look different. 
+
+   Often, a default $HOME in Jupyter container is different from
+   the one you usually have when you login on the cluster:
+
+   :default $HOME in the container:  /home/jovyan
+   :your cluster $HOME on the container:  /home/jovyan/UCInetID
+
+   Your cluster $HOME location is still available to you 
+   if you are adding R or Python packages or simply want to access it.
+
+   .. _jhub reset home:
+
+   .. important:: If you are installing R or Python packages. Reset your
+      default container $HOME to make sure you can install packages in your cluster $HOME area.
+
+      For example, A user *npw* starts a container and can reset 
+      $HOME from a default **/home/jovyan** to a regular cluster $HOME location which
+      is available in the container and is a folder with the user's UCINetID:
+
+      .. figure:: images/jhub-home.png
+         :align: center
+         :alt: reset HOME
+   
+         Reset $HOME
+
+      Here, ``pwd`` and ``echo`` commands show what the settings for $HOME are
+      and the ``export`` command resets $HOME to desired area.
+
+      **Make sure to reset $HOME to a correct path, this can not be an arbitrary location**.
+
 2. **Upload/Download Files**
 
    You have a few choices to upload/download files. Among these are
@@ -1133,6 +1165,8 @@ additional Python or R modules.
    * Use ``curl`` to download files from the web
 
 3. **Adding Python packages with pip**
+
+   Make sure your $HOME is :ref:`reset <jhub reset home>` to use your regular cluster $HOME location.
 
    You can use Python from :guilabel:`Console`, :guilabel:`Notebook`
    or :guilabel:`Terminal` simply via clicking on the App image in the *Launcher window*.
@@ -1154,12 +1188,23 @@ additional Python or R modules.
 
 4. **Adding R packages**
 
-   You may need to install additional R packages.
+   Make sure your $HOME is :ref:`reset <jhub reset home>` to use your regular cluster $HOME location.
+
+   You may need to install additional R packages. 
    Once you have added the package, you should be able to use it in your *R notebook*.
 
-   You must be in a :guilabel:`Terminal` to add new R modules as a user.
-   Check if *R* module is already loaded (output of ``module list``) and if
-   not load it with ``module laod`` command.
+   You must be in a :guilabel:`Terminal` to add new R packages as a user.
+   Check if *R* module is already loaded, and if not load it:
+
+   .. code-block:: console
+
+      $ module list    
+      $ module av R
+      R/4.3.3
+      $ module load R/4.3.3
+
+   Note, different containers may have different R versions, use the one that
+   is shown for you.
 
    Start R and depending on your desired package you may need to use different options for installing.
    In general, one needs to follow the software package instructions for installing it.
