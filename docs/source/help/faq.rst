@@ -69,6 +69,16 @@ a rate that reduces the financial impact of overhead on recharged-cycles.
 :bluelight:`Accounting`
 -----------------------
 
+.. _reset password:
+
+I cant login, can you reset my password?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| :red:`We do not store, handle or reset passwords for UCINetIDs`.
+
+| Your password is the one you have set for your UCInetID. 
+| Please see OIT website page `how to change passwords <https://www.security.uci.edu/how-to/passwords/>`_.
+
 .. _add lab account:
 
 How can I be added to my PI's Slurm lab account?
