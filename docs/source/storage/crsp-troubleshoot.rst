@@ -50,20 +50,19 @@ If you are having issues installing *CRSP Desktop*, please check the following:
 Share is not visible or is empty
 --------------------------------
 
-**This could be caused by one or more reasons:**
+This could be caused by one or more reasons:
 
-1. Disconnect from share after computer came back from sleep, or hibernation mode
+1. Disconnect from share after computer came back from sleep, or hibernation mode.
 
-   Resolution: reconnect your share. 
+   Resolution: reconnect your share.
+#. Not connected via UCI VPN.
 
-2. Not connected via UCI VPN
-   
    Resolution: You must either be on the campus network or connected to the
-   `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ 
-3. Network connectivity is poor or network is down
+   `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_
+#. Network connectivity is poor or network is down.
 
    Resolution: Ensure your system is connected to UCINET or home internet. Restart system if necessary,
-   to restore internet connectivity.  
+   to restore internet connectivity.
 
 If the above does not solve your issue, try deleting the *share bookmark*
 from *CRSP Desktop*, and recreate it anew.  Follow configuring share
@@ -74,29 +73,73 @@ instructions for your laptop type in :ref:`crsp clients` guide.
 Unable to login
 ---------------
 
-**This could be caused by one or more reasons:**
+This could be caused by one or more reasons:
 
 1. You don't have an account created for CRSP.
 
-   Resolution: Please note that HPC3 and CRSP accounts are separate,
-   You may have an HPC3 account and may not have CRSP account.  See :ref:`getting crsp account`
+   Resolution: Please note that HPC3 and CRSP accounts are created separately.
+   You may have an HPC3 account and may not have CRSP account. See :ref:`getting crsp account`
 
-2. Your UCINetID password is incorrect
+#. Not connected via UCI VPN
 
-   Resolution: Make sure your password is correct. Note, we do not manage passwords. 
+   Resolution: You must either be on the campus network or connected to the
+   `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_
 
-3. Your CRSP home directory is over quota
+#. Your UCINetID password is incorrect.
+
+   Resolution: Make sure your password is correct.
+   Please see :ref:`password reset <reset password>`.
+
+#. Your CRSP home directory is over quota
 
    Resolution: Check your :ref:`crsp quotas`.
 
-4. Not connected via UCI VPN
-   
-   Resolution: You must either be on the campus network or connected to the
-   `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ 
-
-5. There might be a technical issue with CRSP infrastructure.
+#. There might be a technical issue with CRSP infrastructure.
 
    Resolution: Please submit a ticket. 
+
+#. Authentication errors.
+
+   When setting your CRSP desktop app you see a message similar to
+
+   | :red:`Too many authentication errors. Please contact your web hosting`
+   | :red:`service provider for assistance`
+
+   This may happen when you used to have a password access  and have stored
+   your password in the laptop credentials manager and then you switched to
+   the ssh-keys based access.  It is a bug in CRSP app, the workaround is as
+   follows.
+
+   For Windows laptops:
+     - Quit CRSP Desktop App.
+     - | Open the :guilabel:`Windows Credentials Manager` and delete any references to CRSP.
+       | It might be under *sftp* , it might be under *access.crsp*. Remove all such entries.
+       | That should remove the remembered password for the CRSP desktop.
+     - Start CRSP App which will ask for the passphrase for your locally-setup key.
+
+   For macOS laptops:
+     - Quit CRSP Desktop App.
+     - Open :guilabel:`Applications -> Utilities -> Keychain Access` application (standard on Mac).
+
+       - Choose a Default keychain **login**, then **Passwords**, and in the **Search** box type :bluelight:`crsp`.
+       - Delete entries with **crsp** in their names that show up in the main window.
+       - Do the same for Default keychain **iCloud** or any other keychain that you may have on your laptop.
+
+       See for a reference:
+
+       .. figure:: images/crsp/mac-keychain.png
+          :align: center
+          :alt: Keychain access app
+
+          Keychain Access App
+
+     - Quit Keychain Access app.
+
+     - Start CRSP app, edit your lab bookmark.
+       It should no longer have Password field filled or you should be able to remove what is there
+       and  the password  should not appear again.
+     - Try to connect to the lab share. you will be prompted for your passphrase  which is the what you used when you created your ssh keys.
+
 
 .. _problem sshfs:
 
