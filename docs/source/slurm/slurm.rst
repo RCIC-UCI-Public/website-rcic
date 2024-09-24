@@ -47,7 +47,8 @@ the following information:
 * PI name and UCINetID
 * Names and UCINetIDs of the researchers, graduate students or other
   collaborators to add to the account. They will be be able to charge CPU hours to the  lab account.
-* Optional: names of  *account coordinators*.  Account coordinators are lab members who will able to manage the group
+
+..  * Optional: names of  *account coordinators*.  Account coordinators are lab members who will able to manage the group
   members jobs, modify their queue priority, update limits for the total CPU hours for individual members, etc.
   Typically, one or two lab members (Postdocs or Project Specialists).
 

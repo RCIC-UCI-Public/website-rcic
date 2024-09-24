@@ -61,7 +61,7 @@ Reference guide
 :doc:`Slurm jobs </slurm/jobs>`
    How to use Slurm for free and accounted jobs.
 
-:doc:`Account coordinators </slurm/coordinators>`
+..  :doc:`Account coordinators </slurm/coordinators>`
    How to control accounts if you are an account coordinator.
 
 ⏩️ :section:`Cluster hardware configuration and specs`

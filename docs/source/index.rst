@@ -75,7 +75,6 @@ RCIC User Documentation
    slurm/slurm
    slurm/jobs
    slurm/examples
-   slurm/coordinators
 
 .. toctree::
    :maxdepth: 1
