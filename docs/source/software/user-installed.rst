@@ -550,7 +550,7 @@ installs already have a lot of added packages. To find out what R is available:
 
    [user@login-x:~]$ module avail R
    ------------ /opt/rcic/Modules/modulefiles/LANGUAGES -----------------
-   R/4.0.2 R/4.0.4 R/4.1.2 R/4.2.2
+   R/4.0.4 R/4.1.2 R/4.2.2 R/4.3.3
 
 You can choose either R version, however it is advisable to
 use a later release.
