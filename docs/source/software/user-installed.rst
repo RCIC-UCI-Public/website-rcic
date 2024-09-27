@@ -53,7 +53,7 @@ To find out what modules are available:
 
    [user@login-x:~]$ module avail anaconda
    ---------------- /opt/rcic/Modules/modulefiles/LANGUAGES -----------------------
-   anaconda/2020.07 anaconda/2021.11 anaconda/2022.05
+   anaconda/2020.07 anaconda/2021.11 anaconda/2022.05 anaconda/2024.06
 
 To install conda environment in your user area
 follow the example steps below. The example is given for the
