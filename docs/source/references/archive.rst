@@ -11,6 +11,56 @@ News Archive
 2024
 ----
 
+Sep 17
+^^^^^^
+
+| :blogtitle:`HPC3 Downtime Sep 17, 2024`
+| :blogauthor:`2024-09-17 by Nadya Williams`
+
+The next outage will be September 17, 2024, beginning at 8am
+
+Maintenance items:
+  1. Upgrading Slurm to version 24.03.3
+  #. Replacing the Slurm scheduler node with new hardware
+  #. Rebooting all nodes in HPC3
+
+Impacts:
+  1. Queued jobs should remain queued after the hardware upgrade.
+     We will be transferring all slurm state to the new hardware.
+     There is, however, a small chance that queued jobs will be "lost".
+
+We don't expect this to be an all-day affair and hope to have HPC3 back in service by early afternoon.
+
+Jul 16
+^^^^^^
+
+| :blogtitle:`HPC3 Downtime Jul 16, 2024`
+| :blogauthor:`2024-07-05 by Nadya Williams`
+
+The next outage will be July 16, 2024, beginning at 8am
+
+| This is the first of two summer maintenance periods.
+| There are two major items that we will be attending to during the downtime
+
+Maintenance Items:
+  1. Update of BeeGFS (File systems for all DFS servers) to address a segmentation fault  in the BeeGFS metadata daemon
+     that results in a down file system. This has occurred about 3 times in the past 4 months.
+  2. Hardware replacement of CRSP, see
+     `CRSP to CRSP2 transition <https://rcic.uci.edu/storage/crsp.html#crsp-to-crsp2-transition>`_.
+     CRSP hardware has reached end of life and new hardware has been delivered.
+
+Impacts:
+  1. :red:`This is a full outage.
+     You will NOT have access to HPC3 or CRSP during the planned downtime`.
+  2. The 8-10 hour outage of CRSP is the first time that there has been a planned full outage of CRSP.
+     The last unplanned outage of CRSP was more than two years ago and lasted about 8 hours.
+
+Data copy:
+  - Users don't need to make any copies.
+  - All data has been copied from the current CRSP to the new system *CRSP2*.
+  - Daily changes are incrementally copied.
+  - On the cut over day, the final incremental copy will happen.
+
 Mar 27
 ^^^^^^
 
