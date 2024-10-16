@@ -177,11 +177,6 @@ hpc3-22-01,RCIC,PowerEdge R640,DH3TJD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CP
 hpc3-22-02,RCIC,PowerEdge R640,DH3SJD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
 hpc3-22-03,RCIC,PowerEdge R640,DH34KD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
 hpc3-22-04,RCIC,PowerEdge R640,DH39KD3,2026-08-07,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
-hpc3-23-00,caoph,PowerEdge R650,8YZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
-hpc3-23-01,caoph,PowerEdge R650,9YZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
-hpc3-23-02,caoph,PowerEdge R650,BYZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
-hpc3-23-03,caoph,PowerEdge R650,CYZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
-hpc3-23-04,ruic20,PowerEdge R650,8ZZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
 hpc3-22-05,vswarup,PowerEdge R640,5G233L3,2026-12-24,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,384,48
 hpc3-22-06,caoph,PowerEdge R640,1G233L3,2026-12-25,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
 hpc3-22-07,caoph,PowerEdge R640,3G233L3,2026-12-25,Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz,192,48
@@ -191,6 +186,14 @@ hpc3-22-10,mjaq,PowerEdge R640,JF233L3,2026-12-25,Intel(R) Xeon(R) Gold 6240R CP
 hpc3-22-11,dtobias,PowerEdge R650,HZ5CPR3,2027-09-12,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
 hpc3-22-12,bornstea,PowerEdge R650,JZ5CPR3,2027-09-12,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
 hpc3-22-13,vswarup,PowerEdge R650,7LZ89R3,2027-08-30,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
+hpc3-23-00,caoph,PowerEdge R650,8YZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
+hpc3-23-01,caoph,PowerEdge R650,9YZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
+hpc3-23-02,caoph,PowerEdge R650,BYZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
+hpc3-23-03,caoph,PowerEdge R650,CYZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
+hpc3-23-04,ruic20,PowerEdge R650,8ZZ7K44,2029-07-27,Intel(R) Xeon(R) Gold 6336Y CPU @ 2.40GHz,256,48
+hpc3-24-00,alviny6,PowerEdge R760,HMG4054,2029-10-04,Intel(R) Xeon(R) CPU Max 9460,128,80
+hpc3-24-01,alviny6,PowerEdge R760,GMG4054,2029-10-04,Intel(R) Xeon(R) CPU Max 9460,128,80
+hpc3-24-02,alviny6,PowerEdge R760,FMG4054,2029-10-04,Intel(R) Xeon(R) CPU Max 9460,128,80
 hpc3-gpu-16-00,RCIC,ProLiant DL380 Gen10,2M201004K5,2024-12-18,Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz,192,40
 hpc3-gpu-16-01,RCIC,ProLiant DL380 Gen10,2M201004K2,2024-12-18,Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz,192,40
 hpc3-gpu-16-02,RCIC,ProLiant DL380 Gen10,2M201004K7,2024-12-18,Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz,192,40
