@@ -828,7 +828,7 @@ To find out what Singularity is available:
 
    [user@login-x:~]$ module avail singularity
    ------------ /opt/rcic/Modules/modulefiles/LANGUAGES -----------------
-   singularity/3.4.1  singularity/3.7.2  singularity/3.9.4
+   singularity/3.7.2  singularity/3.9.4  singularity/3.11.3
 
 If you have never built container before we suggest to use the
 latest available singularity version.
@@ -836,16 +836,20 @@ latest available singularity version.
 1. **Get an interactive node**
 
    Always claim an interactive node because Singularity builds involve compilation and downloads
-   that can use  a lot of  CPU time and memory. If you do this on login node
+   that can use  a lot of  CPU time and memory. If you do builds on login nodes
    you will have problems and your install will likely fail.
-
-   In addition, Singularity container can be large, we recommend to use your
-   private  area in :tt:`/pub/ucinetid` or  your group lab
-   allocation on another DFS file system for building the images.
 
    .. code-block:: console
 
       [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
+      [user@hpc3-xx-yy:~]$ 
+
+   In addition, Singularity container can be large, we recommend to use your
+   private  area in :tt:`/pub/ucinetid` or  your group lab
+   allocation on another DFS file system for building the images:
+
+   .. code-block:: console
+
       [user@hpc3-xx-yy:~]$ cd /pub/ucinetid
 
    Next steps are executed on interactive node.
@@ -861,7 +865,7 @@ latest available singularity version.
 3. **Run a container create command**
 
    Follow your specific software instructions for your build.
-   Singularity  containers can be created as follows:
+   Singularity containers can be created as follows:
 
    3a. **Create from a download of pre-built images**
 
@@ -876,33 +880,32 @@ latest available singularity version.
           INFO:    Starting build...
           Getting image source signatures
           Copying blob 3b65ec22a9e9 done
-          Copying blob 9a050ffbf404 done
-          Copying blob 0ac4b81e8d78 done
           ... < cut lines> ...
           Copying blob 4643aa901e21 done
-          Copying config d5ad26ca01 done
           Writing manifest to image destination
           Storing signatures
-          2022/10/14 10:03:57  info unpack layer: sha256:3b65ec22a9e96affe680712973e88355927506aa3f792ff03330f3a3eb601a98
-          2022/10/14 10:03:58  info unpack layer: sha256:9a050ffbf4047ecc30a36cccf582a79bc6adc73474ea153d6607285a7d0a0a07
+          2022/10/14 10:03:57  info unpack layer: sha256:3b65ec22...aa3f792ff03330f3a3eb601a98
           ... <cut lines > ...
-          2022/10/14 10:04:10  info unpack layer: sha256:4643aa901e21e5ccd09d3364191354accb44ade3d443f4b04dd0110d8fe6ffcf
+          2022/10/14 10:04:10  info unpack layer: sha256:4643aa90...e3d443f4b04dd0110d8fe6ffcf
           INFO:    Creating SIF file...
-
 
        A successful build will result in creating :tt:`vg.sif` container in the working  directory:
 
        .. code-block:: console
 
           [user@hpc3-xx-yy:~]$ ls
-          vg.sif
+          downloads  scripts  prev  vg.sif
 
    3b. **Build from a recipe**
 
-       This approach involves using a definition file (also called a recipe file)
-       and administrative access to the node which we do not allow to regular
-       users. You will need to submit a ticket and provide us with a recipe
-       file and your software URL.  
+       This approach involves:
+
+         - using a definition file (also called a recipe file)
+         - administrative access to the node which we do not allow to regular users.
+
+       You will need to :ref:`submit a ticket <submit ticket>` and provide us with a recipe
+       file and your software build instructions URL.
+       We will build a container using the info you provide. 
 
 ..   3b. **Build from a recipe**
 
@@ -961,27 +964,27 @@ Compile software
 ----------------
 
 Sometimes people need to compile specific versions of applications from source.
-This is done according to the specific software instructions
-and using cluster's existing modules.
+This is done according to your specific software instructions plus using cluster's existing modules.
 
-.. attention:: Commands ``sudo`` and ``su`` are not available per security vulnerability.
+In general, for compiling  one needs a compiler, ``make``, or ``cmake``, possibly some prerequisite software packages, 
+or a few other build tools. All of generic build tools needed for compilation
+are accessible via modules that are installed on the cluster.
 
-In general, for compiling  one needs a compiler, some prerequisite software packages, ``make``,
-``cmake`` or a few other build tools. All of generic build tools needed for compilation are accessible via modules.
+.. attention:: | (1) Commands ``sudo`` and ``su`` are not available per security vulnerability.
+               | (2) If you attempt installations on a login node you will have problems and your install will likely fail.
 
-Steps below explain the basic setup specific to the cluster.
+Steps below explain the basic steps specific to compile software that are specific to the cluster.
 
 1. **Get an interactive node**
 
    Always claim an interactive node because software builds involve downloads
    and compilation and both actions can use a lot of CPU time and memory.
-   If you do installations on a login node you will have problems and your install will likely fail.
 
-   From a login node:
+   From a login node: request an interactive node and 4 CPUs:
 
    .. code-block:: console
 
-      [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
+      [user@login-x:~]$ srun -c 4 -p free --pty /bin/bash -i
 
    .. note:: If your software requires CUDA support you will need to use an interactive
              node  in one of gpu-enabled partitions (see :ref:`interactive job` for details)
@@ -989,17 +992,26 @@ Steps below explain the basic setup specific to the cluster.
 
    Next steps are executed on interactive node.
 
-2. **Find and load desired modules**
+#. **Download your software**
 
-   Downloaded sources and temporary compilation files for software installs can be large,
-   we recommend to use your private  area in :tt:`/pub/ucinetid` or  your group lab
-   allocation on another DFS file system for compiling and installing.
+   | Software sources and temporary compilation files can be large.
+   | Do not copy software distribution files into your $HOME.
+
+   We recommend to use your private area :tt:`/pub/$USER` ($USER is your UCINetID) or your group lab
+   allocation on some DFS file system for downloading, compiling and installing.
+
+   For example, to use your private area: 
 
    .. code-block:: console
 
-      [user@hpc3-xx-yy:~]$ cd /pub/ucinetid
+      [user@hpc3-xx-yy:~]$ cd /pub/$USER
 
-   Read your software instructions and figure out what modules provide what you will need
+   Download your software distribution via ``curl``, ``wget``  or other method 
+   indicated by your software instructions..
+
+#. **Find and load desired modules**
+
+   Read your software instructions and figure out what modules provide tools you will need
    for compilation.
 
    We have GCC and Intel compilers, a few versions of OpenMPI, make, cmake and
@@ -1023,7 +1035,7 @@ Steps below explain the basic setup specific to the cluster.
    information how to find and use modules.
 
    For example, if you are compiling software that needs ``gcc`` compiler, ``cmake``,
-   and OpenMPI-aware HDF5 you will need to load the following modules:
+   and need an OpenMPI-aware HDF5 you will load the following modules:
 
    .. code-block:: console
 
@@ -1038,58 +1050,158 @@ Steps below explain the basic setup specific to the cluster.
    * prerequisite GCC and OpenMPI modules will be automatically loaded by the hdf5 module
      no need to load them separately.
 
-   **If you use intel or mkl modules:**
-     Intel and mkl module provide access to a number of Intel Math Kernel Libraries
-     including LAPACK, SCALAPACK, BLAS and threading options. The MKL libraries can be linked with Intel
-     or GNU compilers. If you are compiling your software and using **intel** or **mkl**
-     modules please see external links
-     `Intel MKL Documentation <https://software.intel.com/en-us/mkl/documentation/view-all>`_ and
-     `Intel MKL Link Advisory <https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-link-line-advisor.html#gs.o9qcu1>`_
-     to help you figure out how to use them.
+   .. note:: 
+      **Intel** and **mkl** module provide access to a number of Intel Math Kernel Libraries
+      including LAPACK, SCALAPACK, BLAS and threading options. The MKL libraries can be linked with Intel
+      or GNU compilers. If you are compiling your software and using **intel** or **mkl**
+      modules please see external links
+      `Intel MKL Documentation <https://software.intel.com/en-us/mkl/documentation/view-all>`_ and
+      `Intel MKL Link Advisory <https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-link-line-advisor.html#gs.o9qcu1>`_
+      to help you figure out how to use them.
 
-3. **Follow your package instructions**
+#. **Follow your package instructions**
 
    After loading the modules you can configure and compile per your package instructions.
 
    Many packages use ``configure`` or ``cmake`` for configuring
    and for specifying the installation location. The instructions
-   may tell to edit makefiles and set some variables.
+   may tell to edit :tt:`makefiles` and set some variables.
 
    For example, if your software package requires HDF5, you can use ``module display``
    command to find out what environment variables are set  by a specific HDF5
-   module and then use them in your makefiles or in your configuration commands.
+   module and then use them in your :tt:`makefiles` or in your configuration commands.
 
-   While your software package may have some optional configuration parameters,
-   specifying an installation location is a MUST. We recommend to use your user
-   area for the installation location, for example, :tt:`/pub/ucinetid/sw/`.
+   .. important:: While your software package may have some optional configuration parameters,
+      **you must specify an installation location**. We recommend to use your user
+      area for the installation location, for example, :tt:`/pub/$USER/sw/` where
+      you can install multiple software packages.
 
-   If using ``cmake`` provide installation directory during the **install
-   stage**:
+   Two examples below show how to configur and install software. Your
+   installation,  while similar will be different. Read your software install instructions thoroughly.
 
-   .. code-block:: bash
+   :bluelight:`Example of installing software using cmake`
 
-      cmake -DCMAKE_BUILD_TYPE=RELEASE <other args per instructions>
-      cmake -DCMAKE_INSTALL_PREFIX=/pub/ucinetid/sw
+     To install *salmon* software from the downloaded salmon-1.8.0.tar.gz file the steps are:
 
-   If using ``make`` provide installation directory during the **configure stage**:
+     .. code-block:: bash
 
-   .. code-block:: bash
+        tar xzvf salmon-1.8.0.tar.gz  # step 1 
+        cd salmon-1.8.0/
 
-      configure --prefix=/pub/ucinetid/sw <other args per instructions>
-      make
-      make install
+        module load foundation/v8     # step 2
+        module load boost/1.78.0/gcc.11.2.0
 
-   The resulting configuration will create :tt:`bin`, :tt:`lib`, and any
-   other required subdirectories in :tt:`/pub/ucinetid/sw/` and the following
-   install commands will install compiled files there.
+        mkdir build                   # step 3
+        cd build
+        export CMAKE_LIBRARY_PATH=$LD_LIBRARY_PATH:$CMAKE_LIBRARY_PATH 
+        cmake -DBOOST_ROOT=$BOOST_HOME -DCMAKE_INSTALL_PREFIX=/pub/$USER/sw -DNO_IPO=TRUE ..
+
+        make -j 4                     # step 4
+        make install                  # step 5
+      
+     Steps explanation:
+
+     | step 1: Untar the software distro and change to distribution directory 
+     | step 2: Load needed modules
+     | step 3: This is the configuration step of the compilation process.
+     |         Create a directory where the build will happen and change into it.
+     |         The ``export`` command sets :tt:`CMAKE_LIBRARY_PATH` variable to use libraries 
+     |         defined by the modules. Usually, cmake does it by default and this command is not needed.
+     |         The ``cmake`` command defines a variable :tt:`BOOST_ROOT` and sets it to :tt:`BOOST_HOME`
+     |         which is provided by the boost module; it also sets installation location via
+     |         :tt:`CMAKE_INSTALL_PREFIX` variable and then runs configuration.
+     | step 4: This is the compilation step.
+     |         The ``make -j 4`` command uses 4 CPUs that were requested for the interactive
+     |         node to compile the software per above configuration.
+     | step 5: The install step runs ``make install`` command to  create :tt:`bin`, :tt:`lib`,
+     |         and any other required subdirectories in :tt:`/pub/$USER/sw/` and installs files there.
+     |         Note, the install command can be different, your software instructions will
+     |         specify it. Sometimes it can look similar to:
+     |         ``cmake -DCMAKE_INSTALL_PREFIX=/path/to/install/dir -P cmake_install.cmake``
+
+   :bluelight:`Example of installing software using configure and make`
+
+     To install *bsftools* software that depends on *gsl*  and *htslib* packages
+     (already installed on the cluster and available via modules) the steps are:
+
+     .. code-block:: bash
+
+        tar xzvf bcftools-1.10.2.tar.gz     # step 1
+        cd bcftools-1.10.2
+
+        module load htslib/1.10.2           # step 2
+        module load gsl/2.6/gcc.8.4.0
+
+        export CFLAGS='-fpic -fplugin=annobin -fplugin-arg-annobin-disable' # step 3
+        ./configure --prefix=/pub/$USER/sw  --enable-libgsl --enable-perl-filters --with-htslib=$HTSLIB_HOME
+
+        make USE_GPL=1 prefix=/pub/$USER/sw # step 4
+        make install                        # step 5
+
+     Steps explanation:
+
+     | step 1: Untar the software distro and change to distribution directory 
+     | step 2: Load needed modules.
+     | step 3: This is the configuration step of compilation process.
+     |         Run ``export`` command that was specified by the software instructions.
+     |         The ``configure`` sets the installation location via :tt:`--prefix`,
+     |         sets the location of htslib installation via a variable :tt:`HTSLIB_HOME`
+     |         (provided by the htslib module) and runs software configuration.
+     | step 4: This is the compilation step.
+     |         Set a specific variable (per software instructions) and run ``make`` to compile.
+     | step 5: The ``make install`` creates :tt:`bin`, :tt:`lib`, and any other required subdirectories
+     |         in :tt:`/pub/$USER/sw/` and installs the compiled files there.
 
 
-4. **Create a module for your software**
+#. **Create a module for your software**
 
-   This step may be optional and depends on what your software installation provides
-   and how it was built.
+   This step is optional.
    For instructions on creating modules for your installed
    software please see :ref:`user installed modules`.
+
+#. **Use your software**
+
+   * If you created a module for your software
+
+     Simply load your module and execute your software commands, for example:
+
+     .. code-block:: bash
+
+        module load myprog/3
+        myprog arg1 arg2
+
+   * If you did not create a module 
+
+     You need to adjust :tt:`$PATH` and :tt:`$LD_LIBRARY_PATH` to  include your
+     installed software location. This needs to be done once for every new
+     installation location.
+
+     Edit your :tt:`$HOME/.bashrc` file (your software may provide additional
+     instructions) and add the needed changes at the end. Assuming your
+     software was installed in :tt:`/pub/$USER/sw`:
+
+     .. code-block:: bash
+
+        export PATH=/pub/$USER/sw/bin:$PATH
+        export LD_LIBRARY_PATH=/pub/$USER/sw/lib:$LD_LIBRARY_PATH
+
+     Note, compiled libraries may be installed in :tt:`lib` or :tt:`lib64`,
+     adjust export command accordingly. Your software install instructions 
+     may specify additional variables needed for your software to work properly. 
+
+     Always make a copy of your existing :tt:`$HOME/.bashrc` file before
+     editing  so that you can revert it if you make a mistake. 
+
+     To use your software you will need to load the same modules that you 
+     used for compilation (except foundation module). 
+     For example if you used :tt:`gsl` and :tt:`htslib`
+     modules for your software compilation:
+
+     .. code-block:: bash
+
+        module load htslib/1.10.2
+        module load gsl/2.6/gcc.8.4.0
+        myprog arg1 arg2
 
 .. _install jupyter:
 
