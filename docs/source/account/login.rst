@@ -301,7 +301,7 @@ on compute nodes.
 
    .. code-block:: console
 
-      [user@login-x:~]$ sbatch /pub/hpc3/vscode-sshd.sh
+      [user@login-x:~]$ sbatch /opt/rcic/scripts/vscode-sshd.sh
       Submitted batch job 21877983
 
    Slurm returns a job ID (in this example 21877983).
@@ -315,7 +315,7 @@ on compute nodes.
 
    .. note:: If you need additional resources, you can add the request when you run sbatch. For example, if you
              require 4 cpus instead of the default:
-             :tt:`sbatch --cpus-per-task=4 /pub/hpc3/vscode-sshd.sh`
+             :tt:`sbatch --cpus-per-task=4 /opt/rcic/scripts/vscode-sshd.sh`
 
 #. Once the job starts running check its output file
    :tt:`vscode-sshd-<jobID>.out` in the directory where you
@@ -357,9 +357,9 @@ on compute nodes.
    If you already have :tt:`.ssh/config` file, simply add the content to it.
 
    .. note:: Each time you start a new :tt:`vscode-ssh.sh` job, the Port number *may change*. This happens because the
-      the vscode-sshd.sh looks for the first available network port within a pre-defined range on the specific compute 
-      node assigned to your job. Since that choice is dynamic, it can change for each new vscode-sshd.sh job. 
-      Simply edit your local :tt:`.ssh/config` to reflect the port of your *currently-running* vscode job  that you
+      the :tt:vscode-sshd.sh` looks for the first available network port within a pre-defined range on the specific compute 
+      node assigned to your job. Since that choice is dynamic, it can change for each new :tt:`vscode-sshd.sh job`.
+      Simply edit your local :tt:`.ssh/config` to update the port to the port of your *currently-running* vscode job that you
       started in Step 3.
 
 #. On your laptop start your VSCode application.
@@ -367,8 +367,7 @@ on compute nodes.
    Note, images below show VSCode application for macOS, the Windows version
    may look slightly different but the concept is the same.
 
-   | 5.1 Click on the *open remote window* icon and choose
-   |     :guilabel:`Connect to Host...Remote-SSH` from the menu:
+   5.1 Click on the *open remote window* icon and choose :guilabel:`Connect to Host...` from the menu
 
      .. figure:: images/vscode-connect-1.png
         :align: center
@@ -377,7 +376,7 @@ on compute nodes.
 
         Connect to host
 
-   5.2 Choose :guilabel:`+ Add new SSH host...` from the menu:
+   5.2 Choose :guilabel:`+ Add new SSH Host...` from the menu:
 
      .. figure:: images/vscode-connect-2.png
         :align: center
@@ -386,8 +385,8 @@ on compute nodes.
 
         Add new ssh host
 
-   | 5.3 In the :guilabel:`Enter SSH Connection command` box, enter the compute node
-   |     name from the output file of your submitted batch job and press `Enter` key:
+   | 5.3 In the :guilabel:`Enter SSH Connection Command` box, enter the compute node name from
+   |     the output file of your submitted batch job, then press :guilabel:`Enter` or :guilabel:`Escape`  key:
 
      .. figure:: images/vscode-connect-3.png
         :align: center
@@ -396,8 +395,8 @@ on compute nodes.
 
         Enter SSH Connection command
 
-   | 5.4 In the :guilabel:`Enter SSH configuration file to update` menu of
-   |     choices, choose your local :tt:`.ssh/config` (use local path for user area):
+   | 5.4 In the :guilabel:`Select SSH configuration file to update` menu choose your
+   |     local :tt:`.ssh/config` (use local file from your user area on your laptop):
 
      .. figure:: images/vscode-connect-4.png
         :align: center
@@ -415,8 +414,8 @@ on compute nodes.
 
         Presss connect
 
-   | 5.6 In a new window you will be asked to provide your ssh credentials 
-   |     (passphrase) **two times**, type it where indicated by your Application:
+   | 5.6 In a new window you will be asked to provide your **ssh passphrase**
+   |     (two times), type it where indicated by your Application:
 
      .. figure:: images/vscode-setup.png
         :align: center
@@ -429,7 +428,7 @@ on compute nodes.
      Once the authentication is successful you will see
      the changes on the lower portion of the window, they indicate
      that the connection is getting established and the server is getting setup
-     (shown with blue outline).
+     (shown with blue outline above).
      It may take a few minutes for the VSCode to setup the server.
 
    | 5.7 Once done, you will see the *open remote window* icon showing compute node name (in blue
@@ -444,23 +443,26 @@ on compute nodes.
 
 #. Shutting down your remote VSCode server
 
-   The remote start of VSCode leaves the server running long after you have
-   finished your work and closed your remote connection.
-
    .. attention::
-      | Shutdown your remote server once you finish your work.
-      | It is a simple 2-step process:
+      The remote start of VSCode leaves the server running long after 
+      you have finished your work and closed your remote connection.
+      You need to shutdown your server properly. 
+  
+   **Shutting down your remote server is a simple 2-step process**:
 
-      * on your laptop in VSCode application choose :guilabel:`File > Close Remote Connection`
-        and follow your application prompts to disconnect from the host.
-      * on login node cancel your VSCode job (by your jobID):
+   :Step 1 on your laptop:
+     in VSCode application choose :guilabel:`File > Close Remote Connection`
+     and follow your application prompts to disconnect from the host.
 
-        .. code-block:: console
+   :Step 2 on login node:
+     cancel your VSCode job (by your jobID):
 
-           [user@login-x:~]$ scancel 23383635
+     .. code-block:: console
 
-        :red:`If you don't cancel, your job will continue consuming
-        your lab or your personal Slurm allocation balance`.
+        [user@login-x:~]$ scancel 23383635
+
+     :red:`If you don't cancel your job it will continue consuming
+     your lab or your personal Slurm allocation balance.`
 
 #. Reconnecting to an already running VScode Server
     
