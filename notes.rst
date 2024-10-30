@@ -38,6 +38,13 @@ need to run
 The changes to the above files are used by all html files
 and doing *clean* ensures building all anew.
 
+PDF files
+---------
+
+1. **RCIC-description.pdf** generated  from docx file in RCIC-Internal/ on google drive.  
+#. **RCIC-Acceptable-Use-Policy.pdf** generated from docx file in RCIC-Internal/ on google drive.
+#. **software-latest.pdf** generated in admixbuilder repo (github.com:RCIC-UCI-Public/admixbuilder.git)
+   via *dotpdf* target in Makefile.
 
 Images
 ------
