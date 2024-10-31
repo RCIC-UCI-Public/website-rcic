@@ -243,67 +243,85 @@ GPU-enabled
 
 .. _node info:
 
-Node Information
-----------------
+Node/partition Information
+--------------------------
 
 | ``sinfo``    show information about nodes and partitions 
 | ``scontrol`` show details of configuration
 
 Use above commands to get information about nodes and partitions. 
-There a lot of command line options available, please run ``man sinfo`` 
-and ``man sinfo`` for detailed information about command options.
+There are many command line options available, please run ``man sinfo``
+and ``man scontrol`` for detailed information about command options.
 
-A few useful examples:
+A few useful examples show information for:
 
-Show information about nodes grouped by features:
+Nodes grouped by features:
   .. code-block:: console
 
-     [user@login-x:~]$ sinfo -o "%40N %5c %8m %30f %10G" -e
-     NODELIST                           CPUS MEMORY  AVAIL_FEATURES                 GRES
-     hpc3-17-[04-07]                    40   756000  intel,avx512,mlx5_ib           (null)
-     hpc3-19-07                         64   500000  amd,epyc,epyc7551,mlx5_ib      (null)
-     hpc3-22-[11-13]                    48   245000  intel,avx512,fastscratch,nvme  (null)
-     hpc3-l18-01                        64   500000  amd,epyc,epyc7601,mlx4_ib      (null)
-     hpc3-14-[00-31],hpc3-15-[00-19,21, 40   180000  intel,avx512,mlx5_ib           (null)
-     hpc3-15-[20,22-23],hpc3-17-[00-03, 40   372000  intel,avx512,mlx5_ib           (null)
-     hpc3-18-[00-01],hpc3-19-[00-06,09- 64   500000  amd,epyc,epyc7601,mlx5_ib      (null)
-     hpc3-19-12                         24   500000  intel,mlx4_ib                  (null)
-     hpc3-19-13                         36   500000  intel,mlx5_ib                  (null)
-     hpc3-19-[14-15]                    36   500000  intel,mlx4_ib                  (null)
-     hpc3-19-16                         44   500000  intel,mlx4_ib                  (null)
-     hpc3-19-17                         64   500000  amd,epyc,epyc7551,mlx4_ib      (null)
-     hpc3-20-[16-20,24],hpc3-22-05      48   372000  intel,avx512,mlx5_ib           (null)
-     hpc3-20-[21-22]                    48   756000  intel,avx512,fastscratch,nvme, (null)
-     hpc3-20-[23,25-32]                 48   180000  intel,avx512,mlx5_ib           (null)
-     hpc3-21-[00-32],hpc3-22-[00-04,06- 48   180000  intel,avx512,fastscratch,nvme, (null)
-     hpc3-l18-[04-05]                   28   245000  intel,avx512,mlx4_ib           (null)
-     hpc3-gpu-16-00                     40   180000  intel,avx512,mlx5_ib           gpu:V100:4
-     hpc3-l18-02                        40   1523544 amd,epyc,epyc7551,mlx4_ib      (null)
-     hpc3-gpu-18-00                     40   372000  intel,avx512,mlx5_ib           gpu:V100:4
-     hpc3-gpu-16-[01-07],hpc3-gpu-17-[0 40   180000  intel,avx512,mlx5_ib           gpu:V100:4
-     hpc3-gpu-23-[00-02,07-08],hpc3-gpu 32   245000  intel,avx512,fastscratch,nvme  gpu:A30:4
-     hpc3-gpu-23-[03-06]                32   245000  intel,avx512,fastscratch,nvme  gpu:A100:2
+     [user@login-x:~]$ sinfo -o "%33N %5c %8m %30f %10G" -e
+     NODELIST                          CPUS MEMORY   AVAIL_FEATURES                 GRES
+     hpc3-19-13                        36   515000   intel,mlx5_ib                  (null)
+     hpc3-15-[20,22-23],hpc3-17-[00-03 40   386000   intel,avx512,mlx5_ib           (null)
+     hpc3-19-12                        24   515000   intel,mlx4_ib                  (null)
+     hpc3-19-[14-15]                   36   515000   intel,mlx4_ib                  (null)
+     hpc3-20-[16-20],hpc3-22-05        48   384000   intel,avx512,mlx5_ib           (null)
+     hpc3-20-[21-22]                   48   772000   intel,avx512,mlx5_ib,nvme,fast (null)
+     hpc3-20-24                        48   385000   intel,avx512,mlx5_ib           (null)
+     hpc3-21-[00-15,18-32],hpc3-22-[00 48   191000   intel,avx512,mlx5_ib,nvme,fast (null)
+     ... output cut ...
+     hpc3-l18-01                       64   515000   amd,epyc,epyc7601,mlx4_ib      (null)
+     hpc3-l18-[04-05]                  28   257000   intel,avx512,mlx4_ib           (null)
+     hpc3-gpu-16-[00-07],hpc3-gpu-17-[ 40   192000   intel,avx512,mlx5_ib           gpu:V100:4
+     hpc3-gpu-l54-[03-06]              32   256000   intel,avx512,mlx5_ib,nvme,fast gpu:A100:2
+     hpc3-gpu-l54-[08-09]              32   257000   intel,avx512,mlx5_ib,nvme,fast gpu:A30:4
+     hpc3-gpu-18-00                    40   386000   intel,avx512,mlx5_ib           gpu:V100:4
+     hpc3-gpu-18-[03-04],hpc3-gpu-24-[ 32   256000   intel,avx512,mlx5_ib,nvme,fast gpu:A30:4
+     hpc3-gpu-k54-00                   64   3095000  intel,avx512,mlx5_ib,nvme,fast gpu:A30:4
+     hpc3-22-[15-16]                   64   2063000  intel,avx512,mlx5_ib,nvme,fast (null)
+     hpc3-l18-02                       40   1547000  intel,mlx4_ib                  (null)
 
-Show information about each node by features without grouping:
+Each node by features without grouping:
   .. code-block:: console
 
      [user@login-x:~]$ sinfo -o "%20N %5c %8m %20f %10G" -N 
      NODELIST             CPUS  MEMORY   AVAIL_FEATURES       GRES
-     hpc3-14-00           40    180000   intel,avx512,mlx5_ib (null)
-     hpc3-14-00           40    180000   intel,avx512,mlx5_ib (null)
-     hpc3-14-01           40    180000   intel,avx512,mlx5_ib (null)
-     hpc3-14-01           40    180000   intel,avx512,mlx5_ib (null)
-     hpc3-14-02           40    180000   intel,avx512,mlx5_ib (null)
+     hpc3-14-00           40    192000   intel,avx512,mlx5_ib (null)
+     hpc3-14-00           40    192000   intel,avx512,mlx5_ib (null)
+     hpc3-14-01           40    192000   intel,avx512,mlx5_ib (null)
+     hpc3-14-01           40    192000   intel,avx512,mlx5_ib (null)
+     hpc3-14-02           40    192000   intel,avx512,mlx5_ib (null)
+     hpc3-14-02           40    192000   intel,avx512,mlx5_ib (null)
      ... output cut ...
 
-Show information about  a specific single node:
+Specific single node:
   .. code-block:: console
 
      [user@login-x:~]$ sinfo -o "%20N %5c %8m %20f %10G" -n hpc3-gpu-16-00
      NODELIST             CPUS  MEMORY   AVAIL_FEATURES       GRES
-     hpc3-gpu-16-00       40    180000   intel,avx512,mlx5_ib gpu:V100:4
+     hpc3-gpu-16-00       40    192000   intel,avx512,mlx5_ib gpu:V100:4
 
-Show information about how many CPU and GPUs are available in gpu partition:
+  A more detailed information is obtained with
+
+  .. code-block:: console
+
+     [user@login-x:~]$ scontrol show node hpc3-gpu-16-00
+     NodeName=hpc3-gpu-16-00 Arch=x86_64 CoresPerSocket=20
+     CPUAlloc=26 CPUEfctv=40 CPUTot=40 CPULoad=6.80
+     AvailableFeatures=intel,avx512,mlx5_ib
+     ActiveFeatures=intel,avx512,mlx5_ib
+     Gres=gpu:V100:4
+     NodeAddr=hpc3-gpu-16-00 NodeHostName=hpc3-gpu-16-00 Version=24.05.3
+     OS=Linux 4.18.0-477.15.1.el8_8.x86_64 #1 SMP Wed Jun 28 15:04:18 UTC 2023
+     RealMemory=192000 AllocMem=150720 FreeMem=39430 Sockets=2 Boards=1
+     State=MIXED ThreadsPerCore=1 TmpDisk=228000 Weight=3 Owner=N/A MCS_label=N/A
+     Partitions=free-gpu,gpu
+     BootTime=2024-09-17T15:48:44 SlurmdStartTime=2024-10-22T16:04:19
+     LastBusyTime=2024-10-21T16:19:36 ResumeAfterTime=None
+     CfgTRES=cpu=40,mem=187.50G,billing=168,gres/gpu=4
+     AllocTRES=cpu=26,mem=150720M,gres/gpu=4
+     CurrentWatts=0 AveWatts=0
+
+How many CPU and GPUs are available in gpu partition:
   .. code-block:: console
 
      [user@login-x:~]$ sinfo -NO "CPUsState:14,Memory:9,AllocMem:10,Gres:14,GresUsed:22,NodeList:20" -p gpu
@@ -321,19 +339,20 @@ Show information about how many CPU and GPUs are available in gpu partition:
      0/32/0/32     245000  0        gpu:A30:4   gpu:A30:0(IDX:N/A)     hpc3-gpu-k54-01
      15/17/0/32    245000  46080    gpu:A100:2  gpu:A100:2(IDX:0-1)    hpc3-gpu-l54-03
      0/32/0/32     245000  0        gpu:A30:4   gpu:A30:0(IDX:N/A)     hpc3-gpu-l54-07
+     ... output cut ...
 
-  The above output (similar lines removed for brevity) shows the 
+  The above output shows in the columns:
 
-  * number of cores by state as "Allocated/Idle/Other/Total" in the column CPUS(A/I/O/T).
-  * memory already in use (ALLOCMEM)
-  * GPUs in use (GRES_USED), the part after GPU type means
-
-    * 0(IDX:N/A) all are free
-    * 4(IDX:0-3) all four are in use (0,1,2,3)
-    * 3(IDX:0,2-3) three are in use (0,2,3) and one (1) is free
-
+  | CPUS(A/I/O/T): number of cores by state as "Allocated/Idle/Other/Total"
+  | ALLOCMEM: memory already in use
+  | GRES: type and number of GPUs
+  | GRES_USED: which GPUs are in use, the part after GPU type means:
+  |    * 4(IDX:0-3) all four are in use (0,1,2,3)
+  |    * 3(IDX:0,2-3) three are in use (0,2,3) and one (1) is free
+  |    * 0(IDX:N/A) all are free
+  | NODE_LIST: nodes with this configuration
     
-Show configuration information about a standard queue:
+Detailed configuration of a standard queue:
   .. code-block:: console
 
      [user@login-x:~]$ scontrol show partition standard
@@ -349,4 +368,3 @@ Show configuration information about a standard queue:
         JobDefaults=(null)
         DefMemPerCPU=3072 MaxMemPerCPU=6144
         TRES=cpu=7136,mem=35665000M,node=159,billing=7136
-
