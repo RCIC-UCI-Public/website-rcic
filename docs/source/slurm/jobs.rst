@@ -306,7 +306,7 @@ To request a feature/constraint, you must add to your submit script:
    #SBATCH --constraint=<feature_name>
 
 where :tt:`<feature_name>` is one of the defined features (or one of the standard features described 
-in the `Slurm sbatch <https://slurm.schedmd.com/sbatch.html>`_ guide).
+in the `Slurm sbatch <https://slurm.schedmd.com/sbatch.html>`_ guide.
 
 We defined the following features for node selection:
 
@@ -358,7 +358,7 @@ To request nodes with a large local scratch storage:
 
   See :ref:`scratch storage` for details.
 
-To request nodes with CPUS capable of AVX512 instructions:
+To request nodes with CPUs capable of AVX512 instructions:
 
   .. code-block:: bash
 
@@ -401,26 +401,28 @@ For example, a user panteater who has 2 running jobs:
 Slurm doesn't have any default amount of scratch space defined per job and that may be fine for most, but not all.
 The problem of having enough local scratch arises when nodes are shared by multiple jobs and users.
 :red:`One job can cause the other jobs running on the same node to fail`, so please be considerate of your
-colleagues by doing the following.
+colleagues by doing the following for your job:
 
-1. **Your job creates just under a few Gb of temporary data directly in $TMPDIR**
+1. **Your job creates a few Gb of temporary data directly in $TMPDIR**
+
    and handles the automatic creation and deletion of these temp files.
    Many Python, Perl, R, Java programs and 3rd party commercial software will
    write to :tt:`$TMPDIR` which is the default for many applications.
 
    You don't need to do anything special. Do not reset :tt:`$TMPDIR`.
 
-2. **Your job creates just under a few Gb of output in the directory where you
-   run the job and does many frequent small file reads and writes** (a few Kb every few minutes).  
+2. **Your job creates a few Gb of output in the directory where you
+   run the job and does many frequent small file reads or writes** (a few Kb every few minutes).  
 
    You will need to use a scratch storage where you bring your job data, write temp files 
    and then copy the final output files back when the job is done.
 
-   The reason is :red:`parallel filesystem (CRSP or DFS) is not suitable for small
-   writes and reads` and such operations need to be off-loaded to the local
-   scratch area on the node where the job is executed. 
-   Otherwise you create an I/O problem not just for yourself but for many others 
-   who use the same filesystem.
+   .. attention:: 
+      The reason is :red:`parallel filesystem (CRSP or DFS) is not suitable for small
+      writes and reads` and such operations need to be off-loaded to the local
+      scratch area on the node where the job is executed. 
+      Otherwise you create an I/O problem not just for yourself but for many others 
+      who use the same filesystem.
 
    The following partial submit script shows how to use :tt:`$TMPDIR` for such jobs:
 
@@ -431,20 +433,20 @@ colleagues by doing the following.
       #SBATCH --tmp=20G                 # requesting 20 GB (1 GB = 1,024 MB) local scratch
 
       # explicitly copy input files from DFS/CRSP to $TMPDIR
-      # note, $TMPDIR already exists for your job
+      # note, $TMPDIR is already created for your job by SLURM
       cd $TMPDIR
       cp /pub/myacount/path/to/my/jobs/data/*dbfiles  $TMPDIR
 
       # create a directory for the application output
       mkdir -p $TMPDIR/output
 
-      # your job commands are here
+      # your job commands, this is just one possible example
       # output from application goes to $TMPDIR/output/
       mapp -tf 45 -o $TMPDIR/output     # program output directory is specified via -o flag 
       mapp2  > $TMPDIR/output/mapp.out  # program output in a specific file
 
       # explicitly copy output files from $TMPDIR to DFS/CRSP
-      mv $TMPDIR/output/* /pub/myaccount/myrun134/
+      mv $TMPDIR/output/* /pub/myaccount/myDesiredDir/
 
    In this scenario, Slurm job is run in :tt:`$TMPDIR` which is much faster
    for the disk I/O, then the program output is copied back as a big write 
@@ -466,7 +468,7 @@ colleagues by doing the following.
       #SBATCH --tmp=180G                 # requesting 180 GB (1 GB = 1,024 MB) local scratch
       #SBATCH --constraint=fastscratch   # requesting nodes with a lot of space in /tmp
 
-   Folow the above (job type 2 above) submit script example to:
+   Folow the above (job type 2) submit script example to:
 
    | - at job start explicitly copy input files from DFS/CRSP to :tt:`$TMPDIR`
    | - at job end explicitly copy output files from :tt:`$TMPDIR` to DFS/CRSP
@@ -533,25 +535,25 @@ If you want more memory for the job you should:
           #SBATCH --mem=500           # requesting 500MB memory for the job
           #SBATCH --mem=4G            # requesting 4GB (1GB = 1,024MB) for the job
 
-  2. Ask for the memory per CPU in submit script
+  #. Ask for the memory per CPU in submit script
 
        .. code-block:: bash
      
           #SBATCH --mem-per-cpu=5000  # requesting 5000MB memory per CPU
           #SBATCH --mem-per-cpu=2G    # requesting 2GB memory per CPU
 
-  3.Ask for 180 Gb for job in standard partition:
+  #. Ask for 180 Gb for job in standard partition:
 
        .. code-block:: bash
      
           #SBATCH --partition=standard 
           #SBATCH --mem-per-cpu=6G    # requesting max memory per CPU
-          #SBATCH --ntasks=30         # requesting 30 CPUS
+          #SBATCH --ntasks=30         # requesting 30 CPUs
 
-     Ask for max memory per CPU and a number of CPUS to make up needed 
+     Ask for max memory per CPU and a number of CPUs to make up needed 
      total memory for job as *30 x 6Gb = 180Gb*
 
-  4. Use ``srun`` and request 2 CPUs with a default or max memory
+  #. Use ``srun`` and request 2 CPUs with a default or max memory
 
      .. code-block:: console
      
@@ -562,7 +564,7 @@ If you want more memory for the job you should:
      | The first job will have a total memory *2 x 3Gb = 6Gb* 
      | The second and third job each will have a total memory *2 x 18Gb = 36Gb*
      
-  5. Use ``srun`` and request 4 CPUs and 10Gb memory per CPU,
+  #. Use ``srun`` and request 4 CPUs and 10Gb memory per CPU,
   
      .. code-block:: console
      
@@ -674,7 +676,6 @@ To check the status of your job in the queue:
 
   This frequent querying of Slurm queue  creates an unnecessary overhead
   and affects many users. 
-
   Instead, check your job output and use :ref:`mail notification` for the job end.
 
 To get detailed info about the job:
@@ -741,12 +742,16 @@ In order to run jobs on HPC3, a user must have available CPU hours.
 Efficiency
 ^^^^^^^^^^
 
-There are a few commands that provide info about resources consumed by the job.
+| ``sacct``
+| ``seff``
+| ``sstat``
 
-:This command is used for running jobs:
+These are commands that provide info about resources consumed by the job.
+
+:use for running jobs:
   ``sstat``
 
-:These commands can be used after the job completes:
+:use after the job completes:
   ``sacct``,  ``seff``
 
 All commands need to use a valid *jobid*.
@@ -1057,10 +1062,9 @@ The checks are the same for both.
          TRES=cpu=1,mem=6G,node=1,billing=1
          <output  cut> 
 
-   Similar output is for the second job. Note :tt:`TimeLimit`.
-   For each of two pending jobs the resource request is
-
-   :math:`1 CPU * 14 days * 24 hrs = 336 hrs`
+   | Similar output is for the second job. Note the :tt:`TimeLimit`.
+   | For each of two pending jobs the resource request is:
+   |     :math:`1 CPU * 14 days * 24 hrs = 336 hrs`
 
 4. Check ALL the running jobs for your lab account
 
@@ -1073,21 +1077,17 @@ The checks are the same for both.
       12341048  standard myjob_41  panteater      PI_lab  R      1 14-00:00:00 13-23:00:22
       < total 200 lines for 200 jobs >
 
-   Each of 200 running jobs in the account has run for about 1hr out of allocated 14 days.
-   Total max time Slurm has allocated for these running jobs is 
+   | Each of 200 running jobs in the account has run for about 1hr out of allocated 14 days.
+   | Total max time Slurm has allocated for these running jobs is 
+   |     :math:`1 CPU * 200 jobs * 14 days * 24 hrs = 67200 hrs`
 
-   :math:`1 CPU * 200 jobs * 14 days * 24 hrs = 67200 hrs`
+   | There are about *200 hrs* already used, (each job already run for ~1 hr), so remaining needed
+   | balance is :tt:`67100 hrs`.  Per step 1 above, your 2 pending jobs require
+   |    :math:`1 CPU * 14 days * 24 hrs * 2 jobs = 672 hrs`.
 
-   There are about *200 hrs* already used, (each job run ~1 hr),
-   so remaining needed balance is :tt:`67100 hrs`. 
-   Per step 1 above, your 2 pending jobs require
-
-   :math:`1 CPU * 14 days * 24 hrs * 2 jobs = 672 hrs`.
-
-   Slurm is computing that if all current jobs ran to their MAX times and if the next job
-   were to run MAX time your account would end up negative:
-
-   :math:`67300 - 67100 - 672 = -472 hrs`.
+   | Slurm is computing that if all current jobs ran to their MAX times and if the next job
+   | were to run MAX time your account would end up negative:
+   |    :math:`67300 - 67100 - 672 = -472 hrs`.
 
    Therefore Slurm puts these new jobs on hold.  
    These 2 jobs will  start running once some of the remaining running jobs completed
