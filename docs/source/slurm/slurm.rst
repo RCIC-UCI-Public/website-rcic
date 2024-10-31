@@ -161,7 +161,7 @@ and job preemption configuration, and cost per hour in :ref:`units cost`.
    +-----------+---------------------------+------------------+-------------+------------+
    | Partition | Default / Max             | Default / Max    | Cost        | Job        |
    |           |                           |                  |             |            |
-   | name      | memory per core           | runtime          | (units/hr)  | preemtion  |
+   | name      | memory per core           | runtime          | (units/hr)  | preemption |
    +===========+===========================+==================+=============+============+
    | standard  | 3 GB / 6 GB               | 2 day / 14 day   | 1           | No         |
    +-----------+---------------------------+------------------+-------------+------------+
@@ -181,7 +181,7 @@ and job preemption configuration, and cost per hour in :ref:`units cost`.
    +-----------+---------------------------+------------------+-------------+------------+
    | Partition | Default / Max             | Default / Max    | Cost        | Job        |
    |           |                           |                  |             |            |
-   | name      | memory per core           | runtime          | (units/hr)  | preemtion  |
+   | name      | memory per core           | runtime          | (units/hr)  | preemption |
    +===========+===========================+==================+=============+============+
    | gpu       | 3 GB / 9 GB               | 2 day / 14 day   | 33          | No         |
    +-----------+---------------------------+------------------+-------------+------------+
