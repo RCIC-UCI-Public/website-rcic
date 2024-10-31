@@ -55,6 +55,12 @@ the following information:
 .. attention:: | Students and group members who wish to use Slurm lab account
                | please see :ref:`add lab account`
 
+Accounts balances
+^^^^^^^^^^^^^^^^^
+
+| Each personal and lab account has a balance that is getting used when you run Slurm jobs. 
+| Please learn :ref:`how to check your accounts balances <job accounting>`.
+
 .. _units cost:
 
 Allocation Units
