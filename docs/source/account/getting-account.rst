@@ -10,9 +10,10 @@ Getting an account
 
    * Your name
    * Your UCINetID
-   * Optionally, *if you are affiliated with a PI lab and want to use PI lab resources*
+   * Optionally,
 
-     You need to check with your PI what resources are available to the group
+     **If you are affiliated with a PI lab and want to use PI lab resources**
+     you need to check with your PI what resources are available to the group
      (some PIs don't have all resources) and need to specify what resources you are requesting:
 
      | :ref:`How to be added to PI group Slurm account <add lab account>`
