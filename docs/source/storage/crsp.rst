@@ -121,29 +121,31 @@ Getting CRSP Account
 
 All requests described below must be sent to hpc-support@uci.edu.
 
-:underline:`I am a researcher on campus and I want to have an access`:
-  If you are a ladder-rank faculty or have an exception granted to act as PI on federal grants
-  by UCI Office of research, you may request a no-cost 1TB lab allocation and include:
+.. note:: A PI is a ladder-rank faculty or a researcher who has an exception granted to act as PI on federal grants
+          by UCI Office of research.
+
+:underline:`I am a PI on campus and I want to have an access`:
+  You may request a no-cost 1TB lab allocation and include:
 
   - your UCInetID 
   - UCINetIDs and names of the people that you want to add
 
-:underline:`I am a researcher and I want to add students/postdocs to my lab`:
+:underline:`I am a PI and I want to add students/postdocs to my lab`:
   You should send a request and include:
 
   - your existing CRSP lab name
   - UCINetIDs and names of the people you want to add
 
-:underline:`Ia m a researcher and I want to access my colleagues lab`:
+:underline:`I am a PI and I want to access my colleagues lab`:
   Your colleague must send a request to grant access to their lab and include:
 
   - existing CRSP lab name
   - your UCINetIDs
 
-:underline:`Ia m a researcher and I want colleagues outside of UCI to have access to my lab`:
+:underline:`I am a PI and I want colleagues outside of UCI to have access to my lab`:
   You must first sponsor a UCINetID (see :ref:`access`) then send a request to grant access.
 
-:underline:`I am a student/postdoc/researcher and i want to access my PI lab`:
+:underline:`I am a student/psotdoc/researcher and I want to access my PI lab`:
   You should send a request and include:
 
   - your UCINetID
