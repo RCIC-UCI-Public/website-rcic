@@ -8,6 +8,12 @@ expands upon the condo-style model of `GreenPlanet <https://ps.uci.edu/greenplan
 and the now-retired HPC clusters. 
 Condo clusters have one model of expanding capacity - users purchase physical hardware.
 
+UCI has purchased both CPU and GPU nodes hardware as part of HPC3. Annual funds are
+used to add to this resource enabling RCIC to provide :ref:`no-cost allocations <allocations>`
+to a larger fraction of the UCI research community.
+
+HPC3 includes a rich collection of domain-specific :ref:`modules` software packages.
+
 **HPC3 supports expansion through hardware purchase and enables additional capacity via:**
   | :ref:`no-cost allocations` allocations granting of cycles from UCI-purchased hardware
   | :ref:`recharge allocations` purchase allocations of cycles by the core-hour

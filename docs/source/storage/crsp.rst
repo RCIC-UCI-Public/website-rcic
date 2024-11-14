@@ -17,6 +17,10 @@ CRSP is available across the network, it supports multiple modes of
 storing and retrieving data including web browsers, "folders" on laptops or desktops,
 and just another file path on UCI's High-performance computing clusters.
 
+CRSP is funded through central campus to guarantee a fixed amount of no-cost storage to any
+faculty member or staff researcher who requests space. These campus funds pay for the people,
+the baseline infrastructure, and vendor maintenance required to provide the robust infrastructure.
+
 .. important:: CRSP is only available on the UCI Network or through the campus VPN.
 
 While there are many possible use cases, a driving one is:
