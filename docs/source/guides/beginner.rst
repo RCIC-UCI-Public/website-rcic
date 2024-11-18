@@ -56,15 +56,14 @@ Logging in
 The full name of the :tt:`HPC3` cluster is **hpc3.rcic.uci.edu**
 and this is the name that should  be used in all connections.
 
-We will require multi-factor authentication for all password-based logins.
-Please make sure you have enabled your DUO device using
-`UCI’s Duo infrastructure <https://www.oit.uci.edu/services/accounts-passwords/duo/>`_
+We require multi-factor authentication for all password-based logins.
+Please make sure you have enabled your DUO device using `UCI’s Duo infrastructure
+<https://www.oit.uci.edu/services/accounts-passwords/duo/>`_.
 
 To directly login on :tt:`HPC3` cluster you must:
-
-| be connected to the UCI campus VPN (or be on the campus network)
-| use ``ssh`` command from your **Terminal** application
-| have a way to use DUO authentication
+  | be connected to the UCI campus VPN (or be on the campus network)
+  | use ``ssh`` command from your **Terminal** application
+  | have a way to use DUO authentication
 
 **Step 1**
   Connect to UCI campus VPN, see |ucivpn|_ instructions
@@ -210,13 +209,13 @@ command. For example to learn more about ``ls`` command type:
 
    [user@login-x:~]$ man ls
 
-Use the :guilabel:`space` key to scroll through the output on the screen.
+and use the :guilabel:`space` key to scroll through the output on the screen.
 
 GUI
 ---
 
 The cluster environment **is not well suited for GUI type of applications**.
-Most of the commands users need to type in, there are no 'clickable' icons and
+Most of the commands users need to type in, there are no clickable icons and
 no pop-up windows.
 
 File editing
@@ -231,10 +230,10 @@ See the :ref:`editors` beginner tutorials, many more are available online.
 Running applications
 --------------------
 
-Cluster is a shared resource, at any given time there can be many users
-and hundreds of jobs running. What you do can adversely affect others.
+Cluster is a shared resource, at any time there are many users logged in 
+and hundreds of jobs are running. What you do can adversely affect others.
 
-.. important:: Please follow :ref:`conduct rules` to avoid problems.
+:red:`Please follow` :ref:`conduct rules` :red:`to avoid problems`.
 
 We use Slurm scheduler to run CPU intensive or long running applications.
 In depth :ref:`Slurm guide<slurm manager>` provides extensive info about using the scheduler.
@@ -392,17 +391,18 @@ Please see the links below for detailed information about each filesystem.
   additional DFS areas (:tt:`/dfs2`, :tt:`/dfs3a`, etc).
 
 :ref:`crsp`
-  The CRSP is available in :tt:`/share/crsp`. By default users don't have
-  access to this area.
+  :red:`By default users don't have access to this area`.
 
   Depending on a lab affiliation, some users may have space in
-  :tt:`/share/crsp/lab/labname/ucinetid`.
+  :tt:`/share/crsp/lab/labname/ucinetid`. Please see :ref:`getting crsp account`
+  for details.
 
-Check quotas on regular basis after adding or removing a lot of files, transferring data
-or running computational jobs that create a lot of files:
-
-|   :ref:`home check quotas` :tt:`$HOME` quotas.
-|   :ref:`dfs check quotas` DFS quotas.
+.. important::
+     | Check quotas on regular basis after adding or removing a lot of files,
+     | transferring data or running computational jobs that create a lot of files:
+     |   :ref:`How to check $HOME quotas <home check quotas>`
+     |   :ref:`How to check DFS quotas <dfs check quotas>`
+     |   :ref:`How to check CRSP quotas <crsp check quotas>`
 
 Transferring files
 ------------------
@@ -430,15 +430,13 @@ your UCNetID credentials for your user name and password.
   We omit OPTIONS for thie simple cases.
 
   The SOURCE and DESTINATION may be specified as a local file name, or
-  a remote host with optional path in the form :tt:`user@server:path`.
+  a remote host with optional path in the form `user@server:path` where
 
-  :tt:`user`
-    your account on a cluster
-  :tt:`@server:`
-    is the server name delimited with 2 special characters, :tt:`@`
-    separates user name from server name, and :tt:`:` separates server name from path name
-  :tt:`path`
-    is a file path on the server
+  | :blue:`user` is your account on a cluster
+  | :blue:`@server:` is the server name delimited with 2 special characters,
+  |        character :blue:`@` separates user name from server name
+  |        character :blue:`:` separates server name from path name
+  | :blue:`path` is a file path on the server
 
 File path names can be made explicit using absolute or relative names. For
 example :tt:`/Users/someuser/project1/input/my.fasta` is an absolute  or full name,
@@ -476,8 +474,8 @@ Examples below use UCnetID :tt:`panteater`, you need to use your UCnetID credent
 4. To transfer the :tt:`/pub/panteater/results/` directory  and all its
    contents from HPC3 to your laptop
    into the directory where the command is executed
-   top-level directory with its contents locally on your laptop. Note the
-   :tt:`.` (a single dot character ) at the end means *copy to this current directory*.
+   top-level directory with its contents locally on your laptop. Note, the
+   single dot character at the end means *copy to this current directory*.
 
    .. code-block:: console
 
@@ -487,7 +485,8 @@ Logout
 ------
 
 You can run many commands and submit many jobs.
-After you are done with your work you need to logout from the cluster:
+After you are done with your work you need to logout from the cluster
+using ``logout`` or ``exit`` command, for example:
 
 .. code-block:: console
 
