@@ -37,33 +37,44 @@ Install with conda
 **Steps below explain the basic conda application install specific to the cluster**.
 
 Usually, to install an application one needs to create a local conda environment.
-You can choose either Miniconda or Anaconda depending on what is your package
-installation instructions require and build your local conda environment.
+You can choose either Miniconda, Anaconda or Mamba depending on what your package
+installation instructions require. 
 
-:red:`You do not need to install Miniconda or Anaconda` (your software
-instructions may say you do).
-We provide a few basic Minicaonda/Anaconda versions that can be accessed via modules.
+:red:`You do not need to install Miniconda, Anaconda or Mamba` (your software
+instructions may say you do so).
+We provide a few basic versions that can be accessed via modules and they can
+be used to create your local environments.
+
 To find out what modules are available:
 
 .. code-block:: console
 
    [user@login-x:~]$ module avail miniconda
    ----------------- /opt/rcic/Modules/modulefiles/LANGUAGES ----------------------
-   miniconda3/4.8.5  miniconda3/4.12.0
+   miniconda3/4.8.5  miniconda3/4.12.0  miniconda3/23.5.2  
 
    [user@login-x:~]$ module avail anaconda
    ---------------- /opt/rcic/Modules/modulefiles/LANGUAGES -----------------------
-   anaconda/2020.07 anaconda/2021.11 anaconda/2022.05 anaconda/2024.06
+   anaconda/2020.07  anaconda/2021.11  anaconda/2022.05  anaconda/2024.06
+
+   [user@login-x:~]$ module avail mamba
+   mamba/24.3.0
 
 To install conda environment in your user area
-follow the example steps below. The example is given for the
-anaconda version 2021.11 and for Python 3.9.7. The steps are the
-same for other versions of conda (simply substitute name/version where needed).
-Your commands output will have your UCINetID where applicable (in the steps below we use as an
-example panteater UCINetID).
+follow the example steps below done for the user (UCInetID) *panteater* who is
+using Miniconda version 23.5.2. 
+
+The installation steps are the same for other versions of conda,
+simply substitute module name and version where needed.
+
+.. attention:: Conda always provides python and a few other applications.
+               For this reason :red:`DO NOT load any python or other modules when loading
+               with anaconda/miniconda/mamba modules`. If you do, your environment
+               will have problems.
 
 .. attention:: Note, if you previoulsy tried to install conda packages make sure that your :tt:`$HOME/.bashrc`
-   file does not have any conda-added lines (step 4 below explains what they are).
+   file does not have any conda-added lines.  Remove the lines before you proceed with the install,
+   step 4 below explains what they are.
 
 1. **Get an interactive node**
 
@@ -75,18 +86,22 @@ example panteater UCINetID).
 
       [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
 
-   For info how to get an interactive node with more memory or with GPU
-   see :ref:`interactive job`.
+   | For info how to get an interactive node with more memory or with GPU see :ref:`interactive job`.
+   | Next steps are executed on interactive node.
 
-   Next steps are executed on interactive node.
+#. **Load desired anaconda/miniconda/mamba module**
 
-2. **Load desired anaconda/miniconda module**
-
-   For building in your user area (this means in your $HOME area), first you need to load anaconda module:
+   For building in your $HOME area, first you need to load anaconda module:
 
    .. code-block:: console
 
-      [user@hpc3-xx-yy:~]$ module load anaconda/2021.11
+      [user@hpc3-xx-yy:~]$ module load miniconda3/23.5.2
+      [user@hpc3-xx-yy:~]$ module list
+      Currently Loaded Modulefiles:
+       1) miniconda3/23.5.2
+ 
+
+#. **Verify conda info**
 
    Check that ``conda`` command is available after module loading, the output of the
    command below should be similar to:
@@ -94,54 +109,52 @@ example panteater UCINetID).
    .. code-block:: console
 
       [user@hpc3-xx-yy:~]$ which conda
-      /opt/apps/anaconda/2021.11/bin/conda
+      /opt/apps/miniconda3/23.5.2/bin/conda
 
-   .. attention:: Conda always provides python and a few other applications.
-                  For this reason DO NOT load any python or other modules when working
-                  with anaconda/miniconda modules. If you do, your environment
-                  will have problems.
-
-3. **Verify conda info**
-
-   To check info about conda, execute command:
+   To check info about conda:
 
    .. code-block:: console
 
       [user@hpc3-xx-yy:~]$ conda info
-           active environment : None
-             user config file : /data/homezvol0/panteater/.condarc
-       populated config files :
-                conda version : 4.10.3
-          conda-build version : 3.21.5
-               python version : 3.9.7.final.0
-             virtual packages : __linux=3.10.0=0
-                                __glibc=2.17=0
-                                __unix=0=0
-                                __archspec=1=x86_64
-             base environment : /opt/apps/anaconda/2021.11  (read only)
-            conda av data dir : /opt/apps/anaconda/2021.11/etc/conda
-        conda av metadata url : None
-                 channel URLs : https://repo.anaconda.com/pkgs/main/linux-64
-                                https://repo.anaconda.com/pkgs/main/noarch
-                                https://repo.anaconda.com/pkgs/r/linux-64
-                                https://repo.anaconda.com/pkgs/r/noarch
-                package cache : /opt/apps/anaconda/2021.11/pkgs
-                                /data/homezvol0/panteater/.conda/pkgs
-             envs directories : /data/homezvol0/panteater/.conda/envs
-                                /opt/apps/anaconda/2021.11/envs
-                     platform : linux-64
-                   user-agent : conda/4.10.3 requests/2.26.0 CPython/3.9.7 Linux/3.10.0-1160.53.1.el7.x86_64 centos/7.9.2009 glibc/2.17
-                      UID:GID : 1234567:1234567
-                   netrc file : None
-                 offline mode : False
+	            active environment : None
+            user config file : /data/homezvol0/panteater/.condarc
+      populated config files : /opt/apps/miniconda3/23.5.2/condarc
+                               /data/homezvol0/panteater/.condarc
+               conda version : 23.5.2
+         conda-build version : not installed
+              python version : 3.11.4.final.0
+            virtual packages : __archspec=1=x86_64
+                               __glibc=2.28=0
+                               __linux=4.18.0=0
+                               __unix=0=0
+            base environment : /opt/apps/miniconda3/23.5.2  (read only)
+           conda av data dir : /opt/apps/miniconda3/23.5.2/etc/conda
+       conda av metadata url : None
+                channel URLs : https://conda.anaconda.org/bioconda/linux-64
+                               https://conda.anaconda.org/bioconda/noarch
+                               https://repo.anaconda.com/pkgs/main/linux-64
+                               https://repo.anaconda.com/pkgs/main/noarch
+                               https://repo.anaconda.com/pkgs/r/linux-64
+                               https://repo.anaconda.com/pkgs/r/noarch
+                               https://conda.anaconda.org/conda-forge/linux-64
+                               https://conda.anaconda.org/conda-forge/noarch
+                               https://conda.anaconda.org/qiime2/linux-64
+                               https://conda.anaconda.org/qiime2/noarch
+               package cache : /data/homezvol0/panteater/.conda/pkgs
+                               /opt/apps/miniconda3/23.5.2/pkgs
+            envs directories : /data/homezvol0/panteater/.conda/envs
+                               /opt/apps/miniconda3/23.5.2/envs
+                    platform : linux-64
+                  user-agent : conda/23.5.2 requests/2.29.0 CPython/3.11.4 Linux/4.18.0-477.15.1.el8_8.x86_64 rocky/8.8 glibc/2.28
+                     UID:GID : 1234567:1234567
+                  netrc file : None
+                offline mode : False
 
    Check **package cache** and **envs directories** entries in the above output.
    There should be 2 lines for each, one referring to the system installed
    location (lines start with :tt:`/opt/apps`) and another to your user location
-   (line starts with :tt:`/data/homezvol`).
-
-   Note, by default conda does installations in $HOME and usually
-   there is plenty of space in $HOME for multiple environments.
+   (line starts with :tt:`/data/homezvol`). You can not write in system
+   location, you install will be in your user location.
 
    If there are missing entries which point to your user area, you will need
    to create a file in your $HOME using your favorite editor.
@@ -152,109 +165,169 @@ example panteater UCINetID).
 
       pkgs_dirs:
         - /data/homezvol0/panteater/.conda/pkgs
-        - /opt/apps/anaconda/2021.11/pkgs
+        - /opt/apps/miniconda/23.5.2/pkgs
       envs_dirs:
         - /data/homezvol0/panteater/.conda/envs
-        - /opt/apps/anaconda/2021.11/envs
+        - /opt/apps/miniconda/23.5.2/envs
 
+   Note, by default conda does installations in $HOME and usually
+   there is plenty of space in $HOME for multiple environments.
 
    Alternative install location:
       It is possible to change installs to go to a different location.
       For example, if you want to install conda environments in your
-      :tt:`/pub/$USER/anaconda/2021.11` directory,
+      :tt:`/pub/$USER/myconda/23.5.2` directory,
       your :tt:`.condarc` should be edited to look like: 
 
       .. code-block:: console
 
          pkgs_dirs:
-           - /pub/$USER/anaconda/2021.11/pkgs
-           - /opt/apps/anaconda/2021.11/pkgs
+           - /pub/$USER/myconda/23.5.2/pkgs
+           - /opt/apps/miniconda/23.5.2/pkgs
          envs_dirs:
-           - /pub/$USER/anaconda/2021.11/envs
-           - /opt/apps/anaconda/2021.11/envs
+           - /pub/$USER/myconda/23.5.2/envs
+           - /opt/apps/miniconda/23.5.2/envs
 
       In place of editing one can do this dynamically and run command:
 
       .. code-block:: console
 
          [user@login-x:~]$ conda config --write \
-           --set pkgs_dirs /pub/$USER/anaconda/2021.11/pkgs \
-           --append pkgs_dirs /opt/apps/anaconda/2021.11/pkgs \
-           --set envs_dirs /pub/$USER/anaconda/2021.11/envs \
-           --append envs_dirs /opt/apps/anaconda/2021.11/pkgs
+           --set pkgs_dirs /pub/$USER/myconda/23.5.2/pkgs \
+           --append pkgs_dirs /opt/apps/miniconda/23.5.2/pkgs \
+           --set envs_dirs /pub/$USER/myconda/23.5.2/envs \
+           --append envs_dirs /opt/apps/miniconda/23.5.2/pkgs
 
    Your :tt:`.condarc` file is always in $HOME regardless of the install location.
 
-4. **Initialize conda for your shell**
+
+#. **Initialize conda for your shell**
 
    Run command:
 
    .. code-block:: console
 
       [user@hpc3-xx-yy:~]$ conda init bash
+      no change     /opt/apps/miniconda3/23.5.2/condabin/conda
+      no change     /opt/apps/miniconda3/23.5.2/bin/conda
+      no change     /opt/apps/miniconda3/23.5.2/bin/conda-env
+      no change     /opt/apps/miniconda3/23.5.2/bin/activate
+      no change     /opt/apps/miniconda3/23.5.2/bin/deactivate
+      no change     /opt/apps/miniconda3/23.5.2/etc/profile.d/conda.sh
+      no change     /opt/apps/miniconda3/23.5.2/etc/fish/conf.d/conda.fish
+      no change     /opt/apps/miniconda3/23.5.2/shell/condabin/Conda.psm1
+      no change     /opt/apps/miniconda3/23.5.2/shell/condabin/conda-hook.ps1
+      no change     /opt/apps/miniconda3/23.5.2/lib/python3.11/site-packages/xontrib/conda.xsh
+      no change     /opt/apps/miniconda3/23.5.2/etc/profile.d/conda.csh
+      modified      /data/homezvol0/panteater/.bashrc
 
-   This adds a few lines to your :tt:`~/.bashrc` file which may not always be desirable
-   for your work with other programs.  Edit the :tt:`~/.bashrc` file and move all the lines
-   added by conda into another file, for example to :tt:`~/.mycondainit-2021.11`.
-   The lines are at the end of your :tt:`~/.bashrc` file (lines start end with *conda initialize*
+      ==> For changes to take effect, close and re-open your current shell. <==
+
+   The output is just the info for you which tells:
+
+   - *no change* was done to any of the system location files, which is correct.
+   - your :tt:`.bashrc` file was changed and you need to do something for it to take an effect.
+
+   The lines that are added to your :tt:`.bashrc` modify your shell behavior and this
+   is not be desirable for all your work and can create a problem when you
+   are using other commands or software modules. 
+
+   You need to move the conda lines from :tt:`.bashrc` to a different file
+   which then will be executed only when you need to use conda and will not
+   impact your shell environment for all your other work.
+
+   Choose your favorite text editor to edit the :tt:`.bashrc` file and move all the lines
+   added by conda into another file in your $HOME, for example to :tt:`.myminiconda3-23.5.2`.
+   The lines are at the end of your :tt:`.bashrc` file (lines start end with *conda initialize*
    and all the lines between them):
 
    .. code-block:: bash
 
       # >>> conda initialize >>>
       # !! Contents within this block are managed by 'conda init' !!
-          <some lines are cut here>
-      __conda_setup="$('/opt/apps/anaconda/2021.11/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+      __conda_setup="$('/opt/apps/miniconda3/23.5.2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
       if [ $? -eq 0 ]; then
           eval "$__conda_setup"
       else
-          if [ -f "/opt/apps/anaconda/2021.11/etc/profile.d/conda.sh" ]; then
-              . "/opt/apps/anaconda/2021.11/etc/profile.d/conda.sh"
+          if [ -f "/opt/apps/miniconda3/23.5.2/etc/profile.d/conda.sh" ]; then
+              . "/opt/apps/miniconda3/23.5.2/etc/profile.d/conda.sh"
           else
-              export PATH="/opt/apps/anaconda/2021.11/bin:$PATH"
+              export PATH="/opt/apps/miniconda3/23.5.2/bin:$PATH"
           fi
       fi
       unset __conda_setup
       # <<< conda initialize <<<
 
-   Note, your lines will be a little different depending on what conda module was used.
+   Note, your lines will be a little different depending on what module name
+   and version were used.  Keep the new file name consistent with the module name and version.
+   The file must be in your $HOME.
 
-5. **Create a local environment**
+   Now you can execute a command for the conda added changes to take an effect:
 
-   Now you are ready to :red:`follow the instructions provided by your software package` and
-   can create your local conda environment. The name  can be anything
-   that makes sense, has to be a single word (no spaces), the exact
+   .. code-block:: console
+
+      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-23.5.2
+      (base)[user@hpc3-xx-yy:~]$
+
+   Note, your command line prompt changed and now has :tt:`(base)` pre-pended. This means
+   conda base environment that module provides is activated.
+
+#. **Create a local environment**
+
+   Now you are ready to create your local conda environment.
+
+   :red:`Follow the instructions provided by your software package`.
+   The name of your environment can be anything that makes sense, has to be a single word (no spaces), the exact
    command will be provided in your software instructions and may have
-   additional arguments in it. Here, as an example  we create a local
+   additional arguments in it. Here, as an example we create a local
    environment called **Local2**:
 
    .. code-block:: console
 
-      [user@hpc3-xx-yy:~]$ conda create -n Local2
+      (base)[user@hpc3-xx-yy:~]$ conda create -n Local2
+      Collecting package metadata (current_repodata.json): done
+      Solving environment: done
 
-   This will take some time to complete as anaconda is installing a lot
-   of packages in your directory :tt:`~/.conda` and depending on what you are
-   installing it may take 2 - 4Gb of space.
-   You will see a lot of messages and at the end something similar to:
+      ==> WARNING: A newer version of conda exists. <==
+        current version: 23.5.2
+        latest version: 24.9.2
 
-   .. code-block:: bash
+      Please update conda by running
+          $ conda update -n base -c defaults conda
 
-      SomePackage-1.2.1    | 28 KB     | ###################### | 100%
+      Or to minimize the number of packages updated during conda update use
+           conda install conda=24.9.2
+
+      ## Package Plan ##
+        environment location: /data/homezvol0/panteater/.conda/envs/Local2
+
+      Proceed ([y]/n)? y
+      
       Preparing transaction: done
       Verifying transaction: done
       Executing transaction: done
       #
-      # To activate this environment, use:
-      # > conda activate Local2
+      # To activate this environment, use
+      #     $ conda activate Local2
       #
-      # To deactivate an active environment, use:
-      # > conda deactivate
-      #
+      # To deactivate an active environment, use
+      #     $ conda deactivate
+
+   | Above, most if the line are just info from conda.
+   | The only input from the user is :blue:`y` on the *Proceed ([y]/n)?* line.
+
+   This will take some time to complete as conda is installing 
+   packages in your directory :tt:`~/.conda` and depending on conda version
+   it may take 1 - 2Gb of space.
 
    The last few lines indicate the commands you will need for activating and
    deactivating your conda environment.
 
-   Note, sometimes, conda gives the following error (uid will be different):
+   .. note:: :red:`Do not run conda update`. You can't run conda update
+      command because it requires to be run in the base environment in the system
+      location to which users have no write permissions.
+
+   Sometimes, conda gives the error similar to (uid/gid will be for your account):
 
    .. code-block:: console
 
@@ -262,30 +335,30 @@ example panteater UCINetID).
       Solving environment: done
 
       NotWritableError: The current user does not have write permissions to a required path.
-        path: /opt/apps/anaconda/2021.11/pkgs/urls.txt
+        path: /opt/apps/miniconda/23.5.2/pkgs/urls.txt
         uid: 1234567
         gid: 1234567
 
       If you feel that permissions on this path are set incorrectly, you can manually
       change them by executing
 
-        $ sudo chown 1234567:1234567 /opt/apps/anaconda/2021.11/pkgs/urls.txt
+        $ sudo chown 1234567:1234567 /opt/apps/miniconda3/23.5.2/pkgs/urls.txt
 
       In general, it's not advisable to use 'sudo conda'.
 
    In this case create :tt:`.condarc` file per Step 3 above and try again.
 
-6. **Install your software packages**
+#. **Install your software packages**
 
    In the previous step you created your local environment. Before installing
    software you need to activate it:
 
    .. code-block:: console
 
-      [user@hpc3-xx-yy:~]$ conda activate Local2
+      (base)[user@hpc3-xx-yy:~]$ conda activate Local2
       (Local2)[user@hpc3-xx-yy:~]$ 
 
-   Note that after activation your prompt changed and has **Local2** prepended.
+   Note that after activation your prompt changed and has **Local2** pre-pended.
 
    Using your newly created environment you can now install desired software
    :red:`per your software instructions`. The instructions vary, here is a handful of
@@ -293,22 +366,79 @@ example panteater UCINetID).
 
    .. code-block:: console
 
-      (Local2)[user@hpc3-xx-yy:~]$ conda install -c https://conda.binstar.org/bokeh ggplot
+      (Local2)[user@hpc3-xx-yy:~]$ conda install bioconda::bcftools
       (Local2)[user@hpc3-xx-yy:~]$ conda install xarray
       (Local2)[user@hpc3-xx-yy:~]$ conda install r-base=4.3.1
 
+   Once the install command of a specific package is executed conda prints
+   some information about the install progress. You may see lines similar to
+   (some output is cut for brevity):
+
+   .. code-block:: bash
+
+      Collecting package metadata (current_repodata.json): done
+      Solving environment: done
+      ==> WARNING: A newer version of conda exists. <==
+        current version: 23.5.2
+        latest version: 24.9.2
+
+      Please update conda by running
+          $ conda update -n base -c defaults conda
+
+      Or to minimize the number of packages updated during conda update use
+           conda install conda=24.9.2
+
+      ## Package Plan ##
+        environment location: /data/homezvol0/panteater/.conda/envs/Local2
+        added / updated specs:
+          - bioconda::bcftools
+
+      The following packages will be downloaded:
+          package                    |            build
+          ---------------------------|-----------------
+          _libgcc_mutex-0.1          |      conda_forge           3 KB  conda-forge
+          _openmp_mutex-4.5          |            2_gnu          23 KB  conda-forge
+          bcftools-1.21              |       h8b25389_0         987 KB  bioconda
+          ... lines cut ...
+      The following NEW packages will be INSTALLED:
+        _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
+        _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
+        bcftools           bioconda/linux-64::bcftools-1.21-h8b25389_0
+        bzip2              conda-forge/linux-64::bzip2-1.0.8-h4bc722e_7
+        c-ares             conda-forge/linux-64::c-ares-1.34.3-heb4867d_0
+          ... lines cut ...
+
+   The only input from the user is :blue:`y` on the *Proceed ([y]/n)?* line,
+   type :tt:`y` in response:
+
+   .. code-block:: bash
+
+      Proceed ([y]/n)? y
+
+
+   A successful install ends with lines :
+
+   .. code-block:: bash
+
+      Downloading and Extracting Packages
+
+      Preparing transaction: done
+      Verifying transaction: done
+      Executing transaction: done
+
    .. important::
-      | Some instructions  give commands to install in the base
-        environment.  While this is ok for a full personal install of conda, it will
+      | Some instructions give commands to install in the base
+        environment.  While this is ok for a full *personal* install of conda, it will
         not work on the cluster where you are using conda module and where the base environment
-        is read only.  If your instrucitons specify to install in base, for example:
-      | ``conda install -n base somea-pkg-name``
+        is read only.  
+      | If your instrucitons specify to install in base, for example:
+      |     ``conda install -n base somea-pkg-name``
       | simply remove base from the command as:
-      | ``conda install somea-pkg-name``
-      | This will tell conda to isntall in your active environment where you
+      |     ``conda install somea-pkg-name``
+      | This will tell conda to install in your active environment where you
         have write permissions and not in base where users have no write permissions.
 
-7, **Clean your install**
+#. **Clean your install**
 
    During the install conda downloads packages, create cache, temporary files and logfiles.
    All of these take quite a bit of space but are not needed after the install.
@@ -321,9 +451,9 @@ example panteater UCINetID).
 
    .. code-block:: console
 
-      (base)[user@hpc3-xx-yy:~]$ conda clean -a -f -y
+      (Local2)[user@hpc3-xx-yy:~]$ conda clean -a -f -y
 
-8. **Use your conda environment**
+#. **Use your conda environment**
 
    The above installation steps 1-5 need to be done only once for
    specific software install in a specific local conda environment. 
@@ -338,13 +468,13 @@ example panteater UCINetID).
 
    .. code-block:: console
 
-      [user@hpc3-xx-yy:~]$ module load anaconda/2021.11
-      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-2021.11
+      [user@hpc3-xx-yy:~]$ module load miniconda3/23.5.2
+      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-23.5.2
       (base)[user@hpc3-xx-yy:~]$ conda activate Local2
       (Local2)[user@hpc3-xx-yy:~]$
 
    Note, once conda is initialized *(base)* is added to the prompt, and once
-   you activate your environment its  name *(Local2)* is added.
+   you activate your environment the *(base)* changes to the environment name *(Local2)*.
 
    If you submit your computation via Slurm script these 3 commands need to be
    present before you execute your software commands.
@@ -358,82 +488,110 @@ example panteater UCINetID).
       (Local2)[user@hpc3-xx-yy:~]$ conda deactivate
       (base)[user@hpc3-xx-yy:~]$
 
-9. **Build additional enviornments**
+#. **Build additional enviornments**
 
-   You can build more environments and can now reuse some of the conda
-   existing setup. For example, to add another environment (using the same
-   conda module):
-
-   Get an interactive node
-
-   .. code-block:: console
-
-      [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
-
-   On interactive node, load conda module and initialize conda, then create
-   and activate the new environment and install desired software:
-
-   .. code-block:: console
-
-      [user@hpc3-xx-yy:~]$ module load anaconda/2021.11
-      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-2021.11
-      [user@hpc3-xx-yy:~]$ conda create -n NewEnv
-       Collecting package metadata (current_repodata.json): done
-       Solving environment: done
-
-       ==> WARNING: A newer version of conda exists. <==
-         current version: 4.10.3
-         latest version: 23.7.2
-
-       Please update conda by running
-           $ conda update -n base -c defaults conda
-
-        Package Plan ##
-         environment location: /data/homezvol0/panteater/.conda/envs/NewEnv
-
-       Proceed ([y]/n)? y
-
-       Preparing transaction: done
-       ... 
-       
-      [user@hpc3-xx-yy:~]$ conda activate NewEnv
-      (NewEnv)[user@hpc3-xx-yy:~]$ 
-
-   Now you are ready to install software in your NewEnv environment.
+   **I. Build with different conda version**
+     You can build another environment with a completely different version of
+     conda. Simply follow the instructions from step 1.
    
+     You will have a different :tt:`.mycondainit-VERSION` file and this allows
+     to cleanly separate conda initialization for different conda modules.
 
-10. **Tips**
+   **I. Build with the same conda version**
+     You can build more environments with the same conda module and can 
+	 reuse some of the conda existing setup. For example, to add another
+	 environment (using the same conda module):
 
-   Any ``conda`` commands can be executed after loading specific conda
-   module, one that was used to create your conda environment.
+     Get an interactive node
+
+     .. code-block:: console
+
+        [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
+
+     On interactive node, load conda module and initialize conda, then create
+     new environment:
+
+     .. code-block:: console
+  
+        [user@hpc3-xx-yy:~]$ module load miniconda3/23.5.2
+        [user@hpc3-xx-yy:~]$ . ~/.mycondainit-23.5.2
+        (base)[user@hpc3-xx-yy:~]$ conda create -n NewEnv
+        Collecting package metadata (current_repodata.json): done
+        Solving environment: done
+        ==> WARNING: A newer version of conda exists. <==
+          current version: 23.5.2
+          latest version: 24.9.2
+        Please update conda by running
+            $ conda update -n base -c defaults conda
+        Or to minimize the number of packages updated during conda update use
+             conda install conda=24.9.2
+        ## Package Plan ##
+          environment location: /data/homezvol0/panteater/.conda/envs/NewEnv
+        
+        Proceed ([y]/n)? y
+        
+        Preparing transaction: done
+        Verifying transaction: done
+        Executing transaction: done
+        #
+        # To activate this environment, use
+        #     $ conda activate NewEnv
+        #
+        # To deactivate an active environment, use
+        #     $ conda deactivate
+  
+     Again, the only input from the user is :blue:`y` on the *Proceed ([y]/n)?  y* line.
+
+     Once conda install ends, activate your new enviornment and it is 
+     ready to install your desired software:
+
+     .. code-block:: console
+
+        [user@hpc3-xx-yy:~]$ conda activate NewEnv
+        (NewEnv)[user@hpc3-xx-yy:~]$ 
+
+#. **Tips**
+
+   Any ``conda`` commands can be executed after loading a conda
+   module, usually one that was used to create your conda environment
+   and executing its corresponding conda initialization file:
 
    .. code-block:: console
 
-      [user@login-x:~]$ module load anaconda/2022.05
+      [user@login-x:~]$ module load miniconda3/23.5.2
+      [user@login-x:~]$ . .mycondainit-23.5.2
+      (base)[user@login-x:~]$
 
-   Here we are not activating any environments, just collecting info.
+   In the following commands we are not activating any environments,
+   but simply collecting info.
 
    What conda environments do I have defined?
      .. code-block:: console
 
-        [user@login-x:~]$ conda env list
+        (base)[user@login-x:~]$ conda env list
         # conda environments:
         #
-        mageck             /data/homezvol0/panteater/.conda/envs/mageck
-        ngl                /data/homezvol0/panteater/.conda/envs/ngl
-        base            *  /opt/apps/anaconda/2022.05
+        Local2                   /data/homezvol0/panteater/.conda/envs/Local2
+        NewEnv                   /data/homezvol0/panteater/.conda/envs/NewEnv
+        Test                     /data/homezvol0/panteater/.conda/envs/Test
+        mageck-vispr             /data/homezvol0/panteater/.conda/envs/mageck-vispr
+        ngless                   /data/homezvol0/panteater/.conda/envs/ngless
+        base                   * /opt/apps/miniconda3/23.5.2
+        qiime2-2023.7            /opt/apps/miniconda3/23.5.2/envs/qiime2-2023.7
 
      Note, the :tt:`*` in the output means active loaded conda version (per
-     loaded module). Available environments are listed but no  activated.
+     loaded module). Available environments are listed but not activated.
 
    How did I build my conda environments?
      .. code-block:: console
 
-        [user@login-x:~]$ grep create ~/.conda/envs/*/conda-meta/history
-        /data/homezvol0/panteater/.conda/envs/mageck/conda-meta/history:# cmd: /opt/apps/anaconda/2022.05/bin/conda create -n mageck-vispr
-        /data/homezvol0/panteater/.conda/envs/ngl/conda-meta/history:# cmd: /opt/apps/anaconda/2020.07/bin/conda create -n ngless
+       /data/homezvol0/panteater/.conda/envs/Local2/conda-meta/history:# cmd: /opt/apps/miniconda3/23.5.2/bin/conda create -n Local2
+       /data/homezvol0/panteater/.conda/envs/mageck-vispr/conda-meta/history:# cmd: /opt/apps/anaconda/2022.05/bin/conda create -n mageck-vispr
+       /data/homezvol0/panteater/.conda/envs/NewEnv/conda-meta/history:# cmd: /opt/apps/miniconda3/23.5.2/bin/conda create -n NewEnv
+       /data/homezvol0/panteater/.conda/envs/ngless/conda-meta/history:# cmd: /opt/apps/anaconda/2020.07/bin/conda create -n ngless
+       /data/homezvol0/panteater/.conda/envs/Test/conda-meta/history:# cmd: /opt/apps/miniconda3/4.12.0/bin/conda create -n Test
 
-     Note, two listed environments  were created with different versions of conda.
+     Note, listed environments were created with different versions of anaconda and miniconda3. 
 
 .. _install python:
 
