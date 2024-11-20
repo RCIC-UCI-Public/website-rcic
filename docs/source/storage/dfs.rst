@@ -38,7 +38,7 @@ file systems.
                  (e.g. Student data) and `HIPAA <https://www.hhs.gov/hipaa/index.html>`_ (health-care data).
 
                  If you are unsure if DFS is suitable for your data, please refer to general guidance for
-                 `data security <https://research.uci.edu/compliance/human-research-protections/researchers/data-security.html>`_
+                 `data security <https://research.uci.edu/human-research-protections/assessing-risks-and-benefits/privacy-and-confidentiality/data-security/>`_
                  provided by the `UCI Office of Research <https://research.uci.edu/>`_
 
 .. _dfs allocations:
