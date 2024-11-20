@@ -30,10 +30,10 @@ While there are many possible use cases, a driving one is:
    on the area and how much space each could consume`
 
 .. warning:: CRSP filesystems  must not be used to store personally-identifiable information that would fall
-             under guidelines  such as `FERPA <https://www2.ed.gov/policy/gen/guid/fpco/ferpa/index.html>`_
+             under guidelines  such as `FERPA <https://studentprivacy.ed.gov/ferpa>`_
              (e.g. Student data) and `HIPAA <https://www.hhs.gov/hipaa/index.html>`_ (health-care data).
 
-             If you are unsure if DFS is suitable for your data, please refer to general guidance for
+             If you are unsure if CRSP is suitable for your data, please refer to general guidance for
              `data security <https://research.uci.edu/compliance/human-research-protections/researchers/data-security.html>`_
              provided by the `UCI Office of Research <https://www.research.uci.edu/>`_
 

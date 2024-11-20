@@ -1,0 +1,35 @@
+# Makefile to create local web server (lighttpd) 
+# Convenient for developing in Windows Subsystem for Linux
+
+LIGHTPID = lighttpd.pid
+
+# Detect operating system
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+    OPEN_BROWSER_CMD = open
+else ifeq ($(UNAME_S),Linux)
+    OPEN_BROWSER_CMD = xdg-open
+else ifeq ($(UNAME_S),Windows_NT)
+    OPEN_BROWSER_CMD = start
+else
+    $(error Unsupported operating system)
+endif
+
+default:
+	make -C docs html
+
+deploy: undeploy default lighttpd.conf
+	( lighttpd -D -f lighttpd.conf & echo $$! > $(LIGHTPID))
+    #$(OPEN_BROWSER_CMD) http://localhost:4000
+
+undeploy:
+	- if [ -f $(LIGHTPID) ]; then kill $$(cat $(LIGHTPID)); fi
+
+lighttpd.conf: lighttpd.conf.in
+	sed "s#%PWD%#$(PWD)/docs/build/html#" lighttpd.conf.in > $@
+
+help:
+	echo "Targets:"
+	echo "   default - create html documentation in docs subdir"
+	echo "   deploy - create docs, run lighttpd on a local port (kill lighttpd if necessary)"
+	echo "   undeploy - kill lighttpd"

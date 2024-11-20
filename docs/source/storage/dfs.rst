@@ -34,7 +34,7 @@ file systems.
     There are a few separate storage pools which are mounted on the cluster as :tt:`/dfsX`.
   * For recharge allocations please see :ref:`buy dfs`.
   * .. warning :: DFS filesystems  must not be used to store personally-identifiable information that would fall
-                 under guidelines  such as `FERPA <https://www2.ed.gov/policy/gen/guid/fpco/ferpa/index.html>`_
+                 under guidelines  such as `FERPA <https://studentprivacy.ed.gov/ferpa>`_
                  (e.g. Student data) and `HIPAA <https://www.hhs.gov/hipaa/index.html>`_ (health-care data).
 
                  If you are unsure if DFS is suitable for your data, please refer to general guidance for
