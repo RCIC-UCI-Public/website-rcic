@@ -35,7 +35,7 @@ While there are many possible use cases, a driving one is:
 
              If you are unsure if CRSP is suitable for your data, please refer to general guidance for
              `data security <https://research.uci.edu/compliance/human-research-protections/researchers/data-security.html>`_
-             provided by the `UCI Office of Research <https://www.research.uci.edu/>`_
+             provided by the `UCI Office of Research <https://research.uci.edu/>`_
 
 
 .. _crsp to crsp2:
