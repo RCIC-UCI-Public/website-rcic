@@ -64,12 +64,12 @@ To install conda environment in your user area
 follow the example steps below done for the user (UCInetID) *panteater* who is
 using Miniconda version 23.5.2. 
 
-The installation steps are the same for other versions of conda,
+The installation steps are the same for the other versions of conda,
 simply substitute module name and version where needed.
 
 .. attention:: Conda always provides python and a few other applications.
                For this reason :red:`DO NOT load any python or other modules when loading
-               with anaconda/miniconda/mamba modules`. If you do, your environment
+               anaconda/miniconda/mamba modules`. If you do, your environment
                will have problems.
 
 .. attention:: Note, if you previoulsy tried to install conda packages make sure that your :tt:`$HOME/.bashrc`
@@ -154,7 +154,7 @@ simply substitute module name and version where needed.
    There should be 2 lines for each, one referring to the system installed
    location (lines start with :tt:`/opt/apps`) and another to your user location
    (line starts with :tt:`/data/homezvol`). You can not write in system
-   location, you install will be in your user location.
+   location, the install will be in your user location.
 
    If there are missing entries which point to your user area, you will need
    to create a file in your $HOME using your favorite editor.
@@ -188,7 +188,7 @@ simply substitute module name and version where needed.
            - /pub/$USER/myconda/23.5.2/envs
            - /opt/apps/miniconda/23.5.2/envs
 
-      In place of editing one can do this dynamically and run command:
+      In place of editing :tt:`.condarc` file one can do this dynamically and run command:
 
       .. code-block:: console
 
@@ -226,7 +226,7 @@ simply substitute module name and version where needed.
    The output is just the info for you which tells:
 
    - *no change* was done to any of the system location files, which is correct.
-   - your :tt:`.bashrc` file was changed and you need to do something for it to take an effect.
+   - your :tt:`.bashrc` file was changed and you need to renew your shell for it to take an effect.
 
    The lines that are added to your :tt:`.bashrc` modify your shell behavior and this
    is not be desirable for all your work and can create a problem when you
@@ -237,7 +237,7 @@ simply substitute module name and version where needed.
    impact your shell environment for all your other work.
 
    Choose your favorite text editor to edit the :tt:`.bashrc` file and move all the lines
-   added by conda into another file in your $HOME, for example to :tt:`.myminiconda3-23.5.2`.
+   added by conda into a new file in your $HOME, for example to :tt:`.myminiconda3-23.5.2`.
    The lines are at the end of your :tt:`.bashrc` file (lines start end with *conda initialize*
    and all the lines between them):
 
@@ -262,7 +262,8 @@ simply substitute module name and version where needed.
    and version were used.  Keep the new file name consistent with the module name and version.
    The file must be in your $HOME.
 
-   Now you can execute a command for the conda added changes to take an effect:
+   Now you can execute a command for the conda-added changes to take an effect
+   and renew your shell:
 
    .. code-block:: console
 
@@ -270,7 +271,7 @@ simply substitute module name and version where needed.
       (base)[user@hpc3-xx-yy:~]$
 
    Note, your command line prompt changed and now has :tt:`(base)` pre-pended. This means
-   conda base environment that module provides is activated.
+   conda base environment is activated.
 
 #. **Create a local environment**
 
@@ -318,13 +319,13 @@ simply substitute module name and version where needed.
 
    This will take some time to complete as conda is installing 
    packages in your directory :tt:`~/.conda` and depending on conda version
-   it may take 1 - 2Gb of space.
+   it may take 1-4Gb of space.
 
    The last few lines indicate the commands you will need for activating and
    deactivating your conda environment.
 
    .. note:: :red:`Do not run conda update`. You can't run conda update
-      command because it requires to be run in the base environment in the system
+      command because it requires writing in the base environment in the system
       location to which users have no write permissions.
 
    Sometimes, conda gives the error similar to (uid/gid will be for your account):
@@ -381,18 +382,14 @@ simply substitute module name and version where needed.
       ==> WARNING: A newer version of conda exists. <==
         current version: 23.5.2
         latest version: 24.9.2
-
       Please update conda by running
           $ conda update -n base -c defaults conda
-
       Or to minimize the number of packages updated during conda update use
            conda install conda=24.9.2
-
       ## Package Plan ##
         environment location: /data/homezvol0/panteater/.conda/envs/Local2
         added / updated specs:
           - bioconda::bcftools
-
       The following packages will be downloaded:
           package                    |            build
           ---------------------------|-----------------
@@ -477,7 +474,7 @@ simply substitute module name and version where needed.
    you activate your environment the *(base)* changes to the environment name *(Local2)*.
 
    If you submit your computation via Slurm script these 3 commands need to be
-   present before you execute your software commands.
+   present in your Slurm script before the lines that execute your software commands.
 
    Your environment is deactivated automatically when you logout or when your
    Slurm job finishes.
@@ -499,8 +496,8 @@ simply substitute module name and version where needed.
 
    **I. Build with the same conda version**
      You can build more environments with the same conda module and can 
-	 reuse some of the conda existing setup. For example, to add another
-	 environment (using the same conda module):
+     reuse most of the conda environment existing setup. For example, to add another
+     environment (using the same conda module):
 
      Get an interactive node
 
