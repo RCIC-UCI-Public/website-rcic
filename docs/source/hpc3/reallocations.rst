@@ -30,6 +30,10 @@ also approved a plan that would not result on over-allocation of HPC3.
 .. note:: Reallocation is based upon a lab’s previous 6 month utilization and available hours
           on UCI-purchased hardware and is processed automatically.
 
+          Reallocation date is based on the lab account's creation date and takes place in
+          the middle or end of a calendar month. For example, if a lab was created
+          on January 30th, the next reallocation will happen on July 30th.
+
           | Reallocation of granted hours is recomputed as *available hours over the next 6 month period*. 
           | Unused hours in previous 6 month period are considered forfeit.
 
