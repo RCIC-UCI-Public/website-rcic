@@ -4,10 +4,10 @@
 News & Events
 =============
 
-| General information about the :ref:`maintenance`  is applicable to all scheduled downtimes.
+| General information about the :ref:`maintenance` is applicable to all scheduled downtime periods.
 | Any additional information is outlined in notification emails (sent to all users) and in the events below.
 
-| :blogtitle:`HPC3 Downtime December 17, 2024`
+| :blogtitle:`HPC3 Downtime December 18, 2024`
 
 | :red:`The next outage will be before Christmas break, December, 2024, beginning at 8am`
 
@@ -22,7 +22,7 @@ Impacts:
   1. All existing logins will be terminated.
   #. You will NOT have access to HPC3 or CRSP during the planned downtime.
   #. No jobs can run during the maintenance period.
-  #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on December 17 will be held.
+  #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on December 18 will be held.
      Please see :ref:`requesting time limits <request time>` on queues.
 
 Software changes:
