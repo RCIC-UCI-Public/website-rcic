@@ -9,7 +9,7 @@ News & Events
 
 | :blogtitle:`HPC3 Downtime December 18, 2024`
 
-| :red:`The next outage will be before Christmas break, December, 2024, beginning at 8am`
+| :red:`The next outage will be before Christmas break, December 18, 2024, beginning at 8am`
 
 Maintenance Items:
   1. OS revision update from **Rocky 8.8 to Rocky 8.10**.
@@ -42,3 +42,7 @@ Software changes:
      +------------------------------+---------------------------------------+
      | miniconda3/4.12.0            | miniconda3/23.5.2                     |
      +------------------------------+---------------------------------------+
+
+  If you are currenlty using miniconda/4.8.5 or miniconda3/4.12.0
+  please follow :red:`Special instructions for miniconda3 users` instructions
+  at the end of :ref:`install conda` section.
