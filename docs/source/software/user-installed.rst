@@ -237,7 +237,7 @@ simply substitute module name and version where needed.
    impact your shell environment for all your other work.
 
    Choose your favorite text editor to edit the :tt:`.bashrc` file and move all the lines
-   added by conda into a new file in your $HOME, for example to :tt:`.myminiconda3-23.5.2`.
+   added by conda into a new file in your $HOME, for example to :tt:`.mycondainit-23.5.2`.
    The lines are at the end of your :tt:`.bashrc` file (lines start end with *conda initialize*
    and all the lines between them):
 
@@ -494,7 +494,7 @@ simply substitute module name and version where needed.
      You will have a different :tt:`.mycondainit-VERSION` file and this allows
      to cleanly separate conda initialization for different conda modules.
 
-   **I. Build with the same conda version**
+   **II. Build with the same conda version**
      You can build more environments with the same conda module and can 
      reuse most of the conda environment existing setup. For example, to add another
      environment (using the same conda module):
@@ -582,13 +582,53 @@ simply substitute module name and version where needed.
    How did I build my conda environments?
      .. code-block:: console
 
+       [user@login-x:~]$ grep create ~/.conda/envs/*/conda-meta/history
        /data/homezvol0/panteater/.conda/envs/Local2/conda-meta/history:# cmd: /opt/apps/miniconda3/23.5.2/bin/conda create -n Local2
        /data/homezvol0/panteater/.conda/envs/mageck-vispr/conda-meta/history:# cmd: /opt/apps/anaconda/2022.05/bin/conda create -n mageck-vispr
        /data/homezvol0/panteater/.conda/envs/NewEnv/conda-meta/history:# cmd: /opt/apps/miniconda3/23.5.2/bin/conda create -n NewEnv
        /data/homezvol0/panteater/.conda/envs/ngless/conda-meta/history:# cmd: /opt/apps/anaconda/2020.07/bin/conda create -n ngless
        /data/homezvol0/panteater/.conda/envs/Test/conda-meta/history:# cmd: /opt/apps/miniconda3/4.12.0/bin/conda create -n Test
 
-     Note, listed environments were created with different versions of anaconda and miniconda3. 
+     Note, listed environments were created with different versions of anaconda and miniconda. 
+
+#. :red:`Special instructions for miniconda3 users`
+
+   Two older miniconda modules will be removed from the cluster follow up
+   December maintenance. 
+
+   If you are currently using miniconda3/4.8.5 or miniconda3/4.12.0 module you
+   need to update to using new module miniconda3/23.5.2 :red:`before Dec 18, 2024`.
+
+   - check your :tt:`~/.bashrc` file 
+
+     If you see any lines related to conda move them to a separate new file
+     (see Step 4 above for explanation of what the lines are). This new file can be:
+
+     | :tt:`.mycondainit-4.8.5` if you used miniconda3/4.8.5
+     | :tt:`.mycondainit-4.12.0` if you used miniconda3/4.12.0
+
+   - load a new module and run conda initialization command:
+
+     .. code-block:: console
+
+        [user@hpc3-xx-yy:~]$ module load miniconda3/23.5.2
+        [user@hpc3-xx-yy:~]$ conda init bash
+
+   - check your :tt:`~/.bashrc` file  again
+
+     Conda initialization adds a few lines to your :tt:`~/.bashrc`.
+     Move all conda lines (see Step 4 above) to a new file in your $HOME, call
+     it :tt:`.mycondainit-23.5.2`.
+
+
+   To use new module for your local environment that was previously built
+   with miniconda3/4.8.5 or miniconda3/4.12.0 do:
+
+   .. code-block:: console
+
+      [user@hpc3-xx-yy:~]$ module load miniconda3/23.5.2
+      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-23.5.2 
+      [user@hpc3-xx-yy:~]$ conda activate your-env-name 
 
 .. _install python:
 
