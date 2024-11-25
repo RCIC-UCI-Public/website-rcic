@@ -238,7 +238,7 @@ simply substitute module name and version where needed.
 
    Choose your favorite text editor to edit the :tt:`.bashrc` file and move all the lines
    added by conda into a new file in your $HOME, for example to :tt:`.mycondainit-23.5.2`.
-   The lines are at the end of your :tt:`.bashrc` file (lines start end with *conda initialize*
+   The lines are at the end of your :tt:`.bashrc` file (lines start and end with *conda initialize*
    and all the lines between them):
 
    .. code-block:: bash
@@ -591,44 +591,58 @@ simply substitute module name and version where needed.
 
      Note, listed environments were created with different versions of anaconda and miniconda. 
 
-#. :red:`Special instructions for miniconda3 users`
+.. _update miniconda3:
 
-   Two older miniconda modules will be removed from the cluster follow up
-   December maintenance. 
+Special instructions for miniconda3 users
+-----------------------------------------
 
-   If you are currently using miniconda3/4.8.5 or miniconda3/4.12.0 module you
-   need to update to using new module miniconda3/23.5.2 :red:`before Dec 18, 2024`.
+Two miniconda modules :tt:`miniconda3/4.8.5` and :tt:`miniconda3/4.12.0`
+will be removed from the cluster follow up December 2024 maintenance. 
 
-   - check your :tt:`~/.bashrc` file 
+If you are currently using the these modules you
+need to switch :red:`before Dec 18, 2024` to using already installed 
+:tt:`miniconda3/23.5.2` module.
 
-     If you see any lines related to conda move them to a separate new file
-     (see Step 4 above for explanation of what the lines are). This new file can be:
+Follow the steps below. Since this switch does not involve installation 
+or building of environments these 3 steps can be done on a login node.
 
-     | :tt:`.mycondainit-4.8.5` if you used miniconda3/4.8.5
-     | :tt:`.mycondainit-4.12.0` if you used miniconda3/4.12.0
+1. Check your :tt:`~/.bashrc` file 
 
-   - load a new module and run conda initialization command:
+   If you see any lines related to conda, remove them. 
+   The lines start and end with *conda initialize*
+   and all the lines between them (for a reference see Step 4 in
+   :ref:`install conda`).
 
-     .. code-block:: console
-
-        [user@hpc3-xx-yy:~]$ module load miniconda3/23.5.2
-        [user@hpc3-xx-yy:~]$ conda init bash
-
-   - check your :tt:`~/.bashrc` file  again
-
-     Conda initialization adds a few lines to your :tt:`~/.bashrc`.
-     Move all conda lines (see Step 4 above) to a new file in your $HOME, call
-     it :tt:`.mycondainit-23.5.2`.
-
-
-   To use new module for your local environment that was previously built
-   with miniconda3/4.8.5 or miniconda3/4.12.0 do:
+   If your command line prompt starts with *(base)* reload your
+   newly edited file, the prompt will change:
 
    .. code-block:: console
 
-      [user@hpc3-xx-yy:~]$ module load miniconda3/23.5.2
-      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-23.5.2 
-      [user@hpc3-xx-yy:~]$ conda activate your-env-name 
+      (base)[user@login-x:~]$ . ~/.bashrc
+      [user@login-x:~]$ 
+
+#. Load a new miniconda3 module and run conda initialization command:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ module load miniconda3/23.5.2
+      [user@login-x:~]$ conda init bash
+
+#. Check your :tt:`~/.bashrc` file  again
+
+   Conda initialization adds a few lines to your :tt:`~/.bashrc`.
+   Move all conda lines (see Step 1) to a new file in your $HOME, call
+   it :tt:`.mycondainit-23.5.2`. The lines will be similar to those you
+   removed in Step 1.
+
+To use :tt:`miniconda3/23.5.2` module for your local environment that was previously built
+with :tt:`miniconda3/4.8.5` or :tt:`miniconda3/4.12.0` do:
+
+.. code-block:: console
+
+   [user@hpc3-xx-yy:~]$ module load miniconda3/23.5.2
+   [user@hpc3-xx-yy:~]$ . ~/.mycondainit-23.5.2 
+   (base)[user@hpc3-xx-yy:~]$ conda activate your-env-name 
 
 .. _install python:
 

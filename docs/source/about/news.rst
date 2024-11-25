@@ -36,13 +36,17 @@ Software changes:
      +------------------------------+---------------------------------------+
      | Scheduled to be removed      | Use instead                           |
      +==============================+=======================================+
-     | pytorch/1.5.1                | use newer version                     |
+     | pytorch/1.5.1                | available newer versions              |
      +------------------------------+---------------------------------------+
      | miniconda3/4.8.5             | miniconda3/23.5.2                     |
      +------------------------------+---------------------------------------+
      | miniconda3/4.12.0            | miniconda3/23.5.2                     |
      +------------------------------+---------------------------------------+
+     | qiime2/2020.8                | available newer versions              |
+     +------------------------------+---------------------------------------+
+     | qiime2/2021.2                | available newer versions              |
+     +------------------------------+---------------------------------------+
 
-  If you are currenlty using miniconda/4.8.5 or miniconda3/4.12.0
-  please follow :red:`Special instructions for miniconda3 users` instructions
-  at the end of :ref:`install conda` section.
+
+  .. Important :: If you are currenlty using miniconda/4.8.5 or miniconda3/4.12.0
+     please follow :ref:`update miniconda3`.
