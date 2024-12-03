@@ -280,6 +280,14 @@ Accessing  CRSP
 You must either be on the campus network or connected to the
 `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to access CRSP.
 
+If you were given an access to CRSP account, to access it via the methods
+described below use:
+
+ :login name: your UCINetID
+ :password: your password associated with your UCINetID
+
+We do not set or change passwords.
+
 You can access  your granted CRSP storage from Windows, MAC, and Linux systems
 via a few methods. The client links in the table below provide installation
 instructions:
