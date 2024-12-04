@@ -44,7 +44,7 @@ CRSP to CRSP2 Transition
 ------------------------
 
 On July 16, 2024 CRSP underwent a complete hardware upgrade to replace end-of-life hardware and expand capacity.
-After the upgrade
+After the upgrade:
 
 * **All active user/lab files have been copied from CRSP to its replacement (CRSP2)**. If you actively access CRSP now,
   you will be able to do so after the upgrade. Your files will be in the same location as they were prior to upgrade.
@@ -52,10 +52,10 @@ After the upgrade
 * **DUO Multifactor Authentication will be required for ALL desktop clients**. Please 
   see :ref:`Using DUO with CRSP <duo crsp>` for using SSH-keys with strong passwords. Once you have set up key-based
   authentication, you need to re-configure your :ref:`CRSP Desktop Client Bookmark <windows configure share>` to use 
-  your key *instead of your password*.
+  your ssh key *instead of your password*.
 
 * **The scp (Secure Copy) interface to CRSP is no longer available**. Please 
-  see :ref:`Supported Access Methods <crsp access methods>` 
+  see :ref:`Supported Access Methods <crsp access methods>`.
 
 * **Snapshot locations for labs will move**. This is due to an underlying configuration change. See
   :ref:`CRSP Snapshots <crsp snapshots>`.
