@@ -71,13 +71,16 @@ use your specific software instructions.
    :comment:  "panteater\@uci.edu (MacBook Air)"
    :passphrase:  you need to type it twice when prompted
 
+   :bluelight:`To create keys for HPC3`:
+
    Execute the ``ssh-keygen`` command to create **RSA type** ssh keys.
    Use your UCINETID in place of *panteater*:
 
    .. parsed-literal::
 
-      :blue:`ssh-keygen -t rsa -f  key-to-hpc3 -C "panteater@uci.edu (MacBook Air)"`
+      :blue:`ssh-keygen -t rsa -C "panteater@uci.edu (MacBook Air)"`
       Generating public/private rsa key pair.
+      Enter file in which to save the key (/Users/panteater/.ssh/id_rsa): :blue:`/Users/panteater/.ssh/key-to-hpc3`
       Created directory '/Users/panteater/.ssh'.
       Enter passphrase (empty for no passphrase): :red:`Do not use empty passphrase !!!`
       Enter same passphrase again:
@@ -102,15 +105,41 @@ use your specific software instructions.
    in your :tt:`$HOME` directory and generate two files there: a private key :tt:`key-to-hpc3`
    and a public key :tt:`key-to-hpc3.pub`. They are always generated and work as a pair. 
 
+   :bluelight:`To create keys for CRSP`:
+
    .. _generate PEM-formatted keys:
 
-   .. attention::
-      | If you are creating ssh key pair for CRSP desktop client use the ``ssh-keygen`` command to create **PEM type** ssh  keys:
-      |     :blue:`ssh-keygen -t rsa -f  key-to-hpc3.pem -m PEM -C "panteater@uci.edu (MacBook Air)"`
-      |
-      | The command adds an explicit format and the :tt:`.pem` file extension. 
-        This will create files :tt:`key-to-hpc3.pem` (private key) and :tt:`key-to-hpc3.pem.pub` (public key).
-        PEM-formatted keys are the most reliable format for the :ref:`CRSP Desktop Client <crsp clients>`. 
+   .. note:: If you are creating ssh key pair for CRSP desktop client use the
+      following ``ssh-keygen`` command to create ssh keys in **PEM format**:
+
+   .. parsed-literal::
+
+      :blue:`ssh-keygen -t rsa  -m PEM -C "panteater@uci.edu (MacBook Air)"`
+      Generating public/private rsa key pair.
+      Enter file in which to save the key (/Users/panteater/.ssh/id_rsa): :blue:`/Users/panteater/.ssh/key-to-crsp.pem`
+      Created directory '/Users/panteater/.ssh'.
+      Enter passphrase (empty for no passphrase):  :red:`Do not use empty passphrase !!!`
+      Enter same passphrase again:
+      Your identification has been saved in /Users/panteater/.ssh/key-to-crsp.pem
+      Your public key has been saved in /Users/panteater/.ssh/key-to-crsp.pem.pub
+	  The key fingerprint is:
+      SHA256:QRPoU/qBfvhB6leEvGPWzTegzQSBADRQS0gKl7CifjE panteater@uci.edu (MacBook Air)
+      The key's randomart image is:
+      +---[RSA 3072]----+
+      \|oT+**... o+.     |
+      \|.+o. o  +. .     |
+      \|+   .  =. . 0    |
+      \|o     = o. o .   |
+      \|.  E . *S.+ = o  |
+      \|.   o + =o.  . . |
+      \| . . . oo*       |
+      \|  .   ..=.       |
+      \|       oo.       |
+      +----[SHA256]-----+
+
+   The command adds an explicit format and the :tt:`.pem` file extension.
+   This will create files :tt:`key-to-crsp.pem` (private key) and :tt:`key-to-crsp.pem.pub` (public key).
+   PEM-formatted keys are the most reliable format for the :ref:`CRSP Desktop Client <crsp clients>`.
 
 #. Check your ssh keys. The first command simply lists the contents of your
    :tt:`.ssh/` directory, and the second prints  the contents of your public
@@ -354,9 +383,10 @@ key to your :tt:`$HOME/.ssh/authorized_keys` file on CRSP or to completely *repl
    
    | (1) The first ``cd`` command puts you in a directory where your ssh keys are.
    | (2) The ``sftp`` command makes a secure connection to the CRSP server.
-   | (3) The sftp's ``put`` command copies your public ssh key from your laptop to the CRSP server.
+   | (3) The sftp's ``put`` command copies the public ssh key :tt:`panteter-uci.rsa.pub`
+   |     from your laptop to the CRSP server (your ssh key  name will be different).
    | (4) the sftp's ``ls`` command output must have :tt:`add` listed. Additional files
-     as shown above may be present if you have previously used ssh and added keys.
+   |     as shown above may be present if you have previously used ssh and added keys.
    | (5) The sftp's ``quit`` command  stops sftp session.
    | (6) The last ``cd`` command puts you in your home area on your laptop.
 
