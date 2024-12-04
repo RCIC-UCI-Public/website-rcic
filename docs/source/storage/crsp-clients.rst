@@ -35,143 +35,26 @@ strong security.  *Never copy an ssh private key file!*
 1. You should follow the guide to :ref:`generate ssh keys` for different platforms. 
 
    .. note::
-       It is **highly recommended** that your private key file is in 
-       *PEM* format *and* has a :tt:`.pem` file extension.
-       The CRSP desktop client seems to more reliably recognize :ref:`PEM-formatted keys <generate PEM-formatted keys>`
+       * It is **highly recommended** that your private key file is in 
+         *PEM* format *and* has a :tt:`.pem` file extension.
+         The CRSP desktop clients more reliably recognize :ref:`PEM-formatted keys <generate PEM-formatted keys>`.
 
-   .. note::
-       If using Windows, it is recommended to use the :ref:`Powershell method <generate-ssh-keys-windows-powershell>` 
-       for generating keys and not use PuTTY.
+       * If using Windows, it is recommended to use the :ref:`Powershell method <generate-ssh-keys-windows-powershell>` 
+         for generating ssh keys and not use PuTTY.
 
-2. Use the :ref:`manage crsp keys` guide for uploading public keys to CRSP
+   .. important:: 
+       * *All ssh keys* that you generate *MUST have a strong password*.
+         **Passwordless keys are a security violation**.
 
-3. **DO NOT COPY** *private* ssh-keys. Every different physical device should have a different *ssh key pair*
+       * **DO NOT COPY** ssh keys from one laptop to another. Every different physical
+         device should have a different *ssh key pair*.
 
-4. .. important:: 
-        | *All ssh keys* that you generate *MUST have a strong password*.
-        | **Passwordless keys are a security violation**.
-
-   Learn how to use `SSH Agent <https://www.ssh.com/academy/ssh/agent>`_ on your desktop/laptop. If on Windows,
-   you can also `Putty's pageant <https://winscp.net/eng/docs/ui_pageant>`_. SSH agents securely store a private
-   key *in memory* so that you only have to type the key's passphrase once.
-
-.. _manage crsp keys:
-
-Managing Public SSH Keys on CRSP
---------------------------------
-
-CRSP uses ``ssh`` for authentication but *does not grant shell access*.  This means that common methods 
-updating as user's :tt:`authorized_keys` file cannot be used.
-
-Since there is no shell access to CRSP, you *should use* the procedure below to copy your
-ssh public key to CRSP.
-
-To make ssh key management a bit more tractable, RCIC has built a very simple facility to *add* a new public
-key to your :tt:`$HOME/.ssh/authorized_keys` file on CRSP or to completely *replace* the contents of the
-:tt:`authorized_keys` file.
-
-.. note::
-
-   In the steps below, command-line clients are used. These are available at the Linux terminal, the
-   Mac Terminal, Windows Command line, and Windows Powershell.
-
-1. **Add an SSH Public Key**
-
-   Suppose you have new *public* key in format similar to (single line broken for readability):
-
-   .. parsed-literal::
-
-      ssh-rsa AAAAB3NzADAQABAAABgQC1QciUGQzHTtSfnibqUqOotPVPYQcnJ71P12lHhy5R4K9h8SnYQHopwPK0
-      LxRWkc51LyI6cDSUbV2vmVBCBhAaYiUDmZIBwqXVToHn/B4MEGOBscT3jVd5cSC3F29dPU/oMEED5EPlZe2mZnOn
-      VMaCK4tlNA5BpBc2oXQzlYZKcaT8PVAK8lC+iom6ECrGm8BBcKSkU7H8A5qbof8jfHrqDHWm2GB6/PezHo4UHEfWH
-      jPA3QknLjRU71ydNmwoIPPLqSKsYEXyK+E/ULhkJOhU8QCusuKEE6hbScoEJJVgjj1vfiTigyg1khcj1v/QrnV
-      5IJiqx6vpkOhfbmb05qzUEL34AklhPkL3xpEb0n4Fefp8oE2cugSyYd1vRmLfGsaljgh9LzzBgvdFyeJi
-      k= ssh key panteater@uci.edu for crsp 
-
-   **Now you need to add this key so that it can be recognized by CRSP**. To accomplish this, use 
-   ``sftp`` to put the *public key* into the file :tt:`$HOME/.ssh/add` on CRSP. You will be asked for DUO authentication
-   to authenticate to CRSP.
-
-   In the following example, **replace** *panteater* with your UCINetID and **replace** the *panteater-uci.pub*
-   with the name of the file on your laptop that holds your **public key**. 
-
-   What you type is in :bluelight:`blue`:
-
-   .. _sftp put public key:
-
-   .. parsed-literal::
-   
-      :bluelight:`cd $HOME/.ssh`                              # 1
-      :bluelight:`sftp panteater@access.crsp.uci.edu:.ssh`    # 2
-      Password:
-      Duo two-factor login for panteater
-   
-      Enter a passcode or select one of the following options:
-   
-           1. Duo Push to XXX-XXX-1234
-   
-      Passcode or option (1-1): :bluelight:`1`
-      Connected to access.crsp.uci.edu.
-      Changing to: /mmfs1/crsp/home/panteater/.ssh
-      **sftp>** :bluelight:`put panteter-uci.rsa.pub add`         # 3
-      Uploading panteater-uci.rsa.pub to /mmfs1/crsp/home/panteater/.ssh/add
-      panteater-uci.rsa.pub                                    100%  742     9.1KB/s   00:00
-      **sftp>** :bluelight:`ls`                                   # 4
-        add              authorized_keys  known_hosts
-      **sftp>** :bluelight:`quit`                                 # 5
-      :bluelight:`cd $HOME`                                   # 6
-   
-   1. The first ``cd`` command puts you in a directory where your ssh keys are.
-   2. The ``sftp`` command makes a secure connection to the CRSP server.
-   3. The sftp's ``put`` command copies your public ssh key from your laptop to the CRSP server.
-   4. the sftp's ``ls`` command output must have :tt:`add` listed. Additional files
-      as shown above may be present if you have previously used ssh and added keys.
-   5. The sftp's ``quit`` command  stops sftp session.
-   6. The last ``cd`` command puts you in your home area on your laptop.
-
-   After approximately 5 minutes, the CRSP server will *append* the contents of the uploaded file named :tt:`add` 
-   to your :tt:`$HOME/.ssh/authorized_keys` file.  You will know that this has been completed when the
-   file :tt:`add` disappears. 
-
-2. **Verifying Access**
-
-   Once your :tt:`$HOME/.ssh/authorized_keys` file is appended, you should be able to ``sftp`` 
-   to CRSP using the *private* key as the identity as in the following 
-   example. Notice that the *passphrase* for the key was requested and DUO was *not* required:
-
-   .. parsed-literal::
-
-       :bluelight:`sftp -i panteater-uci panteater@access.crsp.uci.edu`
-       Enter passphrase for key 'panteater-uci':
-       Connected to access.crsp.uci.edu.
-       **sftp>** :bluelight:`quit`
+2. Make sure you uploaded your public keys to CRSP per :ref:`manage crsp keys`.
 
 
-**Starting over: Overwrite authorized_keys**
-
-   Sometimes your :tt:`$HOME/.ssh/authorized_keys` needs more complex editing than simple addition of new
-   key.  You can completely *overwrite* the contents of the :tt:`authorized_keys` file with a new version.
-
-   1. Create a new version of the file on your local machine called :tt:`newkeys`. Edit it so that it appears exactly how it 
-      you need it to appear on CRSP.
-      
-      .. danger:: You need to understand the format of :tt:`authorized_keys` file
-         and what to put there.  Ad hoc editions can make your CRSP access unusable
-         if you upload a bad file. 
-
-   2. Follow the :ref:`SFTP Procedure <sftp put public key>` **EXCEPT**  once
-      you get to the sftp prompt **sftp>** put the file as `overwrite` instead of `add`:  
-
-      .. parsed-literal::
-
-         **sftp>** :bluelight:`put newkeys overwrite`
-         Uploading newkeys to /mmfs1/crsp/home/panteater/.ssh/overwrite
-         overwrite                                    100%  742     9.1KB/s   00:00
-         **sftp>** :bluelight:`ls`
-           overwrite   authorized_keys  known_hosts
-         **sftp>** :bluelight:`quit`
-
-   3. Wait 5 minutes for the new file to be put in place
+Learn how to use `SSH Agent <https://www.ssh.com/academy/ssh/agent>`_ on your desktop/laptop. If on Windows,
+you can also `Putty's pageant <https://winscp.net/eng/docs/ui_pageant>`_. SSH agents securely store a private
+key *in memory* so that you only have to type the key's passphrase once.
 
 
 
