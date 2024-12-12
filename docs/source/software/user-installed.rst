@@ -28,8 +28,8 @@ Users often ask to add specific software packages for
 
 .. _install conda:
 
-Install with conda
-------------------
+Install with conda/mamba
+------------------------
 
 .. note:: | For general info on conda commands and builds please see conda documentation
           | `Bulding Conda local environments <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html>`_
