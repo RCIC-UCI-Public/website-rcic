@@ -191,8 +191,9 @@ researcher or group.
 :red:`We certainly are not here to install software that`
   * You might use.
   * You just want to play with or evaluate.
+  * Is a Beta version.
   * Is the latest available version. Just because it is the latest is not a good reason.
-  * Is too old. Anything that is 5  or more years old  is not a good candidate.
+  * Is too old. Anything that is 5 or more years old is not a good candidate.
   * Is no longer supported by developers (Python 2 is an example).
 
 Even with those constraints, we are not shy about taking on complicated,
