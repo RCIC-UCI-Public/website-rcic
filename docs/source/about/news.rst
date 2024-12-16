@@ -13,7 +13,7 @@ News & Events
 
 Maintenance Items:
   1. OS revision update from **Rocky 8.8 to Rocky 8.10**.
-  #. Full rebuild of all software, see below for software changes.
+  #. Full rebuild of all software, see table below for software changes.
   #. Top-to-bottom re-installation of all compute and login nodes.
 
 Impacts:
@@ -24,6 +24,7 @@ Impacts:
   #. No jobs can run during the maintenance period.
   #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on December 18 will be held.
      Please see :ref:`requesting time limits <request time>` on queues.
+  #. After the maintenance you may need to reinstall software that you compiled or installed yourself.
 
 Software changes:
   | Some modules will be removed because they cannot be built on a new system or are unused. 
