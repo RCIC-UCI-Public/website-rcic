@@ -1477,7 +1477,7 @@ additional Python or R modules.
 
       **Make sure to reset $HOME to a correct path, this can not be an arbitrary location**.
 
-2. **Upload/Download Files**
+#. **Upload/Download Files**
 
    You have a few choices to upload/download files. Among these are
 
@@ -1485,7 +1485,7 @@ additional Python or R modules.
    * Use ``scp`` from the :guilabel:`Terminal` widget in the lab (you must initiate ``scp`` from within your lab)
    * Use ``curl`` to download files from the web
 
-3. **Adding Python packages with pip**
+#. **Adding Python packages with pip**
 
    Make sure your $HOME is :ref:`reset <jhub reset home>` to use your regular cluster $HOME location.
 
@@ -1507,7 +1507,7 @@ additional Python or R modules.
 
       Installing with pip
 
-4. **Adding R packages**
+#. **Adding R packages**
 
    Make sure your $HOME is :ref:`reset <jhub reset home>` to use your regular cluster $HOME location.
 
@@ -1544,3 +1544,25 @@ additional Python or R modules.
 
       > library('devtools')
       > devtools::install_github("aertslab/SCopeLoomR")
+
+#. **Enable full software stack**
+
+   When installing R or python packages sometimes a limited software stack
+   that is installed on a container is not enough. If you find that the
+   package you need to install has prerequisites that are not available on a
+   container (but are available on HPC3 via modules) you can start your
+   container and overwrite its software stack to include all applications that
+   we provide on HPC3. 
+
+   Note, this is needed only in a few rare instances and the majority of
+   packages should be installed without enabling this option.
+
+   To enable a full stack, on a screen with server options choose
+   :blue:`Enable full HPC3 software stack (override container stack)`
+   before starting your container:
+
+   .. figure:: images/jhub-overwrite.png
+      :align: center
+      :alt: overwrite software stack
+
+      Container with a full software stack
