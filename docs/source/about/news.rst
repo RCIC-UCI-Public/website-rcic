@@ -4,8 +4,10 @@
 News & Events
 =============
 
-| General information about the :ref:`maintenance` is applicable to all scheduled downtime periods.
-| Any additional information is outlined in notification emails (sent to all users) and in the events below.
+* General information about the :ref:`maintenance` is applicable to all scheduled downtime periods.
+* Any additional information is outlined in notification emails to hpc-users@uci.edu
+  (all current users) and is described in the details below.
+* When the maintenance is completed all users are notified via emails to hpc-users@uci.edu.
 
 | :blogtitle:`HPC3 Downtime December 18, 2024`
 
@@ -30,7 +32,7 @@ Software changes:
   | Some modules will be removed because they cannot be built on a new system or are unused. 
   | Note, the table below will be periodically updated till the maintenance date.
 
-  .. table:: **Software module changes**
+  .. table:: **Software changes**
      :align: center
      :class: noscroll-table
 
