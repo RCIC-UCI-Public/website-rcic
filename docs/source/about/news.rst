@@ -9,6 +9,37 @@ News & Events
   (all current users) and is described in the details below.
 * When the maintenance is completed all users are notified via emails to hpc-users@uci.edu.
 
+| :blogtitle:`HPC3 and CRSP during Winter Administrative Recess`
+
+| :red:`The RCIC staff will be on Winter Administrative Recess December 24, 2024, to January 2, 2025`
+
+**HPC3 and CRSP remain operational during the Winter Break**
+
+However, during this time we will :red:`respond only to critical situations`. Any questions
+regarding routine issues and services will be dealt with when we return to work after January 2nd, 2025. 
+
+RCIC staff volunteer their time  during the campus shutdown.
+
+
+**Critical situation:**
+
+- physical damage to the nodes
+- emergency power restoration to the servers
+- security break-in
+- down file servers
+
+**Non-emergency issues** (not a comprehensive list):
+
+- HPC3/CRSP account management
+- access to PI's lab resources (Slurm/CRSP)
+- any Slurm job issues such as pending, etc.
+- any over quota questions
+- any software questions or requests
+
+| Please refrain from sending tickets about non-critical issues during the recess.
+| We appreciate your cooperation and wish you a Happy Holiday Season!
+
+
 | :blogtitle:`HPC3 Downtime December 18, 2024`
 
 | :red:`The next outage will be before Christmas break, December 18, 2024, beginning at 8am`
