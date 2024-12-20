@@ -20,21 +20,21 @@ regarding routine issues and services will be dealt with when we return to work 
 
 RCIC staff volunteer their time  during the campus shutdown.
 
+Examples of critical and routine issues are listed below:
+  :bluelight:`Critical situations (not a comprehensive list)`:
 
-**Critical situation:**
+  - physical damage to the nodes
+  - emergency power restoration to the servers
+  - security break-in
+  - down file servers
 
-- physical damage to the nodes
-- emergency power restoration to the servers
-- security break-in
-- down file servers
+  :bluelight:`Routine issues (not a comprehensive list):`
 
-**Non-emergency issues** (not a comprehensive list):
-
-- HPC3/CRSP account management
-- access to PI's lab resources (Slurm/CRSP)
-- any Slurm job issues such as pending, etc.
-- any over quota questions
-- any software questions or requests
+  - HPC3/CRSP account management
+  - access to PI's lab resources (Slurm/CRSP)
+  - any Slurm job issues such as pending, etc.
+  - any over quota questions
+  - any software questions or requests
 
 | Please refrain from sending tickets about non-critical issues during the recess.
 | We appreciate your cooperation and wish you a Happy Holiday Season!
