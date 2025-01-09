@@ -62,11 +62,12 @@ Node type
 There are two node types to consider. We give "ballpark" cost estimates that
 should be sufficient for rough budgeting. Actual costs are commodity market-driven
 and require firm quotes from vendors. As time progresses, the RCIC executive/advisory
-committees will evaluate other hardware configurations.
+committees will evaluate other hardware configurations. These estimates are current as of January, 2025
 
 *CPU-only nodes*
-  Dual-Socket, Intel Ice Lake |xeon-6336y|_ processor, 256GB Memory, EDR Infiniband, 10GbE Ethernet. Dell or HPE. 
-  Price: ~$10000.00.
+  Dual-Socket, Intel Ice Lake |xeon-6542y|_ processor, 256GB Memory, HDR Infiniband, 10GbE Ethernet,local Solid-State
+  Storage. Dell, Lenovo, or HPE.. 
+  Price: ~$15000.00.
 
   .. table:: **Standard Compute Node Sample Configuration**
      :class: noscroll-table
@@ -74,17 +75,17 @@ committees will evaluate other hardware configurations.
      +-----------------------+------------------------------------------------------------+
      | Component             |      Description                                           |
      +=======================+============================================================+
-     | Chassis               | |dell-r650|_  1RU with Dual Power Supplies                 |
+     | Chassis               | |dell-r660|_  1RU with Dual Power Supplies                 |
      +-----------------------+------------------------------------------------------------+
-     | Processor x 2         | |xeon-6336y|_ 24-core `CPU@2.4GHz` 48 Cores total          |
+     | Processor x 2         | |xeon-6542y|_ 24-core `CPU@2.9GHz` 48 Cores total          |
      +-----------------------+------------------------------------------------------------+
-     | Memory                | 16 x 16GB ECC 3200MT/s (DDR4-3200) RDIMMs Dual Rank        |
+     | Memory                | 16 x 16GB ECC 5600MT/s (DDR5-5600) RDIMMs Single Rank      |
      +-----------------------+------------------------------------------------------------+
      | Interconnect          | |mellanox|_  ConnectX-6 HDR Infiniband                     |
      +-----------------------+------------------------------------------------------------+
      | Scratch Disk          | 1.92 TB NVMe Solid State Drive                             |
      +-----------------------+------------------------------------------------------------+
-     | Operating System Disk | 480 GB  mixed-use SATA Solid-State Drive                   |
+     | Operating System Disk | 960 GB  NVMe Solid-State Drive                             |
      +-----------------------+------------------------------------------------------------+
      | Ethernet              | 10Gb/s SFP+                                                |
      +-----------------------+------------------------------------------------------------+
@@ -92,7 +93,7 @@ committees will evaluate other hardware configurations.
      +-----------------------+------------------------------------------------------------+
 
 *GPU-Enabled Nodes*
-  Dell (or similar) chassis, 2RU, |dell-r750xa|_ with up to four A30 GPUs/chassis. Price: ~$35000
+  Dell (or similar) chassis, 2RU, |dell-r760xa|_ with up to four L40s GPUs/chassis. Price: ~$47000
 
   .. table:: **Standard GPU Node Sample Configuration**
      :class: noscroll-table
@@ -100,19 +101,19 @@ committees will evaluate other hardware configurations.
      +-----------------------+------------------------------------------------------------+
      | Component             |      Description                                           |
      +=======================+============================================================+
-     | Chassis               | |dell-r750xa|_  2RU with Dual 2KW Power Supplies           |
+     | Chassis               | |dell-r760xa|_  2RU with Dual 2KW Power Supplies           |
      +-----------------------+------------------------------------------------------------+
-     | Processor x 2         | |xeon-6326|_ 16-core `CPU@2.4GHz` 32 Cores total           |
+     | Processor x 2         | |xeon-6526y|_ 16-core `CPU@2.8GHz` 32 Cores total          |
      +-----------------------+------------------------------------------------------------+
-     | GPUs x 4              | |nvidia-a30|_  24GB HBM, 933GB/s, 9216 CUDA Cores          |
+     | GPUs x 4              | |nvidia-l40s|_  48GB HBM, 864MB/s, 18176 CUDA Cores        |
      +-----------------------+------------------------------------------------------------+
-     | Memory                | 16 x 16GB ECC 3200MT/s (DDR4-3200) RDIMMs Dual Rank        |
+     | Memory                | 16 x 16GB ECC 5600MT/s (DDR5-5600) RDIMMs Single Rank      |
      +-----------------------+------------------------------------------------------------+
      | Interconnect          | |mellanox|_  ConnectX-6 HDR Infiniband                     |
      +-----------------------+------------------------------------------------------------+
      | Scratch Disk          | 1.92 TB NVMe Solid State Drive                             |
      +-----------------------+------------------------------------------------------------+
-     | Operating System Disk | 480 GB  mixed-use SATA Solid-State Drive                   |
+     | Operating System Disk | 960 GB  NVMe Solid-State Drive                             |
      +-----------------------+------------------------------------------------------------+
      | Ethernet              | 10Gb/s SFP+                                                |
      +-----------------------+------------------------------------------------------------+
@@ -150,27 +151,27 @@ Network type
 ------------
 
 * **The 10Gbit/s Ethernet network** is the provisioning and control network to access Ethernet-only resources.
-* **The  100Gbit/s** `ConnectX-5 <https://www.mellanox.com/files/doc-2020/pb-connectx-5-vpi-card.pdf>`_  **EDR Infiniband**
+* **The  100Gbit/s** `ConnectX-6 <https://www.nvidia.com/en-us/networking/ethernet/connectx-6/>`_  **HDR Infiniband**
   is a 2-level `Clos-Topology <https://web.stanford.edu/class/ee384y/Handouts/clos_networks.pdf>`_  with a maximum
   8:1 oversubscription: Nodes in the same rack (max 32) are connected to a full-bisection, 36-port Infiniband switch.
   Each lower-level switch is connected to two root-level switches with two links/switch.
   The subnet manager is `opensm <https://linux.die.net/man/8/opensm>`_ with LMC (Lid Mask Control) set to 2 for multi-path diversity.
 
-.. |dell-r650| replace:: Dell R650
-.. _`dell-r650`: https://www.dell.com/en-us/work/shop/povw/poweredge-r650
+.. |dell-r660| replace:: Dell R660
+.. _`dell-r660`: https://www.dell.com/en-us/work/shop/povw/poweredge-r660
 
-.. |xeon-6336y| replace:: Intel Xeon Gold 6336Y 
-.. _`xeon-6336y`: https://www.intel.com/content/www/us/en/products/sku/215280/intel-xeon-gold-6336y-processor-36m-cache-2-40-ghz/specifications.html
+.. |xeon-6542y| replace:: Intel Xeon Gold 6542Y 
+.. _`xeon-6542y`: https://www.intel.com/content/www/us/en/products/sku/237559/intel-xeon-gold-6542y-processor-60m-cache-2-90-ghz/specifications.html
 
 .. |mellanox| replace:: 100Gb/s Mellanox 
 .. _`mellanox`: https://www.nvidia.com/en-us/networking/ethernet/connectx-6/
      
 
-.. |dell-r750xa| replace:: Dell R750xa
-.. _`dell-r750xa`: http://www.dell.com/en-us/work/shop/povw/poweredge-r750xa
+.. |dell-r760xa| replace:: Dell R760xa
+.. _`dell-r760xa`: http://www.dell.com/en-us/work/shop/povw/poweredge-r760xa
 
-.. |xeon-6326| replace:: Intel Xeon Gold 6326 
-.. _`xeon-6326`: https://www.intel.com/content/www/us/en/products/sku/215274/intel-xeon-gold-6326-processor-24m-cache-2-90-ghz/specifications.html
+.. |xeon-6526y| replace:: Intel Xeon Gold 6526Y
+.. _`xeon-6526y`: https://www.intel.com/content/www/us/en/products/sku/237560/intel-xeon-gold-6526y-processor-37-5m-cache-2-80-ghz/specifications.html
 
-.. |nvidia-a30| replace:: Nvidia A30
-.. _`nvidia-a30`: https://www.nvidia.com/en-us/data-center/products/a30-gpu/
+.. |nvidia-l40s| replace:: Nvidia L40S 
+.. _`nvidia-l40s`: https://resources.nvidia.com/en-us-l40s/l40s-datasheet-28413
