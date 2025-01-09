@@ -7,6 +7,7 @@ default:
 
 deploy: undeploy default lighttpd.conf
 	( lighttpd -D -f lighttpd.conf & echo $$! > $(LIGHTPID))
+	grep 'server.port' lighttpd.conf
 
 deploy-macos:
 	make -C docs html
