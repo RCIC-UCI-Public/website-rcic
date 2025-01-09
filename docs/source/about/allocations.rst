@@ -54,13 +54,13 @@ and data services.
    +==================+========================+====================+==================+=================+
    | **HPC3**         | 100000 [2]_ core-hrs   | Every 6 months     | Cycle Purchase   | $.01/core-hr    |
    |                  |                        |                    |                  |                 |
-   | CPU hours        |                        |                    | Hardware Purchase| ~$10K/node      | 
+   | CPU hours        |                        |                    | Hardware Purchase| ~$15K/node      | 
    +------------------+------------------------+--------------------+------------------+-----------------+
    | **HPC3**         | 1000 [3]_  GPU-hrs     | Every 6 months     | Cycle Purchase   | $.32/core-hr    |
    |                  |                        |                    |                  |                 |
-   | GPU hours        |                        |                    | Hardware Purchase| ~$35K/node      |
+   | GPU hours        |                        |                    | Hardware Purchase| ~$47K/node      |
    +------------------+------------------------+--------------------+------------------+-----------------+
-   | **CRSP storage** | 1 TB                   |  Never Expires     | TB/year          | $60/TB/Year     |
+   | **CRSP storage** | 1 TB                   |  Never Expires     | TB/year          | $50/TB/Year     |
    +------------------+------------------------+--------------------+------------------+-----------------+
    | **DFS storage**  | N/A                    |  N/A               | TB/ 5 years      | $100/TB/5 Years |
    +------------------+------------------------+--------------------+------------------+-----------------+
@@ -103,7 +103,7 @@ rate review process.
    +------------+----------------------+-------------------+-----------------------------------------------------+
    | Item       |  Rate                | Commitment        |  Notes                                              |
    +============+======================+===================+=====================================================+
-   | CRSP       | $60/TB/Year          |  Year             | Two-copy storage, available on campus network.      |
+   | CRSP       | $50/TB/Year          |  Year             | Two-copy storage, available on campus network.      |
    |            |                      |                   | Daily Backups available on campus network/VPN       |
    +------------+----------------------+-------------------+-----------------------------------------------------+
    | DFS        | $100/TB/5 Years      | 5 Years           | Single copy, high-performance storage.              |
@@ -124,8 +124,8 @@ rate review process.
    | Server        | $1000               | One-time           | Researcher-owned server                         |
    | installation  |                     |                    | can be added to HPC3                            |
    +---------------+---------------------+--------------------+-------------------------------------------------+
-   | Server        | ~$10K/CPU or        | Equipment warranty | Hardware purchases add capacity for the owner.  |
-   | purchase      | ~$35K/CPU+GPU node  | plus 1 year        | Prices are estimates. Exact pricing depends on  |
+   | Server        | ~$15K/CPU or        | Equipment warranty | Hardware purchases add capacity for the owner.  |
+   | purchase      | ~$47K/CPU+GPU node  | plus 1 year        | Prices are estimates. Exact pricing depends on  |
    |               |                     |                    | node confdiguration and time of purchase.       |
    +---------------+---------------------+--------------------+-------------------------------------------------+
    | CPU hours     | $0.01/core-hour     | Minimum:           | Prepaid core-hours valid                        |
@@ -181,13 +181,41 @@ Purchase hardware
 
 :bluelight:`Hardware that you purchase is converted to core-hours allocation.`
   | **The conversion rate is 95% of the theoretical core hours your hardware could deliver in a year**.
-  | For example, a 40-core node can deliver:
-  |         8760 hours/year * 40 cores = 350,400 core hours/year
-  |         At 95% this would become a 332880 core-hour credit
+  | For example, a 48-core node can deliver:
+  |         8760 hours/year * 48 cores = 420,480 core hours/year
+  |         At 95% this would become a 399,456 core-hour (SU) credit to a CPU Slurm Account
+  |
+  | For example, a 32-core, 4GPU  node can deliver:
+  |         8760 hours/year * 32 cores = 280,320 SUs/year +
+  |         8760 hours/year * 4 GPUs * 32SUs/GPU = 1,121,280 SUs
+  |         At 95% this would become a 1,331,520 SU credit to a GPU Slurm Account
 
   The 95% factor accounts accounts for usual annual downtime through scheduled 
   and unscheduled maintenance.  The 50% of this credit is applied during the 
   6 month reallocation each year the node is in the cluster (warranty period + year)
+
+.. note:: SUs (Service Units) are not convertible between GPU and CPU accounts. An hour of a GPU requires at least
+          2 CPU cores. Hence, the minimum charge for a single GPU is (32 + 2) = 34 SUs/hour. 
+
+
+:bluelight:`Effective costs over 6 years for purchased hardware`
+
+  Using the above estimated costs of $15K for cpu node and  $47K for a GPU node *and* consuming all SUs every 6
+  month reallocation cycle the following cost estimates of core-hour cost and gpu-hour costs would be as follows: 
+
+.. _effective costs:
+
+.. table:: **HPC3 Effective Costs for CPU and GPU hours**
+
+   +---------------------+-----------------------------------------+--------------------------------+
+   | Equivalence         |   Calculation                           | Effective rate                 |
+   +=====================+=========================================+================================+
+   | Core Hours          | $15000/(6 Yr * 399456 SU/yr)/1SU/hour   | $0.0062/Core-hour              |
+   +---------------------+-----------------------------------------+--------------------------------+
+   | GPU Hours (2 cores) | $47000/(6 Yr * 1331520/SU/yr)/34SU/hour | $0.20/GPU-hour                 |
+   +---------------------+-----------------------------------------+--------------------------------+
+   | GPU Hours (8 cores) | $47000/(6 Yr * 1331520/SU/yr)/40SU/hour | $0.25/GPU-hour                 |
+   +---------------------+-----------------------------------------+--------------------------------+
 
 :bluelight:`Purchasing of nodes in HPC3 does NOT give you a "private" queue`.
   This means that some of your jobs may have to wait for resources, but it also gives
@@ -203,9 +231,9 @@ Purchase hardware
   purchase whole nodes, but you may use multiple sources of funds. In this
   model, we easily support two different faculty splitting the cost of a single node.
 
-  | Hardware is commodity-based and subject to market variability, prices per 2022:
-  |     CPU nodes (48 cores) are approximately $10K.
-  |     GPU-nodes (4 x NVidia A30) are approximately $35K.
+  | Hardware is commodity-based and subject to market variability, prices as of 1Q 2025:
+  |     CPU nodes (48 cores) are approximately $15K.
+  |     GPU-nodes (4 x NVidia L40S) are approximately $47K.
 
 :bluelight:`Outline of Purchase Process`
   1. Send a request to hpc-support@uci.edu indicating your interest in purchasing
@@ -241,9 +269,10 @@ Purchase DFS storage
 
 | Please send a request to hpc-support@uci.edu telling us
 |   1. How much DFS space you need (TB)
-|   2. For how long (years)
+|   2. If this is your first DFS purchase, then the initial term is 5 years.
+|   3. If you have existing DFS quota, then then additional quota is priced at $20/TB/Year.  The PI has the choice of a) extending existing quota 5 years or b) Setting the expiration data of new quota to co-terminate with the existing quota end-date
 
-We will create an MOU and sent to the PI for signing and will ask for a recharge index.
+We will create an MOU and sent to the PI for signing and will ask for a recharge account.
 Once a PI signs an MOU for the desired amount of storage, the allocation is created
 on one of the DFS systems.
 
