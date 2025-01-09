@@ -55,6 +55,33 @@ literally hundreds of domain-specific, community-supported, applications maintai
 
 .. _software:
 
+Requesting New Software
+-----------------------
+
+You may submit a request for new software to be added to HPC3 through the usual support email. RCIC cannot and does not 
+say "yes" to every request. RCIC is simply not large enough to handle all software variations and/or requests.  
+
+RCIC prioritizes all software requests as follows:
+
+1. Request to fix a compilation problem, security issue, or functionality issue of existing software.
+  
+1. A new release of an already-installed software provides *significant* new capability 
+
+1. New software has a demonstrated need by multiple labs
+
+1. Staff as time availability when a request does not meet the above
+
+
+RCIC says "no" to the following types of requests
+
+1. Software that the user wants to evaluate
+
+2. Licensed software that does not use the FlexLM license mananger when RCIC must run the license server
+
+3. Software that will only be used by one or two users
+
+
+
 How it is built
 ---------------
 

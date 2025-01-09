@@ -188,17 +188,6 @@ of "latest and greatest".
 Given realities of time, we have to prioritize software that affects more than a single
 researcher or group.
 
-:red:`We certainly are not here to install software that`
-  * You might use.
-  * You just want to play with or evaluate.
-  * Is the latest available version. Just because it is the latest is not a good reason.
-  * Is too old. Anything that is 5  or more years old  is not a good candidate.
-  * Is no longer supported by developers (Python 2 is an example).
-
-Even with those constraints, we are not shy about taking on complicated,
-time-consuming installs with many dependencies.  Part of our value add to UCI is to handle as much of this as
-possible.  We strive to say "yes" to software requests, but sometimes do have to say "no."
-
 :underline:`Before asking us to install`:
 
   * Check if the software is already installed on the cluster.
@@ -232,8 +221,14 @@ possible.  We strive to say "yes" to software requests, but sometimes do have to
 
   You might not be able to install/compile the software yourself without some additional
   system-installed software and that's a good reason to ask us.
+
+  :red:`IMPORTANT` RCIC may say "no" to your software request. We simply do not have the staff time to
+  install every requested software component. We prioritize software that has wide applicability.  Applications
+  that you want to "evaluate" are seldomly (if ever) installed by RCIC. 
+
   In the end, it's a partnership to get new software added to HPC3. We need good
   information from you and a willingness to validate the installed software.
+
 
   If you want to request new software or updated versions of software that are
   already installed please submit a ticket with the following information:
@@ -246,4 +241,5 @@ possible.  We strive to say "yes" to software requests, but sometimes do have to
   * URL for download/install instructions.
   * If applicable, any special configuration options/capabilities that should be enabled (or disabled).
   * A brief statement about a "test" input and expected output so that we can do an initial validation.
+
 
