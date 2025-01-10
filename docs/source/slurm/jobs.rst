@@ -715,7 +715,10 @@ In order to run jobs on HPC3, a user must have available CPU hours.
         ---------- ------ + ----------- -------- + ------------- ---------
         panteater*     58 |   PANTEATER       58 |         1,000       942
         panteater*  6,898 |      PI_LAB    6,898 |       100,000    93,102
+        panteater*     84 | PANTEATER_LAB_GPU 84 |        33,000    32,916
 
+   .. note:: An hour of a GPU requires at least 2 CPU cores.
+            Hence, the minimum charge for a single GPU is (32 + 2) = 34 SUs/hour.
 
 
 2. We have a cluster-specific tool to print a ledger of jobs based on specified arguments.
