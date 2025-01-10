@@ -198,7 +198,7 @@ simply substitute module name and version where needed.
            --set envs_dirs /pub/$USER/myconda/23.5.2/envs \
            --append envs_dirs /opt/apps/miniconda/23.5.2/pkgs
 
-   Your :tt:`.condarc` file is always in $HOME regardless of the install location.
+   .. note:: Your :tt:`.condarc` file is always in $HOME regardless of the install location.
 
 
 #. **Initialize conda for your shell**
@@ -278,6 +278,16 @@ simply substitute module name and version where needed.
    Now you are ready to create your local conda environment.
 
    :red:`Follow the instructions provided by your software package`.
+
+   Your specific instructions may require adding conda channels or setting
+   some other parameters, simply execute needed commands as specified.
+
+   | These commands may be similar to:
+   |     conda config --add channels NAME-OF-CHANNEL
+   |     conda config --set channel_priority TYPE-OF-PRIORITY
+   |     conda config --set auto_activate_base BOOLEAN-VALUE
+   | Conda config commands add lines to your :tt:`~/.condarc` file.
+
    The name of your environment can be anything that makes sense, has to be a single word (no spaces), the exact
    command will be provided in your software instructions and may have
    additional arguments in it. Here, as an example we create a local
@@ -442,13 +452,16 @@ simply substitute module name and version where needed.
 
    We recommend to clean your conda installation each time you create a new
    environment or add packages to the existing environment.
+
    The following command will remove index cache, lock files, unused cache packages, tarballs, and logfiles
-   from your :tt:`~/.conda/pkgs/`. This can free a few Gbs of disk space for each
+   from your :tt:`~/.conda/pkgs/`. This can free a few gigabyts of disk space for each
    install (size depends on installed packages).
 
    .. code-block:: console
 
       (Local2)[user@hpc3-xx-yy:~]$ conda clean -a -f -y
+
+   .. important:: Failure to clean can reasult in $HOME overquota.
 
 #. **Use your conda environment**
 
@@ -459,31 +472,59 @@ simply substitute module name and version where needed.
    Or you can add more packages to the existing environments. The choice
    depends on the software and on its instructions.
 
-   Every time you login and want to use your conda local environment and its packages you will need
-   to get an interactive node (Step 1) and then
-   to run the following commands to activate your conda environment:
+   Using interactively:
+     Every time you login and want to use your conda local environment and its packages you will need
+     to get an interactive node and run the following commands to activate your conda environment:
 
-   .. code-block:: console
+     .. code-block:: console
 
-      [user@hpc3-xx-yy:~]$ module load miniconda3/23.5.2
-      [user@hpc3-xx-yy:~]$ . ~/.mycondainit-23.5.2
-      (base)[user@hpc3-xx-yy:~]$ conda activate Local2
-      (Local2)[user@hpc3-xx-yy:~]$
+        [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
+        [user@hpc3-xx-yy:~]$ module load miniconda3/23.5.2
+        [user@hpc3-xx-yy:~]$ . ~/.mycondainit-23.5.2
+        (base)[user@hpc3-xx-yy:~]$ conda activate Local2
+        (Local2)[user@hpc3-xx-yy:~]$
 
-   Note, once conda is initialized *(base)* is added to the prompt, and once
-   you activate your environment the *(base)* changes to the environment name *(Local2)*.
+     Note, once conda is initialized *(base)* is added to the prompt, and once
+     you activate your environment the *(base)* changes to the environment
+     name, here *(Local2)*.
 
-   If you submit your computation via Slurm script these 3 commands need to be
-   present in your Slurm script before the lines that execute your software commands.
+     Your environment is deactivated automatically when you logout from the interactive node.
+     To deactivate your environment right away in your current shell:
 
-   Your environment is deactivated automatically when you logout or when your
-   Slurm job finishes.
-   To deactivate your environment right away in your current shell you need to do:
+     .. code-block:: console
 
-   .. code-block:: console
+        (Local2)[user@hpc3-xx-yy:~]$ conda deactivate
+        (base)[user@hpc3-xx-yy:~]$
 
-      (Local2)[user@hpc3-xx-yy:~]$ conda deactivate
-      (base)[user@hpc3-xx-yy:~]$
+   Using in Slurm batch script:
+     If you submit your computation via Slurm script the commands to load
+     conda module and activate your desired environment need to be
+     present in your Slurm script before the lines that execute your software
+     commands, for example:
+
+     .. code-block:: console
+
+        #!/bin/bash -l
+
+        #SBATCH --job-name=test      ## Name of the job.
+        #SBATCH -p standard          ## partition/queue name
+        #SBATCH --nodes=1            ## (-N) number of nodes to use
+        #SBATCH --ntasks=1           ## (-n) number of tasks to launch
+        #SBATCH --cpus-per-task=1    ## number of cores the job needs
+        #SBATCH --mem=500            ## 500Mb of memory
+        #SBATCH --time=00:02:00      ## run time 2 min
+        #SBATCH --error=slurm-%J.err ## error log file
+
+        # load conda module and activate environment
+        module load miniconda3/23.5.2
+        . ~/.mycondainit-23.5.2
+        conda activate Local2
+
+        # run your desired application commands
+        command1 arg1 arg2
+        command2 arg3 arg4
+
+     Your environment is deactivated automatically when you Slurm jobs finishes.
 
 #. **Build additional enviornments**
 
