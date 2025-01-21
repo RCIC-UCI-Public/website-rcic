@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH --job-name namd-apoa1
+#SBATCH --partition=gpu
+#SBATCH -A hackathon_gpu
+#SBATCH --nodes=2             # 2 nodes
+#SBATCH -t 01:00:00
+#SBATCH --ntasks-per-node=2   # 2 processes per node
+#SBATCH --cpus-per-task=2     # 2 threads mapping to 2 cores per node
+#SBATCH --gres=gpu:2          # 1 GPUs per node
+
+module load namd/2.14b2/gcc.8.4.0-cuda.10.1.243
+module load openmpi/4.1.2/gcc.8.4.0  
+
+# calculate total processes (P) and cpus per node
+P=$(( SLURM_NTASKS_PER_NODE * SLURM_NNODES ))
+PPN=$SLURM_CPUS_PER_TASK
+
+cd $SLURM_SUBMIT_DIR
+mpirun -np $P namd2 +ppn $PPN +setcpuaffinity +ignoresharing +isomalloc_sync apoa1.namd > out-$SLURM_JOB_NAME-$SLURM_JOBID

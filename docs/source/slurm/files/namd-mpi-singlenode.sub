@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#SBATCH --job-name namd-apoa1
+#SBATCH -A panteater_lab 
+#SBATCH -p standard  
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=6    
+
+module load namd/2.14b2/gcc.8.4.0-openmpi.4.0.3
+ 
+cd $SLURM_SUBMIT_DIR
+mpirun -np $SLURM_NTASKS namd2 apoa1.namd > out-$SLURM_JOB_NAME-$SLURM_JOBID
+

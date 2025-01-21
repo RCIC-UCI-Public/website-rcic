@@ -288,14 +288,32 @@ To run a GPU job one needs to request:
 
    To see all available partitions use ``sinfo`` command
    that lists all partitions and nodes managed by Slurm. All users can use
-   *free-gpu* partition. To use one of GPU partitions add to
-   your submit script
+   *free-gpu* partition. To use one of GPU partitions add to your submit script:
 
    .. code-block:: bash
 
-      #SBATCH --partition=free-gpu   # specify free-gpu partition
+      #SBATCH -p free-gpu   # specify free-gpu partition
 
-2. GPU type and number
+#. GPU number
+
+   .. important:
+      | Nearly 100% of applications on the cluster will use only 1 GPU.
+      | **GPU number should be set to 1.**
+      | **None of Perl, Python, or R-based applications need multi-GPU**.
+
+      | Very few applications can use multiple GPUs in *P2P* (peer-2-peer) mode.
+        For example, *Amber*, *VASP* and *NAMD*.
+        These applications need to be specially designed and compiled
+        with very specific flags and options to be able to use multi-GPU acceleration.
+
+   To use set the GPU number add  to your submit script:
+
+   .. code-block:: bash
+
+      #SBATCH --nodes=1
+      #SBATCH --gres=gpu:1    # specify 1 GPU
+
+#. OPTIONAL: GPU type
 
    Currently, HPC3 has a few GPU types.
    GPU type and number are specified with :tt:`gres` directive, for both
@@ -314,14 +332,29 @@ To run a GPU job one needs to request:
 
       [user@login-x:~]$ sinfo -o "%60N %10c %10m  %30f %10G" -e
 
-   .. important:: GPU number should be set to 1.
-                  Nearly 100% of applications on the cluster will use only 1 GPU.
-                  None of Perl, Python, R-based applications need multi-GPU.
-                  Very few applications can use multiple GPUs in *P2P* (peer-2-peer) mode.
 
-                  These applications need to be specially designed and compiled
-                  with very specific flags and options to be able to use multi-GPU acceleration.
-                  A few examples of applications that can do P2P are *Amber*, *VASP* and *NAMD*.
+An example of a GPU job submit script:
+
+   .. code-block:: bash
+
+      #SBATCH -J gpuJob                   # job name
+      #SBATCH --nodes=1                   # request to run on 1 node
+      #SBATCH -p gpu                      # request gpu partition
+      #SBATCH --gres=gpu:1                # request 1 gpu
+      #SBATCH -t 5-00:00:00               # set time limit 5 days
+      #SBATCH --tasks-per-node=1          # request 1 task per node
+      #SBATCH --cpus-per-task=1           # request 1 cpu per task
+      #SBATCH --mem=16gb                  # request 16Gb of memory
+      #SBATCH --account panteater_lab_gpu
+      #SBATCH --output slurm-%x.%A.out
+
+      <your job commands>
+
+The above job request translates into the following:
+
+- Job requested: cpu=1, mem=16Gb, node=1, gpu=1. Total billing is 33 = 32(gpu) + 1(cpu)
+- Job is allocated: cpu=2, mem=16Gb, node=1, gpu=1. Total billing is 34 = 32(gpu) + 2(cpu).
+  The CPU increase is due to the memory request of 16Gb (for gpu partition max memory per cpu is 9Gb).
 
 .. _job jupyter hub:
 
@@ -1116,4 +1149,24 @@ VASP
    .. centered:: File vasp-63-gpu.sub
 
    .. literalinclude:: files/vasp-63-gpu.sub
+      :language: bash
+
+.. _namd job:
+
+NAMD
+----
+
+1. Single node multi-CPU job using MPI:
+
+   .. literalinclude:: files/namd-mpi-singlenode.sub
+      :language: bash
+
+#. Multi node multi-CPU job using MPI:
+
+   .. literalinclude:: files/namd-mpi-multinode.sub
+      :language: bash
+
+#. Multi node multi-GPU job using MPI:
+
+   .. literalinclude:: files/namd-gpu-multinode.sub
       :language: bash
