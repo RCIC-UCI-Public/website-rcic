@@ -100,23 +100,24 @@ CRSP technologies
 Allocations
 -----------
 
-CRSP is funded through central campus to guarantee a fixed amount of no-cost storage to any faculty member
-or staff researcher who requests space. These campus funds pay for the people, the baseline infrastructure,
+CRSP is funded through central campus to guarantee a fixed amount of no-cost storage to any PI
+who requests space. These campus funds pay for the people, the baseline infrastructure,
 and vendor maintenance required to provide the robust infrastructure.
 
-CRSP allocations are provided for UCI faculty members as follows:
+.. note:: A PI is a ladder-rank faculty or a researcher who has an exception granted to act as PI on federal grants
+          by UCI Office of research.
 
-**No cost baseline allocation**
-  - 1TB quota per researcher
+Each CRSP allocation is associated with a PI's account
+and is provided for UCI's PI members as follows:
+
+**No-cost baseline allocation**
+  - 1TB quota per PI
 
 **Recharge allocation - Lab area**
-  - Researchers who require more capacity than the baseline allocation, can purchase additional capacity.
+  - PIs who require more capacity than the baseline allocation, can purchase additional capacity.
     Please see  :ref:`recharge storage rates` and :ref:`buy crsp`
+  - The allocation owners (PIs) can grant access to their spaces to students, postdocs, and other faculty members.
 
-In general, users do not get a default CRSP allocation.
-The allocation owners can grant access to their spaces to students, postdocs, and other faculty members.
-
-The allocation is associated with an account.
 
 .. _getting crsp account:
 
@@ -124,9 +125,6 @@ Getting CRSP Account
 --------------------
 
 All requests described below must be sent to hpc-support@uci.edu.
-
-.. note:: A PI is a ladder-rank faculty or a researcher who has an exception granted to act as PI on federal grants
-          by UCI Office of research.
 
 :underline:`I am a PI on campus and I want to have an access`:
   You may request a no-cost 1TB lab allocation and include:
@@ -168,14 +166,14 @@ Private and Shared Areas
 Storage space on CRSP has the concepts of:
 
 :tt:`Space Owners`:
-  * Are entitled to a baseline allocation and are all ladder faculty, PIs and
-    UCI employee serving as PI/Co-PI on an extramural grant.
+  * Are PIs and UCI employees serving as PI/Co-PI on an extramural grant
+    and are all ladder faculty.
+  * Are entitled to a baseline allocation and can purchase more space.
   * Can store files in their LAB and can partition LAB into shared and no-shared area.
-  * Can grant access to their LAB storage space to Grantees: students, postdocs, and other faculty members.
-  * Can purchase more space.
+  * Can grant access to their LAB storage space to Grantees.
 
 :tt:`Grantees`:
-  * Are those who are granted access by Space owners (lab students, postdocs, etc).
+  * Are students, postdocs, and other faculty members who are granted access by Space owners.
   * Can access the LAB space to which they have been granted access by Space Owners
     and store files there.
 
@@ -192,33 +190,33 @@ Private Area - HOME
 
 This allocation space, called :tt:`HOME`, is for $HOME directories:
 
-* It has a very very small allocation per user.  Data on CRSP should be stored in *Lab Areas*
-* Not used for sharing with others.
+* It has a very very small allocation per user. Not used for sharing with others.
 * Is required for Linux accounts and is ONLY used for an account related files.
-* :red:`DO NOT use HOME for storing any data`.
 * File :tt:`quotas.txt` is created and updated in your $HOME area automatically and
   provides information about your quota status for HOME and LAB areas.
+* :red:`DO NOT use HOME for storing any data`.  Data on CRSP should be stored in *Lab Areas*
 
 .. _crsp shared:
 
 Shared Area - LAB
 ^^^^^^^^^^^^^^^^^
 
-This allocation space, called :tt:`LAB`, is a *shared space area* per Space Owner.
-
-Space owner grants explicit access for this area to Grantees and decides how to allocate the space
-among its group members.
+| This allocation space, called :tt:`LAB`, is a *shared space area* per Space Owner.
+| Space owner grants explicit access for this area to Grantees and decides how to allocate
+| the space among its group members and can place limits on individuals Grantees.
 
 The LAB areas provide the most flexibility for access control and sharing:
 
-* The space owner by default has read access to every file and directory in the LAB
-* Only the space owner has the ability to create files or new directories in the top-level of the LAB area.
-* Grantees have a personal directory  named with their UCINetID.
-  Files stored there by the grantee are viewable only by the space owner and the grantee.
+* The Allocation quota is for the  whole :tt:`LAB` area allocation and is a sum of what is stored
+  in :tt:`share`  and in all personal directories.
+* Each Grantee has a personal directory (named with grantee's UCINetID). Only
+  grantee and the space owner can read/write files in this directory. 
 * A directory called :tt:`share` is available to all members of the lab.
   Anyone in the lab can read/write files stored under it.
-* Quota is for the  whole LAB area allocation and is a sum of what is stored
-  in :tt:`share`  and in all personal directories.
+* The space owner
+
+  * has the ability to create files or new directories in the top-level of the :tt:`LAB` area.
+  * by default has read access to every file and directory in the :tt:`LAB` area.
 
 CRSP has many (and sometimes competing) goals for access, sharing, security,
 manageability, and simplicity for researchers.  One of the technical complexities
@@ -253,7 +251,7 @@ There are two Unix groups predefined for all labs:
 In the following, we will use the lab for a PI *ppapadop* as an example:
 
 * *ppapadop* is in the group :tt:`ppapadop_lab` and is only member of this group.
-*    *ppapadop* is in the group :tt:`ppapadop_lab_share`.
+* *ppapadop* is in the group :tt:`ppapadop_lab_share`.
 * *ckhacher*, *itoufiqu*, *tandriol*, *iychang* are in the group :tt:`ppapadop_lab_share`.
   They are lab members (grantees) that were given an access to the LAB area  by the PI.
 
@@ -265,59 +263,61 @@ In the following, we will use the lab for a PI *ppapadop* as an example:
 
 This shows that for the :tt:`ppapadop` Lab on CRSP:
 
-1. Each user in the LAB has a folder named by UCNetID that is private to the
-   user and to the PI. These are LAB members  who are in the group
+1. User *ppapadop* who is a PI can see all files anywehre in the LAB area.
+#. All users in the LAB can read/write files in :tt:`share` area.
+#. Each user in the LAB has a folder named by UCNetID that is private to the
+   user and to the PI. 
+   There are  LAB members in the group 
    :tt:`ppapadop_lab_share`: *ppapadop*, *ckhacher*, *itoufiqu*, *tandriol*, *iychang*.
-2. User *ppapadop* who is a PI can see all files.
-3. User *itoufiqu* can only see files in the :tt:`itoufiqu` and :tt:`share` folders.
-   Similarly, user *ckhacher* cn only see see files in the :tt:`ckhacher` and :tt:`share` folders.
+
+   * only *ppapadop* and *itoufiqu* users can access files in the :tt:`itoufiqu` folder.
+   * only *ppapadop* and *ckhacher* users can access files in the :tt:`ckhacher` folder.
+   * similar access for other users folders.
 
 .. _crsp access:
 
 Accessing  CRSP
 ---------------
 
-You must either be on the campus network or connected to the
-`UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to access CRSP.
+| You must either be on the campus network or connected to the
+  `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to access CRSP.
+| Your login credentials for all access methods described below are:
 
-If you were given an access to CRSP account, to access it via the methods
-described below use:
-
- :login name: your UCINetID
- :password: your password associated with your UCINetID
+  :login name: your UCINetID
+  :password: your password associated with your UCINetID
 
 We do not set or change passwords.
 
-You can access  your granted CRSP storage from Windows, MAC, and Linux systems
-via a few methods. The client links in the table below provide installation
+You can access your granted CRSP storage from Windows, MAC, and Linux systems
+via a few methods. The links in the table below provide installation
 instructions:
 
 .. table::
    :widths: 30 70
    :class: noscroll-table
 
-   +------------------------------+-------------------------------------------------------------------------------------------+
-   |  Client                      | Description                                                                               |
-   +------------------------------+-------------------------------------------------------------------------------------------+
-   | :ref:`client desktop windows`| *CRSP Desktop* clients are for accessing CRSP from Windows and macOS laptops.             |
-   | :ref:`client desktop mac`    | We provide licensed and branded version of a commercial software *Mountain Duck*.         |
-   +------------------------------+-------------------------------------------------------------------------------------------+
-   | :ref:`client web browser`    | This access is used for *light weight* CRSP resource usage, supports file or directory    |
-   |                              | uploads/downloads and provides in-browser edit capabilities for certain file types.       |
-   +------------------------------+-------------------------------------------------------------------------------------------+
-   | :ref:`client sshfs`          | *SSHFS* can be used for accessing CRSP shares from a Linux laptop/desktop.                |
-   +------------------------------+-------------------------------------------------------------------------------------------+
-   | :ref:`client from hpc3`      | *NFS mount* on HPC3 provides and access to the CRSP's LAB and HOME areas.                 |
-   +------------------------------+-------------------------------------------------------------------------------------------+
+   +----------------------------------------------------+-------------------------------------------------------------------------------------+
+   |  Method                                            | Description                                                                         |
+   +----------------------------------------------------+-------------------------------------------------------------------------------------+
+   | :ref:`CRSP Desktop Windows<client desktop windows>`| *CRSP Desktop* clients are for accessing CRSP from Windows and macOS laptops.       |
+   | :ref:`CRSP Desktop Mac <client desktop mac>`       | We provide licensed and branded version of a commercial software *Mountain Duck*.   |
+   +----------------------------------------------------+-------------------------------------------------------------------------------------+
+   | :ref:`client web browser`                          | This is for *light weight* CRSP resource usage, supports file or directory          |
+   |                                                    | uploads/downloads and provides in-browser edit capabilities for certain file types. |
+   +----------------------------------------------------+-------------------------------------------------------------------------------------+
+   | :ref:`client sshfs`                                | *SSHFS* can be used for accessing CRSP from a Linux laptop/desktop.                 |
+   +----------------------------------------------------+-------------------------------------------------------------------------------------+
+   | :ref:`client from hpc3`                            | *NFS mount* provides and access to the CRSP's LAB and HOME areas from HPC3.         |
+   +----------------------------------------------------+-------------------------------------------------------------------------------------+
 
 .. attention::
 
-   Although CRSP storage system could be accessed via other commercial or open source
-   desktop clients such as FileZilla, WinSCP, CyberDuck, the  **CRSP Desktop** client is the currently
-   supported SFTP based software. Other desktop clients support is provided only on a best effort basis.
+   | The  **CRSP Desktop** client is the currently supported SFTP based software.
+   | Although CRSP storage system could be accessed via other 
+     desktop clients such as FileZilla, WinSCP, CyberDuck, their
+     support is provided only on a best effort basis.
 
-
-Consult our :ref:`crsp troubleshoot` if you have trouble accessing your CRSP shares.
+Consult our :ref:`crsp troubleshoot` if you have trouble accessing your CRSP area.
 
 .. _crsp quotas:
 
