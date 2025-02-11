@@ -337,15 +337,38 @@ You need to check your :ref:`dfs quotas` for the specific DFS filesystem.
 :bluelight:`Slurm jobs`
 -----------------------
 
-My job failed with OOM error 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Can you give me an estimate of the expected wait times?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-OOM signifies out of memory errors. The actual message can vary depending on 
+It is impossible to answer because how long a job waits is dependent upon many job-specific parameters
+and the current cluster load.
+
+* If one asks for a generic core on the *standard* partition, the job is likely to schedule immediately.
+* Not all nodes in HPC3 have the same physical configuration and if a job specification is such that only a small number of nodes 
+  can match such job request, one might wait days or even weeks.
+* It takes longer to reserve entire nodes because one has to wait for all other jobs on the node to complete.
+* It is highly dependent on the current cluster load. During the low load periods the jobs will schedule quite quickly,
+  and during the high load periods the scheduling will take a bit more time.
+
+My job failed with *out of memory* (OOM)  error. What should i do?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OOM signifies *Out Of Memory* errors. The actual message can vary depending on 
 where and how you run your application and may contain *OOM Killed*,
 *oom_kill events* or *oom-kill*.
+
 This means you requested a certain amount of memory but your job went over the
-limit and SLURM has terminated your job. You need to request more memory.
-See :ref:`How to get more memory <request memory>`.
+limit and SLURM has terminated your job.
+
+All partitions have :ref:`specific configuration <paritions structure>` for memory, runtime, etc.
+
+* You need to increase the memory requirements for your job.
+  See :ref:`How to get more memory <request memory>`.
+* For the jobs that require more memory than the
+  *standard/free* partitions can provide or for the jobs that require *a lot of memory
+  and not many CPUs*, there is a limited number of higher memory nodes that are
+  accessible via higher memory partitions.
+  The :ref:`memory partitions` guide explains how to request an access.
 
 Why should I request an interactive shell and how do I do this?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -468,21 +491,6 @@ request a GPU lab account.  For example, a PI *panteater* will have accounts:
 | *PANTEATER_LAB_GPU* - for GPU jobs
 
 All users can submit jobs to *free-gpu* partition without special GPU account.
-
-My job failed with "out of memory error". What should i do?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Your job was removed by Slurm because it exceeded its memory request.
-All partitions have :ref:`specific configuration <paritions structure>`
-for memory, runtime, etc.
-You need to increase the memory requirements for your job. See examples of
-how to :ref:`request more memory <request memory>`.
-
-For the jobs that require more memory than the
-*standard/free* partitions can provide or for the jobs that require A LOT of memory
-and not many CPUs, there is a limited number of higher memory nodes that are
-accessible via higher memory partitions.
-The :ref:`memory partitions` guide explains how to request an access.
 
 How do I use higher memory partitions highmem/hugemem/maxmem?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
