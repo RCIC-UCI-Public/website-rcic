@@ -282,44 +282,59 @@ Here is an example workflow of commands that shows how to use this feature.
 GPU
 ---
 
+Please review :ref:`who can run jobs in GPU partitions <gpu partitions>`.
+
 To run a GPU job one needs to request:
 
-1. GPU partition
-
+:bluelight:`GPU partition name`
    To see all available partitions use ``sinfo`` command
    that lists all partitions and nodes managed by Slurm. All users can use
-   *free-gpu* partition. To use one of GPU partitions add to your submit script:
+   *free-gpu* partition. To use GPU partitions add to your submit
+   script one of the following requests:
 
-   .. code-block:: bash
+   To use *free-gpu* partition, your own account will be used but not charged
 
-      #SBATCH -p free-gpu   # specify free-gpu partition
+     .. code-block:: bash
 
-#. GPU number
+        #SBATCH -p free-gpu
 
-   .. important:
-      | Nearly 100% of applications on the cluster will use only 1 GPU.
+   To use other gpu partitions specify a partition name and your **lab GPU
+   account** to charge. Note, CPU and GPU lab accounts are different and not
+   labs have both. 
+
+     .. code-block:: bash
+
+        #SBATCH -p gpu
+        #SBATCH -A panteater_lab_gpu 
+
+
+:bluelight:`GPU number`
+
+   .. important::
+      | Nearly 100% of applications on the cluster can use only 1 GPU.
       | **GPU number should be set to 1.**
       | **None of Perl, Python, or R-based applications need multi-GPU**.
 
-      | Very few applications can use multiple GPUs in *P2P* (peer-2-peer) mode.
-        For example, *Amber*, *VASP* and *NAMD*.
-        These applications need to be specially designed and compiled
+      | Very few applications can use multiple GPUs in *P2P* (peer-2-peer) mode,
+        for example, *Amber*, *VASP* and *NAMD*.
+        These applications are designed and compiled
         with very specific flags and options to be able to use multi-GPU acceleration.
 
-   To use set the GPU number add  to your submit script:
+      | If you request multi-GPU but use only 1 you will be charged for all
+        requested regardless of the usage.
+
+   To set the GPU number add  to your submit script:
 
    .. code-block:: bash
 
       #SBATCH --nodes=1
       #SBATCH --gres=gpu:1    # specify 1 GPU
 
-#. OPTIONAL: GPU type
-
+:bluelight:`GPU type` (optional)
    Currently, HPC3 has a few GPU types.
    GPU type and number are specified with :tt:`gres` directive, for both
-   interactive and batch jobs.
-
-   In your Slurm submit script you will need to add
+   interactive and batch jobs. Most jobs do not care what GPU type is used. 
+   In your Slurm submit script you will need to add:
 
    .. code-block:: bash
 
@@ -333,7 +348,7 @@ To run a GPU job one needs to request:
       [user@login-x:~]$ sinfo -o "%60N %10c %10m  %30f %10G" -e
 
 
-An example of a GPU job submit script:
+An example GPU job submit script for batch job:
 
    .. code-block:: bash
 
@@ -350,11 +365,31 @@ An example of a GPU job submit script:
 
       <your job commands>
 
-The above job request translates into the following:
+   The above job request translates into the following:
 
-- Job requested: cpu=1, mem=16Gb, node=1, gpu=1. Total billing is 33 = 32(gpu) + 1(cpu)
-- Job is allocated: cpu=2, mem=16Gb, node=1, gpu=1. Total billing is 34 = 32(gpu) + 2(cpu).
-  The CPU increase is due to the memory request of 16Gb (for gpu partition max memory per cpu is 9Gb).
+     .. table::
+        :class: noscroll-table
+
+        +----------------------------------+----------------------------------+
+        | job request                      | actual job allocation            |
+        +==================================+==================================+
+        | 1 node                           | 1 node                           |
+        +----------------------------------+----------------------------------+
+        | 1 GPU                            | 1 GPU                            |
+        +----------------------------------+----------------------------------+
+        | 16Gb  memory                     | 16Gb memory                      |
+        +----------------------------------+----------------------------------+
+        | 1 CPU                            | 2 CPU                            |
+        +----------------------------------+----------------------------------+
+        | billing is 33 = 32(gpu) + 1(cpu) | billing is 34 = 32(gpu) + 2(cpu) |
+        +----------------------------------+----------------------------------+
+
+     The CPU  and billing increase is due to the memory request of 16Gb.
+     For *gpu* partition max memory per CPU is 9Gb, thus 2 CPUs are
+     needed to supply requested memory.
+
+Please see :ref:`interactive job` submission examples.
+
 
 .. _job jupyter hub:
 
