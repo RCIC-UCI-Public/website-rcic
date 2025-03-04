@@ -415,7 +415,7 @@ user accounts from multiple public and private filesystems.
 The Selective Backup process will automatically start saving your home directory
 as well as some public and private disk spaces. 
 
-.. note:: | For a majority of users defauls are sufficient. 
+.. note:: | For a majority of users, defaults are sufficient.
           | There is nothing for you to do if you like the defaults.
 
 Users manage their Selective Backup via two **control files** located in their
