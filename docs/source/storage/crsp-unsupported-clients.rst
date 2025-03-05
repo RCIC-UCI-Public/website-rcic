@@ -63,7 +63,7 @@ This is especially important on shared computers.  Press the :guilabel:`Disconne
 
    Explicitly Disconnect from Cyberduck
 
-After disconnection, you can close the cyberduck window.
+After disconnection, you can close the Cyberduck window.
 
 .. _filezilla:
 

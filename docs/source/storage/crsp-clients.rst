@@ -114,7 +114,7 @@ macOS: Download Desktop App
 
 **Download Step 1:**
   Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
-  using your UCNetID and password:
+  using your UCINetID and password:
 
   .. figure:: images/crsp/authenticate.png
       :align: center
@@ -235,17 +235,17 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
   **Needed information to connect to CRSP**:
 
-  * Your UCNetID
-  * The UCNetID of the CRSP lab owner:
+  * Your UCINetID
+  * The UCINetID of the CRSP lab owner:
 
-    * It is our UCNetID if you own CRSP Lab
-    * It is the UCNetID of your adviser, If you are a graduate student or post-doctoral researcher
+    * It is our UCINetID if you own CRSP Lab
+    * It is the UCINetID of your adviser, If you are a graduate student or post-doctoral researcher
 
   In this example configuration, we are going to use the following specific
   information for user *npw* to access the *ppapadop* lab:
 
-  * UCNetID - npw
-  * UCNetID of the CRSP lab owner - ppapadop
+  * UCINetID - npw
+  * UCINetID of the CRSP lab owner - ppapadop
 
   You will edit 5 fields in the default bookmark: :guilabel:`Nickname`, :guilabel:`Username`, 
   :guilabel:`SSH Private Key`, :guilabel:`Path`, and :guilabel:`Connect Mode`:
@@ -328,7 +328,7 @@ You have two authentication options when connecting to CRSP:
    It is highly recommended that you use ssh keys with a passphrase as described in the
    :ref:`Quick Start <crsp quick start>` guide.
 
-   When you click :guilabel:`connect` in the :ref:`previous step <mac connect share>`, you should see popup
+   When you click :guilabel:`connect` in the :ref:`previous step <mac connect share>`, you should see a pop-up
    window similar to the following (with your ssh key info):
 
    .. figure:: images/mac/mac-crsp-passphrase.png
@@ -429,7 +429,7 @@ Windows: Download Desktop App
 
 **Download Step 1:**
   Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
-  using your UCNetID and password, follow with DUO authentication:
+  using your UCINetID and password, follow with DUO authentication:
 
   .. figure:: images/crsp/authenticate.png
       :align: center
@@ -554,17 +554,17 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
   **Needed information to connect to CRSP**:
 
-  * Your UCNetID
-  * The UCNetID of the CRSP lab owner:
+  * Your UCINetID
+  * The UCINetID of the CRSP lab owner:
 
-    * It is our UCNetID if you own CRSP Lab
-    * It is the UCNetID of your adviser, If you are a graduate student or post-doctoral researcher
+    * It is our UCINetID if you own CRSP Lab
+    * It is the UCINetID of your adviser, If you are a graduate student or post-doctoral researcher
 
   In this example configuration, we are going to use the following specific
   information for user *ppapadop* to access the *npw* lab:
 
-  * UCNetID - ppapadop
-  * UCNetID of the CRSP lab owner - npw
+  * UCINetID - ppapadop
+  * UCINetID of the CRSP lab owner - npw
 
   You will edit 5 fields in the default bookmark: :guilabel:`Nickname`, :guilabel:`Username`, 
   :guilabel:`SSH Private Key`, :guilabel:`Path`, and :guilabel:`Connect Mode`:
@@ -637,7 +637,7 @@ You have two authentication options when connecting to CRSP:
    It is highly recommended that you use ssh keys with a passphrase as described in the
    :ref:`Quick Start <crsp quick start>` guide.
 
-   When you click :guilabel:`connect` in the :ref:`previous step <windows connect share>`, you should see popup
+   When you click :guilabel:`connect` in the :ref:`previous step <windows connect share>`, you should see a pop-up
    window similar to the following:
 
    .. figure:: images/win/crsp-passphrase.png
@@ -720,7 +720,7 @@ Logging in
 ^^^^^^^^^^^
 
 Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
-using your UCNetID and password:
+using your UCINetID and password:
 
   .. figure:: images/crsp/authenticate.png
      :align: center
@@ -883,15 +883,15 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
 Linux SSHFS
 -----------
 
-This page illustrates how use sshfs on Linux laptops for accessing CRSP.
-Sshfs will **Map CRSP Lab Share** as a folder on your laptop.
+This page illustrates how use SSHFS on Linux laptops for accessing CRSP.
+SSHFS will **Map CRSP Lab Share** as a folder on your laptop.
 
 .. _install sshfs:
 
-Install sshfs
+Install SSHFS
 ^^^^^^^^^^^^^
 
-On your laptop you will need super user (sudo) rights to install sshfs.
+On your laptop you will need super user (sudo) rights to install SSHFS.
 
 For CentOS based laptop
   .. code-block:: console
@@ -913,14 +913,14 @@ Mount CRSP shares
 
 In this example there are two variables:
 
-  * :tt:`username` - Your UCNetID
-  * :tt:`labname` - The UCNetID of the CRSP lab owner:
+  * :tt:`username` - Your UCINetID
+  * :tt:`labname` - The UCINetID of the CRSP lab owner:
 
-    * It is our UCNetID if you own CRSP Lab
-    * It is the UCNetID of your adviser, If you are a graduate student or post-doctoral researcher
+    * It is our UCINetID if you own CRSP Lab
+    * It is the UCINetID of your adviser, If you are a graduate student or post-doctoral researcher
 
 From your desktop or laptop, execute the following command
-replacing :tt:`username`  and :tt:`labname` with the appropriate UCNetIDs:
+replacing :tt:`username`  and :tt:`labname` with the appropriate UCINetID(s):
 
 .. code-block::
 
@@ -943,7 +943,7 @@ on how to keep your local system and CRSP accounts synced are very limited.
 .. _unmount sshfs:
 
 Unmount CRSP shares
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 To unmount the share that was mounted in the above example:
   .. code-block:: console
@@ -952,12 +952,12 @@ To unmount the share that was mounted in the above example:
 
 .. _use sshfs:
 
-Using sshfs
+Using SSHFS
 ^^^^^^^^^^^
 
-Examples of sshfs use:
+Examples of SSHFS use:
 
-Copy a file from your local system to your sshfs mounted drive
+Copy a file from your local system to your SSHFS mounted drive
   .. code-block:: console
 
      $ cp ~/dir1/file.tar.gz ~/crsp_mount/share/
@@ -1060,7 +1060,7 @@ Moving data to CRSP
 Please see :ref:`data transfer` for in-depth  commands examples.
 
 For example, to recursively copy your :tt:`mydir/` directory
-from DFS6 to your LAB share on CRSP:
+from DFS6 storage to your LAB share on CRSP:
 
 .. code-block:: console
 

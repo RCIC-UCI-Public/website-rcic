@@ -21,10 +21,10 @@ As of August 2024, the following describes the cluster:
     * 14 nodes with 4 Nvidia V100 (16GB) GPUs
     * 18 nodes with 4 Nvidia A30 (24GB) GPUs
     * 4 nodes with 2 Nvidia A100 (80GB) GPUs
-  * 10208 total cores (1256 AMD Epyc and 8952 Intel)
+  * 10208 total cores (1256 AMD EPYC and 8952 Intel)
   * 67,451 GB Aggregate Memory
   * Three load-balanced login nodes
-  * 96% nodes (226/225) at 100Gb/s EDR Infiniband
+  * 96% nodes (226/225) at 100 Gbit/s EDR InfiniBand
 
 HPC3 heterogeneous hardware has the following unique configurations with the most common
 configurations shown first.
@@ -105,8 +105,8 @@ Networking
 
 HPC3 has the following  networks attached to each node:
 
-* 10Gbit/s  Ethernet. This is the provisioning and control network to access Ethernet-only resources.
-* 100Gbit/s `ConnectX-5 <https://www.mellanox.com/files/doc-2020/pb-connectx-5-vpi-card.pdf>`_  EDR Infiniband
+* 10 Gbit/s  Ethernet. This is the provisioning and control network to access Ethernet-only resources.
+* 100 Gbit/s `ConnectX-5 <https://www.mellanox.com/files/doc-2020/pb-connectx-5-vpi-card.pdf>`_  EDR InfiniBand
 
 See more info in :ref:`network type`.
 
@@ -115,7 +115,7 @@ See more info in :ref:`network type`.
 Node Type
 ---------
 
-HPC3 nodes have minimums of 56Gb/s Infiniband (most nodes are 100Gb/s), 4GB/core, and AVX-2 capability.
+HPC3 nodes have minimums of 56 Gbit/s InfiniBand (most nodes are 100 Gbit/s), 4GB/core, and AVX-2 capability.
 For additional info see :ref:`hardware faq`.
 
 CPU only nodes
@@ -140,7 +140,7 @@ Most-common configurations:
 
 **Interconnect**:
 
-  Each node is connected to Ethernet and Infiniband  networks. See
+  Each node is connected to Ethernet and InfiniBand  networks. See
   :ref:`networking` for details.
 
 
@@ -201,7 +201,7 @@ Support nodes are specialized nodes that provide very specific services:
 Node Details
 ------------
 
-HPC3 is a heterogeneous cluster with several CPU types, memory footprints, Infiniband revisions.
+HPC3 is a heterogeneous cluster with several CPU types, memory footprints, InfiniBand revisions.
 All CPUs in HPC3 have the following *minimum requirements*:
 
 :*AVX support*:

@@ -156,7 +156,7 @@ be installed by the user in a user-writeable area.
    Sites that require using Aspera Client for upload/download usually provide
    specific instructions how to connect to their Aspera servers.
 
-   The following example shows a download of a fastq file from a remote server
+   The following example shows a download of a *fastq* file from a remote server
    to a local directory :tt:`dir1`.  Command is broken with :tt:`\\` into multiple lines for readability):
 
    .. code-block:: console

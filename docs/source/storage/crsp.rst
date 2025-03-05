@@ -129,7 +129,7 @@ All requests described below must be sent to hpc-support@uci.edu.
 :underline:`I am a PI on campus and I want to have an access`:
   You may request a no-cost 1TB lab allocation and include:
 
-  - your UCInetID 
+  - your UCINetID 
   - UCINetIDs and names of the people that you want to add
 
 :underline:`I am a PI and I want to add students/postdocs to my lab`:
@@ -263,9 +263,9 @@ In the following, we will use the lab for a PI *ppapadop* as an example:
 
 This shows that for the :tt:`ppapadop` Lab on CRSP:
 
-1. User *ppapadop* who is a PI can see all files anywehre in the LAB area.
+1. User *ppapadop* who is a PI can see all files anywhere in the LAB area.
 #. All users in the LAB can read/write files in :tt:`share` area.
-#. Each user in the LAB has a folder named by UCNetID that is private to the
+#. Each user in the LAB has a folder named by UCINetID that is private to the
    user and to the PI. 
    There are  LAB members in the group 
    :tt:`ppapadop_lab_share`: *ppapadop*, *ckhacher*, *itoufiqu*, *tandriol*, *iychang*.
@@ -383,7 +383,7 @@ There are two ways to check your quotas:
    | (2) has no usage in HOME area :tt:`/mmfs1/crsp/home`, this is a correct behavior.
    |     The 0.001 GB is used only by account related files. Currently the user
    |     used 6 out of 40 files (40 is a quota).
-   | (3) is a member of ucinetid-pi LAB and used 39.799 GB of the allocated 1024 GB LAB area
+   | (3) is a member of UCINetID-PI LAB and used 39.799 GB of the allocated 1024 GB LAB area
    |     in :tt:`/mmfs1/crsp/lab/ucinetid-pi` and 2900 files (quota 100000). 
    |     The total usage of the LAB area by all lab members is 374.092 GB.
 
@@ -447,8 +447,8 @@ creation. When the quota is exceeded we recommend that users:
      ... cut lines ...
      rm /share/crsp/home/npw/.local/share/jupyter/runtime/nbserver-3966545*
 
-   if you never login on HPC3 but use web-based access only for your CRSP lab
-   space you will need to submit a ticket asking us to remove such files. 
+  if you never login on HPC3 but use web-based access only for your CRSP lab
+  space you will need to submit a ticket asking us to remove such files. 
 
 **Fix space quota**
 
@@ -496,7 +496,7 @@ On CRSP, all snapshots are labeled by date and time. The timezone is GMT (Greenw
   snapshot and have no recovery.
 
   CRSP does not keep historical backups of data. But, there is an *offsite* copy of all CRSP data. In essence, every file
-  in CRSP has *three* copies - two (one in each sub cluster) in Irvine and one (offsite) in San Diego.
+  in CRSP has *three* copies - two (one in each sub cluster) in Irvine and one (off site) in San Diego.
 
   .. note::
     * *Snapshots* allow you **self-service restore** of files/folders that you have recently deleted or overwritten.

@@ -26,9 +26,9 @@ Simple conduct
 * **All jobs, batch or interactive must be submitted to the Slurm scheduler**
 * **Login nodes are meant only for**:
 
-  1. light editing
-  2. very short compilation (under a few minutes and using  one thread)
-  3. submitting jobs
+  1. Light editing
+  2. Very short compilation (under a few minutes and using  one thread)
+  3. Submitting jobs
 
   :red:`Do not run on login node:`
 
@@ -37,7 +37,7 @@ Simple conduct
   * **any compilation** that asks for multiple threads while running make
     (for example ``make -j 8``) 
   * **any conda or R installation** of packages or environments
-  * **any downloads** of packages, data, large files that exceed a few Gb.
+  * **any downloads** of packages, data, large files that exceed a few Gbs.
 
   The above (and additional similar) processes need to be submitted to the Slurm
   scheduler as :ref:`interactive or batch jobs <jobs>`.

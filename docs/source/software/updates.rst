@@ -11,14 +11,9 @@ how to to see the most recent software versions and availability.
 General Info
 ------------
 
-* .. important:: | HPC3 operating system is **Rocky Linux 8.8** (as of July 25, 2023).
-                 | All installed software is compiled specifically for this OS.
-* The :tt:`intel` and :tt:`mkl` modules provide access to a number of Intel Math Kernel Libraries
-  including LAPACK, SCALAPACK, BLAS and threading options. The MKL libraries can be linked with Intel
-  or GNU compilers. If you are compiling software yourself and are using :tt:`intel` or :tt:`mkl`
-  modules please see `Intel MKL Documentation <https://software.intel.com/en-us/mkl/documentation/view-all>`_
-  and `Intel MKL Link Advisory <https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-link-line-advisor.html#gs.o9qcu1>`_
-  to help you figure out how to use variables set by them.
+.. important:: | HPC3 operating system is **Rocky Linux 8.8** (as of July 25, 2023).
+               | All installed software is compiled specifically for this OS.
+
 * ``docker`` is not available per security vulnerability. Use *singularity* instead.
 * ``sudo`` and ``su`` are not available to regular users per security vulnerability.
 * ``screen`` command  is not available, use ``tmux``.
@@ -31,6 +26,12 @@ General Info
   gcc 8.5.0      gcc.system
   openmpi 4.1.1  openmpi/4.1.1/gcc.system
   ============== ========================
+* The :tt:`intel` and :tt:`mkl` modules provide access to a number of Intel Math Kernel Libraries
+  including LAPACK, ScaLAPACK, BLAS and threading options. The MKL libraries can be linked with Intel
+  or GNU compilers. If you are compiling software yourself and are using :tt:`intel` or :tt:`mkl`
+  modules please see `Intel MKL Documentation <https://software.intel.com/en-us/mkl/documentation/view-all>`_
+  and `Intel MKL Link Advisory <https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-link-line-advisor.html#gs.o9qcu1>`_
+  to help you figure out how to use variables set by them.
 
 .. _rocky8.8 updates:
 
@@ -145,7 +146,7 @@ See notes after the table for a few specific cases.
   Python 3**. Test your application with the :tt:`-W` default command-line option
   to see any deprecation warnings and follow online guides (google) for porting
   Python 2 to Python 3.
-* :tt:`Cufflinks` does not work under Rocky Linux 8. Use a singularity container build with cufflinks compiled for CentOS 7.
+* :tt:`Cufflinks` does not work under Rocky Linux 8. Use a singularity container build with Cufflinks compiled for CentOS 7.
   The image **/dfs8/singularity-images/cufflinks.simg** is build with **singularity/3.7.2**.
   Example of usage:
 

@@ -228,7 +228,7 @@ and directories.
   The deleted file had a time stamp :tt:`Sep 17 15:13`
   which means the file was created or modified on that time.
 
-  The first two snapshots timestamps :tt:`2020-09-16-1017` and
+  The first two snapshots time stamps :tt:`2020-09-16-1017` and
   :tt:`2020-09-17-1045` are earlier that the deleted file modification time
   so they will not have deleted file in them or will have an earlier version.
 

@@ -45,13 +45,13 @@ Getting an account
 Closing an account
 ==================
 
-For as long as you have a valid UCInetID and you use your account it remains active.
-When you separate from UCI your UCInetID will become inactive some time after
+For as long as you have a valid UCINetID and you use your account it remains active.
+When you separate from UCI your UCINetID will become inactive some time after
 the separation.
 
 The accounts are closed when:
 
 1. An account has no activity for 1 year.
-2. Once your UCInetID loses student status.
+2. Once your UCINetID loses student status.
    Most student alumni keep student status for up to 1 year after the graduation.
-3. When your UCInetID loses staff/researcher/PI affiliation.
+3. When your UCINetID loses staff/researcher/PI affiliation.

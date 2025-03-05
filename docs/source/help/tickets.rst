@@ -169,7 +169,7 @@ please include the following:
 * Copy and paste into your email what **exact commands** you typed and what **exact errors** you saw.
 * If you are asking to be added to PI's DFS or CRSP group:
 
-  * your PI UCInetID
+  * your PI UCINetID
   * cc your request to your PI so the PI can confirm the access
     on the same ticket. **We can't grant any access without PI's confirmation.**
 

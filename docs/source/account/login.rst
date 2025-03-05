@@ -158,7 +158,7 @@ If you choose to use key-based authentication for your login, you have additiona
    :macOS:  :ref:`generate-ssh-keys-mac`
    :Linux:  :ref:`generate-ssh-keys-linux`
    :Windows (PuTTY): :ref:`generate-ssh-keys-windows-putty`
-   :Windows (Powershell): :ref:`generate-ssh-keys-windows-powershell`
+   :Windows (PowerShell): :ref:`generate-ssh-keys-windows-powershell`
 
    Once you generate your SSH keys and copy the public key to HPC3:
       * your laptop or workstation from which you are initiating ssh will have 
@@ -269,7 +269,7 @@ your :guilabel:`Remote Environment` is set to :guilabel:`Interactive shell`:
 Using VSCode
 ------------
 
-We do not allow running :tt:`VSCode` on login nodes because vscode usage can result in login
+We do not allow running :tt:`VSCode` on login nodes because VSCode usage can result in login
 nodes becoming unusable by all.
 
 However, many users desire to use :tt:`VSCode`, so RCIC supports the following method so that you can
@@ -285,9 +285,9 @@ There are two major parts to running the :tt:`VSCode` server on a compute node a
 
 :Part 1:
   You need to submit a Slurm job specific to VSCode. This starts, on the assigned compute node, a user-specific 
-  sshd that is only available to that user.
+  :tt:`sshd` that is only available to that user.
 :Part 2:
-  You need to configure your laptop VSCode client to communicate with this job's sshd. Once set up properly, VSCode's
+  You need to configure your laptop VSCode client to communicate with this job's :tt:`sshd`. Once set up properly, VSCode
   remote server development option performs all the work. 
 
 Please follow the instruction steps below to setup your VSCode connection
@@ -464,7 +464,7 @@ on compute nodes.
      :red:`If you don't cancel your job it will continue consuming
      your lab or your personal Slurm allocation balance.`
 
-#. Reconnecting to an already running VScode Server
+#. Reconnecting to an already running VSCode Server
     
    If you have not shutdown the server in Step 6 above, you simply re-open the connection as you did in Step 5.
    Please remember, you Slurm job continues to charge your account as long as it consumes resources. 

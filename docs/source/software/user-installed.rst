@@ -6,9 +6,8 @@ User installed software
 .. contents::
    :Local:
 
-Users often ask to add specific software packages for
-:tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda`.
-
+| Users often ask to add specific software packages for
+  :tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda`.
 | These software packages need to be installed by users themselves.
 | The following guides explain how to install desired software in user area:
 
@@ -61,7 +60,7 @@ To find out what modules are available:
    mamba/24.3.0
 
 To install conda environment in your user area
-follow the example steps below done for the user (UCInetID) *panteater* who is
+follow the example steps below done for the user (UCINetID) *panteater* who is
 using Miniconda version 23.5.2. 
 
 The installation steps are the same for the other versions of conda,
@@ -329,7 +328,7 @@ simply substitute module name and version where needed.
 
    This will take some time to complete as conda is installing 
    packages in your directory :tt:`~/.conda` and depending on conda version
-   it may take 1-4Gb of space.
+   it may take 1-4GB of space.
 
    The last few lines indicate the commands you will need for activating and
    deactivating your conda environment.
@@ -447,14 +446,14 @@ simply substitute module name and version where needed.
 
 #. **Clean your install**
 
-   During the install conda downloads packages, create cache, temporary files and logfiles.
+   During the install conda downloads packages, create cache, temporary files and log files.
    All of these take quite a bit of space but are not needed after the install.
 
    We recommend to clean your conda installation each time you create a new
    environment or add packages to the existing environment.
 
-   The following command will remove index cache, lock files, unused cache packages, tarballs, and logfiles
-   from your :tt:`~/.conda/pkgs/`. This can free a few gigabyts of disk space for each
+   The following command will remove index cache, lock files, unused cache packages, tarballs, and log files
+   from your :tt:`~/.conda/pkgs/`. This can free a few gigabytes of disk space for each
    install (size depends on installed packages).
 
    .. code-block:: console
@@ -966,7 +965,7 @@ For a detailed info on installing Perl packages please see
 Steps below explain the basic commands specific to the cluster.
 
 
-1. **Verify local perl directory**
+1. **Verify local Perl directory**
 
    Make sure that :tt:`$HOME/perl5` exists and if it does not, create it:
 
@@ -983,7 +982,7 @@ Steps below explain the basic commands specific to the cluster.
 
 2. **Get an interactive node**
 
-   Always claim an interactive node because perl builds involve compilation and downloads
+   Always claim an interactive node because Perl builds involve compilation and downloads
    that can use  a lot of  CPU time and memory. If you do this on login node
    you will have problems and your install will likely fail.
 
@@ -1044,7 +1043,7 @@ Steps below explain the basic commands specific to the cluster.
 5. **Using your installed perl package**
 
    When you need to use your installed packages simply load the same
-   perl module that was used for the installation:
+   Perl module that was used for the installation:
 
    .. code-block:: console
 
@@ -1194,7 +1193,7 @@ latest available singularity version.
 5. **Use your container**
 
    Now you can use your container either interactively on a command line using an
-   interactive node (get a node with srun) or submitting as a batch job to Slurm.
+   interactive node (get it with ``srun`` command) or submitting as a batch job to Slurm.
 
    In either case, load the same singularity module, provide a full path to
    the container image and specify arguments to your desired software command:
@@ -1297,7 +1296,7 @@ Steps below explain the basic steps specific to compile software that are specif
 
    * it is compiled with GCC and OpenMPI  and their versions are listed in
      the module name.
-   * prerequisite GCC and OpenMPI modules will be automatically loaded by the hdf5 module
+   * prerequisite GCC and OpenMPI modules will be automatically loaded by the HDF5 module
      no need to load them separately.
 
    .. note:: 
@@ -1455,7 +1454,7 @@ Steps below explain the basic steps specific to compile software that are specif
 
 .. _install jupyter:
 
-Install in Jupyterhub
+Install in JupyterHub
 ---------------------
 
 Your JupyterLab server is a Singularity container. The container is a subset of the full HPC3 software stack.

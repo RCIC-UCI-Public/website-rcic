@@ -83,7 +83,7 @@ To directly login on :tt:`HPC3` cluster you must:
 
      $ ssh panteater@hpc3.rcic.uci.edu
 
-  When prompted for a password a user will  enter UCNetID password followed by :guilabel:`Return` key.
+  When prompted for a password a user will  enter UCINetID password followed by :guilabel:`Return` key.
   Note, password will not be visible when typed:
 
   .. code-block:: console
@@ -242,7 +242,7 @@ This page shows a short summary.
 Slurm is an open-source workload manager for Linux clusters and provides:
 
 HPC3 has different kinds of nodes (servers) that are separated into groups according to
-their resources (memory, cpu, etc).
+their resources (memory, CPU, etc).
 Slurm uses the term :tt:`partition` to signify a queue of resources and jobs
 are submitted to :tt:`partitions`.
 
@@ -275,9 +275,9 @@ to start an interactive session you can use one of 3 methods :
 
 Above 3 commands mean your jobs will be put on an available node:
 
-1. in standard partition using your default Slurm bank account
-2. in free partition using your default Slurm bank account
-3. in standard partition using panteater_lab account
+1. In standard partition using your default Slurm bank account
+2. In free partition using your default Slurm bank account
+3. In standard partition using panteater_lab account
 
 Once you execute the command, you will be put by Slurm on a compute node
 and will see a new shell prompt in the terminal, for example:
@@ -311,7 +311,7 @@ A user needs to use ``sbatch`` command and a submit script.
 |   commands that the jobs needs to execute
 
 In the steps below you will download an example Slurm script,  python example
-script, submit slurm script to the scheduler and check the job output file.
+script, submit Slurm script to the scheduler and check the job output file.
 
 All commands are executed on the cluster and all files are downloaded from
 the web server to the filesystem that is allocated to you on the cluster.
@@ -330,7 +330,7 @@ can be used *as is*.
 
   The commands are:
 
-  1. ``cd`` - to go to your DFS allocation area, here :`tt:`$USER` is a shortcut for your UCNetID.
+  1. ``cd`` - to go to your DFS allocation area, here :`tt:`$USER` is a shortcut for your UCINetID.
   2. ``wget`` - to download the example Slurm submit script and save it as :tt:`firstjob.sub` file
   3. ``wget`` - to download the example python script and save it as :tt:`days.py` file. It is a
      simple python program that prints today's date and a random day 1-365 days in the past.
@@ -411,13 +411,13 @@ Often users need to brings data from other servers and laptops.
 To transfer data one needs to use ``scp`` (secure copy) or ``rsync`` (file copying tool).
 Please see detailed :ref:`data transfer` examples.
 
-Alternatively, one can use graphical tools on their laptops (Filezilla, MountainDuck, or WinSCP)
+Alternatively, one can use graphical tools on their laptops (FileZilla, MountainDuck, or WinSCP)
 to transfer files between a local laptop and the cluster.
 Please follow  each program instructions how to do this.
 
 In all of the transfer application you will need to use :tt:`hpc3.rcic.uci.edu`
 as a remote server (where you want to transfer your files to/from) and use
-your UCNetID credentials for your user name and password.
+your UCINetID credentials for your user name and password.
 
 **Simple examples of file transfers with scp:**
   The ``scp`` command is used to transfer files and directories  between a local
@@ -443,14 +443,14 @@ example :tt:`/Users/someuser/project1/input/my.fasta` is an absolute  or full na
 and the same file can be referred to as :tt:`my.fasta`  which is a relative
 file name when used from the directory where this file is located.
 
-Examples below use UCnetID :tt:`panteater`, you need to use your UCnetID credentials
+Examples below use UCINetID :tt:`panteater`, you need to use your UCINetID credentials
 (username and password).
 
 1. To transfer a single file :tt:`myfile.txt` from your laptop to HPC3 and put
    it in the directory :tt:`/pub/panteater`:
 
    On your laptop, use a Terminal app and descend into the directory where your file is
-   located, then execute the ``scp`` command (use your UCnetID):
+   located, then execute the ``scp`` command (use your UCINetID):
 
    .. code-block:: console
 
@@ -459,7 +459,7 @@ Examples below use UCnetID :tt:`panteater`, you need to use your UCnetID credent
 2. To transfer a single file :tt:`j-123.fa` from HPC3 to your laptop
 
    On your laptop, use a Terminal app and descend into the directory where you
-   want to transfer the file to, then execute the ``scp`` command (use your UCnetID):
+   want to transfer the file to, then execute the ``scp`` command (use your UCINetID):
 
    .. code-block:: console
 

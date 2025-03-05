@@ -45,7 +45,7 @@ PI may request a Slurm lab account by sending a request to hpc-support@uci.edu a
 the following information:
 
 * PI name and UCINetID
-* Names and UCINetIDs of the researchers, graduate students or other
+* Name and UCINetID of the researchers, graduate students or other
   collaborators to add to the account. They will be be able to charge CPU hours to the  lab account.
 
 ..  * Optional: names of  *account coordinators*.  Account coordinators are lab members who will able to manage the group
@@ -147,7 +147,7 @@ Standard jobs have the following properties:
   the time from submission to running is of the essence (i.e. grant proposals and paper deadlines).
 * submitted with ``sbatch`` for batch jobs or with ``srun`` for interactive jobs.
 
-.. _paritions structure:
+.. _partitions structure:
 
 Partitions Structure
 --------------------
@@ -202,7 +202,7 @@ Higher Memory
 ^^^^^^^^^^^^^
 
 There are a few applications that need more memory than a node in standard
-partition can offer.  users must be added to a specific group to access the 
+partition can offer. Users must be added to a specific group to access the 
 higher memory :tt:`highmem / hugemem / maxmem` partitions.
 
 If you are not a member of these groups then  you will not be able to submit jobs to these
@@ -327,7 +327,7 @@ Specific single node:
      AllocTRES=cpu=26,mem=150720M,gres/gpu=4
      CurrentWatts=0 AveWatts=0
 
-How many CPU and GPUs are available in gpu partition:
+How many CPU and GPUs are available in GPU partition:
   .. code-block:: console
 
      [user@login-x:~]$ sinfo -NO "CPUsState:14,Memory:9,AllocMem:10,Gres:14,GresUsed:22,NodeList:20" -p gpu

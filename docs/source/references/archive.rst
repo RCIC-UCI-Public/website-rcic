@@ -26,7 +26,7 @@ Maintenance items:
 
 Impacts:
   1. Queued jobs should remain queued after the hardware upgrade.
-     We will be transferring all slurm state to the new hardware.
+     We will be transferring all Slurm state to the new hardware.
      There is, however, a small chance that queued jobs will be "lost".
 
 We don't expect this to be an all-day affair and hope to have HPC3 back in service by early afternoon.
@@ -73,7 +73,7 @@ RCIC will be performing our regular, between quarters, maintenance next Wednesda
 All users will be logged out, pending jobs will remain queued.
 
 Maintenance Items:
-  1. New disk arrays for dfs3b to be installed.
+  1. New disk arrays for DFS3b to be installed.
      RCIC taking care of data wrangling to make this as transparent as possible
   2. Reboot all Systems
   3. Internal Slurm Configuration updates
@@ -213,8 +213,8 @@ from the current CentOS version 7.  This is a major update to the clusters and r
 
 **Is keeping CentOS7 an option?**
   Not really. It will be end-of-life in  Jun 2024.
-  We are already seeing commercial vendors ending support for CentOS7.
-  The viability of CentOS7 as a functional OS will progressively diminish significantly
+  We are already seeing commercial vendors ending support for CentOS 7.
+  The viability of CentOS 7 as a functional OS will progressively diminish significantly
   over the next 12 months.
 
 **I really need some of the removed software, what do I do?**
@@ -275,7 +275,7 @@ all R modules under EL8.  As the summer progresses, we will keep a list of sunse
 
 **Is keeping CentOS7 an option?**  
   Not really. It will be end-of-life in Mid-2024. We are already seeing commercial vendors
-  ending support for CentOS7. The viability of CentOS7 as a functional OS will progressively diminish over the next 24 months.
+  ending support for CentOS 7. The viability of CentOS 7 as a functional OS will progressively diminish over the next 24 months.
 
 .. _news 2021:
 
@@ -423,7 +423,7 @@ May 30
 | :blogtitle:`CRSP HAProxy load balancer maintenance on June 11, 2019`
 | :blogauthor:`2019-05-30 by Imam Toufique`
 
-CRSP HaProxy servers will undergo maintenance on June 11th 2019, between 7AM PST - 8AM PST.
+CRSP HAProxy servers will undergo maintenance on June 11th 2019, between 7AM PST - 8AM PST.
 There is no planned user service interruption during this time. However, if access to CRSP
 is disrupted due to any unforeseen issues, service will be restored as soon as possible.
 
@@ -458,7 +458,7 @@ The Research Cyberinfrastructure Center was formed because of a
 that computing and data are key to modern research enterprise.  In 2016,
 a symposium was held to gather input and ideas from the UCI research community.
 
-Three years later, it's time to gather again and talk about RCI @ UCI.
+Three years later, it's time to gather again and talk about RCIC @ UCI.
 There has been some key progress and part of the
 symposium is to introduce some of the emerging capabilities to the research
 community.  There will also be a panel session for group discussion and 
@@ -501,10 +501,10 @@ would like to see at UCI emerge over the next few years.
 Mar 21
 ^^^^^^
 
-| :blogtitle:`RCI Symposium to be held at Calit2 04/04/2019`
+| :blogtitle:`RCIC Symposium to be held at Calit2 04/04/2019`
 | :blogauthor:`2019-03-21 by Philip Papadopoulos`
 
-The RCI :ref:`symposium 2019`  has been scheduled as forum for the UCI 
+The RCIC :ref:`symposium 2019`  has been scheduled as forum for the UCI 
 community to shape Research Cyberinfrastructure. 
 
 Filipp Furche, chair of the :ref:`advisory` sent an all campus invitation to the symposium.
@@ -532,9 +532,9 @@ Using standard UCI Procurement processes, the formal RFP for HPC3 has
 been made public to vendors.  Responses are expected February 1, 2019.
 
 The RFP is requesting bids for two sub-clusters that will be interconnected 
-via Infiniband and 10 Gigabit Ethernet:
+via InfiniBand and 10 Gigabit Ethernet:
 
-- 12-node, 4 NVidia V100 GPUs per node, minimum of 32 cores/node
+- 12-node, 4 NVIDIA V100 GPUs per node, minimum of 32 cores/node
 - 36-node, CPU cluster, minimum of 32 cores/node
 
 

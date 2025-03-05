@@ -18,12 +18,12 @@ Frequently Asked Questions
 Who can have an account?
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Anyone with a valid UCInetID. Please see :ref:`get account`.
+Anyone with a valid UCINetID. Please see :ref:`get account`.
 
 How long can I have an account after graduation/separation from UCI?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For as long as your UCInetID is valid.
+For as long as your UCINetID is valid.
 Please see :ref:`closing account`.
 
 Who defined the policy?
@@ -72,11 +72,11 @@ a rate that reduces the financial impact of overhead on recharged-cycles.
 .. _reset password:
 
 I can't login, can you reset my password?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | :red:`We do not store, handle or reset passwords for UCINetIDs`.
 
-| Your password is the one you have set for your UCInetID. 
+| Your password is the one you have set for your UCINetID. 
 | Please see OIT website page `how to change passwords <https://www.security.uci.edu/how-to/passwords/>`_.
 
 .. _add lab account:
@@ -144,7 +144,7 @@ How do I transfer files between a remote server and my directory?
 
 Please see :ref:`data transfer` section.
 
-How do I use Filezilla with DUO?
+How do I use FileZilla with DUO?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Please see :ref:`filezilla duo`.
@@ -289,11 +289,11 @@ I can't access CRSP from home, why?
 All access modes of CRSP require you to be connected the UCI production network.
 From home, you must use the `campus VPN <https://www.oit.uci.edu/help/vpn>`_
 
-I downloaded Webdrive directly from their website, how do I add the UCI license?
+I downloaded WebDrive directly from their website, how do I add the UCI license?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You cannot. **You must use RCIC-provided CRSP Desktop**
-which is a specialized version of Webdrive for Windows and Mac that already have the license key embedded.
+which is a specialized version of WebDrive for Windows and Mac that already have the license key embedded.
 Please see :ref:`client desktop windows` and :ref:`client desktop mac` for
 instructions how to download and use.
 
@@ -317,7 +317,7 @@ You exceeded your $HOME disk quota.
 See :ref:`home quotas` that explains how to check and fix.
 
 I can't save files in my CRSP area. How do i check my quotas?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 See :ref:`crsp quotas` for explanation.
 
 When writing files I get the “Disk quota exceeded” error on /dfsX/labY. How can it be?

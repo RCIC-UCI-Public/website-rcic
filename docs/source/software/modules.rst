@@ -216,7 +216,7 @@ Display modules
      prepend-path   LD_LIBRARY_PATH /opt/foundation/v8/lib
      prepend-path   PKG_CONFIG_PATH /opt/foundation/v8/lib/pkgconfig
 
-  The display command gives additional info (compare to whatis):
+  The ``display`` command gives additional info (compare to ``whatis``):
 
   | the full path of the module file (first output line)
   | :tt:`setenv` lines show the environment variables that will be set
@@ -400,12 +400,12 @@ variables set by the module you need to use in your software compilation process
 
 For each module, we keep the variables set by module according to what the
 software developers provide, and otherwise we use a common convention.
-For examples. the software installation directory is often specified by the
+For examples. The software installation directory is often specified by the
 variable :tt:`SWNAME_DIR` or :tt:`SWNAME_HOME`.
 There is no exact formula but one can always see what
 variables are set by a given module via ``module display`` command.
 
-Lets say you are compiling VASP software and it requires OpenBLAS, SCALAPCK,
+Lets say you are compiling VASP software and it requires OpenBLAS, ScaLAPACK,
 OpenMPI-enabled FFTW  as prerequisites.  VASP installation guide expects you to set
 certain variables in the Makefiles according to where these prerequisites are
 installed. 
@@ -433,7 +433,7 @@ Load the modules that will provide prerequisites:
      [user@login-x:~]$ module load fftw/3.3.10/gcc.11.2.0-openmpi.4.1.2
      [user@login-x:~]$ module load hdf5/1.13.1/gcc.11.2.0
 
-Check what each module provides, for example for scalapack:
+Check what each module provides, for example for ScaLAPACK:
 
   .. code-block:: console
   
@@ -515,8 +515,8 @@ We do not attempt to build every variant of *compiler x mpi*  for these kinds of
 | 1 - module with only a name without version. *Reserved for a few OS-installed modules*.
 | 2 - module for a specific version of python.
 | 3 - module for a specific version of boost built with a specific compiler.
-| 4 - two modules for hdf5 version built with Intel and GCC compilers and openmpi.
-| 5 - module for a specific namd version built with gcc compiler and cuda.
+| 4 - two modules for HDF5 version built with Intel and GCC compilers and Open MPI.
+| 5 - module for a specific NAMD version built with gcc compiler and CUDA.
 
 .. _user installed modules:
 

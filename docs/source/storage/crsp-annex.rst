@@ -18,7 +18,7 @@ RCIC does not want to turn away groups who want CRSP storage.  *CRSP ANNEX* allo
 between now and when CRSP-2 is online and in production.
 
 :bluelight:`The CRSP ANNEX is a temporary storage solution the provides similar functionality to CRSP`, but is incapable or
-replicating all of CRSP's features or availability.
+replicating all of CRSP features or availability.
 
  .. note:: RCIC will provide storage on CRSP ANNEX *only to groups who will commit to moving the data from
            the CRSP ANNEX to CRSP-2.*  The rate for CRSP-2 storage will be set once the procurement has been completed. 
@@ -147,7 +147,7 @@ Configure Step 3
 
    The following show this set up for a particular user (*ppapadop*) and a particular pi (*npw*):
 
-   on MacOS
+   on macOS
      Click :guilabel:`Connect` to connect to your CRSP Annex share:
 
      .. figure:: images/crsp/mac-crsp-annex.png

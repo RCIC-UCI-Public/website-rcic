@@ -68,9 +68,9 @@ There are six different stacking scenarios with the most common being: granted o
 granted+recharge. 
 
 Order of debiting stacked allocation:
-  | 1. owner SUs
-  | 2. granted Sus
-  | 3. recharge SUs
+  | 1. Owner SUs
+  | 2. Granted SUs
+  | 3. Recharge SUs
 
 This ordering is important when RCIC recomputes how many granted hours should be given during reallocation.
 

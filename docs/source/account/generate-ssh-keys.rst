@@ -173,19 +173,19 @@ key to the desired server. See :ref:`copy-ssh-keys-macos`.
 
 .. _generate-ssh-keys-windows-powershell:
 
-Generate SSH keys on Windows in Powershell
+Generate SSH keys on Windows in PowerShell
 ------------------------------------------
 
 Make sure, you made choices :ref:`choices <before you create keys>` for your keys.
 
 Follow the of the steps for :ref:`generating ssh keys on macOS <generate-ssh-keys-mac>`
-except in the first step use Powershell that is available on your laptop.
+except in the first step use PowerShell that is available on your laptop.
 Once the keys are generated you will need to copy to the contents of your
 public key to the desired server.  See :ref:`copy-ssh-keys-windows` below.
 
 .. _generate-ssh-keys-windows-putty:
 
-Generate SSH keys on Windows with PuttyGen
+Generate SSH keys on Windows with PuTTYgen
 ------------------------------------------
 
 Make sure, you made choices :ref:`choices <before you create keys>` for your keys.

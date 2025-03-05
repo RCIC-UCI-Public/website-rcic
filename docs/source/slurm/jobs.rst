@@ -187,13 +187,13 @@ Examples of interactive job requests:
      [user@login-x:~]$ srun -p free-gpu --gres=gpu:V100:1 --pty /bin/bash -i # 5
      [user@login-x:~]$ srun -p free --x11  --pty /bin/bash -i*               # 6
 
-  1. use *standard* partition and charge to the *PI_LAB* account
-  2. use *free* partition (where it may be killed at any time)
-  3. use *free* partition and ask for 8Gb of memory per job (ONLY when you truly need it)
-  4. use *standard* partition and ask for 4 CPUs for 10 hrs
-  5. use *free-gpu* partition and ask for one GPU. :red:`DO NOT ask for more than 1 GPU!`
-  6. | start an interactive session with Xforwarding enabled (option :tt:`--x11`) for GUI jobs. 
-     | Note, a user  should have logged on HPC3 with ssh Xforwarding enabled see :ref:`ssh xforward`
+  1. Use *standard* partition and charge to the *PI_LAB* account
+  2. Use *free* partition (where it may be killed at any time)
+  3. Use *free* partition and ask for 8GB of memory per job (ONLY when you truly need it)
+  4. Use *standard* partition and ask for 4 CPUs for 10 hrs
+  5. Use *free-gpu* partition and ask for one GPU. :red:`DO NOT ask for more than 1 GPU!`
+  6. | start an interactive session with Xforward enabled (option :tt:`--x11`) for GUI jobs. 
+     | Note, a user  should have logged on HPC3 with ssh Xforward enabled see :ref:`ssh xforward`
        before running this ``srun`` command.
 
 .. _attach to job:
@@ -282,7 +282,7 @@ Single node jobs:
        #SBATCH --nodes=1                ## (-N) use 1 node
 
 Multiple node jobs:
-  Very few applications that are compiled to run with OpenMPI or
+  Very few applications that are compiled to run with Open MPI or
   MPICH need to  use multiple nodes. For such applications
   your submit script need to include number of nodes:
 
@@ -342,7 +342,7 @@ We defined the following features for node selection:
    | mlx4_ib             | Older Infiniband firmware             | 6             | 24 / 40 / 64 |
    +---------------------+---------------------------------------+---------------+--------------+
 
-To request nodes with updated Infiniband firmware for your MPI-based jobs:
+To request nodes with updated InfiniBand firmware for your MPI-based jobs:
 
   .. code-block:: bash
 
@@ -644,7 +644,7 @@ second specifies a valid email address. We suggest to use a very few event
 types especially if you submit hundreds of jobs. For more info, see output of ``man sbatch`` command.
 
 Make sure to use your actual UCI-issued email address. While Slurm sends emails to any email address,
-we prefer you use your UCInetID@uci.edu email address. System administrators will use UCInetID@uci.edu
+we prefer you use your UCINetID@uci.edu email address. System administrators will use UCINetID@uci.edu
 if they need to contact you about a job.
 
 .. attention:: | DO NOT use mail event type ALL, BEGIN.
@@ -847,7 +847,7 @@ All commands need to use a valid *jobid*.
      at 12.21%  the job used only a small portion of requested 8 CPUs
 
    :Memory efficiency:
-     at 0.011% the job used only a fraction of requested 24Gb of memory
+     at 0.011% the job used only a fraction of requested 24GB of memory
     
    The user should fix the job submit script and ask for less memory per CPU
    and for fewer CPUs.
@@ -912,7 +912,7 @@ Dependency:
 DependencyNeverSatisfied:
   Job has a user-defined dependency that failed. Job will never run and needs to be canceled.
 Priority:
-  Slurm's scheduler is temporarily holding the job in pending state because other queued jobs have a higher priority.
+  Slurm scheduler is temporarily holding the job in pending state because other queued jobs have a higher priority.
 QOSMaxJobsPerUserLimit:
   The user is already running the maximum number of jobs allowed by the particular partition.
 ReqNodeNotAvail, Reserved for maintenance:
@@ -1184,7 +1184,7 @@ Change job time limit:
   Only the Slurm administrator can increase job's time limit, therefore you
   need to submit a ticket indicating:
 
-  - your jobid
+  - your JOBID
   - your desired time extension
 
   Note, we need to receive your request before your job's current end time

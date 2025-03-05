@@ -298,7 +298,7 @@ To run a GPU job one needs to request:
 
         #SBATCH -p free-gpu
 
-   To use other gpu partitions specify a partition name and your **lab GPU
+   To use other GPU partitions specify a partition name and your **lab GPU
    account** to charge. Note, CPU and GPU lab accounts are different and not
    labs have both. 
 
@@ -393,11 +393,11 @@ Please see :ref:`interactive job` submission examples.
 
 .. _job jupyter hub:
 
-Jupyterhub Portal
+JupyterHub Portal
 -----------------
 
 Sometimes applications are available via containers on our *Jupyterhub portal*.
-This includes many Bioinformatics applications, Rstudio, etc. Below are the
+This includes many Bioinformatics applications, RStudio, etc. Below are the
 steps to start a container.
 
 1. **Authenticate at Jupyterhub portal**
@@ -405,7 +405,7 @@ steps to start a container.
    Point your browser
    to `https://hpc3.rcic.uci.edu/biojhub4/hub/login <https://hpc3.rcic.uci.edu/biojhub4/hub/login>`_
    You will see the following screen where you will Use your usual login
-   credentials (UCInetID and password) to sign in:
+   credentials (UCINetID and password) to sign in:
 
    .. figure:: images/jhub-signin.png
       :align: center
@@ -482,7 +482,7 @@ steps to start a container.
       biojhub4_dir           
 
    * :tt:`biojhub4.12098786.err` is a session error file. The number in the
-     file name is a Slurm jobID. The file contains 
+     file name is a Slurm JOBID. The file contains 
      info messages about the session plus will have any error messages which are helpful 
      to identify reasons for container failure to start or work.
    * :tt:`biojhub4.12098786.out` is a session output file. It contains 
@@ -509,8 +509,8 @@ steps to start a container.
 
 #. **Shutdown your server**
 
-   Be sure to stop your Juputerhub server after you are done with your work.
-   This releases backend computing resources for other active computational needs.
+   Be sure to stop your JupyterHub server after you are done with your work.
+   This releases computing resources for other active computational needs.
    Your notebooks and other files should be saved prior to shutting down your lab.
    Jupyter writes a *state* file for your lab, so that when you relaunch, you
    will be back where you were prior to shutting down.
@@ -589,7 +589,7 @@ software and wish to run Jupyter notebooks. As we do not allow computational
 jobs on login nodes, here are the steps to run notebooks on interactive nodes.
 
 1. Once you login to HPC3, get an interactive node using ``srun`` command.
-   The example below will give 1 CPU and default 3 Gb memory. For most cases this is
+   The example below will give 1 CPU and default 3 GB memory. For most cases this is
    sufficient.
 
    .. code-block:: console
@@ -599,7 +599,7 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
    In some instances, users need to request more memory which is done with
    :tt:`--mem=` or :tt:`--mem-per-cpu` directives (see more info in :ref:`request resources`)
    and specify that *all cores should be on a single node*.
-   For example, to get 20 Gb for your Notebook do:
+   For example, to get 20 GB for your Notebook do:
 
    .. code-block:: console
 
@@ -675,7 +675,7 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
 
        ssh -L 9090:hpc3-14-00:8989 ucinetid@hpc3.rcic.uci.edu
 
-   * Use your ucinetid. When asked for a password and DUO authentication, use your
+   * Use your UCINetID. When asked for a password and DUO authentication, use your
      usual credentials.
    * Note, the first occurrence of port in the ``ssh`` command
      :tt:`9090` is a local port on your laptop, and you can pick any free port on your laptop
@@ -718,7 +718,7 @@ Some jobs may need more memory. For these jobs users will need to
 
 .. _job matlab:
 
-Matlab
+MATLAB
 ------
 
 .. note:: | To start Matlab non-interactively, use the **-batch** option.
@@ -726,7 +726,7 @@ Matlab
 
 1. Interactive job
 
-   Get an interactive node and start Matlab 
+   Get an interactive node and start MATLAB 
 
    .. code-block:: console
 
@@ -776,9 +776,9 @@ Matlab
 
 #. Parallel pool on a single node 
 
-   Matlab jobs can be run on multiple CPUs in a parallel pool. This
+   MATLAB jobs can be run on multiple CPUs in a parallel pool. This
    requires use of  :tt:`parpool` and :tt:`parcluster` commands in
-   Matlab script to setup the pool. The :tt:`parfor` loop is used to distribute iterations to multiple workers
+   MATLAB script to setup the pool. The :tt:`parfor` loop is used to distribute iterations to multiple workers
    where each worker is running on a different CPU.
 
    .. note:: | Current UCI Matlab license does not include **MATLAB Parallel Server**. 
@@ -816,7 +816,7 @@ MPI
 
 MPI jobs use multiple cores across different nodes.
 The following submit script will use 80 cores across 2 different nodes.
-Each core will be allocated a default 3 GB of RAM, for a total of 240 Gb for
+Each core will be allocated a default 3 GB of RAM, for a total of 240 GB for
 the job.
 
 .. centered:: File mpi.sub
@@ -825,20 +825,20 @@ the job.
    :language: bash
 
 **Special case openmpi**
-  This scenario applies ONLY to applications that are compiled using one of openmpi
+  This scenario applies ONLY to applications that are compiled using one of Open MPI
   modules (versions 4.0.x and 4.1.x) and have failed with the following error
   when run on multiple nodes:
 
   :red:`[btl_openib_component.c:3655:handle_wc] Unhandled work completion opcode is 136`
 
-  The openmpi versions in 4.0.x and 4.1.x series use **openib** interface which no
+  The Open MPI versions in 4.0.x and 4.1.x series use **openib** interface which no
   longer works the same way under a new operating system. The solution is to
-  instruct openmpi to use **UCX**. This is done via the following in your submit
+  instruct Open MPI to use **UCX**. This is done via the following in your submit
   script:
 
-  1. :tt:`#SBATCH --constraint="mlx5_ib"` run on nodes with updated IB firmware
-  2. use 3 export commands to set the UCX parameters for openmpi
-  3. add :tt:`-mca mpl ucx`  parameters  to your mpirun command
+  1. :tt:`#SBATCH --constraint="mlx5_ib"` run on nodes with updated InfiniBand firmware
+  2. Use 3 export commands to set the UCX parameters for Open MPI
+  3. Add :tt:`-mca mpl ucx`  parameters  to your ``mpirun`` command
 
   .. centered:: File mpi-special-case.sub
 
@@ -977,7 +977,7 @@ R
    nodes your job needs to meet the following requirements:
 
    - the desired R software package must be using MPI, specifically must use
-     *library('Rmpi')*. The desired software package and the Rmpi library must be installed by the user. Before
+     *library('Rmpi')*. The desired software package and the *Rmpi* library must be installed by the user. Before
      installing load one of the MPI modules in addition to your R module.
      For example for *R/4.3.3* use *openmpi/4.1.2/gcc.11.2.0*
    - your submit script must load the same R and MPI modules that were used for the library install.
@@ -986,17 +986,17 @@ R
 
 .. _job rstudio:
 
-Rstudio
+RStudio
 -------
 
-There a few ways to run Rstudio.
+There a few ways to run RStudio.
 
 1. **Windows users**
 
    This method usually works for users who connect to the cluster using
    `MobaXterm <https://mobaxterm.mobatek.net/>`_.
 
-   Once  logged in, claim an interactive session, load rstudio and R modules
+   Once  logged in, claim an interactive session, load RStudio and R modules
    and start ``rstudio``:
 
    .. code-block:: console
@@ -1021,7 +1021,7 @@ There a few ways to run Rstudio.
 
       ssh -X panteater@hpc3.rcic.uci.edu
 
-   Once logged in, claim an interactive session, load Rstudio
+   Once logged in, claim an interactive session, load RStudio
    and R modules. Enforce software rendering engine in the ``rstudio`` command:
 
    .. code-block:: console
@@ -1037,7 +1037,7 @@ There a few ways to run Rstudio.
 
    If the above method does not work for you (common for Mac users), the alternative way
    is to use our :ref:`Jupyterhub Portal <job jupyter hub>`
-   and a container with Rstudio.
+   and a container with RStudio.
 
 .. _job sas:
 
@@ -1073,7 +1073,7 @@ SRA toolkit fasterq-dump
 To avoid issues with the  deadlocking users need to use scratch disk when
 running above commands.
 
-Follow this simple recipe that will prefetch needed SRA sequences and convert them to fastq format.
+Follow this simple recipe that will prefetch needed SRA sequences and convert them to *fastq* format.
 All file writing is done in a scratch local disk and the final files are  moved to a desired directory.
 
 .. centered:: File prefetch-fasterq-dump.sub
@@ -1102,10 +1102,10 @@ The above will submit the Stata job (mycode.do) with specified requested resourc
 
 .. _job tensorflow:
 
-Tensorflow
+TensorFlow
 ----------
 
-1. Tensorflow CPU only
+1. TensorFlow CPU only
 
    .. centered:: File tensorflow-cpu.sub
 
@@ -1122,7 +1122,7 @@ Tensorflow
       [user@login-x:~]$ sbatch -p standard -N 1 -n 1 -t 02-00:00:00 --wrap="python mycode.py"
 
 
-2. Tensorflow with GPU
+2. TensorFlow with GPU
 
    .. centered:: File tensorflow-gpu.sub
 

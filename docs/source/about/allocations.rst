@@ -200,8 +200,8 @@ Purchase hardware
 
 :bluelight:`Effective costs over 6 years for purchased hardware`
 
-  Using the above estimated costs of $15K for cpu node and  $47K for a GPU node *and* consuming all SUs every 6
-  month reallocation cycle the following cost estimates of core-hour cost and gpu-hour costs would be as follows: 
+  Using the above estimated costs of $15K for CPU node and  $47K for a GPU node *and* consuming all SUs every 6
+  month reallocation cycle the following cost estimates of core-hour cost and GPU-hour costs would be as follows: 
 
 .. _effective costs:
 
@@ -233,7 +233,7 @@ Purchase hardware
 
   | Hardware is commodity-based and subject to market variability, prices as of 1Q 2025:
   |     CPU nodes (48 cores) are approximately $15K.
-  |     GPU-nodes (4 x NVidia L40S) are approximately $47K.
+  |     GPU-nodes (4 x NVIDIA L40S) are approximately $47K.
 
 :bluelight:`Outline of Purchase Process`
   1. Send a request to hpc-support@uci.edu indicating your interest in purchasing
