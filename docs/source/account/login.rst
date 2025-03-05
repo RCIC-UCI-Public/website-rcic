@@ -203,7 +203,7 @@ of the following:
    ssh -X panteater@hpc3.rcic.uci.edu
    ssh -X hpc3.rcic.uci.edu -l panteater
 
-Once logged in chck if your enviornment variabl :tt:`DISPLAY` is set:
+Once logged in check if your environment variable :tt:`DISPLAY` is set:
 
 .. code-block:: console
 
@@ -222,8 +222,8 @@ Using FileZilla and DUO
 ------------------------
 
 If you use FileZilla (Windows users) for files transfer you will need to
-change your login type to :guilabel:`interactive` in :guilabel:`FileZilla Site Manger` settings. 
-For exact instructions please see `Filezilla Site Manger <https://wiki.filezilla-project.org/Site_Manager>`_
+change your login type to :guilabel:`interactive` in :guilabel:`FileZilla Site Manager` settings. 
+For exact instructions please see `Filezilla Site Manager <https://wiki.filezilla-project.org/Site_Manager>`_
 
 .. figure:: images/filezilla.png
    :align: center
@@ -412,7 +412,7 @@ on compute nodes.
         :alt: VSCode connect to host
         :class: addpadding
 
-        Presss connect
+        Press connect
 
    | 5.6 In a new window you will be asked to provide your **ssh passphrase**
    |     (two times), type it where indicated by your Application:
@@ -432,7 +432,7 @@ on compute nodes.
      It may take a few minutes for the VSCode to setup the server.
 
    | 5.7 Once done, you will see the *open remote window* icon showing compute node name (in blue
-   |     outline). This means your connection is redy and you  can proceed with your work as usual:
+   |     outline). This means your connection is ready and you can proceed with your work as usual:
 
      .. figure:: images/vscode-running.png
         :align: center

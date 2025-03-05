@@ -52,7 +52,7 @@ Current web server host is web3.oit.uci.edu  (rcic.uci.edu is an alias )
 
 2. Newer python3 can install newer sphinx with a better theme layout.
 
-   Copy CentOS 7.9 RPMS fro xcat and install as
+   Copy CentOS 7.9 RPMS from xcat and install as
 
    .. code-block:: console
 
@@ -65,7 +65,7 @@ Current web server host is web3.oit.uci.edu  (rcic.uci.edu is an alias )
       yum install python_3.8.0-urllib3-1.25.8-4.x86_64.rpm
 
       bash
-      module load pytohn/3.8.0
+      module load python/3.8.0
       pip install sphinx==6.2.0
       pip install sphinx_rtd_theme
 
@@ -96,7 +96,7 @@ Current web server host is web3.oit.uci.edu  (rcic.uci.edu is an alias )
 
    * checks out website repo (this repo)
    * verifies if there were any updates in the last hour,
-   * in case there wee updates it runs commands to create html files
+   * in case there were updates it runs commands to create html files
      and installs resulting *build/html/* as **/var/www/html/rcic-website**
      which is the website *DocumentRoot*, configured in */etc/httpd/conf.d/ssl.conf*.
      A previous version is moved to /tmp.

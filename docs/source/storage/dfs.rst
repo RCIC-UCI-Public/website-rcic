@@ -441,7 +441,7 @@ Users manage their Selective Backup via two **control files** located in their
       :class: noscroll-table
    
       +--------------------------+------------------------------------------------------------------+
-      |  Selective Bakup Option  | What it does                                                     |
+      |  Selective Backup Option | What it does                                                     |
       +==========================+==================================================================+
       | HPC_SEND_EMAIL_SUMMARY   | Sends you daily email summaries of your saves.                   | 
       |                          | *Default is NO summary email notifications*.                     |

@@ -76,7 +76,7 @@ RCIC says "no" to the following types of requests
 
 1. Software that the user wants to evaluate
 
-2. Licensed software that does not use the FlexLM license mananger when RCIC must run the license server
+2. Licensed software that does not use the FlexLM license manager when RCIC must run the license server
 
 3. Software that will only be used by one or two users
 
@@ -94,7 +94,7 @@ The size of the problem is quite large, and grows with each new application.
 
   * Adoption of a declarative, repeatable
     `YAML2RPM build methodology <https://github.com/RCIC-UCI-Public/yaml2rpm>`_ designed by RCIC  that
-    generates re-usable :term:`RPM` that can installed on any compatible CentOS system.
+    generates reusable :term:`RPM` that can installed on any compatible CentOS system.
   * Nearly all installed software is packaged as an RPM with encoded dependencies.
     Exceptions generally fall around very large footprint software like the
     `Intel Compiler <https://software.intel.com/content/www/us/en/develop/tools/compilers.html>`_

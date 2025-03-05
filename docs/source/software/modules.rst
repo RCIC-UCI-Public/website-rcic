@@ -653,7 +653,7 @@ There are a few basic steps:
 
          # Put a directory path per line to search for additional modules
          # put actual modules files inside the directories specified by
-         # the paths below. the moduels will be accessible by panteater-lab users
+         # the paths below. the modules will be accessible by panteater-lab users
          /dfs3/panteater-lab/modulefiles
          #
          # the following path is for the future use

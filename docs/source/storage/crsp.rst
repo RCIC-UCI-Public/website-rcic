@@ -499,7 +499,7 @@ On CRSP, all snapshots are labeled by date and time. The timezone is GMT (Greenw
   in CRSP has *three* copies - two (one in each sub cluster) in Irvine and one (offsite) in San Diego.
 
   .. note::
-    * *Snapshots* allow you **self-service restore** of files/folders that you have recently deleted or ovewritten.
+    * *Snapshots* allow you **self-service restore** of files/folders that you have recently deleted or overwritten.
     * *Offsite backups* protect against total failure of CRSP itself (highly unlikely). 
 
 :bluelight:`When I've found a good snapshot, what do I do?`
@@ -554,7 +554,7 @@ Since most CRSP data is stored in a lab area, this most likely the applicable gu
 
   Click on the :tt:`.snapshots` folder at the top level of your already-configured lab share:
 
-  .. _crsp lab snaphot:
+  .. _crsp lab snapshot:
 
   .. figure:: images/crsp/crsp-lab-snapshot.png
      :align: center
@@ -564,7 +564,7 @@ Since most CRSP data is stored in a lab area, this most likely the applicable gu
 
   Then you will see a set folders (tip: sort by name), that has the date and time when each snapshot was taken:
 
-   .. _crsp lab snaphot nav:
+   .. _crsp lab snapshot nav:
 
    .. figure:: images/crsp/crsp-lab-snapshot-nav.png
       :align: center
@@ -572,7 +572,7 @@ Since most CRSP data is stored in a lab area, this most likely the applicable gu
 
       Example folders in :tt:`.snapshots` directory
 
-  Continue navigating to a date where you believe a copy of your *deleted* or *ovewritten* file is located.
+  Continue navigating to a date where you believe a copy of your *deleted* or *overwritten* file is located.
   **Copy it back to your working area.**
 
 :bluelight:`3. Using Web Interface`
@@ -593,7 +593,7 @@ You, can navigate into one of these directories and you will see *all* user
 home areas names. You will only have permission to further descend into *your home area*
 
 :bluelight:`Using the Web Interface`
-  Since ``$HOME`` areas usually don't contain signficant data, it can be a little more straightforward
+  Since ``$HOME`` areas usually don't contain significant data, it can be a little more straightforward
   to use the Web Interface. 
 
 

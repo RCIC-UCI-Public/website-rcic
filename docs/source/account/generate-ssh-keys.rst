@@ -33,7 +33,7 @@ To create the keys, one needs to choose:
 
   .. attention::
      | While, technically, you can create a key with an empty passphrase, you never should.
-     | :red:`It is a violation of UCI password security rules to use empy passphrase`.  
+     | :red:`It is a violation of UCI password security rules to use empty passphrase`.  
 
 .. _generate-ssh-keys-mac:
 

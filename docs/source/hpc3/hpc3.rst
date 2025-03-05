@@ -110,7 +110,7 @@ is :underline:`core-hour and GPU-hour accounting` where jobs are classified as e
 
 .. note:: The fundamental difference between accounted and free is that an accounted 
           job may NOT be suspended or killed in favor of another job. Once an
-          accounted job is allocated resources, it will not be pre-empted.
+          accounted job is allocated resources, it will not be preempted.
 
 Accounted jobs simply says that HPC3 will be able to track usage of the cluster and the overall usage is in proportion
 to how much a particular research program has contributed to the physical infrastructure. 

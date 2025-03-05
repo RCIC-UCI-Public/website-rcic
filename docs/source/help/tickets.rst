@@ -83,7 +83,7 @@ members who is handling the ticket.
   * Be reasonable and polite. We know when something goes wrong, it's very stressful. It's stressful for us, too.
 
 :DO NOT:
-  * :red:`Do not be vague`. Statements like *it's slow*, *I cant login*, or *my code doesn't work* give us nothing concrete.
+  * :red:`Do not be vague`. Statements like *it's slow*, *I can't login*, or *my code doesn't work* give us nothing concrete.
   * :red:`Do not send screenshots` unless you are working with a GUI application.
     From screenshots, we can't cut and paste commands or other info, which
     slows down our resolution of your problem. Simple text-based cut and paste
@@ -95,7 +95,7 @@ members who is handling the ticket.
     our response to you, this will keep all email conversation on the same ticket.
 
 :underline:`After receiving a response from us`
-  1. Sometimes our response is "no, this cant be done" or similar.
+  1. Sometimes our response is "no, this can't be done" or similar.
      This is a specific resolution of a specific ticket.
      There is always a :underline:`reasonable cause` for this and we explain it in our response.
   2. When we ask for additional information in our response provide exactly what we ask.
@@ -164,14 +164,14 @@ When reporting problems related to DFS or CRSP storage
 please include the following:
 
 * DFS or CRSP path and group ID you are trying to access. Many groups have
-  multiple paths, we cant guess from your name which one you need.
+  multiple paths, we can't guess from your name which one you need.
 * How do you access: on HPC3, via web browser, Desktop, etc.
 * Copy and paste into your email what **exact commands** you typed and what **exact errors** you saw.
 * If you are asking to be added to PI's DFS or CRSP group:
 
   * your PI UCInetID
   * cc your request to your PI so the PI can confirm the access
-    on the same ticket. **We cant grant any access without PI's confirmation.**
+    on the same ticket. **We can't grant any access without PI's confirmation.**
 
 .. _software tickets:
 
@@ -236,7 +236,7 @@ possible.  We strive to say "yes" to software requests, but sometimes do have to
 
   :red:`IMPORTANT` RCIC may say "no" to your software request. We simply do not have the staff time to
   install every requested software component. We prioritize software that has wide applicability.  Applications
-  that you want to "evaluate" are seldomly (if ever) installed by RCIC. 
+  that you want to "evaluate" are seldom (if ever) installed by RCIC. 
 
   In the end, it's a partnership to get new software added to HPC3. We need good
   information from you and a willingness to validate the installed software.

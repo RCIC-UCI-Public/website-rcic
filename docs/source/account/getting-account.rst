@@ -36,7 +36,7 @@ Getting an account
 .. attention::
 
    | :bluelight:`Your UCInetID` is NOT your student ID
-   | :bluelight:`Your account` is your **UCINetID** (lower case alpha-numeric)
+   | :bluelight:`Your account` is your **UCINetID** (lower case alphanumeric)
    | :bluelight:`Your password` is **your regular password** that you use for your UCINetID
    | :red:`We do not store, handle or reset passwords for UCINetIDs.`
 

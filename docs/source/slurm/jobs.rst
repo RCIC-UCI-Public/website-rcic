@@ -428,7 +428,7 @@ colleagues by doing the following for your job:
 
    .. code-block:: bash
 
-      <the rest of submit script is ommitted>
+      <the rest of submit script is omitted>
 
       #SBATCH --tmp=20G                 # requesting 20 GB (1 GB = 1,024 MB) local scratch
 
@@ -468,7 +468,7 @@ colleagues by doing the following for your job:
       #SBATCH --tmp=180G                 # requesting 180 GB (1 GB = 1,024 MB) local scratch
       #SBATCH --constraint=fastscratch   # requesting nodes with a lot of space in /tmp
 
-   Folow the above (job type 2) submit script example to:
+   Follow the above (job type 2) submit script example to:
 
    | - at job start explicitly copy input files from DFS/CRSP to :tt:`$TMPDIR`
    | - at job end explicitly copy output files from :tt:`$TMPDIR` to DFS/CRSP

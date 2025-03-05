@@ -10,7 +10,7 @@ Overview
 --------
 
 CRSP was procured in 2018 and deployed into production in 2019 and is  *at capacity* with no practical path to expand its local 
-storage to accomodate new (large) storage requests.  RCIC has been in the process of procuring a replacement for CRSP (called 
+storage to accommodate new (large) storage requests.  RCIC has been in the process of procuring a replacement for CRSP (called 
 CRSP-2) to double storage capacity, have  significant room to grow, and meet the needs of UCI's research community for another 
 5-6 year cycle.  This procurement process began in January 2023 and is still ongoing. 
 

@@ -16,7 +16,7 @@ General Info
 * The :tt:`intel` and :tt:`mkl` modules provide access to a number of Intel Math Kernel Libraries
   including LAPACK, SCALAPACK, BLAS and threading options. The MKL libraries can be linked with Intel
   or GNU compilers. If you are compiling software yourself and are using :tt:`intel` or :tt:`mkl`
-  modules please see `Intel MKL Documentaion <https://software.intel.com/en-us/mkl/documentation/view-all>`_
+  modules please see `Intel MKL Documentation <https://software.intel.com/en-us/mkl/documentation/view-all>`_
   and `Intel MKL Link Advisory <https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-link-line-advisor.html#gs.o9qcu1>`_
   to help you figure out how to use variables set by them.
 * ``docker`` is not available per security vulnerability. Use *singularity* instead.

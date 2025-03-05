@@ -50,7 +50,7 @@ Storing Files
   (CRSP or DFS). When executed many times by many users this creates a performance issue for everyone.
 
   .. attention:: Remove all symbolic links from your $HOME or anywhere under its subdirectories
-                 and use aliases or enviornment variables in your .bashrc to
+                 and use aliases or environment variables in your .bashrc to
                  create shortcuts to desired filesystems. See :ref:`symbolic links` for more info.
 
 .. _home quotas:

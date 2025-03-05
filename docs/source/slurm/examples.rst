@@ -656,7 +656,7 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
               http://hpc3-14-00:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
            or http://127.0.0.1:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
 
-   At this point, you don't have a prompt and you cant do anything in
+   At this point, you don't have a prompt and you can't do anything in
    this window as your Jupyter notebook is running.
 
    Note the last URL line of the output above, it includes local host, port and a token.
@@ -974,7 +974,7 @@ R
 
    One can use parallelization across multiple compute nodes. 
    To allow for communication between R processes running on different compute
-   nodes your job neds to meet the following requirements:
+   nodes your job needs to meet the following requirements:
 
    - the desired R software package must be using MPI, specifically must use
      *library('Rmpi')*. The desired software package and the Rmpi library must be installed by the user. Before

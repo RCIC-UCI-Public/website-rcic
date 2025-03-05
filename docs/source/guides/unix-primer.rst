@@ -158,7 +158,7 @@ While symbolic links can be  a practical choice, sometimes they can have a signi
                  | you are making shortcuts for the file names in different filesystems.
 
 
-**Use aliases or enviornment variables**
+**Use aliases or environment variables**
 
 A shortcut  name can be accomplished via an alias or an environment variable.
 For example, in your :tt:`.bashrc` add

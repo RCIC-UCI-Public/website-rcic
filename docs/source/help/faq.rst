@@ -71,7 +71,7 @@ a rate that reduces the financial impact of overhead on recharged-cycles.
 
 .. _reset password:
 
-I cant login, can you reset my password?
+I can't login, can you reset my password?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | :red:`We do not store, handle or reset passwords for UCINetIDs`.
@@ -316,7 +316,7 @@ I get file write error when saving files in my $HOME, what is wrong?
 You exceeded your $HOME disk quota.
 See :ref:`home quotas` that explains how to check and fix.
 
-I cant save files in my CRSP area. How do i check my quotas?
+I can't save files in my CRSP area. How do i check my quotas?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 See :ref:`crsp quotas` for explanation.
 
@@ -360,7 +360,7 @@ where and how you run your application and may contain *OOM Killed*,
 This means you requested a certain amount of memory but your job went over the
 limit and SLURM has terminated your job.
 
-All partitions have :ref:`specific configuration <paritions structure>` for memory, runtime, etc.
+All partitions have :ref:`specific configuration <partitions structure>` for memory, runtime, etc.
 
 * You need to increase the memory requirements for your job.
   See :ref:`How to get more memory <request memory>`.
@@ -506,7 +506,7 @@ You don't have enough hours in your account balance to run the job. See
 My job is killed after running for 48 hours, why?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-All queues have specific :ref:`default and max runtime limits <paritions structure>`.
+All queues have specific :ref:`default and max runtime limits <partitions structure>`.
 The default run time protects users from unintentionally using more CPU hours than intended.
 
 You run your job with *a default runtime*, and Slurm killed the job once the run
@@ -516,7 +516,7 @@ My job needs longer time than 14 days, how do I request this?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 First, you  need to submit your job for the partition's
-:ref:`max runtime limits <paritions structure>`. Then request 
+:ref:`max runtime limits <partitions structure>`. Then request 
 :ref:`job time limit modification <modify job>`.
 
 :bluelight:`Software`

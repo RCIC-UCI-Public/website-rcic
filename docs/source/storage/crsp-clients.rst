@@ -390,7 +390,7 @@ The following figure shows 3 configured shares:
    :width: 70%
    :alt:  multiple shares
 
-   Multiple Shares confgured
+   Multiple Shares configured
 
 .. _client desktop windows:
 
@@ -811,7 +811,7 @@ The File Browser is fairly easy to navigate, with some very basic sets of functi
      File download 
   
   * a single file will be downloaded as a file with the same name
-  * multile files will be downloaded as :tt:`download.zip`  file
+  * multiple files will be downloaded as :tt:`download.zip`  file
     which will need to be unzipped to access the contents.
 
 **Upload files**

@@ -427,7 +427,7 @@ your UCNetID credentials for your user name and password.
 
      scp OPTIONS SOURCE DESTINATION
 
-  We omit OPTIONS for thie simple cases.
+  We omit OPTIONS for the simple cases.
 
   The SOURCE and DESTINATION may be specified as a local file name, or
   a remote host with optional path in the form `user@server:path` where

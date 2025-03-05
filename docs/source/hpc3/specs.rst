@@ -29,7 +29,7 @@ As of August 2024, the following describes the cluster:
 HPC3 heterogeneous hardware has the following unique configurations with the most common
 configurations shown first.
 
-.. Generate the following table (formatiing is going to be table-like) with
+.. Generate the following table (formatting is going to be table-like) with
 .. sinfo -S  '-R -D c' -p standard,highmem,hugemem,maxmem,gpu,standard-hbm,gpu-hugemem -o "   | %4D | %4c | %9m | %38f | %12G | " -e  | sed 's/(null)/      /'
 .. edit the final
 

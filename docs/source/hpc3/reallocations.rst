@@ -15,7 +15,7 @@ The vision defined in 2016 was that any
 UCI invests in new equipment every year to reach this particular goal. The RCIC executive committee
 also approved a plan that would not result on over-allocation of HPC3. 
 
-**There are numerous challanges in fairly providing access to these hours**:
+**There are numerous challenges in fairly providing access to these hours**:
    * Any hour that a computing core sits idle is computing that is "lost forever."  
    * Actual computing needs are quite uneven. Some research groups need significantly more than 200K hours/year, some significantly less. 
    * Usage by any group is uneven throughout the year. Bursts of computing followed periods of reduced/no use is common. 

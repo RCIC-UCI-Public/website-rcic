@@ -32,7 +32,7 @@ Install with conda/mamba
 ------------------------
 
 .. note:: | For general info on conda commands and builds please see conda documentation
-          | `Bulding Conda local environments <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html>`_
+          | `Building Conda local environments <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html>`_
 
 **Steps below explain the basic conda application install specific to the cluster**.
 
@@ -72,7 +72,7 @@ simply substitute module name and version where needed.
                anaconda/miniconda/mamba modules`. If you do, your environment
                will have problems.
 
-.. attention:: Note, if you previoulsy tried to install conda packages make sure that your :tt:`$HOME/.bashrc`
+.. attention:: Note, if you previously tried to install conda packages make sure that your :tt:`$HOME/.bashrc`
    file does not have any conda-added lines.  Remove the lines before you proceed with the install,
    step 4 below explains what they are.
 
@@ -270,7 +270,7 @@ simply substitute module name and version where needed.
       [user@hpc3-xx-yy:~]$ . ~/.mycondainit-23.5.2
       (base)[user@hpc3-xx-yy:~]$
 
-   Note, your command line prompt changed and now has :tt:`(base)` pre-pended. This means
+   Note, your command line prompt changed and now has :tt:`(base)` prepended. This means
    conda base environment is activated.
 
 #. **Create a local environment**
@@ -369,7 +369,7 @@ simply substitute module name and version where needed.
       (base)[user@hpc3-xx-yy:~]$ conda activate Local2
       (Local2)[user@hpc3-xx-yy:~]$ 
 
-   Note that after activation your prompt changed and has **Local2** pre-pended.
+   Note that after activation your prompt changed and has **Local2** prepended.
 
    Using your newly created environment you can now install desired software
    :red:`per your software instructions`. The instructions vary, here is a handful of
@@ -438,7 +438,7 @@ simply substitute module name and version where needed.
         environment.  While this is ok for a full *personal* install of conda, it will
         not work on the cluster where you are using conda module and where the base environment
         is read only.  
-      | If your instrucitons specify to install in base, for example:
+      | If your instructions specify to install in base, for example:
       |     ``conda install -n base somea-pkg-name``
       | simply remove base from the command as:
       |     ``conda install somea-pkg-name``
@@ -526,7 +526,7 @@ simply substitute module name and version where needed.
 
      Your environment is deactivated automatically when you Slurm jobs finishes.
 
-#. **Build additional enviornments**
+#. **Build additional environments**
 
    **I. Build with different conda version**
      You can build another environment with a completely different version of
@@ -580,7 +580,7 @@ simply substitute module name and version where needed.
   
      Again, the only input from the user is :blue:`y` on the *Proceed ([y]/n)?  y* line.
 
-     Once conda install ends, activate your new enviornment and it is 
+     Once conda install ends, activate your new environment and it is 
      ready to install your desired software:
 
      .. code-block:: console
@@ -919,7 +919,7 @@ packages will go to the :tt:`$HOME/R` and is automatically available to the user
 
    Your typed responses:
 
-   * The warning at the beginning of output is normal as users cant write in the system area.
+   * The warning at the beginning of output is normal as users can't write in the system area.
      Type :tt:`yes` to confirms to use a local library in your user area.
    * Type :tt:`yes` to confirms a creation of personal library. This is done once. Future
      installs will use this existing location.
