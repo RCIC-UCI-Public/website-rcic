@@ -50,7 +50,7 @@ Simple conduct
 * **Ssh access to the compute nodes is turned off** to prevent users from starting
   jobs bypassing Slurm.  See :ref:`attach to job`.
 
-* **Do not run Slurm jobs in your** :tt:`$HOME`. Instead, use your DFS storage :tt:`/pub/ucinetid`.
+* **Do not run Slurm jobs in your** :tt:`$HOME`. Instead, use your DFS storage :tt:`/pub/UCINetID`.
 
 * **Check your disk quota frequently**. File system limits are generally the first
   ones that will negatively affect your job. See :ref:`home`, :ref:`dfs` and

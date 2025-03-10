@@ -500,10 +500,10 @@ steps to start a container.
 
    .. code-block:: console
    
-      export biojhub4HOME="/pub/UCInetID/biojhub4_dir"
+      export biojhub4HOME="/pub/UCINetID/biojhub4_dir"
 
    Your next invocation of the container will write session files in your
-   :tt:`/pub/UCInetID/biojhub4_dir` location. The :tt:`biojhub4.*.err`
+   :tt:`/pub/UCINetID/biojhub4_dir` location. The :tt:`biojhub4.*.err`
    and :tt:`biojhub4.*.err` files are still written in your $HOME and
    need a periodic removal.
 
@@ -673,7 +673,7 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
 
     .. code-block:: console
 
-       ssh -L 9090:hpc3-14-00:8989 ucinetid@hpc3.rcic.uci.edu
+       ssh -L 9090:hpc3-14-00:8989 UCINetID@hpc3.rcic.uci.edu
 
    * Use your UCINetID. When asked for a password and DUO authentication, use your
      usual credentials.
@@ -697,7 +697,7 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
 .. attention:: | You can simplify and use the same ports on local and remote hosts.
                | In this case for our example:
                | - in step 6, ssh command will have the same number for local and remote ports
-               |   ``ssh -L 8989:hpc3-14-00:8989 ucinetid@hpc3.rcic.uci.edu``
+               |   ``ssh -L 8989:hpc3-14-00:8989 UCINetID@hpc3.rcic.uci.edu``
                | - in step 7, you simply copy and paste unchanged URL line into your browser:
                |    http://127.0.0.1:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
 
@@ -901,7 +901,7 @@ Python
 
       [user@login-x:~]$ module load python/3.8.0
       [user@login-x:~]$ sbatch -p standard -N 1 -n 1 -t 2:00:00 --mail-type=end \
-                               --mail-user=UCInetID@uci.edu --wrap="python3 myscript.py"
+                               --mail-user=UCINetID@uci.edu --wrap="python3 myscript.py"
 
 2. Multiple core/CPU
 

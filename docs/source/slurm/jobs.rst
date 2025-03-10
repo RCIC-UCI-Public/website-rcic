@@ -372,7 +372,7 @@ Scratch storage
 Scratch storage is local to each compute node and is the fastest disk access
 for reading and writing the input/output job files.
 
-Scratch storage is created for each job automatically as :tt:`/tmp/ucinetid/jobid/`
+Scratch storage is created for each job automatically as :tt:`/tmp/UCINetID/jobid/`
 when the job starts on a compute node. Slurm *knows* this location and
 is referring to it  via an environment variable :tt:`$TMPDIR`.
 Users don't need to create :tt:`$TMPDIR` but simply need to use it in their

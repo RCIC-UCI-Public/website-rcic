@@ -373,7 +373,7 @@ There are two ways to check your quotas:
       == Your use in Paths to which you have access  ==
          /mmfs1/crsp/home                    0.001 GB/     0.020 GB      6/40       files (2)
               total bytes in use        :  115.735 GB/     0.000 GB
-         /mmfs1/crsp/lab/ucinetid-pi        39.799 GB/  1024.000 GB   2900/100000   files (3)
+         /mmfs1/crsp/lab/UCINetID-pi        39.799 GB/  1024.000 GB   2900/100000   files (3)
               total bytes in use        :  374.092 GB/  1024.000 GB
 
    | The first ``ls`` command above gives an idea when the file was updated.
@@ -384,7 +384,7 @@ There are two ways to check your quotas:
    |     The 0.001 GB is used only by account related files. Currently the user
    |     used 6 out of 40 files (40 is a quota).
    | (3) is a member of UCINetID-PI LAB and used 39.799 GB of the allocated 1024 GB LAB area
-   |     in :tt:`/mmfs1/crsp/lab/ucinetid-pi` and 2900 files (quota 100000). 
+   |     in :tt:`/mmfs1/crsp/lab/UCINetID-pi` and 2900 files (quota 100000). 
    |     The total usage of the LAB area by all lab members is 374.092 GB.
 
    Note the path naming on CRSP and HPC3:
@@ -393,7 +393,7 @@ There are two ways to check your quotas:
    Area Path on CRSP                      Path on HPC3
    ==== ================================= ==================================
    HOME :tt:`/mmfs1/crsp/home`            :tt:`/share/crsp/home`
-   LAB  :tt:`/mmfs1/crsp/lab/ucinetid-pi` :tt:`/share/crsp/lab/ucinetid-pi`
+   LAB  :tt:`/mmfs1/crsp/lab/UCINetID-pi` :tt:`/share/crsp/lab/UCINetID-pi`
    ==== ================================= ==================================
 
   .. note:: | If you are a PI of the lab you will to see the usage of your lab quota for all lab members.
@@ -414,7 +414,7 @@ of files (a) in storage used (b):
 
       mmfs1/crsp/home                    0.014 GB/     0.020 GB     :red:`40/40`       files (a)
           total bytes in use        :  115.735 GB/     0.000 GB
-      mmfs1/crsp/lab/ucinetid-pi      :red:`1029.799 GB/  1024.000 GB`   2900/100000   files (b)
+      mmfs1/crsp/lab/UCINetID-pi      :red:`1029.799 GB/  1024.000 GB`   2900/100000   files (b)
           total bytes in use        : :red:`1029.799 GB/  1024.000 GB`
 
 

@@ -154,7 +154,7 @@ Resolution: unmount and then remount the share.
   .. code-block:: console
 
      $ fusermount -u ~/your-mount-point
-     $ sshfs ucinetid@crspssh.crsp.uci.edu:/mmfs1/home/ucinetid ~/your-mount-point
+     $ sshfs UCINetID@crspssh.crsp.uci.edu:/mmfs1/home/UCINetID ~/your-mount-point
 
 .. _problem file browser:
 

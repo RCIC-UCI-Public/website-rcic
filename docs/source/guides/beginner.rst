@@ -380,11 +380,11 @@ Please see the links below for detailed information about each filesystem.
 
 :ref:`home`:
   All users have 50GB quota :tt:`$HOME` area.
-  The :tt:`$HOME` is in :tt:`/data/homezvolX/ucinetid`.
+  The :tt:`$HOME` is in :tt:`/data/homezvolX/UCINetID`.
   Use it for storing important and rarely changed files.
 
 :ref:`dfs`:
-  All users have 1Tb quota :tt:`/pub/ucinetid` area.
+  All users have 1Tb quota :tt:`/pub/UCINetID` area.
   Use it for storing data sets, documents, Slurm scripts and jobs input/output.
 
   Depending on a lab affiliation, some users may have space in
@@ -394,7 +394,7 @@ Please see the links below for detailed information about each filesystem.
   :red:`By default users don't have access to this area`.
 
   Depending on a lab affiliation, some users may have space in
-  :tt:`/share/crsp/lab/labname/ucinetid`. Please see :ref:`getting crsp account`
+  :tt:`/share/crsp/lab/labname/UCINetID`. Please see :ref:`getting crsp account`
   for details.
 
 .. important::

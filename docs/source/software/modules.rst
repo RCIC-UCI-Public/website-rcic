@@ -543,7 +543,7 @@ There are a few basic steps:
    Do this in your user/group area :underline:`per your software instructions`.
    Verify that the software is working.
 
-   * if installing for yourself, your user area is in :tt:`/pub/ucinetid`
+   * if installing for yourself, your user area is in :tt:`/pub/UCINetID`
 
 	 .. important:: | Do not install in :tt:`$HOME`.
                     | Do not install in :tt:`$HOME/modulefiles/`

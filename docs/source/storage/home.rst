@@ -10,7 +10,7 @@ Overview
 --------
 
 | The :tt:`$HOME` is a filesystem that is associated with your login account.
-| Each user :tt:`$HOME` is in **/data/homezvolX/ucinetid**
+| Each user :tt:`$HOME` is in **/data/homezvolX/UCINetID**
 
 .. _home files:
 

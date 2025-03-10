@@ -1094,12 +1094,12 @@ latest available singularity version.
       [user@hpc3-xx-yy:~]$ 
 
    In addition, Singularity container can be large, we recommend to use your
-   private  area in :tt:`/pub/ucinetid` or  your group lab
+   private  area in :tt:`/pub/UCINetID` or  your group lab
    allocation on another DFS file system for building the images:
 
    .. code-block:: console
 
-      [user@hpc3-xx-yy:~]$ cd /pub/ucinetid
+      [user@hpc3-xx-yy:~]$ cd /pub/UCINetID
 
    Next steps are executed on interactive node.
 
@@ -1492,7 +1492,7 @@ additional Python or R modules.
    the one you usually have when you login on the cluster:
 
    :default $HOME in the container:  /home/jovyan
-   :your cluster $HOME on the container:  /home/jovyan/UCInetID
+   :your cluster $HOME on the container:  /home/jovyan/UCINetID
 
    Your cluster $HOME location is still available to you 
    if you are adding R or Python packages or simply want to access it.

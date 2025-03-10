@@ -994,13 +994,13 @@ On HPC3, CRSP shares are mounted in */share/crsp*:
 CRSP HOME
 ^^^^^^^^^
 
-User CRSP HOME area is :tt:`/share/crsp/home/ucinetid`:
+User CRSP HOME area is :tt:`/share/crsp/home/UCINetID`:
 
 * it is a placeholder for login related files
 * it is not the same as your cluster account's :tt:`$HOME`
 * :red:`Do not store anything in your CRSP HOME`
 
-File :tt:`/share/crsp/home/ucinetid/quotas.txt` in your CRSP HOME area
+File :tt:`/share/crsp/home/UCINetID/quotas.txt` in your CRSP HOME area
 provides information about quotas. Please see :ref:`crsp quotas` for details.
 
 .. _hpc3 crsp lab:
@@ -1008,7 +1008,7 @@ provides information about quotas. Please see :ref:`crsp quotas` for details.
 CRSP LAB
 ^^^^^^^^
 
-LAB area is your primary storage area and is in  :tt:`/share/crsp/lab/ucinetid`
+LAB area is your primary storage area and is in  :tt:`/share/crsp/lab/UCINetID`
 or any other LAB directories you have access for.
 
 **If you are a PI and it's your lab**
