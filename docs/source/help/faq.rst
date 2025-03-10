@@ -18,12 +18,12 @@ Frequently Asked Questions
 Who can have an account?
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Anyone with a valid UCINetID. Please see :ref:`get account`.
+Anyone with a valid UCInetID. Please see :ref:`get account`.
 
 How long can I have an account after graduation/separation from UCI?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For as long as your UCINetID is valid.
+For as long as your UCInetID is valid.
 Please see :ref:`closing account`.
 
 Who defined the policy?
@@ -74,9 +74,9 @@ a rate that reduces the financial impact of overhead on recharged-cycles.
 I can't login, can you reset my password?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-| :red:`We do not store, handle or reset passwords for UCINetIDs`.
+| :red:`We do not store, handle or reset passwords for UCInetIDs`.
 
-| Your password is the one you have set for your UCINetID. 
+| Your password is the one you have set for your UCInetID. 
 | Please see OIT website page `how to change passwords <https://www.security.uci.edu/how-to/passwords/>`_.
 
 .. _add lab account:
@@ -233,13 +233,13 @@ and :ref:`recharge allocations` for pricing.
 Can I grant access to my CRSP storage to others at UCI?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Yes. Under your control, you can add people (by the UCINetID)
+Yes. Under your control, you can add people (by the UCInetID)
 to have read, write or read/write access to your storage.
 
 Can I grant access to my storage to others outside of UCI?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You will need to sponsor a UCINetID for your external collaborators.
+You will need to sponsor a UCInetID for your external collaborators.
 They will then be able to access CRSP using normal mechanisms. Please see
 :ref:`access`.
 

@@ -44,8 +44,8 @@ Getting Slurm Lab Account
 PI may request a Slurm lab account by sending a request to hpc-support@uci.edu and specifying
 the following information:
 
-* PI name and UCINetID
-* Name and UCINetID of the researchers, graduate students or other
+* PI name and UCInetID
+* Name and UCInetID of the researchers, graduate students or other
   collaborators to add to the account. They will be be able to charge CPU hours to the  lab account.
 
 ..  * Optional: names of  *account coordinators*.  Account coordinators are lab members who will able to manage the group

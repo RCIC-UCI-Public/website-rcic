@@ -6,6 +6,8 @@ Introduction
 The Research Cyberinfrastructure Center :term:`RCIC` at the University of California, Irvine
 deploys and supports resources for the UCI research community is the focal point of contact
 for providing High Performance Computing clusters and Scalable Storage Systems.
+:ref:`dedicated staff` provides hardware and software support to the campus research community.
+
 The :ref:`allocations` explains the access to the computing and storage resources,
 which include:
 
@@ -32,14 +34,13 @@ which include:
   `Secure Research Environment (SRE) <https://www.oit.uci.edu/services/security/sre/>`_
     is OIT's service that provides a secure, on-campus virtual server infrastructure for the UCI campus research community.
 
-:ref:`dedicated staff` provides hardware and software support to the campus research community.
 
 .. _access:
 
 Access
 ------
 
-| Access to all RCIC resources requires a `UCINetID <https://www.oit.uci.edu/services/accounts-passwords/ucinetids/>`_.
+| Access to all RCIC resources requires a `UCInetID <https://www.oit.uci.edu/services/accounts-passwords/ucinetids/>`_.
 | Access to all RCIC resources is subject to our `Acceptable Use Policy </_static/RCIC-Acceptable-Use-Policy.pdf>`_.
 | Faculty can `sponsor external collaborators <https://uci.service-now.com/sp?id=kb_article_view&sysparm_article=KB0012503>`_ to provide and share access.
 

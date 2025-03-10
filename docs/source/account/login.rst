@@ -11,9 +11,9 @@ To connect to an HPC3 login node use:
 :server name:
   :tt:`hpc3.rcic.uci.edu`
 :login name: 
-  your UCINetID
+  your UCInetID
 :password: 
-  your password associated with your UCINetID
+  your password associated with your UCInetID
 
 
 The following login methods are available, most common listed first:
@@ -56,7 +56,7 @@ DUO push happens on your phone (or your other DUO-enabled device).
 1. **Run ssh command**
 
    Your login name can be specified as ether :tt:`user@hostname` or given with the :tt:`-l` option,
-   for example a user with UCINetID *panteater* can use one of the following:
+   for example a user with UCInetID *panteater* can use one of the following:
 
    .. code-block:: console
 
@@ -168,7 +168,7 @@ If you choose to use key-based authentication for your login, you have additiona
 #. **Use ssh command to login**
 
    Once your keys are setup simply use ``ssh`` commands.
-   For example a user with UCINetID *panteater* can use one of the following
+   For example a user with UCInetID *panteater* can use one of the following
    commands  and provide your ssh passphrase when prompted:
 
    .. code-block:: console
@@ -346,12 +346,12 @@ on compute nodes.
       Host hpc3-*
         HostName %h
         Port XXXX
-        ProxyJump UCINetID@hpc3.rcic.uci.edu
-        User UCINetID
+        ProxyJump UCInetID@hpc3.rcic.uci.edu
+        User UCInetID
         UserKnownHostsFile /dev/null
         StrictHostKeyChecking no
 
-   | Replace :tt:`UCINetID` with yours, and :tt:`XXXX` with the Port number from :tt:`vscode-sshd-<jobID>.out`.
+   | Replace :tt:`UCInetID` with yours, and :tt:`XXXX` with the Port number from :tt:`vscode-sshd-<jobID>.out`.
    | **Do not change any other other lines!**
 
    If you already have :tt:`.ssh/config` file, simply add the content to it.

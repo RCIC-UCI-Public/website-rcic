@@ -38,8 +38,8 @@ credentials.  In this case, it recommended to not use SSH keys and remain with t
 :bluelight:`When creating Cyberduck Bookmark, the following are key configuration items`
   * Protocol: sftp
   * Server: access.crsp.uci.edu
-  * Username: <UCINetID>
-  * Path: /mmfs1/crsp/lab/<UCINetID of PI>
+  * Username: <UCInetID>
+  * Path: /mmfs1/crsp/lab/<UCInetID of PI>
   * Transfer Files: Use Browser Connection
 
 The last entry, **Transfer Files**,  is critical to having Cyberduck work with DUO authentication.

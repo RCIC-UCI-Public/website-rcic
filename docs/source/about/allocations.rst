@@ -282,5 +282,5 @@ on one of the DFS systems.
        interval. Allocation is adjusted dependent on actual use of core-hours.  Applies to faculty accounts.
 .. [#] Because of limited physical resources, PI must specifically request allocation for GPU-hours.
        Applies to faculty accounts. 
-.. [#] When a user no longer has an active UCINetID, files are removed.
+.. [#] When a user no longer has an active UCInetID, files are removed.
 

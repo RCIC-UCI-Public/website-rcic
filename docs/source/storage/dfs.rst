@@ -52,7 +52,7 @@ There is NO separate account for DFS filesystems.
 **No cost allocation -  Private area:** 
   All users have access to the Private Area. Each user is provided with a default allocation:
 
-  | - 1TB quota per account in :tt:`/pub/UCINetID` 
+  | - 1TB quota per account in :tt:`/pub/UCInetID` 
   | - 1TB backup quota for a selective backup
 
 **Recharge allocation - Group shared area:**
@@ -78,7 +78,7 @@ Storing Files
 **Where to Store**
   Pick a location depending on the type of data (private or group access):
 
-  :tt:`/pub/UCINetID`
+  :tt:`/pub/UCInetID`
     * is a unique PRIVATE access area
     * :red:`is NOT shared with other users`
     * :red:`do NOT change this directory permissions`
@@ -118,7 +118,7 @@ All DFS-based file systems have quota enforcement for all private and group shar
 - When writing in **Private area** users need to remember that:
 
   * Every user has a **default personal group** which is the same as their login.
-  * The :tt:`1TB personal group quota` is on **/pub/UCINetID**.
+  * The :tt:`1TB personal group quota` is on **/pub/UCInetID**.
   * Every user has a default :tt:`1Tb selective backup quota`.
 
 
@@ -432,8 +432,8 @@ Users manage their Selective Backup via two **control files** located in their
 
    .. code-block:: bash
 
-      /data/homezvolX/UCINetID
-      /pub/UCINetID
+      /data/homezvolX/UCInetID
+      /pub/UCInetID
 
    The following table lists all available backup options:
 
@@ -511,14 +511,14 @@ from the following paths:
    +------------------------------------------------------+-------------------------------+
    | Where                                                | What                          |
    +======================================================+===============================+
-   | /sbak/zvolX/backups/UCINetID/data/homezvolX/UCINetID | user $HOME                    |
+   | /sbak/zvolX/backups/UCInetID/data/homezvolX/UCInetID | user $HOME                    |
    +------------------------------------------------------+-------------------------------+
-   | /sbak/zvolX/backups/UCINetID/pub/UCINetID            | /pub/$USER/                   |
+   | /sbak/zvolX/backups/UCInetID/pub/UCInetID            | /pub/$USER/                   |
    +------------------------------------------------------+-------------------------------+
-   | /sbak/zvolX/backups/UCINetID/DELETED-FILES           | deleted files by date         |
+   | /sbak/zvolX/backups/UCInetID/DELETED-FILES           | deleted files by date         |
    |                                                      | (counts towards backup quota) |
    +------------------------------------------------------+-------------------------------+
-   | /sbak/zvolX/logs/$DATE/UCINetID                      | backup logs by date,          |
+   | /sbak/zvolX/logs/$DATE/UCInetID                      | backup logs by date,          |
    |                                                      | available for the past Y days |
    +------------------------------------------------------+-------------------------------+
 

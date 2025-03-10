@@ -405,7 +405,7 @@ steps to start a container.
    Point your browser
    to `https://hpc3.rcic.uci.edu/biojhub4/hub/login <https://hpc3.rcic.uci.edu/biojhub4/hub/login>`_
    You will see the following screen where you will Use your usual login
-   credentials (UCINetID and password) to sign in:
+   credentials (UCInetID and password) to sign in:
 
    .. figure:: images/jhub-signin.png
       :align: center
@@ -496,14 +496,14 @@ steps to start a container.
 
    One can set an alternative place for :tt:`biojhub4_dir` in the pub area. 
    You will need to edit your :tt:`~/.bashrc` file and add at the end a line
-   using your account in place of UCINetID:
+   using your account in place of UCInetID:
 
    .. code-block:: console
    
-      export biojhub4HOME="/pub/UCINetID/biojhub4_dir"
+      export biojhub4HOME="/pub/UCInetID/biojhub4_dir"
 
    Your next invocation of the container will write session files in your
-   :tt:`/pub/UCINetID/biojhub4_dir` location. The :tt:`biojhub4.*.err`
+   :tt:`/pub/UCInetID/biojhub4_dir` location. The :tt:`biojhub4.*.err`
    and :tt:`biojhub4.*.err` files are still written in your $HOME and
    need a periodic removal.
 
@@ -673,9 +673,9 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
 
     .. code-block:: console
 
-       ssh -L 9090:hpc3-14-00:8989 UCINetID@hpc3.rcic.uci.edu
+       ssh -L 9090:hpc3-14-00:8989 UCInetID@hpc3.rcic.uci.edu
 
-   * Use your UCINetID. When asked for a password and DUO authentication, use your
+   * Use your UCInetID. When asked for a password and DUO authentication, use your
      usual credentials.
    * Note, the first occurrence of port in the ``ssh`` command
      :tt:`9090` is a local port on your laptop, and you can pick any free port on your laptop
@@ -697,7 +697,7 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
 .. attention:: | You can simplify and use the same ports on local and remote hosts.
                | In this case for our example:
                | - in step 6, ssh command will have the same number for local and remote ports
-               |   ``ssh -L 8989:hpc3-14-00:8989 UCINetID@hpc3.rcic.uci.edu``
+               |   ``ssh -L 8989:hpc3-14-00:8989 UCInetID@hpc3.rcic.uci.edu``
                | - in step 7, you simply copy and paste unchanged URL line into your browser:
                |    http://127.0.0.1:8989/?token=ddfb32c5804b57a452e3f66d2d1572e35af845e84b138dc9
 
@@ -901,7 +901,7 @@ Python
 
       [user@login-x:~]$ module load python/3.8.0
       [user@login-x:~]$ sbatch -p standard -N 1 -n 1 -t 2:00:00 --mail-type=end \
-                               --mail-user=UCINetID@uci.edu --wrap="python3 myscript.py"
+                               --mail-user=UCInetID@uci.edu --wrap="python3 myscript.py"
 
 2. Multiple core/CPU
 

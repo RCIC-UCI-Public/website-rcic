@@ -129,29 +129,29 @@ All requests described below must be sent to hpc-support@uci.edu.
 :underline:`I am a PI on campus and I want to have an access`:
   You may request a no-cost 1TB lab allocation and include:
 
-  - your UCINetID 
-  - UCINetIDs and names of the people that you want to add
+  - your UCInetID 
+  - UCInetIDs and names of the people that you want to add
 
 :underline:`I am a PI and I want to add students/postdocs to my lab`:
   You should send a request and include:
 
   - your existing CRSP lab name
-  - UCINetIDs and names of the people you want to add
+  - UCInetIDs and names of the people you want to add
 
 :underline:`I am a PI and I want to access my colleagues lab`:
   Your colleague must send a request to grant access to their lab and include:
 
   - existing CRSP lab name
-  - your UCINetIDs
+  - your UCInetIDs
 
 :underline:`I am a PI and I want colleagues outside of UCI to have access to my lab`:
-  You must first sponsor a UCINetID (see :ref:`access`) then send a request to grant access.
+  You must first sponsor a UCInetID (see :ref:`access`) then send a request to grant access.
 
 :underline:`I am a student/psotdoc/researcher and I want to access my PI lab`:
   You should send a request and include:
 
-  - your UCINetID
-  - your PI's UCINetID or existing CRSP lab name
+  - your UCInetID
+  - your PI's UCInetID or existing CRSP lab name
   - :red:`You must cc your request to the PI`. 
     Once the ticket is generated (you receive an automated email response) 
     the PI will have to respond to the cc with a confirmation.
@@ -209,7 +209,7 @@ The LAB areas provide the most flexibility for access control and sharing:
 
 * The Allocation quota is for the  whole :tt:`LAB` area allocation and is a sum of what is stored
   in :tt:`share`  and in all personal directories.
-* Each Grantee has a personal directory (named with grantee's UCINetID). Only
+* Each Grantee has a personal directory (named with grantee's UCInetID). Only
   grantee and the space owner can read/write files in this directory. 
 * A directory called :tt:`share` is available to all members of the lab.
   Anyone in the lab can read/write files stored under it.
@@ -225,7 +225,7 @@ defined in Linux, but most users access is from Mac and Windows environments.
 
 On Linux (Unix) an independent access controls to all files given to three different entities:
 
-* The *owner* of the file. This is the UCINetID that originally created the file
+* The *owner* of the file. This is the UCInetID that originally created the file
 * The *group* of the file. A group who might have access to this file
 * The *world* (or others). Everyone else on CRSP
 
@@ -265,7 +265,7 @@ This shows that for the :tt:`ppapadop` Lab on CRSP:
 
 1. User *ppapadop* who is a PI can see all files anywhere in the LAB area.
 #. All users in the LAB can read/write files in :tt:`share` area.
-#. Each user in the LAB has a folder named by UCINetID that is private to the
+#. Each user in the LAB has a folder named by UCInetID that is private to the
    user and to the PI. 
    There are  LAB members in the group 
    :tt:`ppapadop_lab_share`: *ppapadop*, *ckhacher*, *itoufiqu*, *tandriol*, *iychang*.
@@ -283,8 +283,8 @@ Accessing  CRSP
   `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to access CRSP.
 | Your login credentials for all access methods described below are:
 
-  :login name: your UCINetID
-  :password: your password associated with your UCINetID
+  :login name: your UCInetID
+  :password: your password associated with your UCInetID
 
 We do not set or change passwords.
 
@@ -373,7 +373,7 @@ There are two ways to check your quotas:
       == Your use in Paths to which you have access  ==
          /mmfs1/crsp/home                    0.001 GB/     0.020 GB      6/40       files (2)
               total bytes in use        :  115.735 GB/     0.000 GB
-         /mmfs1/crsp/lab/UCINetID-pi        39.799 GB/  1024.000 GB   2900/100000   files (3)
+         /mmfs1/crsp/lab/UCInetID-pi        39.799 GB/  1024.000 GB   2900/100000   files (3)
               total bytes in use        :  374.092 GB/  1024.000 GB
 
    | The first ``ls`` command above gives an idea when the file was updated.
@@ -383,8 +383,8 @@ There are two ways to check your quotas:
    | (2) has no usage in HOME area :tt:`/mmfs1/crsp/home`, this is a correct behavior.
    |     The 0.001 GB is used only by account related files. Currently the user
    |     used 6 out of 40 files (40 is a quota).
-   | (3) is a member of UCINetID-PI LAB and used 39.799 GB of the allocated 1024 GB LAB area
-   |     in :tt:`/mmfs1/crsp/lab/UCINetID-pi` and 2900 files (quota 100000). 
+   | (3) is a member of UCInetID-PI LAB and used 39.799 GB of the allocated 1024 GB LAB area
+   |     in :tt:`/mmfs1/crsp/lab/UCInetID-pi` and 2900 files (quota 100000). 
    |     The total usage of the LAB area by all lab members is 374.092 GB.
 
    Note the path naming on CRSP and HPC3:
@@ -393,7 +393,7 @@ There are two ways to check your quotas:
    Area Path on CRSP                      Path on HPC3
    ==== ================================= ==================================
    HOME :tt:`/mmfs1/crsp/home`            :tt:`/share/crsp/home`
-   LAB  :tt:`/mmfs1/crsp/lab/UCINetID-pi` :tt:`/share/crsp/lab/UCINetID-pi`
+   LAB  :tt:`/mmfs1/crsp/lab/UCInetID-pi` :tt:`/share/crsp/lab/UCInetID-pi`
    ==== ================================= ==================================
 
   .. note:: | If you are a PI of the lab you will to see the usage of your lab quota for all lab members.
@@ -414,7 +414,7 @@ of files (a) in storage used (b):
 
       mmfs1/crsp/home                    0.014 GB/     0.020 GB     :red:`40/40`       files (a)
           total bytes in use        :  115.735 GB/     0.000 GB
-      mmfs1/crsp/lab/UCINetID-pi      :red:`1029.799 GB/  1024.000 GB`   2900/100000   files (b)
+      mmfs1/crsp/lab/UCInetID-pi      :red:`1029.799 GB/  1024.000 GB`   2900/100000   files (b)
           total bytes in use        : :red:`1029.799 GB/  1024.000 GB`
 
 

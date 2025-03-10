@@ -85,7 +85,7 @@ This could be caused by one or more reasons:
    Resolution: You must either be on the campus network or connected to the
    `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_
 
-#. Your UCINetID password is incorrect.
+#. Your UCInetID password is incorrect.
 
    Resolution: Make sure your password is correct.
    Please see :ref:`password reset <reset password>`.
@@ -154,7 +154,7 @@ Resolution: unmount and then remount the share.
   .. code-block:: console
 
      $ fusermount -u ~/your-mount-point
-     $ sshfs UCINetID@crspssh.crsp.uci.edu:/mmfs1/home/UCINetID ~/your-mount-point
+     $ sshfs UCInetID@crspssh.crsp.uci.edu:/mmfs1/home/UCInetID ~/your-mount-point
 
 .. _problem file browser:
 

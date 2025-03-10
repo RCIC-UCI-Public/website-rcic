@@ -88,7 +88,7 @@ To submit a job on HPC3, login and using your favorite editor create
 :tt:`simple.sub` file with the contents shown above.
 
 Edit the Slurm account to charge for the job to either your personal account or lab account.
-Your personal account is the same as your UCINetID.
+Your personal account is the same as your UCInetID.
 
 To submit the job:
   .. code-block:: console
@@ -372,7 +372,7 @@ Scratch storage
 Scratch storage is local to each compute node and is the fastest disk access
 for reading and writing the input/output job files.
 
-Scratch storage is created for each job automatically as :tt:`/tmp/UCINetID/jobid/`
+Scratch storage is created for each job automatically as :tt:`/tmp/UCInetID/jobid/`
 when the job starts on a compute node. Slurm *knows* this location and
 is referring to it  via an environment variable :tt:`$TMPDIR`.
 Users don't need to create :tt:`$TMPDIR` but simply need to use it in their
@@ -644,7 +644,7 @@ second specifies a valid email address. We suggest to use a very few event
 types especially if you submit hundreds of jobs. For more info, see output of ``man sbatch`` command.
 
 Make sure to use your actual UCI-issued email address. While Slurm sends emails to any email address,
-we prefer you use your UCINetID@uci.edu email address. System administrators will use UCINetID@uci.edu
+we prefer you use your UCInetID@uci.edu email address. System administrators will use UCInetID@uci.edu
 if they need to contact you about a job.
 
 .. attention:: | DO NOT use mail event type ALL, BEGIN.

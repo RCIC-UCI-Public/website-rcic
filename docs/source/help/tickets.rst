@@ -76,8 +76,8 @@ members who is handling the ticket.
 :DO:
   * Please try to submit using your @uci.edu email address.
   * Have a descriptive subject line.
-  * :red:`For any problem always provide your UCINetID`.
-    Remember, not everyone uses `UCINetID@uci.edu`
+  * :red:`For any problem always provide your UCInetID`.
+    Remember, not everyone uses `UCInetID@uci.edu`
   * Be specific and provide only relevant essential factual information
     about a problem (see following sections for details).
   * Be reasonable and polite. We know when something goes wrong, it's very stressful. It's stressful for us, too.
@@ -169,7 +169,7 @@ please include the following:
 * Copy and paste into your email what **exact commands** you typed and what **exact errors** you saw.
 * If you are asking to be added to PI's DFS or CRSP group:
 
-  * your PI UCINetID
+  * your PI UCInetID
   * cc your request to your PI so the PI can confirm the access
     on the same ticket. **We can't grant any access without PI's confirmation.**
 

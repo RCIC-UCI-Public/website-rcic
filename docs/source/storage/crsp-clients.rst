@@ -114,7 +114,7 @@ macOS: Download Desktop App
 
 **Download Step 1:**
   Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
-  using your UCINetID and password:
+  using your UCInetID and password:
 
   .. figure:: images/crsp/authenticate.png
       :align: center
@@ -235,17 +235,17 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
   **Needed information to connect to CRSP**:
 
-  * Your UCINetID
-  * The UCINetID of the CRSP lab owner:
+  * Your UCInetID
+  * The UCInetID of the CRSP lab owner:
 
-    * It is our UCINetID if you own CRSP Lab
-    * It is the UCINetID of your adviser, If you are a graduate student or post-doctoral researcher
+    * It is our UCInetID if you own CRSP Lab
+    * It is the UCInetID of your adviser, If you are a graduate student or post-doctoral researcher
 
   In this example configuration, we are going to use the following specific
   information for user *npw* to access the *ppapadop* lab:
 
-  * UCINetID - npw
-  * UCINetID of the CRSP lab owner - ppapadop
+  * UCInetID - npw
+  * UCInetID of the CRSP lab owner - ppapadop
 
   You will edit 5 fields in the default bookmark: :guilabel:`Nickname`, :guilabel:`Username`, 
   :guilabel:`SSH Private Key`, :guilabel:`Path`, and :guilabel:`Connect Mode`:
@@ -259,7 +259,7 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
   .. attention:: 
             * :guilabel:`Nickname` - we recommend that you change it to something like: **CRSP LAb - <pi> lab**
-            * :guilabel:`Username` - your UCINetID
+            * :guilabel:`Username` - your UCInetID
             * :guilabel:`SSH Private Key` - use an SSH key name that you should have generated when following the 
               :ref:`Quick Start <crsp quick start>` procedure for working effectively with DUO.
               The corresponding public key should have also been :ref:`copied <manage crsp keys>`
@@ -344,10 +344,10 @@ You have two authentication options when connecting to CRSP:
    Assuming that the *public* key for the private key has been properly installed on CRSP, you should be connected
    *without a DUO prompt*.
 
-:bluelight:`2. UCINetID + password + DUO Push`
+:bluelight:`2. UCInetID + password + DUO Push`
    **What to expect with a Password + DUO**
 
-   If you do NOT install an ssh key, you will be prompted for your UCINetID password and a DUO push. Even if you have
+   If you do NOT install an ssh key, you will be prompted for your UCInetID password and a DUO push. Even if you have
    the CRSP Desktop remember your password, the DUO Push will be **required each and every time** the desktop
    reconnects to CRSP.
 
@@ -358,7 +358,7 @@ You have two authentication options when connecting to CRSP:
       :width: 60%
       :alt: enter user password
 
-      Enter the password associated with YOUR UCINetID
+      Enter the password associated with YOUR UCInetID
 
 
    :bluelight:`Step 2` Respond to the DUO push 
@@ -429,7 +429,7 @@ Windows: Download Desktop App
 
 **Download Step 1:**
   Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
-  using your UCINetID and password, follow with DUO authentication:
+  using your UCInetID and password, follow with DUO authentication:
 
   .. figure:: images/crsp/authenticate.png
       :align: center
@@ -554,17 +554,17 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
   **Needed information to connect to CRSP**:
 
-  * Your UCINetID
-  * The UCINetID of the CRSP lab owner:
+  * Your UCInetID
+  * The UCInetID of the CRSP lab owner:
 
-    * It is our UCINetID if you own CRSP Lab
-    * It is the UCINetID of your adviser, If you are a graduate student or post-doctoral researcher
+    * It is our UCInetID if you own CRSP Lab
+    * It is the UCInetID of your adviser, If you are a graduate student or post-doctoral researcher
 
   In this example configuration, we are going to use the following specific
   information for user *ppapadop* to access the *npw* lab:
 
-  * UCINetID - ppapadop
-  * UCINetID of the CRSP lab owner - npw
+  * UCInetID - ppapadop
+  * UCInetID of the CRSP lab owner - npw
 
   You will edit 5 fields in the default bookmark: :guilabel:`Nickname`, :guilabel:`Username`, 
   :guilabel:`SSH Private Key`, :guilabel:`Path`, and :guilabel:`Connect Mode`:
@@ -578,7 +578,7 @@ This will **Map CRSP Lab Share** as a folder on your laptop.
 
   .. attention:: 
             * :guilabel:`Nickname` - we recommend that you change it to something like: **CRSP LAb - <pi> lab**
-            * :guilabel:`Username` - your UCINetID
+            * :guilabel:`Username` - your UCInetID
             * :guilabel:`SSH Private Key` - use an SSH key name that you should have generated when following the 
               :ref:`Quick Start <crsp quick start>` procedure for working effectively with DUO.
               The corresponding public key should have also been :ref:`copied <manage crsp keys>`
@@ -651,10 +651,10 @@ You have two authentication options when connecting to CRSP:
    Assuming that the *public* key for the private key has been properly installed on CRSP, you should be connected
    *without a DUO prompt*.
 
-:bluelight:`2. UCINetID + password + DUO Push`
+:bluelight:`2. UCInetID + password + DUO Push`
    **What to expect with a Password + DUO**
 
-   If you do NOT install an ssh key, you will be prompted for your UCINetID password and a DUO push. Even if you have
+   If you do NOT install an ssh key, you will be prompted for your UCInetID password and a DUO push. Even if you have
    the CRSP Desktop remember your password, the DUO Push will be **required each and every time** the desktop
    reconnects to CRSP.
 
@@ -665,7 +665,7 @@ You have two authentication options when connecting to CRSP:
       :width: 60%
       :alt: enter user password
 
-      Enter the password associated with YOUR UCINetID
+      Enter the password associated with YOUR UCInetID
 
 
    :bluelight:`Step 2` Respond to the DUO push
@@ -720,7 +720,7 @@ Logging in
 ^^^^^^^^^^^
 
 Using your choice of the web browser login to the `CRSP File Browser <https://access.crsp.uci.edu/myfiles/>`_
-using your UCINetID and password:
+using your UCInetID and password:
 
   .. figure:: images/crsp/authenticate.png
      :align: center
@@ -913,14 +913,14 @@ Mount CRSP shares
 
 In this example there are two variables:
 
-  * :tt:`username` - Your UCINetID
-  * :tt:`labname` - The UCINetID of the CRSP lab owner:
+  * :tt:`username` - Your UCInetID
+  * :tt:`labname` - The UCInetID of the CRSP lab owner:
 
-    * It is our UCINetID if you own CRSP Lab
-    * It is the UCINetID of your adviser, If you are a graduate student or post-doctoral researcher
+    * It is our UCInetID if you own CRSP Lab
+    * It is the UCInetID of your adviser, If you are a graduate student or post-doctoral researcher
 
 From your desktop or laptop, execute the following command
-replacing :tt:`username`  and :tt:`labname` with the appropriate UCINetID(s):
+replacing :tt:`username`  and :tt:`labname` with the appropriate UCInetID(s):
 
 .. code-block::
 
@@ -994,13 +994,13 @@ On HPC3, CRSP shares are mounted in */share/crsp*:
 CRSP HOME
 ^^^^^^^^^
 
-User CRSP HOME area is :tt:`/share/crsp/home/UCINetID`:
+User CRSP HOME area is :tt:`/share/crsp/home/UCInetID`:
 
 * it is a placeholder for login related files
 * it is not the same as your cluster account's :tt:`$HOME`
 * :red:`Do not store anything in your CRSP HOME`
 
-File :tt:`/share/crsp/home/UCINetID/quotas.txt` in your CRSP HOME area
+File :tt:`/share/crsp/home/UCInetID/quotas.txt` in your CRSP HOME area
 provides information about quotas. Please see :ref:`crsp quotas` for details.
 
 .. _hpc3 crsp lab:
@@ -1008,7 +1008,7 @@ provides information about quotas. Please see :ref:`crsp quotas` for details.
 CRSP LAB
 ^^^^^^^^
 
-LAB area is your primary storage area and is in  :tt:`/share/crsp/lab/UCINetID`
+LAB area is your primary storage area and is in  :tt:`/share/crsp/lab/UCInetID`
 or any other LAB directories you have access for.
 
 **If you are a PI and it's your lab**
@@ -1021,7 +1021,7 @@ or any other LAB directories you have access for.
    +==========+==========+==================================+=========================================+
    | your     | your     | /share/crsp/lab/LABNAME          | you can create any directories and files|
    |          |          +----------------------------------+-----------------------------------------+
-   | UCINetID | UCINetID | /share/crsp/lab/LABNAME/USERNAME | your personal space                     |
+   | UCInetID | UCInetID | /share/crsp/lab/LABNAME/USERNAME | your personal space                     |
    +----------+----------+----------------------------------+-----------------------------------------+
 
 **If you are added to a PI lab** e.g., you are a student/postdoc in the lab
@@ -1034,7 +1034,7 @@ or any other LAB directories you have access for.
    +==========+==========+==================================+=========================================+
    | your     | your PI  | /share/crsp/lab/LABNAME/USERNAME | you and PI                              |
    |          |          +----------------------------------+-----------------------------------------+
-   | UCINetID | UCINetID | /share/crsp/lab/LABNAME/share    | all lab members                         |
+   | UCInetID | UCInetID | /share/crsp/lab/LABNAME/share    | all lab members                         |
    +----------+----------+----------------------------------+-----------------------------------------+
 
 The following example shows the directory structure and permissions

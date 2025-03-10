@@ -3,13 +3,13 @@
 Getting an account
 ==================
 
-| Anyone with a **valid UCINetID** can have an account.
+| Anyone with a **valid UCInetID** can have an account.
 | There is no cost for a user to obtain an account on HPC3 cluster.
 
-1. Please send email (from your UCINetID email) to hpc-support@uci.edu and provide:
+1. Please send email (from your UCInetID email) to hpc-support@uci.edu and provide:
 
    * Your name
-   * Your UCINetID
+   * Your UCInetID
    * Optionally,
 
      **If you are affiliated with a PI lab and want to use PI lab resources**
@@ -35,23 +35,23 @@ Getting an account
 
 .. attention::
 
-   | :bluelight:`Your UCINetID` is NOT your student ID
-   | :bluelight:`Your account` is your **UCINetID** (lower case alphanumeric)
-   | :bluelight:`Your password` is **your regular password** that you use for your UCINetID
-   | :red:`We do not store, handle or reset passwords for UCINetIDs.`
+   | :bluelight:`Your UCInetID` is NOT your student ID
+   | :bluelight:`Your account` is your **UCInetID** (lower case alphanumeric)
+   | :bluelight:`Your password` is **your regular password** that you use for your UCInetID
+   | :red:`We do not store, handle or reset passwords for UCInetIDs.`
 
 .. _closing account:
 
 Closing an account
 ==================
 
-For as long as you have a valid UCINetID and you use your account it remains active.
-When you separate from UCI your UCINetID will become inactive some time after
+For as long as you have a valid UCInetID and you use your account it remains active.
+When you separate from UCI your UCInetID will become inactive some time after
 the separation.
 
 The accounts are closed when:
 
 1. An account has no activity for 1 year.
-2. Once your UCINetID loses student status.
+2. Once your UCInetID loses student status.
    Most student alumni keep student status for up to 1 year after the graduation.
-3. When your UCINetID loses staff/researcher/PI affiliation.
+3. When your UCInetID loses staff/researcher/PI affiliation.

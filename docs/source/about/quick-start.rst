@@ -13,7 +13,7 @@ to our cluster-specific guides.
   this website  documentation for specific topics.
 
 **Get an account**
-  Note, you need to have a valid *UCINetID*.
+  Note, you need to have a valid *UCInetID*.
 
   | :ref:`Getting HPC3 account <get account>`
   | :ref:`getting crsp account`

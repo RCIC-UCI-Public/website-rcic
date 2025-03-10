@@ -22,7 +22,7 @@ Before you create keys
 To create the keys, one needs to choose:
 
 - **name** for ssh keys files. This needs to be a single word with no spaces,
-  for example :tt:`key-to-hpc3` or :tt:`UCINetID-to-hpc3`. Replace *UCINetID* 
+  for example :tt:`key-to-hpc3` or :tt:`UCInetID-to-hpc3`. Replace *UCInetID* 
   with your specific id.
 - **comment**  to add to the key. For example
   :tt:`"panteater\@uci.edu (MacBook Air)"`
@@ -74,7 +74,7 @@ use your specific software instructions.
    :bluelight:`To create keys for HPC3`:
 
    Execute the ``ssh-keygen`` command to create **RSA type** ssh keys.
-   Use your UCINetID in place of *panteater*:
+   Use your UCInetID in place of *panteater*:
 
    .. parsed-literal::
 
@@ -237,7 +237,7 @@ If you need to transfer ssh keys to CRSP, follow :ref:`Managing Keys on CRSP <ma
 
    You will be prompted for the standard password and DUO authentication
    by this command.  Here is an example session for user panteater, **use
-   your UCINetID** in its place:
+   your UCInetID** in its place:
 
    .. parsed-literal::
 
@@ -248,7 +248,7 @@ If you need to transfer ssh keys to CRSP, follow :ref:`Managing Keys on CRSP <ma
       Are you sure you want to continue connecting (yes/no/[fingerprint])?  :blue:`yes`
       /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
       /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
-      (panteater\@hpc3.rcic.uci.edu) Password:  :red:`type your UCINetID password`
+      (panteater\@hpc3.rcic.uci.edu) Password:  :red:`type your UCInetID password`
       (panteater\@hpc3.rcic.uci.edu) Duo two-factor login for panteater
 
       Enter a passcode or select one of the following options:
@@ -301,7 +301,7 @@ from either a *Command window* or a *Powershell window* to place the key :tt:`pa
 .. parsed-literal::
 
    C:\> :blue:`type .\\panteater-to-hpc.pub | ssh panteater@hpc3.rcic.uci.edu "cat >> .ssh/authorized_keys"`
-   (panteater\@hpc3.rcic.uci.edu) Password: :red:`type your UCINetID password`
+   (panteater\@hpc3.rcic.uci.edu) Password: :red:`type your UCInetID password`
    (panteater\@hpc3.rcic.uci.edu) Duo two-factor login for panteater
 
    Enter a passcode or select one of the following options:
@@ -352,7 +352,7 @@ key to your :tt:`$HOME/.ssh/authorized_keys` file on CRSP or to completely *repl
    ``sftp`` to put the *public key* into the file :tt:`$HOME/.ssh/add` on CRSP. You will be asked for DUO authentication
    to authenticate to CRSP.
 
-   In the following example, **replace** *panteater* with your UCINetID and **replace** the *panteater-uci.pub*
+   In the following example, **replace** *panteater* with your UCInetID and **replace** the *panteater-uci.pub*
    with the name of the file on your laptop that holds your **public key**. 
 
    What you type is in :bluelight:`blue`:
@@ -460,7 +460,7 @@ FAQS for Key Generation
        over the network to be verified.
      * | A *passphrase* is used to unlock the *private part* of an ssh key pair.
        | Choose a unique passphrase for each generated ssh key pair.
-       | :red:`Don't use your UCINetID password and never use an empty passphrase!`
+       | :red:`Don't use your UCInetID password and never use an empty passphrase!`
        | The passphrase is local and is never transmitted over the network.
 
 :bluelight:`Can I omit the passphrase when creating my key pair?`

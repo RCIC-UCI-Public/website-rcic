@@ -137,7 +137,7 @@ Configure Step 2
               via choosing it from the menu.
             * :guilabel:`Nickname` - we recommend that you change it to **CRSP Annex - <pi>**
             * :guilabel:`Server` - set as :tt:`crsp-annex.crsp.uci.edu`
-            * :guilabel:`Username` - your UCINetID
+            * :guilabel:`Username` - your UCInetID
             * :guilabel:`Path` - set the path as :tt:`/dfs3b/crsp/lab/<pi>`
             * The **URL** is created automatically from the information you type in other fields,
               you don't directly change it. This URL is for  using the SFTP protocol to access

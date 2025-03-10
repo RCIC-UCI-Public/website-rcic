@@ -26,7 +26,7 @@ and transmit desired files via the connection.
 .. danger:: When files are transferred the destination sticky bits on directories
             are not inherited.
 
-- This is not a problem if the users are copying files to :tt:`/pub/UCINetID`
+- This is not a problem if the users are copying files to :tt:`/pub/UCInetID`
 - This is a problem when copying to :tt:`/dfsX/group-lab-path` area and it usually
   results in :red:`quota exceeded errors`.
 

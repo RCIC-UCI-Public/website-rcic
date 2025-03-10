@@ -45,7 +45,7 @@ You will need to have a  few applications on your laptop, most are standard:
 Get an account
 --------------
 
-Anyone with a valid **UCINetID** can have an account. Please see :ref:`get account`.
+Anyone with a valid **UCInetID** can have an account. Please see :ref:`get account`.
 Once you have an account you can login to HPC3 cluster.
 
 HPC3 is a shared facility. Please read :ref:`acceptable use` guide.
@@ -73,17 +73,17 @@ To directly login on :tt:`HPC3` cluster you must:
 
 **Step 3**
   In your Terminal application start ssh session and use your
-  your regular UCI credentials (UCINetID and password) to connect to the
+  your regular UCI credentials (UCInetID and password) to connect to the
   cluster login node.
 
-  For example, a user with UCINetID *panteater* will use the ssh command
+  For example, a user with UCInetID *panteater* will use the ssh command
   specifying login name and a cluster name:
 
   .. code-block:: console
 
      $ ssh panteater@hpc3.rcic.uci.edu
 
-  When prompted for a password a user will  enter UCINetID password followed by :guilabel:`Return` key.
+  When prompted for a password a user will  enter UCInetID password followed by :guilabel:`Return` key.
   Note, password will not be visible when typed:
 
   .. code-block:: console
@@ -330,7 +330,7 @@ can be used *as is*.
 
   The commands are:
 
-  1. ``cd`` - to go to your DFS allocation area, here :`tt:`$USER` is a shortcut for your UCINetID.
+  1. ``cd`` - to go to your DFS allocation area, here :`tt:`$USER` is a shortcut for your UCInetID.
   2. ``wget`` - to download the example Slurm submit script and save it as :tt:`firstjob.sub` file
   3. ``wget`` - to download the example python script and save it as :tt:`days.py` file. It is a
      simple python program that prints today's date and a random day 1-365 days in the past.
@@ -380,11 +380,11 @@ Please see the links below for detailed information about each filesystem.
 
 :ref:`home`:
   All users have 50GB quota :tt:`$HOME` area.
-  The :tt:`$HOME` is in :tt:`/data/homezvolX/UCINetID`.
+  The :tt:`$HOME` is in :tt:`/data/homezvolX/UCInetID`.
   Use it for storing important and rarely changed files.
 
 :ref:`dfs`:
-  All users have 1Tb quota :tt:`/pub/UCINetID` area.
+  All users have 1Tb quota :tt:`/pub/UCInetID` area.
   Use it for storing data sets, documents, Slurm scripts and jobs input/output.
 
   Depending on a lab affiliation, some users may have space in
@@ -394,7 +394,7 @@ Please see the links below for detailed information about each filesystem.
   :red:`By default users don't have access to this area`.
 
   Depending on a lab affiliation, some users may have space in
-  :tt:`/share/crsp/lab/labname/UCINetID`. Please see :ref:`getting crsp account`
+  :tt:`/share/crsp/lab/labname/UCInetID`. Please see :ref:`getting crsp account`
   for details.
 
 .. important::
@@ -417,7 +417,7 @@ Please follow  each program instructions how to do this.
 
 In all of the transfer application you will need to use :tt:`hpc3.rcic.uci.edu`
 as a remote server (where you want to transfer your files to/from) and use
-your UCINetID credentials for your user name and password.
+your UCInetID credentials for your user name and password.
 
 **Simple examples of file transfers with scp:**
   The ``scp`` command is used to transfer files and directories  between a local
@@ -443,14 +443,14 @@ example :tt:`/Users/someuser/project1/input/my.fasta` is an absolute  or full na
 and the same file can be referred to as :tt:`my.fasta`  which is a relative
 file name when used from the directory where this file is located.
 
-Examples below use UCINetID :tt:`panteater`, you need to use your UCINetID credentials
+Examples below use UCInetID :tt:`panteater`, you need to use your UCInetID credentials
 (username and password).
 
 1. To transfer a single file :tt:`myfile.txt` from your laptop to HPC3 and put
    it in the directory :tt:`/pub/panteater`:
 
    On your laptop, use a Terminal app and descend into the directory where your file is
-   located, then execute the ``scp`` command (use your UCINetID):
+   located, then execute the ``scp`` command (use your UCInetID):
 
    .. code-block:: console
 
@@ -459,7 +459,7 @@ Examples below use UCINetID :tt:`panteater`, you need to use your UCINetID crede
 2. To transfer a single file :tt:`j-123.fa` from HPC3 to your laptop
 
    On your laptop, use a Terminal app and descend into the directory where you
-   want to transfer the file to, then execute the ``scp`` command (use your UCINetID):
+   want to transfer the file to, then execute the ``scp`` command (use your UCInetID):
 
    .. code-block:: console
 

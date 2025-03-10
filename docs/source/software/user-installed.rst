@@ -60,7 +60,7 @@ To find out what modules are available:
    mamba/24.3.0
 
 To install conda environment in your user area
-follow the example steps below done for the user (UCINetID) *panteater* who is
+follow the example steps below done for the user (UCInetID) *panteater* who is
 using Miniconda version 23.5.2. 
 
 The installation steps are the same for the other versions of conda,
@@ -1094,12 +1094,12 @@ latest available singularity version.
       [user@hpc3-xx-yy:~]$ 
 
    In addition, Singularity container can be large, we recommend to use your
-   private  area in :tt:`/pub/UCINetID` or  your group lab
+   private  area in :tt:`/pub/UCInetID` or  your group lab
    allocation on another DFS file system for building the images:
 
    .. code-block:: console
 
-      [user@hpc3-xx-yy:~]$ cd /pub/UCINetID
+      [user@hpc3-xx-yy:~]$ cd /pub/UCInetID
 
    Next steps are executed on interactive node.
 
@@ -1246,7 +1246,7 @@ Steps below explain the basic steps specific to compile software that are specif
    | Software sources and temporary compilation files can be large.
    | Do not copy software distribution files into your $HOME.
 
-   We recommend to use your private area :tt:`/pub/$USER` ($USER is your UCINetID) or your group lab
+   We recommend to use your private area :tt:`/pub/$USER` ($USER is your UCInetID) or your group lab
    allocation on some DFS file system for downloading, compiling and installing.
 
    For example, to use your private area: 
@@ -1492,7 +1492,7 @@ additional Python or R modules.
    the one you usually have when you login on the cluster:
 
    :default $HOME in the container:  /home/jovyan
-   :your cluster $HOME on the container:  /home/jovyan/UCINetID
+   :your cluster $HOME on the container:  /home/jovyan/UCInetID
 
    Your cluster $HOME location is still available to you 
    if you are adding R or Python packages or simply want to access it.
@@ -1504,7 +1504,7 @@ additional Python or R modules.
 
       For example, A user *npw* starts a container and can reset 
       $HOME from a default **/home/jovyan** to a regular cluster $HOME location which
-      is available in the container and is a folder with the user's UCINetID:
+      is available in the container and is a folder with the user's UCInetID:
 
       .. figure:: images/jhub-home.png
          :align: center
