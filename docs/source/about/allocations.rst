@@ -30,19 +30,20 @@ no-cost and recharge (pi-funded) allocations`.
      :class: noscroll-table:
 
      +----------------------------------------------------------------------------------------------------------+
-     |  :ref:`no-cost allocations` allocations can be requested to baseline levels of                           |
+     |  :ref:`no-cost allocations` allocations                                                                  |
      |                                                                                                          |
-     |    * *Computing cycles*: are reallocated every 6 months. See :ref:`reallocation` for details.            |
-     |    * *Campus Research Storage* (:term:`CRSP`): 1TB per researcher.                                       |
+     |    | Can be requested to baseline levels of:                                                             |
+     |    |   * **Computing cycles**: are reallocated every 6 months. See :ref:`reallocation` for details.      |
+     |    |   * **Campus Research Storage** (:term:`CRSP`): 1TB per researcher.                                 |
      +----------------------------------------------------------------------------------------------------------+
-     |  :ref:`recharge allocations` allocations are used when the baseline is insufficient for a particular lab |
+     |  :ref:`recharge allocations` allocations                                                                 |
      |                                                                                                          |
-     |      Researchers can purchase additional capacity using grant or other funds.                            |
-     |      The recharge (PI-funded) allocations are available for:                                             |
-     |                                                                                                          |
-     |      *  :ref:`buy computing`                                                                             |
-     |      *  :ref:`CRSP storage <buy crsp>`                                                                   |
-     |      *  :ref:`DFS storage <buy dfs>`                                                                     |
+     |    | Are used when the baseline is insufficient for a particular lab.                                    |
+     |    | Researchers can purchase additional capacity using grant or other funds.                            |
+     |    | The recharge (PI-funded) allocations are available for:                                             |
+     |    |   *  :ref:`buy computing`                                                                           |
+     |    |   *  :ref:`CRSP storage <buy crsp>`                                                                 |
+     |    |   *  :ref:`DFS storage <buy dfs>`                                                                   |
      +----------------------------------------------------------------------------------------------------------+
 
 .. _no-cost allocations:
