@@ -6,36 +6,44 @@ Resource Allocations
 .. contents::
    :local:
 
+Introduction
+------------
+
 RCIC resources are funded and operated under a `shared financial model of
 no-cost and recharge (pi-funded) allocations`.
 
-**Faculty**
-  UCI researchers [#]_ can have two types of allocations: 
-
-  1. :ref:`no-cost allocations`:  may request no-cost allocations to baseline levels of:
-
-     * **Computing cycles**: are reallocated every 6 months. See :ref:`reallocation` for details.
-     * **Campus Research Storage** (:term:`CRSP`): 1TB per researcher.
-
-  #. :ref:`recharge allocations`:  when the baseline is insufficient for a particular lab,
-     researchers can purchase additional capacity using grant or other funds. The recharge
-     (PI-funded) allocations are available for
-
-     * :ref:`buy computing`
-     * :ref:`CRSP storage <buy crsp>`
-     * :ref:`DFS storage <buy dfs>`
-
-  .. note:: **Faculty allocations are PI-centered** but the owners can  grant
-            access to their allocations to students, postdocs, and other faculty members.
-
-            :red:`Allocations can not be combined into larger group or center accounts.`
-
 **Every user**
-  - :ref:`no-cost allocations` :red:`one time 1000 core-hour allocation`. This allocation
-    provides baseline level of computing cycles and is required to allow 
-    users to access the Slurm `free` queues. It enables users who are not affiliated with 
-    any research program to have meaningful access to HPC3. 
-    Most users should use lab accounts instead of this one-time allocation.
+  :ref:`no-cost allocations` :red:`one time 1000 core-hour allocation`. This allocation
+  provides baseline level of computing cycles and is required to allow 
+  users to access the Slurm `free` queues. It enables users who are not affiliated with 
+  any research program to have meaningful access to HPC3. 
+  Most users should use lab accounts instead of this one-time allocation.
+
+**Faculty**
+  | Faculty [#]_ allocations are *PI-centered* but the owners can  grant access
+  | to their allocations to students, postdocs, and other faculty members.
+  | :red:`Allocations can not be combined into larger group or center accounts.`
+
+  Faculty UCI researchers can have two types of allocations: 
+
+  .. table::
+     :class: noscroll-table:
+
+     +----------------------------------------------------------------------------------------------------------+
+     |  :ref:`no-cost allocations` allocations can be requested to baseline levels of                           |
+     |                                                                                                          |
+     |    * *Computing cycles*: are reallocated every 6 months. See :ref:`reallocation` for details.            |
+     |    * *Campus Research Storage* (:term:`CRSP`): 1TB per researcher.                                       |
+     +----------------------------------------------------------------------------------------------------------+
+     |  :ref:`recharge allocations` allocations are used when the baseline is insufficient for a particular lab |
+     |                                                                                                          |
+     |      Researchers can purchase additional capacity using grant or other funds.                            |
+     |      The recharge (PI-funded) allocations are available for:                                             |
+     |                                                                                                          |
+     |      *  :ref:`buy computing`                                                                             |
+     |      *  :ref:`CRSP storage <buy crsp>`                                                                   |
+     |      *  :ref:`DFS storage <buy dfs>`                                                                     |
+     +----------------------------------------------------------------------------------------------------------+
 
 .. _no-cost allocations:
 
@@ -87,7 +95,7 @@ Recharge
 --------
 
 When research program needs exceed this baseline, additional capacity can be purchased through recharge. 
-It should be noted, that rates apply only to UCI researchers (faculty, research faculty, research staff).
+It should be noted, that rates apply only to UCI researchers [1]_ (faculty, research faculty, research staff).
 
 The recharge tables below provides more details on costs and commitment.
 Proposed rates for CRSP and CPU/GPU hours are in the process of being approved by the UCI recharge
@@ -179,51 +187,8 @@ are computed to recover the cost of hardware over a 5 year period at 60% use.
 Purchase hardware
 ~~~~~~~~~~~~~~~~~
 
-:bluelight:`Hardware that you purchase is converted to core-hours allocation.`
-  | **The conversion rate is 95% of the theoretical core hours your hardware could deliver in a year**.
-  | For example, a 48-core node can deliver:
-  |         8760 hours/year * 48 cores = 420,480 core hours/year
-  |         At 95% this would become a 399,456 core-hour (SU) credit to a CPU Slurm Account
-  |
-  | For example, a 32-core, 4GPU  node can deliver:
-  |         8760 hours/year * 32 cores = 280,320 SUs/year +
-  |         8760 hours/year * 4 GPUs * 32SUs/GPU = 1,121,280 SUs
-  |         At 95% this would become a 1,331,520 SU credit to a GPU Slurm Account
-
-  The 95% factor accounts accounts for usual annual downtime through scheduled 
-  and unscheduled maintenance.  The 50% of this credit is applied during the 
-  6 month reallocation each year the node is in the cluster (warranty period + year)
-
-.. note:: SUs (Service Units) are not convertible between GPU and CPU accounts. An hour of a GPU requires at least
-          2 CPU cores. Hence, the minimum charge for a single GPU is (32 + 2) = 34 SUs/hour. 
-
-
-:bluelight:`Effective costs over 6 years for purchased hardware`
-
-  Using the above estimated costs of $15K for CPU node and  $47K for a GPU node *and* consuming all SUs every 6
-  month reallocation cycle the following cost estimates of core-hour cost and GPU-hour costs would be as follows: 
-
-.. _effective costs:
-
-.. table:: **HPC3 Effective Costs for CPU and GPU hours**
-
-   +---------------------+-----------------------------------------+--------------------------------+
-   | Equivalence         |   Calculation                           | Effective rate                 |
-   +=====================+=========================================+================================+
-   | Core Hours          | $15000/(6 Yr * 399456 SU/yr)/1SU/hour   | $0.0062/Core-hour              |
-   +---------------------+-----------------------------------------+--------------------------------+
-   | GPU Hours (2 cores) | $47000/(6 Yr * 1331520/SU/yr)/34SU/hour | $0.20/GPU-hour                 |
-   +---------------------+-----------------------------------------+--------------------------------+
-   | GPU Hours (8 cores) | $47000/(6 Yr * 1331520/SU/yr)/40SU/hour | $0.25/GPU-hour                 |
-   +---------------------+-----------------------------------------+--------------------------------+
-
-:bluelight:`Purchasing of nodes in HPC3 does NOT give you a "private" queue`.
-  This means that some of your jobs may have to wait for resources, but it also gives
-  you non-preempt access a larger number of cores than purchased.  In the first
-  1.5 years of HPC3 operation, owners rarely wait for long periods of time.
-
 :bluelight:`Hardware purchase process`
-  Hardware is purchased through RCIC and can be requested at any time.
+  **Hardware is purchased through RCIC and can be requested at any time**.
   When a large enough number of nodes have been requested
   (at least 4 CPU nodes and/or 1 GPU node), RCIC will obtain quote(s)
   from vendors for acceptable hardware.  Your source of funds (grant
@@ -235,6 +200,11 @@ Purchase hardware
   |     CPU nodes (48 cores) are approximately $15K.
   |     GPU-nodes (4 x NVIDIA L40S) are approximately $47K.
 
+  .. warning:: You may not purchase hardware, send to the machine room, and then 
+               expect RCIC to integrate this hardware into HPC3. Any hardware 
+               purchased outside of the above process will not be integrated into HPC3
+               nor will it be managed by RCIC.
+
 :bluelight:`Outline of Purchase Process`
   1. Send a request to hpc-support@uci.edu indicating your interest in purchasing
      nodes (CPU or GPU and how many) and time frame.
@@ -242,10 +212,49 @@ Purchase hardware
   3. Upon your approval purchase is made and your funds are used at purchase time.
   4. $1000/node one-time integration fee is re-charged AFTER the hardware has arrived.
 
-.. warning:: You may not purchase hardware, send to the machine room, and then 
-             expect RCIC to integrate this hardware into HPC3. Any hardware 
-             purchased outside of the above process will not be integrated into HPC3
-             nor will it be managed by RCIC.
+:bluelight:`Hardware that you purchase is converted to core-hours allocation`
+  For example, a 48-core node can deliver:
+        | :math:`8760 hours/year * 48 cores = 420,480 core hours/year`
+        | At 95% this would become a 399,456 core-hour (SU) credit to a CPU Slurm Account
+
+  For example, a 32-core, 4GPU  node can deliver:
+        | :math:`8760 hours/year * 32 cores = 280,320 core hours/year`
+        | :math:`8760 hours/year * 4 GPUs * 32SUs/GPU = 1,121,280 GPU hours/year`
+        | :math:`280,320 SU + 1,121,280 SU = 1,401,600 SU`
+        | At 95% this would become a 1,331,520 SU credit to a GPU Slurm Account
+
+        .. note:: | SUs (Service Units) are not convertible between GPU and CPU accounts.
+                  | An hour of a GPU requires at least 2 CPU cores.
+                  | Hence, the minimum charge for a single GPU is :math:`32 + 2 = 34 SUs/hour`. 
+
+  **The conversion rate is 95% of the theoretical core hours your hardware could deliver in a year**:
+     * The 95% factor accounts for usual annual downtime through scheduled and unscheduled maintenance.
+     * The 50% of this credit is applied during the 6 month reallocation each year the 
+       node is in the cluster (warranty period + year)
+
+:bluelight:`Effective costs over 6 years for purchased hardware`
+  Using the above estimated costs of $15K for CPU node and  $47K for a GPU node *and* consuming all SUs every 6
+  month reallocation cycle the following cost estimates of core-hour cost and GPU-hour costs would be as follows: 
+
+  .. _effective costs:
+
+  .. table:: **HPC3 Effective Costs for CPU and GPU hours**
+
+     +---------------------+-------------------------------------------------+-------------------+
+     | Equivalence         |   Calculation                                   | Effective rate    |
+     +=====================+=================================================+===================+
+     | Core Hours          | :math:`$15000/(6 Yr * 399456 SU/yr)/1SU/hour`   | $0.0062/Core-hour |
+     +---------------------+-------------------------------------------------+-------------------+
+     | GPU Hours (2 cores) | :math:`$47000/(6 Yr * 1331520/SU/yr)/34SU/hour` | $0.20/GPU-hour    |
+     +---------------------+-------------------------------------------------+-------------------+
+     | GPU Hours (8 cores) | :math:`$47000/(6 Yr * 1331520/SU/yr)/40SU/hour` | $0.25/GPU-hour    |
+     +---------------------+-------------------------------------------------+-------------------+
+
+:bluelight:`Purchasing of nodes in HPC3 does NOT give you a "private" queue`
+  This means that some of your jobs may have to wait for resources, but it also gives
+  you non-preempt access a larger number of cores than purchased.  In the first
+  1.5 years of HPC3 operation, owners rarely wait for long periods of time.
+
 
 Please see :ref:`hardware faq` for additional info about hardware purchases. 
 
