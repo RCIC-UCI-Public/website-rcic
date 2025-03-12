@@ -462,4 +462,4 @@ How do I install new software myself?
 
 How do I request software installation?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  Please see :ref:`software tickets`.
+  Please see :ref:`software install tickets`.
