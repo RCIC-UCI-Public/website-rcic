@@ -4,6 +4,12 @@
 Support tickets
 ===============
 
+.. contents::
+   :local:
+
+:bluelight:`Introduction`
+-------------------------
+
 The resources at RCIC are here to help the UCI research community.
 There are literally 1000's of accounts on our resources, representing
 disciplines from every corner of UCI. 
@@ -18,10 +24,6 @@ A pretty good perspective on `How to report bugs effectively
 illustrates some of the reasons for the detail. High-end computing is a team sport!
 
 **Please follow the guidelines below when submitting help requests.**
-
-.. contents::
-   :local:
-
 
 .. _submit ticket:
 
@@ -109,10 +111,12 @@ members who is handling the ticket.
 When reporting login problems please include the following:
 
 * Where from are you trying to log in, from campus or over the VPN ?
-* What kind of computer and Operating System are you connecting from (Windows, macOS, Linux) ?
+* What computer and Operating System are you connecting from (Windows, macOS, Linux) ?
 * What software and what version are you using to connect ?
-* Copy and paste into your email what **exact commands** you typed and what **exact errors** you saw.
-  Usually there are just a few lines.
+* | Copy and paste into your email:
+  |     what **exact commands** you typed
+  |     what **exact errors** you saw
+  | Usually there are just a few lines.
 
 .. _cluster tickets:
 
@@ -165,13 +169,13 @@ please include the following:
 
 * DFS or CRSP path and group ID you are trying to access. Many groups have
   multiple paths, we can't guess from your name which one you need.
-* How do you access: on HPC3, via web browser, Desktop, etc.
-* Copy and paste into your email what **exact commands** you typed and what **exact errors** you saw.
+* How do you access storage: while logged in on HPC3, via web browser, CRSP Desktop, etc.
+* Copy and paste into your email **exact commands** you typed and **exact errors** you saw.
 * If you are asking to be added to PI's DFS or CRSP group:
 
   * your PI UCInetID
-  * cc your request to your PI so the PI can confirm the access
-    on the same ticket. **We can't grant any access without PI's confirmation.**
+  * | cc your request to your PI so the PI can confirm the access on the same ticket.
+    | **We can't grant any access without PI's confirmation.**
 
 .. _software tickets:
 
@@ -207,9 +211,12 @@ possible.  We strive to say "yes" to software requests, but sometimes do have to
   * Install it yourself. We encourage users first to build/install the applications
     in their user area.
 
-    The most common request is for conda-based  install or for some specific Python, R, or Perl package.
-    These very often can be installed on a per-user basis. Please see the following guides  that
-    explain how to install software in user area:
+    The most common request is for conda-based install or for some specific Python, R, or Perl package.
+    All conda packages and environments must be installed by the users themselves.
+    Many R and python packages very often can be installed on a per-user basis
+    as well.
+
+    Please see the following guides that explain how to install software in user area:
 
     ====================== =========================== ================ 
     :ref:`install conda`   :ref:`install python`       :ref:`install r`
@@ -217,16 +224,17 @@ possible.  We strive to say "yes" to software requests, but sometimes do have to
     :ref:`install jupyter`
     ====================== =========================== ================
 
-    .. attention:: When you attempt to install yourself, please note HPC3 is
-                   CentOS-based system. If you run across instructions that say :tt:`Ubuntu`
-                   or :tt:`apt get` or similar, those are for a different Linux-based OS
-                   and won't work on HPC3.
+    .. attention:: 
+       * When you attempt to install yourself, please note HPC3 is
+         **CentOS-based system**. If you run across instructions that say :tt:`Ubuntu`
+         or :tt:`apt get` or similar, those are for a different Linux-based OS
+         and won't work on HPC3.
 
-    .. attention:: | :red:`For security reasons the following is not allowed:`
-                   |   - :red:`sudo  or su access`
-                   |   - :red:`Docker`
-                   | However, many docker containers can be reused as singularity containers.
-                   | Please see :ref:`install singularity`
+       * | **For security reasons the following is not allowed**
+         |   - :red:`sudo  or su access`
+         |   - :red:`Docker`
+         |   However, many docker containers can be reused as Singularity containers.
+         |   Please see :ref:`install singularity`
 
 
 :underline:`Submit a Software Ticket`
@@ -251,7 +259,7 @@ possible.  We strive to say "yes" to software requests, but sometimes do have to
     Don't write *many labs will use it*, we need factual usefulness info.
   * How have you tried to install it yourself, and what were **exact commands** and **exact errors**.
   * URL for download/install instructions.
-  * If applicable, any special configuration options/capabilities that should be enabled (or disabled).
+  * Any special configuration options/capabilities that should be enabled (or disabled).
   * A brief statement about a "test" input and expected output so that we can do an initial validation.
 
 
