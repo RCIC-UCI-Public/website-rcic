@@ -20,9 +20,9 @@ RCIC User Documentation
    :numbered:
    :caption: Getting Help
 
-   help/contact
    help/faq
    help/tickets
+   help/contact
 
 .. toctree::
    :maxdepth: 1
