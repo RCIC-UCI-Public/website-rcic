@@ -3,8 +3,8 @@
 Acceptable use
 ==============
 
-Cluster is a shared resource, at any given time there can be hundreds users
-and thousands of jobs running.  What you do can have dramatic effects on others.
+Cluster is a shared resource where at any given time there can be hundreds users
+and thousands of jobs running. What you do can have dramatic effects on others.
 
 Access to all RCIC managed resources is subject to our
 `Acceptable Use Policy </_static/RCIC-Acceptable-Use-Policy.pdf>`_.
@@ -56,37 +56,3 @@ Simple conduct
   ones that will negatively affect your job. See :ref:`home`, :ref:`dfs` and
   :ref:`crsp` pages for information about quotas. 
 
-
-.. _special cases:
-
-Special cases
--------------
-
-.. _mobaxterm monitoring:
-
-MobaXterm monitoring
-^^^^^^^^^^^^^^^^^^^^
-
-:red:`MobaXterm users DO NOT enable remote server monitoring!`
-
-Remote server monitoring is an experimental feature of MobaXterm that runs 
-unnecessary multiple processes on login node under your account.
-These processes add to the overall load on the cluster.
-**None of the information they collect you can use in any way for your work** on the cluster.
-
-Do check the lower portion of your MobaXterm window to verify that your
-monitoring is disabled. See figures below for a reference:
-
-
-.. figure:: images/mobaxterm-mon.png
-   :align: center
-   :alt: WRONG!
-
-   :red:`Monitoring enabled - WRONG!`
-
-
-.. figure:: images/mobaxterm-no-mon.png
-   :align: center
-   :alt: Correct
-
-   Monitoring disabled - correct!

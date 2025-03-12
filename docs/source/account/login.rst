@@ -248,21 +248,45 @@ mechanisms to setup your FileZilla client.
 Using  MobaXterm and DUO 
 ------------------------
 
-Make sure that in your MobaXterm :guilabel:`SSH tab -> Advanced ssh settings`
-your :guilabel:`Remote Environment` is set to :guilabel:`Interactive shell`:
+1. Make sure that in your MobaXterm :guilabel:`SSH tab -> Advanced ssh settings`
+   your :guilabel:`Remote Environment` is set to :guilabel:`Interactive shell`:
 
-.. figure:: images/mobaxterm.png
-   :align: center
-   :alt: advanced ssh settings 
-   :class: addpadding
+   .. figure:: images/mobaxterm.png
+      :align: center
+      :alt: advanced ssh settings 
+      :class: addpadding
 
-   Advancesd ssh settings
+      Advancesd ssh settings
 
-.. attention::
+2. :red:`Do NOT enable remote server monitoring!`
 
-   :red:`Do NOT enable Remote monitoring!`
-   See :ref:`mobaxterm monitoring` for more info.
+   Remote server monitoring is an experimental feature of MobaXterm that runs 
+   unnecessary multiple processes on login node under your account.
 
+   These processes add to the overall load on the cluster while 
+   none of the information they collect can be used in any way for your work.
+
+   * Check the lower portion of your MobaXterm window for the monitoring status,
+     see the following figures for a reference:
+
+     :red:`Monitoring enabled - WRONG!`
+     The window shows info collected (outlined in red for clarity):
+
+     .. figure:: images/mobaxterm-mon.png
+        :align: center
+        :alt: WRONG!
+     
+     Monitoring disabled - correct!
+
+     .. figure:: images/mobaxterm-no-mon.png
+        :align: center
+        :alt: Correct
+
+   * **To disable remote monitoring**:
+
+       * go to :guilabel:`Settings > Configuration > SSH`
+       * under section **SSH-browser settings** ensure the **Remote-monitoring
+         (experimental)** option is not selected. 
 
 .. _vscode:
 
