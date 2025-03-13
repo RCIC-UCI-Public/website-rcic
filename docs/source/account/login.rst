@@ -37,21 +37,20 @@ We describe two main methods below.
 Method I: Password authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Password authentication with automated DUO push on your phone**
+:underline:`Password authentication with automated DUO push on your phone`
 is the most common method for authentication. It requires your phone to have 
 internet access to receive the push notification from DUO and to send your 
-approval/denial back to DUO’s servers. 
+approval/denial back to DUO’s servers.  The communications goes as :
 
-You access HPC3 via your favorite SSH (SCP, SFTP) client from your laptop and then respond to the DUO app on your phone.
-HPC3 prompts you for a password and requests to use  DUO authentication. The
-DUO push happens on your phone (or your other DUO-enabled device).
+  * You access HPC3 via your favorite SSH (SCP, SFTP) client from your laptop
+  * HPC3 prompts you for a password and requests to use  DUO authentication.
+  * You then respond to the DUO app (DUO push) on your phone or your other DUO-enabled device. 
 
 **Step by Step**
 
-- You must either be on the campus network or connected to the
+| You must either be on the campus network or connected to the
   `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_.
-- To use ssh, you need to use one of **Terminal** applications and depending on a
-  user laptop they are listed in :ref:`laptop apps`.
+| To use ssh, you need to use one of **Terminal** applications listed in :ref:`laptop apps`.
 
 1. **Run ssh command**
 
@@ -103,51 +102,51 @@ DUO push happens on your phone (or your other DUO-enabled device).
       Success. Logging you in...
       Last login:  ....
 
-After a successful login you will see a screen similar to the following:
+   After a successful login you will see a screen similar to the following:
 
-.. code-block:: text
+   .. code-block:: text
 
-   +-----------------------------------------+
-   |  _             _             _ _ ____   |
-   | | | ___   __ _(_)_ __       (_) | ___|  |
-   | | |/ _ \ / _` | | '_ \ _____| | |___ \  |
-   | | | (_) | (_| | | | | |_____| | |___) | |
-   | |_|\___/ \__, |_|_| |_|     |_|_|____/  |
-   |          |___/                          |
-   +-----------------------------------------+
-    Distro:  Rocky 8.7 Green Obsidian
-    Virtual: NO
+      +-----------------------------------------+
+      |  _             _             _ _ ____   |
+      | | | ___   __ _(_)_ __       (_) | ___|  |
+      | | |/ _ \ / _` | | '_ \ _____| | |___ \  |
+      | | | (_) | (_| | | | | |_____| | |___) | |
+      | |_|\___/ \__, |_|_| |_|     |_|_|____/  |
+      |          |___/                          |
+      +-----------------------------------------+
+       Distro:  Rocky 8.7 Green Obsidian
+       Virtual: NO
 
-    CPUs:    40
-    RAM:     191.8GB
-    BUILT:   2022-08-30 14:02
+       CPUs:    40
+       RAM:     191.8GB
+       BUILT:   2022-08-30 14:02
+   
+       ACCEPTABLE USE: https://rcic.uci.edu/documents/RCIC-Acceptable-Use-Policy.pdf
 
-    ACCEPTABLE USE: https://rcic.uci.edu/documents/RCIC-Acceptable-Use-Policy.pdf
-
-   [user@login-x:~]$
+      [user@login-x:~]$
 
 .. _ssh keys:
 
 Method II: Key-based authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Please read the :ref:`Guide to Generating SSH Keys <generate ssh keys>` before you begin.
-
-If you choose to use key-based authentication for your login, you have additional responsibilities:
+| Please read the :ref:`Guide to Generating SSH Keys <generate ssh keys>` before you begin.
+| If you choose to use authentication method for your login, you have additional responsibilities:
 
 .. attention:: 
 
    * **Every user-generated ssh key MUST have a non-empty passphrase**.
      It is a requirement per our :ref:`acceptable use` policy 
-   * **NEVER add a different user's ssh public into your authorized_keys file**. This is a violation of account sharing. 
-   * **Generate a different private key and password for each device you plan to use**
-     for accessing HPC3.  For example, if you two different laptops, generate a private key for each laptop.
+   * **NEVER add a different user's ssh public into your authorized_keys file**.
+     This is a violation of account sharing. 
+   * **Generate a different private key and password for each device you use** for accessing HPC3.
+     For example, if you two different laptops, generate a private key for each laptop.
    * **Treat all of your ssh private keys with care**. If you are on a shared system (e.g. a lab workstation), make sure
      that file permissions are set such you (and only you) can read and unlock the key with its passphrase.
    * If you don't want to keep re-entering your passphrase, you should learn how to manage your ssh keys with the help of ssh agents.
-     This provides a convenience of a "passwordless" ssh key, but has all the security of a password-protected key.
+     This provides a convenience of a *passwordless* ssh key, but has all the security of a password-protected key.
 
-   See :ref:`tutorials` for more SSH links.
+   See :ref:`tutorials` for SSH links.
 
 **Step by Step**
 
@@ -160,7 +159,10 @@ If you choose to use key-based authentication for your login, you have additiona
    :Windows (PuTTY): :ref:`generate-ssh-keys-windows-putty`
    :Windows (PowerShell): :ref:`generate-ssh-keys-windows-powershell`
 
-   Once you generate your SSH keys and copy the public key to HPC3:
+   The guides also explain how to copy your public SSH keys.
+
+   Once you generated your SSH keys and copied the public key to HPC3:
+
       * your laptop or workstation from which you are initiating ssh will have 
         a *passphrase protected* ssh private key and a corresponding public key.
       * your public ssh key is added on HPC3 to your :tt:`$HOME/.ssh/authorized_keys` file.
@@ -169,19 +171,20 @@ If you choose to use key-based authentication for your login, you have additiona
 
    Once your keys are setup simply use ``ssh`` commands.
    For example a user with UCInetID *panteater* can use one of the following
-   commands  and provide your ssh passphrase when prompted:
+   commands  and provide the ssh passphrase when prompted:
 
    .. code-block:: console
 
       ssh panteater@hpc3.rcic.uci.edu
       ssh hpc3.rcic.uci.edu -l panteater
 
-   The above commands assume using default ssh keys (usually ~/.ssh/id_rsa,
-   .ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519, and ~/.ssh/identity).
+   The above commands assume using default ssh keys which are usually :tt:`id_rsa`,
+   :tt:`id_dsa`, :tt:`id_ecdsa`, :tt:`id_ed25519`, or :tt:`identity` files
+   in your :tt:`~/.ssh/` directory.
 
    If your ssh keys have non-default names and you do not have mapping in your
-   :tt:`~/.ssh/config` file, or if your ssh client does not use this file (FileZilla),
-   then you need to specify ssh key via :tt:`-i` flag:
+   ssh configuration file :tt:`~/.ssh/config`, or if your ssh client does not
+   use this configuration file (FileZilla), then you need to specify ssh key via :tt:`-i` flag:
 
    .. code-block:: console
 
@@ -293,19 +296,18 @@ Using  MobaXterm and DUO
 Using VSCode
 ------------
 
-We do not allow running :tt:`VSCode` on login nodes because VSCode usage can result in login
-nodes becoming unusable by all.
+.. attention:: **We do not allow running VSCode on login nodes** because VSCode usage can result in login
+               nodes becoming unusable by all. Any VSCode server instances will be removed from login nodes without a notice.
 
-However, many users desire to use :tt:`VSCode`, so RCIC supports the following method so that you can
-run the :tt:`VSCode` server on compute nodes as a Slurm job and connect to it from your laptop.
 
-:tt:`VSCode's` remote server support requires ssh.
+For users who desire to use VSCode RCIC supports the following method to
+run the VSCode server on compute nodes as a Slurm job and connect to it from their laptops.
+**This is the only accepted method to run VSCode on HPC3**.
+
+VSCode remote server support requires ssh.
 To make things work smoothly, you *must set up ssh key-based authentication from your laptop to HPC3*.
 
-.. attention:: | Any running VSCode server instances will be removed from login nodes without a notice.
-               | The method provided in this guide is the only way to run :tt:`VSCode` on HPC3.
-
-There are two major parts to running the :tt:`VSCode` server on a compute node and connecting to it from your laptop:
+There are two major parts to running the VSCode server on a compute node and connecting to it from your laptop:
 
 :Part 1:
   You need to submit a Slurm job specific to VSCode. This starts, on the assigned compute node, a user-specific 
@@ -338,8 +340,7 @@ on compute nodes.
       21877983   standard vscode-s  panteater panteater  R   0:04     1    1 hpc3-22-09
 
    .. note:: If you need additional resources, you can add the request when you run sbatch. For example, if you
-             require 4 cpus instead of the default:
-             :tt:`sbatch --cpus-per-task=4 /opt/rcic/scripts/vscode-sshd.sh`
+             require 4 cpus: ``sbatch --cpus-per-task=4 /opt/rcic/scripts/vscode-sshd.sh``
 
 #. Once the job starts running check its output file
    :tt:`vscode-sshd-<jobID>.out` in the directory where you
@@ -355,7 +356,7 @@ on compute nodes.
         UserKnownHostsFile /dev/null
         StrictHostKeyChecking no
 
-   Note, :tt:`HostName` will show a compute node name and the :tt:`Port`
+   Note, `HostName` will show a compute node name and the `Port`
    will show a port number. You will need to use them in the next steps.
 
 #. This step needs to be done once and it will be used for all future invocations
@@ -381,7 +382,7 @@ on compute nodes.
    If you already have :tt:`.ssh/config` file, simply add the content to it.
 
    .. note:: Each time you start a new :tt:`vscode-ssh.sh` job, the Port number *may change*. This happens because the
-      the :tt:vscode-sshd.sh` looks for the first available network port within a pre-defined range on the specific compute 
+      the :tt:`vscode-sshd.sh` looks for the first available network port within a pre-defined range on the specific compute 
       node assigned to your job. Since that choice is dynamic, it can change for each new :tt:`vscode-sshd.sh job`.
       Simply edit your local :tt:`.ssh/config` to update the port to the port of your *currently-running* vscode job that you
       started in Step 3.
@@ -472,7 +473,7 @@ on compute nodes.
       you have finished your work and closed your remote connection.
       You need to shutdown your server properly. 
   
-   **Shutting down your remote server is a simple 2-step process**:
+   Shutting down your remote server is a simple 2-step process:
 
    :Step 1 on your laptop:
      in VSCode application choose :guilabel:`File > Close Remote Connection`
