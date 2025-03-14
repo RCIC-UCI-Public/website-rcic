@@ -3,6 +3,10 @@
 Specs
 =====
 
+.. contents::
+   :local:
+
+
 .. _hardware configuration:
 
 Hardware configuration
@@ -103,10 +107,9 @@ configurations shown first.
 Networking
 ----------
 
-HPC3 has the following  networks attached to each node:
-
-* 10 Gbit/s  Ethernet. This is the provisioning and control network to access Ethernet-only resources.
-* 100 Gbit/s `ConnectX-5 <https://www.mellanox.com/files/doc-2020/pb-connectx-5-vpi-card.pdf>`_  EDR InfiniBand
+HPC3 has the following  networks attached to each node
+   * 10 Gbit/s  Ethernet, the provisioning and control network to access Ethernet-only resources.
+   * 100 Gbit/s `ConnectX-5 <https://www.mellanox.com/files/doc-2020/pb-connectx-5-vpi-card.pdf>`_  EDR InfiniBand
 
 See more info in :ref:`network type`.
 
@@ -115,7 +118,11 @@ See more info in :ref:`network type`.
 Node Type
 ---------
 
-HPC3 nodes have minimums of 56 Gbit/s InfiniBand (most nodes are 100 Gbit/s), 4GB/core, and AVX-2 capability.
+HPC3 nodes have
+  * minimums of 56 Gbit/s InfiniBand (most nodes are 100 Gbit/s)
+  * 4GB memory/core
+  * AVX-2 capability
+
 For additional info see :ref:`hardware faq`.
 
 CPU only nodes
@@ -124,28 +131,22 @@ CPU only nodes
 Most-common configurations:
 
 **Chassis**:
-
-  | 1. HP
-  |   HPE `Apollo 2000 Gen 10 <https://h20195.www2.hpe.com/v2/GetPDF.aspx/4AA4-8164ENW.pdf>`_.  2RU with 4 nodes/chassis
-  |   Dual-Socket, `Intel Skylake 6148 <https://ark.intel.com/content/www/us/en/ark/products/120489/intel-xeon-gold-6148-processor-27-5m-cache-2-40-ghz.html>`_ 20-core `CPU@2.4GHz`. 40 Cores total.
-
-  | 2. Dell Cascade Lake
-  |   Dell `R640 1U Server <https://www.dell.com/en-us/work/shop/productdetailstxn/poweredge-r640>`_
-  |   Dual-Socket, `Intel Cascade Lake 6240R <https://ark.intel.com/content/www/us/en/ark/products/199343/intel-xeon-gold-6240r-processor-35-75m-cache-2-40-ghz.html>`_ 24-core `CPU@2.4GHz`. 48 Cores total.
-
-  | 3. Dell Ice Lake
-  |   Dell `R650 1U Server <https://www.dell.com/en-us/work/shop/productdetailstxn/poweredge-r650>`_
-  |   Dual-Socket, `Intel Ice Lake 6336Y <https://www.intel.com/content/www/us/en/products/sku/215280/intel-xeon-gold-6336y-processor-36m-cache-2-40-ghz/specifications.html>`_ 24-core `CPU@2.4GHz`. 48 Cores total.
-  |  256GB DDR4, ECC Memory
+  1. | *HP*
+     | HPE `Apollo 2000 Gen 10 <https://h20195.www2.hpe.com/v2/GetPDF.aspx/4AA4-8164ENW.pdf>`_.  2RU with 4 nodes/chassis
+     | Dual-Socket, `Intel Skylake 6148 <https://ark.intel.com/content/www/us/en/ark/products/120489/intel-xeon-gold-6148-processor-27-5m-cache-2-40-ghz.html>`_ 20-core `CPU@2.4GHz`. 40 Cores total.
+  2. | *Dell Cascade Lake*
+     | Dell `R640 1U Server <https://www.dell.com/en-us/work/shop/productdetailstxn/poweredge-r640>`_
+     | Dual-Socket, `Intel Cascade Lake 6240R <https://ark.intel.com/content/www/us/en/ark/products/199343/intel-xeon-gold-6240r-processor-35-75m-cache-2-40-ghz.html>`_ 24-core `CPU@2.4GHz`. 48 Cores total.
+  3. | *Dell Ice Lake*
+     | Dell `R650 1U Server <https://www.dell.com/en-us/work/shop/productdetailstxn/poweredge-r650>`_
+     | Dual-Socket, `Intel Ice Lake 6336Y <https://www.intel.com/content/www/us/en/products/sku/215280/intel-xeon-gold-6336y-processor-36m-cache-2-40-ghz/specifications.html>`_ 24-core `CPU@2.4GHz`. 48 Cores total.
+     | 256GB DDR4, ECC Memory
 
 **Interconnect**:
-
-  Each node is connected to Ethernet and InfiniBand  networks. See
-  :ref:`networking` for details.
+  Each node is connected to Ethernet and InfiniBand  networks. See :ref:`networking` for details.
 
 
 **Memory**:
-
   | All memory is DDR4, EEC, most common capacity is 192GB.
   | Available memory in GB:
 
@@ -161,11 +162,9 @@ CPU, Network, Memory, SSD  are identical to CPU only nodes.
 Currently available configurations have high-bandwidth memory and PCIe connections.
 
 **Chassis**:
-
-  | HPE `DL380 Gen 10 <https://buy.hpe.com/au/en/servers/rack-servers/proliant-dl300-servers/proliant-dl380-server/hpe-proliant-dl380-gen10-server/p/1010026818>`_ chassis. 2RU. Up to 4 GPUs/chassis.
+  | HPE `DL380 Gen 10 <https://buy.hpe.com/au/en/servers/rack-servers/proliant-dl300-servers/proliant-dl380-server/hpe-proliant-dl380-gen10-server/p/1010026818>`_ chassis, 2RU, up to 4 GPUs/chassis.
 
 **GPU**:
-
   | Qty 4 Nvidia `V100 <https://www.nvidia.com/en-us/data-center/v100/>`_ GPU, 16GB memory
   | Qty 4 Nvidia A30 GPU, 24GB memory
   | Qty 2 Nvidia A100 GPU, 80GB memory
@@ -177,24 +176,24 @@ Support Nodes
 
 Support nodes are specialized nodes that provide very specific services:
 
-.. table::
-   :class: noscroll-table
+  .. table::
+     :class: noscroll-table
 
-   +---------------+----------+---------------------------------------------------------------+
-   | Type          | How many | Provided Services                                             |
-   +===============+==========+===============================================================+
-   | Login nodes   | 3        | Point of entry  to the cluster.                               |
-   |               |          | Have the same CPU, Network, Memory configuration as CPU nodes.|
-   +---------------+----------+---------------------------------------------------------------+
-   | Slurm server  | 1        | Slurm scheduler                                               |
-   +---------------+----------+---------------------------------------------------------------+
-   | Provisioning  | 1        | Management node                                               |
-   +---------------+----------+---------------------------------------------------------------+
-   | Firewall      | 4        | `PFSense <https://www.pfsense.org/>`_ security                |
-   +---------------+----------+---------------------------------------------------------------+
-   | NFS server    | 1        | Home area with `ZFS <https://zfsonlinux.org/>`_               |
-   |               |          | as the underlying file system                                 |
-   +---------------+----------+---------------------------------------------------------------+
+     +---------------+----------+--------------------------------------------------+
+     | Type          | How many | Provided Services                                |
+     +===============+==========+==================================================+
+     | Login nodes   | 3        | Point of entry to the cluster.  Have the same    |
+     |               |          | CPU, Network, Memory configuration as CPU nodes. |
+     +---------------+----------+--------------------------------------------------+
+     | Slurm server  | 1        | Slurm scheduler                                  |
+     +---------------+----------+--------------------------------------------------+
+     | Provisioning  | 1        | Management node                                  |
+     +---------------+----------+--------------------------------------------------+
+     | Firewall      | 4        | `PFSense <https://www.pfsense.org/>`_ security   |
+     +---------------+----------+--------------------------------------------------+
+     | NFS server    | 2        | Home area with `ZFS <https://zfsonlinux.org/>`_  |
+     |               |          | as the underlying file system                    |
+     +---------------+----------+--------------------------------------------------+
 
 .. _node details:
 
@@ -202,27 +201,23 @@ Node Details
 ------------
 
 HPC3 is a heterogeneous cluster with several CPU types, memory footprints, InfiniBand revisions.
-All CPUs in HPC3 have the following *minimum requirements*:
+All nodes in HPC3 have the following *minimum requirements*:
 
 :*AVX support*:
- AVX2
-:*Cores/platform*:
- 24
+   AVX2
+:*Cores/node*:
+   24 (most nodes have at least 40)
 :*Memory/core*:
- 4GB
+   4GB
 :*IB Technology*:
- FDR (Fourteen Data Rate)
+   FDR (Fourteen Data Rate)
 
 `Ganglia <http://www.ganglia.org>`_ provides real time high-level `view of
 HPC3 utilization <https://hpc3.rcic.uci.edu/ganglia>`_.
 You must be on the UCI/VPN Network for this link to work.
 
-Most nodes in HPC3 have at least 40 cores/node.
-
 You may download node details info as the `CVS file </_static/nodes.csv>`_
-or browse the table below.
-
-Click on the column header for sorting.
+or browse the table below.  Click on the column header for sorting.
 
 .. csv-table:: Nodes info updated :blogauthor:`20 Aug 2024`.
    :class: noscroll-table sortable
