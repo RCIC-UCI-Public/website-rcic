@@ -241,7 +241,7 @@ space in your :tt:`$HOME` in order to continue to work.
 .. _home files recovery:
 
 Deleted Files Recovery
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 You can use snapshots  to restore files and directories provided that
 existing snapshots still hold the desired data. There is no way to restore
