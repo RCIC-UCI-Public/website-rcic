@@ -141,7 +141,7 @@ Can accidentally deleted files or directories be restored?
 
     - :ref:`$HOME files <home files recovery>`
     - :ref:`DFS files <selective backup recovery>`
-    - :ref:`CRSP files <crsp snapshots>`
+    - :ref:`CRSP files <crsp files recovery>`
 
 :bluelight:`DFS`
 ----------------
