@@ -16,21 +16,18 @@ CRSP is funded through central campus to guarantee a fixed amount of no-cost sto
 faculty member or staff researcher who requests space. These campus funds pay for the people,
 the baseline infrastructure, and vendor maintenance required to provide the robust infrastructure.
 
-While there are many possible use cases, a driving one is:
-  :bluelight:`A faculty researcher and the data needed to support the research lab, graduate students
-  and postdocs.  In this model, a lab "area" is created on CRSP and is logically owned by the
-  researcher. The lab area owner can specify additional users who have read/write capability
-  on the area and how much space each could consume`
+:bluelight:`While there are many possible use cases, a driving one is`:
+  A faculty researcher and the data needed to support the research lab, graduate students
+  and postdocs.  In this model, a *Lab Area* is created on CRSP and is logically owned by the
+  researcher. The *Lab Area Owner* can specify additional users who have read/write capability
+  on the area and how much space each could consume.
 
-  .. warning:: CRSP filesystems  must not be used to store personally-identifiable information that would fall
-               under guidelines  such as `FERPA <https://studentprivacy.ed.gov/ferpa>`_
-               (Student data) and `HIPAA <https://www.hhs.gov/hipaa/index.html>`_ (health-care data).
-
-               If you are unsure that CRSP is suitable for your data, please refer to general guidance for
-               `data security <https://research.uci.edu/human-research-protections/assessing-risks-and-benefits/privacy-and-confidentiality/data-security/>`_
-               provided by the `UCI Office of Research <https://research.uci.edu/>`_
-
-
+  .. warning:: | CRSP filesystems  must not be used to store personally-identifiable information that
+                 would fall under guidelines  such as `FERPA <https://studentprivacy.ed.gov/ferpa>`_
+                 (Student data) and `HIPAA <https://www.hhs.gov/hipaa/index.html>`_ (health-care data).
+               | If you are unsure that CRSP is suitable for your data, please refer to general guidance for
+                 `data security <https://research.uci.edu/human-research-protections/assessing-risks-and-benefits/privacy-and-confidentiality/data-security/>`_
+                 provided by the `UCI Office of Research <https://research.uci.edu/>`_
 
 :bluelight:`CRSP is a combination of several technologies`
    * It is built with industry leading storage technology to ensure data high availability and resiliency.
@@ -64,57 +61,39 @@ While there are many possible use cases, a driving one is:
 .. .. image:: images/crsp-arch.png
    :align: center
    :alt: crsp  architecture
-.. _crsp to crsp2:
 
-CRSP to CRSP2 Transition
-------------------------
+:bluelight:`CRSP to CRSP2 Transition`
+  On July 16, 2024 CRSP underwent a complete hardware upgrade to replace end-of-life hardware and expand capacity.
+  After the upgrade:
 
-On July 16, 2024 CRSP underwent a complete hardware upgrade to replace end-of-life hardware and expand capacity.
-After the upgrade:
+  .. _crsp to crsp2:
+  
+  .. table::
+     :widths: 35 65
+     :class: noscroll-table
 
-**All active user/lab files were copied from CRSP to its replacement (CRSP2)**.
-  If you actively access CRSP now,
-  you will be able to do so after the upgrade. Your files will be in the same location as they were prior to upgrade.
-
-**DUO Multifactor Authentication is required for ALL desktop clients**.
-  Please see :ref:`Using DUO with CRSP <duo crsp>` for using SSH-keys with strong passwords. Once you have set up key-based
-  authentication, you need to re-configure your :ref:`CRSP Desktop Client Bookmark <windows configure share>` to use
-  your ssh key *instead of your password*.
-
-**The scp (Secure Copy) interface to CRSP is no longer available**.
-  Please see :ref:`Supported Access Methods <crsp access methods>`.
-
-**Snapshots locations for labs were moved**.
-  This is due to an underlying configuration change.
-  See :ref:`CRSP Snapshots <crsp snapshots>`.
-
-**Faculty labs are no longer automatically created**.
-  Instead, faculty who want to activate their *no-cost*
-  CRSP allocation should send an email to hpc-support@rcic.uci.edu.
-
-.. _crsp allocations:
-
-Allocations
------------
-
-CRSP is funded through central campus to guarantee a fixed amount of no-cost storage to any PI
-who requests space. These campus funds pay for the people, the baseline infrastructure,
-and vendor maintenance required to provide the robust infrastructure.
-
-:PI: is a ladder-rank faculty or a researcher who has an exception granted to act as PI on federal grants
-          by UCI Office of research.
-
-Each CRSP allocation is associated with a UCI's PI account and is provided  as follows:
-
-  :bluelight:`No-cost baseline allocation`
-    - 1TB quota per PI
-
-  :bluelight:`Recharge allocation - Lab area`
-    - PIs who require more capacity than the baseline allocation, can purchase additional capacity.
-      Please see  :ref:`recharge storage rates` and :ref:`buy crsp`
-    - PIs (allocation owners) can grant access to their spaces to students, postdocs, and other faculty members.
-      Users do not get their own allocation, but can use PI's.
-
+     +----------------------------------------------------+-------------------------------------------------------------------------------------+
+     | Change                                             | What to do                                                                          |
+     +====================================================+=====================================================================================+
+     | All active user/lab files were copied from CRSP    | If you actively access CRSP now, you will be able to do so after the upgrade.       |
+     | to its replacement (CRSP2)                         | Your files will be in the same location as they were prior to upgrade.              |
+     +----------------------------------------------------+-------------------------------------------------------------------------------------+
+     | DUO Multifactor Authentication is required for ALL | Please see :ref:`Using DUO with CRSP <duo crsp>` for using SSH-keys with strong     |
+     | desktop clients                                    | passwords. Once you have set up key-based authentication, you need to re-configure  |
+     |                                                    | your :ref:`CRSP Desktop Client Bookmark <windows configure share>` to use           |
+     |                                                    | your ssh key *instead of your password*.                                            |
+     +----------------------------------------------------+-------------------------------------------------------------------------------------+
+     | The Secure Copy interface (scp)                    | Please see :ref:`Supported Access Methods <crsp access methods>`.                   |
+     | is no longer available                             |                                                                                     |
+     +----------------------------------------------------+-------------------------------------------------------------------------------------+
+     | Lab Snapshots locations were moved                 | This is due to an underlying configuration change.                                  |
+     |                                                    |                                                                                     |
+     |                                                    | See :ref:`CRSP Snapshots <crsp snapshots>`.                                         |
+     +----------------------------------------------------+-------------------------------------------------------------------------------------+
+     | Faculty labs are no longer automatically created   | Faculty who want to activate their *no-cost*                                        |
+     |                                                    | CRSP allocation please see :ref:`getting crsp account`.                             |
+     +----------------------------------------------------+-------------------------------------------------------------------------------------+
+ 
 .. _getting crsp account:
 
 Getting CRSP Account
@@ -153,31 +132,47 @@ All requests described below must be sent to hpc-support@uci.edu.
     the PI will have to respond to the cc with a confirmation.
     We will not create an account without your PI's confirmation.
 
+.. _crsp allocations:
 
-.. _crsp areas:
+Allocations
+-----------
 
-Private and Shared Areas
-------------------------
+CRSP is funded through central campus to guarantee a fixed amount of no-cost storage to any PI
+who requests space. These campus funds pay for the people, the baseline infrastructure,
+and vendor maintenance required to provide the robust infrastructure.
+
+**PI** is a ladder-rank faculty or a researcher who has an exception granted to act as PI on federal grants
+by UCI Office of research.
+
+Each CRSP allocation is associated with a UCI's PI account and is provided  as follows:
+  :bluelight:`No-cost baseline allocation`
+    - 1TB quota per PI
+
+  :bluelight:`Recharge allocation`
+    - PIs who require more capacity than the baseline allocation, can purchase additional capacity.
+      Please see  :ref:`recharge storage rates` and :ref:`buy crsp`
+
 
 Storage space on CRSP has the concepts of:
+  :bluelight:`Space Owners`:
+    * Are PIs and UCI employees serving as PI/Co-PI on an extramural grant
+      and are all ladder faculty.
+    * Are entitled to a baseline allocation and can purchase more space.
+    * Can store files in their Lab and can partition Lab into shared and no-shared area.
+    * Can grant access to their Lab storage space to Grantees.
 
-:tt:`Space Owners`:
-  * Are PIs and UCI employees serving as PI/Co-PI on an extramural grant
-    and are all ladder faculty.
-  * Are entitled to a baseline allocation and can purchase more space.
-  * Can store files in their LAB and can partition LAB into shared and no-shared area.
-  * Can grant access to their LAB storage space to Grantees.
+  :bluelight:`Grantees`:
+    * Students, postdocs, and other faculty members who are granted access by Space owners.
+      There are no user owned private allocations.
+    * Can access the Lab space to which they have been granted access by Space Owners and store files there
 
-:tt:`Grantees`:
-  * Are students, postdocs, and other faculty members who are granted access by Space owners.
-  * Can access the LAB space to which they have been granted access by Space Owners
-    and store files there.
+Storage space on CRSP is divided into:
+  * :ref:`Private Area <crsp private>`
+  * :ref:`Shared Area <crsp shared>`
 
-.. note:: A :tt:`directory` meaning on Unix  is equivalent to a :tt:`folder` on macOS, Windows.
+.. note:: A :tt:`directory` meaning on Unix  is equivalent to a :tt:`folder` on macOS or  Windows.
           In what follows, we will use the term :tt:`file` to mean
           :tt:`file`, :tt:`folder`, or :tt:`directory`.
-
-Storage space on CRSP is divided into :tt:`Private` and :tt:`Shared` areas.
 
 .. _crsp private:
 
@@ -189,29 +184,29 @@ This allocation space, called :tt:`HOME`, is for $HOME directories:
   * It has a very very small allocation per user. Not used for sharing with others.
   * Is required for Linux accounts and is ONLY used for an account related files.
   * File :tt:`quotas.txt` is created and updated in your $HOME area automatically and
-    provides information about your quota status for HOME and LAB areas.
-  * :red:`DO not use HOME for storing any data`. All data on CRSP must be stored in *Lab Areas*.
+    provides information about your quota status for HOME and Lab areas.
+  * :red:`Do not use HOME for storing any data`. All data on CRSP must be stored in *Lab Areas*.
 
 .. _crsp shared:
 
-Shared Area - LAB
+Shared Area - Lab
 ^^^^^^^^^^^^^^^^^
 
-This allocation space, called :tt:`LAB`, is a *shared space area* per Space Owner.
-The LAB areas provide the most flexibility for access control and sharing:
+This allocation space, called `Lab`, is a *shared space area* per Space Owner.
+The Lab areas provide the most flexibility for access control and sharing:
 
-  * The Allocation quota is for the  whole :tt:`LAB` area allocation and is a sum of what is stored
+  * The Allocation quota is for the  whole `Lab` area allocation and is a sum of what is stored
     in :tt:`share`  and in all personal directories.
   * Each Grantee has a personal directory (named with grantee's UCInetID). Only
-    grantee and the space owner can read/write files in this directory.
+    grantee and the Space Owner can read/write files in this directory.
   * A directory called :tt:`share` is available to all members of the lab.
     Anyone in the lab can read/write files stored under it.
-  * The space owner
+  * The Space Owner
 
     * grants explicit access for this area to Grantees and decides how to allocate
       the space among its group members and can place limits on individuals Grantees.
-    * has the ability to create files or new directories in the top-level of the :tt:`LAB` area.
-    * by default has read access to every file and directory in the :tt:`LAB` area.
+    * has the ability to create files or new directories in the top-level of the `Lab` area.
+    * by default has read access to every file and directory in the `Lab` area.
 
 CRSP has many (and sometimes competing) goals for access, sharing, security,
 manageability, and simplicity for researchers.  One of the technical complexities
@@ -224,9 +219,9 @@ On Unix an independent access controls to all files given to three different ent
   * The *group* of the file. A group who might have access to this file
   * The *world* (or others). Everyone else on CRSP
 
-.. important:: In CRSP LAB areas sharing is controlled by **group permissions**
+.. important:: In CRSP Lab areas sharing is controlled by **group permissions**
                and by who is a member of the particular group. **The world has no privilege
-               to read or write files in any LAB area**.
+               to read or write files in any Lab area**.
 
                File owners files can make files explicitly private by
                removing read/write group permissions.
@@ -236,7 +231,7 @@ On Unix an independent access controls to all files given to three different ent
 Default Lab Setup
 ^^^^^^^^^^^^^^^^^
 
-For each LAB area, the :tt:`PI` is the owner of the space.
+For each Lab area, the `PI` is the owner of the space.
 There are two Unix groups predefined for all labs:
 
   * :tt:`pi_lab`: only the lab owner is in this group
@@ -249,20 +244,20 @@ There are two Unix groups predefined for all labs:
   * *ppapadop* is in the group :tt:`ppapadop_lab` and is only member of this group.
   * *ppapadop* is in the group :tt:`ppapadop_lab_share`.
   * *ckhacher*, *itoufiqu*, *tandriol*, *iychang* are in the group :tt:`ppapadop_lab_share`.
-    They are Lab members (grantees) that were given an access to the LAB area  by the PI.
+    They are Lab members (grantees) that were given an access to the Lab area  by the PI.
 
   .. figure:: images/crsp/crsp-lab-share-highlight.png
      :align: center
      :alt: CRSP Lab share example
 
-     Example LAB top-level folder (using MAC CRSP Desktop)
+     Example Lab top-level folder (using MAC CRSP Desktop)
 
   This shows that for the :tt:`ppapadop` Lab on CRSP:
 
-  1. User *ppapadop* who is a PI can see all files anywhere in the LAB area.
-  #. All LAB members can read/write files in :tt:`share` area.
-  #. LAB members in :tt:`ppapadop_lab_share` group are: *ppapadop*, *ckhacher*, *itoufiqu*, *tandriol*, *iychang*.
-     Each LAB member has a folder named by UCInetID that is private to the
+  1. User *ppapadop* who is a PI can see all files anywhere in the Lab area.
+  #. All Lab members can read/write files in :tt:`share` area.
+  #. Lab members in :tt:`ppapadop_lab_share` group are: *ppapadop*, *ckhacher*, *itoufiqu*, *tandriol*, *iychang*.
+     Each Lab member has a folder named by UCInetID that is private to the
      user and to the PI.
 
      * only *ppapadop* and *itoufiqu* users can access files in the :tt:`itoufiqu` folder.
@@ -301,7 +296,7 @@ instructions:
    +----------------------------------------------------+-------------------------------------------------------------------------------------+
    | :ref:`client sshfs`                                | *SSHFS* can be used for accessing CRSP from a Linux laptop/desktop.                 |
    +----------------------------------------------------+-------------------------------------------------------------------------------------+
-   | :ref:`client from hpc3`                            | *NFS mount* provides and access to the CRSP's LAB and HOME areas from HPC3.         |
+   | :ref:`client from hpc3`                            | *NFS mount* provides and access to the CRSP's Lab and HOME areas from HPC3.         |
    +----------------------------------------------------+-------------------------------------------------------------------------------------+
 
 .. attention::
@@ -327,7 +322,7 @@ All CRSP-based allocations have quotas enforced in:
 When writing in Shared Area - Lab:
   * All members of the group contribute to the quota in group area.
     It's the sum total usage that counts.
-  * Users with access to :ref:`PI's lab areas <crsp areas>`
+  * Users with access to :ref:`PI's lab areas <crsp shared>`
     may have separate quota limits set by their PIs.
   * Quotas can be exceeded in :underline:`number of files`, :underline:`total space used` or both.
   * When quotas are exceeded, all group users can no longer write in the affected
@@ -351,7 +346,7 @@ There are two ways to check your quotas:
 
   * In a new browser tab or window open URL `https://access.crsp.uci.edu/quota <https://access.crsp.uci.edu/quota[https://access.crsp.uci.edu/quota>`_
   * You will be asked to authenticate yourself (DUO).
-  * Once successful you  will see a simple text page with quotas for HOME and LAB areas.
+  * Once successful you  will see a simple text page with quotas for HOME and Lab areas.
   * When done, close the browser tab/window, there is no logout from this page.
 
 **When logged on HPC3:**
@@ -385,9 +380,9 @@ There are two ways to check your quotas:
        #. Has no usage in HOME area :tt:`/mmfs1/crsp/home`, this is a correct behavior.
           The 0.001 GB is used only by account related files. Currently the user
           used 6 out of 40 files (40 is a quota).
-       #. Is a member of UCInetID-PI LAB and used 39.799 GB of the allocated 1024 GB LAB area
+       #. Is a member of UCInetID-PI Lab and used 39.799 GB of the allocated 1024 GB Lab area
           in :tt:`/mmfs1/crsp/lab/UCInetID-pi` and 2900 files (quota 100000).
-          The total usage of the LAB area by all lab members is 374.092 GB.
+          The total usage of the Lab area by all lab members is 374.092 GB.
 
      The path naming correspondence between CRSP and HPC3:
 
@@ -395,7 +390,7 @@ There are two ways to check your quotas:
      Area Path on CRSP                      Corresponds to Path on HPC3
      ==== ================================= ==================================
      HOME :tt:`/mmfs1/crsp/home/UCInetID`   :tt:`/share/crsp/home/UCInetID`
-     LAB  :tt:`/mmfs1/crsp/lab/UCInetID-pi` :tt:`/share/crsp/lab/UCInetID-pi`
+     Lab  :tt:`/mmfs1/crsp/lab/UCInetID-pi` :tt:`/share/crsp/lab/UCInetID-pi`
      ==== ================================= ==================================
 
 .. _crsp over quota:
@@ -476,7 +471,7 @@ or *deleted* after the snapshot was made.
     The names look like *@GMT-YYYY.MM.DD-hh.mm.ss*.
   * Snapshots are taken daily and kept for 89 days.
   * :red:`Files that were deleted/changed more than 90 days ago are gone forever`.
-  * Restoring a file from a snapshot is as simple as copying the file back to your desired directory/folder.
+  * Restoring a file from a snapshot is as simple as copying the file back to your desired location.
   * Each Lab has its own :tt:`.snapshots` directory.
   * Snapshots for the home area are kept in one place for ALL users.
 
@@ -485,7 +480,7 @@ or *deleted* after the snapshot was made.
   In a traditional backup, users could go back in time months or years to recover a file.
   A snapshot is a *point-in-time virtual copy* of a filesystem that is kept on the filesystem itself.
 
-  :Snapshots:  provide some safety against the common `I accidentally deleted it` case.
+  :Snapshots: provide some safety against the common `I accidentally deleted it` case.
               Snapshots allow you **self-service restore** of files/folders that you have recently deleted or overwritten.
               Files created and deleted in the same time interval between two snapshots are not recorded in any
               snapshot and have no recovery.
@@ -543,9 +538,9 @@ Deleted Files Recovery
           :align: center
           :alt: crsp lab .snapshots directory
 
-          :tt:`.snapshots` directory or folder at the top-level of the lab
+          :tt:`.snapshots` folder at the top-level of the lab
 
-    #. Then you will see a set folders (tip: sort by name), that has the date and time when each snapshot was taken:
+    #. You will see a set folders (tip: sort by name), that have the date and time when each snapshot was taken:
 
        .. _crsp lab snapshot nav:
 
@@ -553,7 +548,7 @@ Deleted Files Recovery
           :align: center
           :alt: crsp lab .snapshots directory contents
 
-          Example folders in :tt:`.snapshots` directory
+          Example folders in :tt:`.snapshots` folder
 
     #. Navigate to a date where you believe there is a copy of your deleted or overwritten file.
     #. Copy desired files back to your working area.
@@ -564,7 +559,7 @@ Deleted Files Recovery
     #. Open your web browser to `https://access.crsp.uci.edu/myfiles/ <https://access.crsp.uci.edu/myfiles/>`_
     #. Click on :guilabel:`My-Labs`
     #. Navigate to your lab and its :tt:`.snapshots` folder
-    #. Find the date of interest, and then *download* the file(s)/folder(s) to your local system
+    #. Find the date of interest, and then *download* the files/folders to your local system
 
 **Restoring $HOME Data**
 
@@ -585,7 +580,7 @@ Deleted Files Recovery
     #. Open your web browser to `https://access.crsp.uci.edu/myfiles/ <https://access.crsp.uci.edu/myfiles/>`_
     #. Click on :guilabel:`Home-Snapshots`
     #. Click on the date of interest. You will be looking at the state of your ``$HOME`` on that date
-    #. Download the file(s)/folder(s) to your local system
+    #. Download the files/folders to your local system
 
     .. note:: if you don't see the :guilabel:`Home-Snapshots`, but see a folder listing instead, then click
        in the upper right on the :guilabel:`Power Icon`
