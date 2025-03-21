@@ -15,7 +15,7 @@ Mar 25
 | :blogtitle:`HPC3 Downtime March 25, 2025`
 | :blogauthor:`2025-03-20 by Nadya Williams`
 
-| The next outage will March 25, 2025, beginning at 8am.
+| The next outage will be March 25, 2025, beginning at 8am.
 | The cluster will be unavailable for most of the day.
 
 Maintenance Items:
