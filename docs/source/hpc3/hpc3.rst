@@ -74,7 +74,7 @@ The questions above have no single right answer and this means that:
   * Any implemented policy must be fluid and flexible.
 
 .. The `Research Cyberinfrastructure Vision Document <http://sites.uci.edu/rci/files/2016/03/A-Vision-for-RCI-at-UCI-Document-and-Appendices.pdf>`_
-   this linke is no longer valid, use cashed version.
+   this link is no longer valid, use cached version.
 
 Please see the following documents for more in-depth information.
   `A Vision For Research CyberInfrastructure at UCI </_static/A-Vision-for-RCI-at-UCI-Document-and-Appendices.pdf>`_
