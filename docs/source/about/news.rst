@@ -43,7 +43,7 @@ Impacts:
   #. You will NOT have access to HPC3 during the planned downtime.
   #. You will have access to CRSP using `Web based File browser` or `CRSP Desktop App`.
   #. No jobs can run during the maintenance period.
-  #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on December 18 will be held.
+  #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on March 25 will be held.
      Please see :ref:`requesting time limits <request time>` on queues.
 
 After the maintenance:
