@@ -120,7 +120,7 @@ to adding CRSP new shares.
 
 Configure Step 1
   Create a new connection  per your platform
-  :ref:`add share on macOS <mac add shares>` or :ref:`add share on Windows <windows add shares>`. 
+  :ref:`add share on macOS <macOS Connect to Lab Share>` or :ref:`add share on Windows <win Add New Shares>`. 
 
 Configure Step 2
   You will edit 5 fields in the default bookmark: connection type (from the menu) 
