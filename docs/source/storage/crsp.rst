@@ -80,10 +80,10 @@ the baseline infrastructure, and vendor maintenance required to provide the robu
      +----------------------------------------------------+-------------------------------------------------------------------------------------+
      | DUO Multifactor Authentication is required for ALL | Please see :ref:`Using DUO with CRSP <duo crsp>` for using SSH-keys with strong     |
      | desktop clients                                    | passwords. Once you have set up key-based authentication, you need to re-configure  |
-     |                                                    | your :ref:`CRSP Desktop Client Bookmark <windows configure share>` to use           |
+     |                                                    | your :ref:`CRSP Desktop Client Bookmark <win Configure Lab Share>` to use           |
      |                                                    | your ssh key *instead of your password*.                                            |
      +----------------------------------------------------+-------------------------------------------------------------------------------------+
-     | The Secure Copy interface (scp)                    | Please see :ref:`Supported Access Methods <crsp access methods>`.                   |
+     | The Secure Copy interface (scp)                    | Please see :ref:`Supported Access Methods <crsp clients>`.                          |
      | is no longer available                             |                                                                                     |
      +----------------------------------------------------+-------------------------------------------------------------------------------------+
      | Lab Snapshots locations were moved                 | This is due to an underlying configuration change.                                  |
@@ -527,7 +527,7 @@ Deleted Files Recovery
 
   :bluelight:`Using the CRSP Desktop`
     On a Mac, the :tt:`.snapshots` folder is hidden by default.
-    See :ref:`Mac connect share section <mac connect share>` for a reference how
+    See :ref:`Mac connect share section <macOS Connect to Lab Share>` for a reference how
     to view hidden folders in the :guilabel:`Finder`.
 
     #. Click on the :tt:`.snapshots` folder at the top level of your already-configured lab share:
