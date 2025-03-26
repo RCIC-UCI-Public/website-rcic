@@ -171,7 +171,7 @@ When reporting Slurm problems, please include the following:
 
   * account type (CPU or GPU)
   * your PI UCInetID
-  * | cc your request to your PI so the PI can confirm the access on the same ticket.
+  * | :underline:`cc your request` to your PI so the PI can confirm the access on the same ticket.
     | **We can't grant any access without PI's confirmation.**
 
 .. _storage tickets:
@@ -189,7 +189,7 @@ please include the following:
 * If you are asking to be added to PI's DFS or CRSP group:
 
   * your PI UCInetID
-  * | cc your request to your PI so the PI can confirm the access on the same ticket.
+  * | :underline:`cc your request` to your PI so the PI can confirm the access on the same ticket.
     | **We can't grant any access without PI's confirmation.**
 
 .. _software install tickets:
@@ -272,4 +272,18 @@ possible.  We strive to say "yes" to software requests, but sometimes do have to
   * Any special configuration options and capabilities that should be enabled or disabled.
   * A brief statement about a "test" input and expected output so that we can do an initial validation.
 
+.. _access licensed software:
 
+:bluelight:`Access Licensed Software`
+-------------------------------------
+
+When requesting an access to the licensed software please include the following:
+
+* your UCInetID
+* your PI UCInetID
+* :underline:`cc your request to your PI` so that the PI can 
+
+  * confirm your  access (response comes on the same ticket)
+  * provide a proof of the license purchase. 
+
+  **We can’t grant any access without PI’s confirmation**.
