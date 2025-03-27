@@ -9,60 +9,59 @@ Environment modules
 Overview
 ---------
 
+Some applications that are installed with the system OS must be always accessible by users.
+They do not require any special settings and they are available without any modules.
+
 A very large fraction of scientific software applications on HPC3
-requires to use environment modules `environment modules <https://modules.readthedocs.io/en/latest/>`_
-associated with them. This software can only be  accessed only after loading the appropriate
-environment modules.
+can be accessed only after loading their associated :term:`Environment Modules`.
 
-Some applications that are installed with the system OS do not require any special settings,
-because they must be always accessible by users, thus they are easily available without any modules.
+**What are Modules?**
+  :bluelight:`Language modules`
+     or packages are collections of related variables, functions and subroutines that perform a set
+     of specific programming tasks. They are files consisting Python/R/Perl code.
+     To access a language module (package) or find out what is installed,
+     you need to use its language interface.  For example,
 
-**What are Modules**
-  There are a few meanings for modules
+     For Python modules (packages) :
 
-  1. **Language modules** or packages  are collections of related variables, functions and subroutines that perform a set
-     of specific programming tasks. Simply put they are files consisting Python/R/Perl code.
-     To access a language module or find out what is installed, you need to
-     use its language Python/R/Perl interface.  For example,
+       .. code-block:: python
 
-     Example use of Python modules (packages) :
+          import numpy as np
+          import matplotlib.pyplot as plt
 
-     .. code-block:: python
+     For R modules (packages) :
 
-        import numpy as np
-        import matplotlib.pyplot as plt
+       .. code-block:: R
 
-     Example use of R modules (packages) :
+          library(corrr)
 
-     .. code-block:: R
+     For Perl modules (packages) :
 
-        library(corrr)
+       .. code-block:: perl
 
-     Example use of Perl modules (packages) :
+          use File::Temp qw(tempfile);
 
-     .. code-block:: perl
+  :bluelight:`Environment modules`
+     are simple files or scripts that, when executed, affect your Unix environment variables.
+     They activate a specific software (including Python/R/Perl) that a user wants to use
+     via :underline:`providing a control which versions
+     of software are active and setting environment needed by that software`.
 
-        use File::Temp qw(tempfile);
-
-  2. **Environment modules** are used to activate a specific software (including Python/R/Perl)
-     that a user wants to use. Environment modules provide a way to control which versions of software are active.
-
-     For the most part, cluster users only need to know (or discover) the
+     For the most part, cluster users only need to know or discover the
      already-available software *environment module* and load it prior to using the application.
-     Modules are simple files or scripts that, when executed, affect your Unix environment variables.
 
-     Environment modules are simple to use:
+     Environment modules are very simple to use:
 
-       * **loading** a module is used to activate the software. It
-         modifies environment variables ``PATH`` for finding applications binaries,
-         ``LD_LIBRARY_PATH`` for shared object libraries, sets specific variables if needed, etc.
-       * **unloading** a module is used to deactivate the software. It
-         reverses the action of loading and resets the environment variables set by loading.
+     :loading a module: is used to activate the software. It
+               modifies environment variables ``PATH`` for finding applications binaries,
+               ``LD_LIBRARY_PATH`` for shared object libraries, sets specific variables if needed, etc.
+     :unloading a module: is used to deactivate the software. It
+                 reverses the action of loading and resets the environment variables set by loading.
 
-       Modules are accessible via ``module`` command. To find in-depth details about
-       using this command  please see ``module --help``.
+     Modules are accessible via ``module`` command. To find in-depth details about
+     using this command  please execute ``module --help`` command.
 
-       Please see sections below to learn how to identify and use them.
+     Please see sections below to learn how to use environment modules.
 
 .. _list modules:
 
@@ -77,7 +76,7 @@ List modules
 
      [user@login-x:~]$ module avail
 
-  The output will list all installed modules by categories.
+  The output will list all installed modules by :ref:`categories <module categories>` .
   We try to broadly classify software into categories by what they do so
   that it is a bit easier to find a module you are interested in.
 
@@ -89,7 +88,7 @@ List modules
      -------------------- /opt/rcic/Modules/modulefiles/LIBRARIES --------------------
      eigen/3.3.7  eigen/3.4.0
 
-  The output shows 2 modules for *eigen* software.  These modules are in :tt:`LIBRARIES` category.
+  The output shows 2 modules for *eigen* software in `LIBRARIES` category.
 
 .. _search modules:
 
@@ -102,7 +101,7 @@ Search modules
 You might not know the name of a particular module or versions available.
 You can use one of the following commands to find some information.
 Note, by default the search of modules is case-sensitive.
-To turn on case insensitive module parameter evaluation, add ``-i`` switch to your
+To turn on case insensitive mode, add ``-i`` switch to your
 ``module`` commands.
 
 **Partial name lookup**:
@@ -158,7 +157,6 @@ Display modules
 | ``modulw whatis``
 | ``module display``
 
-
 **Find information about specified module**
   .. code-block:: console
 
@@ -184,132 +182,139 @@ Display modules
      hdf5/1.10.5/gcc.8.4.0:                 rcic-module-support
      hdf5/1.10.5/gcc.8.4.0:                 hdf5_1.10.5_gcc_8.4.0
 
-  The output shows
+  The output shows this module
 
-  | :tt:`Name`, :tt:`Category`, :tt:`Version` for the software this module provides
-  | :tt:`Description` what this software does
-  | :tt:`Load modules` prerequisite modules that will be automatically loaded
-  | :tt:`Prerequisites` list of required installed RPM Package for the software to work
+     | :tt:`Category` convenience grouping 
+     | :tt:`Name`, :tt:`Version` for the software 
+     | :tt:`Description` what this software does
+     | :tt:`Load modules` prerequisite modules that will be automatically loaded
+     | :tt:`Prerequisites` list of already installed RPM packages this software requires to work
 
-  Both prerequisites modules and RPMS are automatically found, user does not
-  need to do anything.
+  The prerequisites modules and RPMS are automatically found, user does not
+  need to do anything special.
 
 **Find more info about a specific module**
   .. code-block:: console
 
-     [user@login-x:~]$ module display foundation/v8
-     /opt/rcic/Modules/modulefiles/TOOLS/foundation/v8:
-     module-whatis  {Category------- TOOLS}
-     module-whatis  {Name----------- foundation}
-     module-whatis  {Version-------- v8}
-     module-whatis  {Description---- This module provides access to up-to-date versions of commonly}
-     module-whatis  {                used tools for building software including cmake v.3.22.1,}
-     module-whatis  {                curl v.7.81.0, git v.2.34.1, git-lfs v.3.0.2, ninja v.1.10.2,}
-     module-whatis  {                and swig v.4.0.2.}
-     module-whatis  {Prerequisites-- rcic-module-support}
-     setenv         foundation__PREFIX /opt/foundation/v8
-     setenv         foundation__CPPFLAGS -I/opt/foundation/v8/include
-     setenv         foundation__LDFLAGS {-L/opt/foundation/v8/lib -Wl,-rpath,/opt/foundation/v8/lib}
-     prepend-path   GEM_PATH /opt/foundation/v8/share/gems
-     prepend-path   PATH /opt/foundation/v8/bin
-     prepend-path   MANPATH /opt/foundation/v8/share/man
-     prepend-path   LD_LIBRARY_PATH /opt/foundation/v8/lib
-     prepend-path   PKG_CONFIG_PATH /opt/foundation/v8/lib/pkgconfig
+     [user@login-x:~]$ module display hdf5/1.10.5/gcc.8.4.0
+     -------------------------------------------------------------------
+     /opt/rcic/Modules/modulefiles/TOOLS/hdf5/1.10.5/gcc.8.4.0:
 
-  The ``display`` command gives additional info (compare to ``whatis``):
+     module-whatis   {Category_______ TOOLS}
+     module-whatis   {Name___________ hdf5}
+     module-whatis   {Version________ 1.10.5}
+     module-whatis   Description---- HDF5 is a data model, library and file format
+     module-whatis                   for storing and managing data. It supports an
+     module-whatis                   unlimited variety of datatypes, and is designed
+     module-whatis                   for flexible and efficient I/O and for high
+     module-whatis                   volume and complex data. HDF5 is portable and
+     module-whatis                   is extensible, allowing applications to evolve
+     module-whatis                   in their use of HDF5. The HDF5 Technology suite
+     module-whatis                   includes tools and applications for managing,
+     module-whatis                   manipulating, viewing, and analyzing data in
+     module-whatis                   the HDF format. Environment var:
+     module-whatis                   HDF5_HOME=/opt/apps/hdf5/1.10.5/gcc/8.4.0
+     module-whatis   {Load modules___ java/1.8.0}
+     module-whatis   {                gcc/8.4.0}
+     module-whatis   {Prerequisites__ rcic-module-support}
+     module-whatis   {                hdf5_1.10.5_gcc_8.4.0}
+     module-whatis   {                java/1.8.0}
+     module-whatis   {                gcc/8.4.0}
+     prereq          java/1.8.0
+     prereq          gcc/8.4.0
+     setenv          hdf5__PREFIX /opt/apps/hdf5/1.10.5/gcc/8.4.0
+     setenv          hdf5__CPPFLAGS -I/opt/apps/hdf5/1.10.5/gcc/8.4.0/include
+     setenv          hdf5__LDFLAGS {-L/opt/apps/hdf5/1.10.5/gcc/8.4.0/lib -Wl,-rpath,/opt/apps/hdf5/1.10.5/gcc/8.4.0/lib}
+     setenv          HDF5_HOME /opt/apps/hdf5/1.10.5/gcc/8.4.0
+     prepend-path    PATH /opt/apps/hdf5/1.10.5/gcc/8.4.0/bin
+     prepend-path    MANPATH /opt/apps/hdf5/1.10.5/gcc/8.4.0/share/man
+     prepend-path    LD_LIBRARY_PATH /opt/apps/hdf5/1.10.5/gcc/8.4.0/lib
+     prepend-path    PKG_CONFIG_PATH /opt/apps/hdf5/1.10.5/gcc/8.4.0/lib/pkgconfig
+     prepend-path    -d { } CPPFLAGS -I/opt/apps/hdf5/1.10.5/gcc/8.4.0/include
+     prepend-path    -d { } LDFLAGS {-L/opt/apps/hdf5/1.10.5/gcc/8.4.0/lib -Wl,-rpath,/opt/apps/hdf5/1.10.5/gcc/8.4.0/lib}
 
-  | the full path of the module file (first output line)
-  | :tt:`setenv` lines show the environment variables that will be set
-  | :tt:`prepend-path` lines show changes added to the PATH-like variables
+  The ``display`` command gives additional info compare to ``whatis``:
 
+     | first output line shows the full path of the module file
+     | :tt:`setenv` lines show the environment variables that will be set
+     | :tt:`prepend-path` lines show changes added to the PATH-like variables
 
-.. _use modules:
+.. _load modules:
 
-Using modules
--------------
+Load modules 
+------------
 
-RCIC-authored modules follow a uniform build, formatting and :ref:`module names` schema.
+| ``module load``
 
-HPC3-specific
-^^^^^^^^^^^^^
-
-There are a few specifics about how the modules are built that are unique to HPC3:
-
-**Nearly all modules have version numbers**
-  Version numbers specify the software version they provide, they are important!
-  You will need to use them when loading or unloading modules.
-**We use a notion of Category to group modules**
-  This is only a convenience and simply list modules according to the categories
-  in the output of ``module avail``  or ``module display`` commands.
-  A partial output example shows AI-LEARNING, BIOTOOLS and CHEMISTRY categories: 
-
+**To load a specific module**
   .. code-block:: console
 
-     [user@login-x:~]$ module avail
-     ----------------------------- /opt/rcic/Modules/modulefiles/AI-LEARNING -----------------
-     pytorch/1.5.1  pytorch/1.11.0  tensorflow/2.0.0  tensorflow/2.8.0  tensorRT/8.4.2.4  
+     [user@login-x:~]$ module load hdf5/1.14.1/gcc.11.2.0
+     [user@login-x:~]$ module list
+     Currently Loaded Modulefiles:
+     1) java/17   2) gcc/11.2.0   3) hdf5/1.14.1/gcc.11.2.0
 
-     ----------------------------- /opt/rcic/Modules/modulefiles/BIOTOOLS --------------------
-     bamtools/2.5.2    bowtie2-python2/2.4.1  bwa/0.7.8        edirect/2020     gatk/4.1.9.0   
-     bcftools/1.10.2   bowtie2/2.4.1          bwa/0.7.17       edirect/2022     gatk/4.2.6.1  
-     bcftools/1.15.1   bowtie2/2.4.4          cutadapt/2.10    fastp/0.20.0     hmmer/3.3     
-     ... 
-     ----------------------------- /opt/rcic/Modules/modulefiles/CHEMISTRY -------------------
-     amber/19.11/gcc.8.4.0   gromacs/2021.2/gcc.8.4.0-cuda.10.1.243  
-     amber/21.12/gcc.11.2.0  gromacs/2021.2/gcc.8.4.0-cuda.10.1.243.openmpi.4.0.3 
-     ... 
+**To get the most out of modules please follow a few simple load rules:**
+  1. You need to load  modules
 
-**Many modules are compiled with GCC compiler**
-  For some of them we do not specify compiler in the module name, for others we do. This is dictated by
-  the software build specifics. The prerequisite compiler will be automatically
-  loaded by the module if needed.
-**We use a module naming schema for module names**
-  See :ref:`module names` for an explanation.
-**Automatic prerequisites loading**
-  If a module has any prerequisite modules they are automatically added when
-  the module is loaded. Users don't need to worry about prerequisites.
-**Automatic prerequisites unloading**
-  The prerequisite modules are automatically removed when the module is
-  unloaded. Our modifications to modules has Smart unloading:  when a prerequisite
-  was already loaded, unloading the higher-level module will leave the prerequisite intact.
-**Users can add their own modules**
-  We provide a convenient and simple way for users :ref:`to add their own modules <user installed modules>`.
+     * in Slurm submit scripts for batch jobs
+     * in your interactive shell for interactive jobs
 
-Module load/unload rules
-^^^^^^^^^^^^^^^^^^^^^^^^
+     Modules are automatically unloaded when your batch or interactive job exists.
 
-To get the most out of modules please follow a few simple rules. 
+  #. You can load multiple modules, loading order is not important.
+  #. Always load a module using the module name with its version:
 
-1. :red:`Never load modules in your .bashrc  or .bash_profilefiles`.
+     .. table::
+        :class: noscroll-table
+        :widths: 28 72
 
-   The :tt:`.bashrc` is the individual per-interactive-shell startup file that is
-   executed every time a user starts a new shell.
-   The :tt:`.bash_profile` is the personal initialization file, executed for login shells.
-   Modules  if loaded in these files will be present for the duration of the
-   shell life and will change the shell environment for all commands which is completely unnecessary.
+        +-------------------------+---------------------------------------------------------------+
+        | Command                 | Result                                                        |
+        +=========================+===============================================================+
+        | ``module load X/1.2.3`` | this ensures you will get the version you need.               |
+        +-------------------------+---------------------------------------------------------------+
+        | ``module load X``       | :underline:`using without a version is DANGEROUS`. A default  |
+        |                         | behavior is loading the latest version currently available.   |
+        |                         | This may give unexpected results of using a wrong software    |
+        |                         | version when a new version is added or an old one is removed. |
+        +-------------------------+---------------------------------------------------------------+
+		
+  #. :red:`Never load modules in your .bashrc or
+     .bash_profile files`.
 
-#. You need to load modules:
+     If loaded in these files, modules will be present for the duration of the
+     shell life and will change the shell environment for all commands which is completely unnecessary
+     and in some cases can have an undesried effect. Please see :ref:`shell init files <bash init files>`.
 
-   * in Slurm submit scripts for batch jobs
-   * in your interactive shell for interactive jobs
-  
-   Modules are automatically unloaded when your batch or interactive job exists.
-#. When loading a module always use the module name with its version.
+.. _unload modules:
 
-   ``module load X/1.2.3`` - this ensures you will get the version you need:
-     
-   ``module load X``  - :red:`DANGEROUS`
-   if used without version, a default behavior is loading the latest currently available.
-   This may give unexpected results of using a wrong version of the software  when a new 
-   version is added or an old version is removed.
+Unload modules 
+--------------
 
-#. You can load multiple modules, loading order is not important.
-#. You can unload only modules that you explicitly loaded via ``module load`` command:
+| ``module unload``
+
+**To unload previously loaded module**
+  .. code-block:: console
+
+     [user@login-x:~]$ module unload hdf5/1.14.1/gcc.11.2.0
+     [user@login-x:~]$ module list
+     No Modulefiles Currently Loaded.
+
+To get the most out of modules please follow a few simple unload rules. 
+
+#. It is easier to unload all loaded modules via
+
+   .. code-block:: console
+
+      [user@login-x:~]$ module purge
+
+#. You can only unload modules that you explicitly loaded via ``module load`` command:
 
    .. code-block:: console
 
       [user@login-x:~]$ module load bwa/0.7.17
-         <do some work>
+      ...  do some work ...
       [user@login-x:~]$ module unload bwa/0.7.17
 
 #. :red:`Never unload modules that were auto-loaded by a module itself`
@@ -322,7 +327,7 @@ To get the most out of modules please follow a few simple rules.
    automatically loaded when you did :tt:`module load PkgName/1.2.3` you won't see any errors or
    complaints until you attempt to run :tt:`PkgName` program. Needed libraries or binaries
    that were provided by unloaded module will not be available.
-   The solution is to unload only modules that you explicitly loaded. 
+   :underline:`The solution is to unload only modules that you explicitly loaded`. 
 
 #. If you loaded multiple modules and need to unload them (rare cases),
    **always unload modules in the reverse order of loading**:
@@ -345,178 +350,230 @@ To get the most out of modules please follow a few simple rules.
       [user@login-x:~]$ module unload proj/9.0.0
       [user@login-x:~]$ module unload bwa/0.7.17
 
-   It is easier to unload all loaded modules via
 
-   .. code-block:: console
+.. _use modules:
 
-      [user@login-x:~]$ module purge
+HPC3-specific
+-------------
 
-How modules change environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+There are a few specifics about how the modules are built that are unique to HPC3:
 
-Module change user environment via setting environment variables 
-and modifying PATH-like existing variables. 
+:bluelight:`Nearly all modules have version numbers`
+  Version numbers specify the software version they provide, they are important!
+  You will need to use them when loading or unloading modules.
 
-Suppose you want access to GCC compiler version 8.4.0.
+.. _module categories:
 
-Check if any modules are loaded, and what is active gcc version
-
-  .. code-block:: console
-
-     [user@login-x:~]$ module list
-     No Modulefiles Currently Loaded.
-     [user@login-x:~]$ gcc --version | grep ^gcc
-     gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-10)
-
-Load desired gcc module and verify what is gcc version after loading
+:bluelight:`We use a notion of Category to group modules`
+  This is only a convenience and simply list modules according to the categories
+  in the output of ``module avail``  or ``module display`` commands.
+  A partial output example shows AI-LEARNING, BIOTOOLS and CHEMISTRY categories: 
 
   .. code-block:: console
 
-     [user@login-x:~]$ module load gcc/8.4.0
-     [user@login-x:~]$ module list
-     Currently Loaded Modulefiles:
-       1) gcc/8.4.0
-     [user@login-x:~]$ gcc --version | grep ^gcc
-     gcc (GCC) 8.4.0
+     [user@login-x:~]$ module avail
+     ----------------------------- /opt/rcic/Modules/modulefiles/AI-LEARNING -----------------
+     pytorch/1.5.1  pytorch/1.11.0  tensorflow/2.0.0  tensorflow/2.8.0  tensorRT/8.4.2.4  
 
-Unload the module, this restores the environment, active gcc version is reverted to default
-
-  .. code-block:: console
-
-     [user@login-x:~]$ module unload gcc/8.4.0   # 3
-     [user@login-x:~]$ gcc --version | grep ^gcc
-     gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-10)
-
-.. _moudles for compiling:
-
-Using modules for  compiling 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-For user installed software often there are prerequisites that a specific
-software needs. We provide many modules that satisfy these requirements.
-
-You need to figure out what modules you need to load and what environment 
-variables set by the module you need to use in your software compilation process. 
-
-For each module, we keep the variables set by module according to what the
-software developers provide, and otherwise we use a common convention.
-For examples. The software installation directory is often specified by the
-variable :tt:`SWNAME_DIR` or :tt:`SWNAME_HOME`.
-There is no exact formula but one can always see what
-variables are set by a given module via ``module display`` command.
-
-Lets say you are compiling VASP software and it requires OpenBLAS, ScaLAPACK,
-OpenMPI-enabled FFTW  as prerequisites.  VASP installation guide expects you to set
-certain variables in the Makefiles according to where these prerequisites are
-installed. 
-
-A short snippet of VASP makefile shows variables that need setting:
-
-  .. code-block:: makefile
-   
-     OPENBLAS_ROOT ?=     # need OPENBLAS installation dir
-     SCALAPACK_ROOT ?=    # need SCALAPACK installation dir
-     FFTW_ROOT  ?=        # need FFTW installation dir
-     HDF5_ROOT  ?=        # need HDF5 installation dir
-
-     LLIBS      += -L$(HDF5_ROOT)/lib -lhdf5_fortran  # this line uses existing set variable
-     INCS       += -I$(HDF5_ROOT)/include             # this line uses existing set variable
-     INCS_FFTLIB = -I./include -I$(FFTW_ROOT)/include # this line uses existing set variable
-
-We can get all the needed info for the first 4 lines via existing  modules.
-Load the modules that will provide prerequisites:
-
-  .. code-block:: console
-  
-     [user@login-x:~]$ module load scalapack/2.1.0
-     [user@login-x:~]$ module load OpenBLAS/0.3.19
-     [user@login-x:~]$ module load fftw/3.3.10/gcc.11.2.0-openmpi.4.1.2
-     [user@login-x:~]$ module load hdf5/1.13.1/gcc.11.2.0
-
-Check what each module provides, for example for ScaLAPACK:
-
-  .. code-block:: console
-  
-     [user@login-x:~]$ module display scalapack/2.1.0
-	 -------------------------------------------------------------------
-     /opt/rcic/Modules/modulefiles/LIBRARIES/scalapack/2.1.0:
-
-     module-whatis   {Category_______ LIBRARIES}
-     module-whatis   {Name___________ scalapack}
-     module-whatis   {Version________ 2.1.0}
-     module-whatis   {Description____ ScaLAPACK 2.1.0 is a library of high-performance linear algebra routines}
-     module-whatis   {                for parallel distributed memory machines. ScaLAPACK solves dense and}
-     module-whatis   {                banded linear systems, least squares problems, eigenvalue problems,}
-     module-whatis   {                and singular value problems. See http://www.netlib.org/scalapack/}
-     module-whatis   {Prerequisites__ rcic-module-support}
-     module-whatis   {                scalapack_2.1.0}
-     setenv          SCALAPACK_DIR /opt/apps/scalapack/2.1.0
-     prepend-path    LD_LIBRARY_PATH /opt/apps/scalapack/2.1.0/lib
-
-  Here, `SCALAPACK_DIR` is the location of SCALAPACK installation.
-
-  Similarly, looking at the rest of the loaded modules one can 
-  get information about installation directories, include files, libraries, etc.
-  for the remaining prerequisites.
-
-Once you find all the needed variables edit the makefile:
-
-  .. code-block:: makefile
-
-     OPENBLAS_ROOT ?= $(OPENBLAS_HOME)    # edited line
-     SCALAPACK_ROOT ?= $(SCALAPACK_DIR)   # edited line
-     FFTW_ROOT  ?= $(FFTW_DIR)            # edited line
-     HDF5_ROOT  ?= $(HDF5_HOME)           # edited line
-
-     LLIBS      += -L$(HDF5_ROOT)/lib -lhdf5_fortran   # no change
-     INCS       += -I$(HDF5_ROOT)/include              # no change
-     INCS_FFTLIB = -I./include -I$(FFTW_ROOT)/include  # no change
-
-  Note, you use a variable  such as :tt:`$(SCALAPACK_DIR)` and not what it 
-  resolves to,  which is :tt:`/opt/apps/scalapack/2.1.0`. This makes it
-  easier to reuse the makefile if you decide to choose a different version of
-  a specific module. We keep the environment variables names the same for
-  different  versions of  a given module. 
-
-Proceed with your software instructions to run ``make`` or similar commands
-to compile your software.
+     ----------------------------- /opt/rcic/Modules/modulefiles/BIOTOOLS --------------------
+     bamtools/2.5.2    bowtie2-python2/2.4.1  bwa/0.7.8        edirect/2020     gatk/4.1.9.0   
+     bcftools/1.10.2   bowtie2/2.4.1          bwa/0.7.17       edirect/2022     gatk/4.2.6.1  
+     bcftools/1.15.1   bowtie2/2.4.4          cutadapt/2.10    fastp/0.20.0     hmmer/3.3     
+     ... 
+     ----------------------------- /opt/rcic/Modules/modulefiles/CHEMISTRY -------------------
+     amber/19.11/gcc.8.4.0   gromacs/2021.2/gcc.8.4.0-cuda.10.1.243  
+     amber/21.12/gcc.11.2.0  gromacs/2021.2/gcc.8.4.0-cuda.10.1.243.openmpi.4.0.3 
+     ... 
 
 .. _module names:
 
-Module Names
-------------
+:bluelight:`We use a module naming schema for module names`
+  RCIC-authored modules follow a uniform build, formatting and module naming schema.
+  You will notice in the output of ``module avail`` commands that the module
+  names have a few formats (all from the naming schema).
 
-You will notice in ``module avail`` command output that the module names have a few different formats.
+  The module naming schema makes it more apparent what version is available and what
+  are key differences among different versions of the same application. This also shows the potential
+  *combinatorial* number of variants of any software (compiled with different compilers, MPI, CUDA, etc).
 
-The module naming schema makes it more apparent what version is available and what are key differences among different versions.
-This also shows the potential *combinatorial* number of variants of any software.
-We do not attempt to build every variant of *compiler x mpi*  for these kinds of software.  We build what is needed.
+  .. We do not build every variant of *compiler x mpi*, we build what is needed.
 
-.. centered:: Module name formats
+  .. centered:: Module naming schema
 
-.. table::
-   :class: noscroll-table
+  | *name*
+  |   example: :tt:`dot`
+  |   for module with only a name without version, *reserved for a few OS-installed modules*.
+  | *name/version*
+  |   example: :tt:`python/3.8.0`
+  |   for a specific version of python.
+  | *name/version/compiler.compiler_version*
+  |   example: :tt:`boost/1.78.0/gcc.8.4.0`
+  |   for a specific version of boost built with a specific compiler.
+  | *name/version/compiler.compiler_version-mpi.mpi_version*
+  |   example: :tt:`hdf5/1.10.5/intel.2020u1-openmpi.4.0.3`
+  |   example: :tt:`hdf5/1.10.5/gcc.8.4.0-openmpi.4.0.3`
+  |   for HDF5 version built with Intel and GCC compilers and Open MPI.
+  | *name/version/compiler.compiler_version-cuda.cuda_version*
+  |   example: :tt:`namd/2.14b2/gcc.8.4.0-cuda.10.1.243`
+  |   for a specific NAMD version built with gcc compiler and CUDA.
 
-   +---+----------------------------------------------------------+----------------------------------------+
-   | No| Naming schema                                            | Example full name                      |
-   +===+==========================================================+========================================+
-   | 1 | name                                                     | dot                                    |
-   +---+----------------------------------------------------------+----------------------------------------+
-   | 2 | name/version                                             | python/3.8.0                           |
-   +---+----------------------------------------------------------+----------------------------------------+
-   | 3 | name/version/compiler.compiler_version                   | boost/1.78.0/gcc.8.4.0                 |
-   +---+----------------------------------------------------------+----------------------------------------+
-   | 4 | name/version/compiler.compiler_version-mpi.mpi_version   | hdf5/1.10.5/intel.2020u1-openmpi.4.0.3 |
-   |   |                                                          | hdf5/1.10.5/gcc.8.4.0-openmpi.4.0.3    |
-   +---+----------------------------------------------------------+----------------------------------------+
-   | 5 | name/version/compiler.compiler_version-cuda.cuda_version | namd/2.14b2/gcc.8.4.0-cuda.10.1.243    |
-   +---+----------------------------------------------------------+----------------------------------------+
 
-| 1 - module with only a name without version. *Reserved for a few OS-installed modules*.
-| 2 - module for a specific version of python.
-| 3 - module for a specific version of boost built with a specific compiler.
-| 4 - two modules for HDF5 version built with Intel and GCC compilers and Open MPI.
-| 5 - module for a specific NAMD version built with gcc compiler and CUDA.
+:bluelight:`Many modules are compiled with GCC compiler`
+  For some of them we do not specify compiler in the module name, for others we do. This is dictated by
+  the software build specifics. The prerequisite compiler will be automatically
+  loaded by the module if needed.
+
+:bluelight:`Automatic prerequisites loading`
+  If a module has any prerequisite modules they are automatically added when
+  the module is loaded. Users don't need to worry about prerequisites.
+:bluelight:`Automatic prerequisites unloading`
+  The prerequisite modules are automatically removed when the module is
+  unloaded. Our modifications to modules has Smart unloading:  when a prerequisite
+  was already loaded, unloading the higher-level module will leave the prerequisite intact.
+:bluelight:`Users can add their own modules`
+  We provide a convenient and simple way for users :ref:`to add their own modules <user installed modules>`.
+
+:bluelight:`How modules change environment`
+  Module change user environment via setting specific environment variables 
+  and modifying PATH-like existing variables. 
+
+  Suppose you want access to GCC compiler version 8.4.0.
+
+  Check if any modules are loaded, and what is active gcc version:
+
+    .. code-block:: console
+
+       [user@login-x:~]$ module list
+       No Modulefiles Currently Loaded.
+       [user@login-x:~]$ gcc --version | grep ^gcc
+       gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-10)
+
+  Load desired gcc module and verify what is gcc version after loading:
+
+    .. code-block:: console
+
+       [user@login-x:~]$ module load gcc/8.4.0
+       [user@login-x:~]$ module list
+       Currently Loaded Modulefiles:
+         1) gcc/8.4.0
+       [user@login-x:~]$ gcc --version | grep ^gcc
+       gcc (GCC) 8.4.0
+
+  Unload the module, this restores the environment, active gcc version is reverted to default:
+
+    .. code-block:: console
+
+       [user@login-x:~]$ module unload gcc/8.4.0   # 3
+       [user@login-x:~]$ gcc --version | grep ^gcc
+       gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-10)
+
+.. _moudles for compiling:
+
+Modules for compiling 
+---------------------
+
+For user installed software there are often prerequisites that a 
+software needs. We provide many modules that can satisfy such requirements.
+
+For each module, we set the variables according to what the
+software developers provide, and otherwise we use a common convention.
+For example, the software installation directory is often specified by the
+variable *NAME_DIR* or *NAME_HOME* where *NAME* is the software name.
+There is no exact formula but one can always see what
+variables are set by a given module via module display commands.
+
+You need to figure out:
+
+  * what modules to load 
+  * what environment variables set by these modules you will to use in your software compilation process. 
+
+**Example: compiling VASP**
+
+Lets say, you are compiling VASP software and it requires OpenBLAS, ScaLAPACK,
+FFTW with OpenMPI, HDF5 as prerequisites.  VASP installation guide expects you to set
+certain variables in the Makefiles according to where these prerequisites are
+installed on a given system.  Your actions will be:
+
+1. Check variables that need setting. A short snippet of VASP makefile shows:
+
+   .. code-block:: makefile
+   
+      OPENBLAS_ROOT ?=     # need OPENBLAS installation dir
+      SCALAPACK_ROOT ?=    # need SCALAPACK installation dir
+      FFTW_ROOT  ?=        # need FFTW installation dir
+      HDF5_ROOT  ?=        # need HDF5 installation dir
+
+      LLIBS      += -L$(HDF5_ROOT)/lib -lhdf5_fortran  # this line uses existing variable
+      INCS       += -I$(HDF5_ROOT)/include             # this line uses existing variable
+      INCS_FFTLIB = -I./include -I$(FFTW_ROOT)/include # this line uses existing variable
+
+#. Use ``moddule av`` commands to find what modules are available for needed software
+   prerequisites then ``module display`` to check what each module provides, for example:
+
+   .. code-block:: console
+  
+      [user@login-x:~]$ module av scalapack
+      ------------ /opt/rcic/Modules/modulefiles/LIBRARIES -------------
+      scalapack/2.1.0
+
+      [user@login-x:~]$ module display scalapack/2.1.0
+ 	 -------------------------------------------------------------------
+      /opt/rcic/Modules/modulefiles/LIBRARIES/scalapack/2.1.0:
+
+      module-whatis   {Category_______ LIBRARIES}
+      module-whatis   {Name___________ scalapack}
+      module-whatis   {Version________ 2.1.0}
+      module-whatis   {Description____ ScaLAPACK 2.1.0 is a library of high-performance linear algebra routines}
+      module-whatis   {                for parallel distributed memory machines. ScaLAPACK solves dense and}
+      module-whatis   {                banded linear systems, least squares problems, eigenvalue problems,}
+      module-whatis   {                and singular value problems. See http://www.netlib.org/scalapack/}
+      module-whatis   {Prerequisites__ rcic-module-support}
+      module-whatis   {                scalapack_2.1.0}
+      setenv          SCALAPACK_DIR /opt/apps/scalapack/2.1.0
+      prepend-path    LD_LIBRARY_PATH /opt/apps/scalapack/2.1.0/lib
+
+   | Here, `SCALAPACK_DIR` is the location of SCALAPACK installation.
+   | Similarly, looking at the rest of the modules one can 
+     get information about installation directories, include files, libraries, etc.
+     for the remaining prerequisites.
+
+#. Load modules with the desired version, compiler and any other option, for example:
+
+   .. code-block:: console
+  
+      [user@login-x:~]$ module load scalapack/2.1.0
+      [user@login-x:~]$ module load OpenBLAS/0.3.19
+      [user@login-x:~]$ module load fftw/3.3.10/gcc.11.2.0-openmpi.4.1.2
+      [user@login-x:~]$ module load hdf5/1.13.1/gcc.11.2.0
+
+   Note, when choosing different modules keep compier the same, here :tt:`gcc`
+   version :tt:`11.2.0`.
+
+#. Once you find all the needed variables edit the makefile:
+
+   .. code-block:: makefile
+
+      OPENBLAS_ROOT ?= $(OPENBLAS_HOME)    # edited line
+      SCALAPACK_ROOT ?= $(SCALAPACK_DIR)   # edited line
+      FFTW_ROOT  ?= $(FFTW_DIR)            # edited line
+      HDF5_ROOT  ?= $(HDF5_HOME)           # edited line
+
+      LLIBS      += -L$(HDF5_ROOT)/lib -lhdf5_fortran   # no change
+      INCS       += -I$(HDF5_ROOT)/include              # no change
+      INCS_FFTLIB = -I./include -I$(FFTW_ROOT)/include  # no change
+
+   Note, you use a variable  such as :tt:`$(SCALAPACK_DIR)` and not what it 
+   resolves to,  which is :tt:`/opt/apps/scalapack/2.1.0`. This makes it
+   easier to reuse the makefile if you decide to choose a different version of
+   a specific module. We keep the environment variables names the same for
+   different  versions of  a given module. 
+
+#. Proceed with your software instructions to run ``make``, ``cmake`` or similar commands
+   per your install instructions to compile and install your software.
+
+#. To use your compiled software we recommend to create a module for it,
+   please see the next section. Remember, you will need to load the same modules you used
+   for compiling  when running your executables. 
 
 .. _user installed modules:
 
@@ -525,11 +582,10 @@ User installed modules
 
 You don't need to create a new module if you are installing
 packages (a.k.a language modules) for Python/R/Perl, or when adding packages with conda.
-
 Please see the install guides in :ref:`user installed` that explain
 how to create conda environments, or to install Python/R/Perl packages.
 
-Users can install additional software and add environment module for it
+Users who install additional software can add environment module for it
 either for themselves or for their groups.
 
 .. attention:: Software install and module install are two separate
@@ -540,7 +596,7 @@ There are a few basic steps:
 
 1. **Compile and install your desired software**
 
-   Do this in your user/group area :underline:`per your software instructions`.
+   Do this in your user or group area :underline:`per your software instructions`.
    Verify that the software is working.
 
    * if installing for yourself, your user area is in :tt:`/pub/UCInetID`
@@ -558,7 +614,7 @@ There are a few basic steps:
    information about the software and creates needed environment for using it.
 
 
-   We suggest to use existing available software module files as a template.
+   We suggest to use existing available software module files as a templates.
 
    Run command ``module display`` for one of the available modules,
    the output shows the full path to the module (output first line).
@@ -595,7 +651,7 @@ There are a few basic steps:
 
    Now, you have the edited template, you need to rename it and to install it.
 
-   Please follow the :ref:`module names` naming schema for the module file name and choose
+   Please follow the `module names`_ naming schema for the module file name and choose
    where to put it.
 
    For example, lets assume you are installing software called :tt:`gsutil`
