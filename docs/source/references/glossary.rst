@@ -21,6 +21,9 @@ This page includes a number of terms that we use in our documentation.
      It is being put in place so that researchers across UCI have a reliable and resilient location
      to store their research data and share with defined groups.
 
+   Environment Modules
+     Please see `environment modules documentation portal <https://modules.readthedocs.io/en/latest/>`_.
+
    GPFS
      General Parallel File System, a high performance clustered file system from
      IBM with a brand name `IBM Spectrum Scale <https://www.ibm.com/products/spectrum-scale>`_.
