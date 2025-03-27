@@ -13,6 +13,93 @@ Please consult the rest of the user guides for information that is not covered h
 This page contains info to provide some familiarity with Linux/UNIX
 but it is not an exhaustive guide.
 
+.. _bash init files:
+
+Bash init files
+---------------
+
+A shell is a program that acts as an interface between the user and the operating system's kernel,
+allowing users to type and execute commands and interact with the system.
+
+On HPC3 the default shell is `bash` and it uses 2 initialization files.
+Both files are located in your :tt:`$HOME` directory
+and are provided with the default settings when your account is created.
+Both files start with *dot* which makes them *invisible* to a regular ``ls`` command.
+
+:bluelight:`.bash_profile`
+  Is the initialization file executed only for login shells.
+  Anything you want to run when you log in, you put in :tt:`.bash_profile`.
+  A default one is sufficient for nearly all users and has the following content:
+
+    .. code-block:: bash
+
+       # .bash_profile
+       # Get the aliases and functions
+       if [ -f ~/.bashrc ]; then
+             . ~/.bashrc
+       fi
+
+       # User specific environment and startup programs
+
+       PATH=$PATH:$HOME/bin
+       export PATH
+
+  Best practices:
+   * it should be a very small file, keep changes here to a bare minimum
+   * It will source :tt:`.bashrc` by default so you don't have to duplicate any commands you want to run for every shell.
+
+:bluelight:`.bashrc`
+  Is the initialization file executed every time a user starts a new shell.
+  It includes all customizing of your shell environment with aliases, functions, environment variables, etc.
+
+  What to put in this file:
+    * aliases - shortcuts to the commands
+    * environment variables that affect your shells and applications
+    * history configuration
+    * terminal color scheme
+    * prompt configuration
+
+  :red:`Do not put in this file:`
+    * module load/unload commands
+    * conda init commands, see :ref:`install conda` section to learn how to use them
+
+  Best practices:
+   * Keep your file clean and concise
+   * Consider using separate files for different types of customizing that can be sourced when needed.
+   * Use a text editor ``vim`` or  ``nano`` to modify your :tt:`.bashrc` file.
+   * Before editing make a copy of your current file so you can revert to it if your edits go wrong.
+   * Reload your file after editing for the changes to take an affect:
+
+     .. code-block:: console
+
+	    [user@login-x:~]$ . ~/.bashrc
+
+  Example file:
+    .. code-block:: console
+
+       # Source global definitions
+       if [ -f /etc/bashrc ]; then
+            . /etc/bashrc
+       fi
+
+       alias rm='rm -i'
+       alias c='clear'
+       alias h='history'
+       alias la='ls -la'
+       alias pub="cd /pub/$USER"
+       alias crsplab="cd /share/crsp/lab/PI-LAB/share/"
+       alias saccf="export SACCT_FORMAT='JobID%20,JobName,User,Partition,NodeList,Start,End,Elapsed,State,ExitCode,MaxRSS,AllocTRES%32'"
+
+       # set prompt color
+       host=`hostname -s`
+       PS1="\[\033[01;36m\]\\h \!% \[\e[0m\] "
+
+       export VISUAL=vi
+       export EDITOR=emacs
+       export CLICOLOR=true
+       export MYPUB=/pub/$USER
+       export biojhub4HOME="/pub/$USER/biojhub4_dir"
+
 .. _file permissions:
 
 File permissions
@@ -124,15 +211,15 @@ points to another file system entry.
 
 While symbolic links can be  a practical choice, sometimes they can have a significant, adverse impact on performance
 
-*Appropriate use:* 
+*Appropriate use:*
   * When making shortcuts for the names between the files on the same filesystem.
 
   * When making shortcuts from a local file system to a remote file (networked) file system,
     for example :tt:`/pub -> /dfs6/pub`
 
-:red:`Should not be used:` 
-  * Symbolic links between any two **networked** file systems.  
-  
+:red:`Should not be used:`
+  * Symbolic links between any two **networked** file systems.
+
   As an example of inappropriate use suppose you define a *convenience* link
   from your home area :tt:`$HOME` to your PI's CRSP lab area as:
 
@@ -141,17 +228,17 @@ While symbolic links can be  a practical choice, sometimes they can have a signi
      $ ls -l crsplab
      crsplab -> /share/crsp/lab/pilab
 
-  In this scenario,  
+  In this scenario,
 
   #. Every file operation that uses :tt:`$HOME/crsplab` as part of its path must first go to the NFS server
      that provides $HOME.
-  #. The NFS home server then redirects to CRSP server and a **second** network transaction is made for the CRSP server.  
+  #. The NFS home server then redirects to CRSP server and a **second** network transaction is made for the CRSP server.
 
   Essentially, this kind of *convenience* link forces the home
   area server to be in the middle, doing completely useless work that can have significant impact on the
-  home area server *and* on your code running on a cluster node. 
+  home area server *and* on your code running on a cluster node.
 
-  **CRSP** and **DFS** servers are  designed to handle high-volumes of traffic, while the home area server is not. 
+  **CRSP** and **DFS** servers are  designed to handle high-volumes of traffic, while the home area server is not.
 
   .. attention:: | :red:`Do not create symbolic links between $HOME and CRSP or DFS!`
                  | Use aliases or environment variables in place of symbolic links when
