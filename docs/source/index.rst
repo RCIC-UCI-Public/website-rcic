@@ -62,8 +62,8 @@ RCIC User Documentation
    :caption: Software
 
    software/software
-   software/modules
    software/updates
+   software/modules
    software/user-installed
 
 .. toctree::
