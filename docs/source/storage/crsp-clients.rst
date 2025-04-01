@@ -997,7 +997,7 @@ On HPC3, CRSP shares are mounted in */share/crsp*:
      drwx--S--- 2 panteater panteater_lab      2048 Jul 12 10:22 panteater # PI access
      drwxrws--- 2 student1  panteater_lab       512 Apr 29 10:27 student1  # student1/PI access
      drwxrws--- 2 student2  panteater_lab       512 Apr 29 10:27 student2  # student2/PI access
-     drwxrws--T 4 panteater panteater_lab_share 512 Nov  2  2020 share     # all in lab acces
+     drwxrws--T 4 panteater panteater_lab_share 512 Nov  2  2020 share     # all in lab access
 
 
 .. _hpc3 crsp data:

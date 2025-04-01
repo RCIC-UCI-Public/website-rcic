@@ -103,7 +103,7 @@ This could be caused by one or more reasons:
    |                                            | similar to: *Too many authentication errors*.        |
    |                                            | *Please contact your web hosting*                    |
    |                                            | *service provider for assistance*.                   |
-   |                                            | Folllow the steps in `workaround`_  below.           |
+   |                                            | Follow the steps in `workaround`_ below.             |
    +--------------------------------------------+------------------------------------------------------+
 
 .. _workaround:
