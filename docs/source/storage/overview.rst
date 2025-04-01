@@ -52,7 +52,7 @@ what it should be used for, and shows links for in-depth how to use guides:
    |                                   | laptop                  |                              |                                                                |
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
    | :ref:`CRSP ANNEX <crsp annex>`    | On all nodes            | Best for processing medium/  | To keep source code, binaries. For data used in batch jobs.    |
-   |                                   | via BeegFS mount        | large data files (order of   | Available to a handful of labs as a temporary storage.          |
+   |                                   | via BeegFS mount        | large data files (order of   | Available to a handful of labs as a temporary storage.         |
    |                                   |                         | 100's Mbs/Gbs)               |                                                                |
    |                                   |                         |                              | :red:`Not for writing/reading many small files`.               |
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
