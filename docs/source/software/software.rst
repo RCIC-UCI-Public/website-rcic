@@ -85,7 +85,7 @@ literally hundreds of domain-specific, community-supported, applications maintai
 
   * **RCIC does not purchase or provide licenses**, we only enable an access to the licenses.
   * **The departments/PIs buy licenses** for their labs and the access must be approved by a PI.
-  * **Users must submit a ticket** reqesting :ref:`Access to Licensend Software <access licensed software>`
+  * **Users must submit a ticket** requesting :ref:`Access to Licensend Software <access licensed software>`
     in order to use to licensed applications.
 
 .. _request new software:
@@ -114,5 +114,5 @@ literally hundreds of domain-specific, community-supported, applications maintai
 .. |hpc3-sw| replace:: All installed software is compiled specifically for this OS.
 
 .. [1] RCIC contributes to the UCI-wide license and
-       MATLAB is availalbe to all the HPC3 users. Users only need to load one of
-       the available MATLAB modules in order ot use this software.
+       MATLAB is available to all the HPC3 users. Users only need to load one of
+       the available MATLAB modules in order to use this software.

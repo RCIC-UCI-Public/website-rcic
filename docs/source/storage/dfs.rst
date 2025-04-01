@@ -269,7 +269,7 @@ The UNIX command ``newgrp`` can be used to change the active UNIX group:
      $ id panteater                  # list user and group IDs
      uid=1234567(panteater) gid=1234567(panteater) groups=1234567(panteater),158571(bio)
      $ touch aaa                     # create a new empty file
-     $ ls -l aaa                     # check file permisisons
+     $ ls -l aaa                     # check file permissions
      -rw-rw-r-- 1 panteater panteater 0 Nov  3 14:57 aaa
 
      $ newgrp bio                    # change to a new group

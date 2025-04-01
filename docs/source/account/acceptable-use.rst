@@ -26,7 +26,7 @@ Access to all RCIC managed resources is subject to our
    +================+==================================================================================+
    | **Login**      | Allowed are light-weight processes such as:                                      |
    | **nodes**      |    * Light editing                                                               |
-   |                |    * Very short compilation thst are under a few minutes and use  1 CPU          |
+   |                |    * Very short compilation that are under a few minutes and use  1 CPU          |
    |                |    * Submitting all interactive and batch jobs to Slurm Scheduler                |
    |                |                                                                                  |
    |                | :red:`Do not run:`                                                               |
