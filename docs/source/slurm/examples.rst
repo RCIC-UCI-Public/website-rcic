@@ -7,11 +7,11 @@ Job examples
    :local:
 
 This section has several examples of submission scripts for the most common applications.
-You will have to tailor the :tt:`SBATCH` options for your requirements (i.e., partition,
+You will have to edit the :tt:`SBATCH` options with your requirements (i.e., partition,
 cores/memory, GPU, etc.).
 
-Information about requesting resources for the jobs such as memory, local
-scratch, time, etc are explained in :ref:`request resources`.
+Information about requesting memory, local scratch, time, nodes  resources for the jobs
+are explained in :ref:`request resources`.
 
 .. _using aliases:
 
@@ -20,7 +20,6 @@ Using Aliases
 
 You can use aliases and environment variables that are defined in your
 :tt:`.bashrc` file in your Slurm submit scripts.
-
 A user panteater has in :tt:`.bashrc`:
 
 .. code-block:: bash
@@ -28,8 +27,8 @@ A user panteater has in :tt:`.bashrc`:
    alias pub='cd /pub/panteater'
    export MYPUB=/pub/panteater
 
-The following script can be used to verify that the defined alias :tt:`pub` and
-environment variable :tt:`MYPUB` are accessible in Slurm job:
+The following Slurm submit script can be used to verify that the defined alias :tt:`pub` and
+environment variable :tt:`MYPUB` are accessible in Slurm jobs:
 
 .. centered:: File alias.sub
 
@@ -48,7 +47,7 @@ Job arrays provide a way to submit a large number of similar jobs at once.
 All jobs must have the same initial options (e.g. memory needs, time limit, etc.),
 but usually have different input parameters.
 
-Using a job array instead of a large number of separate serial jobs is advantageous
+:underline:`Using a job array instead of a large number of separate serial jobs is advantageous`
 since the scheduler does not have to analyze job requirements for each task in the array
 separately, so it will run these jobs more efficiently.
 
@@ -70,7 +69,7 @@ specified in a few ways:
 .. note:: You should not use a job array to submit tasks with very short run times,
           e.g. much less than an hour. Tasks with run times of only a few minutes
           should be grouped into longer jobs using GLOST, GNU Parallel,
-          or a shell loop inside of a job (see the :ref:`array short tasks`).
+          or a shell loop inside of a job. Please see :ref:`array short tasks`.
 
 Please see in-depth `Slurm Array Jobs <https://slurm.schedmd.com/job_array.html>`_
 documentation.
@@ -82,16 +81,15 @@ Environment Variables
 
 Job arrays will have additional environment variable set as follows:
 
-:SLURM_ARRAY_JOB_ID:
-  the submitted batch job job ID, or the first job ID of the array
-:SLURM_ARRAY_TASK_ID:
-  the job array index value, each task has a different one
-:SLURM_ARRAY_TASK_COUNT:
-  the number of tasks in the job array
-:SLURM_ARRAY_TASK_MAX:
-  the highest job array index value
-:SLURM_ARRAY_TASK_MIN:
-  the lowest job array index value
+======================== ===============================================
+Variable                 Meaning
+======================== ===============================================
+SLURM_ARRAY_JOB_ID       the submitted batch job job ID, or the first job ID of the array
+SLURM_ARRAY_TASK_ID      the job array index value, each task has a different one
+SLURM_ARRAY_TASK_COUNT   the number of tasks in the job array
+SLURM_ARRAY_TASK_MAX     the highest job array index value
+SLURM_ARRAY_TASK_MIN     the lowest job array index value
+======================== ===============================================
 
 For example, the following very simple test script is for an array job with 4
 tasks. It does nothing computational but shows what variables are
@@ -123,7 +121,7 @@ The :tt:`mytest.*.err` files should be empty, and the :tt:`mytest.*.out` files w
 the output from the tasks.
 
 .. attention:: | If you only use :tt:`%A` in the logs file name specification,
-               | all array tasks will write to a single file.
+                 all array tasks will write to a single file.
                | **The performance of the job run will be drastically reduced**.
                | Make sure to use both :tt:`%A` and :tt:`%a` as was shown in the submit script.
 
@@ -132,14 +130,15 @@ the output from the tasks.
 Array indexing
 ^^^^^^^^^^^^^^
 
-**Simple case**
+:bluelight:`Simple case`
 
 The following example shows how to use environment variables in the array job.
 This job will be scheduled as 100 independent tasks.  Each task has a time limit
-of 1 hour and each task may start at a different time on a scheduled node.
+of 1 hour and each task may start at a different time on any scheduled node.
 
-The script references :tt:`$SLURM_ARRAY_TASK_ID` (1) to select an input file
-and (2) to set a command line argument for the application.
+| The script references :tt:`$SLURM_ARRAY_TASK_ID` to:
+|   (1) select an input file
+|   (2) set a command line argument for the application.
 
 .. centered:: File array.sub
 
@@ -150,7 +149,7 @@ In this example script, for a 100-task job array the input files were
 named :tt:`data_file_1.txt` through :tt:`data_file_100.txt`
 which allowed the user to use :tt:`$SLURM_ARRAY_TASK_ID` to specify the file name.
 
-**More complex case**
+:bluelight:`More complex case`
 
 Often files are not named in that precise manner but can still be referenced
 using the task ID.
@@ -171,7 +170,7 @@ order in the list of files.
 The second line simply executes the needed program with the variable which holds
 now a specific file name for this specific array task.
 
-**Multiple input parameters**
+:bluelight:`Multiple input parameters`
 
 Array indexing can be used for multiple input parameters to a program.
 Let say a program X requires 3 parameters, a file name and 2 numbers.
@@ -183,11 +182,11 @@ for the desired tasks:
    /a/path/to/fileM    23 14.5
    /a/other/path/fileZ 12 11.2
    /a/path/to/fileS     1  2.2
-   < remaining lines are cut >
+   ... remaining lines ...
 
 Then in the Slurm submit script a user can request 20 array tasks
-(same number as the number of parameters lines in the created file)
-and provide the needed parameter for each task as:
+(same number as the number of lines in the created file)
+and provide the needed parameters for each task as:
 
 .. code-block:: bash
 
@@ -212,11 +211,14 @@ only on your job but on all other users.
 When you have hundreds or thousands of very short tasks, it is better to
 combine simple array with a loop that groups multiple tasks for efficiency.
 
-In the following example, we specify 4 array tasks,
-then use shell variables and loop to set the number of runs for each array
-task to do and the starting and ending number of runs for them.
-The submit script will do 4,000 runs of a program
-(here substituted by ``echo`` for simplicity) where each run takes just a few seconds to complete.
+In the following example, we:
+
+  * specify 4 array tasks,
+  * then use shell variables and a loop to set the number of runs that each array
+    task will do and the starting and ending number of runs for them.
+  * the submit script will do 4,000 runs of a program
+    (here substituted by ``echo`` for simplicity) where each run takes just a few seconds to complete.
+
 Instead of running an array job with 4,000 tasks, the script will be much more efficient
 to run 4 array tasks where each completes 1,000 runs.
 
@@ -239,21 +241,22 @@ take a look at the man page ``man sbatch`` and read dependency section.
 
 Here is an example workflow of commands that shows how to use this feature.
 
-1. Submit a 1st job that has no dependencies and set a variable to hold the job ID
+1. Submit a 1st job that has no dependencies and set a variable :tt:`jobid1` to hold the job ID
 
    .. code-block:: console
 
       [user@login-x:~]$ jobid1=$(sbatch --parsable first_job.sub)
 
 2. Submit a 2nd job with a condition that
-   *will launch only after the first one completed successfully*.
-   Set a variable to hold this 2nd job ID.
+   *will launch only after the first job completed successfully*.
+   Set a variable :tt:`jobid2` to hold this 2nd job ID.
 
    .. code-block:: console
 
       [user@login-x:~]$ jobid2=$(sbatch --dependency=afterok:$jobid1 second_job.sub
 
 3. Submit a 3rd job that depends on a successful completion of the second job.
+   Set a variable :tt:`jobid3` to hold this job ID.
 
    .. code-block:: console
 
@@ -282,15 +285,15 @@ Here is an example workflow of commands that shows how to use this feature.
 GPU
 ---
 
-Please review :ref:`who can run jobs in GPU partitions <gpu partitions>`.
+| Please review :ref:`who can run jobs in GPU partitions <gpu partitions>`.
+| For interactive GPU job submission please see :ref:`interactive job`.
 
 To run a GPU job one needs to request:
 
 :bluelight:`GPU partition name`
+   Specify a GPU partition in your submit script.
    To see all available partitions use ``sinfo`` command
-   that lists all partitions and nodes managed by Slurm. All users can use
-   *free-gpu* partition. To use GPU partitions add to your submit
-   script one of the following requests:
+   that lists all partitions and nodes managed by Slurm. 
 
    To use *free-gpu* partition, your own account will be used but not charged
 
@@ -298,30 +301,27 @@ To run a GPU job one needs to request:
 
         #SBATCH -p free-gpu
 
-   To use other GPU partitions specify a partition name and your **lab GPU
-   account** to charge. Note, CPU and GPU lab accounts are different and not
-   labs have both. 
+   To use other GPU partitions specify a partition name and your *GPU Lab
+   account* to charge. Note, CPU and GPU lab accounts are different and not
+   all labs have both. 
 
      .. code-block:: bash
 
         #SBATCH -p gpu
-        #SBATCH -A panteater_lab_gpu 
-
+        #SBATCH -A panteater_lab_gpu   # Note, GPU Lab name has 'gpu' in it
 
 :bluelight:`GPU number`
 
    .. important::
-      | Nearly 100% of applications on the cluster can use only 1 GPU.
-      | **GPU number should be set to 1.**
-      | **None of Perl, Python, or R-based applications need multi-GPU**.
-
-      | Very few applications can use multiple GPUs in *P2P* (peer-2-peer) mode,
+      * **Set GPU number to 1.**
+        Nearly 100% of applications on the cluster can use only 1 GPU.
+      * **None of Perl, Python, or R-based applications need multi-GPU**.
+      * Very few applications can use multiple GPUs in *P2P* (peer-2-peer) mode,
         for example, *Amber*, *VASP* and *NAMD*.
         These applications are designed and compiled
         with very specific flags and options to be able to use multi-GPU acceleration.
-
-      | If you request multi-GPU but use only 1 you will be charged for all
-        requested regardless of the usage.
+      * If you request multi-GPU but use only 1 you will be charged for all
+        requested GPUs regardless of the usage.
 
    To set the GPU number add  to your submit script:
 
@@ -330,10 +330,15 @@ To run a GPU job one needs to request:
       #SBATCH --nodes=1
       #SBATCH --gres=gpu:1    # specify 1 GPU
 
-:bluelight:`GPU type` (optional)
-   Currently, HPC3 has a few GPU types.
+:bluelight:`GPU type`
+   This is an optional parameter and most jobs do not care what GPU type is used. 
+   For many jobs, it is better to omit the type 
+   as Slurm will have a better change to put your job on any available
+   node with any GPUs.
+
+   HPC3 has a few GPU types.
    GPU type and number are specified with :tt:`gres` directive, for both
-   interactive and batch jobs. Most jobs do not care what GPU type is used. 
+   interactive and batch jobs.
    In your Slurm submit script you will need to add:
 
    .. code-block:: bash
@@ -341,15 +346,13 @@ To run a GPU job one needs to request:
       #SBATCH --nodes=1
       #SBATCH --gres=gpu:V100:1    # specify 1 GPU of type V100
 
-   To find out what Generic RESource (GRES) is available use the following command:
+   To find out what Generic RESource (GRES) and GPU types are is available use the following:
 
    .. code-block:: console
 
       [user@login-x:~]$ sinfo -o "%60N %10c %10m  %30f %10G" -e
 
-
-An example GPU job submit script for batch job:
-
+Example GPU job submit script:
    .. code-block:: bash
 
       #SBATCH -J gpuJob                   # job name
@@ -367,29 +370,26 @@ An example GPU job submit script for batch job:
 
    The above job request translates into the following:
 
-     .. table::
-        :class: noscroll-table
+   .. table::
+      :class: noscroll-table
 
-        +----------------------------------+----------------------------------+
-        | job request                      | actual job allocation            |
-        +==================================+==================================+
-        | 1 node                           | 1 node                           |
-        +----------------------------------+----------------------------------+
-        | 1 GPU                            | 1 GPU                            |
-        +----------------------------------+----------------------------------+
-        | 16Gb  memory                     | 16Gb memory                      |
-        +----------------------------------+----------------------------------+
-        | 1 CPU                            | 2 CPU                            |
-        +----------------------------------+----------------------------------+
-        | billing is 33 = 32(gpu) + 1(cpu) | billing is 34 = 32(gpu) + 2(cpu) |
-        +----------------------------------+----------------------------------+
+      +----------------------------------+----------------------------------+
+      | job request                      | actual job allocation            |
+      +==================================+==================================+
+      | 1 node                           | 1 node                           |
+      +----------------------------------+----------------------------------+
+      | 1 GPU                            | 1 GPU                            |
+      +----------------------------------+----------------------------------+
+      | 16Gb  memory                     | 16Gb memory                      |
+      +----------------------------------+----------------------------------+
+      | 1 CPU                            | 2 CPU                            |
+      +----------------------------------+----------------------------------+
+      | billing is 33 = 32(gpu) + 1(cpu) | billing is 34 = 32(gpu) + 2(cpu) |
+      +----------------------------------+----------------------------------+
 
-     The CPU  and billing increase is due to the memory request of 16Gb.
-     For *gpu* partition max memory per CPU is 9Gb, thus 2 CPUs are
-     needed to supply requested memory.
-
-Please see :ref:`interactive job` submission examples.
-
+   The CPU  and billing increase is due to the memory request of 16Gb.
+   For *gpu* partition max memory per CPU is 9Gb, thus 2 CPUs are
+   needed to supply requested memory.
 
 .. _job jupyter hub:
 
@@ -400,11 +400,13 @@ Sometimes applications are available via containers on our *Jupyterhub portal*.
 This includes many Bioinformatics applications, RStudio, etc. Below are the
 steps to start a container.
 
+A user must have an HPC3 account to use the portal.
+
 1. **Authenticate at Jupyterhub portal**
 
    Point your browser
    to `https://hpc3.rcic.uci.edu/biojhub4/hub/login <https://hpc3.rcic.uci.edu/biojhub4/hub/login>`_
-   You will see the following screen where you will Use your usual login
+   You will see the following screen where you will use your usual login
    credentials (UCInetID and password) to sign in:
 
    .. figure:: images/jhub-signin.png
@@ -414,9 +416,9 @@ steps to start a container.
  
       Sign in
 
-#. **Select your server configuration and login**
+#. **Select your server configuration and start a container**
 
-   After  a successful authentication you will see a screen with server options as in the figure below:
+   After  a successful authentication you will see a screen with server options similar to:
 
    .. figure:: images/jhub-login.png
       :align: center
@@ -425,14 +427,14 @@ steps to start a container.
 
       Choose Server Options
 
-   **Modify**
+   Modify
 
    - :guilabel:`Select Partition/Reservation to use` - choose one of partitions or reservations
    - :guilabel:`Select Account to Charge` - choose one of your Slurm accounts
-   - :guilabel:`Select a Containerized Notebook image` - select your desired container
+   - :guilabel:`Select a Containerized Notebook image` - select your desired container.
      Note, if you used this portal before check carefully the updated list of
      containers. The older containers names are prefixed with *Centos7*,
-     new containers with *Rocky8*.
+     and the new containers with *Rocky8*.
    - change number of CPUs  and amount of memory if needed
 
    Press :guilabel:`Start`.  You may see a screen that looks similar to:
@@ -454,20 +456,20 @@ steps to start a container.
       :width: 90%
       :alt: container initial lab
 
-      Container initial lab
+      Container Initial Lab
 
    The container is a subset of the full HPC3 software stack. A standard Jupyter Notebook can be started
-   from within your lab server. You also have access to a Linux command-line terminal, if you need it.
+   from within your running server. You also have access to a Linux command-line terminal, if you need it.
    You may need to download/upload files, or install a few R or Python
    packages. Please see :ref:`install jupyter` guide.
 
    .. important:: | **You must have sufficient space in your $HOME in order to run a session**.
-      | If your $HOME is full the server will  fail to start with an error similar to the following
+      | If your $HOME is full the server will  fail to start with an error similar to the
       | :red:`Spawn failed: Server at <...> didn't respond in 300 seconds`
-      | where :red:`<...>` shows the http address of a compute node where the server was placed to start.
+        where :red:`<...>` shows the http address of a compute node where the container was placed to start.
 
-      **You need to bring your $HOME usage under the quota before
-      you can start your session**. Please see :ref:`home quotas <home quotas>`.
+      **You need to bring your $HOME usage under the :ref:`quota <home quotas>` before
+      you can start your session**.
 
 #. **Your server generated files**
 
@@ -495,8 +497,8 @@ steps to start a container.
    session or will fail to continue the current one. 
 
    One can set an alternative place for :tt:`biojhub4_dir` in the pub area. 
-   You will need to edit your :tt:`~/.bashrc` file and add at the end a line
-   using your account in place of UCInetID:
+   You will need to edit your :tt:`~/.bashrc` file and at the end add a line
+   (use your UCInetID):
 
    .. code-block:: console
    
@@ -509,75 +511,76 @@ steps to start a container.
 
 #. **Shutdown your server**
 
-   Be sure to stop your JupyterHub server after you are done with your work.
-   This releases computing resources for other active computational needs.
+   .. attention:: | **Be sure to stop your JupyterHub server after you are done with your work**.
+                  | This releases computing resources for other active computational needs.
+
    Your notebooks and other files should be saved prior to shutting down your lab.
-   Jupyter writes a *state* file for your lab, so that when you relaunch, you
+   Jupyter writes a *state* file for your lab, so that when you relaunch the server, you
    will be back where you were prior to shutting down.
 
-   .. attention:: The shutdown process involves (1) shutting down ALL your notebooks (2) then 
-                  shutting down the server. If you simply shutdown the server, the notebooks
-                  remain running and consume server resources. 
+   The shutdown process involves (1) shutting down ALL your notebooks (2) then 
+   shutting down the server. If you simply shutdown the server, the notebooks
+   remain running and consume server resources. 
 
    **Step 1: Shut down notebooks**
 
-   For each active notebook, from the :guilabel:`File` menu choose :guilabel:`Close and Shutdown Notebook`:
-
-   .. figure:: images/close-notebook-1.png
-      :align: center
-      :width: 90%
-      :alt: close notebook
-
-      Close and Shutdown Notebook
-
-   There will be a pop-up window asking to confirm, click :guilabel:`Ok`
-
-   .. figure:: images/close-notebook-1-confirm.png
-      :align: center
-      :width: 50%
-      :alt: confirm close notebook
-
-      Confirm Closing Notebook
-
-   Alternatively, choose the sessions tab on the left hand panel and click
-   :guilabel:`SHUT DOWN` for each session:
-
-   .. figure:: images/close-notebook-2.png
-      :align: center
-      :width: 90%
-      :alt: close notebook method 2
-
-      Alternative notebook closure method
+     For each active notebook, from the :guilabel:`File` menu choose :guilabel:`Close and Shutdown Notebook`:
+  
+     .. figure:: images/close-notebook-1.png
+        :align: center
+        :width: 90%
+        :alt: close notebook
+  
+        Close and Shutdown Notebook
+  
+     There will be a pop-up window asking to confirm, click :guilabel:`Ok`
+  
+     .. figure:: images/close-notebook-1-confirm.png
+        :align: center
+        :width: 50%
+        :alt: confirm close notebook
+  
+        Confirm Closing Notebook
+  
+     Alternatively, choose the sessions tab on the left hand panel and click
+     :guilabel:`SHUT DOWN` for each session:
+  
+     .. figure:: images/close-notebook-2.png
+        :align: center
+        :width: 90%
+        :alt: close notebook method 2
+  
+        Alternative notebook closure method
 
    **Step 2: Shutdown server**
 
-   From the :guilabel:`File` menu choose :guilabel:`Hub Control Panel`:
-
-   .. figure:: images/jhub-logout-1.png
-      :align: center
-      :width: 90%
-      :alt: control panel
-
-      Hub Control panel
-
-   and you will be forwarded to
-   a screen where you can press on :guilabel:`Stop My Server` to shut down the server:
-
-   .. figure:: images/jhub-logout-2.png
-      :align: center
-      :width: 90%
-      :alt: server logout
-
-      Server logout
-
-   your window should look similar to the following when the server is stopped:
-
-   .. figure:: images/jhub-logout-3.png
-      :align: center
-      :width: 90%
-      :alt: server logout result
-
-      Server Logout Result
+     From the :guilabel:`File` menu choose :guilabel:`Hub Control Panel`:
+  
+     .. figure:: images/jhub-logout-1.png
+        :align: center
+        :width: 90%
+        :alt: control panel
+  
+        Hub Control panel
+  
+     and you will be forwarded to
+     a screen where you can press on :guilabel:`Stop My Server` to shut down the server:
+  
+     .. figure:: images/jhub-logout-2.png
+        :align: center
+        :width: 90%
+        :alt: server logout
+  
+        Server logout
+  
+     your window should look similar to the following when the server is stopped:
+  
+     .. figure:: images/jhub-logout-3.png
+        :align: center
+        :width: 90%
+        :alt: server logout result
+  
+        Server Logout Result
 
 .. _Jupyter notebook:
 
@@ -585,7 +588,7 @@ Jupyter Notebook
 ----------------
 
 Sometime people create specific conda environments with additional
-software and wish to run Jupyter notebooks. As we do not allow computational
+software and wish to run them in Jupyter notebooks. As we do not allow computational
 jobs on login nodes, here are the steps to run notebooks on interactive nodes.
 
 1. Once you login to HPC3, get an interactive node using ``srun`` command.
@@ -609,14 +612,14 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
    you may need a standard partition.
 
 2. After executing ``srun`` command you will be put on a compute node of the cluster.
-   Take a note of the host name, it is usually a part of your shell prompt. If unsure
+   Take a note of the hostname, it is usually a part of your shell prompt. If unsure
    simply execute this command to find out:
 
    .. code-block:: console
 
       [user@hpc3-14-00:~]$ hostname -s
 
-   In this example the node is *hpc3-14-00*
+   In this example the hostname (node name) is *hpc3-14-00*
 
 3. Load your desired anaconda module, for example:
 
@@ -633,7 +636,7 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
 
    If the port is free there will be no output from the command.
    If there is an output from the command, then the port is in use, pick another
-   one and check again until you find a free port
+   number and check again until you find a free port
 
 5. Start the notebook with the :tt:`--ip`, :tt:`--port` and :tt:`--no-browser` options.
    For the :tt:`ip` the following command will automatically fill in the correct
@@ -659,32 +662,30 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
    At this point, you don't have a prompt and you can't do anything in
    this window as your Jupyter notebook is running.
 
-   Note the last URL line of the output above, it includes local host, port and a token.
+   Note the last URL line of the output above, it includes local host IP, port and a token.
    Take a note of this line and copy it. You will need to use it on your laptop in the browser.
    The URL line to use must start with :tt:`http://127.0.0.1:`.
 
    Note, your output from ``jupyter notebook`` command  will have a different
    port, host and a token string.
 
-6. On your laptop connect to the cluster in a new terminal window using ssh tunnel and information
-   about your Jupyter notebook start. For our example, for the settings
-   produced by the above steps (host *hpc3-14-00* and port *8989*) and for using a local laptop
-   port 9090 a user will do:
+6. On your laptop connect to the cluster in a new terminal window using ``ssh`` tunnel and information
+   about your Jupyter notebook start. For our example, for the hostname *hpc3-14-00* and port *8989* from the
+   above step and using a local laptop port *9090* a user will run command (use your UCInetID):
 
     .. code-block:: console
 
        ssh -L 9090:hpc3-14-00:8989 UCInetID@hpc3.rcic.uci.edu
 
-   * Use your UCInetID. When asked for a password and DUO authentication, use your
-     usual credentials.
-   * Note, the first occurrence of port in the ``ssh`` command
-     :tt:`9090` is a local port on your laptop, and you can pick any free port on your laptop
-     (use your laptop documentation how to find a free port).
-   * The second port :tt:`8989` is the remote port on the cluster node that was configured for
-     use by Jupyter when you run the ``jupyter`` command.
+   When asked for a password and DUO authentication, use your usual credentials.
 
-   If you pick a local port that is already in use the ``ssh`` command will
-   fail, simply use another port number above 6000.
+   * Note, the first port occurrence in :bluelight:`9090`:hpc3-14-00:8989
+     is the local port on your laptop, and you can pick any free port on your laptop
+     (use your laptop documentation how to find a free port).
+     If you pick a local port that is already in use the ``ssh`` command will
+     fail, simply use another port number above 6000.
+   * The second port occurrence in 9090:hpc3-14-00::bluelight:`8989` is the remote port on
+     the cluster node that was configured for use by Jupyter when you run the ``jupyter notebook`` command.
 
 7. On your laptop, open your browser and paste into the URL address area the URL string that was produced by
    starting your Jupyter instance (in step 5) and changing port for your
@@ -706,10 +707,10 @@ jobs on login nodes, here are the steps to run notebooks on interactive nodes.
 Large memory
 ------------
 
-Some jobs may need more memory. For these jobs users will need to
+Some jobs may need more memory. For these jobs users will need to set
 
-* set memory requirement
-* and the number of CPUs to use
+  * memory requirement
+  * the number of CPUs to use
 
 .. centered:: File large-memory.sub
 
@@ -721,8 +722,8 @@ Some jobs may need more memory. For these jobs users will need to
 MATLAB
 ------
 
-.. note:: | To start Matlab non-interactively, use the **-batch** option.
-          | To start Matlab interactively, use the **-r** option.
+.. note:: | To start MATLAB non-interactively, use the **-batch** option.
+          | To start MATLAB interactively, use the **-r** option.
 
 1. Interactive job
 
@@ -743,9 +744,10 @@ MATLAB
    .. literalinclude:: files/matlab-single-cpu.sub
       :language: bash
 
-   The above submit script will submit the Matlab code :tt:`mycode.m` with specified requested resources.
-   Note, you dont  need to specify :tt:`.m` extension, Matlab automatically appends it.
-   Because the default is one CPU per task, :tt:`-n 1` can be thought of as requesting just one CPU.
+   The above submit script specifies resources  needed for the job with :tt:`#SBATCH` directives
+   and MATLAB command to run the code from :tt:`mycode.m` file.
+   Note, you don't need to use :tt:`.m` extension, MATLAB automatically appends it.
+   Because the default is one CPU per task, :tt:`-n 1` can be thought of as requesting 1 CPU.
 
    The equivalent command-line method (lines are broken for readability):
 
@@ -762,9 +764,7 @@ MATLAB
    .. literalinclude:: files/matlab-multi-cpu.sub
       :language: bash
 
-   The above will submit the Matlab code :tt:`mycode.m` with specified requested resources.
-   Note, you dont  need to specify :tt:`.m` extension, Matlab automatically appends it.
-   Because the default is one CPU per task, :tt:`-n 12` can be thought of as requesting 12 CPUs.
+   Similar to a single CPU job. Asking for :tt:`-n 12` can be thought of as requesting 12 CPUs.
 
    The equivalent command-line method (lines are broken for readability):
 
@@ -778,30 +778,31 @@ MATLAB
 
    MATLAB jobs can be run on multiple CPUs in a parallel pool. This
    requires use of  :tt:`parpool` and :tt:`parcluster` commands in
-   MATLAB script to setup the pool. The :tt:`parfor` loop is used to distribute iterations to multiple workers
+   MATLAB code to setup the pool. The :tt:`parfor` loop is used to distribute iterations to multiple workers
    where each worker is running on a different CPU.
 
-   .. note:: | Current UCI Matlab license does not include **MATLAB Parallel Server**. 
-             | This means  running parallel jobs across multiple nodes is not supported.
-             | :red:`Parallel pool jobs can be run only on a single node`.
+   .. note:: | Current UCI MATLAB license does not include **MATLAB Parallel Server**. 
+             | This means :red:`running parallel MATLAB jobs across multiple nodes is not supported`.
+             | Parallel pool jobs can be run only on a single node.
 
    .. centered:: File matlab-parallel.sub
 
    .. literalinclude:: files/matlab-parallel.sub
       :language: bash
 
-   The above submit script will submit the Matlab code :tt:`prime.m` with specified requested resources
-   and collect desired output in the output file :tt:`matlab-example.out` (separate from SLURM output file).
-   Note that requested number of tasks is used in Matlab script to setup the
-   parallel pool size via a SLURM variable :tt:`SLURM_NTASKS`.
-   Contents of prime.m:
+   The above submit script specifies resources needed for parallel job to
+   execute the MATLAB code from :tt:`prime.m` file 
+   and collect desired output in the output file :tt:`matlab-example.out` (different from SLURM output file).
+
+   Note that requested number of tasks is used in MATLAB script to setup the
+   parallel pool size via a SLURM variable :tt:`SLURM_NTASKS`.  Contents of prime.m:
 
    .. centered:: File prime.m
 
    .. literalinclude:: files/prime.m
       :language: matlab
 
-   Changing the Matlab code to :tt:`hello.m` in the submit script  can run "Hello World" example
+   Changing the MATLAB code to :tt:`hello.m` in the submit script  can run "Hello World" example
    that shows another way to use parallel workers.
 
    .. centered:: File hello.m
@@ -816,7 +817,7 @@ MPI
 
 MPI jobs use multiple cores across different nodes.
 The following submit script will use 80 cores across 2 different nodes.
-Each core will be allocated a default 3 GB of RAM, for a total of 240 GB for
+Each core will be allocated a default 3 GB of memory for a total of 240 GB for
 the job.
 
 .. centered:: File mpi.sub
@@ -850,13 +851,13 @@ the job.
 MPI/OpenMP hybrid
 -----------------
 
-A hybrid job uses multiple processes and multiple threads within a process.
+A hybrid job uses multiple processes and multiple threads within each process.
 Usually, MPI is used to start the multiple processes, and then each process
 uses a multi-threading library to do computations with multiple threads.
 
 Here is an example of 8 MPI processes running on 2 nodes (4 MPI tasks per node)
 with 5 OpenMP threads per each process, each OpenMP thread has 1 physical core
-and needs 3 GB memory. The job requests a total of 40 cores and 120 GB of RAM
+and needs 3 GB memory. The job requests a total of 40 cores and 120 GB of memory.
 
 .. centered:: File hybrid.sub
 
@@ -893,7 +894,7 @@ Python
    .. literalinclude:: files/python-single-cpu.sub
       :language: bash
 
-   The above will submit the Python 3 code with specified requested resources.
+   The above will submit the Python3 code with specified requested resources.
 
    The equivalent command-line method:
 
@@ -910,7 +911,7 @@ Python
    .. literalinclude:: files/python-multi-cpu.sub
       :language: bash
 
-   The above will submit the Python 3 code with specified requested resources.
+   The above will submit the Python3 code with specified requested resources.
 
    The equivalent command-line method:
 
@@ -934,7 +935,7 @@ R
       :language: bash
 
    The above will submit the R code :tt:`mycode.R` with specified requested resources.
-   Note: because the default is one CPU per task, :tt:`-n 1` can be thought of as requesting just one CPU.
+   Note: because the default is one CPU per task, :tt:`-n 1` can be thought of as requesting 1 CPU.
 
    The equivalent command-line method:
 
@@ -947,10 +948,9 @@ R
 2. **Single node Parallelization**
 
    When working on a single compute node, one can use R *parallel* libraries
-   to achieve the *processor level parallelism*.  Your code must use **library("parallel")**
+   to achieve the *processor level parallelism*.  Your code must use **library("parallel")**.
    When you request X CPUs your code will run on a single node (serial job)
    but will be using X requested CPUs in parallel.
-
 
    .. centered:: File R-multi-cpu.sub
 
@@ -976,13 +976,13 @@ R
    To allow for communication between R processes running on different compute
    nodes your job needs to meet the following requirements:
 
-   - the desired R software package must be using MPI, specifically must use
-     *library('Rmpi')*. The desired software package and the *Rmpi* library must be installed by the user. Before
-     installing load one of the MPI modules in addition to your R module.
-     For example for *R/4.3.3* use *openmpi/4.1.2/gcc.11.2.0*
-   - your submit script must load the same R and MPI modules that were used for the library install.
-   - your submit script must request a number of nodes and a number of CPUs to use. 
-   - your submit script actual execute command must use ``mpirun``
+     - Your desired R software package must be using MPI, specifically must use
+       *library('Rmpi')*. The desired software package and the *Rmpi* library must be installed by the user. Before
+       installing load one of the MPI modules in addition to your R module.
+       For example for *R/4.3.3* use *openmpi/4.1.2/gcc.11.2.0*.
+     - Your submit script must load the same R and MPI modules that were used for the library install.
+     - Your submit script must request a number of nodes and a number of CPUs to use. 
+     - Your submit script actual execute command must use ``mpirun``.
 
 .. _job rstudio:
 
@@ -1010,9 +1010,10 @@ There a few ways to run RStudio.
 
 2. **Mac users**
 
-   Your local Mac needs to have ``XQuartz`` installed. This is a standard application
-   that provides X Window system for Mac OS. Follow Mac installation guide for
-   installing applications if you don't have XQuartz installed.
+   Prerequisite:
+     Your local Mac needs to have `XQuartz` installed. This is a standard application
+     that provides X Window system for macOS. Follow your Mac applications installation guide
+     if you don't have XQuartz installed.
 
    Login on the cluster using X forwarding. This means using  :tt:`-X`
    or  :tt:`-X -Y` option in the ssh command. For example:
@@ -1056,22 +1057,19 @@ The above will submit your SAS code with specified requested resources.
 SRA toolkit fasterq-dump
 ------------------------
 
-.. danger:: Running multi-threaded (read multi-CPU) ``fastq-dump``, ``fasterq-dump``
-            or ``parallel-fastq-dump`` command directly in any directory
-            on DFS filesystem results in a deadlock and makes a server UNUSABLE
-            for ALL users until the server is rebooted.
+.. danger:: | Running multi-threaded (multi-CPU) ``fastq-dump``, ``fasterq-dump``
+              or ``parallel-fastq-dump`` command directly in any directory
+              on DFS filesystem results in a deadlock and makes a server UNUSABLE
+              for ALL users until the server is rebooted.
+            | **To avoid issues with the deadlocking use scratch disk when running above commands**.
 
-.. important:: SRA tools prior to v. 3 did not handle writing temp files to a separate
-               directory. Do not use SRA tools prior to v.3 for fastq-dump or fasterq-dump commands.
+.. important:: * SRA tools prior to v. 3 did not handle writing temp files to a separate directory.
+                 Do not use SRA tools prior to v.3 for ``fastq-dump`` or ``fasterq-dump`` commands.
+               * It is faster to do a ``prefetch`` followed by ``fasterq-dump`` (or any other dump
+                 version) compare to letting ``fasterq-dump`` do the download.
+               * If you already prefetched SRA files 
+                 simply use the correct full path to them in ``fasterq-dump`` command.
 
-.. important:: It is faster to do a ``prefetch`` followed by ``fasterq-dump`` (or any other dump
-               version) compare to letting ``fasterq-dump`` do the download.
-
-               If you already prefetched SRA files and have them stored in some directory
-               simply use the correct full path to the SRA files in your ``fasterq-dump`` command.
-
-To avoid issues with the  deadlocking users need to use scratch disk when
-running above commands.
 
 Follow this simple recipe that will prefetch needed SRA sequences and convert them to *fastq* format.
 All file writing is done in a scratch local disk and the final files are  moved to a desired directory.
@@ -1105,14 +1103,14 @@ The above will submit the Stata job (mycode.do) with specified requested resourc
 TensorFlow
 ----------
 
-1. TensorFlow CPU only
+1. TensorFlow CPU
 
    .. centered:: File tensorflow-cpu.sub
 
    .. literalinclude:: files/tensorflow-cpu.sub
       :language: bash
 
-   The above will submit the Tensorflow 2.0 job with specified requested resources.
+   The above will submit the Tensorflow 2.0 CPU job with specified requested resources.
 
    The equivalent command-line method:
 
@@ -1122,15 +1120,15 @@ TensorFlow
       [user@login-x:~]$ sbatch -p standard -N 1 -n 1 -t 02-00:00:00 --wrap="python mycode.py"
 
 
-2. TensorFlow with GPU
+2. TensorFlow GPU
 
    .. centered:: File tensorflow-gpu.sub
 
    .. literalinclude:: files/tensorflow-gpu.sub
       :language: bash
 
-   The above will submit the gpu Tensorflow 2.0 job, note request for gpu
-   partition and gres resourcds.
+   The above will submit the GPU Tensorflow 2.0 job. Note request for gpu
+   partition and gres resources.
 
    The equivalent command-line method:
 
@@ -1162,9 +1160,9 @@ VASP
 
 2. VASP version 6.3.2 CPU
 
-   The following example shows how to run VASP v 6.3.2 compiled with gcc 11
+   The following example shows how to run VASP v 6.3.2 compiled with gcc 11.
    The module already has correct settings for UCX variables. Please consult
-   VASP documentation on how to use *OMP_NUM_THREADS* for multiple threads
+   VASP documentation on how to use *OMP_NUM_THREADS* for multiple threads.
 
    Note, :tt:`--constraint` directive and addition of :tt:`-mca pml ucx` to
    the ``mpirun`` command are required.  The UCX environment variables are
@@ -1179,7 +1177,7 @@ VASP
 
    To run VASP on GPU, it is required to run on a single node. It is possible to
    use up to 4 GPUs on a single node. Please consult VASP documentation how to
-   use multiple GPUs. The following example uses 1 GPU
+   use multiple GPUs. The following example uses 1 GPU.
 
    .. centered:: File vasp-63-gpu.sub
 
