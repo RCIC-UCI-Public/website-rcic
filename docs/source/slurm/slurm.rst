@@ -25,6 +25,8 @@ Failure to follow conduct rules may adversely impact others working on the clust
 Slurm Accounting
 ----------------
 
+Each personal and lab account has a balance that is getting used when you run Slurm jobs.
+
 :bluelight:`Slurm Personal account`
   is created automatically when your HPC3 account is created.
   Every user is granted :underline:`one time 1000 free CPU hours` as a startup allowance.
@@ -59,8 +61,6 @@ the following information:
 
 Accounts balances
 ^^^^^^^^^^^^^^^^^
-
-Each personal and lab account has a balance that is getting used when you run Slurm jobs.
 
 Please learn
 
@@ -114,7 +114,15 @@ Free and Allocated Jobs
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 | All computational processes on the cluster must be submitted as Slurm jobs.
-| There are two types of jobs: free and allocated.
+| **Charging jobs to an account is new for the UCI community**.
+| There are two types of jobs:
+
+  :bluelight:`allocated`
+    jobs are charged to an account.  A large fraction of users will run allocated jobs
+    and never see the limits of their accounts.
+  :bluelight:`free`
+    jobs are not charged to an account. Users who are running a very large number of free jobs are likely to have some of
+    their jobs preempted (killed).
 
 .. centered:: Slurm jobs properties
 
