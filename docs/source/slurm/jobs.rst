@@ -34,7 +34,7 @@ CPUs, and memory for a variety of different job types and common applications.
 
 :bluelight:`Inherited environment`
   All Slurm batch and interactive jobs will inherit *all environment variables* that were
-  set in your login shell (on the login node where you are executing job submission). 
+  set in your login shell (on the login node where you are executing job submission).
 
   By default, there should be none, unless one changes the environment via
   setting environment variables either on command line or in :tt:`$HOME/.bashrc` file
@@ -48,7 +48,7 @@ CPUs, and memory for a variety of different job types and common applications.
     or on an interactive node after you executed the ``srun`` command and not in the
     login shell before the job submission.
 
-  * If you are using conda please review :ref:`install conda` 
+  * If you are using conda please review :ref:`install conda`
     guide that explains how to cleanly separate conda-set environment from your
     login environment.
 
@@ -72,7 +72,7 @@ How to submit:
      [user@login-x:~]$ sbatch your-submit-script.sub
 
 Example job:
-  Login on HPC3 and using your favorite editor create 
+  Login on HPC3 and using your favorite editor create
   :tt:`simple.sub` file using the following contents as a template:
 
   .. literalinclude:: files/simple.sub
@@ -100,7 +100,7 @@ Example job:
     Output file created by a specific command that was run in the job.
 
   .. note:: Slurm error and log files are extremely useful especially to track
-            progress and issues with the jobs. 
+            progress and issues with the jobs.
 
 .. _interactive job:
 
@@ -110,7 +110,7 @@ Interactive job
 ``srun``
 
 The command ``srun`` is used to submit an interactive job which runs in a shell terminal.
-The job uses your console for for standard input/output/error. 
+The job uses your console for for standard input/output/error.
 
 .. important:: * All interactive jobs are run on a single node, they can not be run on multiple nodes.
                * Interactive jobs are submitted for execution but do not bypass scheduler priority.
@@ -139,7 +139,7 @@ The main difference between ``srun`` and ``sbatch``:
      +--------------------------------------------------+-----------------------------------------+
 
 How to submit:
-  1. Get an interactive node 
+  1. Get an interactive node
 
      While on a login node, run the ``srun`` command. When it  is executed, the scheduler allocates
      available resource and starts an interactive shell on the available node.
@@ -150,7 +150,7 @@ How to submit:
         [user@login-x:~]$ srun -c 2 -p free --pty /bin/bash -i
         srun: job 32654143 queued and waiting for resources
         srun: job 32654143 has been allocated resources
-        [user@hpc3-y-z:~]$ 
+        [user@hpc3-y-z:~]$
 
   #. Execute your interactive commands
 
@@ -184,8 +184,8 @@ Example jobs:
   3. Use *free* partition and ask for 8GB of memory per job (ONLY when you truly need it)
   4. Use *standard* partition and ask for 4 CPUs for 10 hrs
   5. Use *free-gpu* partition and ask for one V100 GPU. :red:`Do not ask for more than 1 GPU!`
-     For many jobs the GPU specification can be simply :tt:`--gres=gpu:1` (GPU type makes no difference for the job). 
-  6. | Start an interactive session with Xforward enabled (option :tt:`--x11`) for GUI jobs. 
+     For many jobs the GPU specification can be simply :tt:`--gres=gpu:1` (GPU type makes no difference for the job).
+  6. | Start an interactive session with Xforward enabled (option :tt:`--x11`) for GUI jobs.
      | Note, a user  should have logged on HPC3 with ssh Xforward enabled see :ref:`ssh xforward`
        before running this ``srun`` command.
 
@@ -226,22 +226,22 @@ Find *jobid* and attach to it:
 
   .. code-block:: console
 
-     [user@hpc3-14-02:~]$ top 
+     [user@hpc3-14-02:~]$ top
      [user@hpc3-14-02:~]$ exit
      [user@login-x:~]$
 
 Attach to a specific node using :tt:`-w` switch (for multi-node jobs):
   By default, the user will be put on the first node listed in ``squeue``
-  output if running on multi-node.  To attach to a specific node: 
+  output if running on multi-node.  To attach to a specific node:
 
   .. code-block:: console
 
      [user@login-x:~]$ srun --pty --jobid 3559124 --overlap -w hpc3-15-08 /bin/bash
-     [user@hpc3-15-08:~]$ 
+     [user@hpc3-15-08:~]$
 
 
-Run  command while attaching to the running job: 
-  Most often users just need to see the processes of the job, etc. Such commands can be run directly.  
+Run  command while attaching to the running job:
+  Most often users just need to see the processes of the job, etc. Such commands can be run directly.
   For example, to run ``top``:
 
   .. code-block:: console
@@ -258,21 +258,21 @@ Requesting Resources
 Nodes
 ^^^^^
 
-Very few applications that are compiled to run with Open MPI or MPICH need to  use multiple nodes. 
+Very few applications that are compiled to run with Open MPI or MPICH need to  use multiple nodes.
 Most jobs on HPC3  including all :ref:`interactive jobs <interactive job>` are single node jobs
 and must be run on a single node.  If a single node job is submitted to multiple nodes it will either:
 
-  * fail 
+  * fail
   * misuse the resources. You will be charged for reserved and unused resources.
 
 
 How to request a single node:
-  :red:`Users should explicitly ask for 1 node`.  This is important to let SLURM know that all your processes 
+  :red:`Users should explicitly ask for 1 node`.  This is important to let SLURM know that all your processes
   should be on a single node and not spread over multiple nodes.
   In your submit script use:
 
   .. code-block:: bash
-  
+
      #SBATCH --nodes=1                ## (-N) use 1 node
 
 How to request multiple nodes:
@@ -297,7 +297,7 @@ To request a feature, you must add to your submit script:
 
      #SBATCH --constraint=feature_name
 
-where :tt:`feature_name` is one of the defined features specific to the cluster (or one of the standard features described 
+where :tt:`feature_name` is one of the defined features specific to the cluster (or one of the standard features described
 in the `Slurm sbatch <https://slurm.schedmd.com/sbatch.html>`_ guide).
 Multiple features can be requested and are separated by commas.
 
@@ -305,7 +305,7 @@ We defined the following for node selection:
 
 .. centered:: HPC3-Specific Features
 
-.. table:: 
+.. table::
    :widths: 20 45 20 15
    :class: noscroll-table
 
@@ -397,8 +397,8 @@ For example, a user panteater who has 2 running jobs:
   .. note:: While the directory is created automatically, it is a :underline:`user responsibility to
             copy`:
 
-            * input files to :tt:`$TMPDIR` before doing computational commands 
-            * the final results from :tt:`$TMPDIR` to user area before the job ends. 
+            * input files to :tt:`$TMPDIR` before doing computational commands
+            * the final results from :tt:`$TMPDIR` to user area before the job ends.
 
             These copy commands need to be in the Slurm submit script.
 
@@ -416,21 +416,21 @@ colleagues by requesting storage for your jobs as follows:
      You don't need to do anything special. Do not reset :tt:`$TMPDIR`.
 
 :bluelight:`Your job creates a few Gb of output in the current directory`
-   where you run the job and does many frequent small file reads or writes (a few Kb every few minutes).  
+   where you run the job and does many frequent small file reads or writes (a few Kb every few minutes).
 
    **Your action**:
-     You will need to use a scratch storage where you bring your job data, write temp files 
+     You will need to use a scratch storage where you bring your job data, write temp files
      and then copy the final output files back when the job is done.
 
-     .. attention:: 
+     .. attention::
         In this scenario, Slurm job is run in :tt:`$TMPDIR` which is much faster
-        for the disk I/O, then the program output is copied back as a big write 
+        for the disk I/O, then the program output is copied back as a big write
         which is much more efficient compare to many small writes.
 
         The reason is :red:`parallel filesystem (CRSP or DFS) is not suitable for small
         writes and reads` and such operations need to be off-loaded to the local
-        scratch area on the node where the job is executed. 
-        Otherwise you create an I/O problem not just for yourself but for many others 
+        scratch area on the node where the job is executed.
+        Otherwise you create an I/O problem not just for yourself but for many others
         who use the same filesystem.
 
      The following partial submit script shows how to use :tt:`$TMPDIR` for such jobs:
@@ -451,7 +451,7 @@ colleagues by requesting storage for your jobs as follows:
 
         # your job commands, this is just one possible example
         # output from application goes to $TMPDIR/output/
-        mapp -tf 45 -o $TMPDIR/output     # program output directory is specified via -o flag 
+        mapp -tf 45 -o $TMPDIR/output     # program output directory is specified via -o flag
         mapp2  > $TMPDIR/output/mapp.out  # program output in a specific file
 
         # explicitly copy output files from $TMPDIR to DFS/CRSP
@@ -483,7 +483,7 @@ Memory
 ^^^^^^
 
 There are nodes with different memory footprints. Slurm uses Linux
-`cgroups <https://man7.org/linux/man-pages/man7/cgroups.7.html>`_ 
+`cgroups <https://man7.org/linux/man-pages/man7/cgroups.7.html>`_
 to enforce that applications do not use more memory/cores than they have been allocated.
 
 Slurm has *default* and *max* settings for a memory allocation per core
@@ -494,7 +494,7 @@ for each partition. Please see all partitions settings in :ref:`available partit
   different memory allocation, and for most jobs this is sufficient.
 
 :max settings:
-  Are used when a job requires more memory. 
+  Are used when a job requires more memory.
   Job memory specifications can not exceed the partition's max setting.
   If a job specifies a memory per CPU limit that exceeds the system limit, the job's count of CPUs
   per task will automatically be increased. This may result in the job failing due to CPU count limits.
@@ -502,20 +502,20 @@ for each partition. Please see all partitions settings in :ref:`available partit
 .. note:: Please do not override the memory defaults unless your particular job really requires it.
    Analysis of more than 3 Million jobs on HPC3 indicated that more than 98% of jobs fit within
    the defaults.
-   With slightly smaller memory footprints, the scheduler has MORE choices as to 
+   With slightly smaller memory footprints, the scheduler has MORE choices as to
    where to place jobs on the cluster, so your job has a better change to start sooner.
 
 How to request more memory:
   You should specify the memory needs via one of the two mutually exclusive directives (one or another but not both):
 
   | Scenario 1:
-  |   :tt:`--mem=X<size>` ask for more total memory for the job 
-  | Scenario 2: 
+  |   :tt:`--mem=X<size>` ask for more total memory for the job
+  | Scenario 2:
   |   :tt:`--mem-per-cpu=X<size>` ask for max memory per core and if this is not enough
-  |   request more cores. 
+  |   request more cores.
 
   where :tt:`X` is an integer and :tt:`<size>` of an optional size
-  specification (M - megabytes, G - gigabytes, T - terabytes). A default is in megabytes. 
+  specification (M - megabytes, G - gigabytes, T - terabytes). A default is in megabytes.
 
   You will be charged more for more cores, but you use a larger fraction of the node.
   The same directives formats are used in Slurm submit scripts and for
@@ -534,38 +534,38 @@ How to request more memory:
   #. Ask for the memory per CPU in submit script
 
        .. code-block:: bash
-     
+
           #SBATCH --mem-per-cpu=5000  # requesting 5000MB memory per CPU
           #SBATCH --mem-per-cpu=2G    # requesting 2GB memory per CPU
 
-  #. Ask for 180 Gb for job in standard partition:
+  #. Ask for 180GB for job in standard partition:
 
        .. code-block:: bash
-     
-          #SBATCH --partition=standard 
+
+          #SBATCH --partition=standard
           #SBATCH --mem-per-cpu=6G    # requesting max memory per CPU
           #SBATCH --ntasks=30         # requesting 30 CPUs
 
-     Ask for max memory per CPU and a number of CPUs to make up needed 
+     Ask for max memory per CPU and a number of CPUs to make up needed
      total memory for job as *30 x 6Gb = 180Gb*
 
   #. Use ``srun`` and request 2 CPUs with a default or max memory
 
      .. code-block:: console
-     
+
         [user@login-x:~]$ srun -p free --nodes=1 --ntasks=2 --pty /bin/bash -i
         [user@login-x:~]$ srun -p free --nodes=1 --ntasks=2 --mem-per-cpu=18G --pty /bin/bash -i
         [user@login-x:~]$ srun -p free --nodes=1 --ntasks=2 --mem=36G --pty /bin/bash -i
-     
-     | The first job will have a total memory *2 x 3Gb = 6Gb* 
+
+     | The first job will have a total memory *2 x 3Gb = 6Gb*
      | The second and third job each will have a total memory *2 x 18Gb = 36Gb*
-     
-  #. Use ``srun`` and request 4 CPUs and 10Gb memory per CPU,
-  
+
+  #. Use ``srun`` and request 4 CPUs and 10GB memory per CPU,
+
      .. code-block:: console
-     
+ 
         [user@login-x:~]$ srun -p free --nodes=1 --ntasks=4 --mem-per-cpu=10G --pty /bin/bash -i
-     
+ 
      total memory for job is *4 x 10Gb = 40Gb*
 
 .. note:: For information how to get an  access to higher memory partitions please see :ref:`memory partitions`
@@ -693,13 +693,13 @@ Account balance
 
 In order to run jobs on HPC3, a user must have available CPU hours.
 
-1. The ``sbank`` is short for `Slurm bank <https://jcftang.github.io/slurm-bank>`_  
+1. The ``sbank`` is short for `Slurm bank <https://jcftang.github.io/slurm-bank>`_
    It is used to display the balance of used and available hours to the user for a given account
    (defaults to the current user).
 
    Display the account balance for specific account:
      .. code-block::
-    
+
         [user@login-x:~]$ sbank balance statement -a panteater
         User         Usage |     Account   Usage | Account Limit Available (CPU hrs)
         ---------- ------- + ----------- ------- + ------------- ---------
@@ -707,7 +707,7 @@ In order to run jobs on HPC3, a user must have available CPU hours.
 
    Display the account balances for specific user:
      .. code-block::
-    
+
         [user@login-x:~]$ sbank balance statement -u panteater
         User        Usage |     Account    Usage | Account Limit Available (CPU hrs)
         ---------- ------ + ----------- -------- + ------------- ---------
@@ -756,7 +756,7 @@ These are commands that provide info about resources consumed by the job.
 
 All commands need to use a valid *jobid*.
 
-1. The `sstat <https://slurm.schedmd.com/sstat.html>`_ 
+1. The `sstat <https://slurm.schedmd.com/sstat.html>`_
    displays various running job and job steps resource utilization information.
 
    For example, to print out a job's average CPU time use (avecpu), average number of bytes written by all tasks
@@ -771,7 +771,7 @@ All commands need to use a valid *jobid*.
       125610.batch 10-18:11:+ 139983973691 153840335902        1
 
 
-2. The `sacct <https://slurm.schedmd.com/sacct.html>`_ command  can be used to see accounting 
+2. The `sacct <https://slurm.schedmd.com/sacct.html>`_ command  can be used to see accounting
    data for all jobs and job steps and other useful info such how long job
    waited in the queue.
 
@@ -788,7 +788,7 @@ All commands need to use a valid *jobid*.
 
    Find detailed accounting info a job using specific format:
      .. code-block:: console
-   
+
         [user@login-x:~]$ export SACCT_FORMAT="JobID,JobName,Partition,Elapsed,State,MaxRSS,AllocTRES%32"
         [user@login-x:~]$ sacct -j 600
         JobID      JobName  Partition  Elapsed     State  MaxRSS AllocTRES
@@ -796,17 +796,17 @@ All commands need to use a valid *jobid*.
                600    all1  free-gpu  03:14:42 COMPLETED         billing=2,cpu=2,gres/gpu=1,mem=+
          600.batch   batch            03:14:42 COMPLETED 553856K           cpu=2,mem=6000M,node=1
         600.extern  extern            03:14:42 COMPLETED       0 billing=2,cpu=2,gres/gpu=1,mem=+
-   
+
 
      * *MaxRSS*: shows your job memory usage.
      * *AllocTRES*: is trackable resources, these are the resources allocated to the job
        after the job started running. The :tt:`%32` is a format specification to
        reserve 32 characters for this option in the output. Format specification can
        be used for any option.
-    
+ 
    Find how long your jobs were queued (column *Planned*) before they started running:
      .. code-block:: console
-   
+
         [user@login-x:~]$ export SACCT_FORMAT='JobID%20,Submit,Start,Elapsed,Planned'
         [user@login-x:~]$ sacct -j 30054126,30072212,30072182 -X
                JobID              Submit               Start    Elapsed    Planned
@@ -845,7 +845,7 @@ All commands need to use a valid *jobid*.
 
    :Memory efficiency:
      at 0.011% the job used only a fraction of requested 24GB of memory
-    
+ 
    The user should fix the job submit script and ask for less memory per CPU
    and for fewer CPUs.
 
@@ -870,7 +870,7 @@ All commands need to use a valid *jobid*.
         -----------------------------
            CANCELLED by 63168: 1
            COMPLETED: 148
-        
+
         Finished job tasks stats:
         -----------------------------
            Excluding pending/running/cancelled jobs tasks.
@@ -893,14 +893,14 @@ Pending
 Jobs submitted to Slurm will start up as soon as the scheduler can find an appropriate resource
 depending on the availability of the nodes, job priority and job requests.
 
-Lack of resources or insufficient account balance 
+Lack of resources or insufficient account balance
 (status reason is *AssocGrpCPUMinutesLimit* or *AssocGrpBillingMinutes*) are the most common
 reasons that prevent a job from starting.
 
 RCIC does not generally put limits in place unless we see excess,
 unreasonable impact to shared resources (often, file systems), or other fairness issues.
 
-.. important:: **The balance in the account must have enough core hours to cover the job request**. 
+.. important:: **The balance in the account must have enough core hours to cover the job request**.
 
                * This applies to all jobs submitted with ``sbatch`` or ``srun``.
                * This applies to all partitions, including free. While your job
@@ -917,12 +917,12 @@ Pending Job Reasons
 While lack of resources or insufficient account balance are common reasons that prevent a job from starting,
 there are other possibilities.  A job may be waiting for more than one reason.
 
-To see all available job pending reasons and their definitions, please see output of
-``man squeue`` command in the *JOB REASON CODES* section or read the Slurm
-`Job Reason Codes <https://slurm.schedmd.com/job_reason_codes.html>`_ guide.
+To see all available job pending reasons and their definitions in the
+Slurm `Job Reason Codes <https://slurm.schedmd.com/job_reason_codes.html>`_ guide
+or see output of ``man squeue`` command in the *JOB REASON CODES* section.
 
 How to find job pending reason:
-  Run the ``squeue`` command (with your account after :tt:`-u`): 
+  Run the ``squeue`` command (with your login account after :tt:`-u`):
 
   .. code-block:: console
 
@@ -934,7 +934,7 @@ How to find job pending reason:
      95475 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
      95476 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
 
-Most common reasons for job pending state and their explanations are summarized below:
+Most common reasons for job pending state and their explanations:
   ================================================================ =================================================
   :ref:`AssocGrpCPUMinutesLimit <pending AssocGrpCPUMinutesLimit>` :ref:`JobArrayTaskLimit <pending arraytasklimit>`
   :ref:`AssocGrpBillingMinutes <pending AssocGrpBillingMinutes>`   :ref:`MaxGRESPerAccount <pending gres>`
@@ -946,6 +946,11 @@ Most common reasons for job pending state and their explanations are summarized 
 .. _pending AssocGrpCPUMinutesLimit:
 
 :bluelight:`Pending job due to AssocGrpCPUMinutesLimit`
+  Same as :ref:`AssocGrpBillingMinutes <pending AssocGrpBillingMinutes>`.
+
+.. _pending AssocGrpBillingMinutes:
+
+:bluelight:`Pending job due to AssocGrpBillingMinutes`
   This means insufficient funds are available to run the job to completion.
 
   Slurm calculates *MAX Time* a job might consume as Number :subscript:`cores` x Number :subscript:`hours`
@@ -967,10 +972,10 @@ Most common reasons for job pending state and their explanations are summarized 
 
           [user@login-x:~]$ squeue -u panteater
           JOBID  PARTITION  NAME     USER    ACCOUNT ST TIME NODES NODELIST(REASON)
-           6961   standard  tst1 panteater panteater PD 0:00     1 (AssocGrpCPUMinutesLimit)
-           6962   standard  tst2 panteater panteater PD 0:00     1 (AssocGrpCPUMinutesLimit)
+           6961   standard  tst1 panteater panteater PD 0:00     1 (AssocGrpBillingMinutes)
+           6962   standard  tst2 panteater panteater PD 0:00     1 (AssocGrpBillingMinutes)
 
-       Note, the reason is :tt:`AssocGrpCPUMinutesLimit` given for 
+       The reason :tt:`AssocGrpBillingMinutes` is given for
        the personal account where the job was submitted.
 
     Check your Slurm account balance
@@ -982,7 +987,7 @@ Most common reasons for job pending state and their explanations are summarized 
           ---------- ------ + ----------- ------- + ------------- ---------
           panteater*     58 |   PANTEATER      58 |         1,000       942
           panteater*  6,898 |      PI_LAB   6,898 |       100,000    93,102
-    
+
        The account has `942`  hours.
 
     Check your job requirements
@@ -993,16 +998,16 @@ Most common reasons for job pending state and their explanations are summarized 
 
           [user@login-x:~]$ squeue -o "%i %u %j %C %T %L %R" -p standard -t PD -u panteater
           JOBID       USER NAME CPUS   STATE     TIME_LEFT  NODELIST(REASON)
-          66961 panteater tst1  16  PENDING    3-00:00:00 (AssocGrpCPUMinutesLimit)
-          66962 panteater tst2  16  PENDING    3-00:00:00 (AssocGrpCPUMinutesLimit)
+          66961 panteater tst1  16  PENDING    3-00:00:00 (AssocGrpBillingMinutes)
+          66962 panteater tst2  16  PENDING    3-00:00:00 (AssocGrpBillingMinutes)
 
        Each jobs asks for 16 CPUs to run for 3 days which is
        :math:`16 * 24 * 3 = 1152` core-hours, and it is more than `942` hours in the account balance.
 
-    .. attention:: These jobs will never be scheduled to run and need to be canceled
+    .. attention:: These two jobs will never be scheduled to run and need to be canceled
 
   **Job in LAB account**
-    .. important:: A lab account has a combined single balance limit 
+    .. important:: A lab account has a combined single balance limit
                    for all members of the lab.
 
     Check your jobs status
@@ -1011,10 +1016,10 @@ Most common reasons for job pending state and their explanations are summarized 
 
           [user@login-x:~]$ squeue -u panteater -t PD
           JOBID     PARTITION     NAME      USER ACCOUNT ST  TIME CPUS NODE NODELIST(REASON)
-          12341501  standard  myjob_98 panteater  PI_lab PD  0:00    1    1 (AssocGrpCPUMinutesLimit)
-          12341502  standard  myjob_99 panteater  PI_lab PD  0:00    1    1 (AssocGrpCPUMinutesLimit)
+          12341501  standard  myjob_98 panteater  PI_lab PD  0:00    1    1 (AssocGrpBillingMinutes)
+          12341502  standard  myjob_99 panteater  PI_lab PD  0:00    1    1 (AssocGrpBillingMinutes)
 
-    Check the Slurm lab account balance
+    Check your Slurm lab account balance
 
        .. code-block:: console
 
@@ -1026,14 +1031,14 @@ Most common reasons for job pending state and their explanations are summarized 
           panteater*  25,301 |   PI_LAB  75,800 |       225,000   67,300
 
     Check your job requirements
-    
+
        .. code-block:: console
-    
+
           [user@login-x:~]$ scontrol show job 12341501
           JobI4=12341501 JobName=myjob_98
              UserId=panteater(1234567) GroupId=panteater(1234567) MCS_label=N/A
              Priority=299 Nice=0 Account=PI_lab QOS=normal
-             JobState=PENDING Reason=AssocGrpCPUMinutesLimit Dependency=(null)
+             JobState=PENDING Reason=AssocGrpBillingMinutes Dependency=(null)
              Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
              RunTime=00:00:00 TimeLimit=14-00:00:00 TimeMin=N/A
              SubmitTime=2023-01-18T16:36:06 EligibleTime=2023-01-18T16:36:06
@@ -1041,46 +1046,42 @@ Most common reasons for job pending state and their explanations are summarized 
              StartTime=Unknown EndTime=Unknown Deadline=N/A
              NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
              TRES=cpu=1,mem=6G,node=1,billing=1
-             <output  cut> 
-    
-       Similar output is for the second job. Note the :tt:`TimeLimit`.
+             <output  cut>
+
+       There is a similar output is for the second job. Note the :tt:`TimeLimit`
+       which is the time run requested for the job.
        For each of two pending jobs the resource request is:
        :math:`1 CPU * 14 days * 24 hrs = 336 hrs`
-    
+
     Check ALL the running jobs for your lab account
-    
+
        .. code-block:: console
-    
+
           [user@login-x:~]$ squeue -t R -A PI_lab -o "%.10i %.9P %.8j %.8u %.16a %.2t %.6C %l %L"
              JOBID PARTITION     NAME     USER       ACCOUNT ST   CPUS  TIME_LIMIT TIME_LEFT
           12341046  standard myjob_39  panteater      PI_lab  R      1 14-00:00:00 13-23:00:22
           12341047  standard myjob_40  panteater      PI_lab  R      1 14-00:00:00 13-23:00:22
           12341048  standard myjob_41  panteater      PI_lab  R      1 14-00:00:00 13-23:00:22
-          < total 200 lines for 200 jobs >
-    
+          < total 200 running jobs >
+
        | Each of 200 running jobs in the account has run for about 1hr out of allocated 14 days.
-         Total max time Slurm has allocated for these running jobs is 
+         Total max time Slurm has allocated for these running jobs is
        | :math:`1 CPU * 200 jobs * 14 days * 24 hrs = 67200 hrs`
-    
+
        | There are about *200 hrs* already used, (each job already run for ~1 hr), so remaining needed
-         balance is :tt:`67100 hrs`.  Per step 1 above, your 2 pending jobs require
+         balance is :tt:`67100 hrs`.  Your 2 pending jobs require
        | :math:`1 CPU * 14 days * 24 hrs * 2 jobs = 672 hrs`.
-    
+
        | Slurm is computing that if all current jobs ran to their MAX times and if the next job
          were to run MAX time your account would end up negative:
        | :math:`67300 - 67100 - 672 = -472 hrs`.
-    
-       Therefore Slurm puts these new jobs on hold.  
+
+       Therefore Slurm puts these new jobs on hold.
        These 2 jobs will  start running once some of the remaining running jobs completed
        and the account balance is sufficient.
-    
+
       .. important:: It is important to correctly estimate time needed for the job,
                      and not ask for more resources (time, cpu, memory) than needed.
-
-.. _pending AssocGrpBillingMinutes:
-
-:bluelight:`Pending job due to AssocGrpBillingMinutes`
-  Same as :ref:`AssocGrpCPUMinutesLimit <pending AssocGrpCPUMinutesLimit>`.
 
 .. _pending dependency:
 
@@ -1106,7 +1107,7 @@ Most common reasons for job pending state and their explanations are summarized 
 .. _pending gres:
 
 :bluelight:`Pending due to MaxGRESPerAccount`
-   The job's GRES request exceeds the per-Account limit. 
+   The job's GRES request exceeds the per-Account limit.
    We have limits how many GPUs can be allocated to a single user.
 
 .. _pending qosmax:
@@ -1131,58 +1132,43 @@ Most common reasons for job pending state and their explanations are summarized 
 
 .. _fix pending job:
 
-Fix pending job
+Fix Pending Job
 ^^^^^^^^^^^^^^^
 
   Fixes apply for batch jobs submitted with ``sbatch`` or for interactive
   jobs submitted with ``srun``.
 
-  :bluelight:`Fix pending job due to Resources`
-    Check Slurm estimate for the job start time:
-
-    .. code-block:: console
-
-       [user@login-x:~]$ squeue --start -j 32511
-       JOBID PARTITION NAME     USER ST          START_TIME NODES SCHEDNODES NODELIST(REASON)
-       32511     free  GEN panteater PD 2024-08-15T13:36:57     1 hpc3-14-00 (Resources)
-
-    | The estimated time start is listed under *START_TIME*.
-    | You either have to wait or you need to change your job requirements. 
-
-
-  :bluelight:`Fix pending job due AssocGrpBillingMinuteso or AssocGrpCPUMinutesLimit`
-    First, cancel existing pending job (it will never run):
+  :bluelight:`Cancel the job`
+    For many of the job pending reasons the first step is to cancel your job:
 
     .. code-block:: console
 
        [user@login-x:~]$ scancel <jobid>
 
+  **Fix pending job due to**
+
+  :bluelight:`AssocGrpBillingMinuteso or AssocGrpCPUMinutesLimit`
+    First, cancel existing pending job (it will never run).
     Next, resubmit the job so that the requested execution hours can be covered by your bank account balance.
     Check and update the following in your submit script:
 
      * If your job was run from personal account
 
-       | use a different Slurm account (lab) where you have enough balance
-       |   :tt:`SBATCH -A` 
+       :tt:`SBATCH -A` - use a different Slurm account (lab) where you have enough balance
 
      * Lower requirements of your job so that requested resources will be no more than core hours available in
        your account. This may mean to use:
 
-       | fewer CPUs 
-       |   :tt:`SBATCH --ntasks` or :tt:`#SBATCH --cpus-per-task` 
+       :tt:`SBATCH --ntasks` or :tt:`#SBATCH --cpus-per-task` - fewer CPUs
 
-       | fewer CPUs but with increased memory per CPU 
-       |   :tt:`SBATCH --ntasks` and :tt:`#SBATCH --mem-per-cpu` 
+       :tt:`SBATCH --ntasks` and :tt:`#SBATCH --mem-per-cpu` - fewer CPUs, increase memory per CPU
 
-       | less memory
-       |   :tt:`SBATCH --mem` or :tt:`#SBATCH --mem-per-cpu`
+       :tt:`SBATCH --mem` or :tt:`#SBATCH --mem-per-cpu` - less memory
 
-       | set a time limit that is shorter than the default runtime
-       |   :tt:`SBATCH --time` 
-      
+       :tt:`SBATCH --time` - set a time limit shorter than the default runtime
 
-  :bluelight:`Fix pending job due ReqNodeNotAvail, Reserved for maintenance`
-    You need to re-submit your job with a shorter time limit
+  :bluelight:`ReqNodeNotAvail, Reserved for maintenance`
+    You need to cancel your job and re-submit it job with a shorter time limit
     that will end BEFORE the maintenance begins.
 
     If you did not specify time limit, the default time setting is in effect.
@@ -1202,23 +1188,67 @@ Fix pending job
 
     The first output line includes the maintenance start time, end time and duration.
 
-    Based on the info about the reservation and the current day/time you can
+    Based on the info about the reservation time and the current day/time you can
     estimate what time limit :tt:`SBATCH --time` should be specified for your job in order for
     it to finish :red:`before the maintenance starts`.
 
     If your job truly needs requested time limit, nothing can be done until the maintenance is over.
-    Remove your job from the queue and resubmit after the maintenance.
+    Cancel your job and resubmit after the maintenance.
+
+  :bluelight:`Resources`
+    Check Slurm estimate for the job start time:
+
+    .. code-block:: console
+
+       [user@login-x:~]$ squeue --start -j 32511
+       JOBID PARTITION NAME     USER ST          START_TIME NODES SCHEDNODES NODELIST(REASON)
+       32511     free  GEN panteater PD 2024-08-15T13:36:57     1 hpc3-14-00 (Resources)
+
+    | The estimated time start is listed under *START_TIME*.
+    | You either have to wait or you need to cancel your job, change its requirements and resubmit.
+
+
+  :bluelight:`JobArrayTaskLimit`
+     You need to wait till some already running tasks complete. Scheduler will
+     automatically start the next task.
+
+  :bluelight:`MaxGRESPerAccount`
+     You need to wait till some of your already running jobs requesting GPUs complete.
+     There is a limit how many GPUs can be used by a single user or a single GPU account.
+
+  :bluelight:`Dependency`
+     You need to wait till the job dependency on another already running job is fulfilled.
+
+  :bluelight:`DependencyNeverSatisfied`
+     You need to cancel your job because its dependency job was canceled or
+     failed. This job will never run and only takes scheduler resources.
+
+  :bluelight:`QOSMaxJobsPerUserLimit`
+     You need to wait till some of your already running jobs in this partition complete.
+
+  :bluelight:`Priority`
+     The scheduler will automatically start your job when the higher priorities
+     jobs are run and the resources become available.
 
 .. _modify job:
 
 Modification
 ------------
 
-It is possible to make some changes to jobs that are still waiting to run 
-by using the ``scontrol`` command.
+``scontrol``
+
+This command can be used to make some changes to jobs that are still waiting to run.
 
 If changes need to be made for a running job, it may be better to kill the job
 and restart it after making the necessary changes.
+
+Change QOS:
+  By default, jobs are set to run with :tt:`qos=normal`.
+  :underline:`Users rarely need to change QOS`.
+
+  .. code-block:: console
+
+     [user@login-x:~]$ scontrol update jobid=<jobid> qos=[low|normal|high]
 
 Change job time limit:
   Only the Slurm administrator can increase job's time limit.
@@ -1232,18 +1262,13 @@ Change job time limit:
   and your bank account must have sufficient funds to cover the desired time
   extension.
 
-Change QOS:
-  By default, jobs are set to run with :tt:`qos=normal`.
-  :underline:`Users rarely need to change QOS`. 
-
-  .. code-block:: console
-
-     [user@login-x:~]$ scontrol update jobid=<jobid> qos=[low|normal|high]
-
 .. _control jobs:
 
 Cancel/Hold/Release
 -------------------
+
+| ``scancel``
+| ``scontrol``
 
 The following commands can be used to:
 
@@ -1252,19 +1277,19 @@ Cancel a specific job:
 
      [user@login-x:~]$ scancel <jobid>
 
-To cancel all jobs owned by a user:
+Cancel all jobs owned by a user:
   This only applies to jobs that are associated with your accounts
 
   .. code-block:: console
 
      [user@login-x:~]$ scancel -u <username>
 
-To prevent a pending job from starting:
+Prevent a pending job from starting:
   .. code-block:: console
 
      [user@login-x:~]$ scontrol hold <jobid>
 
-To release held jobs to run:
+Release held jobs to run:
   .. code-block:: console
 
      [user@login-x:~]$ scontrol release <jobid>
