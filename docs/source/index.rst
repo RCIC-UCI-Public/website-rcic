@@ -32,6 +32,7 @@ RCIC User Documentation
    account/getting-account
    account/acceptable-use
    account/login
+   account/class
 
 .. toctree::
    :maxdepth: 1
