@@ -180,6 +180,10 @@ HPC3 has heterogeneous hardware, memory footprints, and nodes with GPUs.
 The tables below show available partitions, their memory, runtime
 and job preemption configuration, and cost per hour in :ref:`units cost`.
 
+GPUs in the ``gpu`` partition can natively accelerate 64-bit floating point.
+GPUs in the ``gpu32`` partition can natively accelerate 32-bit floating point, but *cannot* accelerate 64-bit floating point.
+
+
 .. _available partitions:
 
 .. table:: **Available CPU partitions**
@@ -201,20 +205,33 @@ and job preemption configuration, and cost per hour in :ref:`units cost`.
    +-----------+---------------------------+------------------+-------------+------------+
    | maxmem    | 1.5 TB/node / 1.5 TB/node |  1 day / 7 day   | 40 / node   | No         |
    +-----------+---------------------------+------------------+-------------+------------+
+.. note::
+   You *cannot* submit to the ``standard``, ``highmem``, ``hugemem``, or ``maxmem`` paritions with a Slurm account
+   that ends with ``gpu`` or ``gpu32``.
+
 
 .. table:: **Available GPU partitions**
    :widths: 15 30 20 20 15
    :class: noscroll-table
 
-   +-----------+---------------------------+------------------+-------------+------------+
-   | Partition | Default / Max             | Default / Max    | Cost        | Job        |
-   |           |                           |                  |             |            |
-   | name      | memory per core           | runtime          | (units/hr)  | preemption |
-   +===========+===========================+==================+=============+============+
-   | gpu       | 3 GB / 9 GB               | 2 day / 14 day   | 33          | No         |
-   +-----------+---------------------------+------------------+-------------+------------+
-   | free-gpu  | 3 GB / 9 GB               | 1 day / 3 day    | 0           | Yes        |
-   +-----------+---------------------------+------------------+-------------+------------+
+   +------------+---------------------------+------------------+-------------+------------+
+   | Partition  | Default / Max             | Default / Max    | Cost        | Job        |
+   |            |                           |                  |             |            |
+   | name       | memory per core           | runtime          | (units/hr)  | preemption |
+   +============+===========================+==================+=============+============+
+   | gpu        | 3 GB / 9 GB               | 2 day / 14 day   | 33          | No         |
+   +------------+---------------------------+------------------+-------------+------------+
+   | free-gpu   | 3 GB / 9 GB               | 1 day / 3 day    | 0           | Yes        |
+   +------------+---------------------------+------------------+-------------+------------+
+   | gpu32      | 3 GB / 9 GB               | 2 day / 14 day   | 33          | No         |
+   +------------+---------------------------+------------------+-------------+------------+
+   | free-gpu32 | 3 GB / 9 GB               | 1 day / 3 day    | 0           | Yes        |
+   +------------+---------------------------+------------------+-------------+------------+
+
+
+.. note::
+   To submit to the ``gpu`` partition, you must have a Slurm account that ends with ``gpu``.
+   To submit to the ``gpu32`` partition, you must have a Slurm account that ends with ``gpu32``.
 
 Note, there is no difference in cost/core-hour for default and max memory per core.
 
@@ -256,8 +273,8 @@ User must be either:
 GPU-enabled
 ^^^^^^^^^^^
 
-:bluelight:`gpu`
-  You must have a *GPU Lab account* and you must specify it in order to submit
+:bluelight:`gpu and gpu32`
+  You must have a *GPU* or *GPU32 Lab account* and you must specify it in order to submit
   jobs to these partitions. This is because of differential charging.
   There are NO personal GPU accounts.
 
