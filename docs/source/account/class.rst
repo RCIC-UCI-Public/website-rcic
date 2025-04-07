@@ -46,6 +46,8 @@ We provide support for some UCI classes that need computational resources.
 
 :bluelight:`Class Students`
   * All class additions can be requested only by the professor and the designated TAs.
+  * `How to login on HPC3 <https://rcic.uci.edu/account/login.html>`_.
+  * Please read and follow our `Acceptable Use Policy <https://rcic.uci.edu/account/acceptable-use.html>`_.
   * Your class account $HOME is :tt:`/data/class/<classname>/UCInetID` and has 50GB disk quota.
     Check your quotas frequently, follow https://rcic.uci.edu/storage/home.html#how-to-check.
   * If you already have a :underline:`regular account` on the cluster:
@@ -55,7 +57,6 @@ We provide support for some UCI classes that need computational resources.
       - do not create symbolic links from your $HOME to your class account.
         Please follow `symlinks guide <https://rcic.uci.edu/guides/unix-primer.html#symbolic-links>`_.
 
-  * Please read and follow our `Acceptable Use Policy <https://rcic.uci.edu/account/acceptable-use.html>`_.
   * We provide guides and specific topics how to use the cluster at http://rcic.uci.edu
   * All class-related questions need to be directed to your class professor and TAs. 
     We  will answer only questions regarding cluster problems. 
