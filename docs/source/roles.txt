@@ -73,3 +73,4 @@
 .. role:: underline
 .. role:: tt
 .. role:: section
+.. role:: proposed
