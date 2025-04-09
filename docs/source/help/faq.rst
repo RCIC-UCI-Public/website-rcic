@@ -102,6 +102,10 @@ Why is my account reallocation less than 100,00 core-hours?
 :bluelight:`Files storage and transfer`
 ---------------------------------------
 
+Can I get a copy of the other student data?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Please see :ref:`data after account deletion`.
+
 Where can I store store many files, some are large?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Depending on your lab affiliation and how much space your lab has purchased
