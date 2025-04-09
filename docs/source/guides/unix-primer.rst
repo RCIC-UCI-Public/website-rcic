@@ -297,114 +297,112 @@ dash (:tt:`-`) in its place, for example: :tt:`first.example.results`, :tt:`file
 SSH keys
 --------
 
-You must either be on the campus network or connected to the
-`UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to access HPC3.
+This guide provides an introduction to the SSH keys.
+
+  | :ref:`keys concepts`
+  | :ref:`ssh agent`
+  | :ref:`ssh-sgent windows`
+  | :ref:`ssh troubleshooting`
+
+.. note:: You must either be on the campus network or connected to the
+          `UCI campus VPN <https://www.oit.uci.edu/help/vpn>`_ to access HPC3.
 
 .. _keys concepts:
-
-Keys Concepts
-^^^^^^^^^^^^^
-
-A high-level  understanding of how things work will enable you to better secure your own logins.
-SSH uses :bluelight:`Public Key Cryptography` and :bluelight:`Challenge/Response` to negotiate secured sessions.
-
-What do these terms really mean?
-
-:bluelight:`Public Key Cryptography`
-  Text or data can be encrypted using the public key of the recipient.  The recipient then
-  uses the matching private key to decrypt the message.
-:bluelight:`Challenge/Response`
-  The SSH server (e.g., HPC3) encrypts a message using your *SSH public key* and **challenges** your
-  client on your laptop to decrypt it and send back a **response** based on the contents. If you can successfully respond to the
-  **challenge**, the SSH server considers you authenticated.
-:bluelight:`Passphrase`
-  A password associated with your SSH key pair.
-
-**The Algorithm Steps**:
-  The figure below shows where your SSH keys are located and the
-  challenge/response steps.
-
-  .. figure:: images/challenge-response-ssh.png
-     :align: center
-     :width: 60%
-     :alt: SSH challenge response
-
-     SSH Keys Challenge Response
-
-  1. From a laptop, user **requests to login**.
-  #. Server creates a random code and *encrypts* the code with the user's
-     *SSH public key* and sends it back to the user - **challenge**.
-  #. On a laptop, user *decrypts* the *challenge* with the user's *SSH private key*. To do
-     it, need to type in the passphrase to that key. The now-decrypted *challenge* is used
-     to create a valid response message. That message is digitally signed with the *SSH private key*  and
-     is then sent back to the server -  **response to challenge**.
-  #. The server uses the user's public key to verify the authenticity and content of the message.
-     If the *response* matches the *challenge*, then login **access is granted otherwise it is denied**.
-
-**Takeaways**
-  * Your SSH private key should never leave your laptop.
-  * You should always use a strong passphrase (password) on your SSH private key.
-  * This passphrase should be different than all of your other passwords.
-  * You need to type in your passphrase each time you login.
-
+  
+:section:`Keys Concepts`
+  A high-level  understanding of how things work will enable you to better secure your own logins.
+  SSH uses :bluelight:`Public Key Cryptography` and :bluelight:`Challenge/Response` to negotiate secured sessions.
+  
+  What do these terms really mean?
+  
+  :bluelight:`Public Key Cryptography`
+    Text or data can be encrypted using the public key of the recipient.  The recipient then
+    uses the matching private key to decrypt the message.
+  :bluelight:`Challenge/Response`
+    The SSH server (e.g., HPC3) encrypts a message using your *SSH public key* and **challenges** your
+    client on your laptop to decrypt it and send back a **response** based on the contents. If you can successfully respond to the
+    **challenge**, the SSH server considers you authenticated.
+  :bluelight:`Passphrase`
+    A password associated with your SSH key pair.
+  
+  **The Algorithm Steps**:
+    The figure below shows where your SSH keys are located and the
+    challenge/response steps.
+  
+    .. figure:: images/challenge-response-ssh.png
+       :align: center
+       :width: 60%
+       :alt: SSH challenge response
+  
+       SSH Keys Challenge Response
+  
+    1. From a laptop, user **requests to login**.
+    #. Server creates a random code and *encrypts* the code with the user's
+       *SSH public key* and sends it back to the user - **challenge**.
+    #. On a laptop, user *decrypts* the *challenge* with the user's *SSH private key*. To do
+       it, need to type in the passphrase to that key. The now-decrypted *challenge* is used
+       to create a valid response message. That message is digitally signed with the *SSH private key*  and
+       is then sent back to the server -  **response to challenge**.
+    #. The server uses the user's public key to verify the authenticity and content of the message.
+       If the *response* matches the *challenge*, then login **access is granted otherwise it is denied**.
+  
+  **Takeaways**
+    * Your SSH private key should never leave your laptop.
+    * You should always use a strong passphrase (password) on your SSH private key.
+    * This passphrase should be different than all of your other passwords.
+    * You need to type in your passphrase each time you login.
+  
 .. _ssh agent:
-
-Ssh-agent
-^^^^^^^^^
-
-``ssh-agent``
-
-If you have access to your private key and use it to *respond* to HPC3's *challenge*,
-you need to type in the passphrase to that key for success.
-
-**Ssh-agent enables you to load the key into the agent with a passphrase and have the agent
-respond to login challenges for you.**
-
-In this scenario, you enter your the passphrase to your private key once
-when loading your local agent and then the agent responds for you.
-
-**The Algorithmic Steps**:
-
-  .. figure:: images/challenge-response-ssh-agent.png
-     :align: center
-     :width: 60%
-     :alt: SSH challenge response agent
-
-     SSH Challenge Response with Agent
-
-  1. On a laptop, user **starts an ssh agent** and to activate it enters the passphrase to SSH key.
-  #. From  the laptop user **requests to login**.
-  #. Server creates a random code and *encrypts* the code with the user's *SSH public key*
-     and sends it back to the user - **challenge**.
-  #. On the laptop, ssh-agent *decrypts* the *challenge* with the user's *SSH private key*,
-     uses *decrypted challenge* to create a valid response message, digitally signs it
-     with the *private key* and sends it back to the server - **response**.
-  #. The server uses the user's public key to verify the authenticity and content of the message.
-     If the *response* matches the *challenge*, then **access is granted otherwise it is denied**.
-
-**Takeaways**
-  * Using ssh-agent reduces the number of times you type a passphrase.
-  * When you reboot your laptop (or logout), the agent is wiped from memory.
-
+  
+:section:`Ssh-agent`
+  ``ssh-agent``
+  
+  If you have access to your private key and use it to *respond* to HPC3's *challenge*,
+  you need to type in the passphrase to that key for success.
+  
+  **Ssh-agent enables you to load the key into the agent with a passphrase and have the agent
+  respond to login challenges for you.**
+  
+  In this scenario, you enter your the passphrase to your private key once
+  when loading your local agent and then the agent responds for you.
+  
+  **The Algorithmic Steps**:
+  
+    .. figure:: images/challenge-response-ssh-agent.png
+       :align: center
+       :width: 60%
+       :alt: SSH challenge response agent
+  
+       SSH Challenge Response with Agent
+  
+    1. On a laptop, user **starts an ssh agent** and to activate it enters the passphrase to SSH key.
+    #. From  the laptop user **requests to login**.
+    #. Server creates a random code and *encrypts* the code with the user's *SSH public key*
+       and sends it back to the user - **challenge**.
+    #. On the laptop, ssh-agent *decrypts* the *challenge* with the user's *SSH private key*,
+       uses *decrypted challenge* to create a valid response message, digitally signs it
+       with the *private key* and sends it back to the server - **response**.
+    #. The server uses the user's public key to verify the authenticity and content of the message.
+       If the *response* matches the *challenge*, then **access is granted otherwise it is denied**.
+  
+  **Takeaways**
+    * Using ssh-agent reduces the number of times you type a passphrase.
+    * When you reboot your laptop (or logout), the agent is wiped from memory.
+  
 .. _ssh-sgent windows:
-
-Ssh-agent & Windows
-^^^^^^^^^^^^^^^^^^^
-
-With the general background of how ssh-agent functions,
-Microsoft **Windows 10/11** has two commonly-used ssh-agent mechanisms:
-
-  1. *Ssh-agent* running in Microsoft *Powershell*
-  2. *PuTTY SSH client* that uses *PuTTYgen* to create a public/private key
-     pair and *pageant* as the ssh-agent.
-
-Please see :ref:`ssh agents guides listing<ssh keys>`.
-
-
+  
+:section:`Ssh-agent & Windows`
+  With the general background of how ssh-agent functions,
+  Microsoft **Windows 10/11** has two commonly-used ssh-agent mechanisms:
+  
+    1. *Ssh-agent* running in Microsoft *Powershell*
+    2. *PuTTY SSH client* that uses *PuTTYgen* to create a public/private key
+       pair and *pageant* as the ssh-agent.
+  
+  Please see :ref:`SSH agents guides listing<ssh keys>`.
+  
 .. _ssh troubleshooting:
-
-Troubleshooting
-^^^^^^^^^^^^^^^
-
-There are many online guides for ssh, please sea
-:doc:`SSH</guides/tutorials>` links.
+  
+:section:`Troubleshooting`
+  There are many online guides for ssh, please sea
+  :doc:`SSH</guides/tutorials>` links.
