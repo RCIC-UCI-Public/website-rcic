@@ -11,38 +11,44 @@ We provide support for some UCI classes that need computational resources.
 
     * Class catalog name (example cs175) 
     * UCInetIDs of the class TAs
-    * Class roster as a text file with student UCInetIDs one per line. No .xls or .csv files please. 
+    * *Class roster as a text file with student UCInetIDs one per line*.
+      For a short roster can copy/paste it into the email.
+      Please, no :tt:`.xls` or :tt:`.csv` files or links to google docs. 
     * What type of computational access you need: CPU, GPU or both. 
     * What amount of shared data you expect to have publicly available to the students 
       (see :tt:`public/` below). Please note, we do not provide multiple Tbs of class storage. 
+
+    If you expect to work with conda environments please follow our guide
+    :ref:`installing conda environments <install conda>`.
 
   **After the quarter ends**: please send us a confirmation email that the class has ended and we can
   remove all class associated accounts.
 
 :bluelight:`We will create`
-  * The disk quota for class allocation is Number :subscript:`students` x 50GB + Number :subscript:`Gb in public/`
-
-    Note, this is a single class quota, we do not set student-specific quotas.
-    A single student  can render class allocation unusable for all if exceeds the
-    total storage for the class. 
-
-  * Slurm class accounts and deposit a free allocation of hours:
+  * Student class accounts per provided roster. Any student disk usage should not exceed 50GB.
+  * Slurm class accounts, and deposit a free allocation of hours:
 
     * *classname_class* for CPU usage, example cs175_class
     * *classname_class_gpu* for GPU usage, example cs175_class_gpu
 
-  * Your class location is :tt:`/data/class/<classname>` directory.
-    We make the needed subdirectory structure and set ALL correct ownership and permissions.
-    :underline:`Please do not change them to avoid problems.`
+  * Your class disk storage allocation is :tt:`/data/class/<classname>` directory, and  the
+    single quota for the class is Number :subscript:`students` x 50GB + Number :subscript:`GB in public/`
 
-    This class location will hold subdirectories:
+    Note, we do not set student-specific quotas, all students contribute to the class quota.
+    A single student  can render class allocation unusable for all if exceeds the
+    total storage for the class. 
+
+    We provide all the needed class subdirectory structure and set ALL correct ownership and permissions.
+    :underline:`Please do not change ownership and permission  to avoid problems`:
       
       * :tt:`private/` - with read/write access only by the professor and TAs
       * :tt:`public/`  - with read access by all students and
         read/write access by the professor and TAs (to put materials for the students).
         Let us know when requesting the class how much data you expect to  put here for the students.
       * :tt:`UCInetID/` - student class account for each UCInetID in the roster.
-        Each account has 50GB allocation of disk space.
+        A student, professor and TAs can access student class account directory.
+        Each account is expected to use  50GB of total class disk space allocation.
+
 
 :bluelight:`Class Students`
   * All class additions can be requested only by the professor and the designated TAs.
