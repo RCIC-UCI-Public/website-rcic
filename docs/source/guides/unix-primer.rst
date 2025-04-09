@@ -6,12 +6,9 @@ UNIX primer
 .. contents::
    :local:
 
-The information is intended for **new HPC3 users** and
-for **users that are new to Linux/UNIX-like operating systems.**
+The information in this guide is intended to provide familiarity with Linux/UNIX for **HPC3 users
+that are new to these operating systems.**
 Please consult the rest of the user guides for information that is not covered here.
-
-This page contains info to provide some familiarity with Linux/UNIX
-but it is not an exhaustive guide.
 
 .. _bash init files:
 
@@ -45,29 +42,30 @@ Both files start with *dot* which makes them *invisible* to a regular ``ls`` com
        export PATH
 
   Best practices:
-   * it should be a very small file, keep changes here to a bare minimum
+   * It should be a very small file, keep changes here to a bare minimum.
    * It will source :tt:`.bashrc` by default so you don't have to duplicate any commands you want to run for every shell.
 
 :bluelight:`.bashrc`
   Is the initialization file executed every time a user starts a new shell.
-  It includes all customizing of your shell environment with aliases, functions, environment variables, etc.
+  It can include all customizing of your shell environment with aliases, functions, environment variables, etc.
 
   What to put in this file:
-    * aliases - shortcuts to the commands
-    * environment variables that affect your shells and applications
-    * history configuration
-    * terminal color scheme
-    * prompt configuration
+    * Aliases - shortcuts to the commands.
+    * Environment variables that affect your shells and applications.
+    * History configuration.
+    * Terminal color scheme.
+    * Prompt configuration.
 
   :red:`Do not put in this file:`
-    * module load/unload commands
-    * conda init commands, see :ref:`install conda` section to learn how to use them
+    * Any module load/unload commands.
+    * Conda init commands, see :ref:`install conda` section to learn how to use them.
 
   Best practices:
-   * Keep your file clean and concise
-   * Consider using separate files for different types of customizing that can be sourced when needed.
+   * Keep your file clean and concise.
    * Use a text editor ``vim`` or  ``nano`` to modify your :tt:`.bashrc` file.
-   * Before editing make a copy of your current file so you can revert to it if your edits go wrong.
+     Before editing make a copy of your current file so you can revert to it if your edits go wrong.
+   * Consider using separate files for different types of customizing that can be sourced when needed,
+     for example complex environments for specific applications.
    * Reload your file after editing for the changes to take an affect:
 
      .. code-block:: console
@@ -115,10 +113,10 @@ systems.  All data in Unix is organized into **files**, all files are organized 
 
 :ordinary file:
   is a file on the system can contains data, text, program instructions.
-:directory:
-  directories store special and ordinary files. Unix directories are equivalent to folders on Windows or Mac OS.
 :special file:
   file that can provide access to hardware such as hard drives, symbolic links.
+:directory:
+  directories store special and ordinary files. Unix directories are equivalent to folders on Windows or Mac OS.
 
 :bluelight:`Every file has the following access modes`:
 
@@ -129,7 +127,7 @@ systems.  All data in Unix is organized into **files**, all files are organized 
 :execute:
   denoted as **x**, the capability to run a file as a program.
 :sticky bit:
-  denoted as **s**, additional  capability to set permissions for Set User ID (SUID) and Set Group ID (SGID) bits.
+  denoted as **s**, the additional capability to set permissions for Set User ID (SUID) and Set Group ID (SGID) bits.
 
 :bluelight:`Every file has the following attributes or permissions`:
 
@@ -140,65 +138,62 @@ systems.  All data in Unix is organized into **files**, all files are organized 
 :other (world):
   determine what action all other users can perform on the file.
 
-File permissions can be displayed when using ``ls -l`` command:
+:bluelight:`Display file permissions`
 
-.. code-block:: console
+  Use ``ls -l`` command: to display file permissions of files and directories:
 
-   $ ls -l
-   total 55524423
-   drwxrwsr-x  7 panteater bio               127 May 12 16:29 biofiles
-   -rw-r--r--  1 panteater panteater  4294967296 May 31  2022 performance.tst
+  .. code-block:: console
+  
+     $ ls -l
+     total 55524423
+     drwxrwsr-x  7 panteater bio            127 May 12 16:29 biofiles
+     -rw-r--r--  1 panteater panteater  4967296 May 31  2022 perf.tst
+     ... deleted lines ...
+  
+  In the output, a first line labeled **total** shows number of blocks
+  used in the file system by the files which are listed as the directory's contents.
+  The default block size is 512 bytes.
+  
+  The remaining lines are the listing of a directory's contents with the
+  following information for each:
+  
+  .. table::
+     :class: no-scroll-table 
 
-In the output, a first line labeled **total** shows number of blocks
-used in the file system by the files which are listed as the directory's contents.
-The default block size is 512 bytes.
+     +-------------+--------+-----------+-----------+----------+--------------+----------+
+     |  file       | links  | owner     | group     | bytes    | last         | name     |
+     |             |        |           |           |          |              |          |
+     |  mode       | number |           |           | number   | modified     |          |
+     +=============+========+===========+===========+==========+==============+==========+
+     | drwxrwsr-x  |   7    | panteater | bio       | 127      | May 12 16:29 | biofiles |
+     +-------------+--------+-----------+-----------+----------+--------------+----------+
+     |  -rw-r--r-- |   1    | panteater | panteater | 4967296  | May 31  2022 | perf.tst |
+     +-------------+--------+-----------+-----------+----------+--------------+----------+
 
-The remaining lines are the listing of a directory's contents.
-The following information is displayed for each file (example of the second line):
-
-:file mode:
-  ``drwxrwsr-x``
-:number of links:
-  7
-:owner name:
-  panteater
-:group name:
-  bio
-:number of bytes in the file:
-  127
-:abbreviated month:
-  May
-:day-of-month file was last modified:
-  12
-:hour file last modified:
-  16
-:minute file last modified:
-  29
-:pathname:
-  biofiles
-
-The first filed in the output, a file mode, represents file type and its associated
-permissions. For example, file mode ``drwxrwsr-x`` for **biofiles**:
-
-.. table::
-   :class: noscroll-table
-
-   +-----------+-----------------------------------------------------------------------------+
-   | character |  meaning                                                                    |
-   +===========+=============================================================================+
-   | 1         | ``d`` is a file type, in this case a directory                              |
-   +-----------+-----------------------------------------------------------------------------+
-   | 2-4       | ``rwx``  are the owner permissions. The owner                               |
-   |           | has read (r), write (w) and execute (x) permissions.                        |
-   +-----------+-----------------------------------------------------------------------------+
-   | 5-7       | ``rws`` are the group permissions. The group has read (r),                  |
-   |           | write (w), execute (x) permissions, the sticky bit ``s`` is set.            |
-   +-----------+-----------------------------------------------------------------------------+
-   | 8-10      | ``r-x`` are the world permissions (everyone else). Everyone has read (r)    |
-   |           | and execute (x) permissions.                                                |
-   +-----------+-----------------------------------------------------------------------------+
-
-To learn more about files permissions execute command ``man ls``.
+  The **file mode** field in the output, represents file type and its associated
+  permissions. For example, ``drwxrwsr-x`` for :tt:`biofiles`:
+  
+  .. table::
+     :class: noscroll-table
+  
+     +-----------+-----------------------------------------------------------------------------+
+     | character |  meaning                                                                    |
+     |           |                                                                             |
+     | position  |                                                                             |
+     +===========+=============================================================================+
+     | 1         | ``d`` is a file type, in this case a directory                              |
+     +-----------+-----------------------------------------------------------------------------+
+     | 2-4       | ``rwx``  are the owner permissions. The owner                               |
+     |           | has read (r), write (w) and execute (x) permissions.                        |
+     +-----------+-----------------------------------------------------------------------------+
+     | 5-7       | ``rws`` are the group permissions. The group has read (r),                  |
+     |           | write (w), execute (x) permissions, the sticky bit ``s`` is set.            |
+     +-----------+-----------------------------------------------------------------------------+
+     | 8-10      | ``r-x`` are the world permissions. Everyone else has read (r)               |
+     |           | and execute (x) permissions.                                                |
+     +-----------+-----------------------------------------------------------------------------+
+  
+  To learn more about files permissions execute command ``man ls``.
 
 .. _symbolic links:
 
@@ -211,85 +206,91 @@ points to another file system entry.
 
 While symbolic links can be  a practical choice, sometimes they can have a significant, adverse impact on performance
 
-*Appropriate use:*
-  * When making shortcuts for the names between the files on the same filesystem.
+**Best practices:**
+  * Use when making shortcuts for the names between the files on the same filesystem.
+  * Use when making shortcuts from a local file system to a remote file (networked) file system,
+    for example :tt:`/pub -> /dfs6/pub`.
+  * :ref:`use aliases` in place of symbolic links when
+    you are making shortcuts for the file names in different filesystems.
 
-  * When making shortcuts from a local file system to a remote file (networked) file system,
-    for example :tt:`/pub -> /dfs6/pub`
+:red:`Do not use:`
+  .. attention::  | Do not create symbolic links between any two networked filesystems:
 
-:red:`Should not be used:`
-  * Symbolic links between any two **networked** file systems.
+                      * $HOME and CRSP
+                      * $HOME and DFS
+                      * CRSP and DFS
 
-  As an example of inappropriate use suppose you define a *convenience* link
-  from your home area :tt:`$HOME` to your PI's CRSP lab area as:
+                  | The CRSP and DFS servers can handle high-volumes of traffic,
+                    the $HOME servers cannot.
 
-  .. code-block:: console
+  **Example of inappropriate use**
+    Suppose you define a convenience link
+    from your home area :tt:`$HOME` to your PI's CRSP lab area as:
 
-     $ ls -l crsplab
-     crsplab -> /share/crsp/lab/pilab
+    .. code-block:: console
 
-  In this scenario,
+       $ ls -l crsplab
+       crsplab -> /share/crsp/lab/pilab
 
-  #. Every file operation that uses :tt:`$HOME/crsplab` as part of its path must first go to the NFS server
-     that provides $HOME.
-  #. The NFS home server then redirects to CRSP server and a **second** network transaction is made for the CRSP server.
+    In this scenario:
 
-  Essentially, this kind of *convenience* link forces the home
-  area server to be in the middle, doing completely useless work that can have significant impact on the
-  home area server *and* on your code running on a cluster node.
+      #. Every file operation that uses :tt:`$HOME/crsplab` as part of its path must first go to the NFS server
+         that provides $HOME. This includes any ``ls`` command or any ocmmand that parses a file path starting with $HOME.
+      #. The NFS home server then redirects to CRSP server and a *second* network transaction is made for the CRSP server.
 
-  **CRSP** and **DFS** servers are  designed to handle high-volumes of traffic, while the home area server is not.
+      Essentially, this kind of *convenience* link forces the home
+      area server to be in the middle, :underline:`doing completely useless work that can have significant impact on the
+      home area server for all users and on your code running on a cluster node`.
 
-  .. attention:: | :red:`Do not create symbolic links between $HOME and CRSP or DFS!`
-                 | Use aliases or environment variables in place of symbolic links when
-                 | you are making shortcuts for the file names in different filesystems.
-
+.. _use aliases:
 
 **Use aliases or environment variables**
+  A shortcut  name can be accomplished via an *alias* or an *environment variable*.
+  For example, in your :tt:`.bashrc` add:
 
-A shortcut  name can be accomplished via an alias or an environment variable.
-For example, in your :tt:`.bashrc` add
+    .. code-block:: bash
 
-.. code-block:: bash
+       alias crsplab='cd /share/crsp/lab/pilab'
+       export CRSPLAB=/share/crsp/lab/pilab
 
-   alias crsplab='cd /share/crsp/lab/pilab'
-   export CRSPLAB=/share/crsp/lab/pilab
+  Then use either an alias or an environment variable that you defined.
+  For example, when need to change to your CRSP lab area can simply execute one of the
+  following commands (both commands  give the same result):
 
-Then use either an alias or a variable depending on your task.
-When need to change to your CRSP lab area can simply execute one of the
-following commands (they are equivalent):
+    .. code-block:: bash
 
-.. code-block:: bash
+       $ crsplab
+       $ cd $CRSPLAB
 
-   $ crsplab
-   $ cd $CRSPLAB
+  When need to list contents  of your CRSP lab area:
 
-When need to list contents  of your CRSP lab area:
+    .. code-block:: bash
 
-.. code-block:: bash
+       $ ls $CRSPLAB
 
-   $ ls $CRSPLAB
-
-For using aliases and environment variables in your Slurm jobs please see
-:ref:`using aliases`.
+  For using aliases and environment variables in your Slurm jobs please see
+  :ref:`using aliases`.
 
 .. _special characters:
 
 Special Characters
 ------------------
 
-.. important:: Avoid using special characters in file or directory names.
+.. important:: Please see a
+               `list of special characters <https://www.oreilly.com/library/view/learning-the-bash/1565923472/ch01s09.html>`_
+               and avoid using them in file and directory names.
 
 Special characters are used by :tt:`bash` and have an alternative, non-literal meaning.
-For example, a **white space** is one such special characters and can be  represented by:
+For example, a *white space* is one such special character and can be represented by:
 
-===== ======= === ============ =============== =========
-space newline tab vertical tab carriage return form feed
-===== ======= === ============ =============== =========
+  ===== ======= === ============ =============== =========
+  space newline tab vertical tab carriage return form feed
+  ===== ======= === ============ =============== =========
 
-Please see a
-`list of special characters <https://www.oreilly.com/library/view/learning-the-bash/1565923472/ch01s09.html>`_
-and avoid using them in file and directory names.
+Using a *white space* character in in the file name will require special
+handling of such files. To avoid this, simply use dot (:tt:`.`), underscore (:tt:`_`) or
+dash (:tt:`-`) in its place, for example: :tt:`first.example.results`, :tt:`file_name.txt`, :tt:`my-file.doc`.
+
 
 .. _ssh guide:
 
@@ -304,55 +305,54 @@ You must either be on the campus network or connected to the
 Keys Concepts
 ^^^^^^^^^^^^^
 
-A high-level  understanding of how things work will enable you to better secure your own logins
-SSH uses :tt:`Public Key Cryptography` and :tt:`challenge/response` to negotiate secured sessions.
+A high-level  understanding of how things work will enable you to better secure your own logins.
+SSH uses :bluelight:`Public Key Cryptography` and :bluelight:`Challenge/Response` to negotiate secured sessions.
 
 What do these terms really mean?
 
-* :tt:`Public Key Cryptography` - text or data can be encrypted using the public key of the recipient.  The recipient then
+:bluelight:`Public Key Cryptography`
+  Text or data can be encrypted using the public key of the recipient.  The recipient then
   uses the matching private key to decrypt the message.
-* :tt:`Challenge/Response` - the ssh server (e.g., HPC3) encrypts a message using your public ssh key and **challenges** your
+:bluelight:`Challenge/Response`
+  The SSH server (e.g., HPC3) encrypts a message using your *SSH public key* and **challenges** your
   client on your laptop to decrypt it and send back a **response** based on the contents. If you can successfully respond to the
-  *]*challenge**, the ssh server considers you authenticated.
-* :tt:`Passphrase` - a password associated with your ssh key pair
-
-
-The figure below shows where your SSH private key and
-public keys are located. The server encrypts the **challenge** with YOUR public key.
-You type in your passphrase to your private key each time you login.
-
-
-.. figure:: images/challenge-response-ssh.png
-   :align: center
-   :width: 60%
-   :alt: ssh challenge response
-
-   SSH Keys Challenge Response
+  **challenge**, the SSH server considers you authenticated.
+:bluelight:`Passphrase`
+  A password associated with your SSH key pair.
 
 **The Algorithm Steps**:
+  The figure below shows where your SSH keys are located and the
+  challenge/response steps.
 
-  1. User **requests to login**.
-  2. Server creates a random code and *encrypts* the code with the user's
-     *ssh public key* and sends it back to the user - **challenge**.
-  3. User *decrypts* the *challenge* with the user's *private ssh key*. To do
+  .. figure:: images/challenge-response-ssh.png
+     :align: center
+     :width: 60%
+     :alt: SSH challenge response
+
+     SSH Keys Challenge Response
+
+  1. From a laptop, user **requests to login**.
+  #. Server creates a random code and *encrypts* the code with the user's
+     *SSH public key* and sends it back to the user - **challenge**.
+  #. On a laptop, user *decrypts* the *challenge* with the user's *SSH private key*. To do
      it, need to type in the passphrase to that key. The now-decrypted *challenge* is used
-     to create a valid response message. That message is digitally signed with the *private key*  and
+     to create a valid response message. That message is digitally signed with the *SSH private key*  and
      is then sent back to the server -  **response to challenge**.
-  4. The server uses the user's public key to verify the authenticity and content of the message.
-     If the *response* matches the *challenge*, then **access is granted otherwise it is denied**.
-
+  #. The server uses the user's public key to verify the authenticity and content of the message.
+     If the *response* matches the *challenge*, then login **access is granted otherwise it is denied**.
 
 **Takeaways**
-
-* Your private SSH key should never leave your laptop
-* You should always use a strong password (passphrase) on your private ssh key
-* This password should be different than all of your other passwords
-* You need to type in your password each time you login
+  * Your SSH private key should never leave your laptop.
+  * You should always use a strong passphrase (password) on your SSH private key.
+  * This passphrase should be different than all of your other passwords.
+  * You need to type in your passphrase each time you login.
 
 .. _ssh agent:
 
 Ssh-agent
 ^^^^^^^^^
+
+``ssh-agent``
 
 If you have access to your private key and use it to *respond* to HPC3's *challenge*,
 you need to type in the passphrase to that key for success.
@@ -360,34 +360,31 @@ you need to type in the passphrase to that key for success.
 **Ssh-agent enables you to load the key into the agent with a passphrase and have the agent
 respond to login challenges for you.**
 
-In essence, you type in private key passphrase once when loading your local agent
-and then the agent responds for you.  In this scenario, you enter your the passphrase to your private key once.
+In this scenario, you enter your the passphrase to your private key once
+when loading your local agent and then the agent responds for you.
 
-.. figure:: images/challenge-response-ssh-agent.png
-   :align: center
-   :width: 60%
-   :alt: ssh challenge response agent
+**The Algorithmic Steps**:
 
-   SSH Challenge Response with Agent
+  .. figure:: images/challenge-response-ssh-agent.png
+     :align: center
+     :width: 60%
+     :alt: SSH challenge response agent
 
-**The algorithmic steps**:
+     SSH Challenge Response with Agent
 
-  1. User **starts an ssh agent** then enters once the password to ssh key to activate the agent
-  2. User **requests to login**
-  3. Server creates a random code and *encrypts* the code with the user's *ssh public key*
-     and sends it back to the user - **challenge**
-  4. Ssh agent *decrypts* the *challenge* with the user's *private ssh key*,
+  1. On a laptop, user **starts an ssh agent** and to activate it enters the passphrase to SSH key.
+  #. From  the laptop user **requests to login**.
+  #. Server creates a random code and *encrypts* the code with the user's *SSH public key*
+     and sends it back to the user - **challenge**.
+  #. On the laptop, ssh-agent *decrypts* the *challenge* with the user's *SSH private key*,
      uses *decrypted challenge* to create a valid response message, digitally signs it
      with the *private key* and sends it back to the server - **response**.
-  5. The server uses the user's public key to verify the authenticity and content of the message.
-     If the *response* matches the *challenge*, then **access is granted otherwise it is denied**
-
+  #. The server uses the user's public key to verify the authenticity and content of the message.
+     If the *response* matches the *challenge*, then **access is granted otherwise it is denied**.
 
 **Takeaways**
-
-* Using ssh-agent reduces the number of times you enter a password from the keyboard
-* When you reboot your laptop (or logout), the agent is wiped from memory
-
+  * Using ssh-agent reduces the number of times you type a passphrase.
+  * When you reboot your laptop (or logout), the agent is wiped from memory.
 
 .. _ssh-sgent windows:
 
@@ -397,9 +394,9 @@ Ssh-agent & Windows
 With the general background of how ssh-agent functions,
 Microsoft **Windows 10/11** has two commonly-used ssh-agent mechanisms:
 
-1. *Ssh-agent* running in Microsoft *Powershell*
-2. *Putty ssh client* that uses *putty-gen* to create a public/private key
-   pair and *pageant* as the ssh-agent.
+  1. *Ssh-agent* running in Microsoft *Powershell*
+  2. *PuTTY SSH client* that uses *PuTTYgen* to create a public/private key
+     pair and *pageant* as the ssh-agent.
 
 Please see :ref:`ssh agents guides listing<ssh keys>`.
 
