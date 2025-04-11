@@ -12,16 +12,16 @@ We provide support for some UCI classes that need computational resources.
     1. Class catalog name (example cs175).
     #. UCInetIDs of the class TAs. Please confirm that you delegate the TAs to
        handle class-related requests.
-    #. | *Class roster as a text file with student UCInetIDs one per line*.
+    #. | *Class roster - a text file with student UCInetIDs one per line*.
        | Please, do not send :tt:`.xls` or :tt:`.csv` files or links to google docs. 
        | For a short roster can copy/paste it into the email.
        | Please indicate who is a graduate level or undergraduate level student. 
     #. What type of computational access you need: CPU, GPU or both. 
     #. What amount of shared data you expect to have publicly available to the students 
        (see :tt:`public/` below). Please note, we do not provide multiple Tbs of class storage. 
-    #. Class software requirements if any.
+    #. Class software requirements if any:
 
-       * In general,we do not install software just for the classes.  A desired
+       * In general, we do not install software just for the classes.  A desired
          software may be already available on the cluster.
        * If you expect to work with conda environments, students should follow our guide
          :ref:`installing conda environments <install conda>`.
