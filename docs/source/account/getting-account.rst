@@ -85,10 +85,10 @@ What happens to data when an account is closed
      intrinsic value of the data)**. Data stored here is most-often the result of funded research. 
   
 :bluelight:`What happens the actual data when a student is no longer at UCI?`
-  When students have their UCINetID deactivated by the university, RCIC at some time after the deactivation will do 
+  When students have their UCInetID deactivated by the university, RCIC at some time after the deactivation will do 
   the following:
   
-  * Remove the student `UCINetID` from HPC3 and/or CRSP. This automatically removes them from any UNIX groups, too.
+  * Remove the student `UCInetID` from HPC3 and/or CRSP. This automatically removes them from any UNIX groups, too.
   * Archive *private* data for 6 months.  After 6 months, *private* data is permanently deleted and cannot be recovered.
   * Leave *University Owned* data untouched. In other words, that data is neither archived nor deleted.  If access to
     the data is required, then the faculty steward must open a support ticket to request any changes that

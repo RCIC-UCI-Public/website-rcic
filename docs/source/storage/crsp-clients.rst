@@ -238,13 +238,13 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
 
     You will edit 5 fields in the default bookmark (left image below):
 
-      1. :guilabel:`Nickname` - we recommend to change it to something like: **CRSP LAb - <pi> lab**
+      1. :guilabel:`Nickname` - we recommend to change it to something like: **CRSP LAB - <pi> lab**
       #. :guilabel:`Username` - your UCInetID
       #. :guilabel:`SSH Private Key` - use an SSH key name that you generated when following the
          :ref:`Quick Start <crsp quick start>` procedure for working effectively with DUO.
          The corresponding public key should have also been :ref:`copied to CRSP <manage crsp keys>`
          into  :tt:`~/.ssh/authorized_keys` file.
-      #. :guilabel:`Path` - only the last part (highlighted below) that represents **CRSP Lab Owner's UCINetID**
+      #. :guilabel:`Path` - only the last part (highlighted below) that represents **CRSP Lab Owner's UCInetID**
          should be edited. The :tt:`/mmfs1/crsp/lab` must remain unchanged.
       #. :guilabel:`Connect Mode` - change to **Online**. This keeps all files on CRSP
          and reduces local cache space. If you use CRSP from multiple clients, this the *most reliable*
@@ -541,7 +541,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
          :ref:`Quick Start <crsp quick start>` procedure for working effectively with DUO.
          The corresponding public key should have also been :ref:`copied to CRSP <manage crsp keys>`
          into  :tt:`~/.ssh/authorized_keys` file.
-      #. :guilabel:`Path` - only the last part (highlighted below) that represents **CRSP Lab Owner's UCINetID**
+      #. :guilabel:`Path` - only the last part (highlighted below) that represents **CRSP Lab Owner's UCInetID**
          should be edited. The :tt:`/mmfs1/crsp/lab` must remain unchanged.
       #. :guilabel:`Connect Mode` - change to **Online**. This keeps all files on CRSP
          and reduces local cache space. If you use CRSP from multiple clients, this the *most reliable*
