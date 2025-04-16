@@ -6,7 +6,6 @@ Specs
 .. contents::
    :local:
 
-
 .. _hardware configuration:
 
 Hardware configuration
@@ -20,23 +19,24 @@ The system started as a 4000 core system when first constructed in June 2020.
 It has expanded several times with nodes purchased by UCI and faculty.
 
 As of March 2025, the following describes the cluster:
-  * 253 Batch-accessible nodes including:
+  * 253 batch-accessible nodes including:
+
     * 14 nodes with 4 Nvidia V100 (16GB) GPUs
     * 18 nodes with 4 Nvidia A30 (24GB) GPUs
     * 4 nodes with 2 Nvidia A100 (80GB) GPUs
     * 2 nodes with 4 Nvidia L40S (48GB) GPUs
   * 11568 total cores (1256 AMD EPYC and 10312 Intel)
-  * 73,132 GB Aggregate Memory
-  * Three load-balanced login nodes
+  * 73,132 GB aggregate memory
+  * 3 load-balanced login nodes
   * 96.4% nodes (244/253) at 100 Gbit/s EDR InfiniBand
 
-HPC3 heterogeneous hardware has the following *unique* configurations.
+.. note:: * Slurm matches your job request to *physical* nodes. It is possible to make a request where 
+            just a few or no physical nodes can fulfill your request. 
+            For example, requesting a 800GB of memory on a single node is only possible on 4 nodes. 
+          * Features and GPU type and number (or GRES, e.g. Generic RESources)
+            are resource specifications that can be requested in Slurm GPU job submissions.
 
-.. note:: Slurm matches your job request to *physical* nodes. It is possible to make a request where 
-          just a few or no physical nodes can fulfill your request. 
-          For example, requesting a 800GB of memory on a single node
-          is only possible on 4 nodes. 
-
+**HPC3 heterogeneous hardware has the following** :underline:`unique` **configurations:**
 
 .. Generate the following table (formatting is going to be table-like) with
 .. sinfo -S  '-R -D c' -p standard,highmem,hugemem,maxmem,gpu,standard-hbm,gpu-hugemem,gpu32 -o "   | %4D | %4c | %9m | %38f | %12G | " -e  | sed 's/(null)/      /'
@@ -107,9 +107,6 @@ HPC3 heterogeneous hardware has the following *unique* configurations.
    | 1     | 40   | 386000    | intel,avx512,mlx5_ib,gpugeneric        | gpu:V100:4 |
    +-------+------+-----------+----------------------------------------+------------+
 
-.. note:: Features and GPU type and number (or GRES, e.g. Generic RESources)
-          are resource specifications that can be requested in Slurm GPU job submissions.
-
 .. _networking:
 
 Networking
@@ -123,103 +120,111 @@ See more info in :ref:`network type`.
 
 .. _nodes type:
 
-Node Type
----------
+Node Types
+----------
 
-HPC3 nodes have
-  * minimums of 56 Gbit/s InfiniBand (most nodes are 100 Gbit/s)
-  * 4GB memory/core
-  * AVX-2 capability
-
-For additional info see :ref:`hardware faq`.
-
-CPU only nodes
-^^^^^^^^^^^^^^
-
-Most-common configurations:
-
-**Chassis**:
-  1. | *HP*
-     | HPE `Apollo 2000 Gen 10 <https://h20195.www2.hpe.com/v2/GetPDF.aspx/4AA4-8164ENW.pdf>`_.  2RU with 4 nodes/chassis
-     | Dual-Socket, `Intel Skylake 6148 <https://ark.intel.com/content/www/us/en/ark/products/120489/intel-xeon-gold-6148-processor-27-5m-cache-2-40-ghz.html>`_ 20-core `CPU@2.4GHz`. 40 Cores total.
-  2. | *Dell Cascade Lake*
-     | Dell `R640 1U Server <https://www.dell.com/en-us/work/shop/productdetailstxn/poweredge-r640>`_
-     | Dual-Socket, `Intel Cascade Lake 6240R <https://ark.intel.com/content/www/us/en/ark/products/199343/intel-xeon-gold-6240r-processor-35-75m-cache-2-40-ghz.html>`_ 24-core `CPU@2.4GHz`. 48 Cores total.
-  3. | *Dell Ice Lake*
-     | Dell `R650 1U Server <https://www.dell.com/en-us/work/shop/productdetailstxn/poweredge-r650>`_
-     | Dual-Socket, `Intel Ice Lake 6336Y <https://www.intel.com/content/www/us/en/products/sku/215280/intel-xeon-gold-6336y-processor-36m-cache-2-40-ghz/specifications.html>`_ 24-core `CPU@2.4GHz`. 48 Cores total.
-     | 256GB DDR4, ECC Memory
-
-**Interconnect**:
-  Each node is connected to Ethernet and InfiniBand  networks. See :ref:`networking` for details.
-
-
-**Memory**:
-  | All memory is DDR4, EEC, most common capacity is 192GB.
-  | Available memory in GB:
-
-  === === === ==== === ==== ==== ====
-  192 256 384 512  768 1536 2048 3072
-  === === === ==== === ==== ==== ====
-
-GPU-Enabled Nodes
-^^^^^^^^^^^^^^^^^
-
-A node can have up to 4 GPUs of the same type.
-CPU, Network, Memory, SSD  are identical to CPU only nodes.
-Currently available configurations have high-bandwidth memory and PCIe connections.
-
-**Chassis**:
-  | HPE `DL380 Gen 10 <https://buy.hpe.com/au/en/servers/rack-servers/proliant-dl300-servers/proliant-dl380-server/hpe-proliant-dl380-gen10-server/p/1010026818>`_ chassis, 2RU, up to 4 GPUs/chassis.
-
-**GPU**:
-  | Qty 4 Nvidia `V100 <https://www.nvidia.com/en-us/data-center/v100/>`_ GPU, 16GB memory
-  | Qty 4 Nvidia A30 GPU, 24GB memory
-  | Qty 2 Nvidia A100 GPU, 80GB memory
-  | Qty 4 Nvidia L40S GPU, 48 memory
-
-.. _support nodes:
-
-Support Nodes
-^^^^^^^^^^^^^
-
-Support nodes are specialized nodes that provide very specific services:
-
-  .. table::
-     :class: noscroll-table
-
-     +---------------+----------+--------------------------------------------------+
-     | Type          | How many | Provided Services                                |
-     +===============+==========+==================================================+
-     | Login nodes   | 3        | Point of entry to the cluster.  Have the same    |
-     |               |          | CPU, Network, Memory configuration as CPU nodes. |
-     +---------------+----------+--------------------------------------------------+
-     | Slurm server  | 1        | Slurm scheduler                                  |
-     +---------------+----------+--------------------------------------------------+
-     | Provisioning  | 1        | Management node                                  |
-     +---------------+----------+--------------------------------------------------+
-     | Firewall      | 4        | `PFSense <https://www.pfsense.org/>`_ security   |
-     +---------------+----------+--------------------------------------------------+
-     | NFS server    | 3        | Home area with `ZFS <https://zfsonlinux.org/>`_  |
-     |               |          | as the underlying file system                    |
-     +---------------+----------+--------------------------------------------------+
-
-.. _node details:
-
-Node Details
-------------
-
-HPC3 is a heterogeneous cluster with several CPU types, memory footprints, InfiniBand revisions.
-All nodes in HPC3 have the following *minimum requirements*:
+| HPC3 is a heterogeneous cluster with several CPU types, memory footprints, InfiniBand revisions.
+| All nodes in HPC3 have the following *minimum requirements*:
 
 :*AVX support*:
-   AVX2 (most nodes have avx512 support)
+   AVX2 capability (most nodes have AVX512)
 :*Cores/node*:
    24 (most nodes have at least 40)
 :*Memory/core*:
    4GB
 :*IB Technology*:
-   FDR (Fourteen Data Rate)
+   56 Gbit/s InfiniBand interconnect (most nodes are 100 Gbit/s)
+
+For additional info see :ref:`hardware faq`.
+
+.. _cpu node:
+
+:bluelight:`CPU only nodes`
+  Most-common configurations are listed below.
+  
+  **Chassis**:
+  
+    .. table::
+       :class: noscroll-table
+  
+       +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+       | *HP*                | HPE `Apollo 2000 Gen 10 <https://h20195.www2.hpe.com/v2/GetPDF.aspx/4AA4-8164ENW.pdf>`_.  2RU with 4 nodes/chassis                                                                                              |
+       |                     |                                                                                                                                                                                                                 |
+       |                     | Dual-Socket, `Intel Skylake 6148 <https://ark.intel.com/content/www/us/en/ark/products/120489/intel-xeon-gold-6148-processor-27-5m-cache-2-40-ghz.html>`_ 20-core `CPU@2.4GHz`. 40 Cores total.                 |
+       +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+       | *Dell Cascade Lake* | Dell `R640 1U Server <https://www.dell.com/en-us/work/shop/productdetailstxn/poweredge-r640>`_                                                                                                                  |
+       |                     |                                                                                                                                                                                                                 |
+       |                     | Dual-Socket, `Intel Cascade Lake 6240R <https://ark.intel.com/content/www/us/en/ark/products/199343/intel-xeon-gold-6240r-processor-35-75m-cache-2-40-ghz.html>`_ 24-core `CPU@2.4GHz`. 48 Cores total.         |
+       +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+       | *Dell Ice Lake*     | Dell `R650 1U Server <https://www.dell.com/en-us/work/shop/productdetailstxn/poweredge-r650>`_                                                                                                                  |
+       |                     |                                                                                                                                                                                                                 |
+       |                     | Dual-Socket, `Intel Ice Lake 6336Y <https://www.intel.com/content/www/us/en/products/sku/215280/intel-xeon-gold-6336y-processor-36m-cache-2-40-ghz/specifications.html>`_ 24-core `CPU@2.4GHz`. 48 Cores total. |
+       |                     |                                                                                                                                                                                                                 |
+       |                     | 256GB DDR4, ECC Memory                                                                                                                                                                                          |
+       +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+  
+  **Interconnect**:
+    Each node is connected to Ethernet and InfiniBand  networks. See :ref:`networking` for details.
+  
+  
+  **Memory**:
+    | All memory is DDR4, EEC, most common capacity is 192GB.  Available memory in GB:
+  
+    === === === ==== === ==== ==== ====
+    192 256 384 512  768 1536 2048 3072
+    === === === ==== === ==== ==== ====
+
+.. _gpu node:
+
+:bluelight:`GPU-Enabled Nodes`
+  A node can have up to 4 GPUs of the same type.
+  CPU, Network, Memory, SSD  are identical to CPU only nodes.
+  Currently available configurations have high-bandwidth memory and PCIe connections.
+  
+  **Chassis**:
+  
+    .. table::
+       :class: noscroll-table
+  
+       +--------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+       | *HP*   | `DL380 Gen 10 <https://buy.hpe.com/au/en/servers/rack-servers/proliant-dl300-servers/proliant-dl380-server/hpe-proliant-dl380-gen10-server/p/1010026818>`_ server, 2RU, up to 4 GPUs/chassis. |
+       +--------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+  
+  **GPU**:
+    | Qty 4 Nvidia `V100 <https://www.nvidia.com/en-us/data-center/v100/>`_ GPU, 16GB memory
+    | Qty 4 Nvidia A30 GPU, 24GB memory
+    | Qty 2 Nvidia A100 GPU, 80GB memory
+    | Qty 4 Nvidia L40S GPU, 48 memory
+
+.. _support nodes:
+
+:bluelight:`Support Nodes`
+  These are specialized nodes that provide very specific services:
+  
+  .. table::
+     :class: noscroll-table
+     :widths: 20,15,65
+  
+     +---------------+----------+--------------------------------------------------+
+     | Node Type     | How many | Provided Services                                |
+     +===============+==========+==================================================+
+     | Login server  | 3        | Point of entry to the cluster.  Have the same    |
+     |               |          | CPU, Network, Memory configuration as CPU nodes. |
+     +---------------+----------+--------------------------------------------------+
+     | Slurm server  | 1        | Slurm scheduling and accounting.                 |
+     +---------------+----------+--------------------------------------------------+
+     | Provisioning  | 1        | Management services.                             |
+     +---------------+----------+--------------------------------------------------+
+     | Firewall      | 4        | `PFSense <https://www.pfsense.org/>`_ security.  |
+     +---------------+----------+--------------------------------------------------+
+     | NFS server    | 3        | Home area with `ZFS <https://zfsonlinux.org/>`_  |
+     |               |          | as the underlying file system.                   |
+     +---------------+----------+--------------------------------------------------+
+  
+.. _node details:
+
+Node Details
+------------
 
 `Ganglia <http://www.ganglia.org>`_ provides real time high-level `view of
 HPC3 utilization <https://hpc3.rcic.uci.edu/ganglia>`_.
