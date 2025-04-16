@@ -10,15 +10,14 @@ We provide support for some UCI classes that need computational resources.
   with the following info:
 
     1. Class catalog name (example cs175).
-    #. UCInetIDs of the class TAs. Please confirm that you delegate the TAs to
-       handle class-related requests.
+    #. UCInetIDs of the class TAs. TAs will be able to communicate to us class-related requests.
     #. | *Class roster - a text file with student UCInetIDs one per line*.
        | Please, do not send :tt:`.xls` or :tt:`.csv` files or links to google docs. 
        | For a short roster can copy/paste it into the email.
        | Please indicate who is a graduate level or undergraduate level student. 
     #. What type of computational access you need: CPU, GPU or both. 
     #. What amount of shared data you expect to have publicly available to the students 
-       (see :tt:`public/` below). Please note, we do not provide multiple Tbs of class storage. 
+       (see :tt:`public/` below).
     #. Class software requirements if any:
 
        * In general, we do not install software just for the classes.  A desired
@@ -35,11 +34,11 @@ We provide support for some UCI classes that need computational resources.
   1. Student class accounts per provided roster.
   #. Slurm class accounts, and deposit a free allocation of hours:
 
-     * *classname_class* for CPU usage, example cs175_class
-     * *classname_class_gpu* for GPU usage, example cs175_class_gpu
+     * *classname_class* for CPU usage with 50K hours, example cs175_class
+     * *classname_class_gpu* for GPU usage with 30K hours, example cs175_class_gpu
 
   #. Class disk storage allocation is :tt:`/data/class/<classname>` directory, example /data/class/cs175.
-     A single quota for the class is calculated as
+     A single quota :underline:`up to 1TB` for the class is calculated as:
 
      Quota :subscript:`GB` =  Number :subscript:`students` x 50 :subscript:`GB` + Storage in public/ :subscript:`GB`
 
