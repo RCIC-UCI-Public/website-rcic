@@ -691,13 +691,13 @@ There are a few basic steps:
       |  you  want your created modules files be in a directory :tt:`/dfs3/panteater-lab/modulefiles/`
 
       You need to enable ``module`` commands to find your created module file.
-      This is done via adding pathnames to the :tt:`$HOME/.usermodulepath` file.
+      This is done via adding pathnames to the :tt:`$HOME/.usermodulsepath` file.
       Initially, this text file does not exist, simply create it using your favorite text editor:
 
       .. code-block:: console
 
-         [user@login-x:~]$ touch ~/.usermodulepath
-         [user@login-x:~]$ vim ~/.usermodulepath
+         [user@login-x:~]$ touch ~/.usermodulespath
+         [user@login-x:~]$ vim ~/.usermodulespath
 
       | File format is simple:
       |  you can put multiple paths, type each path on a separate line
