@@ -71,7 +71,7 @@ What happens to data when an account is closed
      to the student and **cannot be copied or moved from this area without student's explicit permission**.  Data stored
      in these locations is the intellectual property of the student.
   
-     .. note:: *Private* data also has limits. All users of (and all data stored on) University systems must comply with permissable use. 
+     .. note:: *Private* data also has limits. All users of (and all data stored on) University systems must comply with permissible use. 
         In all cases, RCIC follows the rules of the University when giving access to data stored on the systems that
         it manages. For example, if access to private data is required for any sort of legal action, RCIC must make
         that requested data available. 

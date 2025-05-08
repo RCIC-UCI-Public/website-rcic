@@ -206,7 +206,7 @@ GPUs in the ``gpu32`` partition can natively accelerate 32-bit floating point, b
    | maxmem    | 1.5 TB/node / 1.5 TB/node |  1 day / 7 day   | 40 / node   | No         |
    +-----------+---------------------------+------------------+-------------+------------+
 .. note::
-   You *cannot* submit to the ``standard``, ``highmem``, ``hugemem``, or ``maxmem`` paritions with a Slurm account
+   You *cannot* submit to the ``standard``, ``highmem``, ``hugemem``, or ``maxmem`` partitions with a Slurm account
    that ends with ``gpu`` or ``gpu32``.
 
 
