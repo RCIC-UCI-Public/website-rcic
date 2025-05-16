@@ -16,7 +16,7 @@ July, 2025
 | :blogauthor:`2025-05-13 by Nadya Williams`
 
 | The next outage will be July (date to be determined), 2025, beginning at 8am.
-| The cluster will be unavailable for most of the day.
+| The cluster will be unavailable all day.
 
 Maintenance Items:
   1. OS version update from **Rocky 8.10 to Rocky 9**.
@@ -66,7 +66,7 @@ Software changes:
      +--------------------------------------------------------+------------------------------------------------------+
      | charm/7.0.0/gcc.11.2.0                                 | Unused                                               |
      +--------------------------------------------------------+------------------------------------------------------+
-     | cuda/10.1.243                                          | Not supported, use newer version                     |
+     | cuda/10.1.243                                          | Not supported on Rocky 9, use newer version          |
      +--------------------------------------------------------+------------------------------------------------------+
      | gatk/4.1.9.0                                           | Security vulnerability, use newer version            |
      +--------------------------------------------------------+------------------------------------------------------+
@@ -74,7 +74,8 @@ Software changes:
      +--------------------------------------------------------+------------------------------------------------------+
      | gromacs/2022.1/gcc.8.4.0-openmpi.4.1.2                 | Unused                                               |
      +--------------------------------------------------------+------------------------------------------------------+
-     | intel/2020u1                                           | Does not work, use newer version                     |
+     | intel/2020u1                                           | Intel compiler deoends upon a  shared library that   |
+     |                                                        | is unavailable on Rocky 9.                           |
      |                                                        |                                                      |
      |                                                        | Removed affected modules:                            |
      |                                                        |                                                      |
@@ -97,11 +98,11 @@ Software changes:
      |                                                        |                                                      |
      | protobuf/3.19.4                                        | Unused                                               |
      +--------------------------------------------------------+------------------------------------------------------+
-     | for R/4.1.2                                            | Seurat and leiden packages cannot be                 |
+     | R/4.1.2                                                | Seurat and leiden libraries cannot be                |
      |                                                        | built. Use newer R if you need these specific        |
      |                                                        | packages.                                            |
      +--------------------------------------------------------+------------------------------------------------------+
-     | for R/4.2.2                                            | Seurat and leiden packages cannot be                 |
+     | R/4.2.2                                                | Seurat and leiden libraries  cannot be               |
      |                                                        | built. Use newer R if you need these specific        |
      |                                                        | packages.                                            |
      +--------------------------------------------------------+------------------------------------------------------+
@@ -168,13 +169,13 @@ Software changes:
      +--------------------------------------------------------+------------------------------------------------------+
      |                                                        | Updated packages:                                    |
      |                                                        |                                                      |
-     | for R/4.3.3                                            | * Seurat to version 5.3.0                            |
+     | R/4.3.3                                                | * Seurat to version 5.3.0                            |
      |                                                        | * SeuratObject to version 5.0.2                      |
      |                                                        | * replace leiden by leidenbase                       |
      +--------------------------------------------------------+------------------------------------------------------+
      |                                                        | Updated packages:                                    |
      |                                                        |                                                      |
-     | for R/4.4.2                                            | * Seurat to version 5.3.0                            |
+     | R/4.4.2                                                | * Seurat to version 5.3.0                            |
      |                                                        | * SeuratObject to version 5.0.2                      |
      |                                                        | * replace leiden by leidenbase                       |
      +--------------------------------------------------------+------------------------------------------------------+
