@@ -1,14 +1,10 @@
 .. _software updates:
 
-Software and modules updates
-============================
+Updates with OS changes
+=======================
 
-This page lists changes that are a result of the :underline:`Operating System updates`.
-
-Please see :ref:`modules`:
-
-    * to find the most recent software versions availability.
-    * to learn how to use software modules.
+This page lists changes that are a result of the :underline:`Operating System
+upgrade`.
 
 .. _rocky updates:
 
