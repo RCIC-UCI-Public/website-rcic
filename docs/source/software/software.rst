@@ -3,15 +3,74 @@
 Software
 ========
 
-  | :ref:`How it is built <how is built>`
-  | :ref:`Cluster OS <cluster os>`
+  | :ref:`cluster os`
   | :ref:`Installed Software <installed software>`
   | :ref:`Licensed Software <licensed software>`
+  | :ref:`How the software is built <how is built>`
   | :ref:`Request New Software <request new software>`
 
 HPC3 serves researchers from all corners of the UCI campus. At the heart of the value that RCIC adds 
 to HPC3, is wide range of applications software that is compiled and ready for use. There are 
 literally hundreds of domain-specific, community-supported, applications maintained on the cluster.
+
+.. _cluster os:
+
+:section:`Cluster Operating System`
+  .. important:: | |hpc3-OS|
+                 | |hpc3-sw|
+
+  .. attention:: * **Docker** is not available per security vulnerability, use
+                   singularity. See :ref:`install singularity` guide.
+                 * ``sudo`` and ``su`` commands are not available per security vulnerability.
+
+.. _installed software:
+
+:section:`Installed software`
+  Most software is accessed only after loading the appropriate software modules.
+  Cluster users simply need to know or discover the
+  already available application environment module and load
+  it prior to using the application. Please see:
+
+    * :ref:`How to use software modules <modules>`
+    * :ref:`software updates`
+    * :ref:`Exampels how to use spcific software <job examples>`
+
+..
+  The following table lists available software (by their associated modules)
+  together with a category and a short description. Info on modules naming schema
+  is available :ref:`in this page <use modules>`. 
+
+  Click on the column header for sorting.
+
+  .. csv-table:: Installed Software, updated :blogauthor:`XX July 2025`.
+     :class: noscroll-table sortable
+     :file: sw.csv
+     :widths: 25,10,65
+     :header-rows: 1
+
+.. _licensed software:
+
+:section:`Licensed Software`
+  Access to the following applications requires a license:
+
+  +--------+--------+----------+------------+----------+----------+
+  | Abaqus | COMSOL | Gaussian | MATLAB     | Stata 16 | VASP 5.x |
+  |        |        |          |            |          |          |
+  |        |        |          |            | Stata 17 | VASP 6.x |
+  +--------+--------+----------+------------+----------+----------+
+
+  .. note:: While all users can view and load modules for licensed software only registered users
+            (*users must be in specific groups*) can use such software.
+
+            One exception to this is MATLAB.
+            RCIC contributes to the UCI-wide license and
+            MATLAB is available to all the HPC3 users. Users only need to load one of
+            the available MATLAB modules in order to use this software.
+
+  * **RCIC does not purchase or provide licenses**, we only enable an access to the licenses.
+  * **The departments/PIs buy licenses** for their labs and the access must be approved by a PI.
+  * **Users must submit a ticket** requesting :ref:`Access to Licensend Software <access licensed software>`
+    in order to use to licensed applications.
 
 .. _how is built:
 
@@ -47,47 +106,6 @@ literally hundreds of domain-specific, community-supported, applications maintai
     `A Software Map (PDF) </_static/software-latest.pdf>`_ shows a snapshot
     of the collections of software, software modules they provide, and build dependencies.
 
-.. _cluster os:
-
-:section:`Cluster Operating System`
-  .. important:: | |hpc3-OS|
-                 | |hpc3-sw|
-
-  .. attention:: * **Docker** is not available per security vulnerability, use
-                   singularity. See :ref:`install singularity` guide.
-                 * ``sudo`` and ``su`` commands are not available per security vulnerability.
-
-.. _installed software:
-
-:section:`Installed software`
-  Most software is accessed only after loading the appropriate software modules.
-  Cluster users simply need to know or discover the
-  already available application environment module and load
-  it prior to using the application. Please see:
-
-    * :ref:`modules` learn how to use software modules
-    * :ref:`software updates` for info about installed software and their modules.
-    * :ref:`job examples` show how to use specific software.
-
-.. _licensed software:
-
-:section:`Licensed Software`
-  Access to the following applications requires a license:
-
-  +--------+--------+----------+------------+----------+----------+
-  | Abaqus | COMSOL | Gaussian | MATLAB [1]_| Stata 16 | VASP 5.x |
-  |        |        |          |            |          |          |
-  |        |        |          |            | Stata 17 | VASP 6.x |
-  +--------+--------+----------+------------+----------+----------+
-
-  .. note:: While all users can view and load modules for licensed software only registered users
-            (*users must be in specific groups*) can use such software.
-
-  * **RCIC does not purchase or provide licenses**, we only enable an access to the licenses.
-  * **The departments/PIs buy licenses** for their labs and the access must be approved by a PI.
-  * **Users must submit a ticket** requesting :ref:`Access to Licensend Software <access licensed software>`
-    in order to use to licensed applications.
-
 .. _request new software:
 
 :section:`Request New Software`
@@ -113,6 +131,3 @@ literally hundreds of domain-specific, community-supported, applications maintai
 .. |hpc3-OS| replace:: HPC3 operating system is **Rocky Linux 8.10** (as of December 18, 2024).
 .. |hpc3-sw| replace:: All installed software is compiled specifically for this OS.
 
-.. [1] RCIC contributes to the UCI-wide license and
-       MATLAB is available to all the HPC3 users. Users only need to load one of
-       the available MATLAB modules in order to use this software.
