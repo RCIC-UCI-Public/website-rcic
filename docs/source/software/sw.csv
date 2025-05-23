@@ -1,0 +1,310 @@
+Module (name/version),Category,Software Description
+MATLAB/R2020a,LANGUAGES,MATLAB (R) is a programming and numeric computing platform
+MATLAB/R2020b,LANGUAGES,MATLAB (R) is a programming and numeric computing platform
+MATLAB/R2021b,LANGUAGES,MATLAB (R) is a programming and numeric computing platform
+MATLAB/R2023b,LANGUAGES,MATLAB (R) is a programming and numeric computing platform
+OpenBLAS/0.3.19,LIBRARIES,OpenBLAS is an optimized BLAS library
+OpenBLAS/0.3.21,LIBRARIES,OpenBLAS is an optimized BLAS library
+OpenBLAS/0.3.26,LIBRARIES,OpenBLAS is an optimized BLAS library
+OpenBLAS/0.3.6,LIBRARIES,OpenBLAS is an optimized BLAS library
+R/4.0.4,LANGUAGES,R is a freely available language and environment for statistical computing and graphics
+R/4.1.2,LANGUAGES,R is a freely available language and environment for statistical computing and graphics
+R/4.2.2,LANGUAGES,R is a freely available language and environment for statistical computing and graphics
+R/4.3.3,LANGUAGES,R is a freely available language and environment for statistical computing and graphics
+R/4.4.2,LANGUAGES,R is a freely available language and environment for statistical computing and graphics
+SPAdes/3.15.4,BIOTOOLS,SPAdes is a versatile toolkit designed for assembly and analysis of sequencing data
+afni/22.1.09,IMAGING,AFNI (Analysis of Functional NeuroImages)
+amber/21.12/gcc.11.2.0,CHEMISTRY,AMBER molecular dynamics
+amber/24/gcc.11.2.0,CHEMISTRY,AMBER molecular dynamics
+amber/24/gcc.11.2.0-cuda.11.7.1-openmpi.5.0.1,CHEMISTRY,AMBER molecular dynamics
+anaconda/2020.07,LANGUAGES,Anaconda is a software package and environment manager
+anaconda/2021.11,LANGUAGES,Anaconda is a software package and environment manager
+anaconda/2022.05,LANGUAGES,Anaconda is a software package and environment manager
+anaconda/2024.06,LANGUAGES,Anaconda is a software package and environment manager
+ansys/2019R2,ENGINEERING,The ANSYS suite Release 2019R2 revision v194
+ansys/2020R2,ENGINEERING,The ANSYS suite Release 2020R2 revision v202
+awscli/2.11.21,TOOLS,Awscli provides a unified command line interface to Amazon Web Services
+bamtools/2.5.2,BIOTOOLS,BamTools provides an API and a toolkit for handling BAM files
+bazel/4.2.2,TOOLS,Bazel build and test tool
+bazel/6.5.0,TOOLS,Bazel build and test tool
+bbmap/38.87,GENOMICS,BBMap is a short read aligner for DNA and RNA-seq data
+bbmap/38.96,GENOMICS,BBMap is a short read aligner for DNA and RNA-seq data
+bcftools/1.15.1,BIOTOOLS,BCFtools are meant as a faster replacement for most of the perl VCFtools 
+bcftools/1.21,BIOTOOLS,BCFtools are meant as a faster replacement for most of the perl VCFtools 
+bedops/2.4.39,GENOMICS,BEDOPS - a toolkit for high-performance genomic feature operations
+bedtools2/2.29.2,BIOTOOLS,Bedtools2 utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks
+bedtools2/2.30.0,BIOTOOLS,Bedtools2 utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks
+bioconda/4.8.3,LANGUAGES,PacBio Secondary Analysis Tools
+bismark/0.22.3,GENOMICS,Bismark is a genomics program
+bismark/0.23.1,GENOMICS,Bismark is a genomics program
+boost/1.66.0/gcc.8.4.0,TOOLS,The Boost project provides free peer-reviewed portable C++ source libraries
+boost/1.78.0/gcc.11.2.0,TOOLS,The Boost project provides free peer-reviewed portable C++ source libraries
+boost/1.78.0/gcc.8.4.0,TOOLS,The Boost project provides free peer-reviewed portable C++ source libraries
+bowtie2/2.4.1,BIOTOOLS,Bowtie2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences
+bowtie2/2.4.5,BIOTOOLS,Bowtie2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences
+bowtie2/2.5.1,BIOTOOLS,Bowtie2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences
+bracken/2.6.2,GENOMICS,Bracken (Bayesian Reestimation of Abundance with KrakEN)
+bustools/0.44.1,BIOTOOLS,Bustools is a program for manipulating BUS files for single cell RNA-Seq datasets
+bwa/0.7.17,BIOTOOLS,Burrow-Wheeler Aligner 
+bwa/0.7.8,BIOTOOLS,Burrow-Wheeler Aligner 
+cellranger-arc/2.0.2,GENOMICS,Cell Ranger ARC 2.0.2 is a set of analysis pipelines
+cellranger-atac/2.1.0,GENOMICS,Cell Ranger ATAC is a set of four analysis pipelines
+cellranger/6.1.2,GENOMICS,CellRanger is a set of analysis pipelines
+cellranger/7.0.1,GENOMICS,CellRanger is a set of analysis pipelines
+cellranger/8.0.1,GENOMICS,CellRanger is a set of analysis pipelines
+charm/6.10.1/gcc.8.4.0,TOOLS,CHARM++ is a machine independent parallel programming system. Built with arguments "charm++ multicore-linux-x86_64 gcc --build-shared --enable-zlib --with-production --destination=cbuild -j8". 
+charm/6.10.1/gcc.8.4.0-openmpi.4.0.3,TOOLS,CHARM++ is a machine independent parallel programming system. Built with arguments "charm++ mpi-linux-x86_64 gcc --basedir=$MPI_HOME --build-shared --enable-zlib --with-production --destination=cbuild -j8". 
+clang/11.1.0,COMPILERS,Clang is a compiler front-end that is part of the LLVM project
+clang/13.0.0,COMPILERS,Clang is a compiler front-end that is part of the LLVM project
+clang/18.1.4,COMPILERS,Clang is a compiler front-end that is part of the LLVM project
+cmake/3.20.5,TOOLS,CMake is a powerful software build system
+cmake/3.30.2,TOOLS,CMake is a powerful software build system
+cuda/11.4.0,TOOLS,CUDA Version 11.4.0_470.42.01
+cuda/11.7.1,TOOLS,CUDA Version 11.7.1_515.65.01
+cuda/12.2.0,TOOLS,CUDA Version 12.2.0_535.54.03
+cudasdk/22.9,COMPILERS,The NVIDIA HPC Software Development Kit (SDK). 
+curl/7.81.0,TOOLS,Command line tool and library for transferring data with URLs
+cutadapt/2.10,BIOTOOLS,Cutadapt finds and removes different types of unwanted sequence from sequencing reads
+cutadapt/4.0,BIOTOOLS,Cutadapt finds and removes different types of unwanted sequence from sequencing reads
+deeptools/3.5.0,BIOTOOLS,DeepTools is a suite of tools developed for the efficient analysis of high-throughput sequencing data
+deeptools/3.5.1,BIOTOOLS,DeepTools is a suite of tools developed for the efficient analysis of high-throughput sequencing data
+diamond/2.0.15,GENOMICS,Diamond is a sequence aligner for protein and translated DNA searches
+diamond/2.0.4,GENOMICS,Diamond is a sequence aligner for protein and translated DNA searches
+dorado/0.8.2,BIOTOOLS,Dorado is a high-performance and easy-to-use basecaller for Oxford Nanopore reads
+dorado/0.9.1,BIOTOOLS,Dorado is a high-performance and easy-to-use basecaller for Oxford Nanopore reads
+doxygen/1.9.5/gcc.8.4.0,TOOLS,Doxygen version 1.9.5
+edirect/2020,BIOTOOLS,Entrez Direct (EDirect) toolkit for accessing the NCBI databases
+edirect/2022,BIOTOOLS,Entrez Direct (EDirect) toolkit for accessing the NCBI databases
+eigen/3.3.7,LIBRARIES,Eigen is a high-level C++ library of template headers
+eigen/3.4.0,LIBRARIES,Eigen is a high-level C++ library of template headers
+fastp/0.23.2,BIOTOOLS,FastP is an ultra-fast all-in-one FASTQ preprocessor
+fastqc/0.11.9,BIOTOOLS,FastQC is a program designed to spot potential problems in high througput sequencing datasets
+ffmpeg/4.1.3,LIBRARIES,FFmpeg is the leading multimedia framework
+ffmpeg/6.1,LIBRARIES,FFmpeg is the leading multimedia framework
+ffnvcodec/12.1.14.0,LIBRARIES,FFmpeg version of Nvidia Codec SDK headers
+fftw/3.3.10/gcc.11.2.0,TOOLS,FFTW is a C subroutine library for computing the Discrete Fourier transform (DFT)
+fftw/3.3.10/gcc.11.2.0-openmpi.4.1.2,TOOLS,FFTW is a C subroutine library for computing the Discrete Fourier transform (DFT)
+fftw/3.3.8/gcc.8.4.0,TOOLS,FFTW is a C subroutine library for computing the Discrete Fourier transform (DFT)
+fftw/3.3.8/gcc.system,TOOLS,FFTW is a C subroutine library for computing the Discrete Fourier transform (DFT)
+foundation/v8,TOOLS,Provides an access to software in /opt/foundation
+freebayes/1.3.2,BIOTOOLS,Freebayes is a Bayesian genetic variant detector
+freesurfer/6.0.1,IMAGING,FreeSurfer is the structural MRI analysis software
+freesurfer/7.2.0,IMAGING,FreeSurfer is the structural MRI analysis software
+freesurfer/7.4.1,IMAGING,FreeSurfer is the structural MRI analysis software
+freetype/2.10.2,LIBRARIES,FreeType is a software library to render fonts
+fsl/6.0.4,IMAGING,FSL is a comprehensive library of analysis tools for imaging data
+gatk/4.2.6.1,BIOTOOLS,GATK is a Genome Analysis Toolkit
+gatk/4.6.2.0,BIOTOOLS,GATK is a Genome Analysis Toolkit
+gaussian/16,ENGINEERING,Gaussian is a general purpose computational chemistry software
+gcc/11.2.0,COMPILERS,GNU GCC compiler
+gcc/6.5.0,COMPILERS,GNU GCC compiler
+gcc/8.4.0,COMPILERS,GNU GCC compiler
+gcc/system,COMPILERS,System default GCC system
+gdal/3.1.0/gcc.8.4.0,LIBRARIES,GDAL - Geospatial Data Abstraction Library
+gdal/3.4.1/gcc.11.2.0,LIBRARIES,GDAL - Geospatial Data Abstraction Library
+gdal/3.6.2/gcc.11.2.0,LIBRARIES,GDAL - Geospatial Data Abstraction Library
+gdrcopy/2.4.1,LIBRARIES,A low-latency GPU memory copy library based on NVIDIA GPUDirect RDMA technology
+geos/3.10.2/gcc.11.2.0,TOOLS,GEOS (Geometry Engine - Open Source) is a C++ port of the JTS Topology Suite (JTS)
+geos/3.11.1/gcc.11.2.0,TOOLS,GEOS (Geometry Engine - Open Source) is a C++ port of the JTS Topology Suite (JTS)
+geos/3.8.1/gcc.8.4.0,TOOLS,GEOS (Geometry Engine - Open Source) is a C++ port of the JTS Topology Suite (JTS)
+git-lfs/3.5.1,TOOLS,Git-lfs is a command line extension for managing large files with git
+git/2.45.1,TOOLS,Git is a distributed version control system
+glpk/5.0/gcc.11.2.0,GENOMICS,The GLPK (GNU Linear Programming Kit) package
+glpk/5.0/gcc.8.4.0,GENOMICS,The GLPK (GNU Linear Programming Kit) package
+go/1.17.7,LANGUAGES,Google go is an open source programming language and compiler
+go/1.20.4,LANGUAGES,Google go is an open source programming language and compiler
+go/1.22.3,LANGUAGES,Google go is an open source programming language and compiler
+gromacs/2020.4/gcc.8.4.0-cuda.11.7.1,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
+gromacs/2021.2/gcc.8.4.0,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
+gromacs/2021.2/gcc.8.4.0-cuda.11.7.1,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
+gromacs/2021.2/gcc.8.4.0-openmpi.4.0.3,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
+gromacs/2022.1/gcc.8.4.0,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
+gromacs/2022.1/gcc.8.4.0-cuda.11.7.1,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
+gromacs/2022.1/gcc.8.4.0-cuda.11.7.1.openmpi.4.1.2,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
+gromacs/2024.2/gcc.11.2.0,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
+gromacs/2024.2/gcc.11.2.0-cuda.11.7.1,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
+gromacs/2024.2/gcc.11.2.0-cuda.11.7.1.openmpi.5.0.1,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
+gromacs/2024.2/gcc.11.2.0-openmpi.5.0.1,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
+gsl/2.6/gcc.8.4.0,LIBRARIES,GNU Scientific Library 
+gsl/2.7.1/gcc.11.2.0,LIBRARIES,GNU Scientific Library 
+hdf4/4.2.15,LIBRARIES,HDF4 is a physical file format for storing scientific data
+hdf5/1.10.5/gcc.8.4.0,TOOLS,HDF5 is a High-performance data management and storage suite
+hdf5/1.10.5/gcc.8.4.0-openmpi.4.0.3,TOOLS,Parallel version of HDF5 compiled with gcc 8.4.0 and openmpi version 4.0.3
+hdf5/1.10.5/gcc.system,TOOLS,HDF5 is a High-performance data management and storage suite
+hdf5/1.13.1/cudasdk.22.9,TOOLS,HDF5 is a High-performance data management and storage suite
+hdf5/1.13.1/gcc.11.2.0,TOOLS,HDF5 is a High-performance data management and storage suite
+hdf5/1.13.1/gcc.11.2.0-openmpi.4.1.2,TOOLS,Parallel version of HDF5 compiled with gcc 11.2.0 and openmpi version 4.1.2
+hdf5/1.13.1/gcc.8.4.0,TOOLS,HDF5 is a High-performance data management and storage suite
+hdf5/1.13.1/gcc.system,TOOLS,HDF5 is a High-performance data management and storage suite
+hdf5/1.13.1/gcc.system-openmpi.4.1.1,TOOLS,Parallel version of HDF5 compiled with gcc system and openmpi version 4.1.1
+hdf5/1.13.1/intel.2022.2,TOOLS,HDF5 is a High-performance data management and storage suite
+hdf5/1.13.1/intel.2022.2-openmpi.4.1.2,TOOLS,Parallel version of HDF5 compiled with gcc 2022.2 and openmpi version 4.1.2
+hdf5/1.14.1/gcc.11.2.0,TOOLS,HDF5 is a High-performance data management and storage suite
+hdf5/1.14.1/gcc.11.2.0-openmpi.4.1.2,TOOLS,Parallel version of HDF5 compiled with gcc 11.2.0 and openmpi version 4.1.2
+hdf5/1.14.1/gcc.11.2.0-openmpi.5.0.1,TOOLS,Parallel version of HDF5 compiled with gcc 11.2.0 and openmpi version 5.0.1
+hisat2/2.2.1,GENOMICS,HISAT2 a fast and sensitive alignment program for mapping next-generation sequencing reads to genomes
+hmmer/3.3,BIOTOOLS,HMMER is a biosequence analysis using profile hidden Markov models
+htslib/1.10.2,BIOTOOLS,HTSLIB is a C library for reading/writing high-throughput sequencing data
+htslib/1.15.1,BIOTOOLS,HTSLIB is a C library for reading/writing high-throughput sequencing data
+htslib/1.21,BIOTOOLS,HTSLIB is a C library for reading/writing high-throughput sequencing data
+imagemagick/7.0.10.26,TOOLS,ImageMagick is a software suite for manipulating digital images
+imagemagick/7.1.0.30,TOOLS,ImageMagick is a software suite for manipulating digital images
+intel-tbb/20190605,COMPILERS,Intel Threading Building Blocks (TBB) 20190605
+intel-tbb/2021.11,COMPILERS,Intel Threading Building Blocks (TBB) 2021.11
+intel-tbb/2022.1,COMPILERS,Intel Threading Building Blocks (TBB) 2022.1
+intel/2020u1,COMPILERS,Intel Studio XE Compilers(R) version 2020u1
+intel/2022.2,COMPILERS,Intel (R) oneAPI compiler
+intel/2024.0.1,COMPILERS,Intel (R) oneAPI compiler
+intel/2025.1.0,COMPILERS,Intel (R) oneAPI compiler
+ioapi/3.2/intel.2022.2,TOOLS,Input Output Applications Programming Interface (IOAPI)
+isal/2.30.0,BIOTOOLS,ISA-L is a collection of optimized low-level functions targeting storage applications
+java/1.8.0,LANGUAGES,Environment module of openjdk java version 1.8.0
+java/11,LANGUAGES,Environment module of openjdk java version 11
+java/17,LANGUAGES,Environment module of openjdk java version 17
+jsoncpp/1.9.5,LIBRARIES,JsonCpp is a C++ library that allows manipulating JSON values
+julia/1.6.0,LANGUAGES,Julia is a high-level and high-performance dynamic programming language
+julia/1.8.2,LANGUAGES,Julia is a high-level and high-performance dynamic programming language
+julia/1.9.3,LANGUAGES,Julia is a high-level and high-performance dynamic programming language
+kallisto/0.46.2,BIOTOOLS,Kallisto is a program for quantifying abundances of target sequences using high-throughput sequencing reads
+kallisto/0.48.0,BIOTOOLS,Kallisto is a program for quantifying abundances of target sequences using high-throughput sequencing reads
+kallisto/0.51.1,BIOTOOLS,Kallisto is a program for quantifying abundances of target sequences using high-throughput sequencing reads
+kneaddata/0.10.0,GENOMICS,KneadData is a tool for quality control on metagenomic and metatranscriptomic sequencing data
+kraken2/2.1.2,GENOMICS,Kraken2 is a taxonomic sequence classifier
+lammps/29Sep2021/gcc.11.2.0,CHEMISTRY,LAMMPS - Large-scale Atomic/Molecular Massively Parallel Simulator
+lammps/3Mar2020/gcc.8.4.0,CHEMISTRY,LAMMPS - Large-scale Atomic/Molecular Massively Parallel Simulator
+lapack/3.9.0,LIBRARIES,LAPACK - Linear Algebra PACKage
+libdeflate/1.10,BIOTOOLS,Libdeflate is a library for fast whole-buffer DEFLATE-based compression and decompression
+libgit2/1.8.4,TOOLS,Libgit2 is an implementation of the Git core methods
+libjpeg/9d,LIBRARIES,Libjpeg is a library for JPEG image compression
+libpng/1.6.37,LIBRARIES,Libpng is the official PNG reference library
+llvm/11.1.0,COMPILERS,LLVM Core libraries (part of LLVM Project)
+llvm/13.0.0,COMPILERS,LLVM Core libraries (part of LLVM Project)
+llvm/18.1.4,COMPILERS,LLVM Core libraries (part of LLVM Project)
+llvm/9.0.1,COMPILERS,LLVM Core libraries (part of LLVM Project)
+loompy/3.0.6,GENOMICS,Loompy provides support for loom files
+macs/2.2.7.1,BIOTOOLS,MACS - Model-based Analysis of ChIP-Seq for identifying transcript factor binding sites
+mafft/7.471,GENOMICS,MAFFT is a multiple sequence alignment program for unix-like operating systems
+mamba/24.3.0,LANGUAGES,Mamba is a software package manager
+marc/2020,PHYSICS,Marc (MSC) is a nonlinear finite elements analysis software
+megahit/1.2.9,GENOMICS,MEGAHIT is an ultra-fast and memory-efficient NGS assembler
+mentat/2020,PHYSICS,Mentat is the GUI for Marc software
+miniconda3/23.5.2,LANGUAGES,Miniconda3 with python 3.9. 
+miniconda3/24.9.2,LANGUAGES,Miniconda3 with python 3.12. 
+minimap2/2.24,BIOTOOLS,Minimap2 is a versatile sequence alignment program
+minimap2/2.28,BIOTOOLS,Minimap2 is a versatile sequence alignment program
+mkl/2019.5.281,LIBRARIES,Intel Math Kernel Library
+mkl/2024.0.1,LIBRARIES,Intel Math Kernel Library
+mpich/3.3.2/gcc.8.4.0,COMPILERS,MPICH is a high performance implementation of the Message Passing Interface (MPI) standard. Compiled with UCX 1.12.0 and  --with-verbs --with-hwloc=embedded --enable-romio --with-ucx=/opt/apps/ucx/1.12.0
+mpich/3.4/gcc.8.4.0,COMPILERS,MPICH is a high performance implementation of the Message Passing Interface (MPI) standard. Compiled with UCX 1.8.0 and --with-verbs --with-hwloc=embedded --enable-romio --with-ucx=/opt/apps/ucx/1.8.0
+mpich/4.0/gcc.system,COMPILERS,MPICH is a high performance implementation of the Message Passing Interface (MPI) standard. Compiled with UCX 1.12.0 and --with-verbs --with-hwloc=embedded --enable-romio --with-ucx=/opt/apps/ucx/1.12.0 FCFLAGS=-fallow-argument-mismatch
+mpich/4.0/intel.2022.2,COMPILERS,MPICH is a high performance implementation of the Message Passing Interface (MPI) standard. Compiled with UCX 1.12.0 and --with-verbs --with-hwloc=embedded --enable-romio --with-ucx=/opt/apps/ucx/1.12.0 
+namd/2.14b2/gcc.8.4.0,CHEMISTRY,NAMD is a parallel molecular dynamics code for large biomolecular systems
+namd/2.14b2/gcc.8.4.0-cuda.11.7.1,CHEMISTRY,NAMD is a parallel molecular dynamics code for large biomolecular systems
+namd/2.14b2/gcc.8.4.0-openmpi.4.0.3,CHEMISTRY,NAMD is a parallel molecular dynamics code for large biomolecular systems
+ncbi-blast/2.10.0,BIOTOOLS,BLAST (Basic Local Alignment Search Tool) command line applications from NCBI
+ncbi-blast/2.13.0,BIOTOOLS,BLAST (Basic Local Alignment Search Tool) command line applications from NCBI
+ncbi-ngs/2.10.2,BIOTOOLS,NGS sdk binding from NCBI
+ncbi-vdb/2.10.2,BIOTOOLS,VDB is the SRA Toolkit and SDK from NCBI
+ncl/6.6.2,TOOLS,NCL is an interpreted language for scientific data analysis and visualization
+netcdf-c/4.7.0/gcc.8.4.0,TOOLS,The Unidata network Common Data Form (netCDF) is an interface for scientific data access. 
+netcdf-c/4.8.1/gcc.11.2.0,TOOLS,The Unidata network Common Data Form (netCDF) is an interface for scientific data access. 
+netcdf-c/4.8.1/intel.2022.2,TOOLS,The Unidata network Common Data Form (netCDF) is an interface for scientific data access. 
+ninja/1.10.2,TOOLS,Ninja is a small build system with a focus on speed
+openmpi/4.0.3/gcc.6.5.0,COMPILERS,The openmpi is an open source Message Passing Interface implementation. Compiled with UCX 1.12.0 and --with-verbs --with-hwloc=internal --with-singularity=$singularity__PREFIX --with-ucx=$UCX_DIR --enable-orterun-prefix-by-default
+openmpi/4.0.3/gcc.8.4.0,COMPILERS,The openmpi is an open source Message Passing Interface implementation. Compiled with UCX 1.8.0 and --with-verbs --with-hwloc=internal --with-singularity=$singularity__PREFIX --with-ucx=$UCX_DIR --enable-orterun-prefix-by-default
+openmpi/4.1.1/gcc.system,COMPILERS,System default Openmpi version 4.1.1
+openmpi/4.1.2/gcc.11.2.0,COMPILERS,The openmpi is an open source Message Passing Interface implementation. Compiled with UCX 1.12.0 and --with-verbs --with-hwloc=internal --with-singularity=$singularity__PREFIX --with-ucx=$UCX_DIR --enable-orterun-prefix-by-default
+openmpi/4.1.2/gcc.8.4.0,COMPILERS,The openmpi is an open source Message Passing Interface implementation. Compiled with UCX 1.12.0 and --with-verbs --with-hwloc=internal --with-singularity=$singularity__PREFIX --with-ucx=$UCX_DIR --enable-orterun-prefix-by-default
+openmpi/4.1.2/intel.2022.2,COMPILERS,The openmpi is an open source Message Passing Interface implementation. Compiled with UCX 1.12.0 and --with-verbs --with-hwloc=internal --with-singularity=$singularity__PREFIX --with-ucx=$UCX_DIR --enable-orterun-prefix-by-default
+openmpi/5.0.1/gcc.11.2.0,COMPILERS,The openmpi is an open source Message Passing Interface implementation. Compiled with UCX 1.15.0 and --with-verbs --with-hwloc=internal --with-singularity=$singularity__PREFIX --with-ucx=$UCX_DIR --enable-orterun-prefix-by-default
+openmpi/5.0.1/gcc.11.2.0-cuda.11.7.1,COMPILERS,The openmpi is an open source Message Passing Interface implementation. Compiled with UCX 1.15.0 and --with-verbs --with-hwloc=internal --with-singularity=$singularity__PREFIX --with-ucx=$UCX_DIR --enable-orterun-prefix-by-default --with-cuda=$CUDA_PATH
+opensees/3.3.0,PHYSICS,OpenSees - the Open System for Earthquake Engineering Simulation
+parallel/20211222,TOOLS,GNU parallel is a shell tool for executing jobs in parallel
+perl/5.30.0,LANGUAGES,Perl Programming Language version 5.30.0 
+perl/5.34.1,LANGUAGES,Perl Programming Language version 5.34.1 
+picard-tools/1.87,BIOTOOLS,Picard-tools is a set of Java command line tools for manipulating high-throughput sequencing data and formats
+picard-tools/2.27.1,BIOTOOLS,Picard-tools is a set of Java command line tools for manipulating high-throughput sequencing data and formats
+picard-tools/3.3.0,BIOTOOLS,Picard-tools is a set of Java command line tools for manipulating high-throughput sequencing data and formats
+pigz/2.6,TOOLS,Pigz is a parallel implementaion and replacement of gzip
+pilon/1.24,BIOTOOLS,Pilon is a software tool to automatically improve draft assemblies and find variation among strains 
+plink/2.00a2.3,GENOMICS,Plink is a genome association analysis toolset
+prodigal/2.6.3,GENOMICS,Prodigal is a protein-coding gene prediction software tool for bacterial and archaeal genomes
+proj/6.3.2/gcc.8.4.0,LIBRARIES,PROJ is a generic coordinate transformation software
+proj/9.0.0/gcc.11.2.0,LIBRARIES,PROJ is a generic coordinate transformation software
+proj/9.1.1/gcc.11.2.0,LIBRARIES,PROJ is a generic coordinate transformation software
+python/2.7.17,LANGUAGES,Python Programming Language version 2.7.17
+python/3.10.2,LANGUAGES,Python Programming Language version 3.10.2
+python/3.8.0,LANGUAGES,Python Programming Language version 3.8.0
+pytorch/1.11.0,AI-LEARNING,PyTorch is a machine learning framework written in Python
+pytorch/2.0.1,AI-LEARNING,PyTorch is a machine learning framework written in Python
+pytorch/2.3.0,AI-LEARNING,PyTorch is a machine learning framework written in Python
+qe/7.1/gcc.11.2.0-openmpi.4.1.2,PHYSICS,QE - Quantum ESPRESSO
+qe/7.1/intel.2022.2-cudasdk.22.9.openmpi.4.1.2,PHYSICS,QE - Quantum ESPRESSO
+qiime2/2023.7,BIOTOOLS,QIIME2 is an environment built for miniconda3 23.5.2. 
+qiime2/2024.10,BIOTOOLS,QIIME2 is an environment built for miniconda3 24.9.2. 
+rMATS/4.1.1,GENOMICS,rMATS turbo is the C/Cython version of rMATS
+rMATS/4.1.2,GENOMICS,rMATS turbo is the C/Cython version of rMATS
+racon/1.5.0,BIOTOOLS,Racon is an ultrafast consensus module for raw de novo genome assembly of long uncorrected reads
+repeatmasker/4.1.0,BIOTOOLS,RepeatMasker is a program for screening DNA sequences
+rosetta/3.13,BIOTOOLS,The Rosetta software suite
+rsem/1.3.3,BIOTOOLS,RSEM is a software package for estimating gene and isoform expression levels from RNA-Seq data
+rstudio/1.4.1106,LANGUAGES,R Studio Desktop 1.4.1106
+rstudio/2022.02.1.461,LANGUAGES,R Studio Desktop 2022.02.1.461
+rstudio/2022.12.0.353,LANGUAGES,R Studio Desktop 2022.12.0.353
+rstudio/2023.12.1.402,LANGUAGES,R Studio Desktop 2023.12.1.402
+rstudio/2024.09.1.394,LANGUAGES,R Studio Desktop 2024.09.1.394
+rustc/1.78.0,COMPILERS,Rust Compiler
+salmon/1.8.0,BIOTOOLS,Salmon is a tool for quantifying the expression of transcripts using RNA-seq data
+samtools/1.10,BIOTOOLS,Samtools is a suite of programs for interacting with high-throughput sequencing data
+samtools/1.15.1,BIOTOOLS,Samtools is a suite of programs for interacting with high-throughput sequencing data
+scalapack/2.1.0,LIBRARIES,ScaLAPACK is a library of high-performance linear algebra routines for parallel distributed memory machines
+scons/4.2.0,TOOLS,SCons is a tool for building software (and other files)
+singularity/3.11.3,TOOLS,Singularity container runtime
+singularity/3.7.2,TOOLS,Singularity container runtime
+singularity/3.9.4,TOOLS,Singularity container runtime
+sqlite3/3.32.3/gcc.8.4.0,LIBRARIES,SQLite3 is a library that implements a transactional SQL database engine
+sqlite3/3.38.2/gcc.11.2.0,LIBRARIES,SQLite3 is a library that implements a transactional SQL database engine
+sqlite3/3.41.0/gcc.11.2.0,LIBRARIES,SQLite3 is a library that implements a transactional SQL database engine
+sra-tools/3.0.0,BIOTOOLS,The SRA Toolkit and SDK from NCBI
+star/2.7.10a,BIOTOOLS,STAR is a Spliced Transcripts Alignment to a Reference
+star/2.7.3a,BIOTOOLS,STAR is a Spliced Transcripts Alignment to a Reference
+star/2.7.8a,BIOTOOLS,STAR is a Spliced Transcripts Alignment to a Reference
+stata/16,LANGUAGES,Stata is a general-purpose statistical software package
+stata/17,LANGUAGES,Stata is a general-purpose statistical software package
+stringtie/2.1.4,GENOMICS,StringTie is a fast and highly efficient assembler of RNA-Seq alignments into potential transcripts
+stringtie/2.2.1,GENOMICS,StringTie is a fast and highly efficient assembler of RNA-Seq alignments into potential transcripts
+subread/2.0.1,BIOTOOLS,The Subread is a toolkit for processing next-gen sequencing data
+subread/2.0.3,BIOTOOLS,The Subread is a toolkit for processing next-gen sequencing data
+swig/4.0.2,TOOLS,SWIG is an interface compiler
+szip/2.1.1,LIBRARIES,Szip is a stand-alone library
+tcl/8.6.12,LANGUAGES,Tcl (Tool Command Language) is a very powerful dynamic programming language
+tcl/8.6.9,LANGUAGES,Tcl (Tool Command Language) is a very powerful dynamic programming language
+tensorRT/8.4.2.4,AI-LEARNING,TensorRT is a machine learning framework published by Nvidia
+tensorRT/8.6.1.6,AI-LEARNING,TensorRT is a machine learning framework published by Nvidia
+tensorflow/2.16.1,AI-LEARNING,TensorFlow is an open source software library for high performance numerical computation 
+tensorflow/2.8.0,AI-LEARNING,TensorFlow is an open source software library for high performance numerical computation 
+trf/4.0.9,BIOTOOLS,Tandem Repeats Finder (TRF) is a program to analyze DNA sequences
+trimgalore/0.6.6,BIOTOOLS,TrimGalore is a a Perl wrapper around tools Cutadapt and FastQC
+trimgalore/0.6.7,BIOTOOLS,TrimGalore is a a Perl wrapper around tools Cutadapt and FastQC
+trimmomatic/0.39,GENOMICS,Pilon is a software tool used to automatically improve draft assemblies and to find variation among strains 
+turbomole-smp/7.5,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
+turbomole-smp/7.6,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
+turbomole-smp/7.8.1,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
+turbomole/7.5,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
+turbomole/7.6,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
+turbomole/7.8.1,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
+ucsc-tools/v429,BIOTOOLS,The UCSC command-line utilities
+ucx/1.12.0/gcc.system,LIBRARIES,Unified Communication X (UCX) provides an optimized communication layer for MPI applications. Configured with --with-rc --with-ud --with-dc --with-ib-hw-tm --with-dm
+ucx/1.15.0/cuda.11.7.1,LIBRARIES,Unified Communication X (UCX) provides an optimized communication layer for MPI applications. Configured with --enable-optimizations --with-avx --enable-mt --without-java --with-numa=/usr/bin/numactl --with-rc --with-ud --with-dc --with-ib-hw-tm --with-dm --with-cuda=$CUDA_PATH --with-gdrcopy=$GDRCOPY_DIR --with-iodemo-cuda
+ucx/1.15.0/gcc.system,LIBRARIES,Unified Communication X (UCX) provides an optimized communication layer for MPI applications. Configured with --with-rc --with-ud --with-dc --with-ib-hw-tm --with-dm --disable-logging --disable-debug --disable-assertions --disable-params-check
+ucx/1.8.0/gcc.system,LIBRARIES,Unified Communication X (UCX) provides an optimized communication layer for MPI applications. Configured with --with-rc --with-ud --with-dc --with-ib-hw-tm --with-dm
+udunits/2.2.26/gcc.8.4.0,TOOLS,The UDUNITS package supports units of physical quantities
+udunits/2.2.28/gcc.11.2.0,TOOLS,The UDUNITS package supports units of physical quantities
+udunits/2.2.28/intel.2022.2,TOOLS,The UDUNITS package supports units of physical quantities
+unicycler/0.5.0,BIOTOOLS,Unicycler is an assembly pipeline for bacterial genomes
+vasp/5.4.4,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems. 
+vasp/6.1.2,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems. 
+vasp/6.3.2/cudasdk.22.9,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems. 
+vasp/6.3.2/gcc.11.2.0,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems. 
+vcftools/0.1.16,BIOTOOLS,The vcftools is a set of tools written in Perl and C++ for working with VCF files
+velocyto/0.17.17,GENOMICS,Velocyto is a library for the analysis of RNA velocity
