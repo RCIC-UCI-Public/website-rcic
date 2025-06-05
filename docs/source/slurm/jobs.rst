@@ -697,7 +697,7 @@ In order to run jobs on HPC3, a user must have available CPU hours.
    It is used to display the balance of used and available hours to the user for a given account
    (defaults to the current user).
 
-   Display the account balance for specific lab account and get info about next reallocation:
+   Display the specific lab account balance and get info about next reallocation:
      .. code-block::
 	 
         [user@login-x:~]$ sbank balance statement -a peter_lab
@@ -708,7 +708,7 @@ In order to run jobs on HPC3, a user must have available CPU hours.
         Next reallocation: 2025-07-17
 
 
-   Display the account balance for specific user account:
+   Display the specific user account balance:
      .. code-block::
 
         [user@login-x:~]$ sbank balance statement -a panteater
@@ -716,7 +716,7 @@ In order to run jobs on HPC3, a user must have available CPU hours.
         ---------- ------- + ----------- ------- + ------------- ---------
         panteater*      58 |   PANTEATER      58 |         1,000       942
 
-   Display the account balances for specific user:
+   Display the specific user balances in all accounts:
      .. code-block::
 
         [user@login-x:~]$ sbank balance statement -u panteater
