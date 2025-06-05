@@ -19,6 +19,14 @@ Who can have an account?
 ~~~~~~~~~~~~~~~~~~~~~~~~~
   Anyone with a valid UCInetID. Please see :ref:`get account`.
 
+.. _reset password:
+
+I can't login, can you reset my password?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  | :red:`We do not store, handle or reset passwords for UCInetIDs`.
+  | Your password is the one you have set for your UCInetID. 
+  | Please see OIT website page `how to change passwords <https://www.security.uci.edu/how-to/passwords/>`_.
+
 How long can I have an account after graduation/separation from UCI?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   For as long as your UCInetID is valid.
@@ -60,14 +68,6 @@ If I purchase core-hours, is overhead charged?
 :bluelight:`Accounting`
 -----------------------
 
-.. _reset password:
-
-I can't login, can you reset my password?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  | :red:`We do not store, handle or reset passwords for UCInetIDs`.
-  | Your password is the one you have set for your UCInetID. 
-  | Please see OIT website page `how to change passwords <https://www.security.uci.edu/how-to/passwords/>`_.
-
 .. _add lab account:
 
 How can I be added to my PI's Slurm lab account?
@@ -98,6 +98,10 @@ Why is my account reallocation less than 100,00 core-hours?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   The no-cost reallocation is calculated every 6 months based on the lab's
   previous  usage. Please see details in :ref:`no-cost reallocation`.
+
+When is the next allocation for my Slurm lab account?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Reallocation schedule is available via :ref:`account balance <job accounting>` command.
 
 :bluelight:`Files storage and transfer`
 ---------------------------------------

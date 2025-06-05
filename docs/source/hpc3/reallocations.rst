@@ -22,7 +22,8 @@ also approved a plan that would not result in over-allocation of HPC3.
 
 **To accommodate these challenges, these guiding principles are adopted:**
    * :term:`Reallocation` is processed automatically and is based upon a lab’s previous 6 month utilization
-     and available hours on UCI-purchased hardware.
+     and available hours on UCI-purchased hardware. Reallocation schedule is
+     available via :ref:`account balance <job accounting>` command. 
    * Reallocation is re-computed every 6 months.
    * Reallocation of granted hours is recomputed as *available hours over the next 6 month period*.
    * Reallocation date is based on the lab account's creation date and takes place in
