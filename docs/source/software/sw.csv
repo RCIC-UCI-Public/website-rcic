@@ -23,6 +23,7 @@ anaconda/2022.05,LANGUAGES,Anaconda is a software package and environment manage
 anaconda/2024.06,LANGUAGES,Anaconda is a software package and environment manager
 ansys/2019R2,ENGINEERING,The ANSYS suite Release 2019R2 revision v194
 ansys/2020R2,ENGINEERING,The ANSYS suite Release 2020R2 revision v202
+ants/2.3.5,IMAGING,ANTs (Advanced Normalization Tools) is a software toolkit for biological and medical image analysis
 awscli/2.11.21,TOOLS,Awscli provides a unified command line interface to Amazon Web Services
 bamtools/2.5.2,BIOTOOLS,BamTools provides an API and a toolkit for handling BAM files
 bazel/4.2.2,TOOLS,Bazel build and test tool
