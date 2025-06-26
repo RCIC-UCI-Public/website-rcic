@@ -9,45 +9,20 @@ News & Events
   (all current users) and is described in the details below.
 * When the maintenance is completed all users are notified via emails to hpc-users@uci.edu.
 
-June 25, 2025
+
+July 29, 2025
 -------------
 
-| :blogtitle:`HPC3 Downtime June 25, 2025`
-| :blogauthor:`2025-06-24 by Nadya Williams`
-
-| The next outage is scheduled for June 25, 2025, beginning at 8am.
-| The cluster will be unavailable all day.
-| The downtime email notification was sent to all users (hpc-users@uci.edu) on June 16, 2025.
-
-Maintenance Items:
-  1. Various system updates
-  2. BeeGFS updates.
-
-Impact:
-  This is a full outage.
-
-  #. All existing logins will be terminated.
-  #. You will NOT have access to HPC3 during the planned downtime.
-  #. You will have access to CRSP using `Web based File browser` or `CRSP Desktop App`.
-  #. No Slurm jobs can run.
-  #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on the day of maintenance
-     will stay in the queue with "Reserved for maintenance" reason. These jobs
-     will need to be resubmitted after the maintenance or will need to have a
-     different time limit.  Please see :ref:`requesting time limits <request time>`.
-
-July, 2025
--------------
-
-| :blogtitle:`HPC3 Downtime July XX, 2025`
+| :blogtitle:`HPC3 Downtime July 29, 2025`
 | :blogauthor:`2025-05-13 by Nadya Williams`
 
-| The next outage will be July (date to be determined), 2025, beginning at 8am.
+| The next outage will be July 29, 2025, beginning at 8am.
 | The cluster will be unavailable all day.
 
 Maintenance Items:
   1. OS version update from **Rocky 8.10 to Rocky 9**.
   #. Top-to-bottom re-installation of all compute and login nodes.
-  #. Full rebuild of all applications software, see table below for software changes.
+  #. Full rebuild of all applications software, see software changes below.
   #. Full rebuild of Slurm software.
 
 Impacts:
@@ -59,7 +34,7 @@ Impacts:
   #. No Slurm jobs can run or can be pending in the queue.
   #. :red:`All jobs remaining in the queue on the maintenance day will be terminated`.
   #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on the day of maintenance
-     will need to be resubmitted after the maintenance.
+     will need to be canceled and resubmitted after the maintenance.
      Please see :ref:`requesting time limits <request time>` on queues.
 
 Software changes:
@@ -68,7 +43,13 @@ Software changes:
   impossible. As a result, some modules will be removed because they cannot be built on a new system or because
   the underlying requirements are no longer satisfied.
 
-  *Note, the table below will be periodically updated till the maintenance date*.
+  After the maintenance:
+
+    * :red:`User compiled and installed software will need to be recompiled and reinstalled`.
+    * User installed conda environments will VERY LIKELY need to be reinstalled.
+    * If you previously used a module that has been removed, you will need to use a newer version of it where available.
+  
+  The table below shows intended changes and will be periodically updated till the maintenance day.
 
   .. table:: **Software changes**
      :align: center
@@ -100,10 +81,10 @@ Software changes:
      +--------------------------------------------------------+------------------------------------------------------+
      | gromacs/2022.1/gcc.8.4.0-openmpi.4.1.2                 | Unused                                               |
      +--------------------------------------------------------+------------------------------------------------------+
-     | intel/2020u1                                           | Intel compiler deoends upon a  shared library that   |
-     |                                                        | is unavailable on Rocky 9.                           |
+     | intel/2020u1                                           | This Intel compiler deoends on a shared library      |
+     |                                                        | that is unavailable on Rocky 9.                      |
      |                                                        |                                                      |
-     |                                                        | Removed affected modules:                            |
+     |                                                        | The following affected modules are removed:          |
      |                                                        |                                                      |
      |                                                        | * mpich/3.4/intel.2020u1                             |
      |                                                        | * openmpi/4.0.3/intel.2020u1                         |
@@ -124,21 +105,13 @@ Software changes:
      |                                                        |                                                      |
      | protobuf/3.19.4                                        | Unused                                               |
      +--------------------------------------------------------+------------------------------------------------------+
-     | R/4.1.2                                                | Seurat and leiden libraries cannot be                |
-     |                                                        | built. Use newer R if you need these specific        |
-     |                                                        | packages.                                            |
-     +--------------------------------------------------------+------------------------------------------------------+
-     | R/4.2.2                                                | Seurat and leiden libraries  cannot be               |
-     |                                                        | built. Use newer R if you need these specific        |
-     |                                                        | packages.                                            |
-     +--------------------------------------------------------+------------------------------------------------------+
      | salmon/1.2.1                                           | Cannot build, use newer version                      |
      +--------------------------------------------------------+------------------------------------------------------+
      | tensorflow/2.0.0                                       | Cannot build, use newer version                      |
      +--------------------------------------------------------+------------------------------------------------------+
      | tensorRT/6.0.1.5                                       | Cannot build, use newer version                      |
      +--------------------------------------------------------+------------------------------------------------------+
-     | tk/8.6.12                                              | Unused.  Functionality is provided by tcl/8.6.12     |
+     | tk/8.6.12                                              | Unused. Functionality is provided by tcl/8.6.12      |
      +--------------------------------------------------------+------------------------------------------------------+
      |                  .. centered:: :blue:`Updated modules`                                                        |
      +--------------------------------------------------------+------------------------------------------------------+
@@ -193,17 +166,15 @@ Software changes:
      |                                                        |                                                      |
      | sqlite3/3.41.0                                         | Replaced by sqlite3/3.41.0/gcc.11.2.0                |
      +--------------------------------------------------------+------------------------------------------------------+
-     |                                                        | Updated packages:                                    |
-     |                                                        |                                                      |
-     | R/4.3.3                                                | * Seurat to version 5.3.0                            |
-     |                                                        | * SeuratObject to version 5.0.2                      |
-     |                                                        | * replace leiden by leidenbase                       |
+     | R/4.1.2                                                | **Seurat** and **leiden** libraries cannot be        |
+     |                                                        | built. Use newer R if you need these specific        |
+     | R/4.2.2                                                | packages.                                            |
      +--------------------------------------------------------+------------------------------------------------------+
      |                                                        | Updated packages:                                    |
      |                                                        |                                                      |
-     | R/4.4.2                                                | * Seurat to version 5.3.0                            |
-     |                                                        | * SeuratObject to version 5.0.2                      |
-     |                                                        | * replace leiden by leidenbase                       |
+     | R/4.3.3                                                | * **Seurat** to version 5.3.0                        |
+     |                                                        | * **SeuratObject** to version 5.0.2                  |
+     | R/4.4.2                                                | * replace **leiden** by **leidenbase**               |
      +--------------------------------------------------------+------------------------------------------------------+
      |                  .. centered:: :blue:`New modules`                                                            |
      +--------------------------------------------------------+------------------------------------------------------+
@@ -211,12 +182,8 @@ Software changes:
      +--------------------------------------------------------+------------------------------------------------------+
      | hdf5/1.14.1/gcc.11.2.0-openmpi.5.0.1                   | Added                                                |
      +--------------------------------------------------------+------------------------------------------------------+
-     | intel-tbb/2022.1                                       | Added (part of intel 2025 compiler)                  |
-     +--------------------------------------------------------+------------------------------------------------------+
      | intel/2025.1.0                                         | Added                                                |
      +--------------------------------------------------------+------------------------------------------------------+
+     | intel-tbb/2022.1                                       | Added (subset of Intel 2025 compiler)                |
+     +--------------------------------------------------------+------------------------------------------------------+
 
-After the maintenance:
-  * :red:`User compiled and installed software will need to be reinstalled`.
-  * User installed conda environments will VERY LIKELY need to be reinstalled.
-  * If you previously used a module that has been removed, try to use a newer version of it where available.
