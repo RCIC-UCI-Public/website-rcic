@@ -11,6 +11,32 @@ News Archive
 2025
 ----
 
+June 25
+^^^^^^^
+
+| :blogtitle:`HPC3 Downtime June 25, 2025`
+| :blogauthor:`2025-06-24 by Nadya Williams`
+
+| The next outage is scheduled for June 25, 2025, beginning at 8am.
+| The cluster will be unavailable all day.
+| The downtime email notification was sent to all users (hpc-users@uci.edu) on June 16, 2025.
+
+Maintenance Items:
+  1. Various system updates
+  2. BeeGFS updates.
+
+Impact:
+  This is a full outage.
+
+  #. All existing logins will be terminated.
+  #. You will NOT have access to HPC3 during the planned downtime.
+  #. You will have access to CRSP using `Web based File browser` or `CRSP Desktop App`.
+  #. No Slurm jobs can run.
+  #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on the day of maintenance
+     will stay in the queue with "Reserved for maintenance" reason. These jobs
+     will need to be resubmitted after the maintenance or will need to have a
+     different time limit.  Please see :ref:`requesting time limits <request time>`.
+
 Mar 25
 ^^^^^^
 
