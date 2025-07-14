@@ -446,6 +446,21 @@ A user must have an HPC3 account to use the portal.
 
       Container is starting
 
+
+   **IMPORTANT**
+
+     You must have sufficient space in your $HOME in order to run a session.
+     If your $HOME is full the server will fail to start with an error similar to the
+
+     .. figure:: images/jhub-fail.png
+        :align: center
+        :width: 90%
+        :alt: container failed
+
+     **How to fix**:
+       You need to bring your $HOME usage under the :ref:`quota <home quotas>` before
+       you can start your session.
+
 #. **Your server environment**
 
    Once the notebook is done spawning, you will get a Launcher screen with a number GUI apps you can use.
@@ -462,14 +477,6 @@ A user must have an HPC3 account to use the portal.
    from within your running server. You also have access to a Linux command-line terminal, if you need it.
    You may need to download/upload files, or install a few R or Python
    packages. Please see :ref:`install jupyter` guide.
-
-   .. important:: | **You must have sufficient space in your $HOME in order to run a session**.
-      | If your $HOME is full the server will  fail to start with an error similar to the
-      | :red:`Spawn failed: Server at <...> didn't respond in 300 seconds`
-        where :red:`<...>` shows the http address of a compute node where the container was placed to start.
-
-      **You need to bring your $HOME usage under the :ref:`quota <home quotas>` before
-      you can start your session**.
 
 #. **Your server generated files**
 
