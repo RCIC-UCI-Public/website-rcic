@@ -30,8 +30,8 @@ bazel/4.2.2,TOOLS,Bazel build and test tool
 bazel/6.5.0,TOOLS,Bazel build and test tool
 bbmap/38.87,GENOMICS,BBMap is a short read aligner for DNA and RNA-seq data
 bbmap/38.96,GENOMICS,BBMap is a short read aligner for DNA and RNA-seq data
-bcftools/1.15.1,BIOTOOLS,BCFtools are meant as a faster replacement for most of the perl VCFtools 
-bcftools/1.21,BIOTOOLS,BCFtools are meant as a faster replacement for most of the perl VCFtools 
+bcftools/1.15.1,BIOTOOLS,BCFtools are meant as a faster replacement for most of the perl VCFtools
+bcftools/1.21,BIOTOOLS,BCFtools are meant as a faster replacement for most of the perl VCFtools
 bedops/2.4.39,GENOMICS,BEDOPS - a toolkit for high-performance genomic feature operations
 bedtools2/2.29.2,BIOTOOLS,Bedtools2 utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks
 bedtools2/2.30.0,BIOTOOLS,Bedtools2 utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks
@@ -46,15 +46,15 @@ bowtie2/2.4.5,BIOTOOLS,Bowtie2 is an ultrafast and memory-efficient tool for ali
 bowtie2/2.5.1,BIOTOOLS,Bowtie2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences
 bracken/2.6.2,GENOMICS,Bracken (Bayesian Reestimation of Abundance with KrakEN)
 bustools/0.44.1,BIOTOOLS,Bustools is a program for manipulating BUS files for single cell RNA-Seq datasets
-bwa/0.7.17,BIOTOOLS,Burrow-Wheeler Aligner 
-bwa/0.7.8,BIOTOOLS,Burrow-Wheeler Aligner 
+bwa/0.7.17,BIOTOOLS,Burrow-Wheeler Aligner
+bwa/0.7.8,BIOTOOLS,Burrow-Wheeler Aligner
 cellranger-arc/2.0.2,GENOMICS,Cell Ranger ARC 2.0.2 is a set of analysis pipelines
 cellranger-atac/2.1.0,GENOMICS,Cell Ranger ATAC is a set of four analysis pipelines
 cellranger/6.1.2,GENOMICS,CellRanger is a set of analysis pipelines
 cellranger/7.0.1,GENOMICS,CellRanger is a set of analysis pipelines
 cellranger/8.0.1,GENOMICS,CellRanger is a set of analysis pipelines
-charm/6.10.1/gcc.8.4.0,TOOLS,CHARM++ is a machine independent parallel programming system. Built with arguments "charm++ multicore-linux-x86_64 gcc --build-shared --enable-zlib --with-production --destination=cbuild -j8". 
-charm/6.10.1/gcc.8.4.0-openmpi.4.0.3,TOOLS,CHARM++ is a machine independent parallel programming system. Built with arguments "charm++ mpi-linux-x86_64 gcc --basedir=$MPI_HOME --build-shared --enable-zlib --with-production --destination=cbuild -j8". 
+charm/6.10.1/gcc.8.4.0,TOOLS,CHARM++ is a machine independent parallel programming system. Built with arguments "charm++ multicore-linux-x86_64 gcc --build-shared --enable-zlib --with-production --destination=cbuild -j8"
+charm/6.10.1/gcc.8.4.0-openmpi.4.0.3,TOOLS,CHARM++ is a machine independent parallel programming system. Built with arguments "charm++ mpi-linux-x86_64 gcc --basedir=$MPI_HOME --build-shared --enable-zlib --with-production --destination=cbuild -j8"
 clang/11.1.0,COMPILERS,Clang is a compiler front-end that is part of the LLVM project
 clang/13.0.0,COMPILERS,Clang is a compiler front-end that is part of the LLVM project
 clang/18.1.4,COMPILERS,Clang is a compiler front-end that is part of the LLVM project
@@ -63,7 +63,7 @@ cmake/3.30.2,TOOLS,CMake is a powerful software build system
 cuda/11.4.0,TOOLS,CUDA Version 11.4.0_470.42.01
 cuda/11.7.1,TOOLS,CUDA Version 11.7.1_515.65.01
 cuda/12.2.0,TOOLS,CUDA Version 12.2.0_535.54.03
-cudasdk/22.9,COMPILERS,The NVIDIA HPC Software Development Kit (SDK). 
+cudasdk/22.9,COMPILERS,The NVIDIA HPC Software Development Kit (SDK)
 curl/7.81.0,TOOLS,Command line tool and library for transferring data with URLs
 cutadapt/2.10,BIOTOOLS,Cutadapt finds and removes different types of unwanted sequence from sequencing reads
 cutadapt/4.0,BIOTOOLS,Cutadapt finds and removes different types of unwanted sequence from sequencing reads
@@ -126,8 +126,8 @@ gromacs/2024.2/gcc.11.2.0,CHEMISTRY,GROMACS is a software suite for high-perform
 gromacs/2024.2/gcc.11.2.0-cuda.11.7.1,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
 gromacs/2024.2/gcc.11.2.0-cuda.11.7.1.openmpi.5.0.1,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
 gromacs/2024.2/gcc.11.2.0-openmpi.5.0.1,CHEMISTRY,GROMACS is a software suite for high-performance molecular dynamics and output analysis
-gsl/2.6/gcc.8.4.0,LIBRARIES,GNU Scientific Library 
-gsl/2.7.1/gcc.11.2.0,LIBRARIES,GNU Scientific Library 
+gsl/2.6/gcc.8.4.0,LIBRARIES,GNU Scientific Library
+gsl/2.7.1/gcc.11.2.0,LIBRARIES,GNU Scientific Library
 hdf4/4.2.15,LIBRARIES,HDF4 is a physical file format for storing scientific data
 hdf5/1.10.5/gcc.8.4.0,TOOLS,HDF5 is a High-performance data management and storage suite
 hdf5/1.10.5/gcc.8.4.0-openmpi.4.0.3,TOOLS,Parallel version of HDF5 compiled with gcc 8.4.0 and openmpi version 4.0.3
@@ -189,8 +189,8 @@ mamba/24.3.0,LANGUAGES,Mamba is a software package manager
 marc/2020,PHYSICS,Marc (MSC) is a nonlinear finite elements analysis software
 megahit/1.2.9,GENOMICS,MEGAHIT is an ultra-fast and memory-efficient NGS assembler
 mentat/2020,PHYSICS,Mentat is the GUI for Marc software
-miniconda3/23.5.2,LANGUAGES,Miniconda3 with python 3.9. 
-miniconda3/24.9.2,LANGUAGES,Miniconda3 with python 3.12. 
+miniconda3/23.5.2,LANGUAGES,Miniconda3 with python 3.9
+miniconda3/24.9.2,LANGUAGES,Miniconda3 with python 3.12
 minimap2/2.24,BIOTOOLS,Minimap2 is a versatile sequence alignment program
 minimap2/2.28,BIOTOOLS,Minimap2 is a versatile sequence alignment program
 mkl/2019.5.281,LIBRARIES,Intel Math Kernel Library
@@ -198,7 +198,7 @@ mkl/2024.0.1,LIBRARIES,Intel Math Kernel Library
 mpich/3.3.2/gcc.8.4.0,COMPILERS,MPICH is a high performance implementation of the Message Passing Interface (MPI) standard. Compiled with UCX 1.12.0 and  --with-verbs --with-hwloc=embedded --enable-romio --with-ucx=/opt/apps/ucx/1.12.0
 mpich/3.4/gcc.8.4.0,COMPILERS,MPICH is a high performance implementation of the Message Passing Interface (MPI) standard. Compiled with UCX 1.8.0 and --with-verbs --with-hwloc=embedded --enable-romio --with-ucx=/opt/apps/ucx/1.8.0
 mpich/4.0/gcc.system,COMPILERS,MPICH is a high performance implementation of the Message Passing Interface (MPI) standard. Compiled with UCX 1.12.0 and --with-verbs --with-hwloc=embedded --enable-romio --with-ucx=/opt/apps/ucx/1.12.0 FCFLAGS=-fallow-argument-mismatch
-mpich/4.0/intel.2022.2,COMPILERS,MPICH is a high performance implementation of the Message Passing Interface (MPI) standard. Compiled with UCX 1.12.0 and --with-verbs --with-hwloc=embedded --enable-romio --with-ucx=/opt/apps/ucx/1.12.0 
+mpich/4.0/intel.2022.2,COMPILERS,MPICH is a high performance implementation of the Message Passing Interface (MPI) standard. Compiled with UCX 1.12.0 and --with-verbs --with-hwloc=embedded --enable-romio --with-ucx=/opt/apps/ucx/1.12.0
 namd/2.14b2/gcc.8.4.0,CHEMISTRY,NAMD is a parallel molecular dynamics code for large biomolecular systems
 namd/2.14b2/gcc.8.4.0-cuda.11.7.1,CHEMISTRY,NAMD is a parallel molecular dynamics code for large biomolecular systems
 namd/2.14b2/gcc.8.4.0-openmpi.4.0.3,CHEMISTRY,NAMD is a parallel molecular dynamics code for large biomolecular systems
@@ -207,9 +207,9 @@ ncbi-blast/2.13.0,BIOTOOLS,BLAST (Basic Local Alignment Search Tool) command lin
 ncbi-ngs/2.10.2,BIOTOOLS,NGS sdk binding from NCBI
 ncbi-vdb/2.10.2,BIOTOOLS,VDB is the SRA Toolkit and SDK from NCBI
 ncl/6.6.2,TOOLS,NCL is an interpreted language for scientific data analysis and visualization
-netcdf-c/4.7.0/gcc.8.4.0,TOOLS,The Unidata network Common Data Form (netCDF) is an interface for scientific data access. 
-netcdf-c/4.8.1/gcc.11.2.0,TOOLS,The Unidata network Common Data Form (netCDF) is an interface for scientific data access. 
-netcdf-c/4.8.1/intel.2022.2,TOOLS,The Unidata network Common Data Form (netCDF) is an interface for scientific data access. 
+netcdf-c/4.7.0/gcc.8.4.0,TOOLS,The Unidata network Common Data Form (netCDF) is an interface for scientific data access
+netcdf-c/4.8.1/gcc.11.2.0,TOOLS,The Unidata network Common Data Form (netCDF) is an interface for scientific data access
+netcdf-c/4.8.1/intel.2022.2,TOOLS,The Unidata network Common Data Form (netCDF) is an interface for scientific data access
 ninja/1.10.2,TOOLS,Ninja is a small build system with a focus on speed
 openmpi/4.0.3/gcc.6.5.0,COMPILERS,The openmpi is an open source Message Passing Interface implementation. Compiled with UCX 1.12.0 and --with-verbs --with-hwloc=internal --with-singularity=$singularity__PREFIX --with-ucx=$UCX_DIR --enable-orterun-prefix-by-default
 openmpi/4.0.3/gcc.8.4.0,COMPILERS,The openmpi is an open source Message Passing Interface implementation. Compiled with UCX 1.8.0 and --with-verbs --with-hwloc=internal --with-singularity=$singularity__PREFIX --with-ucx=$UCX_DIR --enable-orterun-prefix-by-default
@@ -221,13 +221,13 @@ openmpi/5.0.1/gcc.11.2.0,COMPILERS,The openmpi is an open source Message Passing
 openmpi/5.0.1/gcc.11.2.0-cuda.11.7.1,COMPILERS,The openmpi is an open source Message Passing Interface implementation. Compiled with UCX 1.15.0 and --with-verbs --with-hwloc=internal --with-singularity=$singularity__PREFIX --with-ucx=$UCX_DIR --enable-orterun-prefix-by-default --with-cuda=$CUDA_PATH
 opensees/3.3.0,PHYSICS,OpenSees - the Open System for Earthquake Engineering Simulation
 parallel/20211222,TOOLS,GNU parallel is a shell tool for executing jobs in parallel
-perl/5.30.0,LANGUAGES,Perl Programming Language version 5.30.0 
-perl/5.34.1,LANGUAGES,Perl Programming Language version 5.34.1 
+perl/5.30.0,LANGUAGES,Perl Programming Language version 5.30.0
+perl/5.34.1,LANGUAGES,Perl Programming Language version 5.34.1
 picard-tools/1.87,BIOTOOLS,Picard-tools is a set of Java command line tools for manipulating high-throughput sequencing data and formats
 picard-tools/2.27.1,BIOTOOLS,Picard-tools is a set of Java command line tools for manipulating high-throughput sequencing data and formats
 picard-tools/3.3.0,BIOTOOLS,Picard-tools is a set of Java command line tools for manipulating high-throughput sequencing data and formats
 pigz/2.6,TOOLS,Pigz is a parallel implementaion and replacement of gzip
-pilon/1.24,BIOTOOLS,Pilon is a software tool to automatically improve draft assemblies and find variation among strains 
+pilon/1.24,BIOTOOLS,Pilon is a software tool to automatically improve draft assemblies and find variation among strains
 plink/2.00a2.3,GENOMICS,Plink is a genome association analysis toolset
 prodigal/2.6.3,GENOMICS,Prodigal is a protein-coding gene prediction software tool for bacterial and archaeal genomes
 proj/6.3.2/gcc.8.4.0,LIBRARIES,PROJ is a generic coordinate transformation software
@@ -241,8 +241,8 @@ pytorch/2.0.1,AI-LEARNING,PyTorch is a machine learning framework written in Pyt
 pytorch/2.3.0,AI-LEARNING,PyTorch is a machine learning framework written in Python
 qe/7.1/gcc.11.2.0-openmpi.4.1.2,PHYSICS,QE - Quantum ESPRESSO
 qe/7.1/intel.2022.2-cudasdk.22.9.openmpi.4.1.2,PHYSICS,QE - Quantum ESPRESSO
-qiime2/2023.7,BIOTOOLS,QIIME2 is an environment built for miniconda3 23.5.2. 
-qiime2/2024.10,BIOTOOLS,QIIME2 is an environment built for miniconda3 24.9.2. 
+qiime2/2023.7,BIOTOOLS,QIIME2 is an environment built for miniconda3 23.5.2
+qiime2/2024.10,BIOTOOLS,QIIME2 is an environment built for miniconda3 24.9.2
 rMATS/4.1.1,GENOMICS,rMATS turbo is the C/Cython version of rMATS
 rMATS/4.1.2,GENOMICS,rMATS turbo is the C/Cython version of rMATS
 racon/1.5.0,BIOTOOLS,Racon is an ultrafast consensus module for raw de novo genome assembly of long uncorrected reads
@@ -283,17 +283,17 @@ tcl/8.6.9,LANGUAGES,Tcl (Tool Command Language) is a very powerful dynamic progr
 tensorRT/8.4.2.4,AI-LEARNING,TensorRT is a machine learning framework published by Nvidia
 tensorRT/8.6.1.6,AI-LEARNING,TensorRT is a machine learning framework published by Nvidia
 tensorflow/2.16.1,AI-LEARNING,TensorFlow is an open source software library for high performance numerical computation 
-tensorflow/2.8.0,AI-LEARNING,TensorFlow is an open source software library for high performance numerical computation 
+tensorflow/2.8.0,AI-LEARNING,TensorFlow is an open source software library for high performance numerical computation
 trf/4.0.9,BIOTOOLS,Tandem Repeats Finder (TRF) is a program to analyze DNA sequences
 trimgalore/0.6.6,BIOTOOLS,TrimGalore is a a Perl wrapper around tools Cutadapt and FastQC
 trimgalore/0.6.7,BIOTOOLS,TrimGalore is a a Perl wrapper around tools Cutadapt and FastQC
-trimmomatic/0.39,GENOMICS,Pilon is a software tool used to automatically improve draft assemblies and to find variation among strains 
-turbomole-smp/7.5,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
-turbomole-smp/7.6,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
-turbomole-smp/7.8.1,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
-turbomole/7.5,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
-turbomole/7.6,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
-turbomole/7.8.1,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations. 
+trimmomatic/0.39,GENOMICS,Pilon is a software tool used to automatically improve draft assemblies and to find variation among strains
+turbomole-smp/7.5,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations
+turbomole-smp/7.6,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations
+turbomole-smp/7.8.1,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations
+turbomole/7.5,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations
+turbomole/7.6,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations
+turbomole/7.8.1,CHEMISTRY,TURBOMOLE is set of computational tools for quantum chemical simulations
 ucsc-tools/v429,BIOTOOLS,The UCSC command-line utilities
 ucx/1.12.0/gcc.system,LIBRARIES,Unified Communication X (UCX) provides an optimized communication layer for MPI applications. Configured with --with-rc --with-ud --with-dc --with-ib-hw-tm --with-dm
 ucx/1.15.0/cuda.11.7.1,LIBRARIES,Unified Communication X (UCX) provides an optimized communication layer for MPI applications. Configured with --enable-optimizations --with-avx --enable-mt --without-java --with-numa=/usr/bin/numactl --with-rc --with-ud --with-dc --with-ib-hw-tm --with-dm --with-cuda=$CUDA_PATH --with-gdrcopy=$GDRCOPY_DIR --with-iodemo-cuda
@@ -303,9 +303,9 @@ udunits/2.2.26/gcc.8.4.0,TOOLS,The UDUNITS package supports units of physical qu
 udunits/2.2.28/gcc.11.2.0,TOOLS,The UDUNITS package supports units of physical quantities
 udunits/2.2.28/intel.2022.2,TOOLS,The UDUNITS package supports units of physical quantities
 unicycler/0.5.0,BIOTOOLS,Unicycler is an assembly pipeline for bacterial genomes
-vasp/5.4.4,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems. 
-vasp/6.1.2,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems. 
-vasp/6.3.2/cudasdk.22.9,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems. 
-vasp/6.3.2/gcc.11.2.0,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems. 
+vasp/5.4.4,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems
+vasp/6.1.2,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems
+vasp/6.3.2/cudasdk.22.9,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems
+vasp/6.3.2/gcc.11.2.0,ENGINEERING,The Vienna Ab initio Simulation Package (VASP) is for quantum-mechanical molecular dynamics problems
 vcftools/0.1.16,BIOTOOLS,The vcftools is a set of tools written in Perl and C++ for working with VCF files
 velocyto/0.17.17,GENOMICS,Velocyto is a library for the analysis of RNA velocity

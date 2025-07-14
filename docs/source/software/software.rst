@@ -42,7 +42,7 @@ literally hundreds of domain-specific, community-supported, applications maintai
 
   Click on the column header for sorting.
 
-  .. csv-table:: Installed Software, updated :blogauthor:`XX July 2025`.
+  .. csv-table:: Installed Software, updated :blogauthor:`14 July 2025`.
      :class: noscroll-table sortable
      :file: sw.csv
      :widths: 25,10,65
