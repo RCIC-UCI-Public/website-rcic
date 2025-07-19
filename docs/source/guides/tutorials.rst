@@ -41,7 +41,7 @@ a few online tutorials.
 
 **File Editors**
   - `A beginners guide to vim <https://www.linux.com/training-tutorials/vim-101-beginners-guide-vim/>`_
-  - `Absolute beginners guide to emacs <http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/>`_
+  - `A beginner’s guide to text editing with Emacs <https://www.redhat.com/en/blog/beginners-guide-emacs>`_
 
 .. _programming tutorials:
 
