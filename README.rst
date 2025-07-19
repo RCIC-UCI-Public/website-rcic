@@ -26,7 +26,7 @@ Building HTML locally for testing
 
    See ``make help`` for more options
 
-3. Point your local browser to `build/html/index.html`.
+3. Point your local browser to `build/html/index.html`
 
 Editing
 -------
@@ -99,8 +99,8 @@ Current web server host is web3.oit.uci.edu  (rcic.uci.edu is an alias )
    * in case there were updates it runs commands to create html files
      and installs resulting **build/html/** as **/var/www/html/rcic-website**
      which is the website **DocumentRoot**, configured in **/etc/httpd/conf.d/ssl.conf**.
-     A previous version is moved to /tmp.
-   * a success/failure is recorded in /var/log/website-rtd.log
+     A previous version is moved to */tmp*.
+   * a success/failure is recorded in **/var/log/website-rtd.log**
 
    See details in the cron script.
 
