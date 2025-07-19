@@ -268,7 +268,7 @@ Purchase CRSP storage
 |   1. How much CRSP space you need (TB)
 |   2. For how long (years)
 
-We will create an MOU and sent to the PI for signing and will ask for a recharge index.
+We will create an MOU and sent to the PI for signing and will ask for a KFS account number for recharge.
 Once a PI signs an MOU for the desired amount of storage, the allocation is created
 on the CRSP system.
 
