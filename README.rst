@@ -90,15 +90,15 @@ Current web server host is web3.oit.uci.edu  (rcic.uci.edu is an alias )
       pip install sphinx==6.2.0
       pip install sphinx_rtd_theme
 
-3. Create a cron script ``cron-rtd-website `` and install as */etc/cron.hourly/rtd-website*.
+3. Create a cron script ``cron-rtd-website `` and install as **/etc/cron.hourly/rtd-website**.
 
    The script:
 
    * checks out website repo (this repo)
    * verifies if there were any updates in the last hour,
    * in case there were updates it runs commands to create html files
-     and installs resulting *build/html/* as **/var/www/html/rcic-website**
-     which is the website *DocumentRoot*, configured in */etc/httpd/conf.d/ssl.conf*.
+     and installs resulting **build/html/** as **/var/www/html/rcic-website**
+     which is the website **DocumentRoot**, configured in **/etc/httpd/conf.d/ssl.conf**.
      A previous version is moved to /tmp.
    * a success/failure is recorded in /var/log/website-rtd.log
 
