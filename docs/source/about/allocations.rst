@@ -175,7 +175,7 @@ Purchase core-hours
 |   1. Type of core-hours (CPU or GPU)
 |   2. How many core-hours you need
 
-Core-hour purchases a done through an MOU on a ``prepaid card basis``. 
+Core-hour purchases a done through an MOU on a :red:`prepaid card basis`. 
 RCIC does not post-bill for core hours and it is not possible to be surprised 
 with a large bill at the end of a month. 
 
