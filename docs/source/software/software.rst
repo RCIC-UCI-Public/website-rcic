@@ -35,7 +35,6 @@ literally hundreds of domain-specific, community-supported, applications maintai
     * :ref:`software updates`
     * :ref:`Exampels how to use spcific software <job examples>`
 
-..
   The following table lists available software (by their associated modules)
   together with a category and a short description. Info on modules naming schema
   is available :ref:`in this page <use modules>`. 
