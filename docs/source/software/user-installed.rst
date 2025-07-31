@@ -710,7 +710,7 @@ To find out what Python is available:
 
 
 .. important:: While you can still choose python version 2.7.17, it is no longer
-               supported and may not work properly under Rocky Linux 8 operating
+               supported and may not work properly under Rocky Linux 9 operating
                system. It is advisable to use Python 3.
 
 For detailed info on installing Python packages please see

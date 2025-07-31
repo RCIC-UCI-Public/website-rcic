@@ -32,7 +32,7 @@ literally hundreds of domain-specific, community-supported, applications maintai
   it prior to using the application. Please see:
 
     * :ref:`How to use software modules <modules>`
-    * :ref:`software updates`
+    * :ref:`Important Updates with OS changes <software updates>`
     * :ref:`Exampels how to use spcific software <job examples>`
 
   The following table lists available software (by their associated modules)
@@ -127,6 +127,6 @@ literally hundreds of domain-specific, community-supported, applications maintai
     #. Software that will only be used by one or two users.
     #. Software that requires MySQL, PostgreSQL, HTTP or similar server setup.
 
-.. |hpc3-OS| replace:: HPC3 operating system is **Rocky Linux 8.10** (as of December 18, 2024).
+.. |hpc3-OS| replace:: HPC3 operating system is **Rocky Linux 9.6** (as of July 29, 2025).
 .. |hpc3-sw| replace:: All installed software is compiled specifically for this OS.
 
