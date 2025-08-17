@@ -732,7 +732,7 @@ MATLAB
 .. note:: | To start MATLAB non-interactively, use the **-batch** option.
           | To start MATLAB interactively, use the **-r** option.
 
-1. Interactive job
+1. Interactive non-GUI job
 
    Get an interactive node and start MATLAB 
 
@@ -743,6 +743,72 @@ MATLAB
       srun: job 2839817 has been allocated resources
       [user@hpc3-y-z:~]$ module load MATLAB/R2020a
       [user@hpc3-y-z:~]$ matlab -r
+
+#. Interactive GUI job
+
+   .. note:: Cluster is not well suited for running GUI applications over
+             the network. Users with Mac laptops may experience more problems.
+             See a workaroun below.
+
+   Login on the cluster using X forwarding. This means using  :tt:`-Y`
+   or  :tt:`-X -Y` option in the ssh command on your laptop. For example:
+
+     .. code-block:: console
+
+        ssh -Y panteater@hpc3.rcic.uci.edu
+
+   Once logged in, claim an interactive session with X11 enabled:
+
+     .. code-block:: console
+
+        [user@login-x:~]$ srun -p free --pty --x11 /bin/bash -i
+        srun: job 1839818 queued and waiting for resources
+        srun: job 1839818 has been allocated resources
+
+   Verify that your environment has X11 forwarding enabled, you should see a similar output
+
+     .. code-block:: console
+
+        [user@hpc3-y-z:~]$ echo $DISPLAY
+        localhost:11.0
+
+     Optionally, verify that GUI works and you can see a GUI app.
+     The following  command should open a small pop-up window with
+     three turning gears in the window. Close that pop-up window
+     before proceeding with matlab:
+
+     .. code-block:: console
+
+        [user@hpc3-y-z:~]$ glxgears
+
+   Load MATLAB module and start matlab:
+
+     .. code-block:: console
+
+        [user@hpc3-y-z:~]$ module load MATLAB/R2023b             # load module
+        [user@hpc3-y-z:~]$ matlab                                # start matlab
+
+
+   **Mac users prerequisites**:
+
+     Your local Mac needs to have `XQuartz` installed. This is a standard application
+     that provides X Window system for macOS. Follow your Mac applications installation guide
+     if you don't have XQuartz installed.
+
+     If you experience a problem with MATLAB GUI windows going black  after
+     starting matlab try the following (on your Mac):
+
+       * **Update XQuartz Settings**: open XQuartz Preferences (or Settings).
+         Navigate to the :tt:`Security` tab and ensure :tt:`Allow connections from network clients` is checked.
+
+       * **Disable the render extension**: open a *Terminal* window and type:
+
+         .. code-block:: console
+
+            defaults write org.xquartz.X11 enable_render_extension 0
+
+       * **Restart XQuartz**.
+
 
 #. Single core/CPU
 
@@ -1022,12 +1088,12 @@ There a few ways to run RStudio.
      that provides X Window system for macOS. Follow your Mac applications installation guide
      if you don't have XQuartz installed.
 
-   Login on the cluster using X forwarding. This means using  :tt:`-X`
+   Login on the cluster using X forwarding. This means using  :tt:`-Y`
    or  :tt:`-X -Y` option in the ssh command. For example:
 
    .. code-block:: console
 
-      ssh -X panteater@hpc3.rcic.uci.edu
+      ssh -Y panteater@hpc3.rcic.uci.edu
 
    Once logged in, claim an interactive session, load RStudio
    and R modules. Enforce software rendering engine in the ``rstudio`` command:
