@@ -748,7 +748,7 @@ MATLAB
 
    .. note:: Cluster is not well suited for running GUI applications over
              the network. Users with Mac laptops may experience more problems.
-             See a workaroun below.
+             See a workaround below.
 
    Login on the cluster using X forwarding. This means using  :tt:`-Y`
    or  :tt:`-X -Y` option in the ssh command on your laptop. For example:
