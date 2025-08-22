@@ -789,25 +789,45 @@ MATLAB
         [user@hpc3-y-z:~]$ matlab                                # start matlab
 
 
-   **Mac users prerequisites**:
+   If you experience a problem with MATLAB GUI windows going black after
+   starting matlab or see a lot of java errors hat result in unresponsive
+   windows try the following:
 
-     Your local Mac needs to have `XQuartz` installed. This is a standard application
-     that provides X Window system for macOS. Follow your Mac applications installation guide
-     if you don't have XQuartz installed.
-
-     If you experience a problem with MATLAB GUI windows going black  after
-     starting matlab try the following (on your Mac):
-
-       * **Update XQuartz Settings**: open XQuartz Preferences (or Settings).
-         Navigate to the :tt:`Security` tab and ensure :tt:`Allow connections from network clients` is checked.
-
-       * **Disable the render extension**: open a *Terminal* window and type:
+     **All users**:
+       * Remove files and directories in your :tt:`$HOME/.matlab/`. This will clear matlab settings
+         and preferences that may habe wrong or became corrupted.
+         They will be regenerated at a new matlab invocation.
+       * Force software rendering instead of hardware acceleration or start
+         with OpenGL disabled. Use one of the following commands:
 
          .. code-block:: console
 
-            defaults write org.xquartz.X11 enable_render_extension 0
+            [user@hpc3-y-z:~]$ matlab -softwareopengl    # forse software rendering
+            [user@hpc3-y-z:~]$ matlab -noopengl          # disable OpenGL
 
-       * **Restart XQuartz**.
+       * Create a file :tt:`java.opts` in your MATLAB's startup directory :tt:`$HOME/.matlab`
+         with the following content:
+
+         .. code-block:: text
+
+            -Dsun.java2d.xrender=false
+            -Dsun.java2d.pmoffscreen=false
+
+     **Mac users**:
+       Your local Mac needs to have `XQuartz` installed. This is a standard application
+       that provides X Window system for macOS. Follow your Mac applications installation guide
+       if you don't have XQuartz installed. On your laptop do:
+
+         * **Update XQuartz Settings**: open XQuartz Preferences (or Settings).
+           Navigate to the :tt:`Security` tab and ensure :tt:`Allow connections from network clients` is checked.
+
+         * **Disable the render extension**: open a *Terminal* window and type:
+
+           .. code-block:: console
+
+              defaults write org.xquartz.X11 enable_render_extension 0
+
+         * **Restart XQuartz**.
 
 
 #. Single core/CPU
