@@ -33,7 +33,7 @@ literally hundreds of domain-specific, community-supported, applications maintai
 
     * :ref:`How to use software modules <modules>`
     * :ref:`Important Updates with OS changes <software updates>`
-    * :ref:`Exampels how to use spcific software <job examples>`
+    * :ref:`Examples how to use specific software <job examples>`
 
   The following table lists available software (by their associated modules)
   together with a category and a short description. Info on modules naming schema
