@@ -802,7 +802,7 @@ MATLAB
 
          .. code-block:: console
 
-            [user@hpc3-y-z:~]$ matlab -softwareopengl    # forse software rendering
+            [user@hpc3-y-z:~]$ matlab -softwareopengl    # force software rendering
             [user@hpc3-y-z:~]$ matlab -noopengl          # disable OpenGL
 
        * Create a file :tt:`java.opts` in your MATLAB's startup directory :tt:`$HOME/.matlab`
