@@ -447,19 +447,16 @@ A user must have an HPC3 account to use the portal.
       Container is starting
 
 
-   **IMPORTANT**
+   .. important::
+      | You must have sufficient space in your $HOME in order to run a session.
+      | **If your $HOME is full the server will fail to start with an error similar to**:
 
-     You must have sufficient space in your $HOME in order to run a session.
-     If your $HOME is full the server will fail to start with an error similar to the
+      .. figure:: images/jhub-fail.png
+         :align: center
+         :width: 90%
+         :alt: container failed
 
-     .. figure:: images/jhub-fail.png
-        :align: center
-        :width: 90%
-        :alt: container failed
-
-     **How to fix**:
-       You need to bring your $HOME usage under the :ref:`quota <home quotas>` before
-       you can start your session.
+      **How to fix**: you need to bring your $HOME usage under the :ref:`quota <home quotas>`.
 
 #. **Your server environment**
 
