@@ -194,7 +194,7 @@ For additional info see :ref:`hardware faq`.
     | Qty 4 Nvidia `V100 <https://www.nvidia.com/en-us/data-center/v100/>`_ GPU, 16GB memory
     | Qty 4 Nvidia A30 GPU, 24GB memory
     | Qty 2 Nvidia A100 GPU, 80GB memory
-    | Qty 4 Nvidia L40S GPU, 48 memory
+    | Qty 4 Nvidia L40S GPU, 48GB memory
 
 .. _support nodes:
 
