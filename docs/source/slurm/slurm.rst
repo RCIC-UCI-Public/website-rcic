@@ -256,7 +256,7 @@ User must be either:
 
                    * your job ID and error message
                    * what was your submit script
-                   * what is the memory (in Gb) that your job needs
+                   * what is the memory (in GB) that your job needs
                    * include the output of ``seff`` and ``sacct`` commands about your job
 
 :bluelight:`highmem / hugemem`

@@ -407,7 +407,7 @@ The problem of having enough local scratch arises when nodes are shared by multi
 :red:`One job can cause the other jobs running on the same node to fail`, so please be considerate of your
 colleagues by requesting storage for your jobs as follows:
 
-:bluelight:`Your job creates a few Gb of temporary data directly in $TMPDIR`
+:bluelight:`Your job creates a few GB of temporary data directly in $TMPDIR`
    and handles the automatic creation and deletion of these temp files.
    Many Python, Perl, R, Java programs and 3rd party commercial software will
    write to :tt:`$TMPDIR` which is the default for many applications.
@@ -415,7 +415,7 @@ colleagues by requesting storage for your jobs as follows:
    **Your action**:
      You don't need to do anything special. Do not reset :tt:`$TMPDIR`.
 
-:bluelight:`Your job creates a few Gb of output in the current directory`
+:bluelight:`Your job creates a few GB of output in the current directory`
    where you run the job and does many frequent small file reads or writes (a few Kb every few minutes).
 
    **Your action**:
