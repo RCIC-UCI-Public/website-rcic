@@ -34,7 +34,7 @@ what it should be used for, and shows links for in-depth how to use guides:
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
    |   **Name**                        | **Access**              | **Performance**              | **How to use**                                                 |
    +===================================+=========================+==============================+================================================================+
-   | :ref:`HOME <home>`                | On all                  | Slowest, yet is sufficient   | Store small files, compiled binaries, order of Mbs data files. |
+   | :ref:`HOME <home>`                | On all                  | Slowest, yet is sufficient   | Store small files, compiled binaries, order of MBs data files. |
    |                                   | nodes via NFS mount     | when used properly           |                                                                |
    |                                   |                         |                              | :red:`Not for data intensive batch jobs`                       |
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
@@ -43,17 +43,17 @@ what it should be used for, and shows links for in-depth how to use guides:
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
    | :ref:`DFS <dfs>`                  | On all nodes            | Best for processing medium/  | To keep source code, binaries. For data used in batch jobs.    |
    |                                   | via BeegFS mount        | large data files (order of   |                                                                |
-   |                                   |                         | 100's Mbs/Gbs)               | :red:`Not for writing/reading many small files`.               |
+   |                                   |                         | 100s MBs/GBs)                | :red:`Not for writing/reading many small files`.               |
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
    | :ref:`CRSP <crsp>`                | (1) On all nodes        | Best for processing medium/  | To keep source code, binaries. Sometimes for data used in      |
-   | (campus storage)                  | via NFS mount           | large data files (order of   | batch jobs, usually better use DFS or Scratch.                 |
-   |                                   | (2) From any campus IP  | 100's Mbs/Gbs)               |                                                                |
+   | (campus research storage pool)    | via NFS mount           | large data files (order of   | batch jobs, usually better use DFS or Scratch.                 |
+   |                                   | (2) From any campus IP  | 100s MBs/GBs)                |                                                                |
    |                                   | or VPN-connected user   |                              | :red:`Not for writing/reading many small files`.               |
    |                                   | laptop                  |                              |                                                                |
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
    | :ref:`CRSP ANNEX <crsp annex>`    | On all nodes            | Best for processing medium/  | To keep source code, binaries. For data used in batch jobs.    |
    |                                   | via BeegFS mount        | large data files (order of   | Available to a handful of labs as a temporary storage.         |
-   |                                   |                         | 100's Mbs/Gbs)               |                                                                |
+   |                                   |                         | 100s MBs/GBs)                |                                                                |
    |                                   |                         |                              | :red:`Not for writing/reading many small files`.               |
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
 
