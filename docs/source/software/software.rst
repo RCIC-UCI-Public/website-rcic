@@ -68,7 +68,7 @@ literally hundreds of domain-specific, community-supported, applications maintai
 
   * **RCIC does not purchase or provide licenses**, we only enable an access to the licenses.
   * **The departments/PIs buy licenses** for their labs and the access must be approved by a PI.
-  * **Users must submit a ticket** requesting :ref:`Access to Licensend Software <access licensed software>`
+  * **Users must submit a ticket** requesting :ref:`Access to Licensed Software <access licensed software>`
     in order to use to licensed applications.
 
 .. _how is built:
