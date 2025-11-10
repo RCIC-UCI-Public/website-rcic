@@ -1278,6 +1278,8 @@ Steps below explain the basic steps specific to compile software that are specif
    Module **foundation** includes ``cmake``, ``make`` plus a few other commands.
    For details see the output of ``module display foundation/v8``.
 
+   The **gcc** and **intel** modules include fortran compilers.
+
    Your software may have prerequisites, 
    for any prerequisites please check already installed modules and load if you find
    that they satisfy your software needs. See :ref:`modules` guide for
