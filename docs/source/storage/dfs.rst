@@ -16,9 +16,12 @@ to store their research data and share it with defined groups.
 Parallel file systems running `BeeGFS <https://www.beegfs.io/c/>`_ on top of `ZFS <https://zfsonlinux.org/>`_
 provide scalable data storage on HPC3 in the :tt:`/dfsX`  and :tt:`/pub` file paths.
 
-.. warning:: DFS filesystems  must not be used to store personally-identifiable information that would fall
-   under guidelines  such as `FERPA <https://studentprivacy.ed.gov/ferpa>`_
-   (Student data) and `HIPAA <https://www.hhs.gov/hipaa/index.html>`_ (health-care data).
+.. warning:: **DFS filesystems  must not be used to store personally-identifiable information that would fall
+   under guidelines such as**:
+
+   - `FERPA <https://studentprivacy.ed.gov/ferpa>`_ (Student data)
+   - `HIPAA <https://www.hhs.gov/hipaa/index.html>`_ (health-care data)
+   - `NIST SP 800-171 <https://csrc.nist.gov/pubs/sp/800/171/r3/final>`_  data
 
    If you are unsure that DFS is suitable for your data, please refer to general guidance for
    `data security <https://research.uci.edu/human-research-protections/assessing-risks-and-benefits/privacy-and-confidentiality/data-security/>`_
