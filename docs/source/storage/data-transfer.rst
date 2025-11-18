@@ -175,3 +175,29 @@ be installed by the user in a user-writable area.
    .. code-block:: console
 
       $ $HOME/.aspera/connect/bin/ascp -h
+
+.. _globus data:
+
+Using Globus
+------------
+
+If you need to transfer a large dataset (order of Tbs) we allow users to setup
+**Globus Personal Connect** endpoints on one of our DTN nodes and transfer the
+data using Globus. 
+There are two DTN nodes that can be used:
+
+  - dtn-1 
+  - dtn-2
+
+
+1. Login on the cluster as usual, then use ssh to login on one of the DTN nodes:
+
+   .. code-block:: console
+
+      [user@login-x:~]$ ssh dtn-1
+
+2. Follow the instructions https://docs.globus.org/globus-connect-personal/install/linux/
+   to set up personal Globus endpoint 
+
+   Note, the prerequisites are already installed, you need to follow
+   instructions for Gloubs Connect Personal download/install/configuration.
