@@ -31,6 +31,17 @@ Impacts:
   #. You will NOT have access to HPC3 during the planned downtime.
   #. You will have access to CRSP using `Web based File browser` or `CRSP Desktop App`.
   #. No Slurm jobs can run.
-  #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on the day of maintenance
-     will need to be canceled and resubmitted after the maintenance.
+
+User Action required:
+  .. attention:: Slurm jobs submitted to close to the maintenance window can result in 
+     :tt:`Pending job due to ReqNodeNotAvail, Reserved for maintenance` state. 
+     This means jobs that are not guaranteed (via TimeLimit) to complete before 8am on
+     the day of maintenance. These jobs will need to be canceled and resubmitted after the maintenance.
      Please see :ref:`requesting time limits <request time>` on queues.
+
+  1. Save your work:
+
+     - cancel all Slurm jobs
+     - stop any containers running via Jupyterhub portal
+     - stop Any VSCode instances
+  #. Logout
