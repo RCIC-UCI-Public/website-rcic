@@ -24,8 +24,9 @@ do
   prefetch $ID
 
   # convert sra format to fastq format using requested number of threads (slurm tasks)
+  # an accession number is specified as a directory 
   # temp files are written to fastscratch in $TMPDIR with a 100G limit
-  fasterq-dump ./$ID/$ID.sra -e $SLURM_NTASKS --temp $TMPDIR --disk-limit-tmp 100G  
+  fasterq-dump ./$ID -e $SLURM_NTASKS --temp $TMPDIR --disk-limit-tmp 100G  
 
   # compress resulting fastq files
   gzip $ID*fastq
