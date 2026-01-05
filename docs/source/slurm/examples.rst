@@ -936,6 +936,41 @@ the job.
   .. literalinclude:: files/mpi-special-case.sub
      :language: bash
 
+MPI troubleshooting
+^^^^^^^^^^^^^^^^^^^
+
+Some users reported errors that were traced to job using different devices
+when multiple IB devices are available on the node.  The  job fails with the
+errors similar to:
+
+   .. code-block:: text
+
+      Open MPI detected two devices on a single server that have different
+      "receive_queues" parameter values (in the openib BTL).  Open MPI
+      currently only supports one OpenFabrics receive_queues value in an MPI
+      job, even if you have different types of OpenFabrics adapters on the
+      same host.
+
+      Here is more detailed information about the recieive_queus value
+      conflict:
+        Local host:     hpc3-XX-XX
+        Device 1:       mlx5_0 (vendor 0x2c9, part ID 4119)
+        Receive queues: S,128,256,192,128:S,2048,1024,1008,64:S,12288,1024,1008,64:S,65536
+        Device 2:       qedr0 (vendor 0x1077, part ID 32880)
+        Receive queues: P,65536,64
+
+      WARNING: There was an error initializing an OpenFabrics device.
+        Local host:   hpc3-XX-XX
+        Local device: qedr0
+
+Here, the communication between the job tasks was on two different devices
+`mlx5_0` and `qedr0` which is not supported.
+
+To remedy this error, use the **btl_openib_if_include** parameter as shown below
+in your ``mpirun`` command in addition to your regular arguments:
+
+      ``mpirun --mca btl_openib_if_include mlx5_0  <the rest of usual argsuments>``
+
 .. _job hybrid:
 
 MPI/OpenMP hybrid
