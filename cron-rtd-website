@@ -1,6 +1,7 @@
 #!/bin/bash -l
 
 SHELL=/bin/bash
+PATH=/usr/local/bin:$PATH
 
 ###########################
 ### Set local variables ###
