@@ -18,7 +18,7 @@ additional purchases have been made to bring the cluster to its current configur
 The system started as a 4000 core system when first constructed in June 2020.
 It has expanded several times with nodes purchased by UCI and faculty.
 
-As of March 2025, the following describes the cluster:
+As of May 2025, the following describes the cluster:
   * 253 batch-accessible nodes including:
 
     * 14 nodes with 4 Nvidia V100 (16GB) GPUs
