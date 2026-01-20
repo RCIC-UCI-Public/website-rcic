@@ -24,8 +24,8 @@ As of January 2026, the following describes the cluster:
     * 14 nodes with 4 Nvidia V100 (16GB) GPUs
     * 18 nodes with 4 Nvidia A30 (24GB) GPUs
     * 4 nodes with 2 Nvidia A100 (80GB) GPUs
-    * 2 nodes with 4 Nvidia L40S (48GB) GPUs
-  * 11568 total cores (1256 AMD EPYC and 10312 Intel)
+    * 3 nodes with 4 Nvidia L40S (48GB) GPUs
+  * 11616 total cores (1256 AMD EPYC and 10360 Intel)
   * 73,132 GB aggregate memory
   * 3 load-balanced login nodes
   * 96.4% nodes (244/253) at 100 Gbit/s EDR InfiniBand
