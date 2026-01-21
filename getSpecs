@@ -1,0 +1,87 @@
+#!/usr/bin/python3
+
+# use this script to generate sums for nodes,cpu,memory, gpu counts
+# takes an argument a file name. 
+# The file text is generated using the 'sinfo' command specified in hpc3/specs.rst
+# The resulting counts are used to updates text in hpc3/specs.rst
+
+import sys
+import os
+import argparse
+
+class Parser:
+    def __init__(self, args):
+        self.prog = os.path.basename(args[0])
+        self.args = args[1:]          # command line arguments
+        
+        self.parseArgs()
+
+    def parseArgs(self):
+        '''command line arguments parser'''
+        description = "Parse file provided on a command line get counts for nodes memory, cpu, gpu"
+
+        parser = argparse.ArgumentParser(description=description, formatter_class=argparse.RawTextHelpFormatter)
+        parser.add_argument("filename", help="The the file name to process.")
+        args = parser.parse_args()
+        self.file = args.filename
+        return
+
+    def readFile(self):
+        # File format is
+        #   | NODE | CPUS | MEMORY    | AVAIL_FEATURES                         | GRES         |
+        #   | 3    | 80   | 127000    | intel,avx512,mlx5_ib,nvme,fastscratch, |              |
+        # ... 
+        #   | 1    | 40   | 386000    | intel,avx512,mlx5_ib,gpugeneric        | gpu:V100:4   | 
+
+        f =  open(self.file)
+        self.lines = f.readlines()
+        f.close()
+
+    def getInfo(self):
+        nodeCount = 0
+        cpuCount = 0
+        cpuAMD = 0
+        memCount = 0
+        gpuInfo = {}
+
+        if "NODE" in self.lines[0]:
+            self.lines = self.lines[1:]
+
+        for l in self.lines:
+            parts = l.split("|")
+
+            numnodes = int(parts[1])                   # line node count
+            nodeCount += numnodes                      # total node count
+            cpuCount += int(parts[2]) * numnodes       # total cpu count
+            memCount += int(parts[3]) * numnodes       # total memory count
+            if "amd" in parts[4]:
+                cpuAMD += int(parts[2]) * numnodes     # count amd cpus separately
+
+            if "gpu" in parts[5]:
+                partsgpu = parts[5].split(":")
+                gpuName = partsgpu[1]                  # gpu name
+                gpuPerNode= int(partsgpu[2])           # count gpus per node
+                gpuCount = gpuPerNode * numnodes       # total count of gpus of this type
+
+                if gpuName in gpuInfo:
+                    gpuInfo[gpuName][0] += numnodes      # number of gpu nodes
+                    gpuInfo[gpuName][2] += gpuCount      # total number of gpus
+                else: 
+                    gpuInfo[gpuName] = [numnodes]        # number of gpu nodes
+                    gpuInfo[gpuName].append (gpuPerNode) # gpu per node 
+                    gpuInfo[gpuName].append (gpuCount)   # total number of gpus
+
+        mem = int(memCount * 1.0/1000)
+        print ("%d nodes total, %d total cores (%d AMD EPYC and %d Intel) " % (nodeCount, cpuCount, cpuAMD, cpuCount-cpuAMD))
+        print ("%d Gb aggregate memory" % mem)
+        for key,val in gpuInfo.items():
+            print ("%2d GPU nodes – each with %d Nvidia %s GPUs (total of %d GPUs)" % (val[0],val[1],key,val[2]))
+
+    def run(self):
+        self.readFile()
+        self.getInfo()
+
+##### Run from a command line #####
+if __name__ == "__main__":
+    app = Parser(sys.argv)
+    app.run()

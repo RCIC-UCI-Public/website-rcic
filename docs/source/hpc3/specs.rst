@@ -19,14 +19,14 @@ The system started as a 4000 core system when first constructed in June 2020.
 It has expanded several times with nodes purchased by UCI and faculty.
 
 As of January 2026, the following describes the cluster:
-  * 253 batch-accessible nodes including:
+  * 254 batch-accessible nodes including:
 
     * 14 nodes with 4 Nvidia V100 (16GB) GPUs
     * 18 nodes with 4 Nvidia A30 (24GB) GPUs
     * 4 nodes with 2 Nvidia A100 (80GB) GPUs
     * 3 nodes with 4 Nvidia L40S (48GB) GPUs
-  * 11616 total cores (1256 AMD EPYC and 10360 Intel)
-  * 73,132 GB aggregate memory
+  * 11600 total cores (1088 AMD EPYC and 10512 Intel)
+  * 75,749 GB aggregate memory
   * 3 load-balanced login nodes
   * 96.4% nodes (244/253) at 100 Gbit/s EDR InfiniBand
 
@@ -40,7 +40,8 @@ As of January 2026, the following describes the cluster:
 
 .. Generate the following table (formatting is going to be table-like) with
 .. sinfo -S  '-R -D c' -p standard,highmem,hugemem,maxmem,gpu,standard-hbm,gpu-hugemem,gpu32 -o "   | %4D | %4c | %9m | %38f | %12G | " -e  | sed 's/(null)/      /'
-.. edit the final
+.. edit the final per format below
+
 .. table::
    :class: noscroll-table sortable
 
@@ -56,7 +57,7 @@ As of January 2026, the following describes the cluster:
    +-------+------+-----------+----------------------------------------+------------+
    | 32    | 48   | 191000    | intel,avx512,mlx5_ib                   |            |
    +-------+------+-----------+----------------------------------------+------------+
-   | 16    | 64   | 515000    | amd,epyc,epyc7601,mlx5_ib              |            |
+   | 15    | 64   | 515000    | amd,epyc,epyc7601,mlx5_ib              |            |
    +-------+------+-----------+----------------------------------------+------------+
    | 14    | 64   | 256000    | intel,avx512,mlx5_ib,nvme,fastscratch  |            |
    +-------+------+-----------+----------------------------------------+------------+
@@ -73,6 +74,8 @@ As of January 2026, the following describes the cluster:
    | 1     | 36   | 515000    | intel,mlx5_ib                          |            |
    +-------+------+-----------+----------------------------------------+------------+
    | 1     | 44   | 515000    | intel,mlx4_ib                          |            |
+   +-------+------+-----------+----------------------------------------+------------+
+   | 1     | 48   | 515000    | intel,avx512,mlx5_ib,nvme,fastscratch  |            |
    +-------+------+-----------+----------------------------------------+------------+
    | 1     | 64   | 515000    | amd,epyc,epyc7551,mlx4_ib              |            |
    +-------+------+-----------+----------------------------------------+------------+
@@ -94,6 +97,8 @@ As of January 2026, the following describes the cluster:
    +-------+------+-----------+----------------------------------------+------------+
    | 2     | 48   | 256000    | intel,avx512,mlx5_ib,nvme,fastscratch, | gpu:L40S:4 |
    +-------+------+-----------+----------------------------------------+------------+
+   | 1     | 48   | 1031000   | intel,avx512,mlx5_ib,nvme,fastscratch, | gpu:L40S:4 |
+   +-------+------+-----------+----------------------------------------+------------+
    | 1     | 64   | 3095000   | intel,avx512,mlx5_ib,nvme,fastscratch, | gpu:A30:4  |
    +-------+------+-----------+----------------------------------------+------------+
    | 15    | 32   | 256000    | intel,avx512,mlx5_ib,nvme,fastscratch, | gpu:A30:4  |
@@ -102,7 +107,9 @@ As of January 2026, the following describes the cluster:
    +-------+------+-----------+----------------------------------------+------------+
    | 4     | 32   | 256000    | intel,avx512,mlx5_ib,nvme,fastscratch  | gpu:A100:2 |
    +-------+------+-----------+----------------------------------------+------------+
-   | 2     | 32   | 257000    | intel,avx512,mlx5_ib,nvme,fastscratch, | gpu:A30:4  |
+   | 1     | 32   | 257000    | intel,avx512,mlx5_ib,nvme,fastscratch, | gpu:A30:4  |
+   +-------+------+-----------+----------------------------------------+------------+
+   | 1     | 32   | 224000    | intel,avx512,mlx5_ib,nvme,fastscratch, | gpu:A30:4  |
    +-------+------+-----------+----------------------------------------+------------+
    | 1     | 40   | 386000    | intel,avx512,mlx5_ib,gpugeneric        | gpu:V100:4 |
    +-------+------+-----------+----------------------------------------+------------+
