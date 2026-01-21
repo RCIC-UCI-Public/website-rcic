@@ -20,7 +20,7 @@ The Advisory Committee meets approximately once per quarter.
    +----------------------------------+-------------------------------------+------------------------------------------+
    | Prof. Filipp Furche (Chair)      | Physical Sciences                   | Chemistry                                |
    +----------------------------------+-------------------------------------+------------------------------------------+
-   | Prof. Pramod Khargonekar         | Office of Research                  | Vice Chancellor of Research              |
+   | Prof. Aileen Anderson            | Office of Research                  | Vice Chancellor of Research              |
    +----------------------------------+-------------------------------------+------------------------------------------+
    | Prof. Julia Lupton               | Humanities                          | English                                  |
    +----------------------------------+-------------------------------------+------------------------------------------+
