@@ -230,7 +230,7 @@ Node Details
 HPC3 utilization <https://hpc3.rcic.uci.edu/ganglia>`_.
 You must be on the UCI/VPN Network for this link to work.
 
-You may download node details info as the `CVS file </_static/nodes.csv>`_
+You may download node details info as the `CSV file </_static/nodes.csv>`_
 or browse the table below.  Click on the column header for sorting.
 
 .. csv-table:: Nodes info updated :blogauthor:`20 Aug 2024`.
