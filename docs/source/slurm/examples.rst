@@ -1328,3 +1328,18 @@ NAMD
 
    .. literalinclude:: files/namd-gpu-multinode.sub
       :language: bash
+
+OLLAMA
+------
+
+We provide ready made image for running LLM with ollama.
+The following example shows how to start ollama, download model
+and run queries.  For your job, you will need to set job requirements and
+change variables INSTANCE, MODEL, and MYMODELSDIR, plus any ollama run 
+parameters for your model.
+
+.. literalinclude:: files/ollama.sub
+   :language: bash
+
+.. note:: Do not change binding info in the apptainer instance start command.
+

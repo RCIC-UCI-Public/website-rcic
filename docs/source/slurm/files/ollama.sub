@@ -1,0 +1,45 @@
+#!/bin/bash
+
+#SBATCH --job-name=ollama    ## job name
+#SBATCH --nodes=1            ## should be 1 
+#SBATCH --ntasks=4           ## number of processes to be launched
+#SBATCH --cpus-per-task=1    ## number of CPUs per process
+#SBATCH --error=%x.%A.err    ## slurm error file
+#SBATCH --output=%x.%A.out   ## slurm output file
+#SBATCH -t 01:00:00          ## time limit 1 hr
+#SBATCH -p gpu               ## partition name
+#SBATCH --gres=gpu:1         ## IMPORTANT: request only 1 GPU
+#SBATCH -A hackathon_gpu     ## CHANGE to you gpu account name
+                             ## or use free-gpu partition
+
+# apptainer ollama image to use
+OLLAMA_IMG=/dfs8/apptainer-images/ollama-0.14.3.sif
+
+# load module
+module load ollama/0.14.3
+
+# set your instance name
+INSTANCE=myollama
+
+# set model name to download and use 
+MODEL=deepseek-r1:7b
+
+# create a directory where models will be loaded
+MYMODELSDIR=/dfs6b/pub/$USER
+mkdir -p $MYMODELSDIR/models
+
+# start instance
+apptainer instance start --nv --bind $MYMODELSDIR:/root/.ollama $OLLAMA_IMG myollama
+
+# start ollama server
+apptainer exec instance://$INSTANCE ollama serve &
+
+# download model
+apptainer exec instance://$INSTANCE ollama pull $MODEL
+
+# run model
+apptainer exec instance://$INSTANCE ollama run $MODEL "what is monday?" &> myollama-output-$SLURM_JOBID
+
+# stop instance
+apptainer instance stop $INSTANCE
+
