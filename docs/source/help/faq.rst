@@ -287,6 +287,18 @@ I get the *Disk quota exceeded* error on /dfsX/labY. Why?
   See :ref:`dfs quotas` for instructions on checking quotas and
   :ref:`data transfer` for tips on data transfers.
 
+
+Can you explain what a chunk quota is on /dfsX system?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  BeeGFS (The underlying file system for all dfsX directories) is a *parallel* file system.
+  To achieve performance, it stripes every file (in storage chunks) across multiple disk arrays.
+  It does this because chunks from different arrays can be read/written simultaneously to achieve parallel speed up.
+  The downside is that every file (no matter how small) consumes at least 4 storage chunks.
+  Your *chunk quota* is the total number of chunks you can utilize on a file system.
+  If you are mis-using the parallel file
+  system by storing many small files, you will run out of chunk quota before you run out of storage quota. 
+  This is a guard against abusive behaviour that can ruin overall file system performance.
+
 My Slurm job failed with the *Disk quota exceeded* on /dfsX/labY
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   This is group writable area, all users who write in this area contribute to

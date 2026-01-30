@@ -57,6 +57,7 @@ There is no separate account for DFS filesystems.
 
   * 1TB quota per account in :tt:`/pub/UCInetID`.
   * 1TB backup quota for a selective backup.
+  * 8M file chunks quota. Chunks are 512KB on /pub
 
 **Recharge allocation - Group shared area**
   UCI Faculty members (PIs) can purchase low-cost recharge allocation(s) to fulfill their needs:
@@ -80,10 +81,16 @@ Storing Files
   * Jobs transient input/output/error files
   * Large user-authored  or third-party software installations
 
+**What is abusive?**
+  * Directories with millions of files
+  * Storage a very large number of that are each < 2MB in size.
+  * Simultaneous read/write from 100s or 1000s of jobs. 
+
 **Where to Store**
   Pick a location depending on the type of data (private or group access):
 
   :tt:`/pub/UCInetID`
+
     * is a unique *Private area*, never shared with other users
     * the organization of files and directories is up to the user
     * :red:`do NOT change this directory permissions`
@@ -102,8 +109,8 @@ Storing Files
 
   .. warning:: * When we create **Private areas** and  **Group shared areas** on DFS
                  we set correct permissions on the top level directories.
-               * Each **Group shared area** is initially configured with the **group sticky bit set**
-                 so that only allowed users can access this area.
+               * Each **Group shared area** is initially configured with the **group sticky bit set**. Under normal
+                 operations, new files will be written with the correct *sticky* group id for quota accounting
                * We advise users to NOT change permissions on the directories and files when writing in the group area.
                  :red:`Incorrect permissions lead to quota exceeded errors`.
 
@@ -122,6 +129,7 @@ Quotas
   * Every user has a *default personal group* which is the same as their UCInetID (login).
   * :tt:`1TB personal group quota` on **/pub/UCInetID**.
   * :tt:`1Tb selective backup quota` (a default for each user).
+  * :tt:`8M files chunks quota` 
 
 **When writing in Group shared area**:
   * All members of the group contribute to the quota. It's the sum total usage that counts.
@@ -133,6 +141,11 @@ Quotas
 .. important::  Users can't change quotas and can't request quotas.
                 A PI can submit a ticket asking to update the quota based on purchasing. Please see :ref:`buy dfs`.
 
+.. important::  DFS is a parallel file system and is designed to store large files. Every file is "striped" 
+                across multiple storage targets. Your chunk files quota represents how many 512KB chunks all of your
+                files consume.  For /pub, every file consumes **at least 4 chunks**. If you store many small files, you
+                will overrun your chunk quota before overrunning your space quota. 
+
 .. _dfs check quotas:
 
 How to check
@@ -141,19 +154,19 @@ How to check
 For all DFS file systems  including selective backup one can use ``dfsquotas``
 command to check user/group quotas on a particular DFS pool.
 
-**To see the quotas for user** `panteater` **on private allocation in** :tt:`/dfs6`:
+**To see the quotas for user** `panteater` **on private allocation in** :tt:`/dfs6b`:
 
   .. code-block:: console
 
-     $ dfsquotas panteater dfs6
-     ==== Group quotas on dfs6 for user panteater
+     $ dfsquotas panteater dfs6b
+     ==== Group quotas on dfs6b for user panteater
      ----------------------------------------------------------------------------
                     Group      ||          Size            ||    Chunk Files     
                  name | id     ||       used | allocated   ||    used | allocated
      ----------------------------------------------------------------------------
-        panteater_lab | 012345 ||  26.25 GiB | 1024.00 GiB || 1310459 | unlimited
-          alpha_users | 158537 ||     0 Byte | 1024.00 Gib ||       0 | unlimited
-            panteater | 000865 || 755.59 GiB | 1024.00 GiB ||  258856 | unlimited
+        panteater_lab | 012345 ||  26.25 GiB | 1024.00 GiB || 1310459 | 8000000
+          alpha_users | 158537 ||     0 Byte | 1024.00 Gib ||       0 | 8000000
+            panteater | 000865 || 755.59 GiB | 1024.00 GiB ||  258856 | 8000000
 
   The above shows that a user `panteater` can write in its private
   area :tt:`/pub/panteater` using the groups listed in the output:
