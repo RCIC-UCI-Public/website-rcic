@@ -45,9 +45,13 @@ Access to all RCIC managed resources is subject to our
    | **Compute**    |  There is NO SSH access to the compute nodes to prevent users from starting      |
    | **nodes**      |  jobs bypassing Slurm.  Use :ref:`attach to job`.                                |
    +----------------+----------------------------------------------------------------------------------+
-   | **Slurm jobs** | * All batch or interactive  jobs must be submitted to Slurm                      |
+   | **Slurm jobs** | * All batch or interactive jobs must be submitted to Slurm                       |
    |                | * Do not run Slurm jobs in your :tt:`$HOME`.                                     |
    |                |   Instead, use your DFS storage :tt:`/pub/UCInetID`                              |
+   |                | * Do not use mail event type ALL,BEGIN                                           |
+   |                | * Do not enable email notification if you submit hundreds of jobs.               |
+   |                |   Sending an email for each job overloads Postfix server.                        |
+   |                | * Make sure to use your actual UCI-issued email address.                         |
    +----------------+----------------------------------------------------------------------------------+
    | **Disk**       |  Check your disk quota frequently. See :ref:`home`, :ref:`dfs` and :ref:`crsp`   |
    | **quotas**     |  pages for information about quotas. File system limits are generally the first  |
