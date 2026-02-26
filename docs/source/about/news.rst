@@ -9,20 +9,20 @@ News & Events
   (all current users) and is described in the details below.
 * When the maintenance is completed all users are notified via emails to hpc-users@uci.edu.
 
-December 17, 2025
+March 24, 2026
 -----------------
 
-| :blogtitle:`HPC3 Downtime December 17, 2025`
-| :blogauthor:`2025-11-18 by Nadya Williams`
+| :blogtitle:`HPC3 Downtime March 24, 2026`
+| :blogauthor:`2026-02-26 by Nadya Williams`
 
-| The next outage will be December 17, 2025, beginning at 8am.
+| The next outage will be March 24, 2026, beginning at 8am.
 | The cluster will be unavailable all day.
 
 Maintenance Items:
-  1. Apply latest Rocky 9.6 OS updates on all nodes.
+  1. Apply latest Rocky 9.7 OS updates on all nodes.
   #. Beegfs Upgrade to 8.2 on all DFS servers and cluster-wide
-  #. Update NAS Servers to Rocky 9.6
-  #. Update Remaining bioportal to 9.6
+  #. Update NAS Servers to Rocky 9.7
+  #. Update Applications stack to Rocky 9.7
 
 Impacts:
   :red:`This is a full outage`.
