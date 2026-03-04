@@ -22,17 +22,19 @@ provide scalable data storage on HPC3 in the :tt:`/dfsX`  and :tt:`/pub` file pa
    - `FERPA <https://studentprivacy.ed.gov/ferpa>`_ (Student data)
    - `HIPAA <https://www.hhs.gov/hipaa/index.html>`_ (health-care data)
    - `NIST SP 800-171 <https://csrc.nist.gov/pubs/sp/800/171/r3/final>`_  data
+   - `ISO/IEC 27002:2022 <https://www.iso.org/standard/75652.html>`_ data
 
    If you are unsure that DFS is suitable for your data, please refer to general guidance for
    `data security <https://research.uci.edu/human-research-protections/assessing-risks-and-benefits/privacy-and-confidentiality/data-security/>`_
    provided by the `UCI Office of Research <https://research.uci.edu/>`_
 
-:Performance: *  Of each file system is quite good (5-6 GByte/s) **when used properly**,
-                 :red:`but it is not too difficult for a single user to
-                 exceed the inherent capabilities and completely wreck performance for everyone`
-              *  Multiple DFS systems provide an aggregate throughput > 30 GByte/s.
+:bluelight:`Performance:`
+  * Of each file system is quite good (5-6 GByte/s) **when used properly**,
+    :red:`but it is not too difficult for a single user to exceed the inherent
+    capabilities and completely wreck performance for everyone else`.
+  *  Multiple DFS systems provide an aggregate throughput > 30 GByte/s.
 
-**Take-home concepts about DFS parallel files systems are:**
+:bluelight:`Take-home concepts about DFS parallel files systems are:`
   * They perform well when reading/writing large files in good-sized (> 128KB) chunks.
   * They perform very poorly when reading/writing many small files.
   * All DFS systems are *single copy, high-performance storage* intended for scratch data.

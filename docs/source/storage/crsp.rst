@@ -12,6 +12,18 @@ Overview
 CRSP is a reliable and resilient network-based multi-Petabyte storage cluster
 for the UCI campus research community to store and share their research data.
 
+.. warning:: | **CRSP filesystems  must not be used to store personally-identifiable information that
+               would fall under guidelines such as**:
+
+               - `FERPA <https://studentprivacy.ed.gov/ferpa>`_ (Student data)
+               - `HIPAA <https://www.hhs.gov/hipaa/index.html>`_ (health-care data)
+               - `NIST SP 800-171 <https://csrc.nist.gov/pubs/sp/800/171/r3/final>`_  data
+               - `ISO/IEC 27002:2022 <https://www.iso.org/standard/75652.html>`_ data
+
+             | If you are unsure that CRSP is suitable for your data, please refer to general guidance for
+               `data security <https://research.uci.edu/human-research-protections/assessing-risks-and-benefits/privacy-and-confidentiality/data-security/>`_
+               provided by the `UCI Office of Research <https://research.uci.edu/>`_
+
 CRSP is funded through central campus to guarantee a fixed amount of no-cost storage to any
 faculty member or staff researcher who requests space. These campus funds pay for the people,
 the baseline infrastructure, and vendor maintenance required to provide the robust infrastructure.
@@ -21,17 +33,6 @@ the baseline infrastructure, and vendor maintenance required to provide the robu
   and postdocs.  In this model, a *Lab Area* is created on CRSP and is logically owned by the
   researcher. The *Lab Area Owner* can specify additional users who have read/write capability
   on the area and how much space each could consume.
-
-  .. warning:: | **CRSP filesystems  must not be used to store personally-identifiable information that
-                 would fall under guidelines such as**:
-
-                 - `FERPA <https://studentprivacy.ed.gov/ferpa>`_ (Student data)
-                 - `HIPAA <https://www.hhs.gov/hipaa/index.html>`_ (health-care data)
-                 - `NIST SP 800-171 <https://csrc.nist.gov/pubs/sp/800/171/r3/final>`_  data
-
-               | If you are unsure that CRSP is suitable for your data, please refer to general guidance for
-                 `data security <https://research.uci.edu/human-research-protections/assessing-risks-and-benefits/privacy-and-confidentiality/data-security/>`_
-                 provided by the `UCI Office of Research <https://research.uci.edu/>`_
 
 :bluelight:`CRSP is a combination of several technologies`
    * It is built with industry leading storage technology to ensure data high availability and resiliency.
@@ -57,7 +58,6 @@ the baseline infrastructure, and vendor maintenance required to provide the robu
       * web browsers
       * *folders* on laptops or desktops
       * file path on UCI's High-performance computing clusters (HPC3).
-
 
 .. TODO  rm image below or make a new one
 .. .. centered:: A simplified illustration of CRSP architectural diagram
