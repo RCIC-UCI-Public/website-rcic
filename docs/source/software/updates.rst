@@ -29,7 +29,7 @@ impossible. As a result:
   2. Some commands, include files and libraries are available from system RPMs
      and do not require modules. If you compiled any software using such
      libraries/binaries you may need to recompile anew as many have changed.
-  3. User installed anaconda/miniconda/mamaba environments will VERY LIKELY need to be reinstalled.
+  3. User installed anaconda/miniconda/mamba environments will VERY LIKELY need to be reinstalled.
      In this case, please try to use the latest version of :tt:`anaconda` or :tt:`miniconda` modules that we provide. Please see
      :ref:`install  conda` user guide that explains how to build and use conda environments on HPC3.
   4. If you previously used a module that has been removed, you will need to use a newer version of it where available.
