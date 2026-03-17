@@ -23,3 +23,19 @@
     {% include "searchbox.html" %}
   </div>
 {% endblock %}
+
+{# Fix for the accessibility error #}
+{% block footer %}
+  {{ super() }}
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Find all toctree captions with role="heading" and add missing aria-level
+      var captions = document.querySelectorAll('p.caption[role="heading"]');
+      captions.forEach(function(caption) {
+        if (!caption.hasAttribute('aria-level')) {
+          caption.setAttribute('aria-level', '2');
+        }
+      });
+    });
+  </script>
+{% endblock %}
