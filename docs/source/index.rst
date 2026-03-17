@@ -79,7 +79,7 @@ RCIC User Documentation
 .. toctree::
    :maxdepth: 1
    :numbered:
-   :caption: 🚀 User Guides & Tutorials
+   :caption: User Guides & Tutorials
 
    guides/beginner
    guides/reference
@@ -89,7 +89,7 @@ RCIC User Documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: 📚 Reference
+   :caption: Reference
 
    references/glossary
    references/hardware-faq
