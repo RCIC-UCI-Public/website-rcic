@@ -8,7 +8,7 @@
 --rcicorange:#e56306;
 --rcicblue: #00579e;
 --paleblue:#e1effa;
---bluelight: #0092e0;
+--bluelight: #097ABF;
 --proposed: #00afaf;
 --gray: #777777;
 }
@@ -64,7 +64,7 @@ a:hover {
 .rcicorange {color: #e56306;}
 .rcicblue {color: #00579e;}
 .proposed {color: #00afaf; font-weight: bold;}
-.bluelight {color: #0092e0;}
+.bluelight {color: #097ABF;}
 .bluegray {color: #88bfd1;}
 .gray {color: #777777;}
 
