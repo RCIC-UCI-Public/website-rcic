@@ -15,12 +15,28 @@
       {% if READTHEDOCS and current_version %}
         {%- set nav_version = current_version %}
       {% endif %}
-      {% if nav_version %}
-        <div class="version">{{ nav_version }}</div>
-      {% endif %}
     {% endif %}
 
+    {# CSS to fix the centering and size issues  for the search box #}
+    <style>
+      .wy-side-nav-search {
+        text-align: center !important;
+      }
+      /* Force the search form to be centered and wide */
+      .wy-side-nav-search > div[role="search"] form {
+        display: block !important;
+        margin: 0px 4px auto !important;
+        width: 90% !important; /* This controls the width */
+      }
+      /* Ensure the input box fills that 90% width */
+      .wy-side-nav-search input[type="text"] {
+        width: 100% !important;
+        border-radius: 18px !important;
+        box-sizing: border-box !important;
+      }
+    </style>
     {% include "searchbox.html" %}
+
   </div>
 {% endblock %}
 
