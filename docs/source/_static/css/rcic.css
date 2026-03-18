@@ -30,6 +30,23 @@
 /* Change the color of links in the sidebar,  example: white */
 .wy-menu-vertical a { color: #FFFFFF; }
 
+/* navigation links meet the 24px minimum height requirement for WCAG * 2.2 AA */
+.wy-menu-vertical li a {
+    display: block !important;
+    padding: 8px 15px !important; /* Increases vertical tap area */
+    line-height: 1.5 !important;
+    min-height: 24px !important; /* Forces the 24px minimum */
+}
+
+/* the "plus/minus" expander icons are also large enough */
+.wy-menu-vertical li span.toctree-expand {
+    display: inline-block !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    line-height: 24px !important;
+    text-align: center !important;
+}
+
 /* === copyright footer */
 
 /* footer text color */
