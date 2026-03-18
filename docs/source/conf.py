@@ -77,6 +77,10 @@ html_logo = 'images/rcic-logo.png'
 # using the given strftime format.
 html_last_updated_fmt = '%Y-%m-%d'
 
+# Disable the self-link to the page title of every page
+html_permalinks = False
+
+
 #keep for reference
 html_theme_options = {
     # use this to show only logo on top of the side bar without

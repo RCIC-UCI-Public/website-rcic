@@ -53,15 +53,6 @@ a:hover {
     text-decoration: underline; /* Optional: adds an underline on hover */
 }
 
-/* Disable the self-link to the page title of every page */
-.section > h1 > a.headerlink,
-h1 a {
-    pointer-events: none;
-    cursor: default;
-    color: inherit;
-    text-decoration: none;
-}
-
 /* ============== end accessibility changes ================ */
 
 /* these colors can be used in roles */
