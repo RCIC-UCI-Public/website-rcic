@@ -15,7 +15,7 @@
 
 /* ============== Accessibility Changes ================ */
 
-/* ============ sidebar */
+/* ==== sidebar */
 /* Change the background color of the entire sidebar, example: black */
 .wy-nav-side { background: #111111; 
 }
@@ -30,7 +30,7 @@
 /* Change the color of links in the sidebar,  example: white */
 .wy-menu-vertical a { color: #FFFFFF; }
 
-/* ============ copyright footer */
+/* === copyright footer */
 
 /* footer text color */
 footer { color: #111111 !important; }
@@ -47,10 +47,19 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* ================= for every link hover in the documentation */
+/* === for every link hover in the documentation */
 a:hover {
     /* color: #ff6600 !important;  Your desired hover color */
     text-decoration: underline; /* Optional: adds an underline on hover */
+}
+
+/* Disable the self-link to the page title of every page */
+.section > h1 > a.headerlink,
+h1 a {
+    pointer-events: none;
+    cursor: default;
+    color: inherit;
+    text-decoration: none;
 }
 
 /* ============== end accessibility changes ================ */
