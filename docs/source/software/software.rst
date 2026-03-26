@@ -41,11 +41,18 @@ literally hundreds of domain-specific, community-supported, applications maintai
 
   Click on the column header for sorting.
 
-  .. csv-table:: Installed Software, updated :blogauthor:`14 July 2025`.
+
+  .. csv-table:: Installed Software, updated :blogauthor:`24 March 2026`.
      :class: noscroll-table sortable
      :file: sw.csv
      :widths: 25,10,65
      :header-rows: 1
+
+..
+    The sw.csv file is created on devel host in admixbuilder (top level)
+    via running 'make swtable' after all other admixes repos are cloned.
+	The file need to be edited on a few lines to remove extra commas
+	in the description as they disrupt csv table lineup 
 
 .. _licensed software:
 
@@ -54,8 +61,8 @@ literally hundreds of domain-specific, community-supported, applications maintai
 
   +--------+--------+----------+------------+----------+----------+
   | Abaqus | COMSOL | Gaussian | MATLAB     | Stata 16 | VASP 5.x |
-  |        |        |          |            |          |          |
-  |        |        |          |            | Stata 17 | VASP 6.x |
+  |        |        |          | ( available|          |          |
+  |        |        |          | to all )   | Stata 17 | VASP 6.x |
   +--------+--------+----------+------------+----------+----------+
 
   .. note:: While all users can view and load modules for licensed software only registered users
@@ -127,6 +134,6 @@ literally hundreds of domain-specific, community-supported, applications maintai
     #. Software that will only be used by one or two users.
     #. Software that requires MySQL, PostgreSQL, HTTP or similar server setup.
 
-.. |hpc3-OS| replace:: HPC3 operating system is **Rocky Linux 9.6** (as of July 29, 2025).
+.. |hpc3-OS| replace:: HPC3 operating system is **Rocky Linux 9.7** (as of March 24, 2026).
 .. |hpc3-sw| replace:: All installed software is compiled specifically for this OS.
 
