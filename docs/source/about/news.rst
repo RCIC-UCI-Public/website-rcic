@@ -19,8 +19,10 @@ March 24, 2026
 | The cluster will be unavailable all day.
 
 Maintenance Items:
-  1. Apply latest Rocky 9.7 OS updates on all nodes.
-  #. Beegfs Upgrade to 8.2 on all DFS servers and cluster-wide
+  1. Replace core Ethernet switching infrastructure for HPC3
+     (Arista switches purchased in 2019) with two Sonic-based switches
+  #. Beegfs Upgrade to 8.3.0 on all DFS servers and cluster-wide
+  #. Apply latest Rocky 9.7 OS updates on all cluster nodes.
   #. Update NAS Servers to Rocky 9.7
   #. Update Applications stack to Rocky 9.7
 
