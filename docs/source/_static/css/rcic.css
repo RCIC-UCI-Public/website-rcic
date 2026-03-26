@@ -30,21 +30,29 @@
 /* Change the color of links in the sidebar,  example: white */
 .wy-menu-vertical a { color: #FFFFFF; }
 
-/* navigation links meet the 24px minimum height requirement for WCAG * 2.2 AA */
-.wy-menu-vertical li a {
+/* 1. Force navigation links to be large, block-level touch targets */
+.wy-menu-vertical a.reference.internal {
     display: block !important;
-    padding: 8px 15px !important; /* Increases vertical tap area */
-    line-height: 1.5 !important;
-    min-height: 24px !important; /* Forces the 24px minimum */
+    min-height: 24px !important; /* The mandatory minimum */
+    padding-top: 10px !important;   /* Adds clear vertical hit area */
+    padding-bottom: 10px !important;
+    line-height: 1.4 !important;    /* Ensures text doesn't feel cramped */
+    box-sizing: border-box !important;
 }
 
-/* the "plus/minus" expander icons are also large enough */
-.wy-menu-vertical li span.toctree-expand {
-    display: inline-block !important;
-    min-width: 24px !important;
-    min-height: 24px !important;
-    line-height: 24px !important;
-    text-align: center !important;
+/* 2. Remove default margins that might shrink the clickable area */
+.wy-menu-vertical li {
+    margin: 0 !important;
+}
+
+/* 3. Increase the hit area for the expansion icons (the plus/minus) */
+.wy-menu-vertical span.toctree-expand {
+    min-width: 30px !important;
+    min-height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: -30px !important; /* Keeps it aligned with the text */
 }
 
 /* === copyright footer */
