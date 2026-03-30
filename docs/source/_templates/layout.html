@@ -45,7 +45,25 @@
   {{ super() }}
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // Find all toctree captions with role="heading" and add missing aria-level
+      // 1. Fix the Footer Landmark Role
+      var footer = document.querySelector('footer');
+      if (footer) {
+        footer.setAttribute('role', 'contentinfo');
+      }
+
+      // 2. Wrap orphaned "Built with" text if it's still loose
+      // This finds text nodes that are direct children of the footer
+      if (footer) {
+        Array.from(footer.childNodes).forEach(function(node) {
+          if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+            var span = document.createElement('span');
+            span.textContent = node.textContent;
+            footer.replaceChild(span, node);
+          }
+        });
+      }
+
+      // 3. Your existing Caption Fix
       var captions = document.querySelectorAll('p.caption[role="heading"]');
       captions.forEach(function(caption) {
         if (!caption.hasAttribute('aria-level')) {
