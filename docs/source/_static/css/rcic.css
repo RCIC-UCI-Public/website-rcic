@@ -30,6 +30,46 @@
 /* Change the color of links in the sidebar,  example: white */
 .wy-menu-vertical a { color: #FFFFFF; }
 
+/* Space out breadcrumb links */
+.wy-breadcrumbs li a,
+.wy-breadcrumbs li {
+    display: inline-block;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 2px 4px;
+}
+
+/* Fix for the tiny breadcrumb home icon at the top of the page */
+.wy-breadcrumbs li a.icon.icon-home {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;  /* Explicitly larger than the 24px requirement */
+    height: 30px !important;
+    padding: 0 !important;
+    margin: -5px 0 !important; /* Prevents the header from getting taller */
+    vertical-align: middle !important;
+    text-decoration: none !important;
+}
+
+/* Ensure the icon itself looks right inside the larger box */
+.wy-breadcrumbs li a.icon.icon-home::before {
+    font-size: 22px !important; /* Slightly larger icon for better visibility */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure footer navigation buttons are easily tappable */
+.rst-footer-buttons .btn {
+    padding: 12px 20px !important;
+}
+
+/* Forces a minimum interactive height of 26px for all nav links */
+.wy-menu-vertical li a {
+    line-height: 26px !important;
+    display: block !important;
+}
+
 /* 1. Force navigation links to be large, block-level touch targets */
 .wy-menu-vertical a.reference.internal {
     display: block !important;
@@ -78,6 +118,36 @@ a:hover {
     text-decoration: underline; /* Optional: adds an underline on hover */
 }
 
+/* Increase footer link size and spacing */
+footer a {
+    display: inline-block;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 4px 8px; /* Adds clickable area without changing text size */
+    margin: 4px 0;    /* Ensures spacing between multiple links */
+}
+
+
+/* Ensure any custom footer links meet the 24px requirement */
+.custom-footer-links a {
+    display: inline-block;
+    min-height: 24px;
+    padding: 2px 5px;
+}
+
+/* Increase vertical spacing between bullet points */
+.wy-plain-list-wrap ul li,
+.section ul li,
+.rst-content ul li {
+    margin-bottom: 12px !important; /* Adjust this value for more/less space */
+}
+
+/* Ensure the last item doesn't have extra bottom margin */
+.wy-plain-list-wrap ul li:last-child,
+.section ul li:last-child,
+.rst-content ul li:last-child {
+    margin-bottom: 0 !important;
+}
 /* ============== end accessibility changes ================ */
 
 /* these colors can be used in roles */
