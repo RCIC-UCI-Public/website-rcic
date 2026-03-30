@@ -9,6 +9,7 @@ RCIC User Documentation
    :caption: About RCIC
 
    about/intro
+   about/accessibility
    about/quick-start
    about/allocations
    about/news
