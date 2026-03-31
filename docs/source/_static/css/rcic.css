@@ -148,6 +148,16 @@ footer a {
 .rst-content ul li:last-child {
     margin-bottom: 0 !important;
 }
+
+/* add download icon to PDF files links */
+a[href$=".pdf"]::after {
+    content: " (PDF)";
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #555;
+    margin-left: 5px;
+}
+
 /* ============== end accessibility changes ================ */
 
 /* these colors can be used in roles */
