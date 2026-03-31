@@ -80,13 +80,14 @@ Please see the following documents for more in-depth information.
   `A Vision For Research CyberInfrastructure at UCI </_static/A-Vision-for-RCI-at-UCI-Document-and-Appendices.pdf>`_
       provides the rationale for what Research Cyberinfrastructure should be and some
       new features that need to be implemented.
-  `Policy/Usage Document <https://docs.google.com/document/d/1fqTC5tc29JK2PfIATPqnUfwo3SooLBCEMzogbKBjslU/edit>`_
+  `HPC3 Policy </_static/HPC-Policy-Executive-Summary.pdf>`_
+      provides an executive summary for HPC3 usage policy.
+
+..  `Policy/Usage Document <https://docs.google.com/document/d/1fqTC5tc29JK2PfIATPqnUfwo3SooLBCEMzogbKBjslU/edit>`_
       provides a draft document started in 2018. The RCIC began the process of crafting this document
       that could provide the framework for creating HPC3 and the principles by which it would run.
       The HPC3 subcommittee of the RCIC advisory committee edited and refined the initial version.
       Going forward, this document will continually be updated to reflect adjustments and refinements.
-  `HPC3 Policy </_static/HPC-Policy-Executive-Summary.pdf>`_
-      provides an executive summary.
 
 .. _hpc3 sharing:
 
