@@ -94,6 +94,17 @@
     margin-left: -30px !important; /* Keeps it aligned with the text */
 }
 
+/* all body links, not in the sidebar */
+.rst-content a {
+    color: var(--bluelight) !important; 
+    text-decoration: none;
+}
+
+/* hover state for body links */
+.rst-content a:hover {
+    color: #0000FF !important;
+}
+
 /* === copyright footer */
 
 /* footer text color */
