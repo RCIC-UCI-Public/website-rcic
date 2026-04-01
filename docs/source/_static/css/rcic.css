@@ -21,7 +21,10 @@
 }
 
 /* Hover state for links */
-.wy-menu-vertical a:hover { background-color: var(--bluelight) !important; }
+.wy-menu-vertical a:hover { 
+    background-color: var(--bluelight) !important;
+    color: #ffffff !important;
+}
 
 /* Change the background color of the navigation header part, example dark green */
 .wy-side-nav-search, .wy-nav-top { background: var(--bluelight) !important ; }
