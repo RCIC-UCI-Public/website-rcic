@@ -8,7 +8,7 @@
 --rcicorange:#e56306;
 --rcicblue: #00579e;
 --paleblue:#e1effa;
---bluelight: #097ABF;
+--bluelight: #0E6EB6;
 --proposed: #00afaf;
 --gray: #777777;
 }
@@ -21,11 +21,10 @@
 }
 
 /* Hover state for links */
-.wy-menu-vertical a:hover { background-color: var(--bluelight); }
+.wy-menu-vertical a:hover { background-color: var(--bluelight) !important; }
 
-/* Change the background color of the navigation header part, example dark green 
-.wy-side-nav-search, .wy-nav-top { background: #0b750a; }
-*/
+/* Change the background color of the navigation header part, example dark green */
+.wy-side-nav-search, .wy-nav-top { background: var(--bluelight) !important ; }
 
 /* Change the color of links in the sidebar,  example: white */
 .wy-menu-vertical a { color: #FFFFFF; }
@@ -169,7 +168,7 @@ a[href$=".pdf"]::after {
 .rcicorange {color: #e56306;}
 .rcicblue {color: #00579e;}
 .proposed {color: #00afaf; font-weight: bold;}
-.bluelight {color: #097ABF;}
+.bluelight {color: #0E6EB6;}
 .bluegray {color: #88bfd1;}
 .gray {color: #777777;}
 
