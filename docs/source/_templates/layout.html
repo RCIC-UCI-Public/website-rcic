@@ -40,20 +40,23 @@
   </div>
 {% endblock %}
 
-{# Fix for the accessibility error #}
-{% block footer %}
+{% block scripts %}
   {{ super() }}
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // 1. Fix the Footer Landmark Role
       var footer = document.querySelector('footer');
       if (footer) {
+        // A) Make the footer the ONLY landmark
         footer.setAttribute('role', 'contentinfo');
-      }
 
-      // 2. Wrap orphaned "Built with" text if it's still loose
-      // This finds text nodes that are direct children of the footer
-      if (footer) {
+        // B) Find the theme's internal role="contentinfo" and REMOVE it 
+        // This stops the "two contentinfo blocks" error.
+        var innerLandmark = footer.querySelector('[role="contentinfo"]');
+        if (innerLandmark && innerLandmark !== footer) {
+          innerLandmark.removeAttribute('role');
+        }
+
+        // C) Wrap loose text (like "Built with Sphinx") so it's not orphaned
         Array.from(footer.childNodes).forEach(function(node) {
           if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
             var span = document.createElement('span');
@@ -63,7 +66,7 @@
         });
       }
 
-      // 3. Your existing Caption Fix
+      // D) Your TOC Caption Fix
       var captions = document.querySelectorAll('p.caption[role="heading"]');
       captions.forEach(function(caption) {
         if (!caption.hasAttribute('aria-level')) {
@@ -72,4 +75,4 @@
       });
     });
   </script>
-{% endblock %}
+{% endblock %}{# Fix for the accessibility error #}
