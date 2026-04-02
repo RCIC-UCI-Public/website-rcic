@@ -3,7 +3,7 @@
 :root{
 --highlightcolor:#e57728; /* Features Orange */
 --sidebarbackground:#EBEBEF; /* toc background */
---red:#FF0000;  /* for debugging */
+--red:#CE4435;  /* for debugging */
 --paleorange:#ffeecc; /* pale orange */
 --rcicorange:#e56306;
 --rcicblue: #00579e;
@@ -246,7 +246,7 @@ a[href$=".pdf"]::after {
 .aqua { color: aqua; }
 .blue { color: blue; }
 .navy { color: navy; }
-.red {color: #f00;}
+.red {color: #CE4435;}
 .rcicorange {color: #e56306;}
 .rcicblue {color: #00579e;}
 .proposed {color: #00afaf; font-weight: bold;}
