@@ -13,7 +13,7 @@
 --gray: #777777;
 }
 
-/* ============== Accessibility Changes ================ */
+/* ============== Accessibility changes start ================ */
 
 /* ==== sidebar */
 /* Change the background color of the entire sidebar, example: black */
@@ -171,7 +171,7 @@ a[href$=".pdf"]::after {
     margin-left: 5px;
 }
 
-/* ============== end accessibility changes ================ */
+/* ============== Accessibility changes end ================ */
 
 /* these colors can be used in roles */
 .cyan { color: cyan; }
@@ -251,7 +251,7 @@ a[href$=".pdf"]::after {
 
 /* make a title  outside of TOC */
 .section {
-    color: #557799;
+    color: #376799;
 	font-weight: bold;
     font-size: 18px;
 }
