@@ -76,7 +76,7 @@ How can I be added to my PI's Slurm lab account?
 
   * Please send a request to hpc-support@uci.edu
     *with a cc to your PI* and ask us to add you to the PI's account.
-  * The PI :underline:`must` confirm via email reply to your *cc* that this change is allowed.
+  * The PI **must** confirm via email reply to your *cc* that this change is allowed.
 
 How do I prevent my grad student from *draining* my account?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
