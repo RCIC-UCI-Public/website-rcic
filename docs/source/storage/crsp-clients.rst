@@ -1011,5 +1011,5 @@ On HPC3, CRSP shares are mounted in */share/crsp*:
 
      [user@login-x:~]$ rsync -rv /dfs6/pub/paneater/mydir /share/crsp/lab/panteater/
 
-.. |mduck| replace:: Mountain Duck link:https://mountainduck.io/[Mountain Duck] product.
+.. |mduck| replace:: Mountain Duck
 .. _`mduck`: https://mountainduck.io
