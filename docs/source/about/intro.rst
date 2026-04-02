@@ -65,6 +65,7 @@ resources, services or expertise should include the following acknowledgement
 text as a citation:
 
   .. admonition:: Acknowledgement
+     :class: acknowledgment
 
      This work utilized the infrastructure for high-performance and high-throughput computing,
      research data storage and analysis, and scientific software tool integration built, operated,
