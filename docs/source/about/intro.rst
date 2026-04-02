@@ -9,34 +9,25 @@ for providing High Performance Computing clusters and Scalable Storage Systems.
 :ref:`dedicated staff` provides hardware and software support to the campus research community
 which include:
 
-.. table:: 
-   :class: noscroll-table
-
-   +---------------------------------------------------------------------------------------------+
-   | :section:`Computing Cluster`                                                                |
-   |   :ref:`HPC3 <hpc3>`                                                                        |
-   |     A scalable cluster-based computing infrastructure, UCI's next generation                |
-   |     of shared computing supporting a *condo* and *pay-per-cycle* models.                    |
-   +---------------------------------------------------------------------------------------------+
-   | :section:`Storage Systems for storing and analyzing research data`                          |
-   |   :ref:`crsp`                                                                               |
-   |     Campus Research Storage Pool. Highly-reliable, encrypted-at-rest, scalable              |
-   |     data storage system available across the UCI campus network.                            |
-   |                                                                                             |
-   |   :ref:`dfs`                                                                                |
-   |     Cluster Parallel File Storage System  is high-quality/high-performance data             |
-   |     storage directly attached to HPC3.                                                      |
-   +---------------------------------------------------------------------------------------------+
-   | :section:`On-boarding to specialized compliant resources`                                   |
-   |   These resources are used for data that can not be appropriately stored/analyzed on RCIC.  |
-   |                                                                                             |
-   |   `Sherlock <https://sherlock.sdsc.edu/>`_                                                  |
-   |      is SDSC's **DOD-compliant**, **HIPAA-Compliant** secure computing and storage enclave. |
-   |                                                                                             |
-   |   `Secure Research Environment (SRE) <https://www.oit.uci.edu/services/security/sre/>`_     |
-   |      is OIT's service that provides a secure, on-campus virtual server                      |
-   |      infrastructure for the UCI campus research community.                                  |
-   +---------------------------------------------------------------------------------------------+
+     :section:`Computing Cluster`                                                                 
+       :ref:`HPC3 <hpc3>`: A scalable cluster-based computing infrastructure, UCI's next generation                 
+       of shared computing supporting a *condo* and *pay-per-cycle* models.                     
+   
+     :section:`Storage Systems for storing and analyzing research data`                           
+       :ref:`crsp`: Campus Research Storage Pool. Highly-reliable, encrypted-at-rest, scalable               
+       data storage system available across the UCI campus network.                             
+                                                                                                  
+       :ref:`dfs`: Cluster Parallel File Storage System  is high-quality/high-performance data              
+       storage directly attached to HPC3.                                                       
+  
+     :section:`On-boarding to specialized compliant resources`                                    
+       These resources are used for data that can not be appropriately stored/analyzed on RCIC.   
+                                                                                                  
+       `Sherlock <https://sherlock.sdsc.edu/>`_: is SDSC's **DOD-compliant**, **HIPAA-Compliant** secure computing and storage enclave.  
+                                                                                                  
+       `Secure Research Environment (SRE) <https://www.oit.uci.edu/services/security/sre/>`_: is
+       OIT's service that provides a secure, on-campus virtual server                       
+       infrastructure for the UCI campus research community.                                   
 
 .. _access:
 
