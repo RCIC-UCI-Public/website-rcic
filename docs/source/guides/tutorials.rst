@@ -11,11 +11,11 @@ a few online tutorials.
 
 .. centered:: :section:`RCIC presentations`
 
-`RCIC Overview </_static/2021-symposium-RCIC-overview.pdf>`_:
+`RCIC Overview </_static/2021-symposium-RCIC-overview.pdf>`_ (PDF):
   presentation given during the June 4th, 2021 virtual symposium of UCI’s Research Cyberinfrastructure Center (RCIC)
   Please see symposium :ref:`agenda<symposium 2021>`.
 
-`Introduction to HPC3 </_static/2020-tutorial-intro-hpc3.pdf>`_:
+`Introduction to HPC3 </_static/2020-tutorial-intro-hpc3.pdf>`_ (PDF):
   December 2020 tutorial covers topics to help users move to HPC3 cluster:
 
   - What is HPC3?

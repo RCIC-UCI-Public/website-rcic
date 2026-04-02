@@ -734,7 +734,7 @@ Nov 04
 
 | We are pleased to announce that :ref:`hpc3` is in  *production*.
 | All existing HPC users have accounts on HPC3 and can get started right away.
-| A short presentation `HPC3 for HPC users  </_static/HPC3_for_HPC_Users.pdf>`_
+| A short presentation `HPC3 for HPC users </_static/HPC3_for_HPC_Users.pdf>`_ (PDF)
   answers some of the key questions up front.
 
 .. attention:: 
@@ -755,7 +755,7 @@ Jul 15
 | :blogauthor:`2020-07-15 by Philip Papadopoulos`
 
 We are pleased to announce that :ref:`hpc3` will enter its *production ramp up*
-on 20 July 2020. A short presentation `Production Ramp-up </_static/Production_Ramp_Up.pdf>`_ 
+on 20 July 2020. A short presentation `Production Ramp-up </_static/Production_Ramp_Up.pdf>`_ (PDF)
 describes this phase of HPC3.
 
 To handle the transition of a large number of users to HPC3 during the ramp up, we're asking that research

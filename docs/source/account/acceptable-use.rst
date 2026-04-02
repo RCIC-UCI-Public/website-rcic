@@ -8,7 +8,7 @@ Cluster is a shared resource where at any given time there can be hundreds users
 and thousands of jobs running. What you do can have dramatic effects on others.
 
 Access to all RCIC managed resources is subject to our
-`Acceptable Use Policy </_static/RCIC-Acceptable-Use-Policy.pdf>`_.
+`Acceptable Use Policy </_static/RCIC-Acceptable-Use-Policy.pdf>`_ (PDF).
 
 .. important::
 

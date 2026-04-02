@@ -162,7 +162,7 @@ footer a {
     margin-bottom: 0 !important;
 }
 
-/* add download icon to PDF files links */
+/* add download icon to PDF files links
 a[href$=".pdf"]::after {
     content: " (PDF)";
     font-size: 0.8em;
@@ -170,6 +170,7 @@ a[href$=".pdf"]::after {
     color: #555;
     margin-left: 5px;
 }
+*/
 
 /* ============== Accessibility changes end ================ */
 

@@ -152,7 +152,7 @@ Network type
 
 * **The 10Gbit/s Ethernet network** is the provisioning and control network to access Ethernet-only resources.
 * **The  100Gbit/s** `ConnectX-6 <https://www.nvidia.com/en-us/networking/ethernet/connectx-6/>`_  **HDR Infiniband**
-  is a 2-level `Clos-Topology <https://web.stanford.edu/class/ee384y/Handouts/clos_networks.pdf>`_  with a maximum
+  is a 2-level `Clos-Topology <https://web.stanford.edu/class/ee384y/Handouts/clos_networks.pdf>`_ (PDF) with a maximum
   8:1 oversubscription: Nodes in the same rack (max 32) are connected to a full-bisection, 36-port InfiniBand switch.
   Each lower-level switch is connected to two root-level switches with two links/switch.
   The subnet manager is `opensm <https://linux.die.net/man/8/opensm>`_ with LMC (Lid Mask Control) set to 2 for multi-path diversity.

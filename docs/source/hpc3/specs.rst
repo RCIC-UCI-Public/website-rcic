@@ -121,7 +121,7 @@ Networking
 
 HPC3 has the following  networks attached to each node
    * 10 Gbit/s  Ethernet, the provisioning and control network to access Ethernet-only resources.
-   * 100 Gbit/s `ConnectX-5 <https://www.mellanox.com/files/doc-2020/pb-connectx-5-vpi-card.pdf>`_  EDR InfiniBand
+   * 100 Gbit/s `ConnectX-5 EDR Infiniband <https://www.mellanox.com/files/doc-2020/pb-connectx-5-vpi-card.pdf>`_ (PDF)
 
 See more info in :ref:`network type`.
 
@@ -155,7 +155,7 @@ For additional info see :ref:`hardware faq`.
        :class: noscroll-table
   
        +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-       | *HP*                | HPE `Apollo 2000 Gen 10 <https://h20195.www2.hpe.com/v2/GetPDF.aspx/4AA4-8164ENW.pdf>`_.  2RU with 4 nodes/chassis                                                                                              |
+       | *HP*                | `HPE Apollo 2000 Gen 10 <https://h20195.www2.hpe.com/v2/GetPDF.aspx/4AA4-8164ENW.pdf>`_ (PDF)  2RU with 4 nodes/chassis                                                                                         |
        |                     |                                                                                                                                                                                                                 |
        |                     | Dual-Socket, `Intel Skylake 6148 <https://ark.intel.com/content/www/us/en/ark/products/120489/intel-xeon-gold-6148-processor-27-5m-cache-2-40-ghz.html>`_ 20-core `CPU@2.4GHz`. 40 Cores total.                 |
        +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

@@ -77,10 +77,10 @@ The questions above have no single right answer and this means that:
    this link is no longer valid, use cached version.
 
 Please see the following documents for more in-depth information.
-  `A Vision For Research CyberInfrastructure at UCI </_static/A-Vision-for-RCI-at-UCI-Document-and-Appendices.pdf>`_
+  `A Vision For Research CyberInfrastructure at UCI </_static/A-Vision-for-RCI-at-UCI-Document-and-Appendices.pdf>`_ (PDF)
       provides the rationale for what Research Cyberinfrastructure should be and some
       new features that need to be implemented.
-  `HPC3 Policy </_static/HPC-Policy-Executive-Summary.pdf>`_
+  `HPC3 Policy </_static/HPC-Policy-Executive-Summary.pdf>`_ (PDF)
       provides an executive summary for HPC3 usage policy.
 
 ..  `Policy/Usage Document <https://docs.google.com/document/d/1fqTC5tc29JK2PfIATPqnUfwo3SooLBCEMzogbKBjslU/edit>`_
