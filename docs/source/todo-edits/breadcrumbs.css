@@ -1,0 +1,46 @@
+/*==================== start breadcrumbs */
+/* Reduces padding above and below breadcrumbs */
+.wy-breadcrumbs {
+    margin-bottom: 0px !important; /* Default is often 24px */
+    padding-bottom: 0px !important; /* Default is often 24px */
+}
+
+/* Reduces top padding of the main content container */
+.wy-nav-content {
+    padding-top: 10px !important; /* Default is often 20px or higher */
+}
+
+/* reduce horizontal line  space */
+.rst-content hr {
+    margin: 5px 0 !important; /* Default is often 24px */
+}
+
+/* Space out breadcrumb links */
+.wy-breadcrumbs li a,
+.wy-breadcrumbs li {
+    display: inline-block;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 2px 4px;
+}
+
+/* Fix for the tiny breadcrumb home icon at the top of the page */
+.wy-breadcrumbs li a.icon.icon-home {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;  /* Explicitly larger than the 24px requirement */
+    height: 30px !important;
+    padding: 0 !important;
+    margin: -5px 0 !important; /* Prevents the header from getting taller */
+    vertical-align: middle !important;
+    text-decoration: none !important;
+}
+
+/* Ensure the icon itself looks right inside the larger box */
+.wy-breadcrumbs li a.icon.icon-home::before {
+    font-size: 22px !important; /* Slightly larger icon for better visibility */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/*==================== end breadcrumbs */

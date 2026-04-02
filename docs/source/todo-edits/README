@@ -1,0 +1,8 @@
+
+If want to enable home icon link and View the source link at the top of each page do:
+
+- copy breadcrumbs.html to _tempaltes/ 
+  currently empty file in_templates/ removes the header
+
+- add breadcrumbs.css to _static/css/rcic.css
+

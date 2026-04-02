@@ -55,6 +55,10 @@ rst_prolog = """
 
 """
 
+# need a line below if breadcrumbs are enabled
+# but dont want to show View the source link at the top
+#html_show_sourcelink = False
+
 # ---------------------------------------------
 #      Options for HTML output
 # ---------------------------------------------
