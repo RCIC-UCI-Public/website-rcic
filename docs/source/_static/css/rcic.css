@@ -172,6 +172,49 @@ a[href$=".pdf"]::after {
 }
 */
 
+/* Changing the 'important' admonition */
+.rst-content .admonition.important {
+    border-color: #0F715D; /* border color */
+}
+
+.rst-content .admonition.important .admonition-title {
+    background: #0F715D; /* Title bar background */
+    color: white;        /* Title text color */
+}
+
+/* Changing the 'note' admonition */
+.rst-content .admonition.note {
+    border-color: #0064a4; /* border color */
+}
+
+.rst-content .admonition.note .admonition-title {
+    background: #0064a4; /* Title bar background */
+    color: white;        /* Title text color */
+}
+
+/* Changing the 'Warning' admonition */
+.rst-content .admonition.attention,
+.rst-content .admonition.warning {
+    border-color: #CE4435;
+}
+
+.rst-content .admonition.attention .admonition-title,
+.rst-content .admonition.warning .admonition-title {
+    background: #CE4435;
+    color: white;
+}
+
+/* custom acknowledgement admonition */
+.rst-content .admonition.acknowledgment {
+    border-left: 6px solid #ffd700; /* UCI Gold or similar */
+    background-color: #fff9e6;    /* Very light yellow tint */
+}
+
+.rst-content .admonition.acknowledgment .admonition-title {
+    background: #ffd700;
+    color: #333; /* Dark text for contrast against gold */
+}
+
 /* ============== Accessibility changes end ================ */
 
 /* these colors can be used in roles */
@@ -252,7 +295,7 @@ a[href$=".pdf"]::after {
 
 /* make a title  outside of TOC */
 .section {
-    color: #376799;
+    color: #6E18E8;
 	font-weight: bold;
     font-size: 18px;
 }
