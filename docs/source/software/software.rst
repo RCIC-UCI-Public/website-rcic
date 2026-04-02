@@ -109,9 +109,6 @@ literally hundreds of domain-specific, community-supported, applications maintai
     The deployed software stack is generally added to on weekly basis. This is in response to a near-continuous
     stream of requests. 
 
-    `A Software Map (PDF) </_static/software-latest.pdf>`_ shows a snapshot
-    of the collections of software, software modules they provide, and build dependencies.
-
 .. _request new software:
 
 :section:`Request New Software`
