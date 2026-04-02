@@ -32,6 +32,22 @@
 /* Change the color of links in the sidebar,  example: white */
 .wy-menu-vertical a { color: #FFFFFF; }
 
+/* Reduces padding above and below breadcrumbs */
+.wy-breadcrumbs {
+    margin-bottom: 0px !important; /* Default is often 24px */
+    padding-bottom: 0px !important; /* Default is often 24px */
+}
+
+/* Reduces top padding of the main content container */
+.wy-nav-content {
+    padding-top: 10px !important; /* Default is often 20px or higher */
+}
+
+/* reduce horizontal line  space */
+.rst-content hr {
+    margin: 5px 0 !important; /* Default is often 24px */
+}
+
 /* Space out breadcrumb links */
 .wy-breadcrumbs li a,
 .wy-breadcrumbs li {
@@ -213,6 +229,14 @@ a[href$=".pdf"]::after {
 .rst-content .admonition.acknowledgment .admonition-title {
     background: #ffd700;
     color: #333; /* Dark text for contrast against gold */
+}
+
+.rst-content code {
+    color: #CE4435; /* A darker, high-contrast red */
+    background-color: #ffffff; /* Light gray background for visibility */
+    border: 1px solid #e1e4e5;
+    padding: 2px 5px;
+    font-weight: bold;
 }
 
 /* ============== Accessibility changes end ================ */
