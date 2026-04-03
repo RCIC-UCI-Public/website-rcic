@@ -59,11 +59,16 @@ literally hundreds of domain-specific, community-supported, applications maintai
 :section:`Licensed Software`
   Access to the following applications requires a license:
 
-  +--------+--------+----------+------------+----------+----------+
-  | Abaqus | COMSOL | Gaussian | MATLAB     | Stata 16 | VASP 5.x |
-  |        |        |          | ( available|          |          |
-  |        |        |          | to all )   | Stata 17 | VASP 6.x |
-  +--------+--------+----------+------------+----------+----------+
+  .. table::
+     :class: noscroll-table 
+
+     +---------------------------------------------------------------+
+     |   Software name                                               |
+     +========+========+==========+============+==========+==========+
+     | Abaqus | COMSOL | Gaussian | MATLAB     | Stata 16 | VASP 5.x |
+     |        |        |          | ( available|          |          |
+     |        |        |          | to all )   | Stata 17 | VASP 6.x |
+     +--------+--------+----------+------------+----------+----------+
 
   .. note:: While all users can view and load modules for licensed software only registered users
             (*users must be in specific groups*) can use such software.
