@@ -277,13 +277,13 @@ Using  MobaXterm and DUO
 
      .. figure:: images/mobaxterm-mon.png
         :align: center
-        :alt: WRONG!
+        :alt: Wrong: monitoring is enabled
      
      Monitoring disabled - correct!
 
      .. figure:: images/mobaxterm-no-mon.png
         :align: center
-        :alt: Correct
+        :alt: Correct: monitoring is disabled
 
    * **To disable remote monitoring**:
 
@@ -396,7 +396,7 @@ on compute nodes.
 
      .. figure:: images/vscode-connect-1.png
         :align: center
-        :alt: VSCode connect
+        :alt: VSCode connect to host
         :class: addpadding
 
         Connect to host
@@ -415,7 +415,7 @@ on compute nodes.
 
      .. figure:: images/vscode-connect-3.png
         :align: center
-        :alt: VSCode connect to host
+        :alt: VSCode connect add host name
         :class: addpadding
 
         Enter SSH Connection command
@@ -425,7 +425,7 @@ on compute nodes.
 
      .. figure:: images/vscode-connect-4.png
         :align: center
-        :alt: VSCode connect to host
+        :alt: VSCode connect add ssh config path
         :class: addpadding
 
         Enter SSH configuration file to update
@@ -434,7 +434,7 @@ on compute nodes.
 
      .. figure:: images/vscode-connect-5.png
         :align: center
-        :alt: VSCode connect to host
+        :alt: VSCode connect press to connect
         :class: addpadding
 
         Press connect
@@ -444,7 +444,7 @@ on compute nodes.
 
      .. figure:: images/vscode-setup.png
         :align: center
-        :alt: VSCode setup
+        :alt: VSCode connection is setup
         :class: addpadding
 
         Provide ssh credentials
@@ -461,7 +461,7 @@ on compute nodes.
 
      .. figure:: images/vscode-running.png
         :align: center
-        :alt: VSCode setup
+        :alt: VSCode setup is ready
         :class: addpadding
 
         Connection is ready
