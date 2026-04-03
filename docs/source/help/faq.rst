@@ -12,8 +12,8 @@ Frequently Asked Questions
   Consider that the answer is best as a reference to another place in the documentation.
 
 
-:bluelight:`HPC3 general`
--------------------------
+HPC3 general
+------------
 
 Who can have an account?
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,8 +65,8 @@ If I purchase core-hours, is overhead charged?
   We are actively working with UCI financial office to see if we can establish
   a rate that reduces the financial impact of overhead on recharged-cycles.
 
-:bluelight:`Accounting`
------------------------
+Accounting
+----------
 
 .. _add lab account:
 
@@ -103,8 +103,8 @@ When is the next allocation for my Slurm lab account?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  Reallocation schedule is available via :ref:`account balance <job accounting>` command.
 
-:bluelight:`Files storage and transfer`
----------------------------------------
+Files storage and transfer
+--------------------------
 
 Can I get a copy of the other student data?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -151,8 +151,8 @@ Can accidentally deleted files or directories be restored?
     - :ref:`DFS files <selective backup recovery>`
     - :ref:`CRSP files <crsp files recovery>`
 
-:bluelight:`DFS`
-----------------
+DFS
+---
 
 What are allocations for DFS?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -175,8 +175,8 @@ I want to use my PI's group DFS area, how do i do this?
     for a specific DFS filesystem access, *with a cc to your PI*.
   * Your PI :underline:`must` confirm via email reply to your *cc* that this change is allowed.
 
-:bluelight:`CRSP`
------------------
+CRSP
+----
 
 .. _add lab crsp:
 
@@ -269,8 +269,8 @@ I have trouble accessing CRSP shares
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Consult our :ref:`crsp troubleshoot`.
 
-:bluelight:`Disk Quotas`
-------------------------
+Disk Quotas
+-----------
 
 Why do I get file write error when saving files in my $HOME?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -306,8 +306,8 @@ My Slurm job failed with the *Disk quota exceeded* on /dfsX/labY
   job output small files, others may have filled it.
   You need to check your :ref:`dfs quotas` for the specific DFS filesystem.
 
-:bluelight:`Slurm jobs`
------------------------
+Slurm jobs
+----------
 
 Can you give me an estimate of the expected wait times?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -473,8 +473,8 @@ My job needs longer time than 14 days, how do I request this?
     :ref:`max runtime limits <partitions structure>`.
   * Second,  request :ref:`job time limit modification <modify job>`.
 
-:bluelight:`Software`
----------------------
+Software
+--------
 
 How do I install new software myself?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

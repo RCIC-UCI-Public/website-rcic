@@ -7,8 +7,8 @@ Support tickets
 .. contents::
    :local:
 
-:bluelight:`Introduction`
--------------------------
+Introduction
+------------
 
 The resources at RCIC are here to help the UCI research community.
 There are 1000's of accounts on our resources, representing
@@ -32,8 +32,8 @@ illustrates some of the reasons for the detail.  High-end computing is a team sp
 
 .. _submit ticket:
 
-:bluelight:`How to submit`
---------------------------
+How to submit
+-------------
 
 * Send email to hpc-support@uci.edu describing your problem, this
   will automatically generate a ticket in our tracking system.
@@ -47,8 +47,8 @@ illustrates some of the reasons for the detail.  High-end computing is a team sp
 
 .. _good ticket:
 
-:bluelight:`Good ticket practices`
------------------------------------
+Good ticket practices
+---------------------
 
 :underline:`Before submitting a ticket`
   Help yourself first. Try your best to see if the problem is a simple one.
@@ -103,8 +103,8 @@ illustrates some of the reasons for the detail.  High-end computing is a team sp
 
 .. _login tickets:
 
-:bluelight:`Login problems`
----------------------------
+Login problems
+--------------
 
 When reporting login problems please include the following:
 
@@ -118,8 +118,8 @@ When reporting login problems please include the following:
 
 .. _software tickets:
 
-:bluelight:`Software Problems`
-------------------------------
+Software Problems
+-----------------
 
 When reporting software problems, please include the following:
 
@@ -153,8 +153,8 @@ When reporting software problems, please include the following:
 
 .. _slurm tickets:
 
-:bluelight:`Slurm Problems`
----------------------------
+Slurm Problems
+--------------
 
 When reporting Slurm problems, please include the following:
 
@@ -176,8 +176,8 @@ When reporting Slurm problems, please include the following:
 
 .. _storage tickets:
 
-:bluelight:`Storage Problems`
------------------------------
+Storage Problems
+----------------
 
 When reporting problems related to DFS or CRSP storage or quotas
 please include the following:
@@ -194,8 +194,8 @@ please include the following:
 
 .. _software install tickets:
 
-:bluelight:`Requesting New software`
-------------------------------------
+Requesting New software
+-----------------------
 
 Because this is a research environment, we are often asked to add new software.
 RCIC builds and maintains an extensive collection of domain-specific software.
@@ -274,8 +274,8 @@ possible.  We strive to say "yes" to software requests, but sometimes do have to
 
 .. _access licensed software:
 
-:bluelight:`Access Licensed Software`
--------------------------------------
+Access Licensed Software
+------------------------
 
 When requesting an access to the licensed software please include the following:
 
