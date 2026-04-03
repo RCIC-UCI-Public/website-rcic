@@ -2,7 +2,7 @@
 
 :root{
 --highlightcolor:#e57728; /* Features Orange */
---sidebarbackground:#EBEBEF; /* toc background */
+--sidebarbackground:#efefef; /* toc background */
 --red:#CE4435;  /* for debugging */
 --paleorange:#ffeecc; /* pale orange */
 --rcicorange:#CE4435;
@@ -18,8 +18,7 @@
 
 /* ==== sidebar */
 /* Change the background color of the entire sidebar, example: black */
-.wy-nav-side { background: #111111; 
-}
+.wy-nav-side { background: #111111; }
 
 /* Hover state for links */
 .wy-menu-vertical a:hover { 
@@ -27,8 +26,10 @@
     color: #ffffff !important;
 }
 
-/* Change the background color of the navigation header part, example dark green */
-.wy-side-nav-search, .wy-nav-top { background: var(--bluelight) !important ; }
+/* Change the background color of the navigation header part */
+.wy-side-nav-search, .wy-nav-top { 
+    background: var(--bluelight) !important;
+}
 
 /* Change the color of links in the sidebar,  example: white */
 .wy-menu-vertical a { color: #FFFFFF; }
@@ -43,6 +44,30 @@
     line-height: 26px !important;
     display: block !important;
 }
+
+/* ========= navbar submenu items 
+/* 1. Change the base color of all submenu links */
+.wy-menu-vertical li.current ul li a {
+    color: #000000 !important;
+    background-color: var(--sidebarbackground) !important;
+}
+
+/* 2. Change the color of a submenu link when hovered */
+.wy-menu-vertical li.current ul li a:hover {
+    color: #ffffff !important;
+    background-color: var(--bluelight)!important;
+}
+
+/* 3. Change the color of the menu or specific submenu you are currently viewing */
+.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.current ul li.current a {
+    color: var(--red) !important;
+    background-color: #ffffff !important;
+    font-weight: bold !important;
+}
+
+/* ========= end navbar menu items links 
+
 
 /* 1. Force navigation links to be large, block-level touch targets */
 .wy-menu-vertical a.reference.internal {
@@ -111,7 +136,6 @@ footer a {
     padding: 4px 8px; /* Adds clickable area without changing text size */
     margin: 4px 0;    /* Ensures spacing between multiple links */
 }
-
 
 /* Ensure any custom footer links meet the 24px requirement */
 .custom-footer-links a {
