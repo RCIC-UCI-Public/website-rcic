@@ -39,13 +39,19 @@ Stacking and Consumption
 | All allocations are expressed in core-hours or :term:`SUs`.
 | Any particular lab allocation is made of up to three components:
 
-  ============================================ =====================
-  **No cost allocation**                       200K hours/year
-  -------------------------------------------- ---------------------
-  **Purchased core hours**                     if any were bought
-  -------------------------------------------- ---------------------
-  **Converted hours from owned hardware**      if any were bought
-  ============================================ =====================
+.. table:: Allocation components
+   :class: noscroll-table
+   :align: center
+
+   +--------------------------------------------+---------------------+
+   | Component                                  | Hours               |
+   +============================================+=====================+
+   | **No cost allocation**                     | 200K hours/year     |
+   +--------------------------------------------+---------------------+
+   | **Purchased core hours**                   | if any were bought  |
+   +--------------------------------------------+---------------------+
+   | **Converted hours from owned hardware**    | if any were bought  |
+   +--------------------------------------------+---------------------+
 
 At the beginning of every reallocation period these hours are lumped together
 to make a total or *stacked allocation*:
@@ -54,7 +60,7 @@ to make a total or *stacked allocation*:
 
 .. figure:: images/Stacked-Allocation.png
    :align: center
-   :alt: Stacked Allocation and Order of Debiting
+   :alt: Stacked Allocation
 
    Stacked Allocation and Order of Debiting
 
