@@ -299,7 +299,8 @@ a.footnote-reference {
 /* for text */
 .underline {
 	font-weight: bold;
-	text-decoration: underline;
+	font-style: italic;
+	text-decoration: none;
 }
 
 /* define a word */
