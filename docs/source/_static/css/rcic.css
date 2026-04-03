@@ -212,9 +212,9 @@ a[href$=".pdf"]::after {
 }
 
 .rst-content code {
-    color: #CE4435 !important; /* darker, high-contrast red */
-    background-color: #ffffff; /* white background for visibility */
-    border: 1px solid #e1e4e5;
+    color: #B51A00 !important; /* darker, high-contrast red */
+    background-color: #ffffff !important; /* white background for visibility */
+    border: 1px solid #e1e4e5 !important;
     padding: 2px 5px;
     font-weight: bold;
 }
