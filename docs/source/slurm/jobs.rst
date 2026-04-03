@@ -596,6 +596,8 @@ using time directive :tt:`--time=format` (or the equivalent short notation
 
 **Acceptable time formats**:
   ========================= ===============================
+   Short runtime               Long runtime
+  ========================= ===============================
    minutes                  days-hours
    minutes:seconds          days-hours:minutes
    hours:minutes:seconds    days-hours:minutes:seconds
@@ -946,13 +948,23 @@ How to find job pending reason:
      95476 free-gpu  7sMD peat   p_lab PD 0:00    2    1 (QOSMaxJobsPerUserLimit)
 
 Most common reasons for job pending state and their explanations:
-  ================================================================ =================================================
-  :ref:`AssocGrpCPUMinutesLimit <pending AssocGrpCPUMinutesLimit>` :ref:`JobArrayTaskLimit <pending arraytasklimit>`
-  :ref:`AssocGrpBillingMinutes <pending AssocGrpBillingMinutes>`   :ref:`MaxGRESPerAccount <pending gres>`
-  :ref:`Dependency <pending dependency>`                           :ref:`QOSMaxJobsPerUserLimit <pending qosmax>`
-  :ref:`DependencyNeverSatisfied <pending dependency never>`       :ref:`ReqNodeNotAvail, Reserved for maintenance <pending reason maintenance>`
-  :ref:`Priority <pending priority>`                               :ref:`Resources <pending reason resources>`
-  ================================================================ =================================================
+
+  .. table::
+     :class: noscroll-table
+
+     +------------------------------------------------------------------------------------------------------------------------------------------------+
+     | Reasons                                                                                                                                        |              
+     +=================================================================+==============================================================================+
+     | :ref:`AssocGrpCPUMinutesLimit <pending AssocGrpCPUMinutesLimit>`|:ref:`JobArrayTaskLimit <pending arraytasklimit>`                             | 
+     +-----------------------------------------------------------------+------------------------------------------------------------------------------+
+     | :ref:`AssocGrpBillingMinutes <pending AssocGrpBillingMinutes>`  |:ref:`MaxGRESPerAccount <pending gres>`                                       |                
+     +-----------------------------------------------------------------+------------------------------------------------------------------------------+
+     | :ref:`Dependency <pending dependency>`                          |:ref:`QOSMaxJobsPerUserLimit <pending qosmax>`                                |                       
+     +-----------------------------------------------------------------+------------------------------------------------------------------------------+
+     | :ref:`DependencyNeverSatisfied <pending dependency never>`      |:ref:`ReqNodeNotAvail, Reserved for maintenance <pending reason maintenance>` |
+     +-----------------------------------------------------------------+------------------------------------------------------------------------------+
+     | :ref:`Priority <pending priority>`                              |:ref:`Resources <pending reason resources>`                                   |                    
+     +-----------------------------------------------------------------+------------------------------------------------------------------------------+
 
 .. _pending AssocGrpCPUMinutesLimit:
 
