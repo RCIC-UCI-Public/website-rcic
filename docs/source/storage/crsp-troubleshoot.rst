@@ -23,7 +23,6 @@ If you are having issues installing *CRSP Desktop*, please check the following:
 .. _problem mac install:
 
 :section:`On macOS`
-
   1. Your laptop meets minimal system requirements listed in the :ref:`client desktop mac`.
   #. Make sure you have *Admin* rights on your system. If your system is managed by OIT,
      ask your support team to give you *Admin* rights.
@@ -34,7 +33,6 @@ If you are having issues installing *CRSP Desktop*, please check the following:
 .. _problem windows install:
 
 :section:`On Windows`
-
   1. Your laptop meets minimal system requirements listed in the :ref:`client desktop windows`.
   #. In :guilabel:`Windows -> Add or Remove Programs`, check for *CRSP Desktop* (or *Mountain Duck*).
      If found, uninstall any previous installations, reboot the system and retry
@@ -132,7 +130,7 @@ This could be caused by one or more reasons:
 
         .. figure:: images/crsp/mac-keychain.png
            :align: center
-           :alt: Keychain access app
+           :alt: example Keychain access app
 
            Keychain Access App
 
