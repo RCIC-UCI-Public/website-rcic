@@ -190,11 +190,13 @@ a[href$=".pdf"]::after {
 
 /* Changing the 'Warning' admonition */
 .rst-content .admonition.attention,
+.rst-content .admonition.danger,
 .rst-content .admonition.warning {
     border-color: #CE4435;
 }
 
 .rst-content .admonition.attention .admonition-title,
+.rst-content .admonition.danger .admonition-title,
 .rst-content .admonition.warning .admonition-title {
     background: #CE4435;
     color: white;
