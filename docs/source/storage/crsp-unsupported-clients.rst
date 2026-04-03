@@ -47,7 +47,7 @@ Some details may be missing. Use at your own risk.
   .. figure:: images/unsupported/cyberduck-bookmark.png
      :align: center
      :width: 60%
-     :alt: Example Cyberduck Bookmark 
+     :alt: Cyberduck Bookmark 
 
      Example Cyberduck Bookmark 
 
@@ -77,7 +77,7 @@ Some details may be missing. Use at your own risk.
   .. figure:: images/unsupported/filezilla-configuration.png
      :align: center
      :width: 70%
-     :alt: FileZilla Configuration 
+     :alt: example FileZilla configuration 
   
      FileZilla Configuration 
   
@@ -87,7 +87,7 @@ Some details may be missing. Use at your own risk.
   .. figure:: images/unsupported/filezilla-advanced.png
      :align: center
      :width: 70%
-     :alt: FileZilla Advanced Configuration 
+     :alt: example FileZilla Advanced Configuration 
   
      FileZilla Advanced Configuration
   
@@ -99,7 +99,6 @@ Some details may be missing. Use at your own risk.
 .. _winscp:
   
 :section:`WinSCP`
-  
   | WinSCP is a Windows-only client originally designed to support the SCP protocol.
   | To work with CRSP, you must choose the sftp protocol.
   
@@ -108,7 +107,7 @@ Some details may be missing. Use at your own risk.
   .. figure:: images/unsupported/winscp-configuration.png
       :align: center
       :width: 70%
-      :alt: WinSCP Configuration 
+      :alt: example WinSCP Configuration 
   
       WinSCP Configuration 
   
@@ -119,6 +118,6 @@ Some details may be missing. Use at your own risk.
   .. figure:: images/unsupported/winscp-advanced.png
      :align: center
      :width: 70%
-     :alt: WinSCP Advanced Configuration 
+     :alt: example WinSCP Advanced Configuration 
   
      WinSCP Advanced Configuration
