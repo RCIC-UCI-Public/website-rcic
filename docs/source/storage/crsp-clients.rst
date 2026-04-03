@@ -22,6 +22,8 @@ to address your systems issue first before installing CRSP Desktop.
      :class: noscroll-table
 
      +-----------+--------------------------------------------------------------------------------------------------------------+
+     | Protocol  | Description                                                                                                  |
+     +===========+==============================================================================================================+
      | **SFTP**  | `The secure shell file transfer protocol <https://www.ssh.com/academy/ssh/sftp-ssh-file-transfer-protocol>`_,|
      |           | it is the *only* protocol available to desktop clients.                                                      |
      +-----------+--------------------------------------------------------------------------------------------------------------+
@@ -121,9 +123,12 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
        :class: noscroll-table
 
        +------------------------------------------+--------------------------------------+
+       |   Logging in                             | Duo authentication                   |
+       +==========================================+======================================+
        | .. figure:: images/crsp/authenticate.png | .. figure:: images/crsp/duo-push.png |
        |    :align: center                        |    :align: center                    |
-       |                                          |    :width: 95%                       |
+       |    :alt: login                           |    :width: 95%                       |
+       |                                          |    :alt: duo authentiction           |
        |                                          |                                      |
        |    Login using your UCI credentials      |    Request for a DUO push            |
        +------------------------------------------+--------------------------------------+
@@ -149,7 +154,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/mac/mac-download.png
        :align: center
        :width: 80%
-       :alt: select file to download
+       :alt: selecting file for download
 
        Select file to download
 
@@ -159,7 +164,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/mac/mac-download-2.png
        :align: center
        :width: 80%
-       :alt: Download
+       :alt: initiate file download
 
        Download
 
@@ -169,7 +174,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/mac/mac-download-allow.png
        :align: center
        :width: 50%
-       :alt: Download
+       :alt: confirm file download
 
        Confirm download
 
@@ -183,7 +188,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/mac/mac-desktop-app.png
        :align: center
        :width: 80%
-       :alt: downloaded crsp desktop app
+       :alt: locate downloaded crsp desktop app
 
        Downloaded CRSP Desktop app
 
@@ -195,7 +200,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/mac/mac-desktop-open-confirm.png
        :align: center
        :width: 80%
-       :alt: confirm opening download app
+       :alt: confirm opening
 
        Confirm opening of CRSP Desktop app
 
@@ -212,7 +217,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/mac/mac-top-toolbar.png
        :align: center
        :width: 80%
-       :alt: crsp desktop app in the top toolbar
+       :alt: crsp desktop app
 
        CRSP Desktop app in the top toolbar
 
@@ -273,7 +278,6 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
 .. _macOS Connect to Lab Share:
 
 :section:`macOS: Connect to Lab Share`
-
   After editing, if you click on the CRSP Desktop Notification Icon (top bar),
   you should see your bookmarks. Click on the bookmark of your choice (there
   may be one or a few), then click on :guilabel:`Connect`:
@@ -281,7 +285,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/mac/mac-connect-to-lab.png
        :align: center
        :width: 70%
-       :alt: connect to lab share
+       :alt: step connect to lab share
 
        Connect to Lab Share
 
@@ -291,7 +295,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/mac/mac-crsp-filebrowser.png
        :align: center
        :width: 80%
-       :alt: lab share in file browser
+       :alt: step lab share in file browser
 
        Lab Share in file browser
 
@@ -302,7 +306,6 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
 .. _macOS Password+DUO vs. Passphrase:
 
 :section:`macOS: Password+DUO vs. Passphrase`
-
   You have two authentication options when connecting to CRSP:
 
   :bluelight:`Option 1: SSH Key with Passphrase`
@@ -314,7 +317,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
      .. figure:: images/mac/mac-crsp-passphrase.png
         :align: center
         :width: 50%
-        :alt: enter ssh key passphrase share
+        :alt: step enter ssh key passphrase share
 
         Enter the ssh key passphrase
 
@@ -344,7 +347,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
      .. figure:: images/mac/mac-crsp-duo.png
         :align: center
         :width: 50%
-        :alt: Respond to DUO
+        :alt: step Respond to DUO
 
         Respond to DUO
 
@@ -364,7 +367,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
   .. figure:: images/mac/mac-bookmark-add.png
      :align: center
      :width: 70%
-     :alt:  multiple shares
+     :alt:  step multiple shares
 
      Multiple Shares configured
 
@@ -418,9 +421,12 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
          :class: noscroll-table
 
          +------------------------------------------+--------------------------------------+
+         |   Logging in                             | Duo authentication                   |
+         +==========================================+======================================+
          | .. figure:: images/crsp/authenticate.png | .. figure:: images/crsp/duo-push.png |
          |    :align: center                        |    :align: center                    |
-         |                                          |    :width: 95%                       |
+         |    :alt: logging in                      |    :width: 95%                       |
+         |                                          |    :alt: duo push                    |
          |                                          |                                      |
          |    Login using your UCI credentials      |    Request for a DUO push            |
          +------------------------------------------+--------------------------------------+
@@ -446,7 +452,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/win/win-download-crsp-desktop.png
        :align: center
        :width: 80%
-       :alt: select file to download
+       :alt: step select file to download
 
        Select file to download
 
@@ -456,14 +462,13 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/win/win-download-crsp-desktop-2.png
        :align: center
        :width: 80%
-       :alt: Download
+       :alt: step Download
 
        Download
 
 .. _win Install Desktop App:
 
 :section:`Windows: Install Desktop App`
-
   **Install Step 1**
     By default, the file is downloaded in your :guilabel:`Downloads` folder. Find the downloaded file,
     double-click on it to launch the installation of the licensed version of CRSP Desktop.
@@ -510,9 +515,11 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
        :class: noscroll-table
 
        +----------------------------------------------------+----------------------------------------------+
+       | Open the App                                       | Choose a tempalte bookmark                   |
+       +====================================================+==============================================+
        | .. figure:: images/win/win-access-crsp-desktop.png | .. figure:: images/win/win-edit-bookmark.png |
        |    :width: 100%                                    |    :width: 80%                               |
-       |    :alt: start desktop app                         |    :alt: choose template bookmark            |
+       |    :alt: step start desktop app                    |    :alt: step choose template bookmark       |
        |                                                    |                                              |
        |    Start CRSP Desktop App                          |    Choose the template bookmark              |
        +----------------------------------------------------+----------------------------------------------+
@@ -557,9 +564,11 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
        :class: noscroll-table
 
        +--------------------------------------------------+------------------------------------------------+
+       |  Default bookmark                                | Edited bookmark                                |
+       +--------------------------------------------------+------------------------------------------------+
        | .. figure:: images/win/win-panteater-default.png | .. figure:: images/win/win-edited-bookmark.png |
        |    :width: 100%                                  |    :width: 100%                                |
-       |    :alt: default template bookmark               |    :alt: edited bookmark                       |
+       |    :alt: use default template bookmark           |    :alt: resulting edited bookmark             |
        |                                                  |                                                |
        |    Default template bookmark                     |    Edited bookmark                             |
        +--------------------------------------------------+------------------------------------------------+
@@ -573,7 +582,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
   .. figure:: images/win/win-connect-to-lab.png
      :align: center
      :width: 60%
-     :alt: connect to lab share
+     :alt: step connect to lab share
 
      Connect to Lab Share
 
@@ -587,7 +596,6 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
 .. _win Password+DUO vs. Passphrase:
 
 :section:`Windows: Password + DUO vs. Passphrase`
-
   You have two authentication options when connecting to CRSP:
 
   :bluelight:`Option 1: SSH Key with Passphrase`
@@ -599,7 +607,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/win/crsp-passphrase.png
        :align: center
        :width: 60%
-       :alt: enter ssh key passphrase share
+       :alt: use ssh key passphrase
 
        Enter the ssh key passphrase
 
@@ -631,7 +639,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
       .. figure:: images/win/crsp-duo.png
          :align: center
          :width: 60%
-         :alt: Respond to DUO
+         :alt: step respond to DUO
 
          Respond to DUO
 
@@ -647,7 +655,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
   .. figure:: images/win/win-multiple-connections.png
      :align: center
      :width: 50%
-     :alt: multiple lab shares
+     :alt: example multiple lab shares
 
      Multiple Lab Shares
 
@@ -681,9 +689,12 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
        :class: noscroll-table
 
        +------------------------------------------+--------------------------------------+
+       |   Logging in                             | Duo authentication                   |
+       +==========================================+======================================+
        | .. figure:: images/crsp/authenticate.png | .. figure:: images/crsp/duo-push.png |
        |    :align: center                        |    :align: center                    |
-       |                                          |    :width: 95%                       |
+       |    :alt: logging in                      |    :width: 95%                       |
+       |                                          |    :alt: duo authentication          |
        |                                          |                                      |
        |    Login using your UCI credentials      |    Request for a DUO push            |
        +------------------------------------------+--------------------------------------+
@@ -698,7 +709,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
   .. figure:: images/web/browser-lab-connect.png
      :align: center
      :width: 70%
-     :alt: web browser top level
+     :alt: step web browser top level
 
      Top level File Browser
 
@@ -733,7 +744,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
      .. figure:: images/web/browser-create-folder.png
         :align: center
         :width: 80%
-        :alt:  Create a new folder
+        :alt: step create a new folder
 
         Create a new folder
 
@@ -746,7 +757,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
      .. figure:: images/web/browser-create-file.png
         :align: center
         :width: 80%
-        :alt:  Create a new file
+        :alt: step create a new file
 
         Create a new file
 
@@ -757,7 +768,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
      .. figure:: images/web/browser-file-download.png
         :align: center
         :width: 80%
-        :alt: File download
+        :alt: do file download
 
         File download
 
@@ -773,7 +784,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
      .. figure:: images/web/browser-upload-file.png
         :align: center
         :width: 80%
-        :alt: File upload
+        :alt: do file upload
 
         File upload
 
@@ -785,7 +796,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
      .. figure:: images/web/browser-upload-file-confirm.png
         :align: center
         :width: 80%
-        :alt: File upload
+        :alt: check upload confirmation
 
         File upload confirmation
 
@@ -797,7 +808,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
      .. figure:: images/web/browser-rm-file.png
         :align: center
         :width: 80%
-        :alt: delete file or folder
+        :alt: remove file or folder
 
         Delete file or folder
 
@@ -819,7 +830,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
       .. figure:: images/web/browser-logout.png
          :align: center
          :width: 80%
-         :alt: CRSP File Browser logout
+         :alt: Browser logout
 
          CRSP File Browser logout
 
@@ -955,7 +966,6 @@ On HPC3, CRSP shares are mounted in */share/crsp*:
 .. _hpc3 crsp lab:
 
 :section:`CRSP LAB`
-
   LAB area is your primary storage area. It is :tt:`/share/crsp/lab/UCInetID`
   or any other LAB directories you have access for.
 
