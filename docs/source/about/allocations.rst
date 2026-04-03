@@ -26,25 +26,20 @@ no-cost and recharge (pi-funded) allocations`.
 
   Faculty UCI researchers can have two types of allocations: 
 
-  .. table::
-     :class: noscroll-table:
+     :ref:`no-cost allocations` allocations
 
-     +----------------------------------------------------------------------------------------------------------+
-     |  :ref:`no-cost allocations` allocations                                                                  |
-     |                                                                                                          |
-     |    | Can be requested to baseline levels of:                                                             |
-     |    |   * **Computing cycles**: are reallocated every 6 months. See :ref:`reallocation` for details.      |
-     |    |   * **Campus Research Storage** (:term:`CRSP`): 1TB per researcher.                                 |
-     +----------------------------------------------------------------------------------------------------------+
-     |  :ref:`recharge allocations` allocations                                                                 |
-     |                                                                                                          |
-     |    | Are used when the baseline is insufficient for a particular lab.                                    |
-     |    | Researchers can purchase additional capacity using grant or other funds.                            |
-     |    | The recharge (PI-funded) allocations are available for:                                             |
-     |    |   *  :ref:`buy computing`                                                                           |
-     |    |   *  :ref:`CRSP storage <buy crsp>`                                                                 |
-     |    |   *  :ref:`DFS storage <buy dfs>`                                                                   |
-     +----------------------------------------------------------------------------------------------------------+
+       | Can be requested to baseline levels of:
+       |   * **Computing cycles**: are reallocated every 6 months. See :ref:`reallocation` for details.
+       |   * **Campus Research Storage** (:term:`CRSP`): 1TB per researcher.
+
+     :ref:`recharge allocations` allocations
+
+       | Are used when the baseline is insufficient for a particular lab.
+       | Researchers can purchase additional capacity using grant or other funds.
+       | The recharge (PI-funded) allocations are available for:
+       |   *  :ref:`buy computing`
+       |   *  :ref:`CRSP storage <buy crsp>`
+       |   *  :ref:`DFS storage <buy dfs>`
 
 .. _no-cost allocations:
 
