@@ -11,19 +11,22 @@ User installed software
 | These software packages need to be installed by users themselves.
 | The following guides explain how to install desired software in user area:
 
-.. note:: | There are a few important initial installation steps that are unique to the HPC3.
-          | They are explained in the guides below.
+.. table::
+   :class: noscroll-table
 
-          | Please note, you don't need to install :tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`conda`. We have a few
-          | versions of each software installed and they all are accessible via modules.
+   +-------------------------------------------------------------------------------------------------------------------------+
+   |                     HPC3 software installation guides                                                                   |
+   +===================================+=========================================+====================+======================+
+   |:ref:`Conda/mamba <install conda>` |:ref:`Python <install python>`           |:ref:`R <install r>`|:ref:`install jupyter`|
+   +-----------------------------------+-----------------------------------------+--------------------+----------------------+
+   |:ref:`Perl <install perl>`         |:ref:`Singularity <install singularity>` |:ref:`compile`      |                      | 
+   +-----------------------------------+-----------------------------------------+--------------------+----------------------+
 
+.. important:: There are a few important initial installation steps that are unique to the HPC3.
+               They are explained in the guides below.
 
-.. centered:: HPC3 software installation guides
-
-===================== =========================== ================ ======================
-:ref:`install conda`  :ref:`install python`       :ref:`install r` :ref:`install jupyter`
-:ref:`install perl`   :ref:`install singularity`  :ref:`compile`                        
-===================== =========================== ================ ======================
+               Please note, you don't need to install :tt:`Python` / :tt:`R` / :tt:`Perl` / :tt:`Conda`. We have a few
+               versions of each software installed and they all are accessible via modules.
 
 .. _install conda:
 
@@ -333,7 +336,7 @@ simply substitute module name and version where needed.
    The last few lines indicate the commands you will need for activating and
    deactivating your conda environment.
 
-   .. note:: :red:`Do not run conda update`. You can't run conda update
+   .. note:: **Do not run conda update**. You can't run conda update
       command because it requires writing in the base environment in the system
       location to which users have no write permissions.
 
@@ -1472,7 +1475,7 @@ additional Python or R modules.
 
    .. figure:: images/jhub-initial.png
       :align: center
-      :alt: server lab area
+      :alt: example server lab area
 
       Server Lab Area
 
@@ -1483,7 +1486,7 @@ additional Python or R modules.
 
    .. figure:: images/jhub-terminal.png
       :align: center
-      :alt: server terminal app
+      :alt: example server terminal app
 
       Server Terminal App
 
@@ -1510,7 +1513,7 @@ additional Python or R modules.
 
       .. figure:: images/jhub-home.png
          :align: center
-         :alt: reset HOME
+         :alt: example reset HOME
    
          Reset $HOME
 
@@ -1545,7 +1548,7 @@ additional Python or R modules.
 
    .. figure:: images/jhub-pip.png
       :align: center
-      :alt: install with pip
+      :alt: example install with pip
 
       Installing with pip
 
