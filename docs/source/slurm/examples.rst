@@ -412,7 +412,7 @@ A user must have an HPC3 account to use the portal.
    .. figure:: images/jhub-signin.png
       :align: center
       :width: 90%
-      :alt: sign in
+      :alt: example sign in
  
       Sign in
 
@@ -423,7 +423,7 @@ A user must have an HPC3 account to use the portal.
    .. figure:: images/jhub-login.png
       :align: center
       :width: 90%
-      :alt: server options
+      :alt: example server options
 
       Choose Server Options
 
@@ -442,7 +442,7 @@ A user must have an HPC3 account to use the portal.
    .. figure:: images/jhub-spawn.png
       :align: center
       :width: 90%
-      :alt: container starting
+      :alt: example container starting
 
       Container is starting
 
@@ -466,7 +466,7 @@ A user must have an HPC3 account to use the portal.
    .. figure:: images/jhub-initial-lab.png
       :align: center
       :width: 90%
-      :alt: container initial lab
+      :alt: example container initial lab
 
       Container Initial Lab
 
@@ -542,7 +542,7 @@ A user must have an HPC3 account to use the portal.
      .. figure:: images/close-notebook-1-confirm.png
         :align: center
         :width: 50%
-        :alt: confirm close notebook
+        :alt: example confirm close notebook
   
         Confirm Closing Notebook
   
@@ -573,7 +573,7 @@ A user must have an HPC3 account to use the portal.
      .. figure:: images/jhub-logout-2.png
         :align: center
         :width: 90%
-        :alt: server logout
+        :alt: example server logout
   
         Server logout
   
@@ -582,7 +582,7 @@ A user must have an HPC3 account to use the portal.
      .. figure:: images/jhub-logout-3.png
         :align: center
         :width: 90%
-        :alt: server logout result
+        :alt: example server logout result
   
         Server Logout Result
 
@@ -871,9 +871,9 @@ MATLAB
    MATLAB code to setup the pool. The :tt:`parfor` loop is used to distribute iterations to multiple workers
    where each worker is running on a different CPU.
 
-   .. note:: | Current UCI MATLAB license does not include **MATLAB Parallel Server**. 
-             | This means :red:`running parallel MATLAB jobs across multiple nodes is not supported`.
-             | Parallel pool jobs can be run only on a single node.
+   .. attention:: | Current UCI MATLAB license does not include **MATLAB Parallel Server**. 
+                  | This means **running parallel MATLAB jobs across multiple nodes is not supported**.
+                  | Parallel pool jobs can be run only on a single node.
 
    .. centered:: File matlab-parallel.sub
 
