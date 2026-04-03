@@ -37,7 +37,7 @@ Getting an account
 
    | :bluelight:`Your account` is your **UCInetID** (lower case alphanumeric)
    | :bluelight:`Your password` is **your regular password** that you use for your UCInetID
-   | :red:`We do not store, handle or reset passwords for UCInetIDs.`
+   | **We do not store, handle or reset passwords for UCInetIDs**.
 
 .. _closing account:
 

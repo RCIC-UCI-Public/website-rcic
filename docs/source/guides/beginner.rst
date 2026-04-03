@@ -41,7 +41,7 @@ You will need to have a  few applications on your laptop, most are standard:
 
 .. attention::
 
-   :red:`MobaXterm users DO NOT enable Remote monitoring!`
+   **MobaXterm users DO NOT enable Remote monitoring!**
    See :ref:`MobaXterm <mobaxterm duo>` for more info.
 
 Login

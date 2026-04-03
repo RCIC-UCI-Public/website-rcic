@@ -242,8 +242,8 @@ possible.  We strive to say "yes" to software requests, but sometimes do have to
         When you attempt to install yourself, and you run across instructions that say :tt:`Ubuntu`
         or :tt:`apt get` or similar, those are for a different Linux-based OS and won't work on HPC3.
       * **For security reasons the following is not allowed**:
-          - :red:`sudo  or su access`
-          - :red:`Docker`
+          - **sudo**  or **su** access
+          - **Docker**
 
         However, many docker containers can be reused as :ref:`Singularity containers <install singularity>`.
 

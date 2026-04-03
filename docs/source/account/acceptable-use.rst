@@ -22,7 +22,7 @@ Access to all RCIC managed resources is subject to our
    :class: noscroll-table
 
    +----------------+----------------------------------------------------------------------------------+
-   |                |                                                                                  |
+   | Node/Task      | Action                                                                           |
    +================+==================================================================================+
    | **Login**      | Allowed are light-weight processes such as:                                      |
    | **nodes**      |    * Light editing                                                               |

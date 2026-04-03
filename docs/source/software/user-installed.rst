@@ -39,7 +39,7 @@ Usually, to install an application one needs to create a local conda environment
 You can choose either Miniconda, Anaconda or Mamba depending on what your package
 installation instructions require. 
 
-:red:`You do not need to install Miniconda, Anaconda or Mamba` (your software
+**You do not need to install Miniconda, Anaconda or Mamba** (your software
 instructions may say you do so).
 We provide a few basic versions that can be accessed via modules and they can
 be used to create your local environments.
@@ -67,8 +67,8 @@ The installation steps are the same for the other versions of conda,
 simply substitute module name and version where needed.
 
 .. attention:: Conda always provides python and a few other applications.
-               For this reason :red:`DO NOT load any python or other modules when loading
-               anaconda/miniconda/mamba modules`. If you do, your environment
+               For this reason **DO NOT load any python or other modules when loading
+               anaconda/miniconda/mamba modules**. If you do, your environment
                will have problems.
 
 .. attention:: Note, if you previously tried to install conda packages make sure that your :tt:`$HOME/.bashrc`
@@ -276,7 +276,7 @@ simply substitute module name and version where needed.
 
    Now you are ready to create your local conda environment.
 
-   :red:`Follow the instructions provided by your software package`.
+   **Follow the instructions provided by your software package**.
 
    Your specific instructions may require adding conda channels or setting
    some other parameters, simply execute needed commands as specified.
@@ -371,7 +371,7 @@ simply substitute module name and version where needed.
    Note that after activation your prompt changed and has **Local2** prepended.
 
    Using your newly created environment you can now install desired software
-   :red:`per your software instructions`. The instructions vary, here is a handful of
+   **per your software instructions**. The instructions vary, here is a handful of
    possible examples:
 
    .. code-block:: console
@@ -640,7 +640,7 @@ Two miniconda modules :tt:`miniconda3/4.8.5` and :tt:`miniconda3/4.12.0`
 will be removed from the cluster follow up December 2024 maintenance. 
 
 If you are currently using the these modules you
-need to switch :red:`before Dec 18, 2024` to using already installed 
+need to switch **before Dec 18, 2024** to using already installed 
 :tt:`miniconda3/23.5.2` module.
 
 Follow the steps below. Since this switch does not involve installation 
@@ -697,7 +697,7 @@ The local installation of Python packages will go to the :tt:`$HOME/.local`
 and is automatically available to the user.
 
 When you want to install a specific Python package
-you :red:`do not need to install Python`. We provide a few
+you **do not need to install Python**. We provide a few
 Python versions that can be accessed via modules.
 
 To find out what Python is available:
@@ -791,7 +791,7 @@ Steps below explain the basic commands specific to the cluster.
 Install R packages
 ------------------
 
-When you want to install a specific R package you :red:`do not need to install R`.
+When you want to install a specific R package you **do not need to install R**.
 We provide a few versions of R that can be accessed via modules.  The base
 installs already have a lot of added packages. To find out what R is available:
 
@@ -947,7 +947,7 @@ to the base installs using local user area. The local installation of Perl
 packages will go to the :tt:`$HOME/perl5` and will be automatically available to the user.
 
 When you want to install a specific Perl module
-you :red:`do not need to install perl, cpan or cpanm`.
+you **do not need to install perl, cpan or cpanm**.
 We provide a few Perl versions that can be accessed via modules.
 The base installs already have a lot of added packages.
 
@@ -1065,7 +1065,7 @@ We provide Singularity containers that can be built and used from Docker recipes
 For more info about using containers please see
 `SingularityCE User Guide <https://docs.sylabs.io/guides/latest/user-guide/introduction.html>`_
 
-When you want to build a Singularity container you :red:`do not need to install Singularity`.
+When you want to build a Singularity container you **do not need to install Singularity**.
 We provide a few versions of Singularity and its prerequisites that can be accessed via modules.
 
 The following steps include what is specific to the cluster and can be used as

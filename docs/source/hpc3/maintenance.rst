@@ -20,7 +20,7 @@ There can be multiple few reasons for the maintenance, for example:
     limit will affect more jobs.
 
     .. attention:: If you are submitting jobs that are not guaranteed to finish before the
-                   maintenance start time, :red:`the jobs  will be held in the queue`.
+                   maintenance start time, **the jobs  will be held in the queue**.
 
                    If you want to run something before the maintenance, resubmit your job with a shorter
                    runtime so that your job ends before the mainteenance starts, see :ref:`request time`.

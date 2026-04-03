@@ -212,8 +212,8 @@ a[href$=".pdf"]::after {
 }
 
 .rst-content code {
-    color: #CE4435; /* A darker, high-contrast red */
-    background-color: #ffffff; /* Light gray background for visibility */
+    color: #CE4435 !important; /* darker, high-contrast red */
+    background-color: #ffffff; /* white background for visibility */
     border: 1px solid #e1e4e5;
     padding: 2px 5px;
     font-weight: bold;

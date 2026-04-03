@@ -114,7 +114,7 @@ Storing Files
                * Each **Group shared area** is initially configured with the **group sticky bit set**. Under normal
                  operations, new files will be written with the correct *sticky* group id for quota accounting
                * We advise users to NOT change permissions on the directories and files when writing in the group area.
-                 :red:`Incorrect permissions lead to quota exceeded errors`.
+                 **Incorrect permissions lead to quota exceeded errors**.
 
   Please see :ref:`unix primer`  to learn about UNIX groups
   and understand UNIX :ref:`file permissions`.

@@ -427,8 +427,8 @@ colleagues by requesting storage for your jobs as follows:
         for the disk I/O, then the program output is copied back as a big write
         which is much more efficient compare to many small writes.
 
-        The reason is :red:`parallel filesystem (CRSP or DFS) is not suitable for small
-        writes and reads` and such operations need to be off-loaded to the local
+        The reason is **parallel filesystem (CRSP or DFS) is not suitable for small
+        writes and reads** and such operations need to be off-loaded to the local
         scratch area on the node where the job is executed.
         Otherwise you create an I/O problem not just for yourself but for many others
         who use the same filesystem.

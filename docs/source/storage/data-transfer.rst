@@ -26,7 +26,7 @@ and transmit desired files via the connection.
 
            - This is not a problem if the users are copying files to :tt:`/pub/UCInetID`
            - This is a problem when copying to :tt:`/dfsX/group-lab-path` area and it usually
-             results in :red:`quota exceeded errors`.
+             results in **quota exceeded errors**
 
 There are 2 ways to deal with this.
 

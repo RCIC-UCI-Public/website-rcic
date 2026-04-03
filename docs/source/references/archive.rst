@@ -361,7 +361,7 @@ Software changes:
          to using the specific module for that tool 
          (see output of ``module display foundation/v8``)
          
-  .. [#] :red:`IMPORTANT:` If you are currently using miniconda/4.8.5 or miniconda3/4.12.0
+  .. [#] **IMPORTANT:** If you are currently using miniconda/4.8.5 or miniconda3/4.12.0
          please follow :ref:`update miniconda3`.
 
 Sep 17

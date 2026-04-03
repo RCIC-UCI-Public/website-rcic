@@ -26,7 +26,7 @@ replicating all of CRSP features or availability.
            the CRSP ANNEX to CRSP-2.*  The rate for CRSP-2 storage will be set once the procurement has been completed. 
            **The CRSP ANNEX will be shut down once CRSP-2 is in production**.
 
-:red:`The important differences between CRSP and CRSP ANNEX:`
+**The important differences between CRSP and CRSP ANNEX:**
 
   1. **This is a temporary system.** Data will be moved from CRSP ANNEX to CRSP-2 once the new hardware is procured and
      installed. We expect that this will be completed no later than July 1, 2024.
