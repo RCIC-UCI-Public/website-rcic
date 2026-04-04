@@ -267,11 +267,11 @@ of a particular file:
      +------------+---------------------------------------+-----------------------------------------------------------------+
      | Sticky  bit| Directory mode                        | Description                                                     |
      +============+=======================================+=================================================================+
-     |            | :gray:`drwx`:red:`rws`:gray:`r-x`     | In the origin directory, created files and directories are      |
-     | is set     |                                       | written with the group permissions :red:`rws`.                  |
-     |            |                                       | The sticky bit :red:`s` is set.                                 |
+     |            | drwx :darkred:`rws` r-x               | In the origin directory, created files and directories are      |
+     | is set     |                                       | written with the group permissions :darkred:`rws`.              |
+     |            |                                       | The sticky bit :darkred:`s` is set.                             |
      +------------+---------------------------------------+-----------------------------------------------------------------+
-     |            |:gray:`drwx`:bluelight:`rwx`:gray:`r-x`| In the origin directory, created files and directories are      |
+     |            | drwx :bluelight:`rwx` r-x             | In the origin directory, created files and directories are      |
      |            |                                       | written with the active UNIX group permissions :bluelight:`rwx` |
      | is NOT set |                                       | which defaults to the user login.                               |
      +------------+---------------------------------------+-----------------------------------------------------------------+
