@@ -4,6 +4,7 @@
 --highlightcolor:#e57728; /* Features Orange */
 --sidebarbackground:#efefef; /* toc background */
 --red:#CE4435;  /* for debugging */
+--darkred:#B53C2E; /* dark red for emphasis */
 --paleorange:#ffeecc; /* pale orange */
 --rcicorange:#CE4435;
 --rcicblue: #00579e;
@@ -260,6 +261,7 @@ a.footnote-reference {
 .blue { color: blue; }
 .navy { color: navy; }
 .red {color: #CE4435;}
+.darkred {color: #B53C2E;}
 .rcicorange {color: #CE4435;}
 .rcicblue {color: #00579e;}
 .bluelight {color: #0E6EB6;}

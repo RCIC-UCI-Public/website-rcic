@@ -74,3 +74,4 @@
 .. role:: tt
 .. role:: section
 .. role:: foot
+.. role:: darkred
