@@ -1,9 +1,38 @@
 {% extends "!footer.html" %}
 
 {% block contentinfo %}
+  {# Navigation Buttons (No accesskeys) #}
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    {%- if prev %}
+      <a href="{{ prev.link|e }}" class="btn btn-neutral float-left" title="{{ prev.title|e }}" rel="prev">
+        <span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous
+      </a>
+    {%- endif %}
+    {%- if next %}
+      <a href="{{ next.link|e }}" class="btn btn-neutral float-right" title="{{ next.title|e }}" rel="next">
+        Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span>
+      </a>
+    {%- endif %}
+  </div>
+
+  <hr id="keep-this-line" style="clear: both; margin-top: 20px;" />
+
+  {# Custom Accessibility Link #}
   <div class="custom-footer-links" style="margin-top: 10px;">
     <a href="../about/accessibility.html">Accessibility info</a>
   </div>
   </p>
-  {{ super() }}
+
+  {# restore Standard Copyright #}
+  <div role="contentinfo">
+    <p>
+    {%- if show_copyright %}
+      &#169; Copyright {{ copyright }}.
+    {%- endif %}
+    {%- if last_updated %}
+      Last updated on {{ last_updated }}.
+    {%- endif %}
+    </p>
+  </div>
+
 {% endblock %}

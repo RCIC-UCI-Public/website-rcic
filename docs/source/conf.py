@@ -99,6 +99,8 @@ html_theme_options = {
     #'collapse_navigation': True,
     #'sticky_navigation': True,
     'navigation_depth': 2,
+    # This prevents the theme from injecting its default (accesskey) buttons
+    'prev_next_buttons_location': 'None',
     #'includehidden': True,
     #'titles_only': False
 }

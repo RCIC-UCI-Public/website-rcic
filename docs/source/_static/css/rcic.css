@@ -121,6 +121,20 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* hide the default RTD line, but keep one defined in footer overwrite */
+footer hr:not(#keep-this-line) {
+    display: none !important;
+}
+
+/* line stays visible and clears the floating buttons */
+#keep-this-line {
+    display: block !important;
+    border: 0;
+    border-top: 1px solid #e1e4e5; 
+    margin: 20px 0 !important;
+}
+
+
 /* === for every link hover in the documentation */
 a:hover {
     /* color: #ff6600 !important;  Your desired hover color */
