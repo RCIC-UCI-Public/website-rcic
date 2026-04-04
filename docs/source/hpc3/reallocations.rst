@@ -60,7 +60,7 @@ to make a total or *stacked allocation*:
 
 .. figure:: images/Stacked-Allocation.png
    :align: center
-   :alt: Stacked Allocation
+   :alt: example Stacked Allocation
 
    Stacked Allocation and Order of Debiting
 
