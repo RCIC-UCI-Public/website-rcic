@@ -4,10 +4,12 @@
 News & Events
 =============
 
-* General information about the :ref:`maintenance` is applicable to all scheduled downtime periods.
-* Any additional information is outlined in notification emails to hpc-users@uci.edu
-  (all current users) and is described in the details below.
-* When the maintenance is completed all users are notified via emails to hpc-users@uci.edu.
+| General information about the :ref:`maintenance` is applicable to all scheduled downtime periods.
+| A specific information regarding the maintenance is described in the details below.
+
+| All current users are notified via the mailing list hpc-users@uci.edu about:
+|   Any specific maintenance schedule and information
+|   When the maintenance is completed 
 
 March 24, 2026
 -----------------
