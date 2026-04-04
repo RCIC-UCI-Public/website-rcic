@@ -23,7 +23,7 @@ Reference guide
 :section:`Data Storage`
   | :doc:`$HOME storage </storage/home>` - information about a filesystem associated with your login account.
   | :doc:`DFS scalable storage </storage/dfs>` - learn about about using DFS personal and group storage area.
-  | :doc:`CRSP scalable storage </storage/dfs>` - learn about using Campus Research Storage Pool, a network-based multi-Petabyte
+  | :doc:`CRSP scalable storage </storage/crsp>` - learn about using Campus Research Storage Pool, a network-based multi-Petabyte
     storage cluster for the UCI campus research community.
 
 :section:`Slurm`
