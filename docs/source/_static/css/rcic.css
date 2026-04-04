@@ -253,6 +253,29 @@ a.footnote-reference {
 	color:var(--foot) !important;
 }
 
+/* ============= next/previous buttons change */
+/* Targets the Next and Previous buttons in the footer */
+.rst-footer-buttons a.btn {
+    background-color: #255799 !important; /* Official UCI Blue */
+    color: #ffffff !important;           /* White text for 6:1 contrast */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+/* Hover state using a slightly darker shade for visual feedback */
+.rst-footer-buttons a.btn:hover {
+    background-color: #1b3d6d !important;
+    color: #ffffff !important;
+}
+
+/* Focus state for keyboard accessibility (Tab navigation) */
+.rst-footer-buttons a.btn:focus {
+    outline: 3px solid #fecc07 !important; /* UCI Gold for high-visibility focus */
+    outline-offset: 2px;
+}
+
 /* ============== Accessibility changes end ================ */
 
 /* these colors can be used in roles */
