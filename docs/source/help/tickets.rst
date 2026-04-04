@@ -213,12 +213,12 @@ Given realities of time:
       * You just want to play with or evaluate.
       * Is too new:
 
-          * a Beta version.
-          * the latest available version. Just because it is the latest is not a good reason.
+          | A beta version.
+          | The latest available version. Just because it is the latest is not a good reason.
       * Is too old:
 
-          * Anything that is 5 or more years old is not a good candidate.
-          * Is no longer supported by developers (Python 2).
+          | Anything that is 5 or more years old is not a good candidate.
+          | Is no longer supported by developers (Python 2).
 
 Even with those constraints, we are not shy about taking on complicated,
 time-consuming installs with many dependencies.  Part of our value add to UCI is to handle as much of this as
@@ -229,13 +229,13 @@ possible.  We strive to say "yes" to software requests, but sometimes do have to
   * Check if the software is already installed on the cluster.
     See :ref:`list modules <list modules>` for details.
   * Install it yourself. We encourage users first to build/install the applications
-    in their user area. Please see the guides in :ref:`user installed`.
+    in their user area:
 
-      * Most R, Python and Perl packages can be :ref:`installed on a per-user basis <user installed>`.
-      * | :red:`All conda packages and environments must be installed by the users themselves`.
-        | You do not need to install Miniconda, Anaconda or Mamba.
-          We provide a few basic versions that can be accessed via modules and used
-          to :ref:`install your desired packages or environments <user installed>`.
+      * Most R, Python and Perl packages need to be installed on a per-user basis.
+      * :red:`All conda packages and environments must be installed by the users themselves`.
+
+  * Please see the detailed guides in :ref:`user installed`
+    for installing packages and environments or compiling third-party software.
 
   .. attention::
       * Please note HPC3 is **CentOS-based system**.
