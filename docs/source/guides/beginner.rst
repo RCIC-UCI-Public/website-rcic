@@ -476,13 +476,13 @@ your UCInetID credentials for your user name and password.
 
   | We omit OPTIONS for the simple cases.
   | The SOURCE and DESTINATION may be specified as a local file name, or
-    a remote host with optional path in the form :proposed:`user`:red:`@server:`:blue:`path` where
+    a remote host with optional path in the form :foot:`user@server:path`:
 
-    | :proposed:`user` is your account on a cluster
-    | :red:`@server:` is the server name delimited with 2 special characters,
-    |        :red:`@` separates user name from server name
-    |        :red:`:` separates server name from path name
-    | :blue:`path` is a file path name on the server, can be made explicit using absolute or relative names:
+    | :foot:`user` is your account on a cluster
+    | :foot:`@server:` is the server name delimited with 2 special characters,
+    |        the :foot:`@` separates user name from server name
+    |        the :foot:`:` separates server name from path name
+    | :foot:`path` is a file path name on the server, can be made explicit using absolute or relative names:
     |        **absolute** or full file name :tt:`/Users/someuser/project1/input/my.fasta` on your laptop
     |        **relative** file name is :tt:`my.fasta` when used from the directory where this file is located.
 

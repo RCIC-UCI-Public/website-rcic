@@ -9,7 +9,6 @@
 --rcicblue: #00579e;
 --paleblue:#e1effa;
 --bluelight: #0E6EB6;
---proposed: #00afaf;
 --gray: #777777;
 --foot: #5E30EB;
 }
@@ -249,7 +248,6 @@ a.footnote-reference {
 .red {color: #CE4435;}
 .rcicorange {color: #CE4435;}
 .rcicblue {color: #00579e;}
-.proposed {color: #00afaf; font-weight: bold;}
 .bluelight {color: #0E6EB6;}
 .bluegray {color: #88bfd1;}
 .gray {color: #777777;}
