@@ -93,7 +93,7 @@ committees will evaluate other hardware configurations. These estimates are curr
      +-----------------------+------------------------------------------------------------+
 
 *GPU-Enabled Nodes*
-  Dell (or similar) chassis, 2RU, |dell-r760xa|_ with up to four L40s GPUs/chassis. Price: ~$47000
+  Dell (or similar) chassis, 2RU, with up to four L40s GPUs/chassis. Price: ~$47000
 
   .. table:: **Standard GPU Node Sample Configuration**
      :class: noscroll-table
@@ -109,7 +109,7 @@ committees will evaluate other hardware configurations. These estimates are curr
      +-----------------------+------------------------------------------------------------+
      | Memory                | 16 x 16GB ECC 5600MT/s (DDR5-5600) RDIMMs Single Rank      |
      +-----------------------+------------------------------------------------------------+
-     | Interconnect          | |mellanox|_  ConnectX-6 HDR Infiniband                     |
+     | Interconnect          | ConnectX-6 HDR Infiniband (same as for CPU-only node)      |
      +-----------------------+------------------------------------------------------------+
      | Scratch Disk          | 1.92 TB NVMe Solid State Drive                             |
      +-----------------------+------------------------------------------------------------+
