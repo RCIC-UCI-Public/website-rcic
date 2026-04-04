@@ -283,9 +283,14 @@ Special Characters
 Special characters are used by :tt:`bash` and have an alternative, non-literal meaning.
 For example, a *white space* is one such special character and can be represented by:
 
-  ===== ======= === ============ =============== =========
-  space newline tab vertical tab carriage return form feed
-  ===== ======= === ============ =============== =========
+  .. table::
+     :class: no-scroll-table 
+
+     +-------------------------------------------------------------------+
+     | White space characters to avoid                                   |
+     +======+=========+=====+==============+=================+===========+
+     |space | newline | tab | vertical tab | carriage return | form feed |
+     +------+---------+-----+--------------+-----------------+-----------+
 
 Using a *white space* character in in the file name will require special
 handling of such files. To avoid this, simply use dot (:tt:`.`), underscore (:tt:`_`) or
