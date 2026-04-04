@@ -16,7 +16,7 @@ desktops and laptops without going through HPC3.
 .. figure:: images/storage.png
    :align: center
    :width: 100%
-   :alt: hpc3 storage
+   :alt: diagram of hpc3 storage
 
    HPC3 Storage pictogram
 
@@ -36,25 +36,25 @@ what it should be used for, and shows links for in-depth how to use guides:
    +===================================+=========================+==============================+================================================================+
    | :ref:`HOME <home>`                | On all                  | Slowest, yet is sufficient   | Store small files, compiled binaries, order of MBs data files. |
    |                                   | nodes via NFS mount     | when used properly           |                                                                |
-   |                                   |                         |                              | :red:`Not for data intensive batch jobs`                       |
+   |                                   |                         |                              | :darkred:`Not for data intensive batch jobs`                   |
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
    | :ref:`Scratch <scratch storage>`  | Local disk space unique | Fastest performance, data    | As scratch storage ($TMPDIR) for batch jobs that repeatedly    |
    |                                   | to each compute node    | is removed when job completes| access many small files or make frequent small reads/writes.   |
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
    | :ref:`DFS <dfs>`                  | On all nodes            | Best for processing medium/  | To keep source code, binaries. For data used in batch jobs.    |
    |                                   | via BeegFS mount        | large data files (order of   |                                                                |
-   |                                   |                         | 100s MBs/GBs)                | :red:`Not for writing/reading many small files`.               |
+   |                                   |                         | 100s MBs/GBs)                | :darkred:`Not for writing/reading many small files`.           |
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
    | :ref:`CRSP <crsp>`                | (1) On all nodes        | Best for processing medium/  | To keep source code, binaries. Sometimes for data used in      |
    | (campus research storage pool)    | via NFS mount           | large data files (order of   | batch jobs, usually better use DFS or Scratch.                 |
    |                                   | (2) From any campus IP  | 100s MBs/GBs)                |                                                                |
-   |                                   | or VPN-connected user   |                              | :red:`Not for writing/reading many small files`.               |
+   |                                   | or VPN-connected user   |                              | :darkred:`Not for writing/reading many small files`.           |
    |                                   | laptop                  |                              |                                                                |
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
    | :ref:`CRSP ANNEX <crsp annex>`    | On all nodes            | Best for processing medium/  | To keep source code, binaries. For data used in batch jobs.    |
    |                                   | via BeegFS mount        | large data files (order of   | Available to a handful of labs as a temporary storage.         |
    |                                   |                         | 100s MBs/GBs)                |                                                                |
-   |                                   |                         |                              | :red:`Not for writing/reading many small files`.               |
+   |                                   |                         |                              | :darkred:`Not for writing/reading many small files`.           |
    +-----------------------------------+-------------------------+------------------------------+----------------------------------------------------------------+
 
 
@@ -88,8 +88,8 @@ and can help you choose the right system (or combination of systems) to store yo
    | Encryption   |  All data is encrypted at rest.          | Only **dfs3b** is encrypted at rest.        |
    | at rest      |                                          |                                             |
    +--------------+------------------------------------------+---------------------------------------------+
-   | File System  | IBM Storage Scale (aka GPFS)             | BeeGFS with Thinkparq support.              |
-   |              |                                          | `Details  <https://www.beegfs.io/c/>`_      |
+   | File System  | IBM Storage Scale (aka GPFS)             | BeeGFS with `ThinkParq                      |
+   |              |                                          | Support <https://www.beegfs.io/c/>`_        |
    +--------------+------------------------------------------+---------------------------------------------+
    | Performance  | High-performance but DFS is a better     | High-performance. Most common storage for   |
    |              | match for direct use from HPC3           | used on HPC3                                |
