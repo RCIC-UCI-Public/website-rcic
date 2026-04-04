@@ -16,7 +16,10 @@ We aim to respond to requests for assistance, and take action on reports of acce
 **Accessibility status**
  Currently, we are in a process of evaluating accessibility issues
  and are using online tools to check the accessibility of our website.
- The compliance report compliance will be made available on this page. 
+ The compliance report will be made available on this page. 
+
+ Using web accessibility evaluation tool https://wave.webaim.org/aimscore
+ most pages on this website get 9.9-10 out of 10 AIM score for automated testing.
 
 **Reporting issues**
   To report accessibility issue 
