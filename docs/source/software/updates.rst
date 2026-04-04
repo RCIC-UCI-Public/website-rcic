@@ -9,9 +9,8 @@ upgrade`.
 .. _rocky 9.7 updates:
 
 :section:`Rocky Linux 9.7 updates`
-
-.. important:: | HPC3 operating system is **Rocky Linux 9.7** (as of March 24, 2026).
-               | All installed software is compiled specifically for this OS.
+  .. important:: | HPC3 operating system is **Rocky Linux 9.7** (as of March 24, 2026).
+                 | All installed software is compiled specifically for this OS.
 
 The operating system update involves many changes across the software stack.
 While we try to build all the previous software versions for the new OS, some builds are
