@@ -39,7 +39,7 @@ User Action required:
      :tt:`Pending job due to ReqNodeNotAvail, Reserved for maintenance` state.
      This means jobs that are not guaranteed (via TimeLimit) to complete before 8am on
      the day of maintenance. These jobs will need to be canceled and resubmitted after the maintenance.
-     Please see :ref:`requesting time limits <request time>` on queues.
+     Please see requesting time limits on queues.
 
   1. Save your work:
 
@@ -72,7 +72,7 @@ Impacts:
      All jobs remaining in the queue on the maintenance day will be terminated.
   #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on the day of maintenance
      will need to be canceled and resubmitted after the maintenance.
-     Please see :ref:`requesting time limits <request time>` on queues.
+     Please see requesting time limits on queues.
 
 July 29
 ^^^^^^^
@@ -99,7 +99,7 @@ Impacts:
   #. :red:`All jobs remaining in the queue on the maintenance day will be terminated`.
   #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on the day of maintenance
      will need to be canceled and resubmitted after the maintenance.
-     Please see :ref:`requesting time limits <request time>` on queues.
+     Please see requesting time limits on queues.
 
 Software changes:
   The operating system update involves many changes across the software stack.
@@ -139,7 +139,7 @@ Impact:
   #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on the day of maintenance
      will stay in the queue with "Reserved for maintenance" reason. These jobs
      will need to be resubmitted after the maintenance or will need to have a
-     different time limit.  Please see :ref:`requesting time limits <request time>`.
+     different time limit.  Please see requesting time limits on queues.
 
 Mar 25
 ^^^^^^
@@ -176,7 +176,7 @@ Impacts:
   #. You will have access to CRSP using `Web based File browser` or `CRSP Desktop App`.
   #. No jobs can run during the maintenance period.
   #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on March 25 will be held.
-     Please see :ref:`requesting time limits <request time>` on queues.
+     Please see requesting time limits on queues.
 
 After the maintenance:
   .. important:: After the change, users of the affected filesystems
@@ -237,7 +237,7 @@ Impacts:
   #. You will NOT have access to HPC3 or CRSP during the planned downtime.
   #. No jobs can run during the maintenance period.
   #. Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on December 18 will be held.
-     Please see :ref:`requesting time limits <request time>` on queues.
+     Please see requesting time limits on queues.
   #. After the maintenance you may need to reinstall software that you compiled or installed yourself.
 
 Software changes:
@@ -436,7 +436,7 @@ Impacts:
   - HPC3 and its file systems will be unavailable. You will not be able to login or access files in /dfsX or /home.
   - No jobs can run during the maintenance period.
   - Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on Wednesday will be held.
-    Please see :ref:`requesting time limits <request time>` on queues.
+    Please see requesting time limits on queues.
 
 We expect to return HPC3 to service late afternoon, late afternoon Mar 27.
 
@@ -470,7 +470,7 @@ All users will be logged out, pending jobs will remain queued.
   * All existing logins will be terminated.
   * No jobs can run during the maintenance period.
   * Slurm jobs that are not guaranteed (via TimeLimit) to complete before 8am on Tuesday will be held.
-    Please see :ref:`requesting time limits <request time>` on queues.
+    Please see requesting time limits on queues.
 
 We expect to return HPC3 to service late afternoon, late afternoon Dec 19.
 
