@@ -127,7 +127,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
        +==========================================+======================================+
        | .. figure:: images/crsp/authenticate.png | .. figure:: images/crsp/duo-push.png |
        |    :align: center                        |    :align: center                    |
-       |    :alt: login                           |    :width: 95%                       |
+       |    :alt: do login                        |    :width: 95%                       |
        |                                          |    :alt: duo authentiction           |
        |                                          |                                      |
        |    Login using your UCI credentials      |    Request for a DUO push            |
@@ -200,7 +200,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/mac/mac-desktop-open-confirm.png
        :align: center
        :width: 80%
-       :alt: confirm opening
+       :alt: example confirm opening
 
        Confirm opening of CRSP Desktop app
 
@@ -217,7 +217,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
     .. figure:: images/mac/mac-top-toolbar.png
        :align: center
        :width: 80%
-       :alt: crsp desktop app
+       :alt: example crsp desktop app
 
        CRSP Desktop app in the top toolbar
 
@@ -267,10 +267,12 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
        :class: noscroll-table
 
        +-------------------------------------------------+----------------------------------------------+
+       |  Default bookmark                               | Edited bookmark                              |
+       +=================================================+==============================================+
        | .. figure:: images/mac/mac-bookmark-default.png | .. figure:: images/mac/mac-bookmark-edit.png |
        |    :align: center                               |    :align: center                            |
        |    :width: 90%                                  |    :width: 90%                               |
-       |    :alt:  edit default bookmark                 |    :alt:  edit default bookmark              |
+       |    :alt:  edit default bookmark                 |    :alt:  example edit bookmark              |
        |                                                 |                                              |
        |    Default template bookmark                    |    Edited bookmark                           |
        +-------------------------------------------------+----------------------------------------------+
@@ -565,7 +567,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
 
        +--------------------------------------------------+------------------------------------------------+
        |  Default bookmark                                | Edited bookmark                                |
-       +--------------------------------------------------+------------------------------------------------+
+       +==================================================+================================================+
        | .. figure:: images/win/win-panteater-default.png | .. figure:: images/win/win-edited-bookmark.png |
        |    :width: 100%                                  |    :width: 100%                                |
        |    :alt: use default template bookmark           |    :alt: resulting edited bookmark             |
