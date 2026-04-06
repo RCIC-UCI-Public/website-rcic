@@ -348,7 +348,7 @@ There are two ways to check your quotas:
 
 **Using a web browser:**
 
-  * In a new browser tab or window open URL `https://access.crsp.uci.edu/quota <https://access.crsp.uci.edu/quota[https://access.crsp.uci.edu/quota>`_
+  * In a new browser tab or window open URL `https://access.crsp.uci.edu/quota <https://access.crsp.uci.edu/quota>`_
   * You will be asked to authenticate yourself (DUO).
   * Once successful you  will see a simple text page with quotas for HOME and Lab areas.
   * When done, close the browser tab/window, there is no logout from this page.
