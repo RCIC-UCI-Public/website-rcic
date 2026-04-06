@@ -121,7 +121,7 @@ Networking
 
 HPC3 has the following  networks attached to each node
    * 10 Gbit/s  Ethernet, the provisioning and control network to access Ethernet-only resources.
-   * 100 Gbit/s `ConnectX-5 EDR Infiniband <https://www.mellanox.com/files/doc-2020/pb-connectx-5-vpi-card.pdf>`_ (PDF)
+   * 100 Gbit/s ConnectX-5 EDR Infiniband
 
 See more info in :ref:`network type`.
 
@@ -157,15 +157,15 @@ For additional info see :ref:`hardware faq`.
        +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
        | Chassis type        | Details                                                                                                                                                                                                         |
        +=====================+=================================================================================================================================================================================================================+
-       | *HP*                | `HPE Apollo 2000 Gen 10 <https://h20195.www2.hpe.com/v2/GetPDF.aspx/4AA4-8164ENW.pdf>`_ (PDF)  2RU with 4 nodes/chassis                                                                                         |
+       | *HP*                | HPE Apollo 2000 Gen 10, 2RU with 4 nodes/chassis                                                                                                                                                                |
        |                     |                                                                                                                                                                                                                 |
        |                     | Dual-Socket, `Intel Skylake 6148 <https://ark.intel.com/content/www/us/en/ark/products/120489/intel-xeon-gold-6148-processor-27-5m-cache-2-40-ghz.html>`_ 20-core `CPU@2.4GHz`. 40 Cores total.                 |
        +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-       | *Dell Cascade Lake* | Dell `R640 1U Server <https://www.dell.com/en-us/work/shop/productdetailstxn/poweredge-r640>`_                                                                                                                  |
+       | *Dell Cascade Lake* | Dell R640 1U Server                                                                                                                                                                                             |
        |                     |                                                                                                                                                                                                                 |
        |                     | Dual-Socket, `Intel Cascade Lake 6240R <https://ark.intel.com/content/www/us/en/ark/products/199343/intel-xeon-gold-6240r-processor-35-75m-cache-2-40-ghz.html>`_ 24-core `CPU@2.4GHz`. 48 Cores total.         |
        +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-       | *Dell Ice Lake*     | Dell `R650 1U Server <https://www.dell.com/en-us/work/shop/productdetailstxn/poweredge-r650>`_                                                                                                                  |
+       | *Dell Ice Lake*     | Dell R650 1U Server                                                                                                                                                                                             |
        |                     |                                                                                                                                                                                                                 |
        |                     | Dual-Socket, `Intel Ice Lake 6336Y <https://www.intel.com/content/www/us/en/products/sku/215280/intel-xeon-gold-6336y-processor-36m-cache-2-40-ghz/specifications.html>`_ 24-core `CPU@2.4GHz`. 48 Cores total. |
        |                     |                                                                                                                                                                                                                 |
@@ -198,14 +198,14 @@ For additional info see :ref:`hardware faq`.
     .. table::
        :class: noscroll-table
   
-       +--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-       | Chassis type | Details                                                                                                                                                                                       |
-       +==============+===============================================================================================================================================================================================+
-       | *HP*         | `DL380 Gen 10 <https://buy.hpe.com/au/en/servers/rack-servers/proliant-dl300-servers/proliant-dl380-server/hpe-proliant-dl380-gen10-server/p/1010026818>`_ server, 2RU, up to 4 GPUs/chassis. |
-       +--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+       +--------------+--------------------------------------------------+
+       | Chassis type | Details                                          |
+       +==============+==================================================+
+       | *HP*         | DL380 Gen 10 server, 2RU, up to 4 GPUs/chassis.  |
+       +--------------+--------------------------------------------------+
   
   **GPU**:
-    | Qty 4 Nvidia `V100 <https://www.nvidia.com/en-us/data-center/v100/>`_ GPU, 16GB memory
+    | Qty 4 Nvidia V100 GPU, 16GB memory
     | Qty 4 Nvidia A30 GPU, 24GB memory
     | Qty 2 Nvidia A100 GPU, 80GB memory
     | Qty 4 Nvidia L40S GPU, 48GB memory
