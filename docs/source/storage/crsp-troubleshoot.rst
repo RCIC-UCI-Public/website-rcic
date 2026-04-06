@@ -28,7 +28,7 @@ If you are having issues installing *CRSP Desktop*, please check the following:
      ask your support team to give you *Admin* rights.
   #. In :guilabel:`Applications`, check for *CRSP Desktop* (or *Mountain Duck*).
      If found, drag the App to trash, and retry installation using RCIC provided version
-     :ref:`client desktop mac`.
+     of macOS CRSP Desktop App.
 
 .. _problem windows install:
 
@@ -36,7 +36,7 @@ If you are having issues installing *CRSP Desktop*, please check the following:
   1. Your laptop meets minimal system requirements listed in the :ref:`client desktop windows`.
   #. In :guilabel:`Windows -> Add or Remove Programs`, check for *CRSP Desktop* (or *Mountain Duck*).
      If found, uninstall any previous installations, reboot the system and retry
-     installation using RCIC provided version :ref:`client desktop windows`.
+     installation using RCIC provided version of Windows CRSP Desktop App.
   #. Check for any obvious errors or warnings on your laptop.
 
 .. _problem empty share:
