@@ -81,7 +81,7 @@ committees will evaluate other hardware configurations. These estimates are curr
      +-----------------------+------------------------------------------------------------+
      | Memory                | 16 x 16GB ECC 5600MT/s (DDR5-5600) RDIMMs Single Rank      |
      +-----------------------+------------------------------------------------------------+
-     | Interconnect          | |mellanox|_  ConnectX-6 HDR Infiniband                     |
+     | Interconnect          | 100Gb/s Mellanox ConnectX-6 HDR Infiniband                 |
      +-----------------------+------------------------------------------------------------+
      | Scratch Disk          | 1.92 TB NVMe Solid State Drive                             |
      +-----------------------+------------------------------------------------------------+
@@ -105,7 +105,7 @@ committees will evaluate other hardware configurations. These estimates are curr
      +-----------------------+------------------------------------------------------------+
      | Processor x 2         | |xeon-6526y|_ 16-core `CPU@2.8GHz` 32 Cores total          |
      +-----------------------+------------------------------------------------------------+
-     | GPUs x 4              | |nvidia-l40s|_  48GB HBM, 864MB/s, 18176 CUDA Cores        |
+     | GPUs x 4              | Nvidia L40S  48GB HBM, 864MB/s, 18176 CUDA Cores           |
      +-----------------------+------------------------------------------------------------+
      | Memory                | 16 x 16GB ECC 5600MT/s (DDR5-5600) RDIMMs Single Rank      |
      +-----------------------+------------------------------------------------------------+
@@ -151,11 +151,11 @@ Network type
 ------------
 
 * **The 10Gbit/s Ethernet network** is the provisioning and control network to access Ethernet-only resources.
-* **The  100Gbit/s** `ConnectX-6 <https://www.nvidia.com/en-us/networking/ethernet/connectx-6/>`_  **HDR Infiniband**
-  is a 2-level `Clos-Topology <https://web.stanford.edu/class/ee384y/Handouts/clos_networks.pdf>`_ (PDF) with a maximum
-  8:1 oversubscription: Nodes in the same rack (max 32) are connected to a full-bisection, 36-port InfiniBand switch.
+* **The  100Gbit/s ConnectX-6 HDR Infiniband**
+  is a 2-level `Clos-Topology <https://docs.nvidia.com/networking-ethernet-software/guides/EVPN-Network-Reference/Introduction/>`_
+  with a maximum 8:1 oversubscription: Nodes in the same rack (max 32) are connected to a full-bisection, 36-port InfiniBand switch.
   Each lower-level switch is connected to two root-level switches with two links/switch.
-  The subnet manager is `opensm <https://linux.die.net/man/8/opensm>`_ with LMC (Lid Mask Control) set to 2 for multi-path diversity.
+  The subnet manager is `opensm <https://docs.nvidia.com/networking/display/mlnxofedv461000/opensm>`_ with LMC (Lid Mask Control) set to 2 for multi-path diversity.
 
 .. |dell-r660| replace:: Dell R660
 .. _`dell-r660`: https://www.dell.com/en-us/work/shop/povw/poweredge-r660
@@ -163,15 +163,8 @@ Network type
 .. |xeon-6542y| replace:: Intel Xeon Gold 6542Y 
 .. _`xeon-6542y`: https://www.intel.com/content/www/us/en/products/sku/237559/intel-xeon-gold-6542y-processor-60m-cache-2-90-ghz/specifications.html
 
-.. |mellanox| replace:: 100Gb/s Mellanox 
-.. _`mellanox`: https://www.nvidia.com/en-us/networking/ethernet/connectx-6/
-     
-
 .. |dell-r760xa| replace:: Dell R760xa
 .. _`dell-r760xa`: http://www.dell.com/en-us/work/shop/povw/poweredge-r760xa
 
 .. |xeon-6526y| replace:: Intel Xeon Gold 6526Y
 .. _`xeon-6526y`: https://www.intel.com/content/www/us/en/products/sku/237560/intel-xeon-gold-6526y-processor-37-5m-cache-2-80-ghz/specifications.html
-
-.. |nvidia-l40s| replace:: Nvidia L40S 
-.. _`nvidia-l40s`: https://resources.nvidia.com/en-us-l40s/l40s-datasheet-28413
