@@ -7,12 +7,8 @@ Acceptable use
 Cluster is a shared resource where at any given time there can be hundreds users
 and thousands of jobs running. What you do can have dramatic effects on others.
 
-Access to all RCIC managed resources is subject to our |aup_link|
-(link opens PDF in a new window).
-
-.. |aup_link| raw:: html
-
-   <a href="_static/RCIC-Acceptable-Use-Policy.pdf" target="_blank">Acceptable Use Policy</a> 
+Access to all RCIC managed resources is subject to our
+`Acceptable Use Policy </_static/RCIC-Acceptable-Use-Policy.pdf>`_ (PDF).
 
 .. important::
 
