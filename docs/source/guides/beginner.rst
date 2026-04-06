@@ -34,9 +34,9 @@ You will need to have a  few applications on your laptop, most are standard:
    +-----------------+-------------+-------------+---------------+--------------------------------+
    |  Secure Connect | ssh         |  ssh        |               | ssh                            |
    +-----------------+-------------+-------------+---------------+--------------------------------+
-   |  Secure Data    | scp         | scp         | Filezilla or  | scp  or rsync                  |
+   |  Secure Data    | scp         | scp         | Filezilla or  | scp or rsync provided          |
    |                 |             |             |               |                                |
-   |  Transfer       | or rsync    | or rsync    | WinSCP        | (in |linsub|_)                 |
+   |  Transfer       | or rsync    | or rsync    | WinSCP        | in |linsub|_                   |
    +-----------------+-------------+-------------+---------------+--------------------------------+
 
 .. attention::
