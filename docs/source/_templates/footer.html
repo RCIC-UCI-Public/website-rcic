@@ -24,7 +24,7 @@
   </p>
 
   {# restore Standard Copyright #}
-  <div role="contentinfo">
+  {# remove second contentinfo div <div role="contentinfo"> #}
     <p>
     {%- if show_copyright %}
       &#169; Copyright {{ copyright }}.
@@ -33,6 +33,6 @@
       Last updated on {{ last_updated }}.
     {%- endif %}
     </p>
-  </div>
+  {# remove second contentinfo div end </div> #}
 
 {% endblock %}
