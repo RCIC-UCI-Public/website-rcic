@@ -11,10 +11,11 @@ We provide support for some UCI classes that need computational resources.
 
     1. Class catalog name (example cs175).
     #. UCInetIDs of the class TAs. TAs will be able to communicate to us class-related requests.
-    #. | *Class roster - a text file with student UCInetIDs one per line*.
-       | Please, do not send :tt:`.xls` or :tt:`.csv` files or links to google docs. 
-       | For a short roster can copy/paste it into the email.
-       | Please indicate who is a graduate level or undergraduate level student. 
+    #. **Class roster as a text file with student UCInetIDs one per line**.
+       :darkred:`Do not send .xls or .csv files or links to google docs`. 
+       For a short roster can copy/paste it into the email.
+    #. Indicate who is a graduate level or undergraduate level student,
+       this is important for the class accounts creation.
     #. What type of computational access you need: CPU, GPU or both. 
     #. What amount of shared data you expect to have publicly available to the students 
        (see :tt:`public/` below).
@@ -27,10 +28,14 @@ We provide support for some UCI classes that need computational resources.
 
   **During the quarter** all email requests from TAs must be cc'ed to the class professor.
 
-  **After the quarter ends** please send us a confirmation email that the class has ended and we can
-  remove all class associated accounts.
+  **After the quarter ends**:
 
-:bluelight:`We will create`
+    * Please send us a confirmation email that the class has ended and we can
+      remove all class associated accounts.
+    * It is a class Professor responsibility  to copy any desired data from
+      class :tt:`private/` and :tt:`public/` to an existing DFS or CRSP storage.
+
+:bluelight:`RCIC will create`
   1. Student class accounts per provided roster.
   #. Slurm class accounts, and deposit a free allocation of hours:
 
@@ -58,7 +63,6 @@ We provide support for some UCI classes that need computational resources.
          A student, professor and TAs can access student class account directory.
          Each account is expected to use  50GB of total class disk space allocation.
 
-
 :bluelight:`Class Students`
   1. `How to login on HPC3 <https://rcic.uci.edu/account/login.html>`_.
   #. Your class account $HOME is :tt:`/data/class/<classname>/UCInetID` and has 50GB disk quota.
@@ -83,7 +87,4 @@ We provide support for some UCI classes that need computational resources.
      by the time your class ends. All class accounts will be deleted after the class ends.
 
 :bluelight:`After the class ends`
-  At the beginning of the following quarter 
-
-    * Class student accounts are removed.
-    * Slurm class accounts are removed.
+    * Class student accounts in :tt:`/data/class/<classname>` and Slurm class accounts are removed.
