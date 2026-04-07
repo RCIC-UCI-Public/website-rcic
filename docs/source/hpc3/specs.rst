@@ -247,7 +247,7 @@ You must be on the UCI/VPN Network for this link to work.
 You may download node details info as the `CSV file </_static/nodes.csv>`_
 or browse the table below.  Click on the column header for sorting.
 
-.. csv-table:: Nodes info updated :blogauthor:`20 Aug 2024`.
+.. csv-table:: Nodes info updated Aug 2025.
    :class: noscroll-table sortable
    :file: ../_static/nodes.csv
    :widths: 5,5,18,20,15,22,10,5
