@@ -97,7 +97,7 @@
 /* all body links, not in the sidebar */
 .rst-content a {
     color: var(--bluelight) !important; 
-    text-decoration: none;
+    text-decoration: underline !important;
 }
 
 /* hover state for body links */
@@ -113,7 +113,7 @@ footer { color: #111111 !important; }
 /* footer link colors */
 footer a {
     color: var(--bluelight) !important; 
-    text-decoration: none;
+    text-decoration: underline !important;
 }
 
 /* link hover color */
@@ -262,11 +262,12 @@ a.footnote-reference {
     padding: 10px 20px;
     border-radius: 4px;
     transition: background-color 0.2s ease;
+    font-weight: bold !important;
 }
 
 /* Hover state using a slightly darker shade for visual feedback */
 .rst-footer-buttons a.btn:hover {
-    background-color: #1b3d6d !important;
+    background-color: #0061FF !important;
     color: #ffffff !important;
 }
 
