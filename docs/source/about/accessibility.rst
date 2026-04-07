@@ -13,11 +13,11 @@ and we aim to meet the
 **Accessibility status**
   Currently, we are in a process of evaluating accessibility issues
   and are using online tools to check the accessibility of our website.
-  The compliance report will be made available on this page. 
 
   * We try to achieve the conformance with the |astandard| standard
-  * Using web accessibility evaluation tool https://wave.webaim.org/aimscore
-    most pages on this website get 9.9-10 out of 10 AIM score for automated testing.
+  * Web accessibility evaluation tool https://wave.webaim.org/aimscore
+    gives all pages on this website **9.9 - 10 out of 10** 
+    `AIM score <https://wave.webaim.org/aimscore>`_  for automated testing.
 
 **Reporting issues**
   | We aim to respond to requests for assistance, and take action on reports of accessibility issues.
@@ -30,3 +30,4 @@ and we aim to meet the
 
 .. |astandard| replace:: :navy:`WCAG 2.1 Level AA`
 
+..   The compliance report will be made available on this page. 
