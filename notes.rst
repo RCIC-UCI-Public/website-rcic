@@ -139,3 +139,35 @@ did not work.  Modifications below.
       # custom js files
       html_js_files = ['js/jquery.dataTables.min.js', 'js/main.js',]
 
+Accessibility
+-------------
+
+Changes were done via overwriting Sphinx read-the-docs original theme. The changes are via:
+
+* files in **_templates/** overwrite original theme layouts in specific sections
+
+  * **breadcrumbs.html** - overwrite original where each page has a home icon,
+    link to the rst source and a repetitive title of the page. 
+    **IMPORTANT: keep this file empty**, it is intended for the original header removal.
+  * **footer.html** - overwrite the original footer. Adds links to accessibility
+    and creates buttons (look the same) without a tag 'accesskey' which
+    accessibility checkers flag as a warning.
+  * **layout.html** - adds needed spaces for the main logo  and make all the
+    necessary adjustments for the image and surrounding elements. Creates needed
+    spaces for the links in the footer.
+
+* overwrites in _static/css/rcic.css replace defaults or add new items
+* conf.py has an overwrite for mailto directive.
+
+The accessibility checking is done via Web accessibility evaluation tool https://wave.webaim.org/aimscore
+See about/accessibility.rst for details and more links.
+
+**When changes or new additions to the pages are needed**:
+
+  * use already existing styles
+  * check existing pages for references and do the same.
+    This will help to eliminate adding ad hoc changes that could minimize the accessibility. 
+  * Verify ALL changes prior to pushing to git repo and build html pages locally.
+    Make sure html pages look the same and don't introduce errors.
+  * If changes were stylistic or if they use new elements re-check accessibility of
+    the pages with the tool. This can only be done to published pages (on http://rcic.uci.edu) 

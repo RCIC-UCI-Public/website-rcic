@@ -22,23 +22,21 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
-	'sphinx_rtd_theme',
+    'sphinx_rtd_theme',
 ]
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
 }
-intersphinx_disabled_domains = ['std']
 
+intersphinx_disabled_domains = ['std']
 templates_path = ['_templates']
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
 
-# The suffix(es) of source filenames.
-# You can specify multiple suffix as a list of string:
-# source_suffix = '.rst'
+# The suffixes of source filenames.
 source_suffix = ['.rst', '.md']
 
 # The master toctree document.
@@ -55,42 +53,46 @@ rst_prolog = """
 
 """
 
-# need a line below if breadcrumbs are enabled
-# but dont want to show View the source link at the top
+# Currently line below is not needed as breadcrumbs is overwritten in _templates 
+# if breadcrumbs are enabled but dont want to show View the source link at the top
 #html_show_sourcelink = False
 
 # ---------------------------------------------
 #      Options for HTML output
 # ---------------------------------------------
 
+# this is a theme that is used to produce html output
 html_theme = 'sphinx_rtd_theme'
 
-# custom dir for storing pdf files
+# custom dir for storing files
 html_static_path = [ '_static', 'pdfs']
 
-# custom css file
+# custom css file relative to custom dir
 html_css_files = [ 'css/rcic.css','css/jquery.dataTables.min.css']
 
-# custom js files
+# custom js files relative to custom dir
 html_js_files = ['js/jquery.dataTables.min.js', 'js/main.js',]
 
-# top sidebar image image (relative to this dir)
+# top sidebar image image (relative to the dir where this file is)
 html_logo = 'images/rcic-logo.png'
 
-# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
-# using the given strftime format.
+# 'Last updated on:' timestamp is inserted at every page footer using the given strftime format.
+# If want to remove (really dont) set to ''
 html_last_updated_fmt = '%Y-%m-%d'
 
 # Disable the self-link to the page title of every page
+# This is important for accessibility
 html_permalinks = False
 
-
-#keep for reference
+# currently used options
 html_theme_options = {
-    # use this to show only logo on top of the side bar without
-	# home button link as it is on every page at the top already
+    # use this to show only logo on top of the side bar without home button link 
     'logo_only': True,
-	# top portion of sidebar background
+    # accessibility: this keeps navigation menu opening only to one level
+    'navigation_depth': 2,
+    # prevents injecting  default (accesskey issue for accessibility) buttons.
+    'prev_next_buttons_location': 'None',
+    # top portion of sidebar background
     #'style_nav_header_background': '#353130',
     #'display_version': True,
     #'prev_next_buttons_location': 'both',
@@ -98,17 +100,15 @@ html_theme_options = {
     # Toc options
     #'collapse_navigation': True,
     #'sticky_navigation': True,
-    'navigation_depth': 2,
-    # This prevents the theme from injecting its default (accesskey) buttons
-    'prev_next_buttons_location': 'None',
     #'includehidden': True,
     #'titles_only': False
 }
+
 # enable figure auto numbering
 numfig = True
 
-# this code is for overwriting mailto: directives.
-# sphinx creates <span> tags  in mailto links which confuse
+# =========== start overwrite mailto: directives 
+# sphinx creates <span> tags in mailto links which confuse
 # accessibility checkers into flagging  such links as duplicate
 from docutils import nodes
 from sphinx.writers.html import HTML5Translator
@@ -131,4 +131,4 @@ class CleanEmailTranslator(HTML5Translator):
 def setup(app):
     # This forces Sphinx to use our custom 'clean' translator
     app.set_translator('html', CleanEmailTranslator)
-
+# =========== end overwrite mailto: directives 

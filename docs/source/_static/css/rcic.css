@@ -14,62 +14,50 @@
 --foot: #5E30EB;
 }
 
-/* ============== Accessibility changes start ================ */
+/* these colors can be used in roles */
+.cyan { color: cyan; }
+.aqua { color: aqua; }
+.blue { color: blue; }
+.navy { color: navy; }
+.red {color: #CE4435;}
+.darkred {color: #B53C2E;}
+.rcicorange {color: #CE4435;}
+.rcicblue {color: #00579e;}
+.bluelight {color: #0E6EB6;}
+.bluegray {color: #88bfd1;}
+.gray {color: #777777;}
+.foot {color: #5E30EB;}
 
-/* ==== sidebar */
+/* =========================================================== */
+/* ============== Accessibility changes start ================ */
+/* =========================================================== */
+
+/* ================== */
+/* ==== sidebar ======*/
+/* ================== */
 /* Change the background color of the entire sidebar, example: black */
 .wy-nav-side { background: #111111; }
 
+/* Change the background color of the navigation header part */
+.wy-side-nav-search, .wy-nav-top { 
+    background: var(--bluelight) !important;
+}
 /* Hover state for links */
 .wy-menu-vertical a:hover { 
     background-color: var(--bluelight) !important;
     color: #ffffff !important;
 }
 
-/* Change the background color of the navigation header part */
-.wy-side-nav-search, .wy-nav-top { 
-    background: var(--bluelight) !important;
-}
-
-/* Change the color of links in the sidebar,  example: white */
+/* links color in the sidebar (white) */
 .wy-menu-vertical a { color: #FFFFFF; }
 
-/* Ensure footer navigation buttons are easily tappable */
-.rst-footer-buttons .btn {
-    padding: 12px 20px !important;
-}
-
-/* Forces a minimum interactive height of 26px for all nav links */
+/* minimum interactive height of 26px for all nav links */
 .wy-menu-vertical li a {
     line-height: 26px !important;
     display: block !important;
 }
 
-/* ========= navbar submenu items 
-/* 1. Change the base color of all submenu links */
-.wy-menu-vertical li.current ul li a {
-    color: #000000 !important;
-    background-color: var(--sidebarbackground) !important;
-}
-
-/* 2. Change the color of a submenu link when hovered */
-.wy-menu-vertical li.current ul li a:hover {
-    color: #ffffff !important;
-    background-color: var(--bluelight)!important;
-}
-
-/* 3. Change the color of the menu or specific submenu you are currently viewing */
-.wy-menu-vertical li.current > a,
-.wy-menu-vertical li.current ul li.current a {
-    color: var(--red) !important;
-    background-color: #ffffff !important;
-    font-weight: bold !important;
-}
-
-/* ========= end navbar menu items links 
-
-
-/* 1. Force navigation links to be large, block-level touch targets */
+/* force navigation links to be large, block-level touch targets */
 .wy-menu-vertical a.reference.internal {
     display: block !important;
     min-height: 24px !important; /* The mandatory minimum */
@@ -79,12 +67,12 @@
     box-sizing: border-box !important;
 }
 
-/* 2. Remove default margins that might shrink the clickable area */
+/* remove default margins that might shrink the clickable area */
 .wy-menu-vertical li {
     margin: 0 !important;
 }
 
-/* 3. Increase the hit area for the expansion icons (the plus/minus) */
+/* increase the hit area for the expansion icons (the plus/minus) */
 .wy-menu-vertical span.toctree-expand {
     min-width: 30px !important;
     min-height: 30px !important;
@@ -93,6 +81,34 @@
     justify-content: center !important;
     margin-left: -30px !important; /* Keeps it aligned with the text */
 }
+
+/* ========================== */
+/* ==== sidebar submenu ===== */
+/* ========================== */
+
+/* the base color of all submenu links */
+.wy-menu-vertical li.current ul li a {
+    color: #000000 !important;
+    background-color: var(--sidebarbackground) !important;
+}
+
+/* color of a submenu link when hovered */
+.wy-menu-vertical li.current ul li a:hover {
+    color: #ffffff !important;
+    background-color: var(--bluelight)!important;
+}
+
+/* color of the currently viewing (in focus) menu or submenu */
+.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.current ul li.current a {
+    color: var(--red) !important;
+    background-color: #ffffff !important;
+    font-weight: bold !important;
+}
+
+/* ==================== */
+/* ==== body links ==== */
+/* ==================== */
 
 /* all body links, not in the sidebar */
 .rst-content a {
@@ -105,7 +121,19 @@
     color: #0000FF !important;
 }
 
-/* === copyright footer */
+/* for every link hover in the documentation */
+a:hover {
+    text-decoration: underline; /* Optional: adds an underline on hover */
+}
+
+/* ================ */
+/* ==== footer ==== */
+/* ================ */
+
+/* Ensure footer navigation buttons are easily tappable */
+.rst-footer-buttons .btn {
+    padding: 12px 20px !important;
+}
 
 /* footer text color */
 footer { color: #111111 !important; }
@@ -135,14 +163,7 @@ footer hr:not(#keep-this-line) {
     margin: 20px 0 !important;
 }
 
-
-/* === for every link hover in the documentation */
-a:hover {
-    /* color: #ff6600 !important;  Your desired hover color */
-    text-decoration: underline; /* Optional: adds an underline on hover */
-}
-
-/* Increase footer link size and spacing */
+/* increase footer link size and spacing */
 footer a {
     display: inline-block;
     min-width: 24px;
@@ -151,28 +172,114 @@ footer a {
     margin: 4px 0;    /* Ensures spacing between multiple links */
 }
 
-/* Ensure any custom footer links meet the 24px requirement */
+/* ensure any custom footer links meet the 24px requirement */
 .custom-footer-links a {
     display: inline-block;
     min-height: 24px;
     padding: 2px 5px;
 }
 
-/* Increase vertical spacing between bullet points */
+/* Next/Previous buttons update  from default */
+/* 1. regular state targets the Next and Previous buttons in the footer */
+.rst-footer-buttons a.btn {
+    background-color: #255799 !important; /* official UCI Blue */
+    color: #ffffff !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    font-weight: bold !important;
+}
+
+/* 2. hover state using a slightly brighter shade */
+.rst-footer-buttons a.btn:hover {
+    background-color: #0061FF !important;
+    color: #ffffff !important;
+}
+
+/* 3. focus state for keyboard accessibility (tab navigation) */
+.rst-footer-buttons a.btn:focus {
+    outline: 3px solid #fecc07 !important; /* UCI Gold for high-visibility focus */
+    outline-offset: 2px;
+}
+
+/* =================================== */
+/* ==== body text bulleted lists ===== */
+/* =================================== */
+
+/* increase vertical spacing between bullet points */
 .wy-plain-list-wrap ul li,
 .section ul li,
 .rst-content ul li {
     margin-bottom: 12px !important; /* Adjust this value for more/less space */
 }
 
-/* Ensure the last item doesn't have extra bottom margin */
+/* insure the last item doesn't have extra bottom margin */
 .wy-plain-list-wrap ul li:last-child,
 .section ul li:last-child,
 .rst-content ul li:last-child {
     margin-bottom: 0 !important;
 }
 
-/* add download icon to PDF files links
+/* ===================== */
+/* ==== admonitions ==== */
+/* ===================== */
+
+/* 'important' admonition  border color */
+.rst-content .admonition.important {
+    border-color: #0F715D; 
+}
+
+/* 'important' admonition title bar background and text */
+.rst-content .admonition.important .admonition-title {
+    background: #0F715D; 
+    color: white;   
+}
+
+/* 'note' admonition  border color */
+.rst-content .admonition.note {
+    border-color: #0064a4;
+}
+
+/* 'note' admonition title bar background and text */
+.rst-content .admonition.note .admonition-title {
+    background: #0064a4;
+    color: white;
+}
+
+/* 'attention','warning','danger' admonitions border color and background  */
+.rst-content .admonition.attention,
+.rst-content .admonition.danger,
+.rst-content .admonition.warning {
+    border-color: #CE4435;
+    background-color: #fff9e6;    /* very light yellow tint */
+}
+
+/* 'attention','warning','danger' admonitions title bar background and text */
+.rst-content .admonition.attention .admonition-title,
+.rst-content .admonition.danger .admonition-title,
+.rst-content .admonition.warning .admonition-title {
+    background: #CE4435;
+    color: white;
+}
+
+/* custom 'acknowledgement' admonition border and background */
+.rst-content .admonition.acknowledgment {
+    border-left: 6px solid #ffd700; /* UCI gold or similar */
+    background-color: #fff9e6;    /* very light yellow tint */
+}
+
+/* custom 'acknowledgement' admonition title bar background and text*/
+.rst-content .admonition.acknowledgment .admonition-title {
+    background: #ffd700;
+    color: #333;
+}
+
+/* ================== */
+/* ==== body elements */
+/* ================== */
+
+/* leave this for a refenrece only. add download icon to PDF files links
 a[href$=".pdf"]::after {
     content: " (PDF)";
     font-size: 0.8em;
@@ -182,137 +289,53 @@ a[href$=".pdf"]::after {
 }
 */
 
-/* Changing the 'important' admonition */
-.rst-content .admonition.important {
-    border-color: #0F715D; /* border color */
-}
-
-.rst-content .admonition.important .admonition-title {
-    background: #0F715D; /* Title bar background */
-    color: white;        /* Title text color */
-}
-
-/* Changing the 'note' admonition */
-.rst-content .admonition.note {
-    border-color: #0064a4; /* border color */
-}
-
-.rst-content .admonition.note .admonition-title {
-    background: #0064a4; /* Title bar background */
-    color: white;        /* Title text color */
-}
-
-/* Changing the 'Warning' admonition */
-.rst-content .admonition.attention,
-.rst-content .admonition.danger,
-.rst-content .admonition.warning {
-    border-color: #CE4435;
-    background-color: #fff9e6;    /* Very light yellow tint */
-}
-
-.rst-content .admonition.attention .admonition-title,
-.rst-content .admonition.danger .admonition-title,
-.rst-content .admonition.warning .admonition-title {
-    background: #CE4435;
-    color: white;
-}
-
-/* custom acknowledgement admonition */
-.rst-content .admonition.acknowledgment {
-    border-left: 6px solid #ffd700; /* UCI Gold or similar */
-    background-color: #fff9e6;    /* Very light yellow tint */
-}
-
-.rst-content .admonition.acknowledgment .admonition-title {
-    background: #ffd700;
-    color: #333; /* Dark text for contrast against gold */
-}
-
+/* for commands (code) throughout the text */
 .rst-content code {
     color: #B51A00 !important; /* darker, high-contrast red */
-    background-color: #ffffff !important; /* white background for visibility */
+    background-color: #ffffff !important; /* white background */
     border: 1px solid #e1e4e5 !important;
     padding: 2px 5px;
     font-weight: bold;
 }
 
-/* 1. Change color of the superscript footnote reference in the main text */
+/* next 3 definitions go together */
+/* 1. color of the superscript footnote reference in the main text */
 a.footnote-reference {
 	color:var(--foot) !important;
 }
 
-/* 2. Change the color of the footnote text at the bottom of the page */
+/* 2. color of the footnote text at the bottom of the page */
 .rst-content aside.footnote,
 .rst-content dl.footnote,
 .rst-content .footnote-list {
 	color:var(--foot) !important;
 }
 
-/* 3. Change color of the numbers/labels inside the footnote list */
+/* 3. color of the numbers/labels inside the footnote list */
 .rst-content aside.footnote .label,
 .rst-content dl.footnote dt {
 	color:var(--foot) !important;
 }
 
-/* ============= next/previous buttons change */
-/* Targets the Next and Previous buttons in the footer */
-.rst-footer-buttons a.btn {
-    background-color: #255799 !important; /* Official UCI Blue */
-    color: #ffffff !important;           /* White text for 6:1 contrast */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-    font-weight: bold !important;
-}
-
-/* Hover state using a slightly darker shade for visual feedback */
-.rst-footer-buttons a.btn:hover {
-    background-color: #0061FF !important;
-    color: #ffffff !important;
-}
-
-/* Focus state for keyboard accessibility (Tab navigation) */
-.rst-footer-buttons a.btn:focus {
-    outline: 3px solid #fecc07 !important; /* UCI Gold for high-visibility focus */
-    outline-offset: 2px;
-}
-
 /* ============== Accessibility changes end ================ */
-
-/* these colors can be used in roles */
-.cyan { color: cyan; }
-.aqua { color: aqua; }
-.blue { color: blue; }
-.navy { color: navy; }
-.red {color: #CE4435;}
-.darkred {color: #B53C2E;}
-.rcicorange {color: #CE4435;}
-.rcicblue {color: #00579e;}
-.bluelight {color: #0E6EB6;}
-.bluegray {color: #88bfd1;}
-.gray {color: #777777;}
-.foot {color: #5E30EB;}
 
 /* ==== for recharge able ==== */
 .recharge-table table {
     width: 100% !important;
 }
-/* table header */
-.recharge-table th {
+.recharge-table th { /* table header */
 	background-color:var(--paleorange);
 }
-.recharge-table td {
+.recharge-table td { 
     white-space: normal !important;
 }
-/* set columns width */
-.recharge-table td:first-child {
+.recharge-table td:first-child { /* 1st columns width */
     width: 15% !important;
 }
-.recharge-table td:nth-child(2) {
+.recharge-table td:nth-child(2) { /* 2nd columnd width */
     width: 27% !important;
 }
-.recharge-table td:last-child {
+.recharge-table td:last-child { /* last columnd width */
     width: 40% !important;
 }
 
@@ -324,7 +347,7 @@ a.footnote-reference {
 	background-color:var(--paleblue);
 }
 
-/* ==== for news ====  */
+/* ==== for news/maintenance  ====  */
 .blogauthor {
     color: #556F9A;
     font-style: italic;
@@ -344,20 +367,15 @@ a.footnote-reference {
 	text-decoration: none;
 }
 
-/* define a word */
+/* define a word to use for file/directories emphasis */
 .tt {
   font-size: 90%;
   font-weight: 600;
   background-color: #efefff !important;
-/*
-  padding: 0em 0.5ex;
-  letter-spacing:0;
-  -webkit-border-radius: 4px; border-radius: 4px;
-  text-rendering:optimizeSpeed;word-wrap:break-word;
-*/
+
 }
 
-/* make a title  outside of TOC */
+/* make a heading  outside of TOC */
 .section {
     color: #6E18E8;
 	font-weight: bold;
