@@ -189,17 +189,13 @@ Exactly who is entitled to my CRSP baseline allocation?
   All ladder faculty and any UCI employee who can serve as PI or Co-PI on an extramural grant.
   Please see :ref:`allocations`.
 
-How do I purchase more space?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  Please see :ref:`buy crsp`
-
 Can I expand space more than once?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   | Yes. We track when each of your space allocations expire and recharge appropriately.
   | Multiple purchases can be used to expand your space.
 
-Can the recharge be used to expand my baseline allocation?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Can I purchase more space to expand my baseline allocation?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   | You will always have your baseline allocation and you can use recharge to buy more space.
   | For example, if you were to purchase 10TB for 1 year ($600) and add it to your baseline, you will
     have 11TB of allocated space.
@@ -406,7 +402,7 @@ How do I know if I need more cores for my job?
     using 1 CPU.
   * Your job failed with OOM - out of memory errors.
 
-  See :ref:`request resources` for explanation how to get more CPUs or more memory.
+  See :ref:`request memory` for explanation how to get more CPUs or more memory.
 
 How do I know if I need more memory for a job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -416,25 +412,25 @@ How do I know if I need more memory for a job?
 
   To find out how much memory and CPU your job is using you need
   to use ``sacct``, ``seff`` and ``sstat`` commands.
-  See :ref:`job monitoring <job efficiency>` for details.
+  See :ref:`job efficiency <job efficiency>` for details.
 
 How do I profile my job?
 ~~~~~~~~~~~~~~~~~~~~~~~~
   Slurm records statistics for every job, including how much memory
   and CPU was used, and the usage efficiency.
 
-  Slurm provides :ref:`job efficiency monitoring <job efficiency>` capabilities
+  Slurm provides :ref:`job monitoring <job efficiency>` capabilities
   that can give an idea about consumed memory, CPU and the efficiency. For most
   jobs job efficiency tools provide sufficient information to understand what resources are needed.
 
 How do I see how many hours of allocation credit I have used?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  You need to use ``sbank`` command.  See :ref:`job accounting`.
+  You need to use ``sbank`` command.  See :ref:`sbank <job accounting>`.
 
 How to see what jobs were run and their cost over some time?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   We have a ``zotledger`` tool that provides this info.
-  See :ref:`job accounting`.
+  See :ref:`zotledger <zotledger>`.
 
 I can't submit jobs to GPU partition, what is wrong?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
