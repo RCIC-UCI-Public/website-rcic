@@ -207,6 +207,7 @@ a[href$=".pdf"]::after {
 .rst-content .admonition.danger,
 .rst-content .admonition.warning {
     border-color: #CE4435;
+    background-color: #fff9e6;    /* Very light yellow tint */
 }
 
 .rst-content .admonition.attention .admonition-title,
