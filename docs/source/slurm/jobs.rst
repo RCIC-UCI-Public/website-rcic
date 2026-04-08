@@ -686,6 +686,7 @@ To get detailed info about the job:
   The output will contain a list of *key=value* pairs that provide job information.
 
 .. _job accounting:
+.. _zotledger:
 
 Account balance
 ^^^^^^^^^^^^^^^
@@ -736,6 +737,7 @@ In order to run jobs on HPC3, a user must have available CPU hours.
    To find all available arguments for this command use ``zotledger -h``.
 
    Default is to print jobs of the current user for the last 30 days:
+
 
      .. code-block:: console
 
