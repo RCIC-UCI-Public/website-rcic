@@ -498,10 +498,12 @@ or *deleted* after the snapshot was made.
 Deleted Files Recovery
 -----------------------
 
-**Restoring Lab Data from Snapshots**
-  There are three ways to recover your data that was stored in the Lab area.
+There are three ways to recover your data that was stored in the Lab  or HOME area.
+Since ``$HOME`` areas usually don't contain significant data, it can be a more straightforward
+to use the Web Interface described below.
 
-  :bluelight:`Using HPC3`
+:bluelight:`1. Using HPC3`
+  **Restoring Lab Data from Snapshots**
     Located at the top-level of your lab directory is the :tt:`.snapshots` directory.
     This directory is owned by the root user and cannot be changed by any user.
 
@@ -513,12 +515,6 @@ Deleted Files Recovery
         .. code-block:: console
 
            [user@login-x:~]$ ls -tr1 /share/crsp/lab/ppapadop/.snapshots
-           @GMT-2024.07.15-07.00.00
-           @GMT-2024.07.14-07.00.00
-           @GMT-2024.07.13-07.00.00
-           @GMT-2024.07.12-07.00.00
-           @GMT-2024.07.11-07.00.00
-           @GMT-2024.07.10-07.00.00
            @GMT-2024.07.09-07.00.00
            @GMT-2024.07.08-07.00.00
            @GMT-2024.07.07-07.00.00
@@ -529,7 +525,17 @@ Deleted Files Recovery
     #. Once a good snapshot is identified, copy files or folders that you want to restore from
        the snapshot back to the area where you want the file so that you can access it normally.
 
-  :bluelight:`Using the CRSP Desktop`
+  **Restoring $HOME Data**
+    Snapshots for the home area are kept in one place for ALL users.
+
+    #. You can see all the home snapshots in :tt:`/share/crsp/home/.snapshots`.
+       They will have naming format *@GMT-YYYY.MM.DD-hh.mm.ss*.
+    #. You can navigate into one of these snapshot directories and you will see *all* user
+       home areas names. **You will only have permission to further descend into your home area**.
+    #. Once  a good snapshot is found, just copy files or folders that you want to restore from the snapshot back to $HOME.
+
+:bluelight:`2. Using the CRSP Desktop`
+  **Restoring Lab Data from Snapshots**
     On a Mac, the :tt:`.snapshots` folder is hidden by default.
     See :ref:`Mac connect share section <macOS Connect to Lab Share>` for a reference how
     to view hidden folders in the :guilabel:`Finder`.
@@ -557,31 +563,15 @@ Deleted Files Recovery
     #. Navigate to a date where you believe there is a copy of your deleted or overwritten file.
     #. Copy desired files back to your working area.
 
-  :bluelight:`Using Web Interface`
-    This is very similar to the above
+:bluelight:`3. Using Web Interface`
+  Open your web browser to `https://access.crsp.uci.edu/myfiles/ <https://access.crsp.uci.edu/myfiles/>`_
 
-    #. Open your web browser to `https://access.crsp.uci.edu/myfiles/ <https://access.crsp.uci.edu/myfiles/>`_
+  **Restoring Lab Data from Snapshots**
     #. Click on :guilabel:`My-Labs`
     #. Navigate to your lab and its :tt:`.snapshots` folder
     #. Find the date of interest, and then *download* the files/folders to your local system
 
-**Restoring $HOME Data**
-
-  Snapshots for the home area are kept in one place for ALL users.
-
-  Since ``$HOME`` areas usually don't contain significant data, it can be a more straightforward
-  to use the Web Interface.
-
-  :bluelight:`Using HPC3`
-    #. You can see all the home snapshots in :tt:`/share/crsp/home/.snapshots`.
-       They will have naming format *@GMT-YYYY.MM.DD-hh.mm.ss*.
-    #. You can navigate into one of these snapshot directories and you will see *all* user
-       home areas names. **You will only have permission to further descend into your home area**.
-    #. Once  a good snapshot is found, just copy files or folders that you want to restore from the snapshot back to $HOME.
-
-  :bluelight:`Using Web Interface`
-
-    #. Open your web browser to `https://access.crsp.uci.edu/myfiles/ <https://access.crsp.uci.edu/myfiles/>`_
+  **Restoring $HOME Data**
     #. Click on :guilabel:`Home-Snapshots`
     #. Click on the date of interest. You will be looking at the state of your ``$HOME`` on that date
     #. Download the files/folders to your local system
