@@ -15,7 +15,9 @@ literally hundreds of domain-specific, community-supported, applications maintai
 
 .. _cluster os:
 
-:section:`Cluster Operating System`
+Cluster Operating System
+------------------------
+
   .. important:: | |hpc3-OS|
                  | |hpc3-sw|
 
@@ -25,7 +27,9 @@ literally hundreds of domain-specific, community-supported, applications maintai
 
 .. _installed software:
 
-:section:`Installed software`
+Installed software
+------------------
+
   Most software is accessed only after loading the appropriate software modules.
   Cluster users simply need to know or discover the
   already available application environment module and load
@@ -55,8 +59,11 @@ literally hundreds of domain-specific, community-supported, applications maintai
 	in the description as they disrupt csv table lineup 
 
 .. _licensed software:
+.. _vasp licensed:
 
-:section:`Licensed Software`
+Licensed Software
+-----------------
+
   Access to the following applications requires a license:
 
   .. table::
@@ -70,8 +77,8 @@ literally hundreds of domain-specific, community-supported, applications maintai
      |        |        |          | to all )   | Stata 17 | VASP 6.x |
      +--------+--------+----------+------------+----------+----------+
 
-  .. note:: While all users can view and load modules for licensed software only registered users
-            (*users must be in specific groups*) can use such software.
+  .. note:: While all users can view and load modules for licensed software **only registered users
+            can use such software** (users must be in specific groups).
 
             One exception to this is MATLAB.
             RCIC contributes to the UCI-wide license and
@@ -85,7 +92,9 @@ literally hundreds of domain-specific, community-supported, applications maintai
 
 .. _how is built:
 
-:section:`How it is built`
+How it is built
+---------------
+
   Some software is quick and easy to compile, install, and make available to users. Others
   have numerous (often undocumented) software dependencies, unique build methods, and conflicting 
   requirements. The size of the problem is quite large, and grows with each new application.
@@ -116,7 +125,9 @@ literally hundreds of domain-specific, community-supported, applications maintai
 
 .. _request new software:
 
-:section:`Request New Software`
+Request New Software
+--------------------
+
   Please see :ref:`user installed` :underline:`before` requesting new software install.
 
   You may :ref:`submit a request for new software <software install tickets>`  to be added to HPC3,
