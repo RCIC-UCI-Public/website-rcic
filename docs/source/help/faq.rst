@@ -419,7 +419,7 @@ How do I profile my job?
   Slurm records statistics for every job, including how much memory
   and CPU was used, and the usage efficiency.
 
-  Slurm provides :ref:`job monitoring <job efficiency>` capabilities
+  Slurm provides :ref:`job monitoring <job monitoring>` capabilities
   that can give an idea about consumed memory, CPU and the efficiency. For most
   jobs job efficiency tools provide sufficient information to understand what resources are needed.
 
