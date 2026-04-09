@@ -19,6 +19,7 @@ You will need to have a  few applications on your laptop, most are standard:
 .. _laptop apps:
 
 .. table:: Your laptop applications
+   :widths: 19,13,15,16,35
    :class: noscroll-table
 
    +-----------------+-------------+-------------+---------------+--------------------------------+
@@ -28,15 +29,15 @@ You will need to have a  few applications on your laptop, most are standard:
    +=================+=============+=============+===============+================================+
    |  VPN access     | Install client VPN software per the instructions |ucivpn|_                 |
    +-----------------+-------------+-------------+---------------+--------------------------------+
-   |  Terminal       | use your    | Terminal or | |putty|_ or   | Windows Terminal, |mobaXterm|_ |
+   |  Terminal       | use your    | Terminal or | |putty|_ or   | Windows Terminal, |mobaXterm|  |
    |                 |             |             |               |                                |
    |                 | favorite    | |iTerm2|_   | |mobaXterm|_  | or |linsub|_                   |
    +-----------------+-------------+-------------+---------------+--------------------------------+
    |  Secure Connect | ssh         |  ssh        |               | ssh                            |
    +-----------------+-------------+-------------+---------------+--------------------------------+
-   |  Secure Data    | scp         | scp         | Filezilla or  | scp or rsync provided          |
+   |  Secure Data    | scp or      | scp or      | Filezilla or  | scp or rsync (from |linsub|)   |
    |                 |             |             |               |                                |
-   |  Transfer       | or rsync    | or rsync    | WinSCP        | in |linsub|_                   |
+   |  Transfer       | rsync       | rsync       | WinSCP        |                                |
    +-----------------+-------------+-------------+---------------+--------------------------------+
 
 .. attention::
