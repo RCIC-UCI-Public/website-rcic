@@ -157,7 +157,12 @@ Changes were done via overwriting Sphinx read-the-docs original theme. The chang
     spaces for the links in the footer.
 
 * overwrites in _static/css/rcic.css replace defaults or add new items
-* conf.py has an overwrite for mailto directive.
+* conf.py has an overwrite for *mailto* directive.
+
+Color verification was done using:
+
+  * https://app.contrast-finder.org
+  * https://accessibleweb.com/color-contrast-checker/
 
 The accessibility checking is done via Web accessibility evaluation tool https://wave.webaim.org/aimscore
 See about/accessibility.rst for details and more links.
