@@ -166,7 +166,7 @@ Computing
 Purchase core-hours
 ~~~~~~~~~~~~~~~~~~~
 
-| Please send a request to hpc-support@uci.edu telling us:
+| Please send a request to hpc-support\@uci.edu telling us:
 |   1. Type of core-hours (CPU or GPU)
 |   2. How many core-hours you need
 
@@ -202,7 +202,7 @@ Purchase hardware
                nor will it be managed by RCIC.
 
 :bluelight:`Outline of Purchase Process`
-  1. Send a request to hpc-support@uci.edu indicating your interest in purchasing
+  1. Send a request to hpc-support\@uci.edu indicating your interest in purchasing
      nodes (CPU or GPU and how many) and time frame.
   2. RCIC obtains quotes once enough requests have been aggregated.
   3. Upon your approval purchase is made and your funds are used at purchase time.
@@ -259,7 +259,7 @@ Please see :ref:`hardware faq` for additional info about hardware purchases.
 Purchase CRSP storage
 ^^^^^^^^^^^^^^^^^^^^^
 
-| Please send a request to hpc-support@uci.edu telling us
+| Please send a request to hpc-support\@uci.edu telling us
 |   1. How much CRSP space you need (TB)
 |   2. For how long (years)
 
@@ -272,7 +272,7 @@ on the CRSP system.
 Purchase DFS storage
 ^^^^^^^^^^^^^^^^^^^^
 
-| Please send a request to hpc-support@uci.edu telling us
+| Please send a request to hpc-support\@uci.edu telling us
 |   1. How much DFS space you need (TB)
 |   2. If this is your first DFS purchase, then the initial term is 5 years.
 |   3. If you have existing DFS quota, then then additional quota is priced at $20/TB/Year.  The PI has the choice of a) extending existing quota 5 years or b) Setting the expiration data of new quota to co-terminate with the existing quota end-date
