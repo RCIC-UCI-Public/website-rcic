@@ -15,9 +15,9 @@ and we aim to meet the
   and are using online tools to check the accessibility of our website.
 
   * We try to achieve the conformance with the |astandard| standard
-  * Web accessibility evaluation tool https://wave.webaim.org/aimscore
+  * `WAVE Web accessibility evaluation tool <https://wave.webaim.org/aimscore>`_
     gives all pages on this website **9.9 - 10 out of 10** 
-    `AIM score <https://wave.webaim.org/aimscore>`_  for automated testing.
+    AIM score for automated testing.
 
 **Reporting issues**
   | We aim to respond to requests for assistance, and take action on reports of accessibility issues.
@@ -28,6 +28,6 @@ and we aim to meet the
   * In your email include URL of web page and all relevant details
     related to your issue.
 
-.. |astandard| replace:: :navy:`WCAG 2.1 Level AA`
+.. |astandard| replace:: **WCAG 2.1 Level AA**
 
 ..   The compliance report will be made available on this page. 
