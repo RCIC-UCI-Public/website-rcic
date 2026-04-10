@@ -36,7 +36,7 @@ Access
 
 | The :ref:`allocations` explains the access to the computing and storage resources.
 | Access to all RCIC resources requires a `UCInetID <https://www.oit.uci.edu/services/accounts-passwords/ucinetids/>`_.
-| Access to all RCIC resources is subject to our `Acceptable Use Policy </_static/RCIC-Acceptable-Use-Policy.pdf>`_ (PDF).
+| Access to all RCIC resources is subject to our `Acceptable Use Policy </_static/RCIC-Acceptable-Use-Policy.pdf>`_ (PDF, 59K).
 | Faculty can `sponsor external collaborators <https://uci.service-now.com/sp?id=kb_article_view&sysparm_article=KB0012503>`_ to provide and share access.
 
 .. _grant:
@@ -44,7 +44,7 @@ Access
 Grant Support
 -------------
 
-Please see the `HPC3 Description </_static//RCIC-description.pdf>`_ (PDF) that can be used in grant applications.
+Please see the `HPC3 Description </_static//RCIC-description.pdf>`_ (PDF, 77K) that can be used in grant applications.
 
 .. _acknowledge:
 
