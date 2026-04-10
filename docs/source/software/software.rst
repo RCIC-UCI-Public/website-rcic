@@ -59,7 +59,7 @@ Installed software
 	in the description as they disrupt csv table lineup 
 
 .. _licensed software:
-.. _vasp licensed:
+.. _vasp license:
 
 Licensed Software
 -----------------

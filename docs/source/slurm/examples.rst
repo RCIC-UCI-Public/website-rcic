@@ -1269,7 +1269,7 @@ VASP
 ----
 
 | :red:`VASP is a licensed software and is only available to users whose labs paid for the license`. 
-| See :ref:`VASP license <licensed software>` for details.
+| See :ref:`VASP license <vasp license>` for details.
 
 1. VASP versions 5.4.4 and 6.1.2
 
