@@ -17,7 +17,7 @@ infrastructure for academic research.  The key infrastructure includes:
   #. Single-copy, high-performance, parallel file systems based on BeeGFS.
      Directly connected via Infiniband networking to the clusters, these provide 
      an aggregate of over Eight Petabyte (8.9PB) across six active
-     file systems (DFS3B, DFS6B, DFS7, DFS8, DFS9, DFS10).
+     file systems (|DFSX|).
   #. Dual copy, 4PB (2.3PB of usable capacity), scalable file system based on IBM Spectrum
      Scale for research data. Using standard protocols, data can be accessed securely
      from any device on the UC Network (Campus Research Storage Pool, CRSP).
@@ -67,7 +67,7 @@ needed. When taking software with multiple versions and with multiple additional
 **Single-Copy Parallel File Systems (DFS)**
 
 Large-scale data is handled by RCIC across six distinct parallel file systems that are
-named DFS3b, DFS6B, DFS7, DFS8, DFS9 and DFS10.  All systems utilize BeeGFS layered 
+named |DFSX|.  All systems utilize BeeGFS layered 
 on ZFS for scale and performance. BeeGFS is regularly updated with one to two major 
 updates per year. Storage is funded by researchers through a standard recharge system 
 where a user purchases capacity for a 5-year period of time (currently $100/TB/5-years).
@@ -154,3 +154,5 @@ grant award. Standard nodes may have parts updated (e.g., CPU change or GPU chan
    |               | Dual copy of data. Accessible from devices   |                       |                 |
    |               | on UCI net and the clusters.                 |                       |                 |
    +---------------+----------------------------------------------+-----------------------+-----------------+
+
+.. |DFSX| replace:: DFS3B, DFS6B, DFS7, DFS8, DFS9 and DFS10
