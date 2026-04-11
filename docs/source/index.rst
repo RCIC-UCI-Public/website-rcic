@@ -93,6 +93,7 @@ RCIC User Documentation
    :caption: Reference
 
    references/glossary
+   references/rcic-description
    references/hardware-faq
    references/archive
 

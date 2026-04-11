@@ -44,7 +44,7 @@ Access
 Grant Support
 -------------
 
-Please see the `HPC3 Description </_static//RCIC-description.pdf>`_ (PDF, 77K) that can be used in grant applications.
+Please see the :ref:`HPC3 Description <rcic-description>` that can be used in grant applications.
 
 .. _acknowledge:
 
