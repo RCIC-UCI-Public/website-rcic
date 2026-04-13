@@ -9,15 +9,15 @@ we want to reduce any barriers that may impede access to our web content.
 To achieve this goal, we try to follow digital accessibility best practices, 
 and we aim to meet the
 `April 14, 2026 ADA Title II compliance deadline <https://accessibility.uci.edu/ada-title-ii/index.php>`_
+and the conformance with the |astandard| standard.
 
 **Accessibility status**
-  Currently, we are in a process of evaluating accessibility issues
-  and are using online tools to check the accessibility of our website.
+  As of April 13, 2026 `WAVE Web accessibility evaluation tool <https://wave.webaim.org/aimscore>`_
+  gives all pages on this website **10 out of 10** AIM score for automated
+  testing for |astandard|.
 
-  * We try to achieve the conformance with the |astandard| standard
-  * `WAVE Web accessibility evaluation tool <https://wave.webaim.org/aimscore>`_
-    gives all pages on this website **9.9 - 10 out of 10** 
-    AIM score for automated testing.
+  Currently, we continue evaluating accessibility issues
+  and are using online tools to check the accessibility of our website.
 
 **Reporting issues**
   | We aim to respond to requests for assistance, and take action on reports of accessibility issues.
