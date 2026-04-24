@@ -172,12 +172,13 @@ Example jobs:
 
   .. code-block:: console
 
-     [user@login-x:~]$ srun -A PI_LAB --pty /bin/bash -i                     # 1
-     [user@login-x:~]$ srun -p free --pty /bin/bash -i                       # 2
-     [user@login-x:~]$ srun --mem=8G -p free --pty /bin/bash -i              # 3
-     [user@login-x:~]$ srun -c 4 --time=10:00:00 -N 1 --pty /bin/bash -i     # 4
-     [user@login-x:~]$ srun -p free-gpu --gres=gpu:V100:1 --pty /bin/bash -i # 5
-     [user@login-x:~]$ srun -p free --x11  --pty /bin/bash -i*               # 6
+     [user@login-x:~]$ srun -A PI_LAB --pty /bin/bash -i                                # 1
+     [user@login-x:~]$ srun -p free --pty /bin/bash -i                                  # 2
+     [user@login-x:~]$ srun --mem=8G -p free --pty /bin/bash -i                         # 3
+     [user@login-x:~]$ srun -c 4 --time=10:00:00 -N 1 --pty /bin/bash -i                # 4
+     [user@login-x:~]$ srun -p free-gpu --gres=gpu:V100:1 --pty /bin/bash -i            # 5
+     [user@login-x:~]$ srun -p free --x11  --pty /bin/bash -i*                          # 6
+     [user@login-x:~]$ srun -p free-gpu32 --gres=gpu:RTX6000 --pty /bin/bash -i         # 7
 
   1. Use *standard* partition and charge to the *PI_LAB* account
   2. Use *free* partition (where it may be killed at any time)
@@ -188,6 +189,7 @@ Example jobs:
   6. | Start an interactive session with Xforward enabled (option :tt:`--x11`) for GUI jobs.
      | Note, a user  should have logged on HPC3 with ssh Xforward enabled see :ref:`ssh xforward`
        before running this ``srun`` command.
+  7. Explicitly Request an RTX6000 Blackwell GPU 
 
 .. _attach to job:
 

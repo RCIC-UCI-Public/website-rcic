@@ -85,27 +85,34 @@ Please learn
       *Slurm Personal account*.
 
   :1 GPU-hour:
-    | :bluelight:`is 33 allocation units` charged for
+    | :bluelight:`is 34 allocation units` charged for
     | 1 GPU used for 1 hour as 32 allocation units, plus
-    | 1 CPU used for 1 hour (required to run the job) as 1 allocation unit.
+    | 2 CPU used for 1 hour (required to run the job) as 2 units.
     | Each GPU hour is charged to a GPU-enabled account which can only be used on GPU-nodes.
 
-  Example charges
+  :1 GPU-hour (RTX6000 Pro):
+    | :bluelight:`is 68 allocation units` charged for
+    | 1 GPU used for 1 hour as 64 allocation units, plus
+    | 4 CPU used for 1 hour (required to run the job) as 4 units.
+    | RTX6000 Pro Blackwell GPUs are in the gpu32 queue and require a gpu32 slurm account
+
 
     .. table::
        :class: noscroll-table
 
-       +--------------------------+----------------+
-       | A job is using           | Units  charged |
-       +==========================+================+
-       | 1 CPU X 1 hr             | 1              |
-       +--------------------------+----------------+
-       | 1 CPU X 6 min            | 0.1            |
-       +--------------------------+----------------+
-       | 10 CPU X 1 hr            | 10             |
-       +--------------------------+----------------+
-       | (1 GPU + 1 CPU ) X 1 hr  | 33             |
-       +--------------------------+----------------+
+       +-----------------------------+----------------+
+       | A job is using              | Units  charged |
+       +=============================+================+
+       | 1 CPU X 1 hr                | 1              |
+       +-----------------------------+----------------+
+       | 1 CPU X 6 min               | 0.1            |
+       +-----------------------------+----------------+
+       | 10 CPU X 1 hr               | 10             |
+       +-----------------------------+----------------+
+       | (1 GPU + 2 CPU ) X 1 hr     | 34             |
+       +-----------------------------+----------------+
+       | (1 RTX6000 + 4 CPU ) X 1 hr | 68             |
+       +-----------------------------+----------------+
 
 .. _free jobs:
 .. _allocated jobs:
@@ -214,24 +221,29 @@ GPUs in the ``gpu32`` partition can natively accelerate 32-bit floating point, b
    :widths: 15 30 20 20 15
    :class: noscroll-table
 
-   +------------+---------------------------+------------------+-------------+------------+
-   | Partition  | Default / Max             | Default / Max    | Cost        | Job        |
-   |            |                           |                  |             |            |
-   | name       | memory per core           | runtime          | (units/hr)  | preemption |
-   +============+===========================+==================+=============+============+
-   | gpu        | 3 GB / 9 GB               | 2 day / 14 day   | 33          | No         |
-   +------------+---------------------------+------------------+-------------+------------+
-   | free-gpu   | 3 GB / 9 GB               | 1 day / 3 day    | 0           | Yes        |
-   +------------+---------------------------+------------------+-------------+------------+
-   | gpu32      | 3 GB / 9 GB               | 2 day / 14 day   | 33          | No         |
-   +------------+---------------------------+------------------+-------------+------------+
-   | free-gpu32 | 3 GB / 9 GB               | 1 day / 3 day    | 0           | Yes        |
-   +------------+---------------------------+------------------+-------------+------------+
+   +------------+---------------------------+------------------+----------------+------------+
+   | Partition  | Default / Max             | Default / Max    | Cost           | Job        |
+   |            |                           |                  |                |            |
+   | name       | memory per core           | runtime          | (units/hr)     | preemption |
+   +============+===========================+==================+================+============+
+   | gpu        | 3 GB / 9 GB               | 2 day / 14 day   | 34             | No         |
+   +------------+---------------------------+------------------+----------------+------------+
+   | free-gpu   | 3 GB / 9 GB               | 1 day / 3 day    | 0              | Yes        |
+   +------------+---------------------------+------------------+----------------+------------+
+   | gpu32      | 3 GB / 9 GB               | 2 day / 14 day   | * 34 - L40S    | No         |
+   +            |                           |                  | * 68 - RTX6000 |            |
+   +------------+---------------------------+------------------+----------------+------------+
+   | free-gpu32 | 3 GB / 9 GB               | 1 day / 3 day    | 0              | Yes        |
+   +------------+---------------------------+------------------+----------------+------------+
 
 
 .. note::
    To submit to the ``gpu`` partition, you must have a Slurm account that ends with ``gpu``.
    To submit to the ``gpu32`` partition, you must have a Slurm account that ends with ``gpu32``.
+
+.. attention:: RTX6000 Pro Blackwell GPUs must be **explicitly** requested in the gpu32 queue. A gres
+               request like ``--gres=gpu`` on the gpu32 job submission will only schedule your job on
+               L40S gpus.  Use ``--gres=gpu:RTX6000`` to request the newer (and more expensive) GPU 
 
 Note, there is no difference in cost/core-hour for default and max memory per core.
 
@@ -283,6 +295,12 @@ GPU-enabled
   :ref:`request Slurm Lab account <slurm lab account>` and add a note that
   this request is for GPU account.
 
+:bluelight:`gpu32`
+   There are two types of GPUs in the gpu32 partition - L40S and RTX6000. To run on an 
+   RTX6000 (Blackwell) GPU, you must explicitly request it with ``--gres=gpu:RTX6000``.
+   Be aware that these GPUs are double SUs of L40S. This is due to the 2.5X price difference
+   between the existing L40S nodes and the Blackwell GPU Nodes 
+
 :bluelight:`free-gpu`
   Anyone can run jobs in this partition without special account.
 
@@ -304,26 +322,27 @@ Nodes grouped by features:
   .. code-block:: console
 
      [user@login-x:~]$ sinfo -o "%33N %5c %8m %30f %10G" -e
-     NODELIST                          CPUS MEMORY   AVAIL_FEATURES                 GRES
-     hpc3-19-13                        36   515000   intel,mlx5_ib                  (null)
-     hpc3-15-[20,22-23],hpc3-17-[00-03 40   386000   intel,avx512,mlx5_ib           (null)
-     hpc3-19-12                        24   515000   intel,mlx4_ib                  (null)
-     hpc3-19-[14-15]                   36   515000   intel,mlx4_ib                  (null)
-     hpc3-20-[16-20],hpc3-22-05        48   384000   intel,avx512,mlx5_ib           (null)
-     hpc3-20-[21-22]                   48   772000   intel,avx512,mlx5_ib,nvme,fast (null)
-     hpc3-20-24                        48   385000   intel,avx512,mlx5_ib           (null)
-     hpc3-21-[00-15,18-32],hpc3-22-[00 48   191000   intel,avx512,mlx5_ib,nvme,fast (null)
-     ... output cut ...
-     hpc3-l18-01                       64   515000   amd,epyc,epyc7601,mlx4_ib      (null)
-     hpc3-l18-[04-05]                  28   257000   intel,avx512,mlx4_ib           (null)
-     hpc3-gpu-16-[00-07],hpc3-gpu-17-[ 40   192000   intel,avx512,mlx5_ib           gpu:V100:4
-     hpc3-gpu-l54-[03-06]              32   256000   intel,avx512,mlx5_ib,nvme,fast gpu:A100:2
-     hpc3-gpu-l54-[08-09]              32   257000   intel,avx512,mlx5_ib,nvme,fast gpu:A30:4
-     hpc3-gpu-18-00                    40   386000   intel,avx512,mlx5_ib           gpu:V100:4
-     hpc3-gpu-18-[03-04],hpc3-gpu-24-[ 32   256000   intel,avx512,mlx5_ib,nvme,fast gpu:A30:4
-     hpc3-gpu-k54-00                   64   3095000  intel,avx512,mlx5_ib,nvme,fast gpu:A30:4
-     hpc3-22-[15-16]                   64   2063000  intel,avx512,mlx5_ib,nvme,fast (null)
-     hpc3-l18-02                       40   1547000  intel,mlx4_ib                  (null)
+     NODELIST                          CPUS  MEMORY   AVAIL_FEATURES                 GRES      
+     hpc3-14-[00-31],hpc3-15-[00-19,21 40    192000   intel,avx512,mlx5_ib           (null)    
+     hpc3-19-12                        24    515000   intel,mlx4_ib                  (null)    
+     hpc3-19-17                        64    515000   amd,epyc,epyc7551,mlx4_ib      (null)    
+     hpc3-20-[16-20],hpc3-22-05        48    384000   intel,avx512,mlx5_ib           (null)    
+     hpc3-21-[00-15,18-32],hpc3-22-[00 48    191000   intel,avx512,mlx5_ib,nvme,fast (null)    
+     hpc3-20-[00-15,23,25-32],hpc3-21- 48    191000   intel,avx512,mlx5_ib           (null)    
+     .. output cut ..
+     hpc3-20-24                        48    385000   intel,avx512,mlx5_ib           (null)    
+     hpc3-24-[00-02]                   80    127000   intel,avx512,mlx5_ib,nvme,fast (null)    
+     hpc3-l18-01                       64    515000   amd,epyc,epyc7601,mlx4_ib      (null)    
+     hpc3-gpu-18-00                    40    386000   intel,avx512,mlx5_ib,gpugeneri gpu:V100:4
+     hpc3-gpu-k54-00                   64    3095000  intel,avx512,mlx5_ib,nvme,fast gpu:A30:4 
+     hpc3-gpu-l54-[03-06]              32    256000   intel,avx512,mlx5_ib,nvme,fast gpu:A100:2
+     hpc3-gpu-l54-08                   32    257000   intel,avx512,mlx5_ib,nvme,fast gpu:A30:4 
+     hpc3-gpu-16-[00-07],hpc3-gpu-17-[ 40    192000   intel,avx512,mlx5_ib,gpugeneri gpu:V100:4
+     hpc3-gpu-18-[03-04],hpc3-gpu-24-[ 32    256000   intel,avx512,mlx5_ib,nvme,fast gpu:A30:4 
+     hpc3-gpu-l54-09                   32    224000   intel,avx512,mlx5_ib,nvme,fast gpu:A30:4 
+     hpc3-gpu-k54-[06-07]              48    256000   intel,avx512,mlx5_ib,nvme,fast gpu:L40S:4
+     hpc3-gpu-k54-08                   48    1031000  intel,avx512,mlx5_ib,nvme,fast gpu:L40S:4
+     hpc3-gpu-m54-[00-02]              64    257000   amd,epyc,epyc9115,mlx5_ib,nvme gpu:RTX600
 
 Each node by features without grouping:
   .. code-block:: console
