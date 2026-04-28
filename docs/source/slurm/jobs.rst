@@ -180,16 +180,15 @@ Example jobs:
      [user@login-x:~]$ srun -p free --x11  --pty /bin/bash -i*                          # 6
      [user@login-x:~]$ srun -p free-gpu32 --gres=gpu:RTX6000 --pty /bin/bash -i         # 7
 
-  1. Use *standard* partition and charge to the *PI_LAB* account
-  2. Use *free* partition (where it may be killed at any time)
-  3. Use *free* partition and ask for 8GB of memory per job (ONLY when you truly need it)
-  4. Use *standard* partition and ask for 4 CPUs for 10 hrs
+  1. Use *standard* partition and charge to the *PI_LAB* account.
+  2. Use *free* partition (where it may be killed at any time).
+  3. Use *free* partition and ask for 8GB of memory per job (ONLY when you truly need it).
+  4. Use *standard* partition and ask for 4 CPUs for 10 hrs.
   5. Use *free-gpu* partition and ask for one V100 GPU. :red:`Do not ask for more than 1 GPU!`
      For many jobs the GPU specification can be simply :tt:`--gres=gpu:1` (GPU type makes no difference for the job).
-  6. | Start an interactive session with Xforward enabled (option :tt:`--x11`) for GUI jobs.
-     | Note, a user  should have logged on HPC3 with ssh Xforward enabled see :ref:`ssh xforward`
-       before running this ``srun`` command.
-  7. Explicitly Request an RTX6000 Blackwell GPU 
+  6. Start an interactive session with Xforward enabled (option :tt:`--x11`) for GUI jobs.
+     Note, a user  should have logged on HPC3 with ssh Xforward enabled see :ref:`ssh xforward` before running this ``srun`` command.
+  7. Explicitly Request an RTX6000 Blackwell GPU.
 
 .. _attach to job:
 
