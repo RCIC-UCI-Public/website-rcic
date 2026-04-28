@@ -78,19 +78,19 @@ Please learn
   Jobs will charge **core-hours** or **GPU-hours** to the account.
   The costs are calculated as follows.
 
-  :1 core-hour:
+  1 core-hour:
     | :bluelight:`is 1 allocation unit` charged for
     | 1 CPU used for 1 hour
     | Each CPU core-hour is charged to the specified account. Default is your
       *Slurm Personal account*.
 
-  :1 GPU-hour:
+  1 GPU-hour:
     | :bluelight:`is 34 allocation units` charged for
     | 1 GPU used for 1 hour as 32 allocation units, plus
     | 2 CPU used for 1 hour (required to run the job) as 2 units.
     | Each GPU hour is charged to a GPU-enabled account which can only be used on GPU-nodes.
 
-  :1 GPU-hour (RTX6000 Pro):
+  1 GPU-hour (RTX6000 Pro):
     | :bluelight:`is 68 allocation units` charged for
     | 1 GPU used for 1 hour as 64 allocation units, plus
     | 4 CPU used for 1 hour (required to run the job) as 4 units.
@@ -218,7 +218,7 @@ GPUs in the ``gpu32`` partition can natively accelerate 32-bit floating point, b
 
 
 .. table:: **Available GPU partitions**
-   :widths: 15 30 20 20 15
+   :widths: 15 25 20 25 15
    :class: noscroll-table
 
    +------------+---------------------------+------------------+----------------+------------+
@@ -230,20 +230,17 @@ GPUs in the ``gpu32`` partition can natively accelerate 32-bit floating point, b
    +------------+---------------------------+------------------+----------------+------------+
    | free-gpu   | 3 GB / 9 GB               | 1 day / 3 day    | 0              | Yes        |
    +------------+---------------------------+------------------+----------------+------------+
-   | gpu32      | 3 GB / 9 GB               | 2 day / 14 day   | * 34 - L40S    | No         |
-   +            |                           |                  | * 68 - RTX6000 |            |
+   | gpu32      | 3 GB / 9 GB               | 2 day / 14 day   |34 - for L40S   | No         |
+   |            |                           |                  |                |            |
+   |            |                           |                  |68 - for RTX6000|            |
    +------------+---------------------------+------------------+----------------+------------+
    | free-gpu32 | 3 GB / 9 GB               | 1 day / 3 day    | 0              | Yes        |
    +------------+---------------------------+------------------+----------------+------------+
 
 
 .. note::
-   To submit to the ``gpu`` partition, you must have a Slurm account that ends with ``gpu``.
-   To submit to the ``gpu32`` partition, you must have a Slurm account that ends with ``gpu32``.
-
-.. attention:: RTX6000 Pro Blackwell GPUs must be **explicitly** requested in the gpu32 queue. A gres
-               request like ``--gres=gpu`` on the gpu32 job submission will only schedule your job on
-               L40S gpus.  Use ``--gres=gpu:RTX6000`` to request the newer (and more expensive) GPU 
+   | To submit to the ``gpu`` partition, you must have a Slurm account that ends with ``gpu``.
+   | To submit to the ``gpu32`` partition, you must have a Slurm account that ends with ``gpu32``.
 
 Note, there is no difference in cost/core-hour for default and max memory per core.
 
@@ -263,13 +260,13 @@ User must be either:
   | (a) member of a group that purchased these node types or
   | (b) clearly demonstrate that their applications require more than standard memory.
 
-    .. attention:: To demonstrate your job requires more memory submit a ticket with the
-                   following information:
-
-                   * your job ID and error message
-                   * what was your submit script
-                   * what is the memory (in GB) that your job needs
-                   * include the output of ``seff`` and ``sacct`` commands about your job
+  .. attention:: 
+     | To demonstrate your job requires more memory submit a ticket with the
+       following information:
+     | - your job ID and error message
+     | - what was your submit script
+     | - what is the memory (in GB) that your job needs
+     | - include the output of ``seff`` and ``sacct`` commands about your job
 
 :bluelight:`highmem / hugemem`
   There is no difference in cost/core-hour on any of the CPU partitions,
@@ -279,30 +276,39 @@ User must be either:
   :underline:`really require that much memory`. You can only be allocated the entire node. No free
   jobs run in this partition.
 
-
 .. _gpu partitions:
 
 GPU-enabled
 ^^^^^^^^^^^
 
-:bluelight:`gpu and gpu32`
-  You must have a *GPU* or *GPU32 Lab account* and you must specify it in order to submit
-  jobs to these partitions. This is because of differential charging.
-  There are NO personal GPU accounts.
+**There are NO personal GPU accounts**.
 
-  **GPU accounts are not automatically given to everyone, your faculty adviser
-  can request a GPU Lab account**. See how to
-  :ref:`request Slurm Lab account <slurm lab account>` and add a note that
-  this request is for GPU account.
-
-:bluelight:`gpu32`
-   There are two types of GPUs in the gpu32 partition - L40S and RTX6000. To run on an 
-   RTX6000 (Blackwell) GPU, you must explicitly request it with ``--gres=gpu:RTX6000``.
-   Be aware that these GPUs are double SUs of L40S. This is due to the 2.5X price difference
-   between the existing L40S nodes and the Blackwell GPU Nodes 
+**GPU lab accounts are not automatically given to everyone**. Your faculty adviser
+can request a GPU Lab account. See how to :ref:`request Slurm Lab account <slurm lab account>`
+and add a note that this request is for GPU account.
 
 :bluelight:`free-gpu`
   Anyone can run jobs in this partition without special account.
+
+:bluelight:`gpu and gpu32`
+  You must have a **GPU Lab account** and you must specify it in order to submit
+  jobs to this partition. This is because of differential charging.
+
+:bluelight:`gpu32`
+  You must have a **GPU32 Lab account** and you must specify it in order to submit
+  jobs to these partition. This is because of differential charging.
+
+  There are two types of GPUs in the gpu32 partition - L40S and RTX6000.
+  :ref:`Be aware that RTX6000 GPUs are double SUs of L40S <units cost>`. This is due to the 2.5X price difference
+  between the existing L40S GPU nodes and the Blackwell GPU Nodes.
+
+  .. attention::
+     | RTX6000 Pro Blackwell GPUs must be **explicitly** requested in the gpu32 queue.
+     | A job submission with gres request in gpu32 partition:
+     |   ``--gres=gpu:1`` will only schedule your job on L40S GPUs.
+     |   ``--gres=gpu:L40S`` will specifically schedule your job on L40S GPUs.
+     |   ``--gres=gpu:RTX6000`` will request the newer (and more expensive) RTX6000 GPU.
+     | **Use RTX6000 only when your job can truly benefiut from it.**
 
 .. _node info:
 
