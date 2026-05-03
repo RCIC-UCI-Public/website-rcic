@@ -18,18 +18,18 @@ additional purchases have been made to bring the cluster to its current configur
 The system started as a 4000 core system when first constructed in June 2020.
 It has expanded several times with nodes purchased by UCI and faculty.
 
-As of April 2026, the following describes the cluster:
-  * 257 batch-accessible nodes including:
+As of May 2026, the following describes the cluster:
+  * 261 batch-accessible nodes including:
 
     * 14 nodes with 4 Nvidia V100 (16GB) GPUs
     * 18 nodes with 4 Nvidia A30 (24GB) GPUs
     * 4 nodes with 2 Nvidia A100 (80GB) GPUs
     * 3 nodes with 4 Nvidia L40S (48GB) GPUs
-    * 3 nodes with 4 Nvidia RTX6000 Blackwell (96GB) GPUs
-  * 11696 total cores (1184 AMD EPYC and 10512 Intel)
+    * 7 nodes with 4 Nvidia RTX6000 Blackwell (96GB) GPUs
+  * 11760 total cores (1184 AMD EPYC and 10512 Intel)
   * 75,749 GB aggregate memory
   * 3 load-balanced login nodes
-  * 96.4% nodes (247/257) at 100 Gbit/s EDR InfiniBand
+  * 96.4% nodes (251/261) at 100 Gbit/s EDR InfiniBand
 
 .. note:: * Slurm matches your job request to *physical* nodes. It is possible to make a request where 
             just a few or no physical nodes can fulfill your request. 
