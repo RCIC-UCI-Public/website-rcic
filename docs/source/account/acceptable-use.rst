@@ -30,7 +30,8 @@ Access to all RCIC managed resources is subject to our
    |                |    * Submitting all interactive and batch jobs to Slurm Scheduler                           |
    |                |                                                                                             |
    |                | :darkred:`Not allowed:`                                                                     |
-   |                |    * :darkred:`Any setup of jupyter or other servers on local ports`                        |
+   |                |    * :darkred:`Any setup of jupyter or other servers on local ports. This means`            |
+   |                |      :darkred:`ANY application using in its setup: --start-server --host=127.0.0.1`         |
    |                |    * :darkred:`Any computational jobs`                                                      |
    |                |    * :darkred:`Any job that runs for more than 1hr or uses significant memory and CPU`      |
    |                |    * :darkred:`Any make/cmake compilation with multiple threads, for example` ``make -j 8`` |
