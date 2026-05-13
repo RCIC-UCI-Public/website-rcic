@@ -1017,7 +1017,7 @@ On HPC3, CRSP shares are mounted in */share/crsp*:
 :section:`Moving data to CRSP`
   Please see :ref:`data transfer` for in-depth  commands examples.
 
-  Recursively copy your :tt:`mydir/` directory from DFS6 storage to your LAB share on CRSP:
+  Recursively copy your :tt:`mydir/` directory from dfs6b storage to your LAB share on CRSP:
 
   .. code-block:: console
 
