@@ -128,7 +128,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
        | .. figure:: images/crsp/authenticate.png | .. figure:: images/crsp/duo-push.png |
        |    :align: center                        |    :align: center                    |
        |    :alt: do login                        |    :width: 95%                       |
-       |                                          |    :alt: duo authentiction           |
+       |                                          |    :alt: duo authentication          |
        |                                          |                                      |
        |    Login using your UCI credentials      |    Request for a DUO push            |
        +------------------------------------------+--------------------------------------+
@@ -517,7 +517,7 @@ The following sections explain how to install and use CRSP Desktop app on macOS:
        :class: noscroll-table
 
        +----------------------------------------------------+----------------------------------------------+
-       | Open the App                                       | Choose a tempalte bookmark                   |
+       | Open the App                                       | Choose a template bookmark                   |
        +====================================================+==============================================+
        | .. figure:: images/win/win-access-crsp-desktop.png | .. figure:: images/win/win-edit-bookmark.png |
        |    :width: 100%                                    |    :width: 80%                               |

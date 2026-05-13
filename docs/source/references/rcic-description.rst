@@ -133,7 +133,7 @@ grant award. Standard nodes may have parts updated (e.g., CPU change or GPU chan
    :class: noscroll-table
 
    +---------------+----------------------------------------------+-----------------------+-----------------+
-   | Item          | Brief Desription                             | Time Committment      |  Cost           |
+   | Item          | Brief Description                            | Time Commitment       |  Cost           |
    +===============+==============================================+=======================+=================+
    | Condo Node    | Racking a condo node into HPC3. RCIC         | Once (per node)       | $1000           |
    | Racking       | purchases switch ports, cables from this fee |                       |                 |
