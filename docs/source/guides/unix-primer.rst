@@ -98,6 +98,57 @@ Both files start with *dot* which makes them *invisible* to a regular ``ls`` com
        export MYPUB=/pub/$USER
        export biojhub4HOME="/pub/$USER/biojhub4_dir"
 
+.. _my procs:
+
+My processes
+------------
+
+When you login on any cluster node and start some programs there will be
+processes started on your behalf. Sometimes some processes do not stop on
+their own due to some errors or are a result of failed commands. 
+
+**How to find what are my processes ?**
+  To see what processes are running right after login:
+
+  .. code-block:: console
+
+     [user@login-x:~]$ ps -ef | grep $USER
+     UID            PID     PPID     C STIME TTY      TIME     CMD
+     panteater      2083897       1  6 17:08 ?        00:00:00 /usr/lib/systemd/systemd --user
+     panteater      2083900 2083897  0 17:08 ?        00:00:00 (sd-pam)
+     panteater      2083916 2083891  0 17:08 ?        00:00:00 sshd: panteater@pts/51
+     panteater      2083922 2083916  0 17:08 pts/51   00:00:00 -bash
+     panteater      2084185 2083922  0 17:09 pts/51   00:00:00 ps -ef
+     panteater      2084186 2083922  0 17:09 pts/51   00:00:00 grep --color=auto panteater
+
+  The output shows a few processes started by ssh session and by running ``ps`` command.
+  All listed are standard and expected for this case. The header line in the
+  output is added for readability and for the explanation of the columns. 
+  The first column is your UCInetID, the second is the process ID. To learn
+  more about the rest of the output fields and the command itself see ``man ps``.
+
+  The :tt:`$USER` is set to the UCInetID, so the output will show info for a
+  user who runs this command at any time during the login session.
+
+**How to stop unwanted processes ?**
+  In some cases when a user knowingly or unknowingly runs some  commands or programs,
+  there can be processes that do not stop and hang. 
+
+  For example, you may see in the ``ps`` output: 
+
+  .. code-block:: console
+
+     [user@login-x:~]$ ps -ef | grep $USER
+     panteater 2937630  1  0 May11 ?  00:00:00 bash -c echo 3aGl...Ml9zZSc= | base64 -d | bash
+     panteater 2937635  1  0 May11 ?  00:00:00 sleep 0.5
+
+  Depending on what user does there can be any number of processes of different type.
+  Assuming these above are unwanted processes, they can be removed :
+
+  .. code-block:: console
+
+     [user@login-x:~]$ kill -9 2937630 2937635
+
 .. _file permissions:
 
 File permissions
