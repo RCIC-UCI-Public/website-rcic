@@ -209,7 +209,7 @@ While symbolic links can be  a practical choice, sometimes they can have a signi
 **Best practices:**
   * Use when making shortcuts for the names between the files on the same filesystem.
   * Use when making shortcuts from a local file system to a remote file (networked) file system,
-    for example :tt:`/pub -> /dfs6/pub`.
+    for example :tt:`/pub -> /dfs6b/pub`.
   * :ref:`use aliases` in place of symbolic links when
     you are making shortcuts for the file names in different filesystems.
 
