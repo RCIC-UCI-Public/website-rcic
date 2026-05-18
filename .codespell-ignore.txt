@@ -1,0 +1,4 @@
+SOM
+mapp
+namd
+NAMD
