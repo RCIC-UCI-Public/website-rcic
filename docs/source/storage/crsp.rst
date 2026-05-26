@@ -11,6 +11,7 @@ Overview
 
 CRSP is a reliable and resilient network-based multi-Petabyte storage cluster
 for the UCI campus research community to store and share their research data.
+See :ref:`crsp_security` for details.
 
 .. warning:: | **CRSP filesystems  must not be used to store personally-identifiable information that
                would fall under guidelines such as**:
@@ -98,6 +99,58 @@ the baseline infrastructure, and vendor maintenance required to provide the robu
      |                                                    | CRSP allocation please see :ref:`getting crsp account`.                             |
      +----------------------------------------------------+-------------------------------------------------------------------------------------+
  
+.. _crsp_security:
+
+CRSP Data Security
+------------------
+
+The following technical and organizational measures are in place to ensure a level of data security:
+
+1. **Data Storage and Security**
+
+   Research data are stored on secure servers operated by the University of California, Irvine.
+   These servers are managed under institutional IT security controls and policies. 
+   Data are hosted within UCI‑managed (RCIC) infrastructure and are protected through
+   logical access controls and standard institutional safeguards, including secure authentication mechanisms.
+
+#. **Data Transmission**
+
+   Data are transmitted to and from UCI using secure upload mechanisms designed to protect data in transit.
+   Transfers are conducted through authenticated, encrypted channels consistent with institutional security practices.
+   All data to/from CRSP is end-to-end encrypted (https or ssh). However, NFS traffic  between HPC3 and CRSP
+   (for CRSP mounts on HPC3 servers) on our non-routable private network is not 
+
+#. **Access Control**
+
+   Access to the data is restricted to a limited number of authorized research personnel directly involved in the project.
+   Access requires secure login credentials, and authentication mechanisms are enforced to prevent unauthorized access.
+   User access is granted on a need‑to‑know basis in accordance with institutional policies and
+   is controlled by the PI - they cannot open access beyond the members of the designated Unix group.
+   If they somehow open access, a regular permissions "patrol" will close down the access (restore to group-only access) and log the event.
+
+#. **Logging and Monitoring**
+
+   The data remain subject to general institutional IT security oversight.
+   For CRSP all file open/close/create/delete events are logged. They are not routinely examined as they would only be looked at after an "event" was detected.
+
+#. **Data Retention and Deletion**
+
+   CRSP does NO archiving of data. Data is backed up off-site into AWS.
+   Data deleted from the primary (CRSP) is eventually deleted from AWS.
+   The retention time is approximately 6 months.
+
+#. **Onward Transfers and Third‑Party Access**
+
+   No third parties or external service providers are provided access to the data. Any onward transfer,
+   if contemplated in the future, would be subject to prior review and compliance with applicable contractual and regulatory requirements.
+   No external service providers are allowed access to the data. Once data leaves CRSP, RCIC has zero control.
+
+
+#. **Organizational Security Measures**
+
+   The data importer (authorized user) operates under University of California, Irvine institutional information security, privacy, and compliance frameworks.
+   These include established policies, procedures, and oversight mechanisms designed to protect research data against unauthorized access, disclosure, alteration, or loss.
+
 .. _getting crsp account:
 
 Getting CRSP Account
