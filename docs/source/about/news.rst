@@ -21,8 +21,10 @@ June 16, 2026
 | The cluster will be unavailable all day.
 
 Maintenance Items:
-  1. Apply latest Rocky 9.8 OS updates on user facing cluster resources (compute, GPU, login, JupyterHub portal servers)
+  1. Apply latest Rocky 9.7 OS updates on user facing cluster resources (compute, GPU, login, JupyterHub portal servers)
   #. Some of the Dell top-of-rack switches will be updated from OS9 to OS10
+  #. Update all dfsX shared keys stored in HashiCorp Vault
+  #. Update the munge keys (used to create/validate access between hosts running slurm) stored in HashiCorp Vault
 
 Impacts:
   :red:`This is a full outage`.
