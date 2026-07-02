@@ -308,7 +308,7 @@ and add a note that this request is for GPU account.
      |   ``--gres=gpu:1`` will only schedule your job on L40S GPUs.
      |   ``--gres=gpu:L40S`` will specifically schedule your job on L40S GPUs.
      |   ``--gres=gpu:RTX6000`` will request the newer (and more expensive) RTX6000 GPU.
-     | **Use RTX6000 only when your job can truly benefiut from it.**
+     | **Use RTX6000 only when your job can truly benefit from it.**
 
 .. _node info:
 
