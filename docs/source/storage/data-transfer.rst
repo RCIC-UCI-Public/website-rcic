@@ -7,9 +7,20 @@ Data transfer
 .. contents::
    :local:
 
-If you need to bring some data from your laptop or another host to the
-cluster you will mainly want to use ``scp`` (there is an equivalent for
-Windows)  or ``rsync`` commands. 
+``access-hpc3.rcic.uci.edu`` is the primary RCIC data-transfer server for
+moving data to and from the HPC3 cluster. Use this host as the remote server
+in data-transfer clients and commands, including ``rsync``, SFTP, ``scp``,
+``curl``, ``wget``, and ``rclone``.
+
+This host is a dedicated data-transfer service, not a general-purpose
+compute or login host. Only software required for the supported transfer
+methods is available. It does not provide other application software and
+does not support Slurm job submission.
+
+If you need to bring data from your laptop or another host to the cluster,
+use ``access-hpc3.rcic.uci.edu`` as the remote transfer endpoint. Depending
+on your workflow, you can use ``scp`` (including the Windows equivalent),
+``rsync``, ``sftp``, ``rclone``, ``curl``, or ``wget``.
 
 .. important:: You will have to use correct command-line parameters to ensure that
    the data transfer program you use will respect the sticky bit and not cause quota issues.
@@ -39,7 +50,7 @@ There are 2 ways to deal with this.
 
    .. code-block:: console
 
-      $ scp -r mydata panteater@hpc3.rcic.uci.edu:/dfsX/panteater_lab/user1
+      $ scp -r mydata panteater@access-hpc3.rcic.uci.edu:/dfsX/panteater_lab/user1
 
    On HPC3 check the permissions on the transferred directory:
 
@@ -68,7 +79,7 @@ There are 2 ways to deal with this.
    .. code-block:: console
   
       $ tar czvf mydata.tar.gz mydata
-      $ scp -r mydata.tar.gz panteater@hpc3.rcic.uci.edu:/dfsX/panteater_lab/user1
+      $ scp -r mydata.tar.gz panteater@access-hpc3.rcic.uci.edu:/dfsX/panteater_lab/user1
 
    On the cluster, uncompress transferred file and check permissions:
 
@@ -114,7 +125,7 @@ For example, for a recursive copy  of a local directory and to show a verbose ou
 
   .. code-block:: console 
 
-     $ rsync -rv mydata panteater@hpc3.rcic.uci.edu:/dfsX/panteater_lab/user1
+     $ rsync -rv mydata panteater@access-hpc3.rcic.uci.edu:/dfsX/panteater_lab/user1
 
 .. _aspera data:
 
