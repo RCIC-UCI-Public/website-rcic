@@ -66,19 +66,29 @@ Licensed Software
 
   Access to the following applications requires a license:
 
-  .. table::
-     :class: noscroll-table 
+.. table::
+   :class: noscroll-table
 
-     +---------------------------------------------------------------+
-     |   Software name                                               |
-     +========+========+==========+============+==========+==========+
-     | Abaqus | COMSOL | Gaussian | MATLAB     | Stata 16 | VASP 5.x |
-     |        |        |          | ( available|          |          |
-     |        |        |          | to all )   | Stata 17 | VASP 6.x |
-     +--------+--------+----------+------------+----------+----------+
+   +--------------------------------------------------------------------------------------------------------------------------+
+   | Software name                                                                                                            |
+   +==========+==========+============+============================+===========================+==============+===============+
+   | Abaqus   | COMSOL   | Gaussian   | MATLAB (available to all)  | Gorubi (available to all) | Stata 16     | VASP 5.x      |
+   |          |          |            |                            |                           | Stata 17     | VASP 6.x      |
+   |          |          |            |                            |                           |              |               |
+   +----------+----------+------------+----------------------------+---------------------------+--------------+---------------+
 
-  .. note:: While all users can view and load modules for licensed software **only registered users
-            can use such software** (users must be in specific groups).
+  
+.. rubric:: Gurobi quick setup
+
+Create your Gurobi license configuration file:
+
+.. code-block:: console
+
+   [user@login-x:~]$ echo "TOKENSERVER=licserver-vm-01.rcic.uci.edu" > ~/gurobi.lic
+   [user@login-x:~]$ export GRB_LICENSE_FILE=$HOME/gurobi.lic
+   [user@login-x:~]$ module load gurobi
+
+.. note:: While all users can view and load modules for licensed software **only registered users can use such software** (users must be in specific groups).
 
             One exception to this is MATLAB.
             RCIC contributes to the UCI-wide license and
