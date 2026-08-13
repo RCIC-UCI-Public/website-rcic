@@ -9,7 +9,7 @@ Data transfer
 
 ``access-hpc3.rcic.uci.edu`` is the primary RCIC data-transfer server for
 moving data to and from the HPC3 cluster. Use this host as the remote server
-in data-transfer clients and commands, including ``rsync``, SFTP, ``scp``,
+in data-transfer clients and commands, including ``rsync``, ``sftp``, ``scp``,
 ``curl``, ``wget``, and ``rclone``.
 
 This host is a dedicated data-transfer service, not a general-purpose
