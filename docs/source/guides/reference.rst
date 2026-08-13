@@ -29,9 +29,6 @@ Reference guide
 :section:`Slurm`
   | :doc:`Slurm jobs </slurm/jobs>` - how to use Slurm for free and accounted jobs.
 
-..  :doc:`Account coordinators </slurm/coordinators>`
-   How to control accounts if you are an account coordinator.
-
 :section:`Cluster hardware configuration and specs`
   | :ref:`buy hardware` - how to buy hardware.
   | :ref:`hardware configuration` - information about the cluster heterogeneous hardware.
