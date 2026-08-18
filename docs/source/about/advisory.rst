@@ -26,7 +26,7 @@ The Advisory Committee meets approximately once per quarter.
    +----------------------------------+-------------------------------------+------------------------------------------+
    | Prof. Ali Mortazavi              | Biological Sciences                 | Developmental and Cell Biology           |
    +----------------------------------+-------------------------------------+------------------------------------------+
-   | Francisco Lopez                  | Research Cyberinfrastructure Center | Research Cyberinfrastructure Center      |
+   | Beth Clark                       | Office of Information Technology    | Office of Information Technology         |
    +----------------------------------+-------------------------------------+------------------------------------------+
    | Prof. Suzanne Sandmeyer          | Medicine                            | Biological Chemistry                     |
    +----------------------------------+-------------------------------------+------------------------------------------+
@@ -85,7 +85,7 @@ The Advisory Committee meets approximately once per quarter.
    +----------------------------------+-------------------------------------+-------------------------------------------+
    | Trina Norden-Krichmar            | Medicine                            | Epidemiology                              |
    +----------------------------------+-------------------------------------+-------------------------------------------+
-   | Francisco Lopez                  | Research Cyberinfrastructure Center | Research Cyberinfrastructure Center       |
+   | Beth Clark                       | Office of Information Technology    | Office of Information Technology          |
    +----------------------------------+-------------------------------------+-------------------------------------------+
    | John Renaud                      | UCI Libraries                       | UCI Libraries                             |
    +----------------------------------+-------------------------------------+-------------------------------------------+
