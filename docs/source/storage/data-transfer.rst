@@ -7,6 +7,11 @@ Data transfer
 .. contents::
    :local:
 
+.. _access-hpc3 data:
+
+Using access-hpc3 as a DTN
+--------------------------
+
 ``access-hpc3.rcic.uci.edu`` is the primary RCIC data-transfer server for
 moving data to and from the HPC3 cluster. Use this host as the remote server
 in data-transfer clients and commands, including ``rsync``, ``sftp``, ``scp``,
