@@ -1165,18 +1165,6 @@ There a few ways to run RStudio.
    is to use our :ref:`Jupyterhub Portal <job jupyter hub>`
    and a container with RStudio.
 
-.. _job sas:
-
-SAS
----
-
-.. centered:: File sas.sub
-
-.. literalinclude:: files/sas.sub
-   :language: bash
-
-The above will submit your SAS code with specified requested resources.
-
 .. _job sra:
 
 SRA toolkit fasterq-dump
