@@ -33,7 +33,7 @@ As of May 2026, the following describes the cluster:
 
 .. note:: * Slurm matches your job request to *physical* nodes. It is possible to make a request where 
             just a few or no physical nodes can fulfill your request. 
-            For example, requesting a 800GB of memory on a single node is only possible on 4 nodes. 
+            For example, requesting a 800 GB of memory on a single node is only possible on 4 nodes.
           * Features and GPU type and number (or GRES, e.g. Generic RESources)
             are resource specifications that can be requested in Slurm GPU job submissions.
 
@@ -141,7 +141,7 @@ Node Types
 :*Cores/node*:
    24 (most nodes have at least 40)
 :*Memory/core*:
-   4GB
+   4 GB
 :*IB Technology*:
    56 Gbit/s InfiniBand interconnect (most nodes are 100 Gbit/s)
 
@@ -172,7 +172,7 @@ For additional info see :ref:`hardware faq`.
        |                     |                                                                                                                                                                                                                 |
        |                     | Dual-Socket, `Intel Ice Lake 6336Y <https://www.intel.com/content/www/us/en/products/sku/215280/intel-xeon-gold-6336y-processor-36m-cache-2-40-ghz/specifications.html>`_ 24-core `CPU@2.4GHz`. 48 Cores total. |
        |                     |                                                                                                                                                                                                                 |
-       |                     | 256GB DDR4, ECC Memory                                                                                                                                                                                          |
+       |                     | 256 GB DDR4, ECC Memory                                                                                                                                                                                          |
        +---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
   
   **Interconnect**:
@@ -180,7 +180,7 @@ For additional info see :ref:`hardware faq`.
   
   
   **Memory**:
-    | All memory is DDR4, EEC, most common capacity is 192GB.  Available memory in GB:
+    | All memory is DDR4, EEC, most common capacity is 192 GB.  Available memory in GB:
   
     ====== =====  ====== =====  ====== ===== ===== =====
     1      2      3      4      5      6     7     8
