@@ -21,11 +21,11 @@ It has expanded several times with nodes purchased by UCI and faculty.
 As of May 2026, the following describes the cluster:
   * 261 batch-accessible nodes including:
 
-    * 14 nodes with 4 Nvidia V100 (16GB) GPUs
-    * 18 nodes with 4 Nvidia A30 (24GB) GPUs
-    * 4 nodes with 2 Nvidia A100 (80GB) GPUs
-    * 3 nodes with 4 Nvidia L40S (48GB) GPUs
-    * 7 nodes with 4 Nvidia RTX6000 Blackwell (96GB) GPUs
+    * 14 nodes with 4 NVIDIA V100 (16 GB) GPUs
+    * 18 nodes with 4 NVIDIA A30 (24 GB) GPUs
+    * 4 nodes with 2 NVIDIA A100 (80 GB) GPUs
+    * 3 nodes with 4 NVIDIA L40S (48 GB) GPUs
+    * 7 nodes with 4 NVIDIA RTX6000 Blackwell (96 GB) GPUs
   * 11824 total cores (1312 AMD EPYC and 10512 Intel)
   * 77,548 GB aggregate memory
   * 3 load-balanced login nodes
@@ -208,10 +208,10 @@ For additional info see :ref:`hardware faq`.
        +--------------+--------------------------------------------------+
   
   **GPU**:
-    | Qty 4 Nvidia V100 GPU, 16GB memory
-    | Qty 4 Nvidia A30 GPU, 24GB memory
-    | Qty 2 Nvidia A100 GPU, 80GB memory
-    | Qty 4 Nvidia L40S GPU, 48GB memory
+    | Qty 4 NVIDIA V100 GPU, 16 GB memory
+    | Qty 4 NVIDIA A30 GPU, 24 GB memory
+    | Qty 2 NVIDIA A100 GPU, 80 GB memory
+    | Qty 4 NVIDIA L40S GPU, 48 GB memory
 
 .. _support nodes:
 

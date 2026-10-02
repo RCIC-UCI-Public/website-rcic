@@ -79,9 +79,9 @@ committees will evaluate other hardware configurations. These estimates are curr
      +-----------------------+------------------------------------------------------------+
      | Processor x 2         | |xeon-6542y|_ 24-core `CPU@2.9GHz` 48 Cores total          |
      +-----------------------+------------------------------------------------------------+
-     | Memory                | 16 x 16GB ECC 5600MT/s (DDR5-5600) RDIMMs Single Rank      |
+     | Memory                | 16 x 16GB ECC 5600 MT/s (DDR5-5600) RDIMMs Single Rank     |
      +-----------------------+------------------------------------------------------------+
-     | Interconnect          | 100Gb/s Mellanox ConnectX-6 HDR Infiniband                 |
+     | Interconnect          | 100 Gb/s Mellanox ConnectX-6 HDR Infiniband                |
      +-----------------------+------------------------------------------------------------+
      | Scratch Disk          | 1.92 TB NVMe Solid State Drive                             |
      +-----------------------+------------------------------------------------------------+
@@ -105,7 +105,7 @@ committees will evaluate other hardware configurations. These estimates are curr
      +-----------------------+------------------------------------------------------------+
      | Processor x 2         | |xeon-6526y|_ 16-core `CPU@2.8GHz` 32 Cores total          |
      +-----------------------+------------------------------------------------------------+
-     | GPUs x 4              | Nvidia L40S  48GB HBM, 864MB/s, 18176 CUDA Cores           |
+     | GPUs x 4              | NVIDIA L40S  48GB HBM, 864 MB/s, 18176 CUDA Cores          |
      +-----------------------+------------------------------------------------------------+
      | Memory                | 16 x 16GB ECC 5600MT/s (DDR5-5600) RDIMMs Single Rank      |
      +-----------------------+------------------------------------------------------------+

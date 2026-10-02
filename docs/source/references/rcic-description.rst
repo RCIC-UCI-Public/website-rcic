@@ -42,10 +42,10 @@ All systems are interconnected with 10Gbps Ethernet and 100Gbps EDR Infiniband.
 Configuration as of January 2026 is as follows:
 
   * 253 Nodes Total, 11568 cores
-  * 14 GPU nodes – each with 4 Nvidia V100 GPUs (total of 56 GPUs)
-  * 18 GPU nodes – each with 4 Nvidia A30 GPUs (total of 72 GPUs) GPUs)
-  * 4 GPU nodes – each with 2 Nvidia A100 GPUs (total of 8 GPUs)
-  * 3 GPU nodes - each with 4 Nvidia L40S GPUs (total of 12 GPUs)
+  * 14 GPU nodes – each with 4 NVIDIA V100 GPUs (total of 56 GPUs)
+  * 18 GPU nodes – each with 4 NVIDIA A30 GPUs (total of 72 GPUs)
+  * 4 GPU nodes – each with 2 NVIDIA A100 GPUs (total of 8 GPUs)
+  * 3 GPU nodes - each with 4 NVIDIA L40S GPUs (total of 12 GPUs)
   * Most nodes have at least 40 cores
 
 Most nodes have a standard memory of 4.0GB/core (standard node), but there
@@ -112,15 +112,15 @@ grant award. Standard nodes may have parts updated (e.g., CPU change or GPU chan
    +=================+=====================================================+===========================+
    | CPU Node        | 2x Intel 6248 (24 Core, 2.4Ghz. 48 cores total),    | $8200                     |
    |                 | 1 x Infiniband IB (EDR), 2 X 10/25GigE SFP,         |                           |  
-   |                 | 1 x 480GB SSD, 1 x 1.92TB SSD (scratch),            |                           |  
+   |                 | 1 x 480 GB SSD, 1 x 1.92 TB SSD (scratch),          |                           |
    |                 | 192 GB Memory, 3 Yr. Warranty                       |                           |    
    +-----------------+-----------------------------------------------------+---------------------------+
-   | GPU Node        | Same as CPU Node + 4 x Nvidia A100 GPU              | $55000                    | 
-   |                 | with 32GB of High-bandwidth Memory                  |                           |                
+   | GPU Node        | Same as CPU Node + 4 x NVIDIA A100 GPU              | $55000                    |
+   |                 | with 32 GB of High-bandwidth Memory                 |                           |
    +-----------------+-----------------------------------------------------+---------------------------+
-   | Upgrade to 384GB| Expand Memory from 192GB to 384GB                   | $2500                     |  
+   | Upgrade to 384GB| Expand Memory from 192 GB to 384 GB                 | $2500                     |
    +-----------------+-----------------------------------------------------+---------------------------+
-   | Upgrade to 768GB| Expand Memory from 192GB to 768GB                   | $6500                     |
+   | Upgrade to 768GB| Expand Memory from 192 GB to 768 GB                 | $6500                     |
    +-----------------+-----------------------------------------------------+---------------------------+
    | CPU Warranty    | Extend Warranty on CPU node from 3 years to 5 years | $500                      |
    +-----------------+-----------------------------------------------------+---------------------------+
