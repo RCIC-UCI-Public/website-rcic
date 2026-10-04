@@ -207,12 +207,11 @@ For additional info see :ref:`hardware faq`.
        | *HP*         | DL380 Gen 10 server, 2RU, up to 4 GPUs/chassis.  |
        +--------------+--------------------------------------------------+
   
-  **GPUs per node**:
-    | Qty 4 NVIDIA V100 GPU, 16 GB memory (64-bit)
-    | Qty 4 NVIDIA A30 GPU, 24 GB memory (64-bit)
-    | Qty 2 NVIDIA A100 GPU, 80 GB memory (64-bit)
-    | Qty 4 NVIDIA L40S GPU, 48 GB memory (32-bit)
-    | Qty 4 NVIDIA RTX6000 GPU, 96 GB memory (32-bit)
+  **GPU**:
+    | Qty 4 NVIDIA V100 GPU, 16 GB memory
+    | Qty 4 NVIDIA A30 GPU, 24 GB memory
+    | Qty 2 NVIDIA A100 GPU, 80 GB memory
+    | Qty 4 NVIDIA L40S GPU, 48 GB memory
 
 .. _support nodes:
 
