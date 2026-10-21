@@ -27,8 +27,6 @@ anaconda/2021.11,LANGUAGES,Anaconda is a software package and environment manage
 anaconda/2022.05,LANGUAGES,Anaconda is a software package and environment manager
 anaconda/2024.06,LANGUAGES,Anaconda is a software package and environment manager
 anaconda/2025.12,LANGUAGES,Anaconda is a software package and environment manager
-ansys/2019R2,ENGINEERING,The ANSYS suite Release 2019R2 revision v194
-ansys/2020R2,ENGINEERING,The ANSYS suite Release 2020R2 revision v202
 ants/2.3.5,IMAGING,ANTs (Advanced Normalization Tools) is a software toolkit for biological and medical image analysis
 apptainer/1.4.5,TOOLS,Apptainer is an open source container platform designed to be simple fast and secure
 awscli/2.11.21,TOOLS,Awscli provides a unified command line interface to Amazon Web Services
